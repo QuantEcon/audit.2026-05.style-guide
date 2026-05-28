@@ -1,0 +1,353 @@
+# QuantEcon Style Audit — Shared Spec (v2)
+
+**Spec version:** v2 (2026-05-28)
+**Previous version:** v1 (2026-05-27) — Writing + Math only, using `W1–W8` / `M1–M14` rule IDs. The 292 per-lecture reports under this folder were produced under v1; see §10 for the v1↔v2 mapping.
+
+This file is the canonical scoring rubric and report template for QuantEcon lecture audits. The audit *complements* the per-rule LLM review provided by [QuantEcon/action-style-guide](https://github.com/QuantEcon/action-style-guide) by adding:
+
+- per-lecture scoring on a 0–10 scale
+- severity-bucketed prioritisation across a lecture series
+- cross-series synthesis and remediation roadmaps
+
+It is not a replacement for `action-style-guide`; it consumes the same rule definitions and produces a different output format (audit reports rather than PR-with-fixes).
+
+---
+
+## 1. Authoritative rule source
+
+The 49 canonical rules live in [`QuantEcon/action-style-guide/style_checker/rules/`](https://github.com/QuantEcon/action-style-guide/tree/main/style_checker/rules) across 8 category files:
+
+`writing-rules.md`, `math-rules.md`, `code-rules.md`, `jax-rules.md`, `figures-rules.md`, `references-rules.md`, `links-rules.md`, `admonitions-rules.md`.
+
+The audit uses **qe-\* IDs verbatim**. It does not redefine rules.
+
+---
+
+## 2. Rules in scope
+
+Tables organised by category. **Audit weight** is how heavily a rule influences the score for its category — driven by visibility to readers and frequency of occurrence. **Detect-by** indicates whether the rule is mechanically detectable (a regex / AST check is possible), partially mechanical (regex with judgment), or judgment-only (LLM reading required).
+
+### 2.1 Writing (`qe-writing-*`) — 8 rules
+
+| Rule | Title | Type | Audit weight | Detect-by |
+|------|-------|------|--------------|-----------|
+| qe-writing-001 | One sentence per paragraph | rule | High | Partial (regex on blank-line-separated blocks; respect lists / code / math) |
+| qe-writing-002 | Keep writing clear, concise, valuable | style | Medium | Judgment |
+| qe-writing-003 | Maintain logical flow | style | Medium | Judgment |
+| qe-writing-004 | Avoid unnecessary capitalisation in narrative text | rule | High | Partial (needs curated proper-noun list) |
+| qe-writing-005 | Bold for definitions, italic for emphasis | rule | Medium | Judgment |
+| qe-writing-006 | Capitalise lecture titles properly (Title Case for H1, sentence case for H2+) | rule | **Very high** | Partial (H1 / H2 detection + proper-noun list) |
+| qe-writing-007 | Use visual elements to enhance understanding | style | Low | Judgment |
+| qe-writing-008 | Remove excessive whitespace between words | rule | Low | Mechanical (regex `  +` outside code / math / tables) |
+
+### 2.2 Math (`qe-math-*`) — 9 rules
+
+| Rule | Title | Type | Audit weight | Detect-by |
+|------|-------|------|--------------|-----------|
+| qe-math-001 | UTF-8 unicode in narrative, LaTeX in math envs | rule | High | Partial (math-env tokeniser) |
+| qe-math-002 | Use `\top` for transpose | rule | **Very high** | Partial (regex with derivative-prime exception) |
+| qe-math-003 | Square brackets for matrices (`bmatrix`) | rule | High | Mechanical (regex on `pmatrix`/`matrix`/`vmatrix`/`Bmatrix`) |
+| qe-math-004 | No bold face for matrices / vectors | rule | High | Mechanical (regex on `\mathbf{`/`\boldsymbol{`/`\bm{`) |
+| qe-math-005 | Curly brackets for sequences | rule | Medium | Partial (detect `[x_t]_{t=0}^∞` pattern) |
+| qe-math-006 | `aligned` not `align` inside `$$` | rule | **Very high** *(build-risk)* | Mechanical (regex `\$\$.*\\begin\{align\}`) |
+| qe-math-007 | Automatic equation numbering, not `\tag` | rule | High | Mechanical (regex `\\tag\{`) |
+| qe-math-008 | Explain special notation (`\mathbb{1}` etc.) | rule | Medium | Partial (presence + context check) |
+| qe-math-009 | Prefer simpler notation | style | Low | Judgment |
+
+### 2.3 Code (`qe-code-*`) — 6 rules
+
+| Rule | Title | Type | Audit weight | Detect-by |
+|------|-------|------|--------------|-----------|
+| qe-code-001 | PEP8 unless closer to mathematical notation | style | Medium | Judgment (with `ruff` as backstop) |
+| qe-code-002 | Unicode Greek letters in code | rule | Medium | Mechanical (regex on identifiers in code cells) |
+| qe-code-003 | Package installation at lecture top | rule | High | Partial (needs Anaconda allowlist) |
+| qe-code-004 | Use `quantecon.Timer` context manager | migrate | Low | Mechanical (detect `time.time()` / `tic`/`toc`) |
+| qe-code-005 | Use `quantecon.timeit` for benchmarking | migrate | Low | Mechanical (detect `%timeit` / `%%timeit`) |
+| qe-code-006 | Binary packages require installation notes | rule | Medium | Partial (needs binary-package allowlist) |
+
+### 2.4 JAX (`qe-jax-*`) — 7 rules
+
+| Rule | Title | Type | Audit weight | Detect-by |
+|------|-------|------|--------------|-----------|
+| qe-jax-001 | Functional programming patterns | style | Medium | Judgment |
+| qe-jax-002 | NamedTuple for model parameters | rule | High | Partial (AST: detect parameter classes) |
+| qe-jax-003 | `generate_path` for sequence generation | style | Low | Judgment |
+| qe-jax-004 | Functional update patterns (`.at[].set()`) | migrate | High | Mechanical (regex on in-place updates) |
+| qe-jax-005 | `jax.lax` for control flow | style | Medium | Judgment |
+| qe-jax-006 | Explicit PRNG key management | migrate | High | Mechanical (regex on `np.random.*`) |
+| qe-jax-007 | Consistent function naming for updates | style | Low | Judgment |
+
+> **Scope note:** JAX rules only apply to lectures that import or use JAX. Use `N/A` for the JAX category in non-JAX lectures.
+
+### 2.5 Figures (`qe-fig-*`) — 11 rules
+
+| Rule | Title | Type | Audit weight | Detect-by |
+|------|-------|------|--------------|-----------|
+| qe-fig-001 | Do not set figure size unless necessary | style | Low | Mechanical (detect `figsize=`) |
+| qe-fig-002 | Prefer code-generated figures | style | Low | Mechanical (detect static image refs) |
+| qe-fig-003 | No matplotlib embedded titles | rule | High | Mechanical (regex `ax\.set_title|fig\.suptitle`) |
+| qe-fig-004 | Caption formatting conventions | rule | Medium | Mechanical (case + length) |
+| qe-fig-005 | Descriptive figure names for cross-referencing | rule | Medium | Partial (label format + descriptiveness) |
+| qe-fig-006 | Lowercase axis labels | rule | Medium | Mechanical (regex on `set_xlabel`/`set_ylabel`) |
+| qe-fig-007 | Keep figure box and spines | rule | Medium | Mechanical (regex on `spines[*].set_visible(False)`) |
+| qe-fig-008 | Use `lw=2` for line charts | rule | Low | Mechanical (AST on `plot()` calls) |
+| qe-fig-009 | Figure sizing 80–100 % of text width | rule | Low | Mechanical (figure metadata) |
+| qe-fig-010 | Plotly figures require `{only} latex` directive | rule | High | Mechanical (detect plotly + check for directive) |
+| qe-fig-011 | Use `image` directive when nested in other directives | rule | Medium | Partial (directive nesting) |
+
+### 2.6 References (`qe-ref-*`) — 1 rule
+
+| Rule | Title | Type | Audit weight | Detect-by |
+|------|-------|------|--------------|-----------|
+| qe-ref-001 | Correct citation style (`{cite}` vs `{cite:t}`) | rule | Medium | Judgment (author-name parsing) |
+
+### 2.7 Links (`qe-link-*`) — 2 rules
+
+| Rule | Title | Type | Audit weight | Detect-by |
+|------|-------|------|--------------|-----------|
+| qe-link-001 | Markdown links for same-series references | style | Medium | Partial (URL pattern + same-series detection) |
+| qe-link-002 | `{doc}` links for cross-series references | rule | High | Mechanical (regex on known intersphinx URLs) |
+
+### 2.8 Admonitions (`qe-admon-*`) — 5 rules
+
+| Rule | Title | Type | Audit weight | Detect-by |
+|------|-------|------|--------------|-----------|
+| qe-admon-001 | Gated syntax for executable code in exercises | rule | High | Mechanical (parse directive structure) |
+| qe-admon-002 | `:class: dropdown` for solutions | style | Low | Mechanical (parse solution directives) |
+| qe-admon-003 | Tick-count management for nested directives | rule | **Very high** *(build-risk)* | Mechanical (parse fences) |
+| qe-admon-004 | `prf:` prefix for proof directives | rule | High | Mechanical (regex on proof-family directives) |
+| qe-admon-005 | Link solutions to exercises | rule | Medium | Mechanical (label cross-check) |
+
+---
+
+## 3. Audit-only addendum rules (proposed for action-style-guide)
+
+These rules are **specified in the QuantEcon manual style guide** ([`QuantEcon.manual/manual/styleguide/`](https://github.com/QuantEcon/QuantEcon.manual/tree/main/manual/styleguide)) but are **not yet encoded as rules in `action-style-guide`**. They are scored during audits using temporary `*-A*` IDs and are proposed for inclusion. Each has been observed at scale in the 292-lecture audit corpus (see [`README.md`](README.md) for counts).
+
+| Proposed ID | Title | Source | Audit weight | Detect-by | Corpus evidence |
+|-------------|-------|--------|--------------|-----------|-----------------|
+| **qe-writing-A1** | Write "IID" — not "i.i.d." or "iid" | `writing.md` §General writing advice; `math.md` §IID | Medium | Mechanical (case-sensitive regex `\bi\.i\.d\.\b|\biid\b`) | ~30 lectures |
+| **qe-math-A1** | Blackboard `\mathbb{P}`, `\mathbb{E}`, `\mathbb{V}` for probability, expectation, variance — with braces | `math.md` §Probability, expectation, variance | **Very high** | Mechanical (regex catches bare `E[`, `E_t`, `\mathbb E` missing braces, `\Pr(`, `\Var(`) | ~60 lectures |
+| **qe-math-A2** | Braces `\{…\}` for events, parentheses `(…)` for sets when using `\mathbb{P}` | `math.md` §Probability, expectation, variance | Low | Judgment | Limited corpus evidence |
+| **qe-math-A3** | Distribution names: plain letters (`N`, `U`); `\mathrm{…}` for multi-letter — never `\mathcal` / `\mathbb` | `math.md` §Distribution names | High | Mechanical (regex on `\mathcal\{N\}` / `\{\\cal N\}`) | ~30 lectures |
+| **qe-math-A4** | Lowercase for densities/PMFs (`f`, `g`, `p`), uppercase for CDFs (`F`) | `math.md` §Density and mass functions | Low | Judgment | Limited corpus evidence |
+| **qe-math-A5** | Multiplication: `\cdot` or juxtaposition — never `*` in math | `math.md` §Multiplication in equations | Medium | Mechanical (regex `\*` inside `$…$` / `$$…$$`) | Small (~5 lectures) but a strong rule |
+| **qe-math-A6** | Reference equations via `` {eq}`label` ``; do not write "see equation (3)" manually | `math.md` §end | Medium | Partial (detect numeric refs near labelled equations) | Repeatedly observed |
+
+> **Recommendation:** these should become rules `qe-writing-009`, `qe-math-010`–`qe-math-015` in action-style-guide. See the proposal docs under [`../action-style-guide-contributions/`](../action-style-guide-contributions/) (to be written).
+
+---
+
+## 4. Scoring rubric
+
+Each in-scope category is scored **0–10** using the rubric below. Be calibrated and consistent — do not be lenient.
+
+| Score | Meaning |
+|-------|---------|
+| **10** | Fully compliant. No deviations found. |
+| **9**  | Excellent. At most 1–2 trivial / stylistic-preference deviations. |
+| **8**  | Good. A few isolated minor issues, no systemic pattern. |
+| **7**  | Mostly compliant. A handful of inconsistencies across the file. |
+| **6**  | Acceptable. Multiple violations but the file is readable and the core conventions hold. |
+| **5**  | Mixed. Several **systemic** issues (a rule violated repeatedly throughout). |
+| **4**  | Below standard. Many violations; one or more rules ignored entirely. |
+| **3**  | Significantly out of style. Multiple rules ignored entirely. |
+| **2**  | Major rework needed. Most rules in this dimension are violated. |
+| **1**  | Almost entirely non-conformant. |
+| **0**  | Reserved — only if the file is effectively empty or has no relevant content. |
+
+**Categories not applicable to a given lecture** (e.g., JAX in a non-JAX lecture, Code in a pure-prose lecture, Math in a history lecture) are scored `N/A` and excluded from the overall.
+
+**Overall score** = mean of in-scope category scores, rounded to 1 decimal.
+
+**Priority bucket** (derived from overall):
+- **HIGH** — overall ≤ 5.0, or any single in-scope category ≤ 4
+- **MEDIUM** — overall 5.1 – 7.0
+- **LOW** — overall 7.1 – 8.5
+- **NONE** — overall ≥ 8.6
+
+---
+
+## 5. Severity definitions for individual findings
+
+Each issue listed in a report is tagged:
+
+- **Critical** — violates a build-risk rule (`qe-math-006` `align` inside `$$`, `qe-admon-003` tick mismatch, broken `{eq}` refs). One occurrence is enough.
+- **High** — systemic violation (repeated 5+ times) **or** isolated violation of a Very-High-weight rule (`qe-writing-006`, `qe-math-002`, `qe-math-006`, `qe-admon-003`).
+- **Medium** — repeated violation (2–4 instances) **or** isolated violation of a High-weight rule.
+- **Low** — isolated single-occurrence stylistic violation; preference-level item.
+
+---
+
+## 6. Per-lecture report template
+
+Each lecture audit must be a markdown file with **this exact structure**. Keep it compact — total length ~40–80 lines depending on category coverage.
+
+```markdown
+# Style Audit — <lecture filename without extension>
+
+- **Series:** <series name>
+- **File:** `lectures/<filename>.md`
+- **Audit date:** YYYY-MM-DD
+- **Spec version:** v2
+- **Categories audited:** writing, math, code, jax, figures, references, links, admonitions  *(or a subset)*
+- **Overall score:** X.X / 10
+- **Priority:** HIGH | MEDIUM | LOW | NONE
+
+## Score breakdown
+
+| Category     | Score | One-line note |
+|--------------|-------|---------------|
+| Writing      | X/10  | … |
+| Math         | X/10  | … |
+| Code         | X/10  | … |
+| JAX          | N/A   | not a JAX lecture |
+| Figures      | X/10  | … |
+| References   | X/10  | … |
+| Links        | X/10  | … |
+| Admonitions  | X/10  | … |
+
+## Issues
+
+### Critical
+- **[qe-…-…]** — short description. *Example:* `lectures/x.md:NNN`. *Count:* N occurrences.
+
+### High severity
+- **[qe-…-…]** — …
+
+### Medium severity
+- **[qe-…-…]** — …
+
+### Low severity
+- **[qe-…-…]** — …
+
+(Use "_None found._" under any empty severity heading.)
+
+## Strengths
+- …
+
+## Recommended actions
+1. …
+2. …
+```
+
+**Rules for filling it in:**
+- Rule IDs use the canonical `qe-…-…` form (or `qe-…-A…` for addendum rules in §3).
+- Cite at least one concrete example or line number for every Critical/High/Medium issue.
+- If a category is not applicable to the lecture, write `N/A` in the score column and note the reason.
+- Output filename: same stem as input lecture, e.g. `lectures/cobweb.md` → `cobweb.md`.
+- Do **not** include the lecture's own content in the report — only findings.
+
+---
+
+## 7. Per-series README template
+
+Each series folder gets a `README.md` with this structure:
+
+```markdown
+# Style Audit — <series-name>
+
+- **Audit date:** YYYY-MM-DD
+- **Spec version:** v2
+- **Lectures audited:** N
+- **Categories audited:** …
+- **Average overall score:** X.X / 10
+- **Average per-category scores:** writing X.X, math X.X, code X.X, …
+
+## Priority distribution
+
+| Priority | Count | % |
+|----------|-------|---|
+| HIGH     | …     | … |
+| MEDIUM   | …     | … |
+| LOW      | …     | … |
+| NONE     | …     | … |
+
+## Top systemic issues across the series
+
+1. **[qe-…-…]** — short description — appears in N / total lectures.
+2. …
+
+## Lectures ranked by priority (lowest score first)
+
+| # | Lecture | Writing | Math | Code | JAX | Fig | Ref | Link | Adm | Overall | Priority |
+|---|---------|---------|------|------|-----|-----|-----|------|-----|---------|----------|
+| 1 | [name](name.md) | … | … | … | … | … | … | … | … | X.X | HIGH |
+| … |
+
+## Series-level recommendations
+- …
+```
+
+If only a subset of categories were audited, drop the unused columns rather than filling with N/A.
+
+---
+
+## 8. Subagent operating instructions
+
+1. Read this spec first. Do not re-interpret rules.
+2. For each lecture, read enough to make a calibrated judgment. For files >1500 lines, read head + a middle slice + tail.
+3. Produce one per-lecture report per file, then the series README at the end.
+4. Be **consistent**: the same violation gets the same rule ID, same severity bucket, same wording across all your reports.
+5. Do **not** modify any lecture files.
+6. Final response: a short summary listing average per-category scores, the top 3 systemic issues with their rule IDs, and the 5 worst-scoring lectures.
+
+When auditing a subset of categories (the default per user instruction has been writing + math), score only those and mark the rest as out-of-scope in the report metadata — do not fill them with `N/A` for "not applicable to this lecture", which means something different.
+
+---
+
+## 9. Deterministic-check candidates
+
+These rules could move from LLM evaluation to regex / AST checking, eliminating per-call latency, cost, and hallucination risk. This list is derived from the per-rule analysis in §2 and aligns with **Phase 4.3** of the [action-style-guide roadmap](https://github.com/QuantEcon/action-style-guide/blob/main/docs/developer/roadmap.md).
+
+### Fully deterministic (regex / direct AST)
+
+`qe-writing-008`, `qe-math-002`, `qe-math-003`, `qe-math-004`, `qe-math-006`, `qe-math-007`, `qe-code-004`, `qe-code-005`, `qe-fig-003`, `qe-fig-006`, `qe-fig-007`, `qe-fig-008`, `qe-fig-009`, `qe-fig-010`, `qe-link-002`, `qe-admon-003`, `qe-admon-004`, `qe-admon-005`, plus addendum **qe-writing-A1**, **qe-math-A1**, **qe-math-A3**, **qe-math-A5**.
+
+That is **22 rules** — substantially more than the "~13" estimated in IMPROVEMENTS.md §2.C. Worth validating against the 292-lecture corpus.
+
+### Partial (regex + curated allowlist)
+
+`qe-writing-001`, `qe-writing-004`, `qe-writing-006`, `qe-math-001`, `qe-math-005`, `qe-math-008`, `qe-code-002`, `qe-code-003`, `qe-code-006`, `qe-jax-002`, `qe-jax-004`, `qe-jax-006`, `qe-fig-004`, `qe-fig-005`, `qe-fig-011`, `qe-link-001`, `qe-admon-001`, `qe-admon-002`, plus addendum **qe-math-A6**.
+
+### LLM-only (genuine judgment)
+
+`qe-writing-002`, `qe-writing-003`, `qe-writing-005`, `qe-writing-007`, `qe-math-009`, `qe-code-001`, `qe-jax-001`, `qe-jax-003`, `qe-jax-005`, `qe-jax-007`, `qe-fig-001`, `qe-fig-002`, `qe-ref-001`, plus addendum **qe-math-A2**, **qe-math-A4**.
+
+---
+
+## 10. v1 → v2 mapping
+
+The 292 per-lecture reports under this folder were produced under v1 of this spec, which used `W1–W8` and `M1–M14` rule IDs. The mapping below allows v1 findings to be re-keyed to canonical `qe-*` IDs without re-running the audit.
+
+| v1 ID | v2 / qe-* ID | Notes |
+|-------|--------------|-------|
+| W1 | qe-writing-001 | direct |
+| W2 | qe-writing-006 | direct (Title Case for lecture title is half of qe-writing-006) |
+| W3 | qe-writing-006 | direct (sentence case for sections is the other half) |
+| W4 | qe-writing-005 | direct (bold for definitions) |
+| W5 | qe-writing-005 | direct (italic for emphasis) |
+| W6 | **qe-writing-A1** (proposed) | gap — not in registry |
+| W7 | qe-writing-004 | direct |
+| W8 | qe-math-009 | partial — "prefer simpler notation" applies more broadly than math, but qe-math-009 captures the math case |
+| M1 | qe-math-001 | direct |
+| M2 | qe-math-002 | direct |
+| M3 | qe-math-008 | direct |
+| M4 | qe-math-003 | direct |
+| M5 | qe-math-004 | direct |
+| M6 | qe-math-005 | direct |
+| M7 | **qe-math-A1** (proposed) | gap |
+| M8 | **qe-math-A2** (proposed) | gap |
+| M9 | **qe-math-A3** (proposed) | gap |
+| M10 | **qe-math-A4** (proposed) | gap |
+| M11 | **qe-math-A5** (proposed) | gap |
+| M12 | qe-math-006 | direct |
+| M13 | qe-math-007 | direct |
+| M14 | **qe-math-A6** (proposed) | gap — `\tag` ban (qe-math-007) implies `{eq}` use, but the positive rule "use `{eq}`label`` for refs" is not separately specified |
+
+---
+
+## 11. Change log
+
+- **v2** (2026-05-28): Adopt canonical `qe-*` IDs from action-style-guide. Add 6 categories (Code, JAX, Figures, References, Links, Admonitions). Add §3 addendum rules (gaps in action-style-guide observed in the corpus). Add §9 deterministic-check candidate list. Add §10 v1↔v2 mapping. Add Critical severity tier for build-risk findings.
+- **v1** (2026-05-27): Initial spec. Writing + Math only, using local `W1–W8` and `M1–M14` IDs. 292 per-lecture reports produced under this version.
