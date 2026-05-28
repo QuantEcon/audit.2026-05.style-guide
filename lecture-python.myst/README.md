@@ -1,154 +1,182 @@
 # Style Audit — lecture-python.myst
 
-- **Audit date:** 2026-05-27
+- **Audit date:** 2026-05-28
+- **Spec version:** v2
 - **Lectures audited:** 110
-- **Average overall score:** 8.5 / 10
-- **Average writing score:** 8.0 / 10
-- **Average math score:** 9.0 / 10 (over 105 lectures with math content)
+- **Categories audited:** writing, math, code, figures, references, links, admonitions (JAX out of scope)
+- **Average overall score:** 9.0 / 10
+- **Average per-category scores:** writing 8.0 (n=110), math 9.0 (n=105), code 9.2 (n=110), figures 8.7 (n=99), references 9.0 (n=81), links 9.7 (n=98), admonitions 10.0 (n=88)
 
 ## Priority distribution
 
 | Priority | Count | % |
 |----------|-------|---|
-| HIGH     |     2 | 2% |
-| MEDIUM   |    10 | 9% |
-| LOW      |    40 | 36% |
-| NONE     |    58 | 53% |
+| HIGH   |     2 | 2% |
+| MEDIUM |     0 | 0% |
+| LOW    |    13 | 12% |
+| NONE   |    95 | 86% |
 
 ## Top systemic issues across the series
 
-1. **W3** — Section/subsection headings in Title Case rather than sentence case — appears in 87 / 110 lectures.
-2. **W6** — "i.i.d." / "iid" used in text instead of "IID" — appears in 21 / 110 lectures.
-3. **M7** — Bare `E[]`, `\Pr()`, `\Var()` used instead of `\mathbb{E}`, `\mathbb{P}`, `\mathbb{V}` — appears in 21 / 110 lectures.
-4. **M2** — Transpose uses prime `'` or `^T` rather than `\top` — appears in 17 / 110 lectures.
-5. **M3** — Ones vector typeset with `\mathbf{1}` instead of `\mathbb{1}` — appears in 9 / 110 lectures.
-6. **M5** — Vectors/matrices typeset with `\mathbf` or `\boldsymbol` — appears in 9 / 110 lectures.
-7. **M9** — Normal distribution written as `\mathcal{N}` rather than `N` — appears in 6 / 110 lectures.
-8. **M4** — Matrices use `pmatrix`/`matrix` rather than `bmatrix` — appears in 3 / 110 lectures.
-9. **M11** — Multiplication uses `*` instead of `\cdot`/juxtaposition — appears in 3 / 110 lectures.
-10. **W1** — Multi-sentence paragraphs (style asks for one-sentence paragraphs) — appears in 2 / 110 lectures.
+1. **[qe-code-002]** — Unicode Greek letters in code — appears in 94 / 110 lectures.
+2. **[qe-writing-006]** — H2+ headings in sentence case (Title Case for H1) — appears in 87 / 110 lectures.
+3. **[qe-fig-001]** — Do not set figure size unless necessary — appears in 75 / 110 lectures.
+4. **[qe-fig-005]** — Descriptive figure names for cross-referencing — appears in 47 / 110 lectures.
+5. **[qe-fig-003]** — No matplotlib embedded titles (`ax.set_title`/`fig.suptitle`) — appears in 44 / 110 lectures.
+6. **[qe-fig-008]** — Use `lw=2` for line charts — appears in 37 / 110 lectures.
+7. **[qe-writing-A1]** — "IID" not "i.i.d." or "iid" — appears in 21 / 110 lectures.
+8. **[qe-math-A1]** — Blackboard `\mathbb{P}`, `\mathbb{E}`, `\mathbb{V}` — appears in 21 / 110 lectures.
+9. **[qe-fig-006]** — Lowercase axis labels — appears in 20 / 110 lectures.
+10. **[qe-math-002]** — Use `\top` for transpose — appears in 17 / 110 lectures.
+11. **[qe-link-002]** — `{doc}` links for cross-series references — appears in 17 / 110 lectures.
+12. **[qe-link-001]** — Markdown links for same-series references — appears in 12 / 110 lectures.
+13. **[qe-math-008]** — Explain special notation (`\mathbb{1}` etc.) — appears in 9 / 110 lectures.
+14. **[qe-math-004]** — No bold for matrices/vectors — appears in 9 / 110 lectures.
+15. **[qe-math-A3]** — Distribution names: plain letters, `\mathrm{…}` for multi-letter — appears in 6 / 110 lectures.
 
 ## Lectures ranked by priority (lowest score first)
 
-| # | Lecture | Writing | Math | Overall | Priority |
-|---|---------|---------|------|---------|----------|
-| 1 | cross_product_trick | 6 | 3 | 4.5 | HIGH |
-| 2 | linear_algebra | 6 | 5 | 5.5 | MEDIUM |
-| 3 | lqcontrol | 6 | 5 | 5.5 | MEDIUM |
-| 4 | misspecified_recovery | 8 | 4 | 6.0 | HIGH |
-| 5 | opt_transport | 7 | 5 | 6.0 | MEDIUM |
-| 6 | affine_risk_prices | 8 | 5 | 6.5 | MEDIUM |
-| 7 | lagrangian_lqdp | 7 | 6 | 6.5 | MEDIUM |
-| 8 | markov_perf | 7 | 6 | 6.5 | MEDIUM |
-| 9 | rational_expectations | 5 | 8 | 6.5 | MEDIUM |
-| 10 | ge_arrow | 6 | 7.5 | 6.8 | MEDIUM |
-| 11 | multivariate_normal | 8 | 5.5 | 6.8 | MEDIUM |
-| 12 | perm_income_cons | 6 | 8 | 7.0 | MEDIUM |
-| 13 | troubleshooting | 7 | N/A | 7.0 | LOW |
-| 14 | ar1_turningpts | 6.5 | 8 | 7.2 | LOW |
-| 15 | hansen_singleton_1983 | 9 | 5.5 | 7.2 | LOW |
-| 16 | linear_models | 5 | 10 | 7.5 | LOW |
-| 17 | mccall_model | 6 | 9 | 7.5 | LOW |
-| 18 | svd_intro | 7 | 8 | 7.5 | LOW |
-| 19 | likelihood_bayes | 6.5 | 9 | 7.8 | LOW |
-| 20 | two_auctions | 8 | 7.5 | 7.8 | LOW |
-| 21 | blackwell_kihlstrom | 8 | 8 | 8.0 | LOW |
-| 22 | cass_fiscal | 6 | 10 | 8.0 | LOW |
-| 23 | cass_koopmans_2 | 6 | 10 | 8.0 | LOW |
-| 24 | finite_markov | 7 | 9 | 8.0 | LOW |
-| 25 | house_auction | 6 | 10 | 8.0 | LOW |
-| 26 | markov_asset | 6 | 10 | 8.0 | LOW |
-| 27 | mle | 10 | 6 | 8.0 | LOW |
-| 28 | navy_captain | 7 | 9 | 8.0 | LOW |
-| 29 | pandas_panel | 8 | N/A | 8.0 | LOW |
-| 30 | perm_income | 6 | 10 | 8.0 | LOW |
-| 31 | re_with_feedback | 6 | 10 | 8.0 | LOW |
-| 32 | util_rand_resp | 6 | 10 | 8.0 | LOW |
-| 33 | exchangeable | 7 | 9.5 | 8.2 | LOW |
-| 34 | kalman_2 | 8 | 8.5 | 8.2 | LOW |
-| 35 | odu | 7 | 9.5 | 8.2 | LOW |
-| 36 | prob_meaning | 7 | 9.5 | 8.2 | LOW |
-| 37 | rs_inventory_q | 7 | 9.5 | 8.2 | LOW |
-| 38 | wald_friedman_2 | 7 | 9.5 | 8.2 | LOW |
-| 39 | aiyagari | 9 | 8 | 8.5 | LOW |
-| 40 | cass_koopmans_1 | 7 | 10 | 8.5 | LOW |
-| 41 | eig_circulant | 8 | 9 | 8.5 | LOW |
-| 42 | harrison_kreps | 7 | 10 | 8.5 | LOW |
-| 43 | ifp_advanced | 7 | 10 | 8.5 | LOW |
-| 44 | ifp_egm | 7 | 10 | 8.5 | LOW |
-| 45 | ifp_egm_transient_shocks | 7 | 10 | 8.5 | LOW |
-| 46 | kesten_processes | 7 | 10 | 8.5 | LOW |
-| 47 | lq_inventories | 9 | 8 | 8.5 | LOW |
-| 48 | merging_of_opinions | 8 | 9 | 8.5 | LOW |
-| 49 | os_stochastic | 7 | 10 | 8.5 | LOW |
-| 50 | qr_decomp | 8 | 9 | 8.5 | LOW |
-| 51 | von_neumann_model | 7 | 10 | 8.5 | LOW |
-| 52 | wealth_dynamics | 7 | 10 | 8.5 | LOW |
-| 53 | divergence_measures | 9.5 | 8 | 8.8 | NONE |
-| 54 | hoist_failure | 8 | 9.5 | 8.8 | NONE |
-| 55 | inventory_q | 8 | 9.5 | 8.8 | NONE |
-| 56 | kalman | 8 | 9.5 | 8.8 | NONE |
-| 57 | likelihood_ratio_process | 9 | 8.5 | 8.8 | NONE |
-| 58 | likelihood_var | 9 | 8.5 | 8.8 | NONE |
-| 59 | mix_model | 7.5 | 10 | 8.8 | NONE |
-| 60 | multi_hyper | 8 | 9.5 | 8.8 | NONE |
-| 61 | two_computation | 10 | 7.5 | 8.8 | NONE |
-| 62 | var_dmd | 7.5 | 10 | 8.8 | NONE |
-| 63 | ak2 | 8 | 10 | 9.0 | NONE |
-| 64 | back_prop | 8 | 10 | 9.0 | NONE |
-| 65 | chow_business_cycles | 9 | 9 | 9.0 | NONE |
-| 66 | ifp_opi | 8 | 10 | 9.0 | NONE |
-| 67 | jv | 8 | 10 | 9.0 | NONE |
-| 68 | likelihood_ratio_process_2 | 8 | 10 | 9.0 | NONE |
-| 69 | lln_clt | 8 | 10 | 9.0 | NONE |
-| 70 | mccall_q | 8 | 10 | 9.0 | NONE |
-| 71 | morris_learn | 8 | 10 | 9.0 | NONE |
-| 72 | newton_method | 8 | 10 | 9.0 | NONE |
-| 73 | ols | 9 | 9 | 9.0 | NONE |
-| 74 | os_egm | 8 | 10 | 9.0 | NONE |
-| 75 | os_numerical | 8 | 10 | 9.0 | NONE |
-| 76 | os_time_iter | 8 | 10 | 9.0 | NONE |
-| 77 | prob_matrix | 9 | 9 | 9.0 | NONE |
-| 78 | rand_resp | 8 | 10 | 9.0 | NONE |
-| 79 | ross_recovery | 10 | 8 | 9.0 | NONE |
-| 80 | samuelson | 8 | 10 | 9.0 | NONE |
-| 81 | sir_model | 8 | 10 | 9.0 | NONE |
-| 82 | stats_examples | 8 | 10 | 9.0 | NONE |
-| 83 | status | 9 | N/A | 9.0 | NONE |
-| 84 | ar1_bayes | 8.5 | 10 | 9.2 | NONE |
-| 85 | hansen_singleton_1982 | 9.5 | 9 | 9.2 | NONE |
-| 86 | information_market_equilibrium | 9 | 9.5 | 9.2 | NONE |
-| 87 | measurement_models | 10 | 8.5 | 9.2 | NONE |
-| 88 | wald_friedman | 9 | 9.5 | 9.2 | NONE |
-| 89 | bayes_nonconj | 9 | 10 | 9.5 | NONE |
-| 90 | career | 9 | 10 | 9.5 | NONE |
-| 91 | cass_fiscal_2 | 9 | 10 | 9.5 | NONE |
-| 92 | endogenous_lake | 9 | 10 | 9.5 | NONE |
-| 93 | ifp_discrete | 9 | 10 | 9.5 | NONE |
-| 94 | inventory_dynamics | 9 | 10 | 9.5 | NONE |
-| 95 | mccall_model_with_separation | 9 | 10 | 9.5 | NONE |
-| 96 | organization_capital | 9.5 | 9.5 | 9.5 | NONE |
-| 97 | os | 9 | 10 | 9.5 | NONE |
-| 98 | uncertainty_traps | 9 | 10 | 9.5 | NONE |
-| 99 | imp_sample | 9.5 | 10 | 9.8 | NONE |
-| 100 | mccall_model_with_sep_markov | 9.5 | 10 | 9.8 | NONE |
-| 101 | theil_1 | 9.5 | 10 | 9.8 | NONE |
-| 102 | theil_2 | 10 | 9.5 | 9.8 | NONE |
-| 103 | ak_aiyagari | 10 | 10 | 10.0 | NONE |
-| 104 | intro | 10 | N/A | 10.0 | NONE |
-| 105 | lake_model | 10 | 10 | 10.0 | NONE |
-| 106 | mccall_fitted_vfi | 10 | 10 | 10.0 | NONE |
-| 107 | mccall_persist_trans | 10 | 10 | 10.0 | NONE |
-| 108 | os_egm_jax | 10 | 10 | 10.0 | NONE |
-| 109 | survival_recursive_preferences | 10 | 10 | 10.0 | NONE |
-| 110 | zreferences | 10 | N/A | 10.0 | NONE |
+| # | Lecture | Writing | Math | Code | Fig | Ref | Link | Adm | Overall | Priority |
+|---|---------|---------|------|------|-----|-----|------|-----|---------|----------|
+| 1 | cross_product_trick | 6 | 3 | 10 | N/A | N/A | 10 | N/A | 7.2 | HIGH |
+| 2 | linear_algebra | 6 | 5 | 8.5 | 9 | 9 | 7 | 10 | 7.8 | LOW |
+| 3 | lagrangian_lqdp | 7 | 6 | 9 | N/A | 9 | 7 | 10 | 8 | LOW |
+| 4 | lqcontrol | 6 | 5 | 8.5 | 9 | 9 | 8.5 | 10 | 8 | LOW |
+| 5 | ar1_turningpts | 6.5 | 8 | 8.5 | 8.5 | 9 | N/A | N/A | 8.1 | LOW |
+| 6 | navy_captain | 7 | 9 | 8.5 | 6.5 | N/A | 10 | N/A | 8.2 | LOW |
+| 7 | rational_expectations | 5 | 8 | 8.5 | N/A | 9 | 9 | 10 | 8.2 | LOW |
+| 8 | two_auctions | 8 | 7.5 | 9.5 | 6.5 | 9 | 9 | N/A | 8.2 | LOW |
+| 9 | perm_income_cons | 6 | 8 | 8.5 | 9.5 | 9 | 9 | N/A | 8.3 | LOW |
+| 10 | linear_models | 5 | 10 | 8.5 | 9 | N/A | 8 | 10 | 8.4 | LOW |
+| 11 | markov_perf | 7 | 6 | 8.5 | 8 | 9 | 10 | 10 | 8.4 | LOW |
+| 12 | misspecified_recovery | 8 | 4 | 8.5 | 9.5 | 9 | 10 | 10 | 8.4 | HIGH |
+| 13 | util_rand_resp | 6 | 10 | 8.5 | 7 | 9 | 10 | N/A | 8.4 | LOW |
+| 14 | affine_risk_prices | 8 | 5 | 9.5 | 8 | 9 | 10 | 10 | 8.5 | LOW |
+| 15 | prob_meaning | 7 | 9.5 | 8.5 | 6 | N/A | 10 | 10 | 8.5 | LOW |
+| 16 | kalman_2 | 8 | 8.5 | 9.5 | 7 | N/A | 10 | N/A | 8.6 | NONE |
+| 17 | likelihood_var | 9 | 8.5 | 8.5 | 7 | N/A | 10 | N/A | 8.6 | NONE |
+| 18 | opt_transport | 7 | 5 | 9.5 | 10 | 9 | 10 | 10 | 8.6 | NONE |
+| 19 | two_computation | 10 | 7.5 | 8.5 | 5.5 | 9 | 10 | 10 | 8.6 | NONE |
+| 20 | exchangeable | 7 | 9.5 | 8.5 | 8 | 9 | 9 | 10 | 8.7 | NONE |
+| 21 | likelihood_ratio_process | 9 | 8.5 | 8.5 | 6 | 9 | 10 | 10 | 8.7 | NONE |
+| 22 | mccall_model | 6 | 9 | 9.5 | 8.5 | 9 | 9 | 10 | 8.7 | NONE |
+| 23 | hansen_singleton_1983 | 9 | 5.5 | 9.5 | 10 | 9 | 10 | N/A | 8.8 | NONE |
+| 24 | likelihood_ratio_process_2 | 8 | 10 | 8.5 | 6 | 9 | 10 | 10 | 8.8 | NONE |
+| 25 | multivariate_normal | 8 | 5.5 | 9.5 | 9.5 | N/A | 10 | 10 | 8.8 | NONE |
+| 26 | odu | 7 | 9.5 | 9.5 | 8 | 9 | 8.5 | 10 | 8.8 | NONE |
+| 27 | perm_income | 6 | 10 | 8.5 | 8 | 9 | 10 | 10 | 8.8 | NONE |
+| 28 | cass_koopmans_2 | 6 | 10 | 9.5 | 9.5 | 9 | 8 | 10 | 8.9 | NONE |
+| 29 | ge_arrow | 6 | 7.5 | 10 | 10 | 9 | 10 | 10 | 8.9 | NONE |
+| 30 | markov_asset | 6 | 10 | 9.5 | 9 | 9 | 8.5 | 10 | 8.9 | NONE |
+| 31 | mle | 10 | 6 | 9.5 | 8.5 | 9 | 9 | 10 | 8.9 | NONE |
+| 32 | re_with_feedback | 6 | 10 | 9.5 | 8 | 9 | 10 | 10 | 8.9 | NONE |
+| 33 | samuelson | 8 | 10 | 9.5 | 8 | 9 | 8 | 10 | 8.9 | NONE |
+| 34 | svd_intro | 7 | 8 | 8.5 | 10 | N/A | 10 | 10 | 8.9 | NONE |
+| 35 | wald_friedman | 9 | 9.5 | 8.5 | 7 | 9 | 9 | 10 | 8.9 | NONE |
+| 36 | wald_friedman_2 | 7 | 9.5 | 9.5 | 8.5 | 9 | 9 | 10 | 8.9 | NONE |
+| 37 | divergence_measures | 9.5 | 8 | 8.5 | 8 | 9 | 10 | 10 | 9 | NONE |
+| 38 | hoist_failure | 8 | 9.5 | 9.5 | 9 | 9 | 8 | 10 | 9 | NONE |
+| 39 | house_auction | 6 | 10 | 10 | N/A | 9 | N/A | 10 | 9 | NONE |
+| 40 | jv | 8 | 10 | 8.5 | 8.5 | 9 | N/A | 10 | 9 | NONE |
+| 41 | kalman | 8 | 9.5 | 8.5 | 8 | 9 | 10 | 10 | 9 | NONE |
+| 42 | likelihood_bayes | 6.5 | 9 | 9.5 | 9 | 9 | 10 | 10 | 9 | NONE |
+| 43 | merging_of_opinions | 8 | 9 | 8.5 | 8.5 | 9 | 10 | 10 | 9 | NONE |
+| 44 | mix_model | 7.5 | 10 | 9.5 | 7 | N/A | 10 | 10 | 9 | NONE |
+| 45 | os_stochastic | 7 | 10 | 8.5 | 9.5 | 9 | 9 | 10 | 9 | NONE |
+| 46 | pandas_panel | 8 | N/A | 10 | 8 | N/A | 9 | 10 | 9 | NONE |
+| 47 | troubleshooting | 7 | N/A | 10 | 10 | N/A | 9 | N/A | 9 | NONE |
+| 48 | ak2 | 8 | 10 | 9.5 | 8 | 9 | N/A | 10 | 9.1 | NONE |
+| 49 | blackwell_kihlstrom | 8 | 8 | 9.5 | 9.5 | 9 | 10 | 10 | 9.1 | NONE |
+| 50 | cass_fiscal | 6 | 10 | 9.5 | 9 | 9 | 10 | 10 | 9.1 | NONE |
+| 51 | cass_koopmans_1 | 7 | 10 | 9.5 | 9 | 9 | 9 | 10 | 9.1 | NONE |
+| 52 | chow_business_cycles | 9 | 9 | 8.5 | 8.5 | 9 | 10 | 10 | 9.1 | NONE |
+| 53 | finite_markov | 7 | 9 | 9.5 | 10 | 9 | 9 | 10 | 9.1 | NONE |
+| 54 | ifp_egm | 7 | 10 | 9 | 9 | 9 | 10 | 10 | 9.1 | NONE |
+| 55 | ifp_egm_transient_shocks | 7 | 10 | 9 | 8.5 | 9 | 10 | 10 | 9.1 | NONE |
+| 56 | imp_sample | 9.5 | 10 | 8.5 | 7.5 | N/A | 10 | N/A | 9.1 | NONE |
+| 57 | information_market_equilibrium | 9 | 9.5 | 8.5 | 8 | 9 | 10 | 10 | 9.1 | NONE |
+| 58 | kesten_processes | 7 | 10 | 8.5 | 9.5 | 9 | 10 | 10 | 9.1 | NONE |
+| 59 | lln_clt | 8 | 10 | 8.5 | 8.5 | 9 | 10 | 10 | 9.1 | NONE |
+| 60 | ols | 9 | 9 | 9.5 | 8 | 9 | 9 | 10 | 9.1 | NONE |
+| 61 | rs_inventory_q | 7 | 9.5 | 9.5 | 9.5 | N/A | 10 | N/A | 9.1 | NONE |
+| 62 | von_neumann_model | 7 | 10 | 9.5 | 9 | 9 | N/A | 10 | 9.1 | NONE |
+| 63 | wealth_dynamics | 7 | 10 | 9.5 | 8 | 9 | 10 | 10 | 9.1 | NONE |
+| 64 | aiyagari | 9 | 8 | 9.5 | 9 | 9 | 10 | 10 | 9.2 | NONE |
+| 65 | eig_circulant | 8 | 9 | 10 | 9 | N/A | 10 | N/A | 9.2 | NONE |
+| 66 | harrison_kreps | 7 | 10 | 9.5 | N/A | 9 | 10 | 10 | 9.2 | NONE |
+| 67 | lq_inventories | 9 | 8 | 8.5 | 10 | 9 | 10 | 10 | 9.2 | NONE |
+| 68 | mccall_q | 8 | 10 | 9.5 | 8.5 | 9 | 10 | N/A | 9.2 | NONE |
+| 69 | newton_method | 8 | 10 | 9.5 | 8 | N/A | 10 | 10 | 9.2 | NONE |
+| 70 | os_numerical | 8 | 10 | 9.5 | 8 | N/A | 10 | 10 | 9.2 | NONE |
+| 71 | prob_matrix | 9 | 9 | 8.5 | 8.5 | N/A | 10 | 10 | 9.2 | NONE |
+| 72 | qr_decomp | 8 | 9 | 10 | N/A | N/A | 10 | N/A | 9.2 | NONE |
+| 73 | ifp_advanced | 7 | 10 | 9.5 | 9.5 | 9 | 10 | 10 | 9.3 | NONE |
+| 74 | inventory_q | 8 | 9.5 | 9.5 | 10 | 9 | 10 | N/A | 9.3 | NONE |
+| 75 | stats_examples | 8 | 10 | 8.5 | 9.5 | N/A | 10 | 10 | 9.3 | NONE |
+| 76 | survival_recursive_preferences | 10 | 10 | 8.5 | 7.5 | 9 | 10 | 10 | 9.3 | NONE |
+| 77 | theil_1 | 9.5 | 10 | 8.5 | 9 | 9 | N/A | 10 | 9.3 | NONE |
+| 78 | theil_2 | 10 | 9.5 | 8.5 | 9 | 9 | N/A | 10 | 9.3 | NONE |
+| 79 | ar1_bayes | 8.5 | 10 | 8.5 | 9.5 | 9 | 10 | 10 | 9.4 | NONE |
+| 80 | career | 9 | 10 | 9.5 | 9 | 9 | N/A | 10 | 9.4 | NONE |
+| 81 | endogenous_lake | 9 | 10 | 9.5 | 8.5 | 9 | 10 | 10 | 9.4 | NONE |
+| 82 | hansen_singleton_1982 | 9.5 | 9 | 8.5 | 10 | 9 | 10 | 10 | 9.4 | NONE |
+| 83 | ifp_opi | 8 | 10 | 9.5 | 9 | N/A | 10 | 10 | 9.4 | NONE |
+| 84 | inventory_dynamics | 9 | 10 | 8.5 | 9 | 9 | 10 | 10 | 9.4 | NONE |
+| 85 | mccall_fitted_vfi | 10 | 10 | 8.5 | 8 | 9 | 10 | 10 | 9.4 | NONE |
+| 86 | measurement_models | 10 | 8.5 | 8.5 | 10 | 9 | 10 | 10 | 9.4 | NONE |
+| 87 | multi_hyper | 8 | 9.5 | 9.5 | 10 | N/A | 10 | N/A | 9.4 | NONE |
+| 88 | organization_capital | 9.5 | 9.5 | 9.5 | 9 | 9 | N/A | 10 | 9.4 | NONE |
+| 89 | os_egm | 8 | 10 | 8.5 | 10 | 9 | 10 | 10 | 9.4 | NONE |
+| 90 | os_time_iter | 8 | 10 | 9.5 | 9.5 | 9 | 10 | 10 | 9.4 | NONE |
+| 91 | rand_resp | 8 | 10 | 10 | N/A | 9 | 10 | N/A | 9.4 | NONE |
+| 92 | ross_recovery | 10 | 8 | 9.5 | 9 | 9 | 10 | 10 | 9.4 | NONE |
+| 93 | uncertainty_traps | 9 | 10 | 9.5 | 8 | 9 | 10 | 10 | 9.4 | NONE |
+| 94 | var_dmd | 7.5 | 10 | 10 | N/A | 9 | 10 | 10 | 9.4 | NONE |
+| 95 | ak_aiyagari | 10 | 10 | 9.5 | 8 | 9 | 10 | 10 | 9.5 | NONE |
+| 96 | back_prop | 8 | 10 | 10 | 9 | N/A | 10 | 10 | 9.5 | NONE |
+| 97 | bayes_nonconj | 9 | 10 | 8.5 | 9.5 | N/A | 10 | 10 | 9.5 | NONE |
+| 98 | morris_learn | 8 | 10 | 9.5 | 10 | 9 | 10 | 10 | 9.5 | NONE |
+| 99 | os | 9 | 10 | 9.5 | 9 | 9 | 10 | 10 | 9.5 | NONE |
+| 100 | sir_model | 8 | 10 | 9.5 | 10 | N/A | 10 | N/A | 9.5 | NONE |
+| 101 | status | 9 | N/A | 10 | N/A | N/A | N/A | N/A | 9.5 | NONE |
+| 102 | ifp_discrete | 9 | 10 | 9.5 | 10 | 9 | 10 | 10 | 9.6 | NONE |
+| 103 | lake_model | 10 | 10 | 9.5 | 9 | 9 | 10 | 10 | 9.6 | NONE |
+| 104 | mccall_model_with_sep_markov | 9.5 | 10 | 9.5 | 8.5 | N/A | 10 | 10 | 9.6 | NONE |
+| 105 | mccall_model_with_separation | 9 | 10 | 9.5 | 9.5 | 9 | 10 | 10 | 9.6 | NONE |
+| 106 | os_egm_jax | 10 | 10 | 9.5 | 8 | N/A | 10 | 10 | 9.6 | NONE |
+| 107 | cass_fiscal_2 | 9 | 10 | 10 | 10 | 9 | 10 | 10 | 9.7 | NONE |
+| 108 | mccall_persist_trans | 10 | 10 | 10 | 9 | 9 | 10 | 10 | 9.7 | NONE |
+| 109 | intro | 10 | N/A | 10 | N/A | N/A | N/A | N/A | 10 | NONE |
+| 110 | zreferences | 10 | N/A | 10 | N/A | N/A | N/A | N/A | 10 | NONE |
 
 ## Series-level recommendations
 
-1. **Address W3 (section headings in Title Case) systemically.** This is by far the most common deviation, affecting roughly 4 out of every 5 lectures. A simple find-and-replace pass to convert H2/H3/H4 headings to sentence case (preserving proper nouns and acronyms) would lift the writing score across the entire series.
-2. **Adopt `\top` for transpose everywhere (M2).** Older lectures (notably lqcontrol, linear_algebra, lagrangian_lqdp, markov_perf, rational_expectations, perm_income_cons) still use prime `'` heavily. A targeted sweep replacing prime transpose with `^\top` in math expressions would substantially improve math-convention scores.
-3. **Remove `\mathbf` / `\boldsymbol` from vectors (M5).** A small number of lectures (hansen_singleton_1983, mle, misspecified_recovery, multivariate_normal, opt_transport, theil_2, two_auctions, likelihood_var, likelihood_ratio_process) account for most violations, but they are heavy in those files.
-4. **Standardize probability notation (M7).** Use `\mathbb{E}`, `\mathbb{P}`, `\mathbb{V}` rather than bare `E[]` / `\Pr()` / `\operatorname{Var}`. Notable offenders include kalman_2, multivariate_normal, misspecified_recovery, navy_captain.
-5. **Replace "i.i.d." / "iid" with "IID" (W6).** A trivial global-replace covering ~20 lectures.
-6. **Replace `\mathcal{N}` with `N` for the normal distribution (M9).** Mostly concentrated in affine_risk_prices, merging_of_opinions, likelihood_var, plus single occurrences in measurement_models, ross_recovery, wald_friedman.
-7. **Fix one M12 rendering risk** in `divergence_measures.md` (line 134): `\begin{align}` inside `$$` should be `\begin{aligned}` to avoid PDF build failures.
+### Carried forward from v1 (Writing + Math)
+
+1. **Address `qe-writing-006` (sentence case for H2+) systemically.** Still the most common deviation — affects roughly 4 out of every 5 lectures. A find-and-replace pass converting H2/H3 headings to sentence case (preserving proper nouns and acronyms) would lift writing scores across the series.
+2. **Adopt `\top` for transpose everywhere (`qe-math-002`).** Older lectures (notably `lqcontrol`, `linear_algebra`, `lagrangian_lqdp`, `markov_perf`, `rational_expectations`, `perm_income_cons`, `cross_product_trick`) still use prime `'` or `^T` heavily.
+3. **Remove `\mathbf`/`\boldsymbol` from vectors (`qe-math-004`).** Concentrated in `hansen_singleton_1983`, `mle`, `misspecified_recovery`, `multivariate_normal`, `opt_transport`, `theil_2`, `two_auctions`, `likelihood_var`, `likelihood_ratio_process`.
+4. **Standardise probability notation (`qe-math-A1`): `\mathbb{E}`, `\mathbb{P}`, `\mathbb{V}` with braces.** Notable offenders include `kalman_2`, `multivariate_normal`, `misspecified_recovery`, `navy_captain`.
+5. **Replace "i.i.d."/"iid" with "IID" (`qe-writing-A1`).** Trivial global-replace across ~20 lectures.
+6. **Replace `\mathcal{N}` with `N` for the normal distribution (`qe-math-A3`).** Concentrated in `affine_risk_prices`, `merging_of_opinions`, `likelihood_var`.
+7. **Fix Critical: `\begin{align}` inside `$$` in `divergence_measures.md` (`qe-math-006`).** Build-risk.
+
+### New from v2 (Code + Figures + Admonitions + References + Links)
+
+8. **`qe-fig-001` (do not set `figsize=`):** the single most common new-category finding — set in 75 / 110 lectures, with extreme offenders (`chow_business_cycles`, `likelihood_ratio_process`, `likelihood_ratio_process_2`, `two_computation`, `organization_capital`) setting it 10+ times. A series-wide pass removing `figsize=` would benefit nearly every lecture.
+9. **`qe-code-002` (Unicode Greek in code):** 94 / 110 lectures use spelled-out Greek (alpha, beta, …) in code cells; 83 of these also mix in unicode (α, β, …) inconsistently within the same lecture. The style guide prefers unicode. Pick a convention per lecture and apply it consistently.
+10. **`qe-fig-003` (no embedded matplotlib titles):** 44 lectures use `ax.set_title()` or `fig.suptitle()` outside exercise blocks. Worst offenders: `navy_captain` (13), `likelihood_ratio_process` (8), `prob_meaning` (7), `survival_recursive_preferences` (6), `likelihood_ratio_process_2` (6), `likelihood_var` (6).
+11. **`qe-fig-006` (lowercase axis labels):** 20 lectures have capitalised `set_xlabel`/`set_ylabel` strings. Worst offenders: `two_computation` (46 instances), `two_auctions` (14), `affine_risk_prices` (15), `kalman_2` (6).
+12. **`qe-link-002` (cross-series `{doc}` links):** 17 lectures use direct URLs to other QuantEcon series; convert to `{doc}` intersphinx form. Notable offenders: `linear_algebra` (6 URLs), `lagrangian_lqdp` (3), `cass_koopmans_2` (2 same-series + 2 cross-series).
+13. **`qe-link-001` (same-series links):** 12 lectures use full python.quantecon.org URLs for same-series refs; switch to plain markdown `[](label)` links. Notable: `odu` (4), `wald_friedman_2` (2), `cass_koopmans_2` (2).
+14. **`qe-fig-005` (descriptive figure names):** most lectures with figures lack `:name: fig-…` fields, missing the opportunity for `{numref}` cross-referencing. Only 17 lectures use the convention systematically; consider applying it series-wide.
+15. **`qe-code-003` (install-cell `hide-output` tag):** `hoist_failure.md` has a `!pip install tabulate` cell without the `tags: [hide-output]` annotation. Low-risk fix.
+16. **`qe-code-004` / `qe-code-005` (use `qe.Timer` / `qe.timeit`):** `ifp_egm.md`, `ifp_egm_transient_shocks.md` use manual `time.time()` timing; `lagrangian_lqdp.md` uses `%%timeit` magic. Migrate to `quantecon.Timer` / `quantecon.timeit`.
+17. **`qe-fig-010` (plotly + `{only} latex`):** `back_prop.md` uses Plotly figures but lacks the `{only} latex` directive required for PDF compatibility.
+
+### Methodology notes
+
+- v1 writing/math findings were carried forward and re-keyed to v2 `qe-*` IDs per spec §10.
+- v2 added 5 categories (Code, Figures, References, Links, Admonitions). JAX is out of scope per series instructions; 23 / 110 lectures use JAX.
+- New-category scoring is mechanical: regex/AST signals on lecture source. References (`qe-ref-001`) is judgment-only and scored conservatively at 9 unless an LLM check is performed; consider a follow-up audit pass that adjudicates each `{cite}` vs `{cite:t}` call in context.
+- Admonitions scored 10.0 across the series because the mechanical checks (`qe-admon-001`, `qe-admon-003`, `qe-admon-004`) found no violations; `qe-admon-002` (dropdown class) is followed almost universally. A judgment-level review of admonition usage may surface additional issues.
