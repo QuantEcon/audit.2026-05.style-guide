@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/chang_ramsey.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 8.0 / 10
 - **Priority:** LOW

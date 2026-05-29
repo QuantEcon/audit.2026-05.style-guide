@@ -3,7 +3,6 @@
 - **Series:** lecture-python-programming
 - **File:** `lectures/intro.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 9.5 / 10
 - **Priority:** NONE
@@ -33,7 +32,7 @@ _None found._
 _None found._
 
 ### Low severity
-- **[qe-writing-001]** *(carry-forward W1)* — The second paragraph is split across two lines but expresses a single sentence; nothing actionable.
+- **[qe-writing-001]** — The second paragraph is split across two lines but expresses a single sentence; nothing actionable.
 
 ## Strengths
 - Lecture title uses Title Case per qe-writing-006.

@@ -3,7 +3,6 @@
 - **Series:** lecture-python-programming
 - **File:** `lectures/pandas.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 7.8 / 10
 - **Priority:** LOW
@@ -27,14 +26,14 @@
 _None found._
 
 ### High severity
-- **[qe-writing-006]** *(carry-forward W3)* — Section headings use Title Case rather than sentence case. *Examples:* line 144 `## DataFrames`, line 181 `### Select Data by Position`, line 209 `### Select Data by Conditions`, line 294 `### Apply Method`, line 347 `### Make Changes in DataFrames`, line 427 `### Standardization and Visualization`, line 495 `## On-Line Data Sources`, line 514 `### Accessing Data with requests`, line 593 `### Using wbgapi and yfinance to Access Data`, line 627 `## Exercises`. *Count:* 10 occurrences.
+- **[qe-writing-006]** — Section headings use Title Case rather than sentence case. *Examples:* line 144 `## DataFrames`, line 181 `### Select Data by Position`, line 209 `### Select Data by Conditions`, line 294 `### Apply Method`, line 347 `### Make Changes in DataFrames`, line 427 `### Standardization and Visualization`, line 495 `## On-Line Data Sources`, line 514 `### Accessing Data with requests`, line 593 `### Using wbgapi and yfinance to Access Data`, line 627 `## Exercises`. *Count:* 10 occurrences.
 
 ### Medium severity
 - **[qe-fig-001]** — Two explicit `figsize=(10, 8)` in code-cells inside solution blocks (lines 726, 797). Inside `solution-start`/`solution-end` qe-fig-003 has an exception but qe-fig-001 does not — these are weak style nits.
 - **[qe-fig-005]** — Code-generated plots (e.g., bar plots at lines 473, 489, 583) lack `name:` metadata.
 
 ### Low severity
-- **[qe-writing-004]** *(carry-forward W7)* — "On-Line" capitalized at line 495 — modern usage prefers "online".
+- **[qe-writing-004]** — "On-Line" capitalized at line 495 — modern usage prefers "online".
 - **[qe-code-003]** — `import yfinance as yf` placed inside an exercise body (line 637); pedagogically motivated (only needed for that exercise) but the install at the top makes it available globally.
 
 ## Strengths

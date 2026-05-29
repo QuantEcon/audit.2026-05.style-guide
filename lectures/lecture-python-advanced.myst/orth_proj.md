@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/orth_proj.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 6.4 / 10
 - **Priority:** MEDIUM
@@ -27,14 +26,14 @@
 _None found._
 
 ### High severity
-- **[qe-math-002]** — Prime `'` used systematically as transpose (carry-forward from v1 M2). *Example:* `P = X (X' X)^{-1} X' y`, `U' U = I`, `(R' R)^{-1} R'`. *Count:* ~47 occurrences.
-- **[qe-math-003]** — `\begin{array}{c}` (and `{cccc}`) used for matrices instead of `\begin{bmatrix}` (carry-forward from v1 M4). *Example:* `lectures/orth_proj.md:535`, `:545`, `:560`, `:569`, `:777`. *Count:* 6 occurrences.
+- **[qe-math-002]** — Prime `'` used systematically as transpose. *Example:* `P = X (X' X)^{-1} X' y`, `U' U = I`, `(R' R)^{-1} R'`. *Count:* ~47 occurrences.
+- **[qe-math-003]** — `\begin{array}{c}` (and `{cccc}`) used for matrices instead of `\begin{bmatrix}`. *Example:* `lectures/orth_proj.md:535`, `:545`, `:560`, `:569`, `:777`. *Count:* 6 occurrences.
 
 ### Medium severity
 - **[qe-fig-002]** — 6 `{figure}` directives reference static schematic PNGs.
 
 ### Low severity
-- **[qe-math-A1]** — Two `\mathbb{E}` occurrences (per scan).
+- **[qe-math-010 (proposed)]** — Two `\mathbb{E}` occurrences (per scan).
 - **[qe-fig-005]** — Figures lack `:name: fig-...` fields.
 - **[qe-code-002]** — 4 spelled Greek in code.
 

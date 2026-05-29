@@ -3,7 +3,6 @@
 - **Series:** lecture-python.myst
 - **File:** `lectures/chow_business_cycles.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 9.1 / 10
 - **Priority:** NONE
@@ -31,7 +30,7 @@ _None found._
 
 ### Medium severity
 - **[qe-writing-006]** — Section headings use Title Case rather than sentence case. *Examples:* line 845 `The Slutsky connection`, line 979 `Reconstructing $A$ and computing $F(\omega)$`. *Count:* 2.
-- **[qe-math-A1]** — Bare `E[...]` or `\Pr(...)` used instead of `\mathbb{E}`, `\mathbb{P}`. *Examples:* line 914. *Count:* 3.
+- **[qe-math-010 (proposed)]** — Bare `E[...]` or `\Pr(...)` used instead of `\mathbb{E}`, `\mathbb{P}`. *Examples:* line 914. *Count:* 3.
 - **[qe-code-002]** — Spelled-out Greek (alpha/beta/etc.) used predominantly in code; mixed with unicode forms (word=13, uni=8).
 - **[qe-fig-001]** — `figsize=` set in 11 places — usually unnecessary (defaults from `_config.yml`).
 
@@ -51,7 +50,7 @@ _None found._
 
 ## Recommended actions
 1. Address `qe-writing-006`: Section headings use Title Case rather than sentence case.
-2. Address `qe-math-A1`: Bare `E[...]` or `\Pr(...)` used instead of `\mathbb{E}`, `\mathbb{P}`.
+2. Address `qe-math-010 (proposed)`: Bare `E[...]` or `\Pr(...)` used instead of `\mathbb{E}`, `\mathbb{P}`.
 3. Address `qe-code-002`: Spelled-out Greek (alpha/beta/etc.) used predominantly in code; mixed with unicode forms (word=13, uni=8).
 4. Address `qe-fig-001`: `figsize=` set in 11 places — usually unnecessary (defaults from `_config.yml`).
 5. Address `qe-fig-005`: Figures lack descriptive `name:` fields for cross-referencing (12 plot calls, 0 named).

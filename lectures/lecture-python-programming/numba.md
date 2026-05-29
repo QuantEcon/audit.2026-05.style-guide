@@ -3,7 +3,6 @@
 - **Series:** lecture-python-programming
 - **File:** `lectures/numba.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 7.8 / 10
 - **Priority:** LOW
@@ -30,19 +29,19 @@ _None found._
 _None found._
 
 ### Medium severity
-- **[qe-writing-006]** *(carry-forward W3)* — Section headings use Title Case. *Examples:* line 80 `## Compiling Functions`, line 87 `### An Example`, line 100 `#### Base Version`, line 132 `#### Acceleration via Numba`, line 183 `### How and When it Works`, line 217 `## Sharp Bits`, line 223 `### Typing`, line 267 `### Global Variables`, line 300 `## Multithreaded Loops in Numba`, line 437 `## Exercises`. *Count:* 10+ occurrences.
+- **[qe-writing-006]** — Section headings use Title Case. *Examples:* line 80 `## Compiling Functions`, line 87 `### An Example`, line 100 `#### Base Version`, line 132 `#### Acceleration via Numba`, line 183 `### How and When it Works`, line 217 `## Sharp Bits`, line 223 `### Typing`, line 267 `### Global Variables`, line 300 `## Multithreaded Loops in Numba`, line 437 `## Exercises`. *Count:* 10+ occurrences.
 - **[qe-link-002]** — One bare URL to a sibling series. *Example:* line 497 `[Introduction to Quantitative Economics with Python](https://intro.quantecon.org/intro.html)` — should use `` {doc}`intro:intro` `` (or with custom title).
 - **[qe-fig-005]** — Two code-generated figures (lines 113, 341) lack `name:` metadata.
 
 ### Low severity
-- **[qe-math-A1]** *(carry-forward M7)* — `\mathbb E` without braces in display math (lines 700, 739). Renders identically but inconsistent.
+- **[qe-math-010 (proposed)]** — `\mathbb E` without braces in display math (lines 700, 739). Renders identically but inconsistent.
 - **[qe-admon-001]** — Three exercises use bare `{exercise}` rather than gated `{exercise-start}` / `{exercise-end}` syntax (lines 439, 613, 688). Their bodies contain math and prose only, so this is a borderline preference rather than a hard violation.
 
 ## Strengths
 - Lecture title "Numba" follows qe-writing-006 (single word).
 - Math conventions clean: no `^T`, no bold vectors, no `*` for multiplication, no `\tag`, no `align` inside `$$`.
 - Sequences use `\{...\}` per qe-math-005 (e.g., `$\{\xi_t\}$` line 726).
-- "IID" used correctly per qe-writing-A1 (line 726).
+- "IID" used correctly per qe-writing-009 (proposed) (line 726).
 - `qe.Timer()` consistently used for benchmarking (qe-code-004 exemplary).
 - Greek unicode (α, β, μ, ρ, ν, σ, ξ, η) used in code throughout per qe-code-002.
 - `{image}` directive used inside `exercise-start`/`exercise-end` for the Markov chain transition graph per qe-fig-011.

@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/calvo.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 7.6 / 10
 - **Priority:** LOW
@@ -34,7 +33,7 @@ _None found._
 - **[qe-fig-003]** — `ax.set_title` used in 2 cells.
 
 ### Low severity
-- **[qe-math-002]** — A handful of primes used as transpose (carry-forward from v1 M2). *Count:* ~7 occurrences (most primes here are next-period notation).
+- **[qe-math-002]** — A handful of primes used as transpose. *Count:* ~7 occurrences (most primes here are next-period notation).
 - **[qe-writing-005]** — `**time inconsistency**`, `**Ramsey plan**`, `**machine learning**` bold-as-keyword use is borderline definitional.
 - **[qe-fig-005]** — Figures lack `:name: fig-...` fields.
 - **[qe-fig-001]** — 5 `figsize=` settings.

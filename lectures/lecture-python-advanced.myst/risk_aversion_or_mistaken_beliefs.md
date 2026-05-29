@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/risk_aversion_or_mistaken_beliefs.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 6.4 / 10
 - **Priority:** MEDIUM
@@ -27,8 +26,8 @@
 _None found._
 
 ### High severity
-- **[qe-math-A3]** — 18 `\mathcal{N}` used as Normal distribution. *Count:* 18 occurrences.
-- **[qe-math-A1]** — 10 bare `E_t` instead of `\mathbb{E}_t`. *Count:* 10 occurrences.
+- **[qe-math-011 (proposed)]** — 18 `\mathcal{N}` used as Normal distribution. *Count:* 18 occurrences.
+- **[qe-math-010 (proposed)]** — 10 bare `E_t` instead of `\mathbb{E}_t`. *Count:* 10 occurrences.
 - **[qe-fig-001]** — 10 `figsize=` settings — systemic.
 
 ### Medium severity
@@ -50,8 +49,8 @@ _None found._
 - `{doc}` for cross-series references (qe-link-002).
 
 ## Recommended actions
-1. Replace `\mathcal{N}` with `N` (qe-math-A3).
-2. Convert bare `E_t` to `\mathbb{E}_t` (qe-math-A1).
+1. Replace `\mathcal{N}` with `N` (qe-math-011, proposed).
+2. Convert bare `E_t` to `\mathbb{E}_t` (qe-math-010, proposed).
 3. Reduce `figsize=` usage (qe-fig-001).
 4. Lowercase axis labels (qe-fig-006).
 5. Code-generate static figures where feasible (qe-fig-002).

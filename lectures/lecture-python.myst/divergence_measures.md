@@ -3,7 +3,6 @@
 - **Series:** lecture-python.myst
 - **File:** `lectures/divergence_measures.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 9.0 / 10
 - **Priority:** NONE
@@ -34,7 +33,7 @@ _None found._
 - **[qe-fig-006]** — Axis labels capitalised in 4 places. *Examples:* line 441, line 442, line 446.
 
 ### Low severity
-- **[qe-writing-A1]** — Uses "i.i.d." or "iid" in text rather than "IID". *Example:* line 336.
+- **[qe-writing-009 (proposed)]** — Uses "i.i.d." or "iid" in text rather than "IID". *Example:* line 336.
 - **[qe-fig-001]** — `figsize=` set in 4 places — usually unnecessary.
 - **[qe-fig-005]** — Figures lack descriptive `name:` fields for cross-referencing (5 plot calls, 0 named).
 
@@ -51,5 +50,5 @@ _None found._
 1. Address `qe-math-006`: `\begin{align}` used inside `$$` math (breaks PDF builds; use `aligned`).
 2. Address `qe-code-002`: Greek letters spelled out in code; spec prefers unicode (α, β).
 3. Address `qe-fig-006`: Axis labels capitalised in 4 places.
-4. Address `qe-writing-A1`: Uses "i.i.d." or "iid" in text rather than "IID".
+4. Address `qe-writing-009 (proposed)`: Uses "i.i.d." or "iid" in text rather than "IID".
 5. Address `qe-fig-001`: `figsize=` set in 4 places — usually unnecessary.

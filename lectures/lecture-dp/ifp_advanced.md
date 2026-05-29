@@ -3,7 +3,6 @@
 - **Series:** lecture-dp
 - **File:** `lectures/ifp_advanced.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
 - **Overall score:** 8.0 / 10
 - **Priority:** LOW
@@ -32,7 +31,7 @@ _None found._
 ### Medium severity
 - **[qe-writing-006]** — Title Case H2/H3 headings. *Examples:* `## The Model` (73), `### Set Up` (77), `### Assumptions` (123), `### Optimality` (164), `## Solution Algorithm` (193), `### A Time Iteration Operator` (198), `### Convergence Properties` (226), `### Using an Endogenous Grid` (251), `#### Finding Optimal Consumption` (265), `#### Iterating` (300), `## Wealth Inequality` (668), `### Measuring Inequality` (675). *Count:* 12+ headings.
 - **[qe-math-007]** — `\label{a:y0}` inside a `$$ … $$` block (line 158). Manual LaTeX label conflicting with MyST numbering.
-- **[qe-math-A1]** — `\mathbb E` written without braces in several display equations (lines 85, 141, 150, 152, 157, 181, 212).
+- **[qe-math-010 (proposed)]** — `\mathbb E` written without braces in several display equations (lines 85, 141, 150, 152, 157, 181, 212).
 
 ### Low severity
 - **[qe-writing-004]** — `\mathscr C`, `\mathsf Z`, `\mathbf S` for sets (lines 117, 166, 170, 200, 203).

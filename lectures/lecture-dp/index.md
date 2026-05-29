@@ -1,7 +1,6 @@
 # Style Audit — lecture-dp
 
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Lectures audited:** 50
 - **Categories audited:** writing, math, code, jax, figures, references, links, admonitions  *(JAX out of scope)*
 - **Average overall score:** 7.5 / 10
@@ -16,12 +15,11 @@
 | LOW      | 21    | 42% |
 | NONE     | 7     | 14% |
 
-The HIGH count rises sharply from 7 in the v1 audit (writing+math only) to 17 in v2. The extra HIGH lectures are pushed there primarily by **figures** (embedded matplotlib titles, Title-Case axis labels), **references** (no use of `{cite:t}`), **links** (raw markdown cross-series URLs), or **code** (mid-lecture `pip install`, `time.time()` benchmarking, binary-package installs without notes) — i.e. they have a single in-scope category ≤ 4 even when their writing/math is acceptable.
+Most HIGH-priority lectures are pushed there by a single weak category — **figures** (embedded matplotlib titles, Title-Case axis labels), **references** (no use of `{cite:t}`), **links** (raw markdown cross-series URLs), or **code** (mid-lecture `pip install`, `time.time()` benchmarking, binary-package installs without notes) — even when their writing and math are acceptable.
 
 ## Top systemic issues across the series
 
-### From the 5 new categories
-
+### Code, figures, references, links & admonitions issues
 1. **[qe-ref-001]** — Author-name narrative citations using parenthetical `{cite}` instead of textual `{cite:t}`. **Zero `{cite:t}` uses across the entire series.** Affects ~22 lectures (calvo×12, smoothing_tax×8, calvo_machine_learn×8, calvo_abreu×7, amss2×5, smoothing×4, chang_credible×3, chang_ramsey×3, lqramsey×3, perm_income×3, perm_income_cons×2, cons_news×2, tax_smoothing_1, mccall_model, career, os_egm, etc.). Hits hardest in the Calvo/Chang/Ramsey/AMSS/smoothing/tax-smoothing families where authors are routinely named in the surrounding prose.
 
 2. **[qe-link-002]** — Raw markdown links to other QuantEcon series (`python.quantecon.org`, `python-intro.quantecon.org`, `python-advanced.quantecon.org`, `python-programming.quantecon.org`) used where `{doc}` intersphinx references are required. Affects ~14 lectures; worst in `discrete_dp` (10×), `cons_news` (7×), `smoothing` (6×), `dyn_stack` (5×), `calvo` (4×), `odu` (4×), `lagrangian_lqdp` (4×), `lqcontrol` (2×).
@@ -38,21 +36,20 @@ The HIGH count rises sharply from 7 in the v1 audit (writing+math only) to 17 in
 - **[qe-code-005]** — `%timeit` / `%%timeit` magics instead of `quantecon.timeit`: `discrete_dp` (3×), `lagrangian_lqdp` (2×).
 - **[qe-code-006]** — Binary scientific-Python packages installed without notes: `chang_credible` (`polytope`), `chang_ramsey` (`polytope cvxopt`), `odu` (`interpolation`), `calvo_machine_learn` (`optax`).
 
-### Carried-forward issues from v1 (writing + math)
-
+### Writing & math issues
 - **[qe-math-002]** — Apostrophe `'` (and `^\prime`, `^T`) as transpose instead of `^\top`. Affects 11 / 50 lectures; hardest in the LQ/DP-derivation lectures (`lqcontrol`, `lagrangian_lqdp`, `perm_income_cons`, `smoothing`, `markov_jump_lq`, `dyn_stack`, `lq_inventories`, `calvo_machine_learn`, `cross_product_trick`, `perm_income`, `mccall_q`).
 - **[qe-writing-006]** — Title Case in H2/H3/H4 headings rather than sentence case. Affects 21 / 50 lectures.
-- **[qe-math-A1]** — Bare `E`, `\mathbb E` (no braces), or `E_0`/`E_t` for expectation. Affects 17 / 50 lectures.
+- **[qe-math-010 (proposed)]** — Bare `E`, `\mathbb E` (no braces), or `E_0`/`E_t` for expectation. Affects 17 / 50 lectures.
 - **[qe-math-004]** / **[qe-writing-004]** — `\vec`, `\mathbf`, `\mathcal`, `\mathscr`, `\mathsf`, `\cal` for plain symbols. 15 / 50 lectures.
-- **[qe-math-A3]** — `{\cal N}` / `\mathcal{N}` / `\operatorname{Beta}` for distributions. 9 / 50 lectures.
+- **[qe-math-011 (proposed)]** — `{\cal N}` / `\mathcal{N}` / `\operatorname{Beta}` for distributions. 9 / 50 lectures.
 - **[qe-math-001]** — `\cr` instead of `\\` for row separators inside `aligned` blocks. 7 / 50 lectures.
 - **[qe-math-003]** — Matrices use `pmatrix`, `array`, or `\left(\begin{matrix}\right)` instead of `bmatrix`. 5 / 50 lectures, very heavy in `lqcontrol` (17 array matrices) and `lq_inventories` (11 array matrices).
-- **[qe-writing-A1]** — Smart quotes ’ “ ” in narrative. 20 / 50 lectures.
+- **[qe-writing-009 (proposed)]** — Smart quotes ’ “ ” in narrative. 20 / 50 lectures.
 - **[qe-writing-001]** — Multi-sentence paragraphs. 43 / 50 lectures (low severity in most).
 
 ### Critical (build-risk)
 
-- **[qe-math-A6]** — Broken `{eq}` reference: `{eq}`eq:Kalman102}` (missing closing backtick) in `cross_product_trick.md:133`. Also the label `(eq:Kalman102)` is attached to a bare `align*` block (line 121) rather than a numbered `$$ … $$` block, so the label cannot bind. **One Critical finding in the series.**
+- **[qe-math-013 (proposed)]** — Broken `{eq}` reference: `{eq}`eq:Kalman102}` (missing closing backtick) in `cross_product_trick.md:133`. Also the label `(eq:Kalman102)` is attached to a bare `align*` block (line 121) rather than a numbered `$$ … $$` block, so the label cannot bind. **One Critical finding in the series.**
 
 ## Lectures ranked by priority (lowest score first)
 
@@ -127,6 +124,6 @@ The HIGH count rises sharply from 7 in the v1 audit (writing+math only) to 17 in
 
 8. **Binary-package install notes (qe-code-006).** Add an installation note for `chang_credible` (polytope), `chang_ramsey` (polytope, cvxopt), `odu` (interpolation), `calvo_machine_learn` (optax) explaining that they are not in Anaconda and may require special install steps.
 
-9. **Math conventions (carry-forward).** The big v1 fixes — transpose to `^\top`, sentence-case H2/H3 headings, `\mathbb{E}` with braces, drop `\vec`/`\mathbf`/`\mathcal` decoration, replace `pmatrix`/`array` matrices with `bmatrix`, replace `{\cal N}` with `N`, replace `\cr` with `\\` — remain the most pervasive issues in the series and should be tackled together.
+9. **Math conventions.** The biggest math fixes — transpose to `^\top`, sentence-case H2/H3 headings, `\mathbb{E}` with braces, drop `\vec`/`\mathbf`/`\mathcal` decoration, replace `pmatrix`/`array` matrices with `bmatrix`, replace `{\cal N}` with `N`, replace `\cr` with `\\` — remain the most pervasive issues in the series and should be tackled together.
 
 10. **Use the strong files as templates.** `mccall_persist_trans`, `os`, `os_time_iter`, `mccall_model_with_separation`, `amss3`, `mccall_fitted_vfi`, `os_egm`, `os_egm_jax`, `short_path`, and `ifp_discrete` are good models of the target style across all categories; refactor weaker lectures using them as references.

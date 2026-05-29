@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/lu_tricks.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 6.4 / 10
 - **Priority:** MEDIUM
@@ -27,7 +26,7 @@
 _None found._
 
 ### High severity
-- **[qe-math-003]** — `\begin{matrix}` used for matrices instead of `\begin{bmatrix}` (carry-forward from v1 M4). *Example:* `lectures/lu_tricks.md:295`, `:305`, `:311`, `:392`, `:403`. *Count:* 10 occurrences.
+- **[qe-math-003]** — `\begin{matrix}` used for matrices instead of `\begin{bmatrix}`. *Example:* `lectures/lu_tricks.md:295`, `:305`, `:311`, `:392`, `:403`. *Count:* 10 occurrences.
 
 ### Medium severity
 - **[qe-ref-001]** — Multiple narrative author refs ("Whittle (1963)", "Sargent (1979)", etc.) should use `{cite:t}`. *Count:* ~4 occurrences.
@@ -39,7 +38,7 @@ _None found._
 
 ## Strengths
 - Title in Title Case (qe-writing-006).
-- "IID" used correctly in narrative (qe-writing-A1) at L30.
+- "IID" used correctly in narrative (qe-writing-009, proposed) at L30.
 - Subheadings sentence case (qe-writing-006).
 - One-sentence paragraph rule respected (qe-writing-001).
 - Exercises gated (qe-admon-001).

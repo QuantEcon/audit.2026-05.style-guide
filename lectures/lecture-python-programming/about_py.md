@@ -3,7 +3,6 @@
 - **Series:** lecture-python-programming
 - **File:** `lectures/about_py.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 7.5 / 10
 - **Priority:** LOW
@@ -27,15 +26,15 @@
 _None found._
 
 ### High severity
-- **[qe-writing-006]** *(carry-forward W3)* — Most H3 section headings are Title Case rather than sentence case. *Examples:* line 50 `### Can't I Just Use LLMs?`, line 69 `### Isn't MATLAB Better?`, line 101 `### Common Uses`, line 127 `### Relative Popularity`, line 146 `### Features`, line 159 `### Syntax and Design`, line 252 `### The AI Connection`, line 291 `### NumPy`, line 347 `### NumPy Alternatives`, line 396 `### Graphics`, line 438 `### Networks and Graphs`, line 493 `### Other Scientific Libraries`. *Count:* 12+ occurrences.
+- **[qe-writing-006]** — Most H3 section headings are Title Case rather than sentence case. *Examples:* line 50 `### Can't I Just Use LLMs?`, line 69 `### Isn't MATLAB Better?`, line 101 `### Common Uses`, line 127 `### Relative Popularity`, line 146 `### Features`, line 159 `### Syntax and Design`, line 252 `### The AI Connection`, line 291 `### NumPy`, line 347 `### NumPy Alternatives`, line 396 `### Graphics`, line 438 `### Networks and Graphs`, line 493 `### Other Scientific Libraries`. *Count:* 12+ occurrences.
 
 ### Medium severity
-- **[qe-writing-006]** *(carry-forward W3)* — One H2 section heading uses Title Case: line 269 `## Scientific Programming with Python`.
+- **[qe-writing-006]** — One H2 section heading uses Title Case: line 269 `## Scientific Programming with Python`.
 - **[qe-link-002]** — Direct URL to a sibling series instead of `{doc}` link with intersphinx prefix. *Example:* line 84 `[JAX](https://jax.quantecon.org/intro.html)` — should be `` {doc}`jax:intro` ``.
 - **[qe-fig-005]** — All four `{figure}` directives lack a `name:` field, so they cannot be cross-referenced via `{numref}`. *Lines:* 140, 411, 417, 423.
 
 ### Low severity
-- **[qe-writing-001]** *(carry-forward W1)* — A few paragraphs combine two ideas into a single multi-line paragraph, but most paragraphs follow the one-sentence rule.
+- **[qe-writing-001]** — A few paragraphs combine two ideas into a single multi-line paragraph, but most paragraphs follow the one-sentence rule.
 - **[qe-fig-004]** — Three of the four figures have no caption (just the directive), and the first one places the descriptive sentence outside the directive (line 142 "Pytorch is just one of several …").
 
 ## Strengths

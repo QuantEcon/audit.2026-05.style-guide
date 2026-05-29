@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/arellano.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 8.1 / 10
 - **Priority:** LOW
@@ -38,7 +37,7 @@ _None found._
 - **[qe-fig-006]** — Embedded `ax.set_title("Value Functions")` uses Title Case (also covered by qe-fig-003).
 
 ## Strengths
-- `\mathbb E` used for expectation (qe-math-A1) at L101.
+- `\mathbb E` used for expectation (qe-math-010, proposed) at L101.
 - Primes `'` are used as next-period notation; convention explicitly stated at L148.
 - Title in Title Case (qe-writing-006); subheadings sentence case (qe-writing-006).
 - Equation labels and `{eq}` references (qe-math-007).

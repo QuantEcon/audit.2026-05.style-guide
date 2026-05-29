@@ -3,7 +3,6 @@
 - **Series:** lecture-dp
 - **File:** `lectures/ifp_discrete.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
 - **Overall score:** 8.4 / 10
 - **Priority:** LOW

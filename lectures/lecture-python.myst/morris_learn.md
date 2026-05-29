@@ -3,7 +3,6 @@
 - **Series:** lecture-python.myst
 - **File:** `lectures/morris_learn.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 9.5 / 10
 - **Priority:** NONE
@@ -30,7 +29,7 @@ _None found._
 _None found._
 
 ### Medium severity
-- **[qe-writing-A1]** — Uses "i.i.d." or "iid" in text rather than "IID". *Example:* line 82. *Count:* 2
+- **[qe-writing-009 (proposed)]** — Uses "i.i.d." or "iid" in text rather than "IID". *Example:* line 82. *Count:* 2
 - **[qe-writing-006]** — Section headings use Title Case rather than sentence case. *Examples:* line 330 `Two Traders`, line 546 `General N–trader extension`. *Count:* 2.
 
 ### Low severity
@@ -48,6 +47,6 @@ _None found._
 - Cross-series links use `{doc}` intersphinx form.
 
 ## Recommended actions
-1. Address `qe-writing-A1`: Uses "i.i.d." or "iid" in text rather than "IID".
+1. Address `qe-writing-009 (proposed)`: Uses "i.i.d." or "iid" in text rather than "IID".
 2. Address `qe-writing-006`: Section headings use Title Case rather than sentence case.
 3. Address `qe-code-002`: Mixed Greek conventions in code (word=3, uni=11).

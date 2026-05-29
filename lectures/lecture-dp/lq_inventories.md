@@ -3,7 +3,6 @@
 - **Series:** lecture-dp
 - **File:** `lectures/lq_inventories.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
 - **Overall score:** 7.4 / 10
 - **Priority:** HIGH
@@ -33,11 +32,11 @@ _None found._
 ### Medium severity
 - **[qe-writing-006]** — Two H2 headings in Title Case: `## Inventories Not Useful` (417), `## Inventories Useful but are Hardwired to be Zero Always` (448).
 - **[qe-math-001]** — `aligned` blocks use `\cr` row separator instead of `\\`. *Lines:* 101, 107, 113-120, 144-149.
-- **[qe-math-A1]** — Bare `E_0` used for expectation in display equation (line 195). Should be `\mathbb{E}_0`.
+- **[qe-math-010 (proposed)]** — Bare `E_0` used for expectation in display equation (line 195). Should be `\mathbb{E}_0`.
 
 ### Low severity
 - **[qe-writing-001]** — Several multi-sentence paragraphs.
-- **[qe-writing-A1]** — Smart quotes ’ used in narrative (lines 50, 58, 82, 89-91, 129-132).
+- **[qe-writing-009 (proposed)]** — Smart quotes ’ used in narrative (lines 50, 58, 82, 89-91, 129-132).
 
 ## Strengths
 - Lecture title in correct Title Case.

@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/calvo_machine_learn.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 6.0 / 10
 - **Priority:** HIGH
@@ -27,8 +26,8 @@
 _None found._
 
 ### High severity
-- **[qe-math-002]** — `^T` used systematically as transpose (carry-forward from v1 M2). *Example:* `lectures/calvo_machine_learn.md:860`, `:862`, `:865`, `:867`, `:870`, `:879`-`881`. *Count:* ~23 occurrences.
-- **[qe-math-004]** — Bold `\mathbf{I}` used for the identity matrix (carry-forward from v1 M5). *Example:* `lectures/calvo_machine_learn.md:865`, `:867`, `:870`, `:872`. *Count:* 4 occurrences.
+- **[qe-math-002]** — `^T` used systematically as transpose. *Example:* `lectures/calvo_machine_learn.md:860`, `:862`, `:865`, `:867`, `:870`, `:879`-`881`. *Count:* ~23 occurrences.
+- **[qe-math-004]** — Bold `\mathbf{I}` used for the identity matrix. *Example:* `lectures/calvo_machine_learn.md:865`, `:867`, `:870`, `:872`. *Count:* 4 occurrences.
 
 ### Medium severity
 _None found._

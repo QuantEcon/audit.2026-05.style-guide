@@ -3,7 +3,6 @@
 - **Series:** lecture-dp
 - **File:** `lectures/amss2.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
 - **Overall score:** 7.8 / 10
 - **Priority:** LOW
@@ -34,7 +33,7 @@ _None found._
 
 ### Low severity
 - **[qe-writing-001]** — A few multi-sentence paragraphs (lines 34-41, 57-79).
-- **[qe-writing-A1]** — Smart quotes ’ used occasionally.
+- **[qe-writing-009 (proposed)]** — Smart quotes ’ used occasionally.
 
 ## Strengths
 - Lecture title in correct Title Case.

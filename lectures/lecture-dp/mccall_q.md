@@ -3,7 +3,6 @@
 - **Series:** lecture-dp
 - **File:** `lectures/mccall_q.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
 - **Overall score:** 7.2 / 10
 - **Priority:** LOW
@@ -36,7 +35,7 @@ _None found._
 - **[qe-fig-001]** — `figsize=` set 5 times.
 
 ### Low severity
-- **[qe-math-A6]** — Mixed equation labels — `$$ (eq_mccallbellman)` (line 112) lacks colon prefix.
+- **[qe-math-013 (proposed)]** — Mixed equation labels — `$$ (eq_mccallbellman)` (line 112) lacks colon prefix.
 - **[qe-writing-005]** — Inconsistent capitalisation: "Q-learning" sometimes, "Q-Learning" elsewhere.
 
 ## Strengths

@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/cattle_cycles.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 6.4 / 10
 - **Priority:** MEDIUM
@@ -27,7 +26,7 @@
 _None found._
 
 ### High severity
-- **[qe-math-003]** — All matrices use `\left[ \begin{array}{...} ... \end{array} \right]` rather than `\begin{bmatrix}` (carry-forward from v1 M4). *Example:* `lectures/cattle_cycles.md:126`-`136`, `:143`-`163`, `:169`-`190`. *Count:* ~12 occurrences.
+- **[qe-math-003]** — All matrices use `\left[ \begin{array}{...} ... \end{array} \right]` rather than `\begin{bmatrix}`. *Example:* `lectures/cattle_cycles.md:126`-`136`, `:143`-`163`, `:169`-`190`. *Count:* ~12 occurrences.
 
 ### Medium severity
 - **[qe-fig-003]** — `ax.set_title` used in 1 cell.
@@ -38,7 +37,7 @@ _None found._
 - **[qe-code-002]** — Spelled-out Greek (`alpha`, `beta`, etc.) in code parameters (8 occurrences).
 
 ## Strengths
-- `\mathbb{E}_0` used correctly for expectation (qe-math-A1) at L93.
+- `\mathbb{E}_0` used correctly for expectation (qe-math-010, proposed) at L93.
 - Sequences in curly brackets `\{c_t, x_t\}`, `\{h_t, m_t\}` (qe-math-005) at L64-65, L90.
 - Title in Title Case (qe-writing-006); subheadings sentence case (qe-writing-006).
 - Install cell at top with `hide-output` (qe-code-003).

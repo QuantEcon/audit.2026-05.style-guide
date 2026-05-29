@@ -3,7 +3,6 @@
 - **Series:** lecture-dp
 - **File:** `lectures/tax_smoothing_3.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
 - **Overall score:** 7.8 / 10
 - **Priority:** LOW
@@ -30,12 +29,12 @@ _None found._
 _None found._
 
 ### Medium severity
-- **[qe-math-A3]** — Multivariate normal written as `{\cal N}(0,I)` (line 97).
-- **[qe-math-A1]** — Bare `E_0` for expectation in display equation (line 80). Should be `\mathbb{E}_0`.
+- **[qe-math-011 (proposed)]** — Multivariate normal written as `{\cal N}(0,I)` (line 97).
+- **[qe-math-010 (proposed)]** — Bare `E_0` for expectation in display equation (line 80). Should be `\mathbb{E}_0`.
 - **[qe-fig-006]** — Four Title-Case `xlabel('Time')`. *Lines:* 276, 279, 317, 320.
 
 ### Low severity
-- **[qe-writing-A1]** — Smart quotes ” “ used in narrative (lines 107, 145, 160, 170).
+- **[qe-writing-009 (proposed)]** — Smart quotes ” “ used in narrative (lines 107, 145, 160, 170).
 - **[qe-writing-001]** — A few multi-sentence paragraphs.
 - **[qe-fig-001]** — `figsize=` set 2 times.
 

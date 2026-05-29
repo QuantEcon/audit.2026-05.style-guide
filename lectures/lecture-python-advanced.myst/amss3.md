@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/amss3.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 7.4 / 10
 - **Priority:** LOW
@@ -30,7 +29,7 @@ _None found._
 _None found._
 
 ### Medium severity
-- **[qe-math-A1]** — A handful of bare `E_t` / `E(` instead of `\mathbb{E}_t` (carry-forward from v1 M7). *Example:* `lectures/amss3.md:294`, `:349`, `:361`, `:516`. *Count:* 4 occurrences.
+- **[qe-math-010 (proposed)]** — A handful of bare `E_t` / `E. *Example:* `lectures/amss3.md:294`, `:349`, `:361`, `:516`. *Count:* 4 occurrences.
 
 ### Low severity
 - **[qe-fig-002]** — 3 `{figure}` directives reference static PNGs which could be code-generated.
@@ -45,6 +44,6 @@ _None found._
 - Install cell at top with `hide-output` (qe-code-003).
 
 ## Recommended actions
-1. Standardise on `\mathbb{E}_t` throughout (qe-math-A1).
+1. Standardise on `\mathbb{E}_t` throughout (qe-math-010, proposed).
 2. Add `:name: fig-...` fields to figures (qe-fig-005).
 3. Use unicode Greek in code (qe-code-002).

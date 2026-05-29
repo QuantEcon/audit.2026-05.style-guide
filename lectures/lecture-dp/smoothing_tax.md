@@ -3,7 +3,6 @@
 - **Series:** lecture-dp
 - **File:** `lectures/smoothing_tax.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
 - **Overall score:** 6.6 / 10
 - **Priority:** HIGH
@@ -30,7 +29,7 @@ _None found._
 - **[qe-ref-001]** — Eight narrative-author citations using parenthetical `{cite}` rather than `{cite:t}`. *Examples:* "Lucas and Stokey {cite}`LucasStokey1983`", "Barro {cite}`Barro1979`", "Hall {cite}`Hall1978`", "Albert Gallatin (1807) {cite}`Gallatin`".
 
 ### Medium severity
-- **[qe-math-A1]** — `\mathbb E_t` written without braces (lines 877, 884, 892, 898); bare `E` on line 910.
+- **[qe-math-010 (proposed)]** — `\mathbb E_t` written without braces (lines 877, 884, 892, 898); bare `E` on line 910.
 - **[qe-fig-003]** — Three matplotlib title calls. *Lines:* 585 (`plt.title('Tax collection paths')`), 593 (`plt.title('Government debt paths')`), 604 (`ax.set_title('Cumulative return path (complete markets)')`).
 - **[qe-fig-006]** — Five Title-Case axis labels (`'Periods'` ×4, `'Cumulative return'`, `'Government expenditures'`). *Lines:* 255, 263, 289, 298, 607, 608, 613.
 - **[qe-link-002]** — One raw markdown link to `python.quantecon.org` (in narrative).

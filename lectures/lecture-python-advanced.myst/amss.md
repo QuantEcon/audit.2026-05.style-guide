@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/amss.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 7.4 / 10
 - **Priority:** LOW
@@ -30,7 +29,7 @@ _None found._
 _None found._
 
 ### Medium severity
-- **[qe-math-003]** — `\begin{pmatrix}` and `\begin{matrix}` used for two matrices instead of `\begin{bmatrix}` (carry-forward from v1 M4). *Example:* `lectures/amss.md:802`, `:815`. *Count:* 2 occurrences.
+- **[qe-math-003]** — `\begin{pmatrix}` and `\begin{matrix}` used for two matrices instead of `\begin{bmatrix}`. *Example:* `lectures/amss.md:802`, `:815`. *Count:* 2 occurrences.
 - **[qe-ref-001]** — Narrative author references followed by `{cite}` (e.g. "Lucas and Stokey (1983) {cite}`LucasStokey1983`") should use `{cite:t}`. *Example:* `lectures/amss.md:191`, `:321`. *Count:* 2 occurrences.
 
 ### Low severity
@@ -38,7 +37,7 @@ _None found._
 - **[qe-fig-001]** — `figsize=` set 3 times without justification.
 
 ## Strengths
-- `\mathbb E_0`, `\mathbb E_t` used consistently (qe-math-A1) at L302, L313, L335, L524, L534, L543, L551.
+- `\mathbb E_0`, `\mathbb E_t` used consistently (qe-math-010, proposed) at L302, L313, L335, L524, L534, L543, L551.
 - Title in Title Case (qe-writing-006); subheadings sentence case (qe-writing-006).
 - One-sentence paragraph rule respected (qe-writing-001).
 - Sequences in curly brackets (qe-math-005).

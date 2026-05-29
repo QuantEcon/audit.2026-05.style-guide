@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/opt_tax_recur.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 7.6 / 10
 - **Priority:** LOW
@@ -30,11 +29,11 @@ _None found._
 _None found._
 
 ### Medium severity
-- **[qe-math-009]** — `{\cal S}` (calligraphic S) used for the state space (carry-forward from v1 W8). *Example:* `lectures/opt_tax_recur.md:84`, `:820`, `:826`, `:837`, `:848`. *Count:* 5 occurrences.
+- **[qe-math-009]** — `{\cal S}` (calligraphic S) used for the state space. *Example:* `lectures/opt_tax_recur.md:84`, `:820`, `:826`, `:837`, `:848`. *Count:* 5 occurrences.
 - **[qe-fig-003]** — 1 `ax.set_title` occurrence.
 
 ### Low severity
-- **[qe-math-A1]** — One bare `E` occurrence per scan.
+- **[qe-math-010 (proposed)]** — One bare `E` occurrence per scan.
 - Primes (`s'`, `x'(s')`) are next-period notation; no qe-math-002 violation.
 - **[qe-fig-005]** — Figures lack `:name: fig-...` fields.
 - **[qe-fig-001]** — 5 `figsize=` settings.

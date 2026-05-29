@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/markov_jump_lq.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 5.7 / 10
 - **Priority:** MEDIUM
@@ -27,13 +26,13 @@
 _None found._
 
 ### High severity
-- **[qe-math-002]** — Prime `'` used as transpose throughout (carry-forward from v1 M2). *Example:* `lectures/markov_jump_lq.md:81`, `:94`, `:108`, `:114`, `:115`, `:122`, `:128`. *Count:* ~25 occurrences.
+- **[qe-math-002]** — Prime `'` used as transpose throughout. *Example:* `lectures/markov_jump_lq.md:81`, `:94`, `:108`, `:114`, `:115`, `:122`, `:128`. *Count:* ~25 occurrences.
 - **[qe-fig-003]** — `ax.set_title` used in 6 cells — systemic. *Count:* 6 occurrences.
 
 ### Medium severity
-- **[qe-math-A1]** — Bare `E` for expectation (carry-forward from v1 M7). *Example:* `lectures/markov_jump_lq.md:94`. *Count:* 1 occurrence.
-- **[qe-math-A3]** — `\mathcal N` for Normal distribution (carry-forward from v1 M9). *Count:* 1 occurrence.
-- **[qe-writing-A1]** — "iid" used in narrative (carry-forward from v1 W6). *Count:* 1 occurrence.
+- **[qe-math-010 (proposed)]** — Bare `E` for expectation. *Example:* `lectures/markov_jump_lq.md:94`. *Count:* 1 occurrence.
+- **[qe-math-011 (proposed)]** — `\mathcal N` for Normal distribution. *Count:* 1 occurrence.
+- **[qe-writing-009 (proposed)]** — "iid" used in narrative. *Count:* 1 occurrence.
 
 ### Low severity
 - **[qe-writing-005]** — Heavy decorative bolding (e.g. `**linear quadratic dynamic programming problem**`).
@@ -50,7 +49,7 @@ _None found._
 ## Recommended actions
 1. Replace `'` with `^\top` for transpose throughout (qe-math-002).
 2. Remove `ax.set_title` calls (qe-fig-003).
-3. Replace bare `E` with `\mathbb{E}` (qe-math-A1).
-4. Replace `\mathcal N` with `N` (qe-math-A3).
-5. Replace "iid" with "IID" (qe-writing-A1).
+3. Replace bare `E` with `\mathbb{E}` (qe-math-010, proposed).
+4. Replace `\mathcal N` with `N` (qe-math-011, proposed).
+5. Replace "iid" with "IID" (qe-writing-009, proposed).
 6. Add `:name: fig-...` fields (qe-fig-005).

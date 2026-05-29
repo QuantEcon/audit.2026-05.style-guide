@@ -3,7 +3,6 @@
 - **Series:** lecture-python-programming
 - **File:** `lectures/jax_intro.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 8.4 / 10
 - **Priority:** LOW
@@ -30,10 +29,10 @@ _None found._
 - **[qe-fig-003]** — Embedded title in matplotlib figure outside an exercise/solution context. *Example:* line 560 `ax.set_title("PRNG Key Splitting Tree", fontsize=13, pad=10)`. *Count:* 1 occurrence.
 
 ### Medium severity
-- **[qe-writing-006]** *(carry-forward W3)* — Several H2/H3 headings use Title Case. *Examples:* line 51 `## JAX as a NumPy Replacement`, line 101 `### Differences`, line 429 `### NumPy / MATLAB Approach`, line 596 `### Benefits`, line 606 `## JIT Compilation`, line 617 `### With NumPy`, line 653 `### With JAX`, line 696 `### Compiling the Whole Function`, line 905 `## Exercises`. *Count:* ~10 occurrences.
+- **[qe-writing-006]** — Several H2/H3 headings use Title Case. *Examples:* line 51 `## JAX as a NumPy Replacement`, line 101 `### Differences`, line 429 `### NumPy / MATLAB Approach`, line 596 `### Benefits`, line 606 `## JIT Compilation`, line 617 `### With NumPy`, line 653 `### With JAX`, line 696 `### Compiling the Whole Function`, line 905 `## Exercises`. *Count:* ~10 occurrences.
 
 ### Low severity
-- **[qe-writing-001]** *(carry-forward W1)* — A couple of paragraphs combine two sentences (e.g., lines 900–902).
+- **[qe-writing-001]** — A couple of paragraphs combine two sentences (e.g., lines 900–902).
 - **[qe-fig-001]** — One explicit `figsize=(8, 4)` at line 498 without strong justification.
 - **[qe-fig-005]** — No code-generated figures have `name:` metadata for `numref` cross-referencing.
 

@@ -3,7 +3,6 @@
 - **Series:** lecture-python.myst
 - **File:** `lectures/kalman_2.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 8.6 / 10
 - **Priority:** NONE
@@ -27,7 +26,7 @@
 _None found._
 
 ### High severity
-- **[qe-math-A1]** — Bare `E[...]`, `\Pr(...)`, or `\Var(...)` used instead of `\mathbb{E}`, `\mathbb{P}`, `\mathbb{V}`. *Examples:* lines 258, 260. *Count:* 13 chunks.
+- **[qe-math-010 (proposed)]** — Bare `E[...]`, `\Pr(...)`, or `\Var(...)` used instead of `\mathbb{E}`, `\mathbb{P}`, `\mathbb{V}`. *Examples:* lines 258, 260. *Count:* 13 chunks.
 - **[qe-fig-006]** — Axis labels capitalised in 6 places (should be lowercase). *Examples:* line 259, line 267, line 406.
 
 ### Medium severity
@@ -47,7 +46,7 @@ _None found._
 - Cross-series links use `{doc}` intersphinx form.
 
 ## Recommended actions
-1. Address `qe-math-A1`: Bare `E[...]`, `\Pr(...)`, or `\Var(...)` used instead of `\mathbb{E}`, `\mathbb{P}`, `\mathbb{V}`.
+1. Address `qe-math-010 (proposed)`: Bare `E[...]`, `\Pr(...)`, or `\Var(...)` used instead of `\mathbb{E}`, `\mathbb{P}`, `\mathbb{V}`.
 2. Address `qe-fig-006`: Axis labels capitalised in 6 places (should be lowercase).
 3. Address `qe-writing-006`: Section headings use Title Case rather than sentence case.
 4. Address `qe-fig-003`: `ax.set_title()` used 2 times outside exercise blocks.

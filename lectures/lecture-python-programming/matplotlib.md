@@ -3,7 +3,6 @@
 - **Series:** lecture-python-programming
 - **File:** `lectures/matplotlib.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 7.0 / 10
 - **Priority:** HIGH
@@ -27,7 +26,7 @@
 _None found._
 
 ### High severity
-- **[qe-writing-006]** *(carry-forward W3)* — Section headings systematically use Title Case. *Examples:* line 38 `### Matplotlib's Split Personality`, line 50 `## The APIs`, line 55 `### The MATLAB-style API`, line 78 `### The Object-Oriented API`, line 99 `### Tweaks`, line 141 `## More Features`, line 148 `### Multiple Plots on One Axis`, line 172 `### Multiple Subplots`, line 194 `### 3D Plots`, line 226 `### A Customizing Function`, line 265 `### Style Sheets`, line 439 `## Further Reading`, line 447 `## Exercises`. *Count:* 13 occurrences.
+- **[qe-writing-006]** — Section headings systematically use Title Case. *Examples:* line 38 `### Matplotlib's Split Personality`, line 50 `## The APIs`, line 55 `### The MATLAB-style API`, line 78 `### The Object-Oriented API`, line 99 `### Tweaks`, line 141 `## More Features`, line 148 `### Multiple Plots on One Axis`, line 172 `### Multiple Subplots`, line 194 `### 3D Plots`, line 226 `### A Customizing Function`, line 265 `### Style Sheets`, line 439 `## Further Reading`, line 447 `## Exercises`. *Count:* 13 occurrences.
 - **[qe-fig-003]** — Embedded titles in matplotlib figures. *Examples:* line 137 `ax.set_title('Test plot')`, line 317 `plt.suptitle(f'Style: {style_name}', fontsize=13)`. *Context:* this is a Matplotlib teaching lecture, so titles are part of the exposition — arguably an instructional exception, but they should be flagged or the demos converted to use figure-directive titles.
 - **[qe-fig-001]** — Multiple explicit `figsize` values (lines 183, 213, 289, 392). Same caveat as above: this lecture explicitly teaches how to use these knobs.
 
@@ -35,7 +34,7 @@ _None found._
 - **[qe-fig-005]** — No `name:` metadata on any of the code-generated figures.
 
 ### Low severity
-- **[qe-writing-001]** *(carry-forward W1)* — A few descriptive paragraphs combine clauses (e.g., lines 88–91 enumeration could be condensed).
+- **[qe-writing-001]** — A few descriptive paragraphs combine clauses (e.g., lines 88–91 enumeration could be condensed).
 - **[qe-code-001]** — `from random import uniform` (line 159) is used alongside numpy code; idiomatic in matplotlib examples but mixes RNG sources.
 
 ## Strengths

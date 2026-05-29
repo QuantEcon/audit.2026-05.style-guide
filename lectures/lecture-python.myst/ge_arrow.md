@@ -3,7 +3,6 @@
 - **Series:** lecture-python.myst
 - **File:** `lectures/ge_arrow.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 8.9 / 10
 - **Priority:** NONE
@@ -33,7 +32,7 @@ _None found._
 - **[qe-math-002]** — Transpose denoted `'` (prime) or `^T` instead of `\top`. *Examples:* line 742 (`^T`). *Count:* 3 occurrences.
 
 ### Low severity
-- **[qe-math-A1]** — Bare `E[...]` or `\Pr(...)` used in place of `\mathbb{E}`/`\mathbb{P}`. *Example:* line 298.
+- **[qe-math-010 (proposed)]** — Bare `E[...]` or `\Pr(...)` used in place of `\mathbb{E}`/`\mathbb{P}`. *Example:* line 298.
 - **[qe-fig-001]** — `figsize=` set in 1 place(s).
 
 ## Strengths
@@ -46,5 +45,5 @@ _None found._
 ## Recommended actions
 1. Address `qe-writing-006`: Section/subsection headings use Title Case rather than sentence case.
 2. Address `qe-math-002`: Transpose denoted `'` (prime) or `^T` instead of `\top`.
-3. Address `qe-math-A1`: Bare `E[...]` or `\Pr(...)` used in place of `\mathbb{E}`/`\mathbb{P}`.
+3. Address `qe-math-010 (proposed)`: Bare `E[...]` or `\Pr(...)` used in place of `\mathbb{E}`/`\mathbb{P}`.
 4. Address `qe-fig-001`: `figsize=` set in 1 place(s).

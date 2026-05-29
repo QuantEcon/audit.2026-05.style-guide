@@ -3,7 +3,6 @@
 - **Series:** lecture-python-programming
 - **File:** `lectures/getting_started.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 7.7 / 10
 - **Priority:** LOW
@@ -27,13 +26,13 @@
 _None found._
 
 ### High severity
-- **[qe-writing-006]** *(carry-forward W3)* — Section headings use Title Case rather than sentence case. *Examples:* line 50 `## Python in the Cloud`, line 67 `## Local Install`, line 77 `### The Anaconda Distribution`, line 105 `### Installing Anaconda`, line 167 `### Starting the Jupyter Notebook`, line 213 `### Notebook Basics`, line 302 `### Working with the Notebook`, line 367 `### Debugging Code`, line 403 `### Sharing Notebooks`, line 432 `### QuantEcon Notes`, line 440 `## Installing Libraries`, line 492 `## Working with Python Files`, line 515 `### Editing and Execution`, line 558 `## Exercises`. *Count:* 14+ occurrences.
+- **[qe-writing-006]** — Section headings use Title Case rather than sentence case. *Examples:* line 50 `## Python in the Cloud`, line 67 `## Local Install`, line 77 `### The Anaconda Distribution`, line 105 `### Installing Anaconda`, line 167 `### Starting the Jupyter Notebook`, line 213 `### Notebook Basics`, line 302 `### Working with the Notebook`, line 367 `### Debugging Code`, line 403 `### Sharing Notebooks`, line 432 `### QuantEcon Notes`, line 440 `## Installing Libraries`, line 492 `## Working with Python Files`, line 515 `### Editing and Execution`, line 558 `## Exercises`. *Count:* 14+ occurrences.
 
 ### Medium severity
 - **[qe-fig-005]** — All eleven `{figure}` directives lack a `name:` field, preventing `{numref}` cross-referencing. *Lines:* 154, 182, 195, 207, 230, 320, 338, 357, 363, 378, 397.
 
 ### Low severity
-- **[qe-writing-001]** *(carry-forward W1)* — A handful of multi-sentence paragraphs in installation prose, mostly justified by the procedural nature.
+- **[qe-writing-001]** — A handful of multi-sentence paragraphs in installation prose, mostly justified by the procedural nature.
 - **[qe-fig-004]** — Most screenshots have no caption text; appropriate for procedural installer screenshots but slightly inconsistent with a captioning-encouraged style.
 
 ## Strengths

@@ -3,7 +3,6 @@
 - **Series:** lecture-python.myst
 - **File:** `lectures/likelihood_ratio_process_2.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 8.8 / 10
 - **Priority:** NONE
@@ -30,7 +29,7 @@ _None found._
 - **[qe-fig-003]** — `ax.set_title()` / `fig.suptitle()` used 6 times outside exercise blocks. *Examples:* line 649, line 786, line 1169.
 
 ### Medium severity
-- **[qe-writing-A1]** — Uses "i.i.d." or "iid" in text rather than "IID". *Examples:* lines 184, 200. *Count:* 4 occurrences.
+- **[qe-writing-009 (proposed)]** — Uses "i.i.d." or "iid" in text rather than "IID". *Examples:* lines 184, 200. *Count:* 4 occurrences.
 - **[qe-code-002]** — Spelled-out Greek (alpha/beta/etc.) used predominantly in code; mixed with unicode forms (word=18, uni=12).
 - **[qe-fig-001]** — `figsize=` set in 14 places — usually unnecessary (defaults from `_config.yml`).
 - **[qe-fig-006]** — Axis labels capitalised in 4 places. *Examples:* line 648, line 657, line 717.
@@ -48,7 +47,7 @@ _None found._
 
 ## Recommended actions
 1. Address `qe-fig-003`: `ax.set_title()` / `fig.suptitle()` used 6 times outside exercise blocks.
-2. Address `qe-writing-A1`: Uses "i.i.d." or "iid" in text rather than "IID".
+2. Address `qe-writing-009 (proposed)`: Uses "i.i.d." or "iid" in text rather than "IID".
 3. Address `qe-code-002`: Spelled-out Greek (alpha/beta/etc.) used predominantly in code; mixed with unicode forms (word=18, uni=12).
 4. Address `qe-fig-001`: `figsize=` set in 14 places — usually unnecessary (defaults from `_config.yml`).
 5. Address `qe-fig-006`: Axis labels capitalised in 4 places.

@@ -3,7 +3,6 @@
 - **Series:** lecture-python-programming
 - **File:** `lectures/need_for_speed.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 8.1 / 10
 - **Priority:** LOW
@@ -30,11 +29,11 @@ _None found._
 _None found._
 
 ### Medium severity
-- **[qe-writing-006]** *(carry-forward W3)* — Several H2/H3 headings still use Title Case. *Examples:* line 70 `## Major Scientific Libraries`, line 103 `### Python's Scientific Ecosystem`, line 130 `## Why is Pure Python Slow?`, line 136 `### Type Checking`, line 217 `### Data Access`, line 250 `### Summary`, line 270 `## Accelerating Python`, line 387 `## Parallelization`, line 409 `### Parallelization on CPUs`, line 441 `#### Which Should We Use?`, line 450 `### Hardware Accelerators`, line 481 `### Accessing GPU Resources`. *Count:* ~10 occurrences.
+- **[qe-writing-006]** — Several H2/H3 headings still use Title Case. *Examples:* line 70 `## Major Scientific Libraries`, line 103 `### Python's Scientific Ecosystem`, line 130 `## Why is Pure Python Slow?`, line 136 `### Type Checking`, line 217 `### Data Access`, line 250 `### Summary`, line 270 `## Accelerating Python`, line 387 `## Parallelization`, line 409 `### Parallelization on CPUs`, line 441 `#### Which Should We Use?`, line 450 `### Hardware Accelerators`, line 481 `### Accessing GPU Resources`. *Count:* ~10 occurrences.
 - **[qe-fig-005]** — Three `{figure}` directives lack `name:` metadata (lines 313, 458, 492).
 
 ### Low severity
-- **[qe-writing-005]** *(carry-forward W7)* — Some emphatic phrases use **bold** for terms that are not formal definitions ("**Python is small**", "**Python is slow**" on lines ~82, ~90); overlaps with the definition convention.
+- **[qe-writing-005]** — Some emphatic phrases use **bold** for terms that are not formal definitions ("**Python is small**", "**Python is slow**" on lines ~82, ~90); overlaps with the definition convention.
 
 ## Strengths
 - Lecture title "Python for Scientific Computing" follows qe-writing-006.

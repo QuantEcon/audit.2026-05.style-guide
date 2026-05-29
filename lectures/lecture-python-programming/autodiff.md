@@ -3,7 +3,6 @@
 - **Series:** lecture-python-programming
 - **File:** `lectures/autodiff.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 8.7 / 10
 - **Priority:** NONE
@@ -30,10 +29,10 @@ _None found._
 _None found._
 
 ### Medium severity
-- **[qe-writing-006]** *(carry-forward W3)* — Two H2 section headings use Title Case rather than sentence case. *Examples:* line 295 `## Gradient Descent`, line 460 `## Exercises`. *Count:* 2 occurrences.
+- **[qe-writing-006]** — Two H2 section headings use Title Case rather than sentence case. *Examples:* line 295 `## Gradient Descent`, line 460 `## Exercises`. *Count:* 2 occurrences.
 
 ### Low severity
-- **[qe-writing-001]** *(carry-forward W1)* — A handful of paragraphs combine two short sentences with the `+++` cell separator instead of staying as single-sentence units; mostly acceptable.
+- **[qe-writing-001]** — A handful of paragraphs combine two short sentences with the `+++` cell separator instead of staying as single-sentence units; mostly acceptable.
 - **[qe-fig-005]** — Plots within code cells could benefit from `mystnb` figure metadata with `name:` for downstream cross-referencing; currently no figures are named.
 
 ## Strengths

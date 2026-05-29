@@ -3,7 +3,6 @@
 - **Series:** lecture-dp
 - **File:** `lectures/lqramsey.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
 - **Overall score:** 7.7 / 10
 - **Priority:** LOW
@@ -30,7 +29,7 @@ _None found._
 _None found._
 
 ### Medium severity
-- **[qe-math-A1]** — `\mathbb E` written without braces in nearly every display equation (lines 117, 128, 206, 262, 275, 331). *Count:* 6+.
+- **[qe-math-010 (proposed)]** — `\mathbb E` written without braces in nearly every display equation (lines 117, 128, 206, 262, 275, 331). *Count:* 6+.
 - **[qe-writing-004]** — `\mathscr L` used for the Lagrangian (line 274); prefer plain letter or `\mathcal{L}`.
 - **[qe-ref-001]** — Three narrative-author `{cite}` patterns. Should be `{cite:t}`.
 - **[qe-fig-006]** — Three Title-Case `xlabel('Time')` calls. *Lines:* 780, 835, 842.

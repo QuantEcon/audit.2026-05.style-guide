@@ -3,7 +3,6 @@
 - **Series:** lecture-python.myst
 - **File:** `lectures/wald_friedman_2.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 8.9 / 10
 - **Priority:** NONE
@@ -30,10 +29,10 @@ _None found._
 - **[qe-writing-006]** — Many section headings use Title Case rather than sentence case. *Examples:* line 100, line 205, line 225. *Count:* 6.
 
 ### Medium severity
-- **[qe-writing-A1]** — Uses "i.i.d." or "iid" in text rather than "IID". *Example:* line 46. *Count:* 2
+- **[qe-writing-009 (proposed)]** — Uses "i.i.d." or "iid" in text rather than "IID". *Example:* line 46. *Count:* 2
 
 ### Low severity
-- **[qe-math-A1]** — Bare `E[...]` or `\Pr(...)` used in place of `\mathbb{E}`/`\mathbb{P}`. *Example:* line 457.
+- **[qe-math-010 (proposed)]** — Bare `E[...]` or `\Pr(...)` used in place of `\mathbb{E}`/`\mathbb{P}`. *Example:* line 457.
 - **[qe-code-002]** — Mixed Greek conventions in code (word=1, uni=5).
 - **[qe-fig-001]** — `figsize=` set in 4 places — usually unnecessary.
 - **[qe-fig-005]** — Figures lack descriptive `name:` fields for cross-referencing (6 plot calls, 0 named).
@@ -51,7 +50,7 @@ _None found._
 
 ## Recommended actions
 1. Address `qe-writing-006`: Many section headings use Title Case rather than sentence case.
-2. Address `qe-writing-A1`: Uses "i.i.d." or "iid" in text rather than "IID".
-3. Address `qe-math-A1`: Bare `E[...]` or `\Pr(...)` used in place of `\mathbb{E}`/`\mathbb{P}`.
+2. Address `qe-writing-009 (proposed)`: Uses "i.i.d." or "iid" in text rather than "IID".
+3. Address `qe-math-010 (proposed)`: Bare `E[...]` or `\Pr(...)` used in place of `\mathbb{E}`/`\mathbb{P}`.
 4. Address `qe-code-002`: Mixed Greek conventions in code (word=1, uni=5).
 5. Address `qe-fig-001`: `figsize=` set in 4 places — usually unnecessary.

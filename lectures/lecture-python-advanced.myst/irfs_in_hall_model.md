@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/irfs_in_hall_model.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 7.4 / 10
 - **Priority:** LOW
@@ -30,8 +29,8 @@ _None found._
 _None found._
 
 ### Medium severity
-- **[qe-math-003]** — Initial-condition vector uses `\begin{array}{ccccc}` rather than `\begin{bmatrix}` (carry-forward from v1 M4). *Example:* `lectures/irfs_in_hall_model.md:77`-`80`. *Count:* 1 occurrence.
-- **[qe-math-002]** — Prime `'` used as transpose on the same row vector (carry-forward from v1 M2). *Example:* `lectures/irfs_in_hall_model.md:80`. *Count:* 1 occurrence.
+- **[qe-math-003]** — Initial-condition vector uses `\begin{array}{ccccc}` rather than `\begin{bmatrix}`. *Example:* `lectures/irfs_in_hall_model.md:77`-`80`. *Count:* 1 occurrence.
+- **[qe-math-002]** — Prime `'` used as transpose on the same row vector. *Example:* `lectures/irfs_in_hall_model.md:80`. *Count:* 1 occurrence.
 - **[qe-ref-001]** — Narrative "Hall (1978)" + `{cite}` pattern should use `{cite:t}`. *Count:* 2 occurrences.
 
 ### Low severity
@@ -41,7 +40,7 @@ _None found._
 ## Strengths
 - Title in Title Case (qe-writing-006).
 - Section headings in sentence case (qe-writing-006).
-- `\mathbb{E}` used for expectation (qe-math-A1).
+- `\mathbb{E}` used for expectation (qe-math-010, proposed).
 - Install cell at top with `hide-output` (qe-code-003).
 
 ## Recommended actions

@@ -3,7 +3,6 @@
 - **Series:** lecture-python-programming
 - **File:** `lectures/python_by_example.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 8.1 / 10
 - **Priority:** LOW
@@ -13,7 +12,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 6.5/10| Heading Title Case throughout. |
-| Math         | 7/10  | One qe-math-A5 violation (`*` for multiplication) inside `$...$`. |
+| Math         | 7/10  | One qe-math-012 (proposed) violation (`*` for multiplication) inside `$...$`. |
 | Code         | 9/10  | Only Anaconda packages (numpy, matplotlib); Greek unicode (ϵ, α) used per qe-code-002; PEP8 clean; no benchmarking patterns. |
 | JAX          | out of scope | — |
 | Figures      | 7/10  | One static `{figure}` (line 46) is an output preview; code-generated plots are simple `plt.plot` (no `figsize`, no `set_title`); no `name:` on the static figure. |
@@ -27,17 +26,17 @@
 _None found._
 
 ### High severity
-- **[qe-writing-006]** *(carry-forward W3)* — Section headings use Title Case rather than sentence case. *Examples:* line 39 `## The Task: Plotting a White Noise Process`, line 56 `## Version 1`, line 74 `### Imports`, line 99 `#### Why So Many Imports?`, line 109 `#### Packages`, line 134 `#### Subpackages`, line 147 `### Importing Names Directly`, line 174 `### Random Draws`, line 192 `## Alternative Implementations`, line 201 `### A Version with a For Loop`, line 229 `### Lists`, line 291 `### The For Loop`, line 335 `### A Comment on Indentation`, line 361 `### While Loops`, line 396 `## Another Application`, line 440 `## Exercises`. *Count:* 15+ occurrences.
+- **[qe-writing-006]** — Section headings use Title Case rather than sentence case. *Examples:* line 39 `## The Task: Plotting a White Noise Process`, line 56 `## Version 1`, line 74 `### Imports`, line 99 `#### Why So Many Imports?`, line 109 `#### Packages`, line 134 `#### Subpackages`, line 147 `### Importing Names Directly`, line 174 `### Random Draws`, line 192 `## Alternative Implementations`, line 201 `### A Version with a For Loop`, line 229 `### Lists`, line 291 `### The For Loop`, line 335 `### A Comment on Indentation`, line 361 `### While Loops`, line 396 `## Another Application`, line 440 `## Exercises`. *Count:* 15+ occurrences.
 
 ### Medium severity
-- **[qe-math-A5]** *(carry-forward M11)* — `*` used as multiplication inside inline math. *Example:* line 690 `$area = \pi * radius^2$`. *Count:* 1 occurrence.
+- **[qe-math-012 (proposed)]** — `*` used as multiplication inside inline math. *Example:* line 690 `$area = \pi * radius^2$`. *Count:* 1 occurrence.
 
 ### Low severity
 - **[qe-fig-005]** — The static `{figure}` at line 46 lacks `name:` metadata.
 
 ## Strengths
 - Lecture title "An Introductory Example" follows qe-writing-006.
-- "IID" used correctly per qe-writing-A1 (line ~689).
+- "IID" used correctly per qe-writing-009 (proposed) (line ~689).
 - Bold for definitions per qe-writing-005 ("**package**", "**modules**", "**subpackage**").
 - Sequences notation correct (`$\epsilon_0, \epsilon_1, \ldots$`) per qe-math-005.
 - Greek unicode (ϵ, α) used in code per qe-code-002.

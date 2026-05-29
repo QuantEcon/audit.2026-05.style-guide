@@ -3,7 +3,6 @@
 - **Series:** lecture-dp
 - **File:** `lectures/tax_smoothing_1.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
 - **Overall score:** 6.5 / 10
 - **Priority:** HIGH
@@ -31,13 +30,13 @@ _None found._
 - **[qe-ref-001]** — Many narrative-author `{cite}` patterns: "{cite}`Barro1979` model" repeated, "{cite}`barro1999determinants`", "{cite}`barro2003religion`". Should be `{cite:t}` form for narrative use. *Count:* ~13 occurrences.
 
 ### Medium severity
-- **[qe-math-A3]** — Multivariate normal written as `{\cal N}(0,I)` (line 220).
-- **[qe-math-A1]** — Bare `E_0` for expectation in display equations (lines 70, 203). Should be `\mathbb{E}_0`.
+- **[qe-math-011 (proposed)]** — Multivariate normal written as `{\cal N}(0,I)` (line 220).
+- **[qe-math-010 (proposed)]** — Bare `E_0` for expectation in display equations (lines 70, 203). Should be `\mathbb{E}_0`.
 - **[qe-math-002]** — Apostrophe transpose in LQ section. *Count:* ~6 occurrences in later derivation.
 - **[qe-link-002]** — One raw markdown link to `python.quantecon.org` (line).
 
 ### Low severity
-- **[qe-writing-A1]** — Smart quotes ’ in narrative.
+- **[qe-writing-009 (proposed)]** — Smart quotes ’ in narrative.
 - **[qe-writing-001]** — Several multi-sentence paragraphs.
 
 ## Strengths

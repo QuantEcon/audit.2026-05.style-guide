@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/permanent_income_dles.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 6.4 / 10
 - **Priority:** MEDIUM
@@ -27,8 +26,8 @@
 _None found._
 
 ### High severity
-- **[qe-math-003]** — `\begin{array}{c}...\end{array}` (with `\left[ \right]`) used everywhere instead of `\begin{bmatrix}` (carry-forward from v1 M4). *Example:* `lectures/permanent_income_dles.md:161`, `:163`, `:165`, `:166`, `:170`-`173`, `:256`-`260`. *Count:* ~10 occurrences.
-- **[qe-math-A1]** — Bare `E_0` / `E_t` instead of `\mathbb{E}_0` (carry-forward from v1 M7). *Example:* `lectures/permanent_income_dles.md:70`, `:73`, `:129`. *Count:* ~4 occurrences.
+- **[qe-math-003]** — `\begin{array}{c}...\end{array}` (with `\left[ \right]`) used everywhere instead of `\begin{bmatrix}`. *Example:* `lectures/permanent_income_dles.md:161`, `:163`, `:165`, `:166`, `:170`-`173`, `:256`-`260`. *Count:* ~10 occurrences.
+- **[qe-math-010 (proposed)]** — Bare `E_0` / `E_t` instead of `\mathbb{E}_0`. *Example:* `lectures/permanent_income_dles.md:70`, `:73`, `:129`. *Count:* ~4 occurrences.
 
 ### Medium severity
 - **[qe-writing-005]** — `**Technology:**`, `**Information:**`, `**Preferences:**` use bold for labels rather than definitions.
@@ -47,6 +46,6 @@ _None found._
 
 ## Recommended actions
 1. Convert every `\begin{array}` block to `\begin{bmatrix}` (qe-math-003).
-2. Replace bare `E_t`/`E_0` with `\mathbb{E}_t`/`\mathbb{E}_0` (qe-math-A1).
+2. Replace bare `E_t`/`E_0` with `\mathbb{E}_t`/`\mathbb{E}_0` (qe-math-010, proposed).
 3. Reduce decorative bolding (qe-writing-005).
 4. Add `:name: fig-...` fields (qe-fig-005).

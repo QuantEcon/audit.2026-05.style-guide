@@ -3,7 +3,6 @@
 - **Series:** lecture-python-programming
 - **File:** `lectures/scipy.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 8.0 / 10
 - **Priority:** LOW
@@ -27,20 +26,20 @@
 _None found._
 
 ### High severity
-- **[qe-writing-006]** *(carry-forward W3)* — Section headings use Title Case rather than sentence case. *Examples:* line 63 `## SciPy versus NumPy`, line 94 `## Statistics`, line 105 `### Random Variables and Distributions`, line 167 `### Alternative Syntax`, line 183 `### Other Goodies in scipy.stats`, line 200 `## Roots and Fixed Points`, line 231 `### Bisection`, line 288 `### The Newton-Raphson Method`, line 315 `### Hybrid Methods`, line 350 `### Multivariate Root-Finding`, line 359 `### Fixed Points`, line 377 `## Optimization`, line 401 `### Multivariate Optimization`, line 412 `## Integration`, line 442 `## Linear Algebra`, line 455 `## Exercises`. *Count:* 16 occurrences.
+- **[qe-writing-006]** — Section headings use Title Case rather than sentence case. *Examples:* line 63 `## SciPy versus NumPy`, line 94 `## Statistics`, line 105 `### Random Variables and Distributions`, line 167 `### Alternative Syntax`, line 183 `### Other Goodies in scipy.stats`, line 200 `## Roots and Fixed Points`, line 231 `### Bisection`, line 288 `### The Newton-Raphson Method`, line 315 `### Hybrid Methods`, line 350 `### Multivariate Root-Finding`, line 359 `### Fixed Points`, line 377 `## Optimization`, line 401 `### Multivariate Optimization`, line 412 `## Integration`, line 442 `## Linear Algebra`, line 455 `## Exercises`. *Count:* 16 occurrences.
 
 ### Medium severity
 - **[qe-fig-005]** — The single code-generated figure (line 218-225) lacks `name:` metadata.
 
 ### Low severity
-- **[qe-math-A1]** *(carry-forward M7)* — `\mathbb E` without braces in display math at lines 461, 560.
+- **[qe-math-010 (proposed)]** — `\mathbb E` without braces in display math at lines 461, 560.
 - **[qe-admon-001]** — Three exercises use bare `{exercise}` rather than gated syntax; bodies are prose-only.
 
 ## Strengths
 - Lecture title "SciPy" follows qe-writing-006.
-- Equation labels (`betadist2`, `root_f`) and `{eq}` references used per qe-math-A6.
+- Equation labels (`betadist2`, `root_f`) and `{eq}` references used per qe-math-013 (proposed).
 - Bold for definitions per qe-writing-005 ("**root** or **zero**").
-- Sequences/sets use proper bracketing; lowercase `f` for density per qe-math-A4.
+- Sequences/sets use proper bracketing; lowercase `f` for density per qe-math-015 (proposed).
 - No bold vectors, no `^T`, no `*` for multiplication, no `\tag`, no `align` inside `$$`.
 - `qe.Timer(unit="milliseconds")` used for benchmarking per qe-code-004.
 - Greek unicode (μ, σ, β) used in code per qe-code-002.

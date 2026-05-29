@@ -3,7 +3,6 @@
 - **Series:** lecture-python.myst
 - **File:** `lectures/two_computation.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions (JAX out of scope)
 - **Overall score:** 8.6 / 10
 - **Priority:** NONE
@@ -31,7 +30,7 @@ _None found._
 - **[qe-fig-006]** — Axis labels capitalised in 46 places (should be lowercase). *Examples:* line 301, line 302, line 603.
 
 ### Medium severity
-- **[qe-math-A1]** — Bare `E[...]` or `\Pr(...)` used instead of `\mathbb{E}`, `\mathbb{P}`. *Examples:* line 153. *Count:* 3.
+- **[qe-math-010 (proposed)]** — Bare `E[...]` or `\Pr(...)` used instead of `\mathbb{E}`, `\mathbb{P}`. *Examples:* line 153. *Count:* 3.
 - **[qe-code-002]** — Spelled-out Greek (alpha/beta/etc.) used predominantly in code; mixed with unicode forms (word=26, uni=12).
 - **[qe-fig-001]** — `figsize=` set in 10 places — usually unnecessary (defaults from `_config.yml`).
 
@@ -49,6 +48,6 @@ _None found._
 ## Recommended actions
 1. Address `qe-fig-003`: `ax.set_title()` / `fig.suptitle()` used 5 times outside exercise blocks.
 2. Address `qe-fig-006`: Axis labels capitalised in 46 places (should be lowercase).
-3. Address `qe-math-A1`: Bare `E[...]` or `\Pr(...)` used instead of `\mathbb{E}`, `\mathbb{P}`.
+3. Address `qe-math-010 (proposed)`: Bare `E[...]` or `\Pr(...)` used instead of `\mathbb{E}`, `\mathbb{P}`.
 4. Address `qe-code-002`: Spelled-out Greek (alpha/beta/etc.) used predominantly in code; mixed with unicode forms (word=26, uni=12).
 5. Address `qe-fig-001`: `figsize=` set in 10 places — usually unnecessary (defaults from `_config.yml`).

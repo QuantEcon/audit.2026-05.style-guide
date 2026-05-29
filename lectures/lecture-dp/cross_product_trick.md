@@ -3,7 +3,6 @@
 - **Series:** lecture-dp
 - **File:** `lectures/cross_product_trick.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
 - **Overall score:** 5.7 / 10
 - **Priority:** HIGH
@@ -24,7 +23,7 @@
 ## Issues
 
 ### Critical
-- **[qe-math-A6]** — Broken equation reference: `{eq}`eq:Kalman102}` has a closing `}` instead of a backtick (line 133). The label `(eq:Kalman102)` is also attached to a bare `align*` block (line 121) rather than a numbered `$$ … $$` block, so the label won't bind even if the syntax is fixed. Build risk: will render as raw text.
+- **[qe-math-013 (proposed)]** — Broken equation reference: `{eq}`eq:Kalman102}` has a closing `}` instead of a backtick (line 133). The label `(eq:Kalman102)` is also attached to a bare `align*` block (line 121) rather than a numbered `$$ … $$` block, so the label won't bind even if the syntax is fixed. Build risk: will render as raw text.
 
 ### High severity
 - **[qe-math-002]** — Apostrophe `'` used as transpose throughout (e.g. `x_t' R x_t`, `B'PB`, `A'PA`, `D \Sigma_t D'`). *Lines:* 48, 63, 68, 119-121, 142, 164-167. *Count:* 30+ occurrences.
@@ -32,7 +31,7 @@
 
 ### Medium severity
 - **[qe-writing-006]** — H2 headings use Title Case. *Examples:* `## Undiscounted Dynamic Programming Problem` (line 33), `## Kalman Filter` (line 92).
-- **[qe-writing-A1]** — `i.i.d.` used in narrative (line 110). Should be `IID`.
+- **[qe-writing-009 (proposed)]** — `i.i.d.` used in narrative (line 110). Should be `IID`.
 
 ### Low severity
 - **[qe-writing-001]** — Several multi-sentence paragraphs (e.g. 80-89, 94-95, 145-151).

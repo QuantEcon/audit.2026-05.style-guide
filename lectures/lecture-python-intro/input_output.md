@@ -3,7 +3,6 @@
 - **Series:** lecture-python-intro
 - **File:** `lectures/input_output.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 8.4 / 10
 - **Priority:** LOW

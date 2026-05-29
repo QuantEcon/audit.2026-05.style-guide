@@ -3,7 +3,6 @@
 - **Series:** lecture-python-programming
 - **File:** `lectures/functions.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 8.1 / 10
 - **Priority:** LOW
@@ -27,13 +26,13 @@
 _None found._
 
 ### High severity
-- **[qe-writing-006]** *(carry-forward W3)* — Almost every H2/H3 section heading uses Title Case rather than sentence case. *Examples:* line 47 `## Function Basics`, line 55 `### Built-In Functions`, line 80 `### Third Party Functions`, line 94 `## Defining Functions`, line 100 `### Basic Syntax`, line 168 `### Keyword Arguments`, line 213 `### The Flexibility of Python Functions`, line 227 `### One-Line Functions: \`lambda\``, line 266 `### Why Write Functions?`, line 277 `## Applications`, line 279 `### Random Draws`, line 324 `### Adding Conditions`, line 408 `## Recursive Function Calls (Advanced)`, line 462 `## Exercises`, line 619 `## Advanced Exercises`. *Count:* 15+ occurrences.
+- **[qe-writing-006]** — Almost every H2/H3 section heading uses Title Case rather than sentence case. *Examples:* line 47 `## Function Basics`, line 55 `### Built-In Functions`, line 80 `### Third Party Functions`, line 94 `## Defining Functions`, line 100 `### Basic Syntax`, line 168 `### Keyword Arguments`, line 213 `### The Flexibility of Python Functions`, line 227 `### One-Line Functions: \`lambda\``, line 266 `### Why Write Functions?`, line 277 `## Applications`, line 279 `### Random Draws`, line 324 `### Adding Conditions`, line 408 `## Recursive Function Calls (Advanced)`, line 462 `## Exercises`, line 619 `## Advanced Exercises`. *Count:* 15+ occurrences.
 
 ### Medium severity
 _None found._
 
 ### Low severity
-- **[qe-writing-001]** *(carry-forward W1)* — A few multi-sentence paragraphs (e.g., around line 297, a bulleted explanation embedded in a paragraph).
+- **[qe-writing-001]** — A few multi-sentence paragraphs (e.g., around line 297, a bulleted explanation embedded in a paragraph).
 - **[qe-code-001]** — Some solution snippets have inconsistent operator spacing (e.g., line 605 `count + ( 1 if ... else 0 )` with internal parenthesis padding). Minor PEP8 nit.
 
 ## Strengths

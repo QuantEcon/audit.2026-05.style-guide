@@ -3,7 +3,6 @@
 - **Series:** lecture-python-programming
 - **File:** `lectures/troubleshooting.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 8.2 / 10
 - **Priority:** LOW
@@ -30,7 +29,7 @@ _None found._
 _None found._
 
 ### Medium severity
-- **[qe-writing-006]** *(carry-forward W3)* — Two H2 section headings use Title Case instead of sentence case. *Examples:* line 25 `## Fixing Your Local Environment`, line 61 `## Reporting an Issue`. *Count:* 2 occurrences.
+- **[qe-writing-006]** — Two H2 section headings use Title Case instead of sentence case. *Examples:* line 25 `## Fixing Your Local Environment`, line 61 `## Reporting an Issue`. *Count:* 2 occurrences.
 
 ### Low severity
 - **[qe-fig-004]** — The `{image}` directive at line 52 has no caption (just an empty body); for a launch-icon screenshot this is acceptable but could be made explicit.

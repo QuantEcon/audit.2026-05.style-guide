@@ -3,7 +3,6 @@
 - **Series:** lecture-python.myst
 - **File:** `lectures/mccall_model_with_sep_markov.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions (JAX out of scope)
 - **Overall score:** 9.6 / 10
 - **Priority:** NONE
@@ -33,7 +32,7 @@ _None found._
 _None found._
 
 ### Low severity
-- **[qe-writing-A1]** — Uses "i.i.d." or "iid" in text rather than "IID". *Example:* line 713.
+- **[qe-writing-009 (proposed)]** — Uses "i.i.d." or "iid" in text rather than "IID". *Example:* line 713.
 - **[qe-code-002]** — Mixed Greek conventions in code (word=9, uni=10).
 - **[qe-fig-001]** — `figsize=` set in 5 places — usually unnecessary.
 - **[qe-fig-003]** — `ax.set_title()` used once outside exercise blocks (line 880).
@@ -49,7 +48,7 @@ _None found._
 - Axis labels lowercase.
 
 ## Recommended actions
-1. Address `qe-writing-A1`: Uses "i.i.d." or "iid" in text rather than "IID".
+1. Address `qe-writing-009 (proposed)`: Uses "i.i.d." or "iid" in text rather than "IID".
 2. Address `qe-code-002`: Mixed Greek conventions in code (word=9, uni=10).
 3. Address `qe-fig-001`: `figsize=` set in 5 places — usually unnecessary.
 4. Address `qe-fig-003`: `ax.set_title()` used once outside exercise blocks (line 880).

@@ -1,7 +1,6 @@
 # Style Audit — lecture-python-advanced.myst
 
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Lectures audited:** 62
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope per series instructions)*
 - **Average overall score:** 7.0 / 10
@@ -20,10 +19,10 @@
 
 1. **[qe-fig-005]** — Figures lack descriptive `:name: fig-...` fields for `{numref}` cross-referencing — appears in 45 / 62 lectures.
 2. **[qe-code-002]** — Spelled-out Greek (`alpha`, `beta`, `gamma`, ...) in code parameters instead of unicode (`α`, `β`, `γ`) — appears in 35 / 62 lectures.
-3. **[qe-math-A1]** — Bare `E_t` / `E_0` / `E[...]` for expectation instead of `\mathbb{E}` — appears in 26 / 62 lectures (carries forward from v1 M7).
+3. **[qe-math-010 (proposed)]** — Bare `E_t` / `E_0` / `E[...]` for expectation instead of `\mathbb{E}` — appears in 26 / 62 lectures.
 4. **[qe-writing-005]** — Decorative bolding for non-definition keywords (should use italics) — appears in 25 / 62 lectures.
 5. **[qe-fig-001]** — `figsize=` set without justification — appears in 24 / 62 lectures.
-6. **[qe-math-A3]** — `\mathcal{N}` / `\cal N` / `\mathcal N` used as the Normal distribution instead of plain `N` — appears in 18 / 62 lectures.
+6. **[qe-math-011 (proposed)]** — `\mathcal{N}` / `\cal N` / `\mathcal N` used as the Normal distribution instead of plain `N` — appears in 18 / 62 lectures.
 7. **[qe-fig-003]** — `ax.set_title()` embedding titles in matplotlib — appears in 18 / 62 lectures.
 8. **[qe-link-002]** — Raw `python.quantecon.org` / `python-intro.quantecon.org` / `python-programming.quantecon.org` URLs instead of `{doc}` with intersphinx prefix — appears in 17 / 62 lectures.
 9. **[qe-math-002]** — Prime `'`, `^\prime`, or `^T` used as transpose instead of `^\top` — appears in 16 / 62 lectures.
@@ -101,28 +100,26 @@
 
 ## Series-level recommendations
 
-### Carried forward from v1 (writing + math)
-
-1. **Mass-replace bare expectation symbols.** Run a global pass converting bare `E_t`, `E_0`, `E[...]` to `\mathbb{E}_t`, `\mathbb{E}_0`, `\mathbb{E}[...]` (qe-math-A1). This single fix would lift many MEDIUM lectures into LOW priority — 26 lectures affected.
+### Writing & math issues
+1. **Mass-replace bare expectation symbols.** Run a global pass converting bare `E_t`, `E_0`, `E[...]` to `\mathbb{E}_t`, `\mathbb{E}_0`, `\mathbb{E}[...]` (qe-math-010, proposed). This single fix would lift many MEDIUM lectures into LOW priority — 26 lectures affected.
 2. **Eliminate transpose primes and `^T`.** Replace prime `'`, `^\prime`, and `^T` (when used as transpose) with `^\top` across the series (qe-math-002). Be careful to preserve derivative `u'`, `f'`, `v'` and next-period notation `x'`, `B'`, `\theta'` — 16 lectures affected.
-3. **Switch distribution notation.** Replace `\mathcal{N}`, `\cal N`, `{\mathcal N}`, `{\cal N}` with plain `N` (qe-math-A3) — 18 lectures affected.
+3. **Switch distribution notation.** Replace `\mathcal{N}`, `\cal N`, `{\mathcal N}`, `{\cal N}` with plain `N` (qe-math-011, proposed) — 18 lectures affected.
 4. **Convert all matrix environments.** Replace `\begin{array}`, `\begin{matrix}`, `\begin{pmatrix}` with `\begin{bmatrix}` (qe-math-003). The DLE-class lectures (`growth_in_dles`, `cattle_cycles`, `lucas_asset_pricing_dles`, `permanent_income_dles`, `hs_invertibility_example`) all share this issue — 15 lectures affected.
 5. **Reduce decorative bolding.** Switch from `**term**` to italics (`*term*`) where intent is emphasis (qe-writing-005) — 25 lectures affected.
-6. **Standardise "IID".** Replace "i.i.d." and "iid" with "IID" in narrative text (qe-writing-A1) — 6 lectures affected.
+6. **Standardise "IID".** Replace "i.i.d." and "iid" with "IID" in narrative text (qe-writing-009, proposed) — 6 lectures affected.
 
-### New from v2 (code, figures, references, links, admonitions)
-
+### Code, figures, references, links & admonitions issues
 7. **Add `:name: fig-...` fields to figures.** 45 / 62 lectures have figures without descriptive `:name:` fields, blocking `{numref}` cross-references (qe-fig-005). This is the single most pervasive deficit in the new categories. Modern lectures (`cagan_rational_expectations`, `doubts_or_variability`, `dovis_accounting_mf`, `risk_aversion_or_mistaken_beliefs`, `gorman_heterogeneous_households`, `hansen_richard_1987`, `hansen_jagannathan_1991`, `info_projection`) demonstrate the desired pattern (mystnb `caption:` + `name: fig-...`) — that pattern should be propagated.
 8. **Unicode Greek in code.** Convert spelled-out Greek (`alpha`, `beta`, ...) to unicode (`α`, `β`, ...) in code cell parameters and function signatures (qe-code-002) — 35 lectures affected.
 9. **Convert raw cross-series URLs to `{doc}`.** Replace `https://python.quantecon.org/...`, `python-intro.quantecon.org/...`, and `python-programming.quantecon.org/...` URLs with `{doc}\`intermediate:...\`` or `{doc}\`programming:...\`` intersphinx links (qe-link-002) — 17 lectures affected. Note: legacy `python-intro.quantecon.org` URLs are particularly stale and should map to `intermediate:` prefix.
 10. **Remove `ax.set_title()` and lower axis labels.** Remove `ax.set_title()` calls and use mystnb `caption:` metadata instead (qe-fig-003) — 18 lectures affected. Lowercase axis labels in `set_xlabel`/`set_ylabel` (qe-fig-006) — 4 lectures affected.
 11. **Drop unnecessary `figsize=`.** Trust the `_config.yml` defaults (qe-fig-001) — 24 lectures affected. The worst offender is `match_transport` (27 occurrences).
 12. **Use `{cite:t}` for narrative refs.** Convert "Author (Year) {cite}`...`" patterns to `{cite:t}`...`` (qe-ref-001) — 12 lectures affected. Newer lectures (`cagan_rational_expectations`, `doubts_or_variability`, `dovis_accounting_mf`, `gorman_heterogeneous_households`, `hansen_richard_1987`, `hansen_jagannathan_1991`, `info_projection`, `risk_aversion_or_mistaken_beliefs`) already follow this pattern and can serve as templates.
-13. **Treat the 6 HIGH-priority lectures first.** Same 6 as v1: `hs_recursive_models`, `robustness`, `black_litterman`, `knowing_forecasts_of_others`, `classical_filtering`, `calvo_machine_learn`. Their math scores remain ≤ 3; these would benefit most from mechanical fixes. None of the v2-only categories promoted any new lectures to HIGH (the worst v2 sub-scores are concentrated in `match_transport` figures (3) and `discrete_dp` / `robustness` / `stationary_densities` links (3-4)).
+13. **Treat the 6 HIGH-priority lectures first.** `hs_recursive_models`, `robustness`, `black_litterman`, `knowing_forecasts_of_others`, `classical_filtering`, `calvo_machine_learn` — all have math scores ≤ 3 and would benefit most from mechanical fixes. The worst figures/links sub-scores elsewhere are concentrated in `match_transport` figures (3) and `discrete_dp` / `robustness` / `stationary_densities` links (3–4).
 
 ### Notes on coverage
 
-- 7 lectures previously missing from v1 are now audited: `cagan_rational_expectations`, `doubts_or_variability`, `dovis_accounting_mf`, `hansen_jagannathan_1991`, `hansen_richard_1987`, `info_projection`, `risk_aversion_or_mistaken_beliefs`. All are modern (post-2024) and score in the LOW-or-MEDIUM range.
+- 7 modern (post-2024) lectures are included: `cagan_rational_expectations`, `doubts_or_variability`, `dovis_accounting_mf`, `hansen_jagannathan_1991`, `hansen_richard_1987`, `info_projection`, `risk_aversion_or_mistaken_beliefs`. All score in the LOW-or-MEDIUM range.
 - `hansen_richard_1987` is the strongest exemplar of `prf:`-prefixed proof directives in the series (26 `{prf:...}` directives) and should be referenced when remediating qe-admon-004 violations elsewhere.
 - `orth_proj` (18 `{prf:...}`) is the other exemplar.
 - JAX category is out-of-scope per series instructions; only `dovis_accounting_mf` and `calvo_machine_learn` import JAX in this series.

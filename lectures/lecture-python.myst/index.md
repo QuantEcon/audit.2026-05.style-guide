@@ -1,7 +1,6 @@
 # Style Audit — lecture-python.myst
 
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Lectures audited:** 110
 - **Categories audited:** writing, math, code, figures, references, links, admonitions (JAX out of scope)
 - **Average overall score:** 9.0 / 10
@@ -24,15 +23,15 @@
 4. **[qe-fig-005]** — Descriptive figure names for cross-referencing — appears in 47 / 110 lectures.
 5. **[qe-fig-003]** — No matplotlib embedded titles (`ax.set_title`/`fig.suptitle`) — appears in 44 / 110 lectures.
 6. **[qe-fig-008]** — Use `lw=2` for line charts — appears in 37 / 110 lectures.
-7. **[qe-writing-A1]** — "IID" not "i.i.d." or "iid" — appears in 21 / 110 lectures.
-8. **[qe-math-A1]** — Blackboard `\mathbb{P}`, `\mathbb{E}`, `\mathbb{V}` — appears in 21 / 110 lectures.
+7. **[qe-writing-009 (proposed)]** — "IID" not "i.i.d." or "iid" — appears in 21 / 110 lectures.
+8. **[qe-math-010 (proposed)]** — Blackboard `\mathbb{P}`, `\mathbb{E}`, `\mathbb{V}` — appears in 21 / 110 lectures.
 9. **[qe-fig-006]** — Lowercase axis labels — appears in 20 / 110 lectures.
 10. **[qe-math-002]** — Use `\top` for transpose — appears in 17 / 110 lectures.
 11. **[qe-link-002]** — `{doc}` links for cross-series references — appears in 17 / 110 lectures.
 12. **[qe-link-001]** — Markdown links for same-series references — appears in 12 / 110 lectures.
 13. **[qe-math-008]** — Explain special notation (`\mathbb{1}` etc.) — appears in 9 / 110 lectures.
 14. **[qe-math-004]** — No bold for matrices/vectors — appears in 9 / 110 lectures.
-15. **[qe-math-A3]** — Distribution names: plain letters, `\mathrm{…}` for multi-letter — appears in 6 / 110 lectures.
+15. **[qe-math-011 (proposed)]** — Distribution names: plain letters, `\mathrm{…}` for multi-letter — appears in 6 / 110 lectures.
 
 ## Lectures ranked by priority (lowest score first)
 
@@ -151,18 +150,16 @@
 
 ## Series-level recommendations
 
-### Carried forward from v1 (Writing + Math)
-
+### Writing & math issues
 1. **Address `qe-writing-006` (sentence case for H2+) systemically.** Still the most common deviation — affects roughly 4 out of every 5 lectures. A find-and-replace pass converting H2/H3 headings to sentence case (preserving proper nouns and acronyms) would lift writing scores across the series.
 2. **Adopt `\top` for transpose everywhere (`qe-math-002`).** Older lectures (notably `lqcontrol`, `linear_algebra`, `lagrangian_lqdp`, `markov_perf`, `rational_expectations`, `perm_income_cons`, `cross_product_trick`) still use prime `'` or `^T` heavily.
 3. **Remove `\mathbf`/`\boldsymbol` from vectors (`qe-math-004`).** Concentrated in `hansen_singleton_1983`, `mle`, `misspecified_recovery`, `multivariate_normal`, `opt_transport`, `theil_2`, `two_auctions`, `likelihood_var`, `likelihood_ratio_process`.
-4. **Standardise probability notation (`qe-math-A1`): `\mathbb{E}`, `\mathbb{P}`, `\mathbb{V}` with braces.** Notable offenders include `kalman_2`, `multivariate_normal`, `misspecified_recovery`, `navy_captain`.
-5. **Replace "i.i.d."/"iid" with "IID" (`qe-writing-A1`).** Trivial global-replace across ~20 lectures.
-6. **Replace `\mathcal{N}` with `N` for the normal distribution (`qe-math-A3`).** Concentrated in `affine_risk_prices`, `merging_of_opinions`, `likelihood_var`.
+4. **Standardise probability notation (`qe-math-010 (proposed)`): `\mathbb{E}`, `\mathbb{P}`, `\mathbb{V}` with braces.** Notable offenders include `kalman_2`, `multivariate_normal`, `misspecified_recovery`, `navy_captain`.
+5. **Replace "i.i.d."/"iid" with "IID" (`qe-writing-009 (proposed)`).** Trivial global-replace across ~20 lectures.
+6. **Replace `\mathcal{N}` with `N` for the normal distribution (`qe-math-011 (proposed)`).** Concentrated in `affine_risk_prices`, `merging_of_opinions`, `likelihood_var`.
 7. **Fix Critical: `\begin{align}` inside `$$` in `divergence_measures.md` (`qe-math-006`).** Build-risk.
 
-### New from v2 (Code + Figures + Admonitions + References + Links)
-
+### Code, figures, references, links & admonitions issues
 8. **`qe-fig-001` (do not set `figsize=`):** the single most common new-category finding — set in 75 / 110 lectures, with extreme offenders (`chow_business_cycles`, `likelihood_ratio_process`, `likelihood_ratio_process_2`, `two_computation`, `organization_capital`) setting it 10+ times. A series-wide pass removing `figsize=` would benefit nearly every lecture.
 9. **`qe-code-002` (Unicode Greek in code):** 94 / 110 lectures use spelled-out Greek (alpha, beta, …) in code cells; 83 of these also mix in unicode (α, β, …) inconsistently within the same lecture. The style guide prefers unicode. Pick a convention per lecture and apply it consistently.
 10. **`qe-fig-003` (no embedded matplotlib titles):** 44 lectures use `ax.set_title()` or `fig.suptitle()` outside exercise blocks. Worst offenders: `navy_captain` (13), `likelihood_ratio_process` (8), `prob_meaning` (7), `survival_recursive_preferences` (6), `likelihood_ratio_process_2` (6), `likelihood_var` (6).
@@ -176,7 +173,6 @@
 
 ### Methodology notes
 
-- v1 writing/math findings were carried forward and re-keyed to v2 `qe-*` IDs per spec §10.
-- v2 added 5 categories (Code, Figures, References, Links, Admonitions). JAX is out of scope per series instructions; 23 / 110 lectures use JAX.
+- Code, Figures, References, Links, and Admonitions are all scored. JAX is out of scope; 23 / 110 lectures use JAX.
 - New-category scoring is mechanical: regex/AST signals on lecture source. References (`qe-ref-001`) is judgment-only and scored conservatively at 9 unless an LLM check is performed; consider a follow-up audit pass that adjudicates each `{cite}` vs `{cite:t}` call in context.
 - Admonitions scored 10.0 across the series because the mechanical checks (`qe-admon-001`, `qe-admon-003`, `qe-admon-004`) found no violations; `qe-admon-002` (dropdown class) is followed almost universally. A judgment-level review of admonition usage may surface additional issues.

@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/arma.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 7.9 / 10
 - **Priority:** LOW
@@ -34,7 +33,7 @@ _None found._
 - **[qe-code-002]** — Spelled-out Greek (`alpha`, `beta`, `phi`, `theta`) in code parameters instead of unicode (17 occurrences across code cells).
 
 ### Low severity
-- **[qe-math-008]** — `\mathbf 1\{k = 0\}` used for the indicator function (carry-forward from v1 M3). *Example:* `lectures/arma.md:134`, `:136`. *Count:* 2 occurrences.
+- **[qe-math-008]** — `\mathbf 1\{k = 0\}` used for the indicator function. *Example:* `lectures/arma.md:134`, `:136`. *Count:* 2 occurrences.
 - **[qe-fig-005]** — Figures lack `:name: fig-...` fields.
 - **[qe-fig-001]** — `figsize=` set 5 times.
 - **[qe-ref-001]** — `{cite:t}` never used; some narrative refs (e.g. "Sargent 1987") would benefit.

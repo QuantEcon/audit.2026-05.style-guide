@@ -3,7 +3,6 @@
 - **Series:** lecture-dp
 - **File:** `lectures/os_stochastic.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
 - **Overall score:** 8.1 / 10
 - **Priority:** LOW
@@ -30,7 +29,7 @@ _None found._
 - **[qe-writing-006]** — Systemic Title Case in H2/H3 headings. *Examples:* `## The Model` (74), `### Optimal Policies` (155), `### The Bellman Equation` (249), `### Greedy Policies` (291), `### The Bellman Operator` (329, 551), `### Review of Theoretical Results` (372), `### Unbounded Utility` (404), `### Scalar Maximization` (443), `### An Example` (596), `### Iterating to Convergence` (718), `### The Policy Function` (778). *Count:* 11+ headings.
 
 ### Medium severity
-- **[qe-math-A1]** — `\mathbb E` written without braces (lines 122, 203, 206, 227).
+- **[qe-math-010 (proposed)]** — `\mathbb E` written without braces (lines 122, 203, 206, 227).
 
 ### Low severity
 - **[qe-writing-001]** — A couple of multi-sentence paragraphs.

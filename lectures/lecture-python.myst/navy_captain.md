@@ -3,7 +3,6 @@
 - **Series:** lecture-python.myst
 - **File:** `lectures/navy_captain.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 8.2 / 10
 - **Priority:** LOW
@@ -31,7 +30,7 @@ _None found._
 - **[qe-fig-003]** — `ax.set_title()` / `fig.suptitle()` used 13 times outside exercise blocks. *Examples:* line 193, line 326, line 400.
 
 ### Medium severity
-- **[qe-math-A1]** — Bare `E[...]` or `\Pr(...)` used instead of `\mathbb{E}`, `\mathbb{P}`. *Examples:* line 248. *Count:* 4.
+- **[qe-math-010 (proposed)]** — Bare `E[...]` or `\Pr(...)` used instead of `\mathbb{E}`, `\mathbb{P}`. *Examples:* line 248. *Count:* 4.
 - **[qe-code-002]** — Spelled-out Greek (alpha/beta/etc.) used predominantly in code; mixed with unicode forms (word=9, uni=4).
 
 ### Low severity
@@ -50,6 +49,6 @@ _None found._
 ## Recommended actions
 1. Address `qe-writing-006`: Many section headings use Title Case rather than sentence case.
 2. Address `qe-fig-003`: `ax.set_title()` / `fig.suptitle()` used 13 times outside exercise blocks.
-3. Address `qe-math-A1`: Bare `E[...]` or `\Pr(...)` used instead of `\mathbb{E}`, `\mathbb{P}`.
+3. Address `qe-math-010 (proposed)`: Bare `E[...]` or `\Pr(...)` used instead of `\mathbb{E}`, `\mathbb{P}`.
 4. Address `qe-code-002`: Spelled-out Greek (alpha/beta/etc.) used predominantly in code; mixed with unicode forms (word=9, uni=4).
 5. Address `qe-fig-001`: `figsize=` set in 6 places — usually unnecessary.

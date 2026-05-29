@@ -3,7 +3,6 @@
 - **Series:** lecture-dp
 - **File:** `lectures/mccall_model_with_sep_markov.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
 - **Overall score:** 8.2 / 10
 - **Priority:** LOW
@@ -30,7 +29,7 @@ _None found._
 _None found._
 
 ### Medium severity
-- **[qe-writing-A1]** — "iid" used in narrative on line 713. Should be "IID".
+- **[qe-writing-009 (proposed)]** — "iid" used in narrative on line 713. Should be "IID".
 - **[qe-fig-003]** — One f-string `ax.set_title(f'Cross-sectional distribution at t={t_snapshot}, ...')` (line 880).
 - **[qe-fig-001]** — `figsize=` set 5 times.
 

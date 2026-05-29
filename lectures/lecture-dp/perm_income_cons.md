@@ -3,7 +3,6 @@
 - **Series:** lecture-dp
 - **File:** `lectures/perm_income_cons.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
 - **Overall score:** 5.5 / 10
 - **Priority:** HIGH
@@ -31,7 +30,7 @@ _None found._
 - **[qe-writing-006]** — Systemic Title Case H2/H3/H4 headings. *Examples:* `### Digression on a Useful Isomorphism` (137), `### A Specification of the Nonfinancial Income Process` (165), `## The LQ Approach` (201), `### The LQ Problem` (221), `### Mapping into the LQ Framework` (253), `### The Exogenous Nonfinancial Income Process` (328), `### Comparison with the Difference Equation Approach` (407), `## Two Example Economies` (472), `### First Set of Initial Conditions` (494), `### Population and Sample Panels` (508), `### A "Borrowers and Lenders" Closed Economy` (721). *Count:* 12+ headings.
 
 ### Medium severity
-- **[qe-math-A1]** — Expectation written as plain `E_0`, `E_t` rather than `\mathbb{E}` (lines 94, 115). *Count:* 2.
+- **[qe-math-010 (proposed)]** — Expectation written as plain `E_0`, `E_t` rather than `\mathbb{E}` (lines 94, 115). *Count:* 2.
 - **[qe-ref-001]** — Author-name narrative citations using parenthetical `{cite}` instead of textual `{cite:t}`. *Count:* 2 occurrences ("Hall {cite}…", "Robert Hall {cite}…" patterns).
 - **[qe-link-002]** — Raw markdown link to `python-intro.quantecon.org/perm_income.html` (line) where `{doc}` is preferred.
 - **[qe-fig-001]** — `figsize=` set 3 times.

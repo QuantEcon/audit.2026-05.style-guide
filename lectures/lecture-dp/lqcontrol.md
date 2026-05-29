@@ -3,7 +3,6 @@
 - **Series:** lecture-dp
 - **File:** `lectures/lqcontrol.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
 - **Overall score:** 5.6 / 10
 - **Priority:** HIGH
@@ -32,7 +31,7 @@ _None found._
 - **[qe-writing-006]** — Systemic Title Case on H2/H3 headings. *Examples:* `### The Law of Motion` (84), `## Optimality -- Finite Horizon` (298), `### The Objective` (305), `### Time-Varying Parameters` (785), `### Adding a Cross-Product Term` (800), `### Infinite Horizon` (842), `### Certainty Equivalence` (910), `## Further Applications` (920), `### Application 1: Age-Dependent Income Process` (923). *Count:* 12+ headings.
 
 ### Medium severity
-- **[qe-math-A1]** — Expectation uses bare `\mathbb E` without braces (line 100). *Count:* 1.
+- **[qe-math-010 (proposed)]** — Expectation uses bare `\mathbb E` without braces (line 100). *Count:* 1.
 - **[qe-fig-006]** — Title-Case `xlabel('Time')` on 4 figures. *Lines:* 702, 770, 1348, 1497. Should be lowercase `'time'`.
 - **[qe-fig-001]** — `figsize=` set 5 times. *Lines:* 683, 753, 1330, 1479, 1542. Most plots do not need an explicit `figsize`.
 - **[qe-fig-002]** — 5 static PNG figures referenced (`solution_lqc_ex1.png`, `solution_lqc_ex2.png`, `solution_lqc_ex3_g1.png`, `solution_lqc_ex3_g10.png`, `solution_lqc_ex3_g50.png`). *Lines:* 1051, 1121, 1197, 1201, 1205. Prefer code-generated figures.

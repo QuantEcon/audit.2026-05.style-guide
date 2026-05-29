@@ -3,7 +3,6 @@
 - **Series:** lecture-dp
 - **File:** `lectures/mccall_persist_trans.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
 - **Overall score:** 9.1 / 10
 - **Priority:** NONE
@@ -33,7 +32,7 @@ _None found._
 _None found._
 
 ### Low severity
-- **[qe-math-A1]** — Expectation written as `\mathbb E_z` without braces (lines 100, 104, 116, 129, 136); preferred form is `\mathbb{E}_z`.
+- **[qe-math-010 (proposed)]** — Expectation written as `\mathbb E_z` without braces (lines 100, 104, 116, 129, 136); preferred form is `\mathbb{E}_z`.
 
 ## Strengths
 - Lecture title correctly Title Case.

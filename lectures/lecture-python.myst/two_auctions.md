@@ -3,7 +3,6 @@
 - **Series:** lecture-python.myst
 - **File:** `lectures/two_auctions.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 8.2 / 10
 - **Priority:** LOW
@@ -31,11 +30,11 @@ _None found._
 - **[qe-fig-006]** — Axis labels capitalised in 14 places (should be lowercase). *Examples:* line 270, line 271, line 327.
 
 ### Medium severity
-- **[qe-writing-A1]** — Uses "i.i.d." or "iid" in text rather than "IID". *Example:* line 137. *Count:* 2
+- **[qe-writing-009 (proposed)]** — Uses "i.i.d." or "iid" in text rather than "IID". *Example:* line 137. *Count:* 2
 
 ### Low severity
 - **[qe-writing-006]** — One section heading uses Title Case. *Example:* line 449 `$\chi^2$ Distribution`.
-- **[qe-math-A5]** — Multiplication with `*` rather than `\cdot` or juxtaposition. *Example:* line 285.
+- **[qe-math-012 (proposed)]** — Multiplication with `*` rather than `\cdot` or juxtaposition. *Example:* line 285.
 - **[qe-code-002]** — Greek letters spelled out in code; consider unicode forms. *Count:* 5.
 - **[qe-fig-001]** — `figsize=` set in 7 places — usually unnecessary.
 - **[qe-fig-003]** — `ax.set_title()` used once outside exercise blocks (line 445).
@@ -51,6 +50,6 @@ _None found._
 ## Recommended actions
 1. Address `qe-math-004`: Vectors/matrices typeset with `\mathbf` or `\boldsymbol` (style guide says no bold for vectors).
 2. Address `qe-fig-006`: Axis labels capitalised in 14 places (should be lowercase).
-3. Address `qe-writing-A1`: Uses "i.i.d." or "iid" in text rather than "IID".
+3. Address `qe-writing-009 (proposed)`: Uses "i.i.d." or "iid" in text rather than "IID".
 4. Address `qe-writing-006`: One section heading uses Title Case.
-5. Address `qe-math-A5`: Multiplication with `*` rather than `\cdot` or juxtaposition.
+5. Address `qe-math-012 (proposed)`: Multiplication with `*` rather than `\cdot` or juxtaposition.

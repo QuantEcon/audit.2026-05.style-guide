@@ -3,7 +3,6 @@
 - **Series:** lecture-dp
 - **File:** `lectures/cons_news.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
 - **Overall score:** 6.2 / 10
 - **Priority:** HIGH
@@ -30,13 +29,13 @@ _None found._
 - **[qe-link-002]** — Seven raw markdown links to `python-intro.quantecon.org/perm_income_cons.html` and `python-intro.quantecon.org/kalman.html`. *Lines:* 36, 56, 86, 412, 486, 498, 501. Should be `{doc}` intersphinx references.
 
 ### Medium severity
-- **[qe-writing-A1]** — `i.i.d.` used in narrative. *Lines:* 127, 146, 149, 481. *Count:* 4.
+- **[qe-writing-009 (proposed)]** — `i.i.d.` used in narrative. *Lines:* 127, 146, 149, 481. *Count:* 4.
 - **[qe-fig-003]** — Four `plt.title(...)` calls embedding matplotlib titles. *Lines:* 747, 767, 801, 810.
 - **[qe-ref-001]** — Two narrative-author `{cite}` patterns ("Eric Leeper, Todd Walker, and Susan Yang {cite}`Leeper_Walker_Yang`"). Should be `{cite:t}`.
 
 ### Low severity
 - **[qe-writing-001]** — Several multi-sentence paragraphs (e.g. 42-45, 51-67).
-- **[qe-writing-A1]** — Right curly apostrophes ’ in narrative.
+- **[qe-writing-009 (proposed)]** — Right curly apostrophes ’ in narrative.
 
 ## Strengths
 - Lecture title in correct Title Case.

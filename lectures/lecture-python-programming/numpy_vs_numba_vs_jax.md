@@ -3,7 +3,6 @@
 - **Series:** lecture-python-programming
 - **File:** `lectures/numpy_vs_numba_vs_jax.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 8.3 / 10
 - **Priority:** LOW
@@ -30,7 +29,7 @@ _None found._
 _None found._
 
 ### Medium severity
-- **[qe-writing-006]** *(carry-forward W3)* — Several headings still use Title Case. *Examples:* line 77 `### Problem Statement`, line 180 `### Memory Issues`, line 201 `### A Comparison with Numba`, line 243 `### Parallelized Numba`, line 290 `### Vectorized code with JAX`, line 337 `### JAX plus vmap`, line 395 `### Summary`, line 424 `### Numba Version`, line 459 `### JAX Version`, line 559 `### Summary`. *Count:* ~10 occurrences.
+- **[qe-writing-006]** — Several headings still use Title Case. *Examples:* line 77 `### Problem Statement`, line 180 `### Memory Issues`, line 201 `### A Comparison with Numba`, line 243 `### Parallelized Numba`, line 290 `### Vectorized code with JAX`, line 337 `### JAX plus vmap`, line 395 `### Summary`, line 424 `### Numba Version`, line 459 `### JAX Version`, line 559 `### Summary`. *Count:* ~10 occurrences.
 
 ### Low severity
 - **[qe-fig-001]** — One `figsize=(10, 8)` at line 101 for the 3D surface plot — arguably justified for 3D rendering, but not annotated as such.

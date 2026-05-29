@@ -3,7 +3,6 @@
 - **Series:** lecture-python.myst
 - **File:** `lectures/blackwell_kihlstrom.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 9.1 / 10
 - **Priority:** NONE
@@ -27,7 +26,7 @@
 _None found._
 
 ### High severity
-- **[qe-math-A1]** — Bare `E[...]`, `\Pr(...)`, or `\Var(...)` used instead of `\mathbb{E}`, `\mathbb{P}`, `\mathbb{V}`. *Examples:* lines 100, 378. *Count:* 13 chunks.
+- **[qe-math-010 (proposed)]** — Bare `E[...]`, `\Pr(...)`, or `\Var(...)` used instead of `\mathbb{E}`, `\mathbb{P}`, `\mathbb{V}`. *Examples:* lines 100, 378. *Count:* 13 chunks.
 
 ### Medium severity
 - **[qe-writing-006]** — Section headings use Title Case rather than sentence case. *Examples:* line 370 `Kihlstrom's Bayesian interpretation`, line 1173 `The Data Processing Inequality and Coarse-Graining`. *Count:* 3.
@@ -48,7 +47,7 @@ _None found._
 - Figures use descriptive `name:` fields for cross-referencing.
 
 ## Recommended actions
-1. Address `qe-math-A1`: Bare `E[...]`, `\Pr(...)`, or `\Var(...)` used instead of `\mathbb{E}`, `\mathbb{P}`, `\mathbb{V}`.
+1. Address `qe-math-010 (proposed)`: Bare `E[...]`, `\Pr(...)`, or `\Var(...)` used instead of `\mathbb{E}`, `\mathbb{P}`, `\mathbb{V}`.
 2. Address `qe-writing-006`: Section headings use Title Case rather than sentence case.
 3. Address `qe-math-008`: Ones vector typeset with `\mathbf{1}` rather than `\mathbb{1}`.
 4. Address `qe-code-002`: Mixed Greek conventions in code (word=21, uni=37).

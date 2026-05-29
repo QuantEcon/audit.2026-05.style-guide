@@ -3,7 +3,6 @@
 - **Series:** lecture-dp
 - **File:** `lectures/odu.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
 - **Overall score:** 6.7 / 10
 - **Priority:** MEDIUM
@@ -32,14 +31,14 @@ _None found._
 
 ### Medium severity
 - **[qe-math-008]** — `\mathbf{1}` used as indicator function (line 113). Should be `\mathbb{1}` and explained.
-- **[qe-math-A3]** — `\operatorname{Beta}` (lines 216, 217) used for the distribution; style guide recommends `\mathrm{Beta}`.
+- **[qe-math-011 (proposed)]** — `\operatorname{Beta}` (lines 216, 217) used for the distribution; style guide recommends `\mathrm{Beta}`.
 - **[qe-fig-001]** — `figsize=` set 7 times — high.
 - **[qe-fig-003]** — `ax.set_title('Unemployment rate')` on line 850.
 - **[qe-fig-006]** — Title-Case `xlabel('Time')` on line 849.
 - **[qe-link-002]** — Four raw markdown links to `python.quantecon.org` / `python-intro.quantecon.org` instead of `{doc}` form.
 
 ### Low severity
-- **[qe-writing-A1]** — Right curly apostrophes ’ used in narrative instead of straight `'` (lines 27, 38, 41, 78, 118).
+- **[qe-writing-009 (proposed)]** — Right curly apostrophes ’ used in narrative instead of straight `'` (lines 27, 38, 41, 78, 118).
 
 ## Strengths
 - Lecture title correctly Title Case.

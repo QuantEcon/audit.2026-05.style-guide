@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/dovis_accounting_mf.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 7.4 / 10
 - **Priority:** LOW
@@ -31,7 +30,7 @@ _None found._
 - **[qe-fig-007]** — 2 `ax.spines[...].set_visible(False)` removing default box.
 
 ### Medium severity
-- **[qe-math-A3]** — `\mathcal{N}` used as Normal distribution. *Count:* 1 occurrence.
+- **[qe-math-011 (proposed)]** — `\mathcal{N}` used as Normal distribution. *Count:* 1 occurrence.
 - **[qe-fig-003]** — 1 `ax.set_title` occurrence.
 - **[qe-code-002]** — Mixed unicode/spelled Greek in code.
 
@@ -52,6 +51,6 @@ _None found._
 ## Recommended actions
 1. Reduce `figsize=` usage (qe-fig-001).
 2. Remove `spines.set_visible(False)` calls (qe-fig-007).
-3. Replace `\mathcal{N}` with `N` (qe-math-A3).
+3. Replace `\mathcal{N}` with `N` (qe-math-011, proposed).
 4. Remove `ax.set_title` (qe-fig-003).
 5. Standardise on unicode Greek in code (qe-code-002).

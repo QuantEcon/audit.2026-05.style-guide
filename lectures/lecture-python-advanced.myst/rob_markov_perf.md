@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/rob_markov_perf.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 6.4 / 10
 - **Priority:** MEDIUM
@@ -27,11 +26,11 @@
 _None found._
 
 ### High severity
-- **[qe-math-002]** — Prime `'` used systematically as transpose (carry-forward from v1 M2). *Example:* `\Gamma_{it} := W_i' - M_i' F_{-it}`, `B_i' P A`, `x_t' R x_t`. *Count:* ~27 occurrences.
+- **[qe-math-002]** — Prime `'` used systematically as transpose. *Example:* `\Gamma_{it} := W_i' - M_i' F_{-it}`, `B_i' P A`, `x_t' R x_t`. *Count:* ~27 occurrences.
 - **[qe-code-002]** — Spelled-out Greek heavily used (22 occurrences).
 
 ### Medium severity
-- **[qe-math-003]** — `\begin{pmatrix}` used instead of `\begin{bmatrix}` (carry-forward from v1 M4). *Example:* `lectures/rob_markov_perf.md:778`. *Count:* 1 occurrence.
+- **[qe-math-003]** — `\begin{pmatrix}` used instead of `\begin{bmatrix}`. *Example:* `lectures/rob_markov_perf.md:778`. *Count:* 1 occurrence.
 
 ### Low severity
 - **[qe-fig-005]** — Figures lack `:name: fig-...` fields.

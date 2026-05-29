@@ -3,7 +3,6 @@
 - **Series:** lecture-dp
 - **File:** `lectures/markov_jump_lq.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
 - **Overall score:** 6.3 / 10
 - **Priority:** HIGH
@@ -31,11 +30,11 @@ _None found._
 - **[qe-fig-003]** — Six embedded matplotlib titles via `ax.set_title(...)`. *Lines:* 488, 550, 619, 660, 682, 716. Captions should be in MyST `{figure}` blocks, not embedded.
 
 ### Medium severity
-- **[qe-math-A3]** — Multivariate normal written as `{\cal N}(0,I)` (line 180). Style is plain `N(0, I)`.
-- **[qe-writing-A1]** — `i.i.d.` used in narrative (line 179). Should be `IID`.
-- **[qe-math-A1]** — Bare `E` used for expectation in display equations (lines 94, 163, 207). Style is `\mathbb{E}`.
+- **[qe-math-011 (proposed)]** — Multivariate normal written as `{\cal N}(0,I)` (line 180). Style is plain `N(0, I)`.
+- **[qe-writing-009 (proposed)]** — `i.i.d.` used in narrative (line 179). Should be `IID`.
+- **[qe-math-010 (proposed)]** — Bare `E` used for expectation in display equations (lines 94, 163, 207). Style is `\mathbb{E}`.
 - **[qe-link-002]** — Raw markdown link to `python.quantecon.org/markov_perf.html` (line 1411); should be `{doc}` form.
-- **[qe-writing-A1]** — Smart quotes ’ in narrative (lines 156, 157).
+- **[qe-writing-009 (proposed)]** — Smart quotes ’ in narrative (lines 156, 157).
 
 ### Low severity
 - **[qe-writing-001]** — Several multi-sentence paragraphs.

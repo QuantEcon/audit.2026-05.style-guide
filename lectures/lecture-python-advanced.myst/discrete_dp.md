@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/discrete_dp.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 7.0 / 10
 - **Priority:** MEDIUM
@@ -34,7 +33,7 @@ _None found._
 - **[qe-code-002]** — Spelled-out Greek (`alpha`, `beta`, etc.) heavily used in code (14 occurrences).
 
 ### Low severity
-- **[qe-math-008]** — `\mathbf{1}` used for ones vector (carry-forward from v1 M3). *Example:* `lectures/discrete_dp.md:1001`. *Count:* 1 occurrence.
+- **[qe-math-008]** — `\mathbf{1}` used for ones vector. *Example:* `lectures/discrete_dp.md:1001`. *Count:* 1 occurrence.
 - **[qe-writing-001]** — A few longer compound paragraphs in algorithm descriptions.
 - **[qe-fig-005]** — Figures lack `:name: fig-...` fields.
 - **[qe-fig-001]** — 4 `figsize=` settings.
@@ -42,7 +41,7 @@ _None found._
 ## Strengths
 - Title in Title Case (qe-writing-006).
 - Subheadings sentence case (qe-writing-006).
-- `\mathbb{E}` used for expectation (qe-math-A1).
+- `\mathbb{E}` used for expectation (qe-math-010, proposed).
 - Equation labels and `{eq}` references (qe-math-007).
 - Primes in `s'`, `Q_{\sigma}(s, s')` are next-period notation, not transpose.
 - Install cell at top with `hide-output` (qe-code-003).

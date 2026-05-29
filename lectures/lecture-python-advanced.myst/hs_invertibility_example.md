@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/hs_invertibility_example.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 6.5 / 10
 - **Priority:** MEDIUM
@@ -27,7 +26,7 @@
 _None found._
 
 ### High severity
-- **[qe-math-003]** — Systemic use of `\left[ \begin{array}{...} ... \end{array} \right]` instead of `\begin{bmatrix}` (carry-forward from v1 M4). *Example:* `lectures/hs_invertibility_example.md:109`-`120`, `:123`-`128`, `:131`-`136`, `:202`-`209`, `:224`-`231`. *Count:* ~7 occurrences.
+- **[qe-math-003]** — Systemic use of `\left[ \begin{array}{...} ... \end{array} \right]` instead of `\begin{bmatrix}`. *Example:* `lectures/hs_invertibility_example.md:109`-`120`, `:123`-`128`, `:131`-`136`, `:202`-`209`, `:224`-`231`. *Count:* ~7 occurrences.
 
 ### Medium severity
 - **[qe-writing-005]** — `**news and noise**`, `**shock-invertibility**`, `**fiscal foresight**` (L51-65) used as semi-definitions; `**Preferences**`/`**Technology**`/`**Information**` (L74, L88, L106) are labels, not definitions.
@@ -38,7 +37,7 @@ _None found._
 - **[qe-fig-001]** — 3 `figsize=` settings.
 
 ## Strengths
-- `\mathbb{E}` used for expectation (qe-math-A1), e.g. L77, L195.
+- `\mathbb{E}` used for expectation (qe-math-010, proposed), e.g. L77, L195.
 - Title in Title Case (qe-writing-006); section headings in sentence case (qe-writing-006).
 - No `\tag`; equations use no manual labels.
 - Unicode Greek used in code (qe-code-002).

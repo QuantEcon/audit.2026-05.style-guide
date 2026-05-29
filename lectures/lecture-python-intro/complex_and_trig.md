@@ -3,7 +3,6 @@
 - **Series:** lecture-python-intro
 - **File:** `lectures/complex_and_trig.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 6.7 / 10
 - **Priority:** MEDIUM

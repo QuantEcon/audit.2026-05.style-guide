@@ -3,7 +3,6 @@
 - **Series:** lecture-dp
 - **File:** `lectures/chang_ramsey.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
 - **Overall score:** 6.5 / 10
 - **Priority:** MEDIUM
@@ -37,7 +36,7 @@ _None found._
 
 ### Low severity
 - **[qe-writing-001]** — Several multi-sentence paragraphs.
-- **[qe-writing-A1]** — Smart quotes ’ used occasionally.
+- **[qe-writing-009 (proposed)]** — Smart quotes ’ used occasionally.
 
 ## Strengths
 - Lecture title in correct Title Case.

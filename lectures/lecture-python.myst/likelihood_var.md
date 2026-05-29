@@ -3,7 +3,6 @@
 - **Series:** lecture-python.myst
 - **File:** `lectures/likelihood_var.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 8.6 / 10
 - **Priority:** NONE
@@ -31,7 +30,7 @@ _None found._
 
 ### Medium severity
 - **[qe-math-004]** — Bold used for vectors/matrices. *Example:* line 507. *Count:* 3.
-- **[qe-math-A3]** — Normal distribution as `\mathcal{N}` rather than `N`. *Examples:* lines 66, 72. *Count:* 2.
+- **[qe-math-011 (proposed)]** — Normal distribution as `\mathcal{N}` rather than `N`. *Examples:* lines 66, 72. *Count:* 2.
 - **[qe-code-002]** — Spelled-out Greek (alpha/beta/etc.) used predominantly in code; mixed with unicode forms (word=13, uni=2).
 
 ### Low severity
@@ -48,6 +47,6 @@ _None found._
 ## Recommended actions
 1. Address `qe-fig-003`: `ax.set_title()` / `fig.suptitle()` used 6 times outside exercise blocks.
 2. Address `qe-math-004`: Bold used for vectors/matrices.
-3. Address `qe-math-A3`: Normal distribution as `\mathcal{N}` rather than `N`.
+3. Address `qe-math-011 (proposed)`: Normal distribution as `\mathcal{N}` rather than `N`.
 4. Address `qe-code-002`: Spelled-out Greek (alpha/beta/etc.) used predominantly in code; mixed with unicode forms (word=13, uni=2).
 5. Address `qe-writing-006`: One section heading uses Title Case.

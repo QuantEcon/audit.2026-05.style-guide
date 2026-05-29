@@ -3,7 +3,6 @@
 - **Series:** lecture-python-programming
 - **File:** `lectures/pandas_panel.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 7.5 / 10
 - **Priority:** HIGH
@@ -30,7 +29,7 @@ _None found._
 - **[qe-fig-003]** — Five `plt.title(...)` calls embed titles in matplotlib figures outside exercise/solution context. *Examples:* line 395 `plt.title('Average real minimum wage 2006 - 2016')`, line 414 `plt.title('Average real minimum wage')`, line 425 `plt.title('Average real minimum wage')`, line 482 `plt.title('Real minimum wages in 2015')`, line 618 `plt.title('Employment in Europe (2015)')` (inside solution — exempt). Of these, four are in main-body code cells and are clear violations; line 618 is inside a solution and exempt per qe-fig-003. *Count:* 4 clear violations.
 
 ### Medium severity
-- **[qe-writing-006]** *(carry-forward W3)* — Section headings use Title Case rather than sentence case. *Examples:* line 72 `## Slicing and Reshaping Data`, line 187 `## Merging Dataframes and Filling NaNs`, line 352 `## Grouping and Summarizing Data`, line 488 `## Final Remarks`, line 497 `## Exercises`. *Count:* 5 occurrences.
+- **[qe-writing-006]** — Section headings use Title Case rather than sentence case. *Examples:* line 72 `## Slicing and Reshaping Data`, line 187 `## Merging Dataframes and Filling NaNs`, line 352 `## Grouping and Summarizing Data`, line 488 `## Final Remarks`, line 497 `## Exercises`. *Count:* 5 occurrences.
 
 ### Low severity
 - **[qe-fig-005]** — The static `{figure}` at line 246 (Venn diagram) and the embedded `plt.*` plots lack `name:` metadata.

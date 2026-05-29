@@ -3,7 +3,6 @@
 - **Series:** lecture-dp
 - **File:** `lectures/tax_smoothing_2.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
 - **Overall score:** 7.5 / 10
 - **Priority:** LOW
@@ -30,14 +29,14 @@ _None found._
 - **[qe-fig-006]** — Nine Title-Case `xlabel('Time')` axis labels. *Lines:* 477, 480, 524, 527, 822, 825, 828, 831, 842.
 
 ### Medium severity
-- **[qe-math-A3]** — Multivariate normal written as `{\cal N}(0,I)` (line 142).
-- **[qe-math-A1]** — Bare `E_0` for expectation in display equation (line 122). Should be `\mathbb{E}_0`.
+- **[qe-math-011 (proposed)]** — Multivariate normal written as `{\cal N}(0,I)` (line 142).
+- **[qe-math-010 (proposed)]** — Bare `E_0` for expectation in display equation (line 122). Should be `\mathbb{E}_0`.
 - **[qe-math-001]** — `\cr` row separator used throughout `aligned` blocks. *Lines:* 129-138, 181-185, and many more.
 - **[qe-fig-003]** — `ax.set_title('One-period debt issuance share')` (line 841).
 - **[qe-fig-001]** — `figsize=` set 3 times.
 
 ### Low severity
-- **[qe-writing-A1]** — Smart quotes ” “ used in narrative (lines 155, 178).
+- **[qe-writing-009 (proposed)]** — Smart quotes ” “ used in narrative (lines 155, 178).
 - **[qe-writing-001]** — Some long paragraphs (e.g. 32-37, 53-62).
 
 ## Strengths

@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/doubts_or_variability.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 6.4 / 10
 - **Priority:** MEDIUM
@@ -27,15 +26,15 @@
 _None found._
 
 ### High severity
-- **[qe-math-A1]** — 50 bare `E_t`/`E_0` for expectation instead of `\mathbb{E}`. *Count:* 50 occurrences.
-- **[qe-math-A3]** — 23 `\mathcal{N}` used as Normal distribution. *Count:* 23 occurrences.
+- **[qe-math-010 (proposed)]** — 50 bare `E_t`/`E_0` for expectation instead of `\mathbb{E}`. *Count:* 50 occurrences.
+- **[qe-math-011 (proposed)]** — 23 `\mathcal{N}` used as Normal distribution. *Count:* 23 occurrences.
 
 ### Medium severity
 - **[qe-fig-001]** — 9 `figsize=` settings.
 - **[qe-code-002]** — Spelled-out Greek (34 occurrences) mixed with unicode.
 
 ### Low severity
-- **[qe-writing-A1]** — 3 "i.i.d." occurrences in text.
+- **[qe-writing-009 (proposed)]** — 3 "i.i.d." occurrences in text.
 
 ## Strengths
 - Title in Title Case with question mark (qe-writing-006).
@@ -48,8 +47,8 @@ _None found._
 - Install cell at top with `hide-output` (qe-code-003).
 
 ## Recommended actions
-1. Convert bare `E_t`/`E_0` to `\mathbb{E}` notation (qe-math-A1).
-2. Replace `\mathcal{N}` with `N` (qe-math-A3).
+1. Convert bare `E_t`/`E_0` to `\mathbb{E}` notation (qe-math-010, proposed).
+2. Replace `\mathcal{N}` with `N` (qe-math-011, proposed).
 3. Reduce `figsize=` usage (qe-fig-001).
 4. Standardise on unicode Greek in code (qe-code-002).
-5. Replace "i.i.d." with "IID" (qe-writing-A1).
+5. Replace "i.i.d." with "IID" (qe-writing-009, proposed).

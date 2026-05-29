@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/info_projection.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 7.7 / 10
 - **Priority:** LOW
@@ -30,7 +29,7 @@ _None found._
 _None found._
 
 ### Medium severity
-- **[qe-math-A1]** — 14 bare `E[`/`E(` instead of `\mathbb{E}`. *Count:* 14 occurrences.
+- **[qe-math-010 (proposed)]** — 14 bare `E[`/`E(` instead of `\mathbb{E}`. *Count:* 14 occurrences.
 - **[qe-code-002]** — Mixed spelled/unicode Greek in code.
 
 ### Low severity
@@ -46,5 +45,5 @@ _None found._
 - `{doc}\`intermediate:...\`` for cross-series references (qe-link-002).
 
 ## Recommended actions
-1. Convert bare `E[`/`E(` to `\mathbb{E}` notation (qe-math-A1).
+1. Convert bare `E[`/`E(` to `\mathbb{E}` notation (qe-math-010, proposed).
 2. Standardise on unicode Greek in code (qe-code-002).

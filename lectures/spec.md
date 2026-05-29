@@ -1,7 +1,4 @@
-# QuantEcon Style Audit — Shared Spec (v2)
-
-**Spec version:** v2 (2026-05-28)
-**Previous version:** v1 (2026-05-27) — Writing + Math only, using `W1–W8` / `M1–M14` rule IDs. The 292 per-lecture reports under this folder were produced under v1; see §10 for the v1↔v2 mapping.
+# QuantEcon Style Audit — Scoring Spec
 
 This file is the canonical scoring rubric and report template for QuantEcon lecture audits. The audit *complements* the per-rule LLM review provided by [QuantEcon/action-style-guide](https://github.com/QuantEcon/action-style-guide) by adding:
 
@@ -122,19 +119,19 @@ Tables organised by category. **Audit weight** is how heavily a rule influences 
 
 ## 3. Audit-only addendum rules (proposed for action-style-guide)
 
-These rules are **specified in the QuantEcon manual style guide** ([`QuantEcon.manual/manual/styleguide/`](https://github.com/QuantEcon/QuantEcon.manual/tree/main/manual/styleguide)) but are **not yet encoded as rules in `action-style-guide`**. They are scored during audits using temporary `*-A*` IDs and are proposed for inclusion. Each has been observed at scale in the 292-lecture audit corpus (see [`README.md`](intro.md) for counts).
+These rules are **specified in the QuantEcon manual style guide** ([`QuantEcon.manual/manual/styleguide/`](https://github.com/QuantEcon/QuantEcon.manual/tree/main/manual/styleguide)) but are **not yet encoded as rules in `action-style-guide`**. They are scored during audits using the permanent IDs proposed below (each tagged **(proposed)** wherever it appears in the report) and have been observed at scale in the 299-lecture audit corpus (see [the synthesis](intro.md) for counts).
 
 | Proposed ID | Title | Source | Audit weight | Detect-by | Corpus evidence |
 |-------------|-------|--------|--------------|-----------|-----------------|
-| **qe-writing-A1** | Write "IID" — not "i.i.d." or "iid" | `writing.md` §General writing advice; `math.md` §IID | Medium | Mechanical (case-sensitive regex `\bi\.i\.d\.\b|\biid\b`) | ~30 lectures |
-| **qe-math-A1** | Blackboard `\mathbb{P}`, `\mathbb{E}`, `\mathbb{V}` for probability, expectation, variance — with braces | `math.md` §Probability, expectation, variance | **Very high** | Mechanical (regex catches bare `E[`, `E_t`, `\mathbb E` missing braces, `\Pr(`, `\Var(`) | ~60 lectures |
-| **qe-math-A2** | Braces `\{…\}` for events, parentheses `(…)` for sets when using `\mathbb{P}` | `math.md` §Probability, expectation, variance | Low | Judgment | Limited corpus evidence |
-| **qe-math-A3** | Distribution names: plain letters (`N`, `U`); `\mathrm{…}` for multi-letter — never `\mathcal` / `\mathbb` | `math.md` §Distribution names | High | Mechanical (regex on `\mathcal\{N\}` / `\{\\cal N\}`) | ~30 lectures |
-| **qe-math-A4** | Lowercase for densities/PMFs (`f`, `g`, `p`), uppercase for CDFs (`F`) | `math.md` §Density and mass functions | Low | Judgment | Limited corpus evidence |
-| **qe-math-A5** | Multiplication: `\cdot` or juxtaposition — never `*` in math | `math.md` §Multiplication in equations | Medium | Mechanical (regex `\*` inside `$…$` / `$$…$$`) | Small (~5 lectures) but a strong rule |
-| **qe-math-A6** | Reference equations via `` {eq}`label` ``; do not write "see equation (3)" manually | `math.md` §end | Medium | Partial (detect numeric refs near labelled equations) | Repeatedly observed |
+| **qe-writing-009** | Write "IID" — not "i.i.d." or "iid" | `writing.md` §General writing advice; `math.md` §IID | Medium | Mechanical (case-sensitive regex `\bi\.i\.d\.\b|\biid\b`) | ~30 lectures |
+| **qe-math-010** | Blackboard `\mathbb{P}`, `\mathbb{E}`, `\mathbb{V}` for probability, expectation, variance — with braces | `math.md` §Probability, expectation, variance | **Very high** | Mechanical (regex catches bare `E[`, `E_t`, `\mathbb E` missing braces, `\Pr(`, `\Var(`) | ~60 lectures |
+| **qe-math-011** | Distribution names: plain letters (`N`, `U`); `\mathrm{…}` for multi-letter — never `\mathcal` / `\mathbb` | `math.md` §Distribution names | High | Mechanical (regex on `\mathcal\{N\}` / `\{\\cal N\}`) | ~30 lectures |
+| **qe-math-012** | Multiplication: `\cdot` or juxtaposition — never `*` in math | `math.md` §Multiplication in equations | Medium | Mechanical (regex `\*` inside `$…$` / `$$…$$`) | Small (~5 lectures) but a strong rule |
+| **qe-math-013** | Reference equations via `` {eq}`label` ``; do not write "see equation (3)" manually | `math.md` §end | Medium | Partial (detect numeric refs near labelled equations) | Repeatedly observed |
+| **qe-math-014** | Braces `\{…\}` for events, parentheses `(…)` for sets when using `\mathbb{P}` | `math.md` §Probability, expectation, variance | Low | Judgment | Limited corpus evidence |
+| **qe-math-015** | Lowercase for densities/PMFs (`f`, `g`, `p`), uppercase for CDFs (`F`) | `math.md` §Density and mass functions | Low | Judgment | Limited corpus evidence |
 
-> **Recommendation:** these should become rules `qe-writing-009`, `qe-math-010`–`qe-math-015` in action-style-guide. See the proposal docs under [`../action-style-guide-contributions/`](../action-style-guide-contributions/) (to be written).
+> **Status:** these are proposed as rules `qe-writing-009` and `qe-math-010`–`qe-math-015` in [`action-style-guide` issue #18](https://github.com/QuantEcon/action-style-guide/issues/18). The two weakest-evidence rules (`qe-math-014`, `qe-math-015`) may be deferred.
 
 ---
 
@@ -189,7 +186,6 @@ Each lecture audit must be a markdown file with **this exact structure**. Keep i
 - **Series:** <series name>
 - **File:** `lectures/<filename>.md`
 - **Audit date:** YYYY-MM-DD
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, jax, figures, references, links, admonitions  *(or a subset)*
 - **Overall score:** X.X / 10
 - **Priority:** HIGH | MEDIUM | LOW | NONE
@@ -232,7 +228,7 @@ Each lecture audit must be a markdown file with **this exact structure**. Keep i
 ```
 
 **Rules for filling it in:**
-- Rule IDs use the canonical `qe-…-…` form (or `qe-…-A…` for addendum rules in §3).
+- Rule IDs use the canonical `qe-…-…` form. Proposed addendum rules (§3) use their proposed permanent IDs tagged **(proposed)**, e.g. `qe-math-010 (proposed)`.
 - Cite at least one concrete example or line number for every Critical/High/Medium issue.
 - If a category is not applicable to the lecture, write `N/A` in the score column and note the reason.
 - Output filename: same stem as input lecture, e.g. `lectures/cobweb.md` → `cobweb.md`.
@@ -248,7 +244,6 @@ Each series folder gets a `README.md` with this structure:
 # Style Audit — <series-name>
 
 - **Audit date:** YYYY-MM-DD
-- **Spec version:** v2
 - **Lectures audited:** N
 - **Categories audited:** …
 - **Average overall score:** X.X / 10
@@ -292,7 +287,7 @@ If only a subset of categories were audited, drop the unused columns rather than
 5. Do **not** modify any lecture files.
 6. Final response: a short summary listing average per-category scores, the top 3 systemic issues with their rule IDs, and the 5 worst-scoring lectures.
 
-When auditing a subset of categories (the default per user instruction has been writing + math), score only those and mark the rest as out-of-scope in the report metadata — do not fill them with `N/A` for "not applicable to this lecture", which means something different.
+When auditing only a subset of categories, score those and mark the rest as out-of-scope in the report metadata — distinct from `N/A`, which means "not applicable to this lecture".
 
 ---
 
@@ -302,52 +297,14 @@ These rules could move from LLM evaluation to regex / AST checking, eliminating 
 
 ### Fully deterministic (regex / direct AST)
 
-`qe-writing-008`, `qe-math-002`, `qe-math-003`, `qe-math-004`, `qe-math-006`, `qe-math-007`, `qe-code-004`, `qe-code-005`, `qe-fig-003`, `qe-fig-006`, `qe-fig-007`, `qe-fig-008`, `qe-fig-009`, `qe-fig-010`, `qe-link-002`, `qe-admon-003`, `qe-admon-004`, `qe-admon-005`, plus addendum **qe-writing-A1**, **qe-math-A1**, **qe-math-A3**, **qe-math-A5**.
+`qe-writing-008`, `qe-math-002`, `qe-math-003`, `qe-math-004`, `qe-math-006`, `qe-math-007`, `qe-code-004`, `qe-code-005`, `qe-fig-003`, `qe-fig-006`, `qe-fig-007`, `qe-fig-008`, `qe-fig-009`, `qe-fig-010`, `qe-link-002`, `qe-admon-003`, `qe-admon-004`, `qe-admon-005`, plus proposed **qe-writing-009**, **qe-math-010**, **qe-math-011**, **qe-math-012**.
 
-That is **22 rules** — substantially more than the "~13" estimated in IMPROVEMENTS.md §2.C. Worth validating against the 292-lecture corpus.
+That is **22 rules** — substantially more than the "~13" estimated in IMPROVEMENTS.md §2.C. Worth validating against the 299-lecture corpus.
 
 ### Partial (regex + curated allowlist)
 
-`qe-writing-001`, `qe-writing-004`, `qe-writing-006`, `qe-math-001`, `qe-math-005`, `qe-math-008`, `qe-code-002`, `qe-code-003`, `qe-code-006`, `qe-jax-002`, `qe-jax-004`, `qe-jax-006`, `qe-fig-004`, `qe-fig-005`, `qe-fig-011`, `qe-link-001`, `qe-admon-001`, `qe-admon-002`, plus addendum **qe-math-A6**.
+`qe-writing-001`, `qe-writing-004`, `qe-writing-006`, `qe-math-001`, `qe-math-005`, `qe-math-008`, `qe-code-002`, `qe-code-003`, `qe-code-006`, `qe-jax-002`, `qe-jax-004`, `qe-jax-006`, `qe-fig-004`, `qe-fig-005`, `qe-fig-011`, `qe-link-001`, `qe-admon-001`, `qe-admon-002`, plus proposed **qe-math-013**.
 
 ### LLM-only (genuine judgment)
 
-`qe-writing-002`, `qe-writing-003`, `qe-writing-005`, `qe-writing-007`, `qe-math-009`, `qe-code-001`, `qe-jax-001`, `qe-jax-003`, `qe-jax-005`, `qe-jax-007`, `qe-fig-001`, `qe-fig-002`, `qe-ref-001`, plus addendum **qe-math-A2**, **qe-math-A4**.
-
----
-
-## 10. v1 → v2 mapping
-
-The 292 per-lecture reports under this folder were produced under v1 of this spec, which used `W1–W8` and `M1–M14` rule IDs. The mapping below allows v1 findings to be re-keyed to canonical `qe-*` IDs without re-running the audit.
-
-| v1 ID | v2 / qe-* ID | Notes |
-|-------|--------------|-------|
-| W1 | qe-writing-001 | direct |
-| W2 | qe-writing-006 | direct (Title Case for lecture title is half of qe-writing-006) |
-| W3 | qe-writing-006 | direct (sentence case for sections is the other half) |
-| W4 | qe-writing-005 | direct (bold for definitions) |
-| W5 | qe-writing-005 | direct (italic for emphasis) |
-| W6 | **qe-writing-A1** (proposed) | gap — not in registry |
-| W7 | qe-writing-004 | direct |
-| W8 | qe-math-009 | partial — "prefer simpler notation" applies more broadly than math, but qe-math-009 captures the math case |
-| M1 | qe-math-001 | direct |
-| M2 | qe-math-002 | direct |
-| M3 | qe-math-008 | direct |
-| M4 | qe-math-003 | direct |
-| M5 | qe-math-004 | direct |
-| M6 | qe-math-005 | direct |
-| M7 | **qe-math-A1** (proposed) | gap |
-| M8 | **qe-math-A2** (proposed) | gap |
-| M9 | **qe-math-A3** (proposed) | gap |
-| M10 | **qe-math-A4** (proposed) | gap |
-| M11 | **qe-math-A5** (proposed) | gap |
-| M12 | qe-math-006 | direct |
-| M13 | qe-math-007 | direct |
-| M14 | **qe-math-A6** (proposed) | gap — `\tag` ban (qe-math-007) implies `{eq}` use, but the positive rule "use `{eq}`label`` for refs" is not separately specified |
-
----
-
-## 11. Change log
-
-- **v2** (2026-05-28): Adopt canonical `qe-*` IDs from action-style-guide. Add 6 categories (Code, JAX, Figures, References, Links, Admonitions). Add §3 addendum rules (gaps in action-style-guide observed in the corpus). Add §9 deterministic-check candidate list. Add §10 v1↔v2 mapping. Add Critical severity tier for build-risk findings.
-- **v1** (2026-05-27): Initial spec. Writing + Math only, using local `W1–W8` and `M1–M14` IDs. 292 per-lecture reports produced under this version.
+`qe-writing-002`, `qe-writing-003`, `qe-writing-005`, `qe-writing-007`, `qe-math-009`, `qe-code-001`, `qe-jax-001`, `qe-jax-003`, `qe-jax-005`, `qe-jax-007`, `qe-fig-001`, `qe-fig-002`, `qe-ref-001`, plus proposed **qe-math-014**, **qe-math-015**.

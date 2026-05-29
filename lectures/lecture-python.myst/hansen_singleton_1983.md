@@ -3,7 +3,6 @@
 - **Series:** lecture-python.myst
 - **File:** `lectures/hansen_singleton_1983.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 8.8 / 10
 - **Priority:** NONE
@@ -34,7 +33,7 @@ _None found._
 
 ### Low severity
 - **[qe-writing-006]** — One section heading uses Title Case. *Example:* line 1208 `Predictability and the R-squared restriction`.
-- **[qe-math-A1]** — Bare `E[...]` or `\Pr(...)` used in place of `\mathbb{E}`/`\mathbb{P}`. *Example:* line 1641.
+- **[qe-math-010 (proposed)]** — Bare `E[...]` or `\Pr(...)` used in place of `\mathbb{E}`/`\mathbb{P}`. *Example:* line 1641.
 - **[qe-code-002]** — Mixed Greek conventions in code (word=6, uni=8).
 - **[qe-fig-001]** — `figsize=` set in 1 place(s).
 
@@ -48,6 +47,6 @@ _None found._
 ## Recommended actions
 1. Address `qe-math-004`: Vectors/matrices typeset with `\mathbf` or `\boldsymbol` (style guide says no bold for vectors).
 2. Address `qe-writing-006`: One section heading uses Title Case.
-3. Address `qe-math-A1`: Bare `E[...]` or `\Pr(...)` used in place of `\mathbb{E}`/`\mathbb{P}`.
+3. Address `qe-math-010 (proposed)`: Bare `E[...]` or `\Pr(...)` used in place of `\mathbb{E}`/`\mathbb{P}`.
 4. Address `qe-code-002`: Mixed Greek conventions in code (word=6, uni=8).
 5. Address `qe-fig-001`: `figsize=` set in 1 place(s).

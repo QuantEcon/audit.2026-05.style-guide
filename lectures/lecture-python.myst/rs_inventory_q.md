@@ -3,7 +3,6 @@
 - **Series:** lecture-python.myst
 - **File:** `lectures/rs_inventory_q.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 9.1 / 10
 - **Priority:** NONE

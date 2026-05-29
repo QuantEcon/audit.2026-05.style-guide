@@ -3,7 +3,6 @@
 - **Series:** lecture-python.myst
 - **File:** `lectures/likelihood_ratio_process.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 8.7 / 10
 - **Priority:** NONE
@@ -31,7 +30,7 @@ _None found._
 
 ### Medium severity
 - **[qe-math-004]** — Bold used for vectors/matrices. *Example:* line 1518. *Count:* 3.
-- **[qe-math-A1]** — Bare `E[...]` or `\Pr(...)` used instead of `\mathbb{E}`, `\mathbb{P}`. *Examples:* line 399. *Count:* 6.
+- **[qe-math-010 (proposed)]** — Bare `E[...]` or `\Pr(...)` used instead of `\mathbb{E}`, `\mathbb{P}`. *Examples:* line 399. *Count:* 6.
 - **[qe-code-002]** — Greek letters spelled out in code; spec prefers unicode (α, β). *Count:* 12.
 - **[qe-fig-001]** — `figsize=` set in 12 places — usually unnecessary (defaults from `_config.yml`).
 
@@ -52,6 +51,6 @@ _None found._
 ## Recommended actions
 1. Address `qe-fig-003`: `ax.set_title()` / `fig.suptitle()` used 8 times outside exercise blocks.
 2. Address `qe-math-004`: Bold used for vectors/matrices.
-3. Address `qe-math-A1`: Bare `E[...]` or `\Pr(...)` used instead of `\mathbb{E}`, `\mathbb{P}`.
+3. Address `qe-math-010 (proposed)`: Bare `E[...]` or `\Pr(...)` used instead of `\mathbb{E}`, `\mathbb{P}`.
 4. Address `qe-code-002`: Greek letters spelled out in code; spec prefers unicode (α, β).
 5. Address `qe-fig-001`: `figsize=` set in 12 places — usually unnecessary (defaults from `_config.yml`).

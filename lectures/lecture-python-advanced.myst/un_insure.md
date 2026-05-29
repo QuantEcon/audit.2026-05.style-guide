@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/un_insure.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 7.9 / 10
 - **Priority:** LOW
@@ -33,7 +32,7 @@ _None found._
 _None found._
 
 ### Low severity
-- **[qe-math-A1]** — Bare `E` for expectation (carry-forward from v1 M7). *Example:* `lectures/un_insure.md:34`. *Count:* 1 occurrence.
+- **[qe-math-010 (proposed)]** — Bare `E` for expectation. *Example:* `lectures/un_insure.md:34`. *Count:* 1 occurrence.
 - A stray `%\EQN hugo1` comment at L36 is harmless but should be removed.
 - **[qe-fig-005]** — Figures lack `:name: fig-...` fields.
 
@@ -47,6 +46,6 @@ _None found._
 - Unicode Greek used in code (qe-code-002).
 
 ## Recommended actions
-1. Replace bare `E` with `\mathbb{E}` (qe-math-A1).
+1. Replace bare `E` with `\mathbb{E}` (qe-math-010, proposed).
 2. Remove leftover TeX comment `%\EQN hugo1` (cosmetic).
 3. Add `:name: fig-...` fields (qe-fig-005).

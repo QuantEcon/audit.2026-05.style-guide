@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/dyn_stack.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 6.4 / 10
 - **Priority:** MEDIUM
@@ -27,7 +26,7 @@
 _None found._
 
 ### High severity
-- **[qe-math-002]** — Prime `'` used as transpose throughout (carry-forward from v1 M2). *Example:* `\check y_t' = ...`, `v(y_t) = - y_t' P y_t`. *Count:* ~19 occurrences.
+- **[qe-math-002]** — Prime `'` used as transpose throughout. *Example:* `\check y_t' = ...`, `v(y_t) = - y_t' P y_t`. *Count:* ~19 occurrences.
 - **[qe-fig-003]** — `ax.set_title` used in 3 cells.
 
 ### Medium severity

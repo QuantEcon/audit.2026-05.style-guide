@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/BCG_incomplete_mkts.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 6.6 / 10
 - **Priority:** MEDIUM
@@ -30,8 +29,8 @@ _None found._
 _None found._
 
 ### Medium severity
-- **[qe-math-A1]** — Bare `E[...]` in code comments (carry-forward from v1 M7). *Example:* `lectures/BCG_incomplete_mkts.md:885`, `:915`, `:1450`, `:1472`, `:1502`. *Count:* 5 occurrences.
-- **[qe-math-A3]** — `{\mathcal N}` used as Normal distribution. *Example:* `lectures/BCG_incomplete_mkts.md:201`, `:207`. *Count:* 2 occurrences.
+- **[qe-math-010 (proposed)]** — Bare `E[...]` in code comments. *Example:* `lectures/BCG_incomplete_mkts.md:885`, `:915`, `:1450`, `:1472`, `:1502`. *Count:* 5 occurrences.
+- **[qe-math-011 (proposed)]** — `{\mathcal N}` used as Normal distribution. *Example:* `lectures/BCG_incomplete_mkts.md:201`, `:207`. *Count:* 2 occurrences.
 - **[qe-code-002]** — `alpha`, `beta` spelled out in code instead of unicode (`α`, `β`). *Count:* ~4 parameter assignments.
 
 ### Low severity
@@ -49,8 +48,8 @@ _None found._
 - Install cell at top with `hide-output` (qe-code-003).
 
 ## Recommended actions
-1. Replace `{\mathcal N}` with `N` (qe-math-A3).
-2. Use `\mathbb{E}` in code comments and prose (qe-math-A1).
+1. Replace `{\mathcal N}` with `N` (qe-math-011, proposed).
+2. Use `\mathbb{E}` in code comments and prose (qe-math-010, proposed).
 3. Switch spelled Greek parameter names to unicode (qe-code-002).
 4. Remove trailing colons in subheadings (qe-writing-006).
 5. Add `:name: fig-...` to figure-producing cells (qe-fig-005).

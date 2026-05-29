@@ -3,7 +3,6 @@
 - **Series:** lecture-dp
 - **File:** `lectures/smoothing.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
 - **Overall score:** 5.5 / 10
 - **Priority:** HIGH
@@ -31,8 +30,8 @@ _None found._
 - **[qe-link-002]** — Six raw markdown links to `python-intro.quantecon.org` / `python.quantecon.org` cross-series URLs; should be `{doc}` intersphinx references.
 
 ### Medium severity
-- **[qe-math-A3]** — Multivariate normal written as `{\cal N}(0,I)` (line 140); style is plain `N(0, I)`.
-- **[qe-math-A1]** — Bare `E_t b_{t+1}` (lines 190, 196) and `\mathbb E_t` without braces (lines 177, 184); style is `\mathbb{E}_t`.
+- **[qe-math-011 (proposed)]** — Multivariate normal written as `{\cal N}(0,I)` (line 140); style is plain `N(0, I)`.
+- **[qe-math-010 (proposed)]** — Bare `E_t b_{t+1}` (lines 190, 196) and `\mathbb E_t` without braces (lines 177, 184); style is `\mathbb{E}_t`.
 - **[qe-ref-001]** — Narrative-author citations using parenthetical `{cite}`. *Count:* 4 occurrences (e.g. "Lucas and Stokey {cite}`LucasStokey1983`", "Barro {cite}`Barro1979`", "Hall {cite}`Hall1978`").
 - **[qe-fig-006]** — Title-Case `xlabel('Periods')` 4 times. *Lines:* 333, 342, 924, 933.
 

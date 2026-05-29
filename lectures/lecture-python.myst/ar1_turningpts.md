@@ -3,7 +3,6 @@
 - **Series:** lecture-python.myst
 - **File:** `lectures/ar1_turningpts.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 8.1 / 10
 - **Priority:** LOW
@@ -34,7 +33,7 @@ _None found._
 - **[qe-code-002]** — Greek letters spelled out in code; spec prefers unicode (α, β). *Count:* 29.
 
 ### Low severity
-- **[qe-writing-A1]** — Uses "i.i.d." or "iid" in text rather than "IID". *Example:* line 69.
+- **[qe-writing-009 (proposed)]** — Uses "i.i.d." or "iid" in text rather than "IID". *Example:* line 69.
 - **[qe-fig-001]** — `figsize=` set in 5 places — usually unnecessary.
 - **[qe-fig-003]** — `ax.set_title()` used once outside exercise blocks (line 153).
 - **[qe-fig-008]** — `lw=2` parameter missing from 3 `.plot()` calls.
@@ -49,5 +48,5 @@ _None found._
 1. Address `qe-writing-006`: Many section headings use Title Case rather than sentence case.
 2. Address `qe-math-002`: Transpose denoted `'` (prime) or `^T` instead of `\top`.
 3. Address `qe-code-002`: Greek letters spelled out in code; spec prefers unicode (α, β).
-4. Address `qe-writing-A1`: Uses "i.i.d." or "iid" in text rather than "IID".
+4. Address `qe-writing-009 (proposed)`: Uses "i.i.d." or "iid" in text rather than "IID".
 5. Address `qe-fig-001`: `figsize=` set in 5 places — usually unnecessary.

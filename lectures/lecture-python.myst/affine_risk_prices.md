@@ -3,7 +3,6 @@
 - **Series:** lecture-python.myst
 - **File:** `lectures/affine_risk_prices.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 8.5 / 10
 - **Priority:** LOW
@@ -27,12 +26,12 @@
 _None found._
 
 ### High severity
-- **[qe-math-A3]** — Normal distribution written with `\mathcal{N}` rather than plain `N`. *Examples:* lines 110, 222, 231, 234, 331, 454, 1041, 1049, 1073, 1083. *Count:* 11 occurrences.
+- **[qe-math-011 (proposed)]** — Normal distribution written with `\mathcal{N}` rather than plain `N`. *Examples:* lines 110, 222, 231, 234, 331, 454, 1041, 1049, 1073, 1083. *Count:* 11 occurrences.
 - **[qe-fig-006]** — Axis labels capitalised in 15 places (should be lowercase). *Examples:* line 610, line 611, line 620.
 
 ### Medium severity
 - **[qe-math-003]** — Matrices use `\begin{pmatrix}` rather than `\begin{bmatrix}`. *Examples:* line 731, line 1303. *Count:* 2 occurrences.
-- **[qe-writing-A1]** — "i.i.d." used instead of "IID". *Example:* line 110 `is an i.i.d. $m \times 1$ random vector`.
+- **[qe-writing-009 (proposed)]** — "i.i.d." used instead of "IID". *Example:* line 110 `is an i.i.d. $m \times 1$ random vector`.
 
 ### Low severity
 - **[qe-writing-001]** — A handful of multi-sentence paragraphs (e.g. line 53–54) that could be broken into one-sentence units.
@@ -48,8 +47,8 @@ _None found._
 - Figures use descriptive `name:` fields for cross-referencing.
 
 ## Recommended actions
-1. Address `qe-math-A3`: Normal distribution written with `\mathcal{N}` rather than plain `N`.
+1. Address `qe-math-011 (proposed)`: Normal distribution written with `\mathcal{N}` rather than plain `N`.
 2. Address `qe-fig-006`: Axis labels capitalised in 15 places (should be lowercase).
 3. Address `qe-math-003`: Matrices use `\begin{pmatrix}` rather than `\begin{bmatrix}`.
-4. Address `qe-writing-A1`: "i.i.d." used instead of "IID".
+4. Address `qe-writing-009 (proposed)`: "i.i.d." used instead of "IID".
 5. Address `qe-writing-001`: A handful of multi-sentence paragraphs (e.g. line 53–54) that could be broken into one-sentence units.

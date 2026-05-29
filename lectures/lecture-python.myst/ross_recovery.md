@@ -3,7 +3,6 @@
 - **Series:** lecture-python.myst
 - **File:** `lectures/ross_recovery.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 9.4 / 10
 - **Priority:** NONE
@@ -33,8 +32,8 @@ _None found._
 - **[qe-math-003]** — Matrices use `pmatrix` rather than `bmatrix`. *Example:* line 1179. *Count:* 2 lines.
 
 ### Low severity
-- **[qe-math-A3]** — Normal distribution as `\mathcal{N}` rather than `N`. *Example:* line 561.
-- **[qe-math-A1]** — Bare `E[...]` or `\Pr(...)` used in place of `\mathbb{E}`/`\mathbb{P}`. *Example:* line 485.
+- **[qe-math-011 (proposed)]** — Normal distribution as `\mathcal{N}` rather than `N`. *Example:* line 561.
+- **[qe-math-010 (proposed)]** — Bare `E[...]` or `\Pr(...)` used in place of `\mathbb{E}`/`\mathbb{P}`. *Example:* line 485.
 - **[qe-code-002]** — Mixed Greek conventions in code (word=8, uni=16).
 - **[qe-fig-001]** — `figsize=` set in 5 places — usually unnecessary.
 - **[qe-fig-003]** — `ax.set_title()` used once outside exercise blocks (line 1368).
@@ -50,7 +49,7 @@ _None found._
 
 ## Recommended actions
 1. Address `qe-math-003`: Matrices use `pmatrix` rather than `bmatrix`.
-2. Address `qe-math-A3`: Normal distribution as `\mathcal{N}` rather than `N`.
-3. Address `qe-math-A1`: Bare `E[...]` or `\Pr(...)` used in place of `\mathbb{E}`/`\mathbb{P}`.
+2. Address `qe-math-011 (proposed)`: Normal distribution as `\mathcal{N}` rather than `N`.
+3. Address `qe-math-010 (proposed)`: Bare `E[...]` or `\Pr(...)` used in place of `\mathbb{E}`/`\mathbb{P}`.
 4. Address `qe-code-002`: Mixed Greek conventions in code (word=8, uni=16).
 5. Address `qe-fig-001`: `figsize=` set in 5 places — usually unnecessary.

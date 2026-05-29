@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/muth_kalman.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 6.8 / 10
 - **Priority:** MEDIUM
@@ -30,8 +29,8 @@ _None found._
 - **[qe-fig-003]** — `ax.set_title` used in 3 cells.
 
 ### Medium severity
-- **[qe-math-A3]** — `\mathcal N` used as the Normal distribution (carry-forward from v1 M9). *Example:* `lectures/muth_kalman.md:116`. *Count:* 1 occurrence.
-- **[qe-math-A1]** — Bare `E[...]` for expectation (carry-forward from v1 M7). *Example:* `lectures/muth_kalman.md:144`-`145`. *Count:* 2 occurrences.
+- **[qe-math-011 (proposed)]** — `\mathcal N` used as the Normal distribution. *Example:* `lectures/muth_kalman.md:116`. *Count:* 1 occurrence.
+- **[qe-math-010 (proposed)]** — Bare `E[...]` for expectation. *Example:* `lectures/muth_kalman.md:144`-`145`. *Count:* 2 occurrences.
 - **[qe-ref-001]** — "Muth (1960) {cite}" narrative pattern should use `{cite:t}`. *Count:* ~3 occurrences.
 
 ### Low severity
@@ -42,13 +41,13 @@ _None found._
 ## Strengths
 - Correct use of `\begin{bmatrix}` everywhere (qe-math-003).
 - Sequences in curly brackets `\{y_t\}` (qe-math-005) — see L77, L315.
-- "IID" used correctly (qe-writing-A1) on L104, L119.
+- "IID" used correctly (qe-writing-009, proposed) on L104, L119.
 - Title in Title Case; section headings in sentence case (qe-writing-006).
 - Install cell at top with `hide-output` (qe-code-003).
 
 ## Recommended actions
 1. Remove `ax.set_title` calls (qe-fig-003).
-2. Replace `\mathcal N` with `N` for the Normal distribution (qe-math-A3).
-3. Replace bare `E[\cdot]` with `\mathbb{E}[\cdot]` (qe-math-A1).
+2. Replace `\mathcal N` with `N` for the Normal distribution (qe-math-011, proposed).
+3. Replace bare `E[\cdot]` with `\mathbb{E}[\cdot]` (qe-math-010, proposed).
 4. Use italic, not bold, for non-definition emphasis (qe-writing-005).
 5. Use `{cite:t}` for narrative refs (qe-ref-001).

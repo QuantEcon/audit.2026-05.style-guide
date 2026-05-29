@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/hansen_richard_1987.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 7.4 / 10
 - **Priority:** LOW
@@ -27,7 +26,7 @@
 _None found._
 
 ### High severity
-- **[qe-math-A1]** — 58 bare `E(`/`E[` instead of `\mathbb{E}`. *Count:* 58 occurrences.
+- **[qe-math-010 (proposed)]** — 58 bare `E(`/`E[` instead of `\mathbb{E}`. *Count:* 58 occurrences.
 
 ### Medium severity
 - **[qe-code-002]** — Spelled-out Greek (6 occurrences) in code parameters.
@@ -46,5 +45,5 @@ _None found._
 - `{doc}` for cross-series references (qe-link-002).
 
 ## Recommended actions
-1. Convert bare `E(`/`E[` to `\mathbb{E}` notation (qe-math-A1).
+1. Convert bare `E(`/`E[` to `\mathbb{E}` notation (qe-math-010, proposed).
 2. Convert spelled Greek to unicode in code (qe-code-002).

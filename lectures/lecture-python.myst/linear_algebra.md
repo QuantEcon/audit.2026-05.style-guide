@@ -3,7 +3,6 @@
 - **Series:** lecture-python.myst
 - **File:** `lectures/linear_algebra.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 7.8 / 10
 - **Priority:** LOW

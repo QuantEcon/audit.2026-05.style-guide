@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/stationary_densities.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 7.4 / 10
 - **Priority:** LOW
@@ -33,14 +32,14 @@ _None found._
 - **[qe-fig-003]** — 1 `ax.set_title` occurrence.
 
 ### Low severity
-- **[qe-math-008]** — `\mathbf 1` used for indicator (carry-forward from v1 M3). *Example:* `lectures/stationary_densities.md:551`. *Count:* 2 occurrences.
+- **[qe-math-008]** — `\mathbf 1` used for indicator. *Example:* `lectures/stationary_densities.md:551`. *Count:* 2 occurrences.
 - **[qe-fig-005]** — Figures lack `:name: fig-...` fields.
 - **[qe-code-002]** — Mixed unicode/spelled Greek in code.
 
 ## Strengths
 - Title in Title Case (qe-writing-006).
 - Subheadings sentence case (qe-writing-006).
-- Distribution names use plain letters: `\sim N(0,1)`, `\sim LN(0,1)` (qe-math-A3) at L813, L941.
+- Distribution names use plain letters: `\sim N(0,1)`, `\sim LN(0,1)` (qe-math-011, proposed) at L813, L941.
 - One-sentence paragraph rule rigorously respected (qe-writing-001).
 - Exercises gated; solutions use `:class: dropdown` (qe-admon-001, qe-admon-002).
 - Install cell at top with `hide-output` (qe-code-003).

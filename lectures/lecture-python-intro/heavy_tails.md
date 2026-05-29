@@ -3,7 +3,6 @@
 - **Series:** lecture-python-intro
 - **File:** `lectures/heavy_tails.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 7.6 / 10
 - **Priority:** LOW

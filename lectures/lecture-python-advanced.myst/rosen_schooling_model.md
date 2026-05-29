@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/rosen_schooling_model.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 7.4 / 10
 - **Priority:** LOW
@@ -33,13 +32,13 @@ _None found._
 _None found._
 
 ### Low severity
-- **[qe-math-001]** — Plain-text "k+1 x 1 matrix" and "k_1 x k+1 matrix" (L110-111) mix narrative with bare LaTeX symbols (carry-forward from v1 W7); should be rendered inside `$...$`.
+- **[qe-math-001]** — Plain-text "k+1 x 1 matrix" and "k_1 x k+1 matrix" (L110-111) mix narrative with bare LaTeX symbols; should be rendered inside `$...$`.
 - **[qe-writing-006]** — Sub-subheadings such as "### Preferences", "### Technology", "### Information" — fine; no violation.
 - **[qe-fig-005]** — Figures lack `:name: fig-...` fields.
 
 ## Strengths
 - `\begin{bmatrix}` used consistently (qe-math-003).
-- `\mathbb{E}` used for expectation (qe-math-A1) at L75.
+- `\mathbb{E}` used for expectation (qe-math-010, proposed) at L75.
 - Title in Title Case (qe-writing-006); sentence-case headings (qe-writing-006).
 - One-sentence paragraph rule largely respected (qe-writing-001).
 - Unicode Greek used in code (qe-code-002).

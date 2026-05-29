@@ -3,7 +3,6 @@
 - **Series:** lecture-python-programming
 - **File:** `lectures/writing_good_code.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 7.9 / 10
 - **Priority:** LOW
@@ -27,7 +26,7 @@
 _None found._
 
 ### High severity
-- **[qe-writing-006]** *(carry-forward W3)* — Section headings use Title Case rather than sentence case. *Examples:* line 45 `## An Example of Poor Code`, line 142 `## Good Coding Practice`, line 156 `### Don't Use Magic Numbers`, line 176 `### Don't Repeat Yourself`, line 196 `### Minimize Global Variables`, line 226 `### Use Functions or Classes`, line 246 `## Revisiting the Example`, line 291 `## Exercises`. *Count:* 8 occurrences.
+- **[qe-writing-006]** — Section headings use Title Case rather than sentence case. *Examples:* line 45 `## An Example of Poor Code`, line 142 `## Good Coding Practice`, line 156 `### Don't Use Magic Numbers`, line 176 `### Don't Repeat Yourself`, line 196 `### Minimize Global Variables`, line 226 `### Use Functions or Classes`, line 246 `## Revisiting the Example`, line 291 `## Exercises`. *Count:* 8 occurrences.
 
 ### Medium severity
 - **[qe-fig-001]** — Two `figsize=(8, 16)` calls (lines 80 and 270). The first is in the "Example of Poor Code" section so could be argued as part of the demonstration; the second is in the "Revisiting the example" section, which is presented as the *good* version — so this one is inconsistent.
@@ -37,7 +36,7 @@ _None found._
 
 ## Strengths
 - Lecture title "Writing Good Code" follows qe-writing-006.
-- Equation label `gc_solmod` and `{eq}` reference at line 66 — correct usage per qe-math-A6.
+- Equation label `gc_solmod` and `{eq}` reference at line 66 — correct usage per qe-math-013 (proposed).
 - Bold for emphasis sparingly per qe-writing-005 ("**a great deal**", "**automate**", "**not**", "**parameters**").
 - Math display blocks use clean LaTeX; no `align`, no `\tag`, no bold vectors, no `^T`, no `*` for multiplication.
 - Greek unicode (α, β, γ, δ) used pervasively per qe-code-002 — well-aligned with the lecture's own advice.

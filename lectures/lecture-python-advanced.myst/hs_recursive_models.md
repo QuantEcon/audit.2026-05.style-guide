@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/hs_recursive_models.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 4.7 / 10
 - **Priority:** HIGH
@@ -27,11 +26,11 @@
 _None found._
 
 ### High severity
-- **[qe-math-A1]** — Bare `E_t`, `E_0`, `E[...]` used throughout instead of `\mathbb{E}` (carry-forward from v1 M7). *Example:* `lectures/hs_recursive_models.md:296`, `:299`, `:304`, `:309`, `:1022`, `:1060`, `:1197`, `:1230`. *Count:* 33 occurrences (file has zero `\mathbb{E}`).
-- **[qe-math-002]** — Prime `'` and `^\prime` used systematically as transpose (carry-forward from v1 M2). *Example:* `lectures/hs_recursive_models.md:309`, `:1022`, `:1060`; also `^T` at L1486-1525. *Count:* ~20+ occurrences.
+- **[qe-math-010 (proposed)]** — Bare `E_t`, `E_0`, `E[...]` used throughout instead of `\mathbb{E}`. *Example:* `lectures/hs_recursive_models.md:296`, `:299`, `:304`, `:309`, `:1022`, `:1060`, `:1197`, `:1230`. *Count:* 33 occurrences (file has zero `\mathbb{E}`).
+- **[qe-math-002]** — Prime `'` and `^\prime` used systematically as transpose. *Example:* `lectures/hs_recursive_models.md:309`, `:1022`, `:1060`; also `^T` at L1486-1525. *Count:* ~20+ occurrences.
 
 ### Medium severity
-- **[qe-math-A3]** — `\mathcal N` / `\cal N` used as Normal distribution (carry-forward from v1 M9). *Count:* 3 occurrences.
+- **[qe-math-011 (proposed)]** — `\mathcal N` / `\cal N` used as Normal distribution. *Count:* 3 occurrences.
 - **[qe-writing-005]** — Heavy bolding for keyword definitions and labels.
 - **[qe-ref-001]** — Multiple "Author, Coauthor, and Coauthor (Year)" narrative refs should use `{cite:t}`. *Example:* `lectures/hs_recursive_models.md:1937`, `:2197`, `:2198`. *Count:* 3+ occurrences.
 - **[qe-link-002]** — Raw `python-intro.quantecon.org` URLs (L91 has 2 URLs).
@@ -47,8 +46,8 @@ _None found._
 - Heavy `{doc}` use for cross-series references (qe-link-002).
 
 ## Recommended actions
-1. Replace all bare `E_t` / `E_0` / `E[\cdot]` with `\mathbb{E}` (qe-math-A1).
+1. Replace all bare `E_t` / `E_0` / `E[\cdot]` with `\mathbb{E}` (qe-math-010, proposed).
 2. Replace `^\prime` and `^T` (when used for transpose) with `^\top` (qe-math-002).
-3. Replace `\mathcal N` / `\cal N` with `N` (qe-math-A3).
+3. Replace `\mathcal N` / `\cal N` with `N` (qe-math-011, proposed).
 4. Convert "Author, et al. (Year)" narrative refs to `{cite:t}` (qe-ref-001).
 5. Convert raw `python-intro.quantecon.org` URLs to `{doc}\`intermediate:linear_models\`` style (qe-link-002).

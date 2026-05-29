@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/BCG_complete_mkts.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 7.1 / 10
 - **Priority:** LOW
@@ -30,7 +29,7 @@ _None found._
 _None found._
 
 ### Medium severity
-- **[qe-math-A3]** — `{\mathcal N}` used as Normal distribution. *Example:* `lectures/BCG_complete_mkts.md:140`, `lectures/BCG_complete_mkts.md:146`. *Count:* 2 occurrences.
+- **[qe-math-011 (proposed)]** — `{\mathcal N}` used as Normal distribution. *Example:* `lectures/BCG_complete_mkts.md:140`, `lectures/BCG_complete_mkts.md:146`. *Count:* 2 occurrences.
 - **[qe-link-002]** — Raw `python.quantecon.org` URLs used for cross-series references; should use `{doc}` with intersphinx prefix. *Example:* `lectures/BCG_complete_mkts.md:56-57` (`cass_koopmans_1`, `rational_expectations`). *Count:* 2 occurrences.
 - **[qe-code-002]** — `alpha`, `beta`, `gamma` spelled out in code instead of unicode (`α`, `β`, `γ`). *Count:* ~4 parameter assignments.
 
@@ -48,7 +47,7 @@ _None found._
 - The many `'` characters are utility derivatives (`u'(c)`) — not transpose; no qe-math-002 violation.
 
 ## Recommended actions
-1. Convert `{\mathcal N}` to `N` for the Normal distribution (qe-math-A3).
+1. Convert `{\mathcal N}` to `N` for the Normal distribution (qe-math-011, proposed).
 2. Replace raw `python.quantecon.org` URLs with `{doc}\`intermediate:cass_koopmans_1\`` style links (qe-link-002).
 3. Switch spelled Greek parameter names to unicode in code cells (qe-code-002).
 4. Add descriptive `:name: fig-...` fields to figures for `{numref}` use (qe-fig-005).

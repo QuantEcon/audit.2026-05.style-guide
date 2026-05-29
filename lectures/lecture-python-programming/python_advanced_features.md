@@ -3,7 +3,6 @@
 - **Series:** lecture-python-programming
 - **File:** `lectures/python_advanced_features.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 9.0 / 10
 - **Priority:** NONE
@@ -30,10 +29,10 @@ _None found._
 _None found._
 
 ### Medium severity
-- **[qe-writing-006]** *(carry-forward W3)* — Several H3/H4 headings use Title Case. *Clear violations:* line 579 `### Decorators`, line 737 `### Descriptors`, line 1166 `## Exercises`. *Count:* 3–4 occurrences.
+- **[qe-writing-006]** — Several H3/H4 headings use Title Case. *Clear violations:* line 579 `### Decorators`, line 737 `### Descriptors`, line 1166 `## Exercises`. *Count:* 3–4 occurrences.
 
 ### Low severity
-- **[qe-writing-001]** *(carry-forward W1)* — A few multi-sentence paragraphs (e.g., lines 473–474 combine two thoughts).
+- **[qe-writing-001]** — A few multi-sentence paragraphs (e.g., lines 473–474 combine two thoughts).
 
 ## Strengths
 - Lecture title "More Language Features" follows qe-writing-006.

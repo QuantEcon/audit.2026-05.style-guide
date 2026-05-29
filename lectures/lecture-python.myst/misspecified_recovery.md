@@ -3,7 +3,6 @@
 - **Series:** lecture-python.myst
 - **File:** `lectures/misspecified_recovery.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 8.4 / 10
 - **Priority:** HIGH
@@ -29,7 +28,7 @@ _None found._
 ### High severity
 - **[qe-math-004]** — Vectors/matrices typeset with `\mathbf` or `\boldsymbol` (style guide says no bold for vectors). *Examples:* line 156, line 157. *Count:* 45 occurrences across 41 lines.
 - **[qe-writing-006]** — Many section headings use Title Case rather than sentence case. *Examples:* line 253, line 414, line 815. *Count:* 5.
-- **[qe-math-A1]** — Bare `E[...]`, `\Pr(...)`, or `\Var(...)` used instead of `\mathbb{E}`, `\mathbb{P}`, `\mathbb{V}`. *Examples:* lines 739, 773. *Count:* 10 chunks.
+- **[qe-math-010 (proposed)]** — Bare `E[...]`, `\Pr(...)`, or `\Var(...)` used instead of `\mathbb{E}`, `\mathbb{P}`, `\mathbb{V}`. *Examples:* lines 739, 773. *Count:* 10 chunks.
 
 ### Medium severity
 - **[qe-math-003]** — Matrices use `pmatrix` (parentheses) rather than `bmatrix` (square brackets). *Examples:* lines 2188, 2191. *Count:* 4 lines.
@@ -51,6 +50,6 @@ _None found._
 ## Recommended actions
 1. Address `qe-math-004`: Vectors/matrices typeset with `\mathbf` or `\boldsymbol` (style guide says no bold for vectors).
 2. Address `qe-writing-006`: Many section headings use Title Case rather than sentence case.
-3. Address `qe-math-A1`: Bare `E[...]`, `\Pr(...)`, or `\Var(...)` used instead of `\mathbb{E}`, `\mathbb{P}`, `\mathbb{V}`.
+3. Address `qe-math-010 (proposed)`: Bare `E[...]`, `\Pr(...)`, or `\Var(...)` used instead of `\mathbb{E}`, `\mathbb{P}`, `\mathbb{V}`.
 4. Address `qe-math-003`: Matrices use `pmatrix` (parentheses) rather than `bmatrix` (square brackets).
 5. Address `qe-code-002`: Spelled-out Greek (alpha/beta/etc.) used predominantly in code; mixed with unicode forms (word=19, uni=7).

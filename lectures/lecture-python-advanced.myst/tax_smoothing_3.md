@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/tax_smoothing_3.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 6.6 / 10
 - **Priority:** MEDIUM
@@ -30,8 +29,8 @@ _None found._
 _None found._
 
 ### Medium severity
-- **[qe-math-A1]** — Bare `E_0` for expectation (carry-forward from v1 M7). *Example:* `lectures/tax_smoothing_3.md:80`. *Count:* 1 occurrence.
-- **[qe-math-A3]** — `\cal N` used as the Normal distribution (carry-forward from v1 M9). *Example:* `lectures/tax_smoothing_3.md:97`. *Count:* 1 occurrence.
+- **[qe-math-010 (proposed)]** — Bare `E_0` for expectation. *Example:* `lectures/tax_smoothing_3.md:80`. *Count:* 1 occurrence.
+- **[qe-math-011 (proposed)]** — `\cal N` used as the Normal distribution. *Example:* `lectures/tax_smoothing_3.md:97`. *Count:* 1 occurrence.
 
 ### Low severity
 - **[qe-writing-005]** — `**roll-over risk**` (L45) is a near-definition (OK); a few bolded labels (e.g. `**LQ**`) seem ornamental.
@@ -46,6 +45,6 @@ _None found._
 - Install cell at top with `hide-output` (qe-code-003).
 
 ## Recommended actions
-1. Replace `E_0` with `\mathbb{E}_0` (qe-math-A1).
-2. Replace `{\cal N}` with `N` (qe-math-A3).
+1. Replace `E_0` with `\mathbb{E}_0` (qe-math-010, proposed).
+2. Replace `{\cal N}` with `N` (qe-math-011, proposed).
 3. Add `:name: fig-...` fields (qe-fig-005).

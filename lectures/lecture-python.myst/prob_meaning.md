@@ -3,7 +3,6 @@
 - **Series:** lecture-python.myst
 - **File:** `lectures/prob_meaning.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 8.5 / 10
 - **Priority:** LOW
@@ -30,13 +29,13 @@ _None found._
 - **[qe-fig-003]** — `ax.set_title()` / `fig.suptitle()` used 7 times outside exercise blocks. *Examples:* line 243, line 276, line 308.
 
 ### Medium severity
-- **[qe-writing-A1]** — Uses "i.i.d." or "iid" in text rather than "IID". *Examples:* lines 22, 325. *Count:* 3 occurrences.
+- **[qe-writing-009 (proposed)]** — Uses "i.i.d." or "iid" in text rather than "IID". *Examples:* lines 22, 325. *Count:* 3 occurrences.
 - **[qe-writing-006]** — Section headings use Title Case rather than sentence case. *Examples:* line 72 `Frequentist Interpretation`, line 340 `Bayesian Interpretation`. *Count:* 3.
 - **[qe-code-002]** — Spelled-out Greek (alpha/beta/etc.) used predominantly in code; mixed with unicode forms (word=15, uni=4).
 - **[qe-fig-006]** — Axis labels capitalised in 4 places. *Examples:* line 559, line 616, line 622.
 
 ### Low severity
-- **[qe-math-A1]** — Bare `E[...]` or `\Pr(...)` used in place of `\mathbb{E}`/`\mathbb{P}`. *Example:* line 333.
+- **[qe-math-010 (proposed)]** — Bare `E[...]` or `\Pr(...)` used in place of `\mathbb{E}`/`\mathbb{P}`. *Example:* line 333.
 - **[qe-fig-001]** — `figsize=` set in 8 places — usually unnecessary.
 - **[qe-fig-005]** — Figures lack descriptive `name:` fields for cross-referencing (10 plot calls, 0 named).
 - **[qe-fig-008]** — `lw=2` parameter missing from 10 `.plot()` calls.
@@ -50,7 +49,7 @@ _None found._
 
 ## Recommended actions
 1. Address `qe-fig-003`: `ax.set_title()` / `fig.suptitle()` used 7 times outside exercise blocks.
-2. Address `qe-writing-A1`: Uses "i.i.d." or "iid" in text rather than "IID".
+2. Address `qe-writing-009 (proposed)`: Uses "i.i.d." or "iid" in text rather than "IID".
 3. Address `qe-writing-006`: Section headings use Title Case rather than sentence case.
 4. Address `qe-code-002`: Spelled-out Greek (alpha/beta/etc.) used predominantly in code; mixed with unicode forms (word=15, uni=4).
 5. Address `qe-fig-006`: Axis labels capitalised in 4 places.

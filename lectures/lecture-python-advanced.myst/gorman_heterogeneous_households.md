@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/gorman_heterogeneous_households.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 7.4 / 10
 - **Priority:** LOW
@@ -31,7 +30,7 @@ _None found._
 
 ### Medium severity
 - **[qe-writing-006]** — H2 "Dynamic, Stochastic Economy" (L308) uses Title Case for "Stochastic" — should be sentence case ("Dynamic, stochastic economy"). *Count:* 1 occurrence.
-- **[qe-writing-A1]** — "i.i.d." used in text instead of "IID" (carry-forward from v1 W6). *Example:* `lectures/gorman_heterogeneous_households.md:326`, `:1329`, `:1510`, `:1525`, `:1555`. *Count:* 5 occurrences.
+- **[qe-writing-009 (proposed)]** — "i.i.d." used in text instead of "IID". *Example:* `lectures/gorman_heterogeneous_households.md:326`, `:1329`, `:1510`, `:1525`, `:1555`. *Count:* 5 occurrences.
 
 ### Low severity
 - **[qe-writing-006]** — Title "Gorman Aggregation " has a trailing space (L26).
@@ -40,7 +39,7 @@ _None found._
 - **[qe-fig-001]** — 5 `figsize=` settings.
 
 ## Strengths
-- `\mathbb{E}` used (qe-math-A1).
+- `\mathbb{E}` used (qe-math-010, proposed).
 - `\begin{bmatrix}` used (qe-math-003).
 - Sequences in curly brackets (qe-math-005).
 - Subheadings (other than the one flagged) in sentence case (qe-writing-006).
@@ -50,6 +49,6 @@ _None found._
 
 ## Recommended actions
 1. Rename "Dynamic, Stochastic Economy" to "Dynamic, stochastic economy" (qe-writing-006).
-2. Replace "i.i.d." with "IID" in narrative (qe-writing-A1).
+2. Replace "i.i.d." with "IID" in narrative (qe-writing-009, proposed).
 3. Trim trailing space in the title (qe-writing-006).
 4. Convert spelled Greek to unicode in code (qe-code-002).

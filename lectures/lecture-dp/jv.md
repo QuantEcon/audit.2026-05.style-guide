@@ -3,7 +3,6 @@
 - **Series:** lecture-dp
 - **File:** `lectures/jv.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
 - **Overall score:** 8.3 / 10
 - **Priority:** LOW
@@ -31,7 +30,7 @@ _None found._
 
 ### Medium severity
 - **[qe-writing-006]** — Title Case H3 headings. *Examples:* `### Model Features` (45), `### Parameterization` (106), `### Back-of-the-Envelope Calculations` (130), `## Solving for Policies` (359). *Count:* 4 headings.
-- **[qe-math-A3]** — Distribution written as `\text{Beta}(2, 2)` (lines 118, 127); style guide prefers `\mathrm{Beta}`.
+- **[qe-math-011 (proposed)]** — Distribution written as `\text{Beta}(2, 2)` (lines 118, 127); style guide prefers `\mathrm{Beta}`.
 
 ### Low severity
 - **[qe-writing-001]** — A few multi-sentence paragraphs (e.g. 134-140, 163-170).

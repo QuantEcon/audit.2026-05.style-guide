@@ -3,7 +3,6 @@
 - **Series:** lecture-python.myst
 - **File:** `lectures/multi_hyper.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 9.4 / 10
 - **Priority:** NONE
@@ -33,7 +32,7 @@ _None found._
 _None found._
 
 ### Low severity
-- **[qe-math-A1]** — Bare `E[...]` or `\Pr(...)` used in place of `\mathbb{E}`/`\mathbb{P}`. *Example:* line 139.
+- **[qe-math-010 (proposed)]** — Bare `E[...]` or `\Pr(...)` used in place of `\mathbb{E}`/`\mathbb{P}`. *Example:* line 139.
 - **[qe-code-002]** — Mixed Greek conventions in code (word=3, uni=4).
 - **[qe-fig-001]** — `figsize=` set in 1 place(s).
 
@@ -46,6 +45,6 @@ _None found._
 
 ## Recommended actions
 1. Address `qe-writing-006`: Many section headings use Title Case rather than sentence case.
-2. Address `qe-math-A1`: Bare `E[...]` or `\Pr(...)` used in place of `\mathbb{E}`/`\mathbb{P}`.
+2. Address `qe-math-010 (proposed)`: Bare `E[...]` or `\Pr(...)` used in place of `\mathbb{E}`/`\mathbb{P}`.
 3. Address `qe-code-002`: Mixed Greek conventions in code (word=3, uni=4).
 4. Address `qe-fig-001`: `figsize=` set in 1 place(s).

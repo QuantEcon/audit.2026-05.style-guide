@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/growth_in_dles.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 6.6 / 10
 - **Priority:** MEDIUM
@@ -27,17 +26,17 @@
 _None found._
 
 ### High severity
-- **[qe-math-003]** — `\left[ \begin{array}{...} ... \end{array} \right]` used throughout for matrices instead of `\begin{bmatrix}` (carry-forward from v1 M4). *Example:* `lectures/growth_in_dles.md:172`, `:231`, `:241`, `:246`, `:255`. *Count:* 8 occurrences.
+- **[qe-math-003]** — `\left[ \begin{array}{...} ... \end{array} \right]` used throughout for matrices instead of `\begin{bmatrix}`. *Example:* `lectures/growth_in_dles.md:172`, `:231`, `:241`, `:246`, `:255`. *Count:* 8 occurrences.
 
 ### Medium severity
-- **[qe-ref-001]** — Narrative author refs ("Hansen & Sargent (2013)", "Hall (1978)", "Jones-Manuelli (1990)") should use `{cite:t}` (carry-forward from v1 implication). *Count:* 3 occurrences.
+- **[qe-ref-001]** — Narrative author refs ("Hansen & Sargent (2013)", "Hall (1978)", "Jones-Manuelli (1990)") should use `{cite:t}`. *Count:* 3 occurrences.
 
 ### Low severity
 - **[qe-writing-005]** — Bold labels for `**Preferences**`, `**Technology**`, `**Information**` sections (not strictly definitions).
 - **[qe-fig-005]** — Figures lack `:name: fig-...` fields.
 
 ## Strengths
-- `\mathbb{E}` used for expectation (qe-math-A1).
+- `\mathbb{E}` used for expectation (qe-math-010, proposed).
 - Title in Title Case (qe-writing-006).
 - Subheadings sentence case (qe-writing-006).
 - One-sentence paragraph rule respected (qe-writing-001).

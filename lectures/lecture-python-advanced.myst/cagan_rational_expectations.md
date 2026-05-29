@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/cagan_rational_expectations.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 7.7 / 10
 - **Priority:** LOW
@@ -27,7 +26,7 @@
 _None found._
 
 ### High severity
-- **[qe-math-A1]** — Bare `E_t` used 14 times instead of `\mathbb{E}_t`. *Example:* `lectures/cagan_rational_expectations.md:155`, `:158`, `:167`. *Count:* 14 occurrences.
+- **[qe-math-010 (proposed)]** — Bare `E_t` used 14 times instead of `\mathbb{E}_t`. *Example:* `lectures/cagan_rational_expectations.md:155`, `:158`, `:167`. *Count:* 14 occurrences.
 
 ### Medium severity
 - **[qe-fig-003]** — 1 `ax.set_title` occurrence.
@@ -51,7 +50,7 @@ _None found._
 - Install cell at top with `hide-output` (qe-code-003).
 
 ## Recommended actions
-1. Convert bare `E_t` to `\mathbb{E}_t` (qe-math-A1).
+1. Convert bare `E_t` to `\mathbb{E}_t` (qe-math-010, proposed).
 2. Remove `ax.set_title` (qe-fig-003).
 3. Convert 2 `\begin{pmatrix}` to `\begin{bmatrix}` (qe-math-003).
 4. Lowercase axis labels (qe-fig-006).

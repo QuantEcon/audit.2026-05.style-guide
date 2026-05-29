@@ -3,7 +3,6 @@
 - **Series:** lecture-python.myst
 - **File:** `lectures/var_dmd.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 9.4 / 10
 - **Priority:** NONE
@@ -33,7 +32,7 @@ _None found._
 _None found._
 
 ### Low severity
-- **[qe-writing-A1]** — Uses "i.i.d." or "iid" in text rather than "IID". *Example:* line 32.
+- **[qe-writing-009 (proposed)]** — Uses "i.i.d." or "iid" in text rather than "IID". *Example:* line 32.
 
 ## Strengths
 - Transpose notation uses `\top` consistently (no prime/`^T`).
@@ -44,4 +43,4 @@ _None found._
 
 ## Recommended actions
 1. Address `qe-writing-006`: Many section headings use Title Case rather than sentence case.
-2. Address `qe-writing-A1`: Uses "i.i.d." or "iid" in text rather than "IID".
+2. Address `qe-writing-009 (proposed)`: Uses "i.i.d." or "iid" in text rather than "IID".

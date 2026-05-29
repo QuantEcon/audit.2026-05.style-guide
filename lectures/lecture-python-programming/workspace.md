@@ -3,7 +3,6 @@
 - **Series:** lecture-python-programming
 - **File:** `lectures/workspace.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 7.4 / 10
 - **Priority:** HIGH
@@ -33,8 +32,8 @@ _None found._
 - **[qe-fig-005]** — All ~16 `{figure}` directives for IDE screenshots lack `name:` metadata.
 
 ### Low severity
-- **[qe-writing-001]** *(carry-forward W1)* — A few multi-sentence paragraphs (e.g., lines 31–33 span two ideas).
-- **[qe-writing-006]** *(carry-forward W3)* — One H2 heading edge-case: line 319 `## Git your hands dirty` — sentence case but a pun; harmless.
+- **[qe-writing-001]** — A few multi-sentence paragraphs (e.g., lines 31–33 span two ideas).
+- **[qe-writing-006]** — One H2 heading edge-case: line 319 `## Git your hands dirty` — sentence case but a pun; harmless.
 - **[qe-code-001]** — `def plot_wave(title : str = 'Sine Wave')` on line 89: PEP8 disallows the space before `:` in annotations; should be `title: str`.
 
 ## Strengths

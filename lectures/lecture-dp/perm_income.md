@@ -3,7 +3,6 @@
 - **Series:** lecture-dp
 - **File:** `lectures/perm_income.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
 - **Overall score:** 6.3 / 10
 - **Priority:** MEDIUM

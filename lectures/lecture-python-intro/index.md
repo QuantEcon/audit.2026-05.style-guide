@@ -1,13 +1,11 @@
 # Style Audit — lecture-python-intro
 
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Lectures audited:** 51
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope across the series)*
 - **Average overall score:** 7.6 / 10
 - **Average per-category scores:** writing 8.0, math 7.8, code 8.1, figures 6.4, references 7.0, links 7.9, admonitions 9.0
 
-(v1 overall average across writing + math was 8.0; the drop to 7.6 reflects the lower figures and references scores surfaced by the v2 extension.)
 
 ## Priority distribution
 
@@ -18,7 +16,6 @@
 | LOW      | 36    | 70.6% |
 | NONE     | 5     | 9.8% |
 
-(v1 had HIGH 1, MEDIUM 9, LOW 27, NONE 14. The v2 extension surfaced more issues in figures/references/links, pulling many `NONE` lectures down into `LOW` and one `LOW` (`inflation_history`) into `MEDIUM`.)
 
 ## Top systemic issues across the series
 
@@ -30,11 +27,11 @@
 6. **[qe-link-002]** — Cross-series links using direct URLs (e.g. `https://python-programming.quantecon.org/numpy.html`) instead of `{doc}\`programming:numpy\`` — appears in **9 / 51** lectures: `intro_supply_demand` (4), `linear_equations` (5), `time_series_with_matrices` (3), `troubleshooting`, `about`, `markov_chains_I`, `olg`, `schelling`, `lln_clt`.
 7. **[qe-fig-007]** — `ax.spines[...].set_visible(False)` / `set_color('none')` removing the figure box — appears in **6 / 51** lectures: `french_rev` (30 calls), `eigen_I` (12), `linear_equations` (6), `complex_and_trig` (3), `scalar_dynam` (3), `lake_model` (2). `french_rev` is the egregious offender.
 
-Carried forward from v1 (writing + math), the top issues remain:
+The top issues are:
 
 - **qe-writing-001 (was W1)** — Multi-sentence paragraphs — 47 / 51 lectures.
 - **qe-writing-004 / qe-writing-006 (was W3 / W7)** — Title-Case headings and random mid-sentence Title Case — 19 / 51 lectures.
-- **qe-math-A1 / qe-math-A3 / qe-math-002 (was M3 / M9 / M2)** — Blackboard-bold, distribution-name and transpose conventions — small per-lecture but consistently present.
+- **qe-math-010 (proposed) / qe-math-011 (proposed) / qe-math-002 (was M3 / M9 / M2)** — Blackboard-bold, distribution-name and transpose conventions — small per-lecture but consistently present.
 
 ## Lectures ranked by priority (lowest score first)
 
@@ -105,9 +102,9 @@ Carried forward from v1 (writing + math), the top issues remain:
 
 3. **Cross-series link cleanup (qe-link-002).** Replace direct `python-programming.quantecon.org/*.html`, `python.quantecon.org/*.html` URLs with `{doc}\`programming:foo\`` / `{doc}\`intermediate:foo\`` form. 9 lectures affected; heaviest in `intro_supply_demand` (4 SciPy refs), `linear_equations` (5 NumPy/linalg refs), `time_series_with_matrices` (3 refs).
 
-4. **Fix `supply_demand_foundations_v2.md` (HIGH).** Still the worst-scoring lecture (5.4). The v1 issues (missing top-level H1, Title Case sections, mixed transpose) remain. In addition the lecture has no executable `{code-cell}` blocks and no exercises/solutions, making it inconsistent with the rest of the series.
+4. **Fix `supply_demand_foundations_v2.md` (HIGH).** The worst-scoring lecture (5.4): missing top-level H1, Title Case sections, and mixed transpose notation. In addition the lecture has no executable `{code-cell}` blocks and no exercises/solutions, making it inconsistent with the rest of the series.
 
-5. **Convert remaining Title Case section headings to sentence case (qe-writing-006).** Highest-impact targets unchanged from v1: `money_inflation_nonlinear` (6+), `complex_and_trig` (8+), `geom_series` (3+), `french_rev` (4+), `networks` (2 H3s), `supply_demand_foundations_v2` (6+).
+5. **Convert remaining Title Case section headings to sentence case (qe-writing-006).** Highest-impact targets: `money_inflation_nonlinear` (6+), `complex_and_trig` (8+), `geom_series` (3+), `french_rev` (4+), `networks` (2 H3s), `supply_demand_foundations_v2` (6+).
 
 6. **Sweep `\mathbf 1` → `\mathbb{1}` for ones / indicator (M3).** Affects `networks`, `markov_chains_I`, `lln_clt`, `prob_dist`.
 

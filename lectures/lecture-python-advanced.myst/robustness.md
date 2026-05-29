@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/robustness.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 4.9 / 10
 - **Priority:** HIGH
@@ -27,8 +26,8 @@
 _None found._
 
 ### High severity
-- **[qe-math-002]** — Prime `'` used as transpose throughout (carry-forward from v1 M2). *Example:* `J(x) = x' P x`, `B' \mathcal D(P) B`, `w_t' w_t`, `(I - \theta^{-1} C' P C)^{-1}`. *Count:* ~93 occurrences.
-- **[qe-math-004]** — Bold `\mathbf w` used for vectors throughout (carry-forward from v1 M5). *Example:* `lectures/robustness.md:388`, `:389`, `:397`, `:412`, `:417`, `:429`, `:441`, `:450`, `:510`, `:530`. *Count:* ~13 occurrences.
+- **[qe-math-002]** — Prime `'` used as transpose throughout. *Example:* `J(x) = x' P x`, `B' \mathcal D(P) B`, `w_t' w_t`, `(I - \theta^{-1} C' P C)^{-1}`. *Count:* ~93 occurrences.
+- **[qe-math-004]** — Bold `\mathbf w` used for vectors throughout. *Example:* `lectures/robustness.md:388`, `:389`, `:397`, `:412`, `:417`, `:429`, `:441`, `:450`, `:510`, `:530`. *Count:* ~13 occurrences.
 - **[qe-link-002]** — 5 raw `python.quantecon.org/lqcontrol.html` URLs. *Example:* `lectures/robustness.md:164`, `:319`, `:452`, `:617`, `:1154`. *Count:* 5 occurrences.
 
 ### Medium severity

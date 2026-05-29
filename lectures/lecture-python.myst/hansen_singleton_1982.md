@@ -3,7 +3,6 @@
 - **Series:** lecture-python.myst
 - **File:** `lectures/hansen_singleton_1982.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 9.4 / 10
 - **Priority:** NONE
@@ -30,11 +29,11 @@ _None found._
 _None found._
 
 ### Medium severity
-- **[qe-math-A1]** — Bare `E[...]` or `\Pr(...)` used instead of `\mathbb{E}`, `\mathbb{P}`. *Examples:* line 260. *Count:* 4.
+- **[qe-math-010 (proposed)]** — Bare `E[...]` or `\Pr(...)` used instead of `\mathbb{E}`, `\mathbb{P}`. *Examples:* line 260. *Count:* 4.
 - **[qe-code-002]** — Spelled-out Greek (alpha/beta/etc.) used predominantly in code; mixed with unicode forms (word=5, uni=4).
 
 ### Low severity
-- **[qe-writing-A1]** — Uses "i.i.d." or "iid" in text rather than "IID". *Example:* line 756.
+- **[qe-writing-009 (proposed)]** — Uses "i.i.d." or "iid" in text rather than "IID". *Example:* line 756.
 - **[qe-fig-001]** — `figsize=` set in 1 place(s).
 
 ## Strengths
@@ -48,7 +47,7 @@ _None found._
 - Cross-series links use `{doc}` intersphinx form.
 
 ## Recommended actions
-1. Address `qe-math-A1`: Bare `E[...]` or `\Pr(...)` used instead of `\mathbb{E}`, `\mathbb{P}`.
+1. Address `qe-math-010 (proposed)`: Bare `E[...]` or `\Pr(...)` used instead of `\mathbb{E}`, `\mathbb{P}`.
 2. Address `qe-code-002`: Spelled-out Greek (alpha/beta/etc.) used predominantly in code; mixed with unicode forms (word=5, uni=4).
-3. Address `qe-writing-A1`: Uses "i.i.d." or "iid" in text rather than "IID".
+3. Address `qe-writing-009 (proposed)`: Uses "i.i.d." or "iid" in text rather than "IID".
 4. Address `qe-fig-001`: `figsize=` set in 1 place(s).

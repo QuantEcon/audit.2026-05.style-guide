@@ -3,7 +3,6 @@
 - **Series:** lecture-python.myst
 - **File:** `lectures/mccall_model_with_separation.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions (JAX out of scope)
 - **Overall score:** 9.6 / 10
 - **Priority:** NONE

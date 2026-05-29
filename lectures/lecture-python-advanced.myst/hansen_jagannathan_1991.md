@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/hansen_jagannathan_1991.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 7.6 / 10
 - **Priority:** LOW
@@ -27,7 +26,7 @@
 _None found._
 
 ### High severity
-- **[qe-math-A1]** — 36 bare `E(`/`E[` instead of `\mathbb{E}`. *Count:* 36 occurrences.
+- **[qe-math-010 (proposed)]** — 36 bare `E(`/`E[` instead of `\mathbb{E}`. *Count:* 36 occurrences.
 - **[qe-code-006]** — `yfinance` is not in Anaconda; no install cell with `hide-output` at top — missing install.
 
 ### Medium severity
@@ -49,7 +48,7 @@ _None found._
 - `{doc}` for cross-series references (qe-link-002).
 
 ## Recommended actions
-1. Convert bare `E(`/`E[` to `\mathbb{E}` notation (qe-math-A1).
+1. Convert bare `E(`/`E[` to `\mathbb{E}` notation (qe-math-010, proposed).
 2. Add install cell with `!pip install yfinance` and `hide-output` tag (qe-code-003, qe-code-006).
 3. Reduce `figsize=` usage (qe-fig-001).
 4. Standardise on unicode Greek in code (qe-code-002).

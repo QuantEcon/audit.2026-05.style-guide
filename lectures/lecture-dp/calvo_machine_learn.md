@@ -3,7 +3,6 @@
 - **Series:** lecture-dp
 - **File:** `lectures/calvo_machine_learn.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
 - **Overall score:** 5.3 / 10
 - **Priority:** HIGH
@@ -39,7 +38,7 @@ _None found._
 - **[qe-writing-005]** — Double-backtick quotes ``machine learning``, ``gradient descent``, ``dynamic programming squared`` used in narrative.
 
 ### Low severity
-- **[qe-math-A6]** — Mixed eq-label style: some `$$ … $$ (label)` (line 181, 864) without `eq:` prefix.
+- **[qe-math-013 (proposed)]** — Mixed eq-label style: some `$$ … $$ (label)` (line 181, 864) without `eq:` prefix.
 
 ## Strengths
 - Lecture title in correct Title Case.

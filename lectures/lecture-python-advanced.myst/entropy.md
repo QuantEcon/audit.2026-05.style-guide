@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/entropy.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 5.9 / 10
 - **Priority:** MEDIUM
@@ -27,11 +26,11 @@
 _None found._
 
 ### High severity
-- **[qe-math-002]** — Prime `'` used systematically for transpose (carry-forward from v1 M2). *Example:* `lectures/entropy.md:269`, `:279`, `:296`, `:330`, `:441`. *Count:* ~9 occurrences.
+- **[qe-math-002]** — Prime `'` used systematically for transpose. *Example:* `lectures/entropy.md:269`, `:279`, `:296`, `:330`, `:441`. *Count:* ~9 occurrences.
 
 ### Medium severity
-- **[qe-math-A3]** — `{\cal N}` and `{\mathcal N}` used as Normal distribution (carry-forward from v1 M9). *Example:* `lectures/entropy.md:256`, `:323`. *Count:* 4 occurrences.
-- **[qe-math-A1]** — Bare `E_t` and `E` for expectation (carry-forward from v1 M7). *Example:* `lectures/entropy.md:362`-`366`, `:382`, `:394`, `:441`. *Count:* ~6 occurrences.
+- **[qe-math-011 (proposed)]** — `{\cal N}` and `{\mathcal N}` used as Normal distribution. *Example:* `lectures/entropy.md:256`, `:323`. *Count:* 4 occurrences.
+- **[qe-math-010 (proposed)]** — Bare `E_t` and `E` for expectation. *Example:* `lectures/entropy.md:362`-`366`, `:382`, `:394`, `:441`. *Count:* ~6 occurrences.
 - **[qe-writing-005]** — `**Claim**`, `**Proof**`, `**Problem:**`, `**Extension**`, `**uncertainty**` used as labels rather than definitions.
 - **[qe-link-002]** — Two raw `python-advanced.quantecon.org` URLs for sibling-series references (`five_preferences.html`, `robustness.html`). *Example:* `lectures/entropy.md:33`, `:34`. *Count:* 2 occurrences (these should be `{doc}` or markdown `[](five_preferences)`).
 - **[qe-fig-002]** — 4 `{figure}` directives reference static image files which could be code-generated.
@@ -48,8 +47,8 @@ _None found._
 
 ## Recommended actions
 1. Replace `'` with `^\top` throughout (qe-math-002).
-2. Replace `{\cal N}` / `{\mathcal N}` with `N` (qe-math-A3).
-3. Replace bare `E` / `E_t` with `\mathbb{E}` / `\mathbb{E}_t` (qe-math-A1).
+2. Replace `{\cal N}` / `{\mathcal N}` with `N` (qe-math-011, proposed).
+3. Replace bare `E` / `E_t` with `\mathbb{E}` / `\mathbb{E}_t` (qe-math-010, proposed).
 4. Use italics for *Claim*, *Proof*, *Problem*, *Extension* labels (qe-writing-005).
 5. Convert sibling-series URLs to markdown links (qe-link-001).
 6. Replace generic `fig1` name with descriptive `fig-...` (qe-fig-005).

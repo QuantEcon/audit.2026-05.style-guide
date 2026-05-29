@@ -19,7 +19,7 @@ Visual summary of the May 2026 audit across 5 lecture series and 7 in-scope rule
 import matplotlib.pyplot as plt
 import numpy as np
 
-# --- Audit data (2026-05 v2) ---------------------------------------------
+# --- Audit data (May 2026) ---------------------------------------------
 series       = ['intro', 'programming', 'python.myst', 'advanced', 'dp']
 categories   = ['Writing', 'Math', 'Code', 'Figures', 'References', 'Links', 'Admonitions']
 

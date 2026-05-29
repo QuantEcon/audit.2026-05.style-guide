@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/tax_smoothing_2.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 6.6 / 10
 - **Priority:** MEDIUM
@@ -30,8 +29,8 @@ _None found._
 _None found._
 
 ### Medium severity
-- **[qe-math-A1]** — Bare `E_0` for expectation (carry-forward from v1 M7). *Example:* `lectures/tax_smoothing_2.md:122`. *Count:* ~3 occurrences.
-- **[qe-math-A3]** — `{\cal N}` used as Normal distribution (carry-forward from v1 M9). *Example:* `lectures/tax_smoothing_2.md:142`. *Count:* 1 occurrence.
+- **[qe-math-010 (proposed)]** — Bare `E_0` for expectation. *Example:* `lectures/tax_smoothing_2.md:122`. *Count:* ~3 occurrences.
+- **[qe-math-011 (proposed)]** — `{\cal N}` used as Normal distribution. *Example:* `lectures/tax_smoothing_2.md:142`. *Count:* 1 occurrence.
 - **[qe-fig-003]** — 1 `ax.set_title` occurrence.
 
 ### Low severity
@@ -47,7 +46,7 @@ _None found._
 - Install cell at top with `hide-output` (qe-code-003).
 
 ## Recommended actions
-1. Replace `E_0` with `\mathbb{E}_0` (qe-math-A1).
-2. Replace `{\cal N}` with `N` (qe-math-A3).
+1. Replace `E_0` with `\mathbb{E}_0` (qe-math-010, proposed).
+2. Replace `{\cal N}` with `N` (qe-math-011, proposed).
 3. Remove `ax.set_title` (qe-fig-003).
 4. Add `:name: fig-...` fields (qe-fig-005).

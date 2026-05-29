@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/match_transport.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 6.6 / 10
 - **Priority:** MEDIUM
@@ -31,7 +30,7 @@ _None found._
 - **[qe-fig-007]** — `ax.spines[...].set_visible(False)` used (2 occurrences) — should keep default box.
 
 ### Medium severity
-- **[qe-math-008]** — Inconsistent indicator notation: `\mathbb{1}` (L222) and `\mathbf{1}_N` (L525). Should use `\mathbb{1}` consistently (carry-forward from v1 M3). *Count:* 1 `\mathbf{1}` occurrence.
+- **[qe-math-008]** — Inconsistent indicator notation: `\mathbb{1}` (L222) and `\mathbf{1}_N` (L525). Should use `\mathbb{1}` consistently. *Count:* 1 `\mathbf{1}` occurrence.
 - **[qe-link-002]** — Two raw cross-series URLs (`python.quantecon.org/opt_transport.html`, `intro.quantecon.org/lp_intro.html`). *Example:* `lectures/match_transport.md:40`, `:44`. *Count:* 2 occurrences.
 - **[qe-code-006]** — `networkx` is not in Anaconda; missing install cell.
 - **[qe-code-002]** — 9 spelled Greek (`alpha`, `gamma`) in code.

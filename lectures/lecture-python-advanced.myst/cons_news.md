@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/cons_news.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 6.4 / 10
 - **Priority:** MEDIUM
@@ -27,10 +26,10 @@
 _None found._
 
 ### High severity
-- **[qe-math-003]** — `\begin{array}{...}` used for matrices throughout instead of `\begin{bmatrix}` (carry-forward from v1 M4). *Example:* `lectures/cons_news.md:549`-`565`. *Count:* 17 occurrences.
+- **[qe-math-003]** — `\begin{array}{...}` used for matrices throughout instead of `\begin{bmatrix}`. *Example:* `lectures/cons_news.md:549`-`565`. *Count:* 17 occurrences.
 
 ### Medium severity
-- **[qe-writing-A1]** — "i.i.d." used in text instead of "IID" (carry-forward from v1 W6). *Example:* `lectures/cons_news.md:127`, `:146`, `:149`, `:481`. *Count:* 4 occurrences.
+- **[qe-writing-009 (proposed)]** — "i.i.d." used in text instead of "IID". *Example:* `lectures/cons_news.md:127`, `:146`, `:149`, `:481`. *Count:* 4 occurrences.
 - **[qe-link-002]** — Two raw `python-intro.quantecon.org/perm_income_cons.html` URLs. *Example:* `lectures/cons_news.md:36`, `:56`. *Count:* 2 occurrences.
 
 ### Low severity
@@ -47,5 +46,5 @@ _None found._
 
 ## Recommended actions
 1. Replace `\begin{array}` matrices with `\begin{bmatrix}` (qe-math-003).
-2. Replace "i.i.d." with "IID" in narrative (qe-writing-A1).
+2. Replace "i.i.d." with "IID" in narrative (qe-writing-009, proposed).
 3. Convert raw `python-intro.quantecon.org` URLs to `{doc}\`intermediate:perm_income_cons\`` (qe-link-002).

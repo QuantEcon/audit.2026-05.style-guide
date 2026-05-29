@@ -3,7 +3,6 @@
 - **Series:** lecture-python.myst
 - **File:** `lectures/likelihood_bayes.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 9.0 / 10
 - **Priority:** NONE
@@ -31,7 +30,7 @@ _None found._
 
 ### Medium severity
 - **[qe-math-002]** — Transpose denoted `'` (prime) or `^T` instead of `\top`. *Examples:* line 807 (`^T`). *Count:* 2 occurrences.
-- **[qe-writing-A1]** — Uses "i.i.d." or "iid" in text rather than "IID". *Examples:* lines 198, 442. *Count:* 5 occurrences.
+- **[qe-writing-009 (proposed)]** — Uses "i.i.d." or "iid" in text rather than "IID". *Examples:* lines 198, 442. *Count:* 5 occurrences.
 
 ### Low severity
 - **[qe-code-002]** — Mixed Greek conventions in code (word=3, uni=3).
@@ -50,6 +49,6 @@ _None found._
 ## Recommended actions
 1. Address `qe-writing-006`: Many section headings use Title Case rather than sentence case.
 2. Address `qe-math-002`: Transpose denoted `'` (prime) or `^T` instead of `\top`.
-3. Address `qe-writing-A1`: Uses "i.i.d." or "iid" in text rather than "IID".
+3. Address `qe-writing-009 (proposed)`: Uses "i.i.d." or "iid" in text rather than "IID".
 4. Address `qe-code-002`: Mixed Greek conventions in code (word=3, uni=3).
 5. Address `qe-fig-001`: `figsize=` set in 1 place(s).

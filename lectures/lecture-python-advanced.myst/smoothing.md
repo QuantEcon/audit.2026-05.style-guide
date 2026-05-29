@@ -3,7 +3,6 @@
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/smoothing.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 6.6 / 10
 - **Priority:** MEDIUM
@@ -30,9 +29,9 @@ _None found._
 _None found._
 
 ### Medium severity
-- **[qe-math-002]** — Prime `'` used as transpose in several formulas (carry-forward from v1 M2). *Example:* `lectures/smoothing.md:190`. *Count:* ~10 occurrences (mixed with derivative `u'`).
-- **[qe-math-A1]** — Bare `E_t` mixed with `\mathbb E_t` (carry-forward from v1 M7). *Example:* `lectures/smoothing.md:190`, `:196`, `:199`. *Count:* ~3 occurrences (vs ~12 correct).
-- **[qe-math-A3]** — `\mathcal N` for Normal distribution (carry-forward from v1 M9). *Count:* 1 occurrence.
+- **[qe-math-002]** — Prime `'` used as transpose in several formulas. *Example:* `lectures/smoothing.md:190`. *Count:* ~10 occurrences (mixed with derivative `u'`).
+- **[qe-math-010 (proposed)]** — Bare `E_t` mixed with `\mathbb E_t`. *Example:* `lectures/smoothing.md:190`, `:196`, `:199`. *Count:* ~3 occurrences (vs ~12 correct).
+- **[qe-math-011 (proposed)]** — `\mathcal N` for Normal distribution. *Count:* 1 occurrence.
 
 ### Low severity
 - **[qe-writing-005]** — `**complete markets**`, `**incomplete markets**` borderline definitional bold.
@@ -49,7 +48,7 @@ _None found._
 - Install cell at top with `hide-output` (qe-code-003).
 
 ## Recommended actions
-1. Standardise on `\mathbb{E}_t` (qe-math-A1).
+1. Standardise on `\mathbb{E}_t` (qe-math-010, proposed).
 2. Replace prime `'` with `^\top` for transpose where it denotes transpose (qe-math-002).
-3. Replace `\mathcal N` with `N` (qe-math-A3).
+3. Replace `\mathcal N` with `N` (qe-math-011, proposed).
 4. Add `:name: fig-...` fields (qe-fig-005).

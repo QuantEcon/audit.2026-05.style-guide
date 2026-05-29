@@ -3,7 +3,6 @@
 - **Series:** lecture-dp
 - **File:** `lectures/mccall_model_with_separation.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
 - **Overall score:** 8.6 / 10
 - **Priority:** NONE
@@ -33,7 +32,7 @@ _None found._
 - **[qe-code-003]** — pip install includes `myst-nb` (line 40), which is a build-time dependency, not a runtime lecture requirement. Should be removed.
 
 ### Low severity
-- **[qe-math-A1]** — Single expectation appears as `{\mathbb E}` (line 88) — acceptable but slightly nonstandard brace usage; preferred `\mathbb{E}`.
+- **[qe-math-010 (proposed)]** — Single expectation appears as `{\mathbb E}` (line 88) — acceptable but slightly nonstandard brace usage; preferred `\mathbb{E}`.
 - **[qe-writing-001]** — A few paragraphs run two sentences (e.g. 220-221, 280, 310-311).
 
 ## Strengths

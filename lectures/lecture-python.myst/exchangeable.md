@@ -3,7 +3,6 @@
 - **Series:** lecture-python.myst
 - **File:** `lectures/exchangeable.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 8.7 / 10
 - **Priority:** NONE
@@ -34,7 +33,7 @@ _None found._
 - **[qe-link-002]** — 1 direct URL to another QuantEcon series — should use `{doc}` link. *Example:* line 551.
 
 ### Low severity
-- **[qe-math-A1]** — Bare `E[...]` or `\Pr(...)` used in place of `\mathbb{E}`/`\mathbb{P}`. *Example:* line 697.
+- **[qe-math-010 (proposed)]** — Bare `E[...]` or `\Pr(...)` used in place of `\mathbb{E}`/`\mathbb{P}`. *Example:* line 697.
 - **[qe-fig-001]** — `figsize=` set in 1 place(s).
 - **[qe-fig-003]** — `ax.set_title()` used once outside exercise blocks (line 654).
 - **[qe-fig-005]** — Figures lack descriptive `name:` fields for cross-referencing (4 plot calls, 0 named).
@@ -52,5 +51,5 @@ _None found._
 1. Address `qe-writing-006`: Many section headings use Title Case rather than sentence case.
 2. Address `qe-code-002`: Spelled-out Greek (alpha/beta/etc.) used predominantly in code; mixed with unicode forms (word=9, uni=2).
 3. Address `qe-link-002`: 1 direct URL to another QuantEcon series — should use `{doc}` link.
-4. Address `qe-math-A1`: Bare `E[...]` or `\Pr(...)` used in place of `\mathbb{E}`/`\mathbb{P}`.
+4. Address `qe-math-010 (proposed)`: Bare `E[...]` or `\Pr(...)` used in place of `\mathbb{E}`/`\mathbb{P}`.
 5. Address `qe-fig-001`: `figsize=` set in 1 place(s).

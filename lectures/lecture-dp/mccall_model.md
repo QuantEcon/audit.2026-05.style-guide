@@ -3,7 +3,6 @@
 - **Series:** lecture-dp
 - **File:** `lectures/mccall_model.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
 - **Overall score:** 6.9 / 10
 - **Priority:** MEDIUM
@@ -31,7 +30,7 @@ _None found._
 - **[qe-math-008]** — Indicator/ones vector written as `\mathbf{1}{...}` (bold-face), not `\mathbb{1}`. *Lines:* 226, 233, 238. *Count:* 3.
 
 ### Medium severity
-- **[qe-math-A1]** — Expectation uses `{\mathbb E}` (line 104) — borderline; preferred `\mathbb{E}`.
+- **[qe-math-010 (proposed)]** — Expectation uses `{\mathbb E}` (line 104) — borderline; preferred `\mathbb{E}`.
 - **[qe-fig-003]** — Two embedded `ax.set_title("reservation wage")`. *Lines:* 602, 868.
 - **[qe-link-002]** — Raw markdown link to `python-programming.quantecon.org/jax_intro.html` (line 382); should be `{doc}` form.
 - **[qe-writing-001]** — Several multi-sentence paragraphs.

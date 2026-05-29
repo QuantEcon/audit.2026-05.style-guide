@@ -3,7 +3,6 @@
 - **Series:** lecture-python.myst
 - **File:** `lectures/wald_friedman.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 8.9 / 10
 - **Priority:** NONE
@@ -34,7 +33,7 @@ _None found._
 - **[qe-fig-003]** — `ax.set_title()` used 2 times outside exercise blocks. *Examples:* line 655, line 889.
 
 ### Low severity
-- **[qe-math-A3]** — Normal distribution as `\mathcal{N}` rather than `N`. *Example:* line 1206.
+- **[qe-math-011 (proposed)]** — Normal distribution as `\mathcal{N}` rather than `N`. *Example:* line 1206.
 - **[qe-writing-006]** — One section heading uses Title Case. *Example:* line 81 `Source of the Problem`.
 - **[qe-fig-001]** — `figsize=` set in 5 places — usually unnecessary.
 - **[qe-fig-005]** — Figures lack descriptive `name:` fields for cross-referencing (4 plot calls, 0 named).
@@ -52,6 +51,6 @@ _None found._
 ## Recommended actions
 1. Address `qe-code-002`: Spelled-out Greek (alpha/beta/etc.) used predominantly in code; mixed with unicode forms (word=17, uni=16).
 2. Address `qe-fig-003`: `ax.set_title()` used 2 times outside exercise blocks.
-3. Address `qe-math-A3`: Normal distribution as `\mathcal{N}` rather than `N`.
+3. Address `qe-math-011 (proposed)`: Normal distribution as `\mathcal{N}` rather than `N`.
 4. Address `qe-writing-006`: One section heading uses Title Case.
 5. Address `qe-fig-001`: `figsize=` set in 5 places — usually unnecessary.

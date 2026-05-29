@@ -3,7 +3,6 @@
 - **Series:** lecture-dp
 - **File:** `lectures/amss.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
 - **Overall score:** 8.0 / 10
 - **Priority:** LOW
@@ -31,10 +30,10 @@ _None found._
 
 ### Medium severity
 - **[qe-math-003]** — Matrices use `pmatrix` (line 794) and `\left(\begin{matrix}…\end{matrix}\right)` (line 807) instead of `bmatrix`. *Count:* 2 matrix blocks.
-- **[qe-math-A1]** — `\mathbb E_0` written without braces in display equations (line 297). Style is `\mathbb{E}_0`.
+- **[qe-math-010 (proposed)]** — `\mathbb E_0` written without braces in display equations (line 297). Style is `\mathbb{E}_0`.
 
 ### Low severity
-- **[qe-writing-A1]** — Smart quotes ’ used in narrative (lines 165, 200, 247).
+- **[qe-writing-009 (proposed)]** — Smart quotes ’ used in narrative (lines 165, 200, 247).
 - **[qe-writing-001]** — A few multi-sentence paragraphs (e.g. 121-127).
 - **[qe-fig-001]** — `figsize=` set 3 times.
 

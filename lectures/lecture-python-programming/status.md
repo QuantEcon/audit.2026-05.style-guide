@@ -3,7 +3,6 @@
 - **Series:** lecture-python-programming
 - **File:** `lectures/status.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 8.8 / 10
 - **Priority:** NONE
@@ -33,7 +32,7 @@ _None found._
 _None found._
 
 ### Low severity
-- **[qe-writing-004]** *(carry-forward W7)* — "python", "github actions", "linux" left lowercase in narrative on lines 21–23.
+- **[qe-writing-004]** — "python", "github actions", "linux" left lowercase in narrative on lines 21–23.
 
 ## Strengths
 - Lecture title "Execution Statistics" is Title Case per qe-writing-006.

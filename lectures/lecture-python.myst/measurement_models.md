@@ -3,7 +3,6 @@
 - **Series:** lecture-python.myst
 - **File:** `lectures/measurement_models.md`
 - **Audit date:** 2026-05-28
-- **Spec version:** v2
 - **Categories audited:** writing, math, code, figures, references, links, admonitions
 - **Overall score:** 9.4 / 10
 - **Priority:** NONE
@@ -30,11 +29,11 @@ _None found._
 _None found._
 
 ### Medium severity
-- **[qe-math-A1]** — Bare `E[...]` or `\Pr(...)` used instead of `\mathbb{E}`, `\mathbb{P}`. *Examples:* line 954. *Count:* 6.
+- **[qe-math-010 (proposed)]** — Bare `E[...]` or `\Pr(...)` used instead of `\mathbb{E}`, `\mathbb{P}`. *Examples:* line 954. *Count:* 6.
 - **[qe-code-002]** — Spelled-out Greek (alpha/beta/etc.) used predominantly in code; mixed with unicode forms (word=11, uni=7).
 
 ### Low severity
-- **[qe-math-A3]** — Normal distribution as `\mathcal{N}` rather than `N`. *Example:* line 328.
+- **[qe-math-011 (proposed)]** — Normal distribution as `\mathcal{N}` rather than `N`. *Example:* line 328.
 - **[qe-fig-001]** — `figsize=` set in 2 place(s).
 
 ## Strengths
@@ -48,7 +47,7 @@ _None found._
 - Figures use descriptive `name:` fields for cross-referencing.
 
 ## Recommended actions
-1. Address `qe-math-A1`: Bare `E[...]` or `\Pr(...)` used instead of `\mathbb{E}`, `\mathbb{P}`.
+1. Address `qe-math-010 (proposed)`: Bare `E[...]` or `\Pr(...)` used instead of `\mathbb{E}`, `\mathbb{P}`.
 2. Address `qe-code-002`: Spelled-out Greek (alpha/beta/etc.) used predominantly in code; mixed with unicode forms (word=11, uni=7).
-3. Address `qe-math-A3`: Normal distribution as `\mathcal{N}` rather than `N`.
+3. Address `qe-math-011 (proposed)`: Normal distribution as `\mathcal{N}` rather than `N`.
 4. Address `qe-fig-001`: `figsize=` set in 2 place(s).
