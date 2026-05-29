@@ -31,15 +31,19 @@ The site is a Jupyter Book with the full cross-series synthesis, charts, scoring
 .
 ├── README.md                  ← this file
 ├── ROADMAP.md                 ← project direction, open decisions, phased plan
+├── UPDATE.md                  ← runbook: how to re-run the audit & refresh this report
 ├── requirements.txt           ← Jupyter Book build dependencies
 ├── .github/workflows/         ← build + deploy to GitHub Pages
 └── lectures/                  ← Jupyter Book source
     ├── _config.yml, _toc.yml
-    ├── intro.md               ← cross-series synthesis
+    ├── intro.md               ← front-page triage (where to focus)
+    ├── details.md             ← full findings & remediation plan
     ├── spec.md                ← scoring rubric + report template (the audit spec)
     ├── charts.md              ← visual summary (built from audit data)
-    └── lecture-<series>/      ← per-series index + per-lecture reports
+    └── lecture-<series>/      ← per-series "Summary" + per-lecture reports
 ```
+
+**This repository is the source of truth for the audit report.** To reproduce the audit or refresh the documents, follow [`UPDATE.md`](UPDATE.md).
 
 ## About the `audit.YYYY-MM.{topic}` convention
 
