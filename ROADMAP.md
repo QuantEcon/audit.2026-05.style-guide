@@ -11,12 +11,14 @@ Living document for the QuantEcon lecture style-audit project. Tracks strategic 
 - **v1 audit complete** (2026-05-27) — Writing + Math conventions only, 292 lectures, 5 series. Used local `W1–W8` / `M1–M14` rule IDs.
 - **v2 audit complete** (2026-05-28) — Extended to Code, Figures, References, Links, Admonitions (JAX out of scope). 299 lectures. Uses canonical `qe-*` rule IDs from [`QuantEcon/action-style-guide`](https://github.com/QuantEcon/action-style-guide).
 - **4 issues opened** against `action-style-guide` ([#18](https://github.com/QuantEcon/action-style-guide/issues/18) new rules, [#19](https://github.com/QuantEcon/action-style-guide/issues/19) Phase 4.3 acceleration, [#20](https://github.com/QuantEcon/action-style-guide/issues/20) bulk audit mode discussion, [#21](https://github.com/QuantEcon/action-style-guide/issues/21) corpus offer).
-- **Repo published** under the `audit.YYYY-MM.{topic}` convention. **This convention is now under revision** (see §2).
+- **Repo published** under the `audit.YYYY-MM.{topic}` convention. **Kept as an interim decision** — re-dated (new repo) on each re-run; see the §1 decision note.
 - **Tier 2 dashboard live** (Phase 1 ✅) — the repo is now a Jupyter Book published to GitHub Pages at **https://quantecon.github.io/audit.2026-05.style-guide/**, with the cross-series synthesis, 4 charts, the scoring spec, and a drill-down report for all 299 lectures. Per-lecture reports are committed.
 
 ---
 
 ## 1. Strategic shift — from disposable to durable
+
+> **Decision (2026-05, interim).** Keep the dated `audit.YYYY-MM.{topic}` convention — the date in the repo name is a useful at-a-glance freshness signal. On each re-run (per [`UPDATE.md`](UPDATE.md)) publish a **new dated repo** for the period (e.g. `audit.2026-08.style-guide`) and archive the prior one — *not* an in-place rename, which would break the published Pages URL and the already-posted issue links. The durable single-repo analysis in §1–§2 below is retained as reference for if/when audits become frequent enough to justify one persistent home; it is **not** the current plan.
 
 The original framing treated each audit as a **time-bounded, disposable artifact**: one repo per audit, archive when stale, the date prefix signaling freshness. That convention made sense when audits were assumed to be infrequent and ad-hoc.
 
@@ -175,10 +177,9 @@ Two findings should be filed as issues against `QuantEcon/lecture-python.myst` r
 - ✅ Published to GitHub Pages via `.github/workflows/deploy.yml` → https://quantecon.github.io/audit.2026-05.style-guide/
 - Follow-ups for a future pass: externalise chart data to `data/scores.csv`; bump `actions/deploy-pages` past the Node 20 deprecation; consider a landing/overview page distinct from the synthesis.
 
-### Phase 2 — Resolve repo naming + migration (decision-dependent)
-- Decide on §2.1 (name), §2.3 (migration), §2.2 (time-series structure)
-- Execute migration; preserve current repo as baseline if Option β
-- Update cross-references everywhere (issue bodies, README, etc.)
+### Phase 2 — Repo naming (interim decision: keep the dated convention)
+- **Resolved for now:** keep `audit.YYYY-MM.{topic}`; on each re-run stand up a new dated repo for the period (per `UPDATE.md` § Starting a new audit period) and archive the prior one.
+- Revisit the durable single-repo options (§2) only if audits become frequent enough to justify it.
 
 ### Phase 3 — Establish monthly cadence
 - First manual monthly pass (2026-06) using the same subagent orchestration as v2
@@ -201,7 +202,7 @@ Two findings should be filed as issues against `QuantEcon/lecture-python.myst` r
 - **Subagent sandbox permissions** — the v2 extension was blocked once when run outside auto-mode (subagents limited to `claude-code/` subtree). Mitigation: document the auto-mode requirement, or restructure so subagents only need local-scope access.
 - **Audit cost at scale** — running every rule × every lecture via LLM is non-trivial ($24–116 per full pass at current per-rule architecture). Phase 4.3 deterministic checkers + sampling strategies make monthly cadence affordable.
 - **Lecture content evolves** — violation counts go stale immediately after each pass. Monthly cadence is the right answer; time-series visibility is the win.
-- **Decision deferred** — repo naming + migration are open. Acting prematurely (e.g. renaming before the team's `action-style-guide` feedback lands) risks invalidating issue cross-links. Wait until [#18](https://github.com/QuantEcon/action-style-guide/issues/18)–[#21](https://github.com/QuantEcon/action-style-guide/issues/21) get an initial response, then commit to the naming.
+- **Repo naming** — resolved interim (keep the dated convention; a new dated repo per re-run; see §1). A move to a durable single repo is deferred until audits are frequent enough to warrant it; renaming the current repo is specifically avoided because it would break the published Pages URL and the posted issue cross-links.
 
 ---
 
