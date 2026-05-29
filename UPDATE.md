@@ -68,9 +68,10 @@ After the per-series outputs exist, update the cross-repo documents **by hand** 
 | [`lectures/charts.md`](lectures/charts.md) | The inline data block: `scores` (series × category), `priority` (HIGH/MED/LOW/NONE per series), `systemic_rules` + `systemic_counts`, and the `weights` (lecture counts). Charts regenerate at build time. |
 | [`lectures/intro.md`](lectures/intro.md) | The triage front page: attention tiers + "needs work" counts in **Where to focus**, the reach numbers in **The biggest wins**, and the **Fix immediately** build-risk rows. |
 | [`lectures/details.md`](lectures/details.md) | Full scoreboard, the complete systemic-issue list, the full HIGH-priority lecture list, the remediation plan. |
+| [`lectures/appendix.md`](lectures/appendix.md) | The proposed-rule evidence table (per-rule counts) and issue summaries — **only if the feedback changed** (see [§ Maintaining the contributions & feedback loop](#maintaining-the-contributions--feedback-loop)). |
 | [`README.md`](README.md) | The repo-landing scoreboard table. |
 
-> 📌 The chart data is currently inline in `charts.md`. Per `ROADMAP.md`, when this becomes a recurring pass, move it to a versioned `lectures/data/scores.csv` so trends can be charted across audit dates. Until then, keep the four documents above numerically consistent with each other.
+> 📌 The chart data is currently inline in `charts.md`. Per `ROADMAP.md`, when this becomes a recurring pass, move it to a versioned `lectures/data/scores.csv` so trends can be charted across audit dates. Until then, keep these documents numerically consistent with each other.
 
 ### Step 6 — Regenerate the TOC (only if lectures were added/removed)
 
@@ -104,6 +105,29 @@ gh run watch "$(gh run list --limit 1 --json databaseId -q '.[0].databaseId')" -
 ```
 
 The build uses **vanilla jupyter-book + `quantecon-book-theme`** (pinned in `requirements.txt`) — no QuantEcon build container. Charts execute at build time, so `matplotlib`/`numpy` must stay in `requirements.txt`.
+
+---
+
+## Maintaining the contributions & feedback loop
+
+[`contributions/`](contributions/) holds the source behind the four `action-style-guide` issues ([#18–#21](https://github.com/QuantEcon/action-style-guide/issues/18)) plus 7 ready-to-merge rule drafts. The published [appendix](lectures/appendix.md) is the reader-facing summary. Keep them consistent:
+
+**Sync rule.** The files in `contributions/issues/` are the issue *bodies*. If you edit one, re-push it so the record and GitHub agree (mapping: #18←01, #19←02, #20←03, #21←04):
+
+```bash
+gh issue edit <n> --repo QuantEcon/action-style-guide --body-file contributions/issues/<file>.md
+```
+
+**When corpus counts change (in-place refresh).** The issues and the appendix cite per-rule evidence counts (e.g. "~60 lectures"). If a re-run materially changes them, update — then re-sync the live issues:
+- the appendix's proposed-rule table (`lectures/appendix.md`),
+- the affected issue bodies and the rationale blocks in `contributions/rule-drafts/`,
+- the lecture count in `contributions/README.md`.
+
+**Lifecycle.** As the team responds:
+- *Rule accepted* → submit its `rule-drafts/` entry as a PR to `action-style-guide`; note "merged in <PR>" in `contributions/README.md`; once it ships in the registry, drop its **(proposed)** tag across this report (`grep -rl '(proposed)' lectures`).
+- *Issue resolved/closed* → record the outcome in `contributions/README.md`.
+
+**New audit period.** `contributions/` is audit-specific — don't copy old issues forward blind. Open fresh issues only for gaps the new audit surfaces, and reference any rules adopted since the previous period (they should no longer carry **(proposed)**).
 
 ---
 
