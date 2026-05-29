@@ -1,4 +1,4 @@
-# Style Audit — eig_circulant
+# eig_circulant
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/eig_circulant.md`

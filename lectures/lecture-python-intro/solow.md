@@ -1,4 +1,4 @@
-# Style Audit — solow
+# solow
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/solow.md`

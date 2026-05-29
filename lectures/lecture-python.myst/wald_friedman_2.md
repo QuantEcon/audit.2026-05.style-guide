@@ -1,4 +1,4 @@
-# Style Audit — wald_friedman_2
+# wald_friedman_2
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/wald_friedman_2.md`

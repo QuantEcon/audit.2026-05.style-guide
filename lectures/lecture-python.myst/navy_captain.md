@@ -1,4 +1,4 @@
-# Style Audit — navy_captain
+# navy_captain
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/navy_captain.md`

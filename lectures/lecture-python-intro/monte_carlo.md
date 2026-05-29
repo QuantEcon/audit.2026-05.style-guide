@@ -1,4 +1,4 @@
-# Style Audit — monte_carlo
+# monte_carlo
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/monte_carlo.md`

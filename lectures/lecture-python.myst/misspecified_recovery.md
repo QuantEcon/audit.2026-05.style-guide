@@ -1,4 +1,4 @@
-# Style Audit — misspecified_recovery
+# misspecified_recovery
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/misspecified_recovery.md`

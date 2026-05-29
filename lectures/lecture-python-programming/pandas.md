@@ -1,4 +1,4 @@
-# Style Audit — pandas
+# pandas
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/pandas.md`

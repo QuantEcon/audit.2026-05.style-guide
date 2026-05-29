@@ -1,4 +1,4 @@
-# Style Audit — coase
+# coase
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/coase.md`

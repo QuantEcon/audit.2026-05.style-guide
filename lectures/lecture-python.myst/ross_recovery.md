@@ -1,4 +1,4 @@
-# Style Audit — ross_recovery
+# ross_recovery
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/ross_recovery.md`

@@ -1,4 +1,4 @@
-# Style Audit — chang_ramsey
+# chang_ramsey
 
 - **Series:** lecture-dp
 - **File:** `lectures/chang_ramsey.md`

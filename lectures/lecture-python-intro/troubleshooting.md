@@ -1,4 +1,4 @@
-# Style Audit — troubleshooting
+# troubleshooting
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/troubleshooting.md`

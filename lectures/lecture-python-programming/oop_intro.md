@@ -1,4 +1,4 @@
-# Style Audit — oop_intro
+# oop_intro
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/oop_intro.md`

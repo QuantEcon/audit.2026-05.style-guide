@@ -1,4 +1,4 @@
-# Style Audit — os_stochastic
+# os_stochastic
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/os_stochastic.md`

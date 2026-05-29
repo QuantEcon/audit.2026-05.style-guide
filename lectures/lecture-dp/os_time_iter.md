@@ -1,4 +1,4 @@
-# Style Audit — os_time_iter
+# os_time_iter
 
 - **Series:** lecture-dp
 - **File:** `lectures/os_time_iter.md`

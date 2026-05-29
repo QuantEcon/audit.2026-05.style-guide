@@ -1,4 +1,4 @@
-# Style Audit — muth_kalman
+# muth_kalman
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/muth_kalman.md`

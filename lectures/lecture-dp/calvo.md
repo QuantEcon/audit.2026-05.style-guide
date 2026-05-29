@@ -1,4 +1,4 @@
-# Style Audit — calvo
+# calvo
 
 - **Series:** lecture-dp
 - **File:** `lectures/calvo.md`

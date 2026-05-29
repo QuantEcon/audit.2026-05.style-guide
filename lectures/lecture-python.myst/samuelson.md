@@ -1,4 +1,4 @@
-# Style Audit — samuelson
+# samuelson
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/samuelson.md`

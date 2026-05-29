@@ -1,4 +1,4 @@
-# Style Audit — equalizing_difference
+# equalizing_difference
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/equalizing_difference.md`

@@ -1,4 +1,4 @@
-# Style Audit — additive_functionals
+# additive_functionals
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/additive_functionals.md`

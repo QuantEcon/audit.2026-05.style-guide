@@ -1,4 +1,4 @@
-# Style Audit — scipy
+# scipy
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/scipy.md`

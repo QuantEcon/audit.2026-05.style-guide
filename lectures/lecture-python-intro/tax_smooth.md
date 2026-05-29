@@ -1,4 +1,4 @@
-# Style Audit — tax_smooth
+# tax_smooth
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/tax_smooth.md`

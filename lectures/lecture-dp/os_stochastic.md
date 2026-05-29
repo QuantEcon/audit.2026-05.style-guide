@@ -1,4 +1,4 @@
-# Style Audit — os_stochastic
+# os_stochastic
 
 - **Series:** lecture-dp
 - **File:** `lectures/os_stochastic.md`

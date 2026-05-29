@@ -1,4 +1,4 @@
-# Style Audit — ifp_opi
+# ifp_opi
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/ifp_opi.md`

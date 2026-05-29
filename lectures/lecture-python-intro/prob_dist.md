@@ -1,4 +1,4 @@
-# Style Audit — prob_dist
+# prob_dist
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/prob_dist.md`

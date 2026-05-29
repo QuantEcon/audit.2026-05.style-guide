@@ -1,4 +1,4 @@
-# Style Audit — names
+# names
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/names.md`

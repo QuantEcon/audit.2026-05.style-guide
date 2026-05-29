@@ -1,4 +1,4 @@
-# Style Audit — supply_demand_heterogeneity
+# supply_demand_heterogeneity
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/supply_demand_heterogeneity.md`

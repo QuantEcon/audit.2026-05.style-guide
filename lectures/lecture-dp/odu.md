@@ -1,4 +1,4 @@
-# Style Audit — odu
+# odu
 
 - **Series:** lecture-dp
 - **File:** `lectures/odu.md`

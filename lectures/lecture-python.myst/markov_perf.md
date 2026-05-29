@@ -1,4 +1,4 @@
-# Style Audit — markov_perf
+# markov_perf
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/markov_perf.md`

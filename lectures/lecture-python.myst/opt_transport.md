@@ -1,4 +1,4 @@
-# Style Audit — opt_transport
+# opt_transport
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/opt_transport.md`

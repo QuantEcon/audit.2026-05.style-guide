@@ -1,4 +1,4 @@
-# Style Audit — career
+# career
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/career.md`

@@ -1,4 +1,4 @@
-# Style Audit — lecture-python-intro
+# Summary
 
 - **Audit date:** 2026-05-28
 - **Lectures audited:** 51

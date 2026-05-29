@@ -1,4 +1,4 @@
-# Style Audit — stats_examples
+# stats_examples
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/stats_examples.md`

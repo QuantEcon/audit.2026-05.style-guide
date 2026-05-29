@@ -1,4 +1,4 @@
-# Style Audit — intro
+# intro
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/intro.md`

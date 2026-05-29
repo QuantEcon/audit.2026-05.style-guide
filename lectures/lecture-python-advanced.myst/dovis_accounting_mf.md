@@ -1,4 +1,4 @@
-# Style Audit — dovis_accounting_mf
+# dovis_accounting_mf
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/dovis_accounting_mf.md`

@@ -1,4 +1,4 @@
-# Style Audit — perm_income_cons
+# perm_income_cons
 
 - **Series:** lecture-dp
 - **File:** `lectures/perm_income_cons.md`

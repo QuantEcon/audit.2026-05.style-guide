@@ -1,4 +1,4 @@
-# Style Audit — qr_decomp
+# qr_decomp
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/qr_decomp.md`

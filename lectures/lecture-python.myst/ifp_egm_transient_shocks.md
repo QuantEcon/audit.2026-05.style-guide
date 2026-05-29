@@ -1,4 +1,4 @@
-# Style Audit — ifp_egm_transient_shocks
+# ifp_egm_transient_shocks
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/ifp_egm_transient_shocks.md`

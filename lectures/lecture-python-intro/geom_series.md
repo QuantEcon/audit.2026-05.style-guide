@@ -1,4 +1,4 @@
-# Style Audit — geom_series
+# geom_series
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/geom_series.md`

@@ -1,4 +1,4 @@
-# Style Audit — markov_asset
+# markov_asset
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/markov_asset.md`

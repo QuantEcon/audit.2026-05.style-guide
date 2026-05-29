@@ -1,4 +1,4 @@
-# Style Audit — ge_arrow
+# ge_arrow
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/ge_arrow.md`

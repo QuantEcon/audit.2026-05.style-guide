@@ -1,4 +1,4 @@
-# Style Audit — functions
+# functions
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/functions.md`

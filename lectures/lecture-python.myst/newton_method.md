@@ -1,4 +1,4 @@
-# Style Audit — newton_method
+# newton_method
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/newton_method.md`

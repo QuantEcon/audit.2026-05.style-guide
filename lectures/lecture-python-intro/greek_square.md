@@ -1,4 +1,4 @@
-# Style Audit — greek_square
+# greek_square
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/greek_square.md`

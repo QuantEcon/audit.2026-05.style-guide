@@ -1,4 +1,4 @@
-# Style Audit — blackwell_kihlstrom
+# blackwell_kihlstrom
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/blackwell_kihlstrom.md`

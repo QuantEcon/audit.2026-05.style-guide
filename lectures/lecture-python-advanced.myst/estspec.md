@@ -1,4 +1,4 @@
-# Style Audit — estspec
+# estspec
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/estspec.md`

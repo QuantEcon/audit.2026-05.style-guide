@@ -1,4 +1,4 @@
-# Style Audit — lagrangian_lqdp
+# lagrangian_lqdp
 
 - **Series:** lecture-dp
 - **File:** `lectures/lagrangian_lqdp.md`

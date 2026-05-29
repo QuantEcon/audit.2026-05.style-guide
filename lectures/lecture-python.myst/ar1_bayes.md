@@ -1,4 +1,4 @@
-# Style Audit — ar1_bayes
+# ar1_bayes
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/ar1_bayes.md`

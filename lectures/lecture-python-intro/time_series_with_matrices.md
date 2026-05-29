@@ -1,4 +1,4 @@
-# Style Audit — time_series_with_matrices
+# time_series_with_matrices
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/time_series_with_matrices.md`

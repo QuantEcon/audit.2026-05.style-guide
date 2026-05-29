@@ -1,4 +1,4 @@
-# Style Audit — ak2
+# ak2
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/ak2.md`

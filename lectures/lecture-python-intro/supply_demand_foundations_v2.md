@@ -1,4 +1,4 @@
-# Style Audit — supply_demand_foundations_v2
+# supply_demand_foundations_v2
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/supply_demand_foundations_v2.md`

@@ -1,4 +1,4 @@
-# Style Audit — input_output
+# input_output
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/input_output.md`

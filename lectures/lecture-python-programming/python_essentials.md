@@ -1,4 +1,4 @@
-# Style Audit — python_essentials
+# python_essentials
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/python_essentials.md`

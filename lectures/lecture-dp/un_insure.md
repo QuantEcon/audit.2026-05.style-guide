@@ -1,4 +1,4 @@
-# Style Audit — un_insure
+# un_insure
 
 - **Series:** lecture-dp
 - **File:** `lectures/un_insure.md`

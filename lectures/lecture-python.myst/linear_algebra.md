@@ -1,4 +1,4 @@
-# Style Audit — linear_algebra
+# linear_algebra
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/linear_algebra.md`

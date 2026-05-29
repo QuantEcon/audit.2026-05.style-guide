@@ -1,4 +1,4 @@
-# Style Audit — ar1_processes
+# ar1_processes
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/ar1_processes.md`

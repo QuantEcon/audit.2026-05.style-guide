@@ -1,4 +1,4 @@
-# Style Audit — discrete_dp
+# discrete_dp
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/discrete_dp.md`

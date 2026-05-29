@@ -1,4 +1,4 @@
-# Style Audit — calvo
+# calvo
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/calvo.md`

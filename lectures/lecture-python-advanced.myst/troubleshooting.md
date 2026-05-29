@@ -1,4 +1,4 @@
-# Style Audit — troubleshooting
+# troubleshooting
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/troubleshooting.md`

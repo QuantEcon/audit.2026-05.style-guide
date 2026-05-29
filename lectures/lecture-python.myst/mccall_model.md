@@ -1,4 +1,4 @@
-# Style Audit — mccall_model
+# mccall_model
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/mccall_model.md`

@@ -1,4 +1,4 @@
-# Style Audit — inflation_history
+# inflation_history
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/inflation_history.md`

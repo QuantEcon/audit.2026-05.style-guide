@@ -1,4 +1,4 @@
-# Style Audit — jax_intro
+# jax_intro
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/jax_intro.md`

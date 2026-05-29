@@ -1,4 +1,4 @@
-# Style Audit — writing_good_code
+# writing_good_code
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/writing_good_code.md`

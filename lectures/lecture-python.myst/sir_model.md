@@ -1,4 +1,4 @@
-# Style Audit — sir_model
+# sir_model
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/sir_model.md`

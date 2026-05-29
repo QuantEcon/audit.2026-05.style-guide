@@ -1,4 +1,4 @@
-# Style Audit — perm_income
+# perm_income
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/perm_income.md`

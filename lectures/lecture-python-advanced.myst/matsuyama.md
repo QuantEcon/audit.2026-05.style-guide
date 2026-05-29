@@ -1,4 +1,4 @@
-# Style Audit — matsuyama
+# matsuyama
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/matsuyama.md`

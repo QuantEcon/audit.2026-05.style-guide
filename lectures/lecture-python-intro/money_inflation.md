@@ -1,4 +1,4 @@
-# Style Audit — money_inflation
+# money_inflation
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/money_inflation.md`

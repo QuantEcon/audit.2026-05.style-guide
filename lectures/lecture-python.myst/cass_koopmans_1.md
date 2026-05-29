@@ -1,4 +1,4 @@
-# Style Audit — cass_koopmans_1
+# cass_koopmans_1
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/cass_koopmans_1.md`

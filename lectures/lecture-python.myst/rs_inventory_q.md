@@ -1,4 +1,4 @@
-# Style Audit — rs_inventory_q
+# rs_inventory_q
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/rs_inventory_q.md`

@@ -1,4 +1,4 @@
-# Style Audit — mccall_model_with_sep_markov
+# mccall_model_with_sep_markov
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/mccall_model_with_sep_markov.md`

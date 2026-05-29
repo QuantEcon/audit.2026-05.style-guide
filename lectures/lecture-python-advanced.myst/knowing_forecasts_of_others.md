@@ -1,4 +1,4 @@
-# Style Audit — knowing_forecasts_of_others
+# knowing_forecasts_of_others
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/knowing_forecasts_of_others.md`

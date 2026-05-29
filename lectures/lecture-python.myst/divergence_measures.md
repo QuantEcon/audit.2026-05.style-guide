@@ -1,4 +1,4 @@
-# Style Audit — divergence_measures
+# divergence_measures
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/divergence_measures.md`

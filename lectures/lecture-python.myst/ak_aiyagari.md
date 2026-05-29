@@ -1,4 +1,4 @@
-# Style Audit — ak_aiyagari
+# ak_aiyagari
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/ak_aiyagari.md`

@@ -1,4 +1,4 @@
-# Style Audit — arellano
+# arellano
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/arellano.md`

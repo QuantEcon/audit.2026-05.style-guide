@@ -1,4 +1,4 @@
-# Style Audit — measurement_models
+# measurement_models
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/measurement_models.md`

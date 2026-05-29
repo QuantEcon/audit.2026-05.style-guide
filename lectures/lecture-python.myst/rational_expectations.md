@@ -1,4 +1,4 @@
-# Style Audit — rational_expectations
+# rational_expectations
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/rational_expectations.md`

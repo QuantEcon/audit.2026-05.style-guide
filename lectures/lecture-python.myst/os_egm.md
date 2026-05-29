@@ -1,4 +1,4 @@
-# Style Audit — os_egm
+# os_egm
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/os_egm.md`

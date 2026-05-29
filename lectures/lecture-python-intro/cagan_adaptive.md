@@ -1,4 +1,4 @@
-# Style Audit — cagan_adaptive
+# cagan_adaptive
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/cagan_adaptive.md`

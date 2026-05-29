@@ -1,4 +1,4 @@
-# Style Audit — hoist_failure
+# hoist_failure
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/hoist_failure.md`

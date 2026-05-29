@@ -1,4 +1,4 @@
-# Style Audit — asset_pricing_lph
+# asset_pricing_lph
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/asset_pricing_lph.md`

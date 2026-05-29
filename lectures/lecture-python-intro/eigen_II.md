@@ -1,4 +1,4 @@
-# Style Audit — eigen_II
+# eigen_II
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/eigen_II.md`

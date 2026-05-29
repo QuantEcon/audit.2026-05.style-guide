@@ -1,4 +1,4 @@
-# Style Audit — os_egm_jax
+# os_egm_jax
 
 - **Series:** lecture-dp
 - **File:** `lectures/os_egm_jax.md`

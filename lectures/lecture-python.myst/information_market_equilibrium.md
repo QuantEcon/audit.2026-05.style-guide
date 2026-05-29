@@ -1,4 +1,4 @@
-# Style Audit — information_market_equilibrium
+# information_market_equilibrium
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/information_market_equilibrium.md`

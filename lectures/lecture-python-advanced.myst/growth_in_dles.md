@@ -1,4 +1,4 @@
-# Style Audit — growth_in_dles
+# growth_in_dles
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/growth_in_dles.md`

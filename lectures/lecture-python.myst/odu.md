@@ -1,4 +1,4 @@
-# Style Audit — odu
+# odu
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/odu.md`

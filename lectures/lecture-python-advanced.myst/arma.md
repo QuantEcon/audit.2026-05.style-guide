@@ -1,4 +1,4 @@
-# Style Audit — arma
+# arma
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/arma.md`

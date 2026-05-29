@@ -1,4 +1,4 @@
-# Style Audit — lucas_asset_pricing_dles
+# lucas_asset_pricing_dles
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/lucas_asset_pricing_dles.md`

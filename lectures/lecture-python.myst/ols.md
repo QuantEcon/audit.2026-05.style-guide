@@ -1,4 +1,4 @@
-# Style Audit — ols
+# ols
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/ols.md`

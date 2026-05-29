@@ -1,4 +1,4 @@
-# Style Audit — olg
+# olg
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/olg.md`

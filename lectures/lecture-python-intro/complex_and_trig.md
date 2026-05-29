@@ -1,4 +1,4 @@
-# Style Audit — complex_and_trig
+# complex_and_trig
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/complex_and_trig.md`

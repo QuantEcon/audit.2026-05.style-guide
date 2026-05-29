@@ -1,4 +1,4 @@
-# Style Audit — von_neumann_model
+# von_neumann_model
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/von_neumann_model.md`

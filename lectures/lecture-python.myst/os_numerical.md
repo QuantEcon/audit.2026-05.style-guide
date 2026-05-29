@@ -1,4 +1,4 @@
-# Style Audit — os_numerical
+# os_numerical
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/os_numerical.md`

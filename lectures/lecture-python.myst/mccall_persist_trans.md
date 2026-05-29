@@ -1,4 +1,4 @@
-# Style Audit — mccall_persist_trans
+# mccall_persist_trans
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/mccall_persist_trans.md`

@@ -1,4 +1,4 @@
-# Style Audit — doubts_or_variability
+# doubts_or_variability
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/doubts_or_variability.md`

@@ -1,4 +1,4 @@
-# Style Audit — house_auction
+# house_auction
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/house_auction.md`

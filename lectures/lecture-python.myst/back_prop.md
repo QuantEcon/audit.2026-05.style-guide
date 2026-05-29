@@ -1,4 +1,4 @@
-# Style Audit — back_prop
+# back_prop
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/back_prop.md`

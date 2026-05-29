@@ -1,4 +1,4 @@
-# Style Audit — bayes_nonconj
+# bayes_nonconj
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/bayes_nonconj.md`

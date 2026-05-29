@@ -1,4 +1,4 @@
-# Style Audit — info_projection
+# info_projection
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/info_projection.md`

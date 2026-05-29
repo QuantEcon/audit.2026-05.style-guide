@@ -1,4 +1,4 @@
-# Style Audit — commod_price
+# commod_price
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/commod_price.md`

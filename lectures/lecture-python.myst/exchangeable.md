@@ -1,4 +1,4 @@
-# Style Audit — exchangeable
+# exchangeable
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/exchangeable.md`

@@ -1,4 +1,4 @@
-# Style Audit — theil_1
+# theil_1
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/theil_1.md`

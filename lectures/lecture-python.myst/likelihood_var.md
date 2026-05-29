@@ -1,4 +1,4 @@
-# Style Audit — likelihood_var
+# likelihood_var
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/likelihood_var.md`

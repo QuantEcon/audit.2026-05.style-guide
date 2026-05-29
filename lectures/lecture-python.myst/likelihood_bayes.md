@@ -1,4 +1,4 @@
-# Style Audit — likelihood_bayes
+# likelihood_bayes
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/likelihood_bayes.md`

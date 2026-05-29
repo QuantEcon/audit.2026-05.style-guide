@@ -1,4 +1,4 @@
-# Style Audit — need_for_speed
+# need_for_speed
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/need_for_speed.md`

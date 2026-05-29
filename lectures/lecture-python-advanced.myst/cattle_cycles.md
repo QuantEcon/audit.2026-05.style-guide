@@ -1,4 +1,4 @@
-# Style Audit — cattle_cycles
+# cattle_cycles
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/cattle_cycles.md`

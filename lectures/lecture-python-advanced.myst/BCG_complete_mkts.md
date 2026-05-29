@@ -1,4 +1,4 @@
-# Style Audit — BCG_complete_mkts
+# BCG_complete_mkts
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/BCG_complete_mkts.md`

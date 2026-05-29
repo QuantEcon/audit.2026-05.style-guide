@@ -1,4 +1,4 @@
-# Style Audit — money_inflation_nonlinear
+# money_inflation_nonlinear
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/money_inflation_nonlinear.md`

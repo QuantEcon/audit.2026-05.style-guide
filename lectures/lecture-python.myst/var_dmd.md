@@ -1,4 +1,4 @@
-# Style Audit — var_dmd
+# var_dmd
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/var_dmd.md`

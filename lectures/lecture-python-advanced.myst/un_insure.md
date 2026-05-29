@@ -1,4 +1,4 @@
-# Style Audit — un_insure
+# un_insure
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/un_insure.md`

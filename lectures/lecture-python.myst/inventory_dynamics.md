@@ -1,4 +1,4 @@
-# Style Audit — inventory_dynamics
+# inventory_dynamics
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/inventory_dynamics.md`

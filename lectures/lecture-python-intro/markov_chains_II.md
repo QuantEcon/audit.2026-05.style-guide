@@ -1,4 +1,4 @@
-# Style Audit — markov_chains_II
+# markov_chains_II
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/markov_chains_II.md`

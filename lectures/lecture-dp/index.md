@@ -1,4 +1,4 @@
-# Style Audit — lecture-dp
+# Summary
 
 - **Audit date:** 2026-05-28
 - **Lectures audited:** 50

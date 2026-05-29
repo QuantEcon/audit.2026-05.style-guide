@@ -1,4 +1,4 @@
-# Style Audit — wealth_dynamics
+# wealth_dynamics
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/wealth_dynamics.md`

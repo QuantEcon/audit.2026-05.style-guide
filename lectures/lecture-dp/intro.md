@@ -1,4 +1,4 @@
-# Style Audit — intro
+# intro
 
 - **Series:** lecture-dp
 - **File:** `lectures/intro.md`

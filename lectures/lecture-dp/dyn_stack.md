@@ -1,4 +1,4 @@
-# Style Audit — dyn_stack
+# dyn_stack
 
 - **Series:** lecture-dp
 - **File:** `lectures/dyn_stack.md`

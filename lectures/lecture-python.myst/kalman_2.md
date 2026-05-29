@@ -1,4 +1,4 @@
-# Style Audit — kalman_2
+# kalman_2
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/kalman_2.md`

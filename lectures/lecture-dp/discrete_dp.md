@@ -1,4 +1,4 @@
-# Style Audit — discrete_dp
+# discrete_dp
 
 - **Series:** lecture-dp
 - **File:** `lectures/discrete_dp.md`

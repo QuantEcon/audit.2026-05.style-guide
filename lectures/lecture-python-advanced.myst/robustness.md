@@ -1,4 +1,4 @@
-# Style Audit — robustness
+# robustness
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/robustness.md`

@@ -1,4 +1,4 @@
-# Style Audit — merging_of_opinions
+# merging_of_opinions
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/merging_of_opinions.md`

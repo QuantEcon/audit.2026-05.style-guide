@@ -1,4 +1,4 @@
-# Style Audit — smoothing_tax
+# smoothing_tax
 
 - **Series:** lecture-dp
 - **File:** `lectures/smoothing_tax.md`

@@ -1,4 +1,4 @@
-# Style Audit — ifp_egm
+# ifp_egm
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/ifp_egm.md`

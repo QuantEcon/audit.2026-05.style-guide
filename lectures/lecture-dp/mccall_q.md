@@ -1,4 +1,4 @@
-# Style Audit — mccall_q
+# mccall_q
 
 - **Series:** lecture-dp
 - **File:** `lectures/mccall_q.md`

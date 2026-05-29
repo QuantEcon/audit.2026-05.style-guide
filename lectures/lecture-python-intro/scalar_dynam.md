@@ -1,4 +1,4 @@
-# Style Audit — scalar_dynam
+# scalar_dynam
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/scalar_dynam.md`

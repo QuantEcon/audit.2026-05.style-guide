@@ -1,4 +1,4 @@
-# Style Audit — morris_learn
+# morris_learn
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/morris_learn.md`

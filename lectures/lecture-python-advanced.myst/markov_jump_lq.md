@@ -1,4 +1,4 @@
-# Style Audit — markov_jump_lq
+# markov_jump_lq
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/markov_jump_lq.md`

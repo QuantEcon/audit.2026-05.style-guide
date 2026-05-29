@@ -1,4 +1,4 @@
-# Style Audit — opt_tax_recur
+# opt_tax_recur
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/opt_tax_recur.md`

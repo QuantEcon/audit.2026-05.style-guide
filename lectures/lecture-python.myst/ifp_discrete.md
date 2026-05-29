@@ -1,4 +1,4 @@
-# Style Audit — ifp_discrete
+# ifp_discrete
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/ifp_discrete.md`

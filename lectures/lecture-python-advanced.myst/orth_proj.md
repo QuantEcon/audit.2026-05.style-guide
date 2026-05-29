@@ -1,4 +1,4 @@
-# Style Audit — orth_proj
+# orth_proj
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/orth_proj.md`

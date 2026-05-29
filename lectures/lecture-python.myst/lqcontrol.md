@@ -1,4 +1,4 @@
-# Style Audit — lqcontrol
+# lqcontrol
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/lqcontrol.md`

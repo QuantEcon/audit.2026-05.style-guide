@@ -1,4 +1,4 @@
-# Style Audit — lqcontrol
+# lqcontrol
 
 - **Series:** lecture-dp
 - **File:** `lectures/lqcontrol.md`

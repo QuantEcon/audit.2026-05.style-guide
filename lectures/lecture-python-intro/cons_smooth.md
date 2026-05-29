@@ -1,4 +1,4 @@
-# Style Audit — cons_smooth
+# cons_smooth
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/cons_smooth.md`

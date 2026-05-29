@@ -1,4 +1,4 @@
-# Style Audit — numpy_vs_numba_vs_jax
+# numpy_vs_numba_vs_jax
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/numpy_vs_numba_vs_jax.md`

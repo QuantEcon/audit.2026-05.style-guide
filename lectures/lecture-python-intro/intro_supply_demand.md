@@ -1,4 +1,4 @@
-# Style Audit — intro_supply_demand
+# intro_supply_demand
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/intro_supply_demand.md`

@@ -1,4 +1,4 @@
-# Style Audit — supply_demand_multiple_goods
+# supply_demand_multiple_goods
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/supply_demand_multiple_goods.md`

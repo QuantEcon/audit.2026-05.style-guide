@@ -1,4 +1,4 @@
-# Style Audit — kesten_processes
+# kesten_processes
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/kesten_processes.md`

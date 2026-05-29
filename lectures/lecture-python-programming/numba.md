@@ -1,4 +1,4 @@
-# Style Audit — numba
+# numba
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/numba.md`

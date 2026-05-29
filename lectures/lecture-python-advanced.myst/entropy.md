@@ -1,4 +1,4 @@
-# Style Audit — entropy
+# entropy
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/entropy.md`

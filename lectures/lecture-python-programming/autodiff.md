@@ -1,4 +1,4 @@
-# Style Audit — autodiff
+# autodiff
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/autodiff.md`

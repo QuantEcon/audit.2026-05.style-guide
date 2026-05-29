@@ -1,4 +1,4 @@
-# Style Audit — business_cycle
+# business_cycle
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/business_cycle.md`

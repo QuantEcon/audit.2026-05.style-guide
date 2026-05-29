@@ -1,4 +1,4 @@
-# Style Audit — career
+# career
 
 - **Series:** lecture-dp
 - **File:** `lectures/career.md`

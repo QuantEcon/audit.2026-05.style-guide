@@ -1,4 +1,4 @@
-# Style Audit — lqramsey
+# lqramsey
 
 - **Series:** lecture-dp
 - **File:** `lectures/lqramsey.md`

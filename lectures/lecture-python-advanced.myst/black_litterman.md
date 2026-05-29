@@ -1,4 +1,4 @@
-# Style Audit — black_litterman
+# black_litterman
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/black_litterman.md`

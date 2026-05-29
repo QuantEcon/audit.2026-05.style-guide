@@ -1,4 +1,4 @@
-# Style Audit — unpleasant
+# unpleasant
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/unpleasant.md`

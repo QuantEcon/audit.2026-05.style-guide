@@ -1,4 +1,4 @@
-# Style Audit — amss2
+# amss2
 
 - **Series:** lecture-dp
 - **File:** `lectures/amss2.md`

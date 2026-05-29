@@ -1,4 +1,4 @@
-# Style Audit — lln_clt
+# lln_clt
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/lln_clt.md`

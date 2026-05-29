@@ -1,4 +1,4 @@
-# Style Audit — permanent_income_dles
+# permanent_income_dles
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/permanent_income_dles.md`

@@ -1,4 +1,4 @@
-# Style Audit — lp_intro
+# lp_intro
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/lp_intro.md`

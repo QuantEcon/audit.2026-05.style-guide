@@ -1,4 +1,4 @@
-# Style Audit — workspace
+# workspace
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/workspace.md`

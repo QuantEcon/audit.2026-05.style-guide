@@ -1,4 +1,4 @@
-# Style Audit — numpy
+# numpy
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/numpy.md`

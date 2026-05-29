@@ -1,4 +1,4 @@
-# Style Audit — cons_news
+# cons_news
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/cons_news.md`

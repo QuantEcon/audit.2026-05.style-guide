@@ -1,4 +1,4 @@
-# Style Audit — rob_markov_perf
+# rob_markov_perf
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/rob_markov_perf.md`

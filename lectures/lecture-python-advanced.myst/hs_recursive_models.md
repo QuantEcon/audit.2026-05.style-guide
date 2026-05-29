@@ -1,4 +1,4 @@
-# Style Audit — hs_recursive_models
+# hs_recursive_models
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/hs_recursive_models.md`

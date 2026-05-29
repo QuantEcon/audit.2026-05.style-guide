@@ -1,4 +1,4 @@
-# Style Audit — two_computation
+# two_computation
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/two_computation.md`

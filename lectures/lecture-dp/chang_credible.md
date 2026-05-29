@@ -1,4 +1,4 @@
-# Style Audit — chang_credible
+# chang_credible
 
 - **Series:** lecture-dp
 - **File:** `lectures/chang_credible.md`

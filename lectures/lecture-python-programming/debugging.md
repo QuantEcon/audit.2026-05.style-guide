@@ -1,4 +1,4 @@
-# Style Audit — debugging
+# debugging
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/debugging.md`

@@ -1,4 +1,4 @@
-# Style Audit — mle
+# mle
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/mle.md`

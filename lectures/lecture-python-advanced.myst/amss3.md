@@ -1,4 +1,4 @@
-# Style Audit — amss3
+# amss3
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/amss3.md`

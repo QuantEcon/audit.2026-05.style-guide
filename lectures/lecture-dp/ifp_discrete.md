@@ -1,4 +1,4 @@
-# Style Audit — ifp_discrete
+# ifp_discrete
 
 - **Series:** lecture-dp
 - **File:** `lectures/ifp_discrete.md`

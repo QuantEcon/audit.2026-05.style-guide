@@ -1,4 +1,4 @@
-# Style Audit — os_numerical
+# os_numerical
 
 - **Series:** lecture-dp
 - **File:** `lectures/os_numerical.md`

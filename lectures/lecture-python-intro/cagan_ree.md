@@ -1,4 +1,4 @@
-# Style Audit — cagan_ree
+# cagan_ree
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/cagan_ree.md`

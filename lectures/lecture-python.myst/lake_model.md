@@ -1,4 +1,4 @@
-# Style Audit — lake_model
+# lake_model
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/lake_model.md`

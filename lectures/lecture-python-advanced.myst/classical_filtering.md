@@ -1,4 +1,4 @@
-# Style Audit — classical_filtering
+# classical_filtering
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/classical_filtering.md`

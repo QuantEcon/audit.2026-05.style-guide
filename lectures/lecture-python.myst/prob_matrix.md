@@ -1,4 +1,4 @@
-# Style Audit — prob_matrix
+# prob_matrix
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/prob_matrix.md`

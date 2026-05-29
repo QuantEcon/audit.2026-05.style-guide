@@ -1,4 +1,4 @@
-# Style Audit — os_time_iter
+# os_time_iter
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/os_time_iter.md`

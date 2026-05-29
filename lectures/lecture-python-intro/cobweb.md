@@ -1,4 +1,4 @@
-# Style Audit — cobweb
+# cobweb
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/cobweb.md`

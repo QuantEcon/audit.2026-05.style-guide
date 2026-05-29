@@ -1,4 +1,4 @@
-# Style Audit — re_with_feedback
+# re_with_feedback
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/re_with_feedback.md`

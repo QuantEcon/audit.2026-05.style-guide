@@ -1,4 +1,4 @@
-# Style Audit — schelling
+# schelling
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/schelling.md`

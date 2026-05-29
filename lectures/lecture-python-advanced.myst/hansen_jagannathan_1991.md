@@ -1,4 +1,4 @@
-# Style Audit — hansen_jagannathan_1991
+# hansen_jagannathan_1991
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/hansen_jagannathan_1991.md`

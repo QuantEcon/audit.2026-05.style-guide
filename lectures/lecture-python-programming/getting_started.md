@@ -1,4 +1,4 @@
-# Style Audit — getting_started
+# getting_started
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/getting_started.md`

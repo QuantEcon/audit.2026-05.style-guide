@@ -1,4 +1,4 @@
-# Style Audit — status
+# status
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/status.md`

@@ -1,4 +1,4 @@
-# Style Audit — endogenous_lake
+# endogenous_lake
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/endogenous_lake.md`

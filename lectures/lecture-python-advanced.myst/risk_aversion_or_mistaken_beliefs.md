@@ -1,4 +1,4 @@
-# Style Audit — risk_aversion_or_mistaken_beliefs
+# risk_aversion_or_mistaken_beliefs
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/risk_aversion_or_mistaken_beliefs.md`

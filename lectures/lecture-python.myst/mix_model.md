@@ -1,4 +1,4 @@
-# Style Audit — mix_model
+# mix_model
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/mix_model.md`

@@ -1,4 +1,4 @@
-# Style Audit — lq_inventories
+# lq_inventories
 
 - **Series:** lecture-dp
 - **File:** `lectures/lq_inventories.md`

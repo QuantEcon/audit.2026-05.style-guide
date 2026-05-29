@@ -1,4 +1,4 @@
-# Style Audit — simple_linear_regression
+# simple_linear_regression
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/simple_linear_regression.md`

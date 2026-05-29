@@ -1,4 +1,4 @@
-# Style Audit — smoothing_tax
+# smoothing_tax
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/smoothing_tax.md`

@@ -1,4 +1,4 @@
-# Style Audit — uncertainty_traps
+# uncertainty_traps
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/uncertainty_traps.md`

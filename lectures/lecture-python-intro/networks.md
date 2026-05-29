@@ -1,4 +1,4 @@
-# Style Audit — networks
+# networks
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/networks.md`

@@ -1,4 +1,4 @@
-# Style Audit — smoothing
+# smoothing
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/smoothing.md`

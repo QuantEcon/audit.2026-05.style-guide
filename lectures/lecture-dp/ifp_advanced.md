@@ -1,4 +1,4 @@
-# Style Audit — ifp_advanced
+# ifp_advanced
 
 - **Series:** lecture-dp
 - **File:** `lectures/ifp_advanced.md`

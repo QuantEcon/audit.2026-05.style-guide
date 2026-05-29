@@ -1,4 +1,4 @@
-# Style Audit — short_path
+# short_path
 
 - **Series:** lecture-dp
 - **File:** `lectures/short_path.md`

@@ -1,4 +1,4 @@
-# Style Audit — five_preferences
+# five_preferences
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/five_preferences.md`

@@ -1,4 +1,4 @@
-# Style Audit — long_run_growth
+# long_run_growth
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/long_run_growth.md`

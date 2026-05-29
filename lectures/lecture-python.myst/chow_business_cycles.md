@@ -1,4 +1,4 @@
-# Style Audit — chow_business_cycles
+# chow_business_cycles
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/chow_business_cycles.md`

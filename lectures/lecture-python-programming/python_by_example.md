@@ -1,4 +1,4 @@
-# Style Audit — python_by_example
+# python_by_example
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/python_by_example.md`

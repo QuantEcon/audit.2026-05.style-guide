@@ -1,4 +1,4 @@
-# Style Audit — match_transport
+# match_transport
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/match_transport.md`

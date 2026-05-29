@@ -1,4 +1,4 @@
-# Style Audit — inequality
+# inequality
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/inequality.md`

@@ -1,4 +1,4 @@
-# Style Audit — imp_sample
+# imp_sample
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/imp_sample.md`

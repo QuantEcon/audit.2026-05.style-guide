@@ -1,4 +1,4 @@
-# Style Audit — jv
+# jv
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/jv.md`

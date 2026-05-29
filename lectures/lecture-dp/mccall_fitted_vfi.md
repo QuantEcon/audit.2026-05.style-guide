@@ -1,4 +1,4 @@
-# Style Audit — mccall_fitted_vfi
+# mccall_fitted_vfi
 
 - **Series:** lecture-dp
 - **File:** `lectures/mccall_fitted_vfi.md`

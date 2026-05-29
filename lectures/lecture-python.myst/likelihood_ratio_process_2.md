@@ -1,4 +1,4 @@
-# Style Audit — likelihood_ratio_process_2
+# likelihood_ratio_process_2
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/likelihood_ratio_process_2.md`

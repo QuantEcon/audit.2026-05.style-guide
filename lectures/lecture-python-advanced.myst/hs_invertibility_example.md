@@ -1,4 +1,4 @@
-# Style Audit — hs_invertibility_example
+# hs_invertibility_example
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/hs_invertibility_example.md`

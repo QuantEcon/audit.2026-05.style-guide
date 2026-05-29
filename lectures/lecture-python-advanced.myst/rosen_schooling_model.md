@@ -1,4 +1,4 @@
-# Style Audit — rosen_schooling_model
+# rosen_schooling_model
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/rosen_schooling_model.md`

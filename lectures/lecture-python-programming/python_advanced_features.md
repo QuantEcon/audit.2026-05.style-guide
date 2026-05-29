@@ -1,4 +1,4 @@
-# Style Audit — python_advanced_features
+# python_advanced_features
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/python_advanced_features.md`

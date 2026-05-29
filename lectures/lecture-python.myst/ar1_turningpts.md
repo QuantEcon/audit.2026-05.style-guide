@@ -1,4 +1,4 @@
-# Style Audit — ar1_turningpts
+# ar1_turningpts
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/ar1_turningpts.md`

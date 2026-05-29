@@ -1,4 +1,4 @@
-# Style Audit — laffer_adaptive
+# laffer_adaptive
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/laffer_adaptive.md`

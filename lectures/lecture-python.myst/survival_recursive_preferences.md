@@ -1,4 +1,4 @@
-# Style Audit — survival_recursive_preferences
+# survival_recursive_preferences
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/survival_recursive_preferences.md`

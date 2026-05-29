@@ -1,4 +1,4 @@
-# Style Audit — status
+# status
 
 - **Series:** lecture-dp
 - **File:** `lectures/status.md`

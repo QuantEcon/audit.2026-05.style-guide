@@ -1,4 +1,4 @@
-# Style Audit — linear_models
+# linear_models
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/linear_models.md`

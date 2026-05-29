@@ -1,4 +1,4 @@
-# Style Audit — stationary_densities
+# stationary_densities
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/stationary_densities.md`

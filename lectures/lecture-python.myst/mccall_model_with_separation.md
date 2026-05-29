@@ -1,4 +1,4 @@
-# Style Audit — mccall_model_with_separation
+# mccall_model_with_separation
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/mccall_model_with_separation.md`

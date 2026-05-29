@@ -1,4 +1,4 @@
-# Style Audit — os_egm_jax
+# os_egm_jax
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/os_egm_jax.md`

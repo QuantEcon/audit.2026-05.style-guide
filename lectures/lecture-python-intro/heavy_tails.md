@@ -1,4 +1,4 @@
-# Style Audit — heavy_tails
+# heavy_tails
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/heavy_tails.md`

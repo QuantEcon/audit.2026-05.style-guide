@@ -1,4 +1,4 @@
-# Style Audit — multi_hyper
+# multi_hyper
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/multi_hyper.md`

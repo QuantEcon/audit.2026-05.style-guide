@@ -1,4 +1,4 @@
-# Style Audit — multivariate_normal
+# multivariate_normal
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/multivariate_normal.md`

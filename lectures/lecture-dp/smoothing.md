@@ -1,4 +1,4 @@
-# Style Audit — smoothing
+# smoothing
 
 - **Series:** lecture-dp
 - **File:** `lectures/smoothing.md`

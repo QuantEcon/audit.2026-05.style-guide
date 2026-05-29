@@ -1,4 +1,4 @@
-# Style Audit — french_rev
+# french_rev
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/french_rev.md`

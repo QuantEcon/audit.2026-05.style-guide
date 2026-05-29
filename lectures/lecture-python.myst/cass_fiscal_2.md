@@ -1,4 +1,4 @@
-# Style Audit — cass_fiscal_2
+# cass_fiscal_2
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/cass_fiscal_2.md`

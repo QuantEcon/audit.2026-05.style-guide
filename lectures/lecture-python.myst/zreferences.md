@@ -1,4 +1,4 @@
-# Style Audit — zreferences
+# zreferences
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/zreferences.md`

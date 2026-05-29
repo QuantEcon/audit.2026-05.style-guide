@@ -1,4 +1,4 @@
-# Style Audit — calvo_machine_learn
+# calvo_machine_learn
 
 - **Series:** lecture-dp
 - **File:** `lectures/calvo_machine_learn.md`

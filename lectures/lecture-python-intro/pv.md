@@ -1,4 +1,4 @@
-# Style Audit — pv
+# pv
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/pv.md`

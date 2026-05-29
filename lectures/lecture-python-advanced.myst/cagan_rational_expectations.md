@@ -1,4 +1,4 @@
-# Style Audit — cagan_rational_expectations
+# cagan_rational_expectations
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/cagan_rational_expectations.md`

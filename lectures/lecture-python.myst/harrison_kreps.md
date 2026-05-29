@@ -1,4 +1,4 @@
-# Style Audit — harrison_kreps
+# harrison_kreps
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/harrison_kreps.md`

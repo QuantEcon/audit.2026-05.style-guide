@@ -1,4 +1,4 @@
-# Style Audit — zreferences
+# zreferences
 
 - **Series:** lecture-dp
 - **File:** `lectures/zreferences.md`

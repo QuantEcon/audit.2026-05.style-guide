@@ -1,4 +1,4 @@
-# Style Audit — organization_capital
+# organization_capital
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/organization_capital.md`

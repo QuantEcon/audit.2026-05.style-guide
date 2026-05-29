@@ -1,4 +1,4 @@
-# Style Audit — cross_product_trick
+# cross_product_trick
 
 - **Series:** lecture-dp
 - **File:** `lectures/cross_product_trick.md`

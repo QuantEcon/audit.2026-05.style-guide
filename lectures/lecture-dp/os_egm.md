@@ -1,4 +1,4 @@
-# Style Audit — os_egm
+# os_egm
 
 - **Series:** lecture-dp
 - **File:** `lectures/os_egm.md`

@@ -1,4 +1,4 @@
-# Style Audit — two_auctions
+# two_auctions
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/two_auctions.md`

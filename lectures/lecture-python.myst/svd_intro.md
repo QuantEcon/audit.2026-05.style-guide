@@ -1,4 +1,4 @@
-# Style Audit — svd_intro
+# svd_intro
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/svd_intro.md`

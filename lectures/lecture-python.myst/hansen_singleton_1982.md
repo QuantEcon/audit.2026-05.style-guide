@@ -1,4 +1,4 @@
-# Style Audit — hansen_singleton_1982
+# hansen_singleton_1982
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/hansen_singleton_1982.md`

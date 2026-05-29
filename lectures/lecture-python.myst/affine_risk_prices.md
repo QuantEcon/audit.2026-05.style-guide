@@ -1,4 +1,4 @@
-# Style Audit — affine_risk_prices
+# affine_risk_prices
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/affine_risk_prices.md`

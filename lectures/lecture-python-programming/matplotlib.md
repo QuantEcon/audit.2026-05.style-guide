@@ -1,4 +1,4 @@
-# Style Audit — matplotlib
+# matplotlib
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/matplotlib.md`

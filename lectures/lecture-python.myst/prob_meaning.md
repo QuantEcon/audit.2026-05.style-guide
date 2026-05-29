@@ -1,4 +1,4 @@
-# Style Audit — prob_meaning
+# prob_meaning
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/prob_meaning.md`

@@ -1,4 +1,4 @@
-# Style Audit — lucas_model
+# lucas_model
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/lucas_model.md`

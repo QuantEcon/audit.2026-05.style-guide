@@ -1,4 +1,4 @@
-# Style Audit — lu_tricks
+# lu_tricks
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/lu_tricks.md`

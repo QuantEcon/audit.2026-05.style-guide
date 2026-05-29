@@ -1,4 +1,4 @@
-# Style Audit — rand_resp
+# rand_resp
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/rand_resp.md`

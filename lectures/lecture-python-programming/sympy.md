@@ -1,4 +1,4 @@
-# Style Audit — sympy
+# sympy
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/sympy.md`

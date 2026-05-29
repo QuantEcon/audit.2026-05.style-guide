@@ -1,4 +1,4 @@
-# Style Audit — irfs_in_hall_model
+# irfs_in_hall_model
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/irfs_in_hall_model.md`

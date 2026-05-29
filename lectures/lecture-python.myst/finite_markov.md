@@ -1,4 +1,4 @@
-# Style Audit — finite_markov
+# finite_markov
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/finite_markov.md`

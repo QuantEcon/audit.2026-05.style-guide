@@ -1,4 +1,4 @@
-# Style Audit — gorman_heterogeneous_households
+# gorman_heterogeneous_households
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/gorman_heterogeneous_households.md`

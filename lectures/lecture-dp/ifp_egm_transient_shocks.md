@@ -1,4 +1,4 @@
-# Style Audit — ifp_egm_transient_shocks
+# ifp_egm_transient_shocks
 
 - **Series:** lecture-dp
 - **File:** `lectures/ifp_egm_transient_shocks.md`

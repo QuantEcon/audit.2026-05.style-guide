@@ -1,4 +1,4 @@
-# Style Audit — linear_equations
+# linear_equations
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/linear_equations.md`

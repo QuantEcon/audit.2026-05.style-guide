@@ -1,4 +1,4 @@
-# Style Audit — jv
+# jv
 
 - **Series:** lecture-dp
 - **File:** `lectures/jv.md`

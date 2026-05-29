@@ -1,4 +1,4 @@
-# Style Audit — pandas_panel
+# pandas_panel
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/pandas_panel.md`
