@@ -1,0 +1,57 @@
+# Jupyter Book configuration — QuantEcon Style Audit (May 2026)
+title: "QuantEcon Style Audit — May 2026"
+author: QuantEcon
+logo: _static/qe-logo-large.png
+
+# Only build files listed in _toc.yml
+only_build_toc_files: true
+
+execute:
+  execute_notebooks: "auto"
+  timeout: 300
+  exclude_patterns:
+    - "lecture-*"   # per-lecture report pages contain no executable code
+
+parse:
+  myst_enable_extensions:
+    - amsmath
+    - colon_fence
+    - deflist
+    - dollarmath
+    - html_admonition
+    - html_image
+    - linkify
+    - replacements
+    - smartquotes
+    - substitution
+
+html:
+  baseurl: https://quantecon.github.io/audit.2026-05.style-guide/
+  use_repository_button: true
+
+repository:
+  url: https://github.com/QuantEcon/audit.2026-05.style-guide
+  path_to_book: lectures
+  branch: main
+
+sphinx:
+  config:
+    html_theme: quantecon_book_theme
+    html_favicon: _static/lectures-favicon.ico
+    html_last_updated_fmt: "%b %d, %Y"
+    # The audit reports quote rule examples (stray $, \begin{align}, {eq}`...`)
+    # that would otherwise raise myst/dollarmath warnings — suppress them so the
+    # build stays green. They render fine inside code fences.
+    suppress_warnings:
+      - mystnb.unknown_mime_type
+      - myst.xref_missing
+      - myst.header
+      - myst.strikethrough
+      - myst.nested_header
+    html_theme_options:
+      header_organisation_url: https://quantecon.org
+      header_organisation: QuantEcon
+      repository_url: https://github.com/QuantEcon/audit.2026-05.style-guide
+      description: "Style-guide compliance audit of the QuantEcon lecture series."
+  extra_extensions:
+    - sphinx.ext.intersphinx
