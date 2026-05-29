@@ -82,7 +82,7 @@ series_order = ['lecture-python-intro','lecture-python-programming',
                 'lecture-python.myst','lecture-python-advanced.myst','lecture-dp']
 lines = ['format: jb-book','root: intro','parts:',
          '  - caption: Overview','    chapters:',
-         '      - file: charts','      - file: details','      - file: spec']
+         '      - file: charts','      - file: details','      - file: spec','      - file: appendix']
 for folder in series_order:
     files = sorted(f[:-3] for f in os.listdir(folder)
                    if f.endswith('.md') and f != 'index.md')
@@ -149,6 +149,10 @@ audit.2026-05.style-guide/
 ├── ROADMAP.md                    direction, phases, open decisions
 ├── UPDATE.md                     this runbook
 ├── requirements.txt              build deps (pinned)
+├── contributions/                source behind the action-style-guide issues (#18–#21)
+│   ├── README.md                 status + index of the contributions
+│   ├── issues/                   the 4 posted issue bodies (kept in sync with GitHub)
+│   └── rule-drafts/              7 ready-to-merge rule entries (pending #18)
 ├── .github/workflows/deploy.yml  build + deploy to GitHub Pages
 └── lectures/                     Jupyter Book source (published)
     ├── _config.yml, _toc.yml, _static/
@@ -156,6 +160,7 @@ audit.2026-05.style-guide/
     ├── details.md                full findings      ← refresh in Step 5
     ├── charts.md                 visual summary + inline data  ← refresh in Step 5
     ├── spec.md                   scoring rubric + templates
+    ├── appendix.md               feedback to style guide & action-style-guide
     └── lecture-<series>/
         ├── index.md              series "Summary" rollup  ← from agents (Step 3)
         └── <stem>.md             one per lecture          ← from agents (Step 3)

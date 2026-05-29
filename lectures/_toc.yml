@@ -6,6 +6,7 @@ parts:
       - file: charts
       - file: details
       - file: spec
+      - file: appendix
   - caption: "lecture-python-intro (51 lectures)"
     chapters:
       - file: lecture-python-intro/index

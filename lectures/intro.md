@@ -58,5 +58,6 @@ Two findings can break the published builds — worth fixing regardless of the b
 - **[Charts](charts.md)** — visual overview (heatmap, priority distribution, category averages).
 - **[Full findings](details.md)** — the complete scoreboard, all 15 systemic issues, all 29 HIGH lectures, and the step-by-step remediation plan.
 - **[Scoring spec](spec.md)** — how the 0–10 scores and HIGH/MEDIUM/LOW/NONE priorities are defined.
+- **[Appendix — feedback](appendix.md)** — what this audit fed back to the style guide and `action-style-guide` (proposed rules + tooling, issues #18–#21).
 
 > Rules are cited by their `action-style-guide` IDs (e.g. `qe-fig-001`). Seven are tagged **(proposed)** — documented in the style guide but not yet in the rule registry ([issue #18](https://github.com/QuantEcon/action-style-guide/issues/18)).

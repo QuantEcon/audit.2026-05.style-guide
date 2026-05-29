@@ -33,6 +33,7 @@ The site is a Jupyter Book with the full cross-series synthesis, charts, scoring
 ├── ROADMAP.md                 ← project direction, open decisions, phased plan
 ├── UPDATE.md                  ← runbook: how to re-run the audit & refresh this report
 ├── requirements.txt           ← Jupyter Book build dependencies
+├── contributions/             ← source behind the action-style-guide issues (#18–#21)
 ├── .github/workflows/         ← build + deploy to GitHub Pages
 └── lectures/                  ← Jupyter Book source
     ├── _config.yml, _toc.yml
@@ -40,6 +41,7 @@ The site is a Jupyter Book with the full cross-series synthesis, charts, scoring
     ├── details.md             ← full findings & remediation plan
     ├── spec.md                ← scoring rubric + report template (the audit spec)
     ├── charts.md              ← visual summary (built from audit data)
+    ├── appendix.md            ← feedback to the style guide & action-style-guide
     └── lecture-<series>/      ← per-series "Summary" + per-lecture reports
 ```
 
