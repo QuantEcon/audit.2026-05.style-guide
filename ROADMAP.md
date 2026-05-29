@@ -12,6 +12,7 @@ Living document for the QuantEcon lecture style-audit project. Tracks strategic 
 - **v2 audit complete** (2026-05-28) — Extended to Code, Figures, References, Links, Admonitions (JAX out of scope). 299 lectures. Uses canonical `qe-*` rule IDs from [`QuantEcon/action-style-guide`](https://github.com/QuantEcon/action-style-guide).
 - **4 issues opened** against `action-style-guide` ([#18](https://github.com/QuantEcon/action-style-guide/issues/18) new rules, [#19](https://github.com/QuantEcon/action-style-guide/issues/19) Phase 4.3 acceleration, [#20](https://github.com/QuantEcon/action-style-guide/issues/20) bulk audit mode discussion, [#21](https://github.com/QuantEcon/action-style-guide/issues/21) corpus offer).
 - **Repo published** under the `audit.YYYY-MM.{topic}` convention. **This convention is now under revision** (see §2).
+- **Tier 2 dashboard live** (Phase 1 ✅) — the repo is now a Jupyter Book published to GitHub Pages at **https://quantecon.github.io/audit.2026-05.style-guide/**, with the cross-series synthesis, 4 charts, the scoring spec, and a drill-down report for all 299 lectures. Per-lecture reports are committed.
 
 ---
 
@@ -166,12 +167,13 @@ Two findings should be filed as issues against `QuantEcon/lecture-python.myst` r
 - 4 contribution issues opened against action-style-guide
 - Initial public repo (`audit.2026-05.style-guide`) live
 
-### Phase 1 — Build Tier 2 dashboard (~2 hrs)
-- Enable Jupyter Book in the repo
-- Commit per-lecture reports
-- Add the 4 static charts (heatmap, systemic-issues bars, priority stack, scatter)
-- Sidebar TOC: spec, synthesis, 5 series rollups, per-series lecture lists
-- Publish to GitHub Pages
+### Phase 1 — Build Tier 2 dashboard ✅ (done 2026-05-29)
+- ✅ Jupyter Book with `quantecon-book-theme` in the repo (`lectures/`)
+- ✅ Per-lecture reports committed (299) for drill-down
+- ✅ 4 charts (heatmap, systemic-issues bars, priority stack, category averages) — built at build time from inline data
+- ✅ Sidebar TOC: synthesis (root), spec, charts, 5 series rollups, per-series lecture lists
+- ✅ Published to GitHub Pages via `.github/workflows/deploy.yml` → https://quantecon.github.io/audit.2026-05.style-guide/
+- Follow-ups for a future pass: externalise chart data to `data/scores.csv`; bump `actions/deploy-pages` past the Node 20 deprecation; consider a landing/overview page distinct from the synthesis.
 
 ### Phase 2 — Resolve repo naming + migration (decision-dependent)
 - Decide on §2.1 (name), §2.3 (migration), §2.2 (time-series structure)
