@@ -31,7 +31,7 @@ Each rule-draft has two sections: the **rule entry** (ready to paste into the ru
 
 ## Status & next steps
 
-- **#18 (new rules)** — awaiting team response. If accepted, submit the `rule-drafts/` entries as a single PR against `style_checker/rules/writing-rules.md` and `math-rules.md`. The two weakest-evidence rules (`qe-math-014`, `qe-math-015`) may be deferred.
+- **#18 (new rules)** — open. The program direction has since evolved: rules are being consolidated into the `QuantEcon/style-guide` rule database (coordinated in the private hub `QuantEcon/project-style-guide`), and `action-style-guide` is slated to be split & retired. The `rule-drafts/` here are **transcription inputs for that consolidation**, not a PR against `action-style-guide`. The two weakest-evidence rules (`qe-math-014`, `qe-math-015`) may be deferred.
 - **#19 (Phase 4.3)** — proposes extending the deterministic-checker scope from ~13 to 22 rules, with the audit corpus as regression-test data.
 - **#20 (bulk-audit mode)** — open design question on where cross-series synthesis should live.
 - **#21 (corpus offer)** — no action required from the team; the published audit is offered as test/eval data.

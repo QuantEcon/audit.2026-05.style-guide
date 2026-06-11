@@ -124,7 +124,7 @@ gh issue edit <n> --repo QuantEcon/action-style-guide --body-file contributions/
 - the lecture count in `contributions/README.md`.
 
 **Lifecycle.** As the team responds:
-- *Rule accepted* → submit its `rule-drafts/` entry as a PR to `action-style-guide`; note "merged in <PR>" in `contributions/README.md`; once it ships in the registry, drop its **(proposed)** tag across this report (`grep -rl '(proposed)' lectures`).
+- *Rule accepted* → per the program direction (coordinated in `QuantEcon/project-style-guide`, private hub), accepted rules are **transcribed into the consolidated `QuantEcon/style-guide` rule database** — the `rule-drafts/` entries here are the transcription inputs (not a PR against `action-style-guide`, which is slated to be split & retired). Record the outcome in `contributions/README.md`; once a rule ships in the registry the checkers consume, drop its **(proposed)** tag across this report (`grep -rl '(proposed)' lectures`).
 - *Issue resolved/closed* → record the outcome in `contributions/README.md`.
 
 **New audit period.** `contributions/` is audit-specific — don't copy old issues forward blind. Open fresh issues only for gaps the new audit surfaces, and reference any rules adopted since the previous period (they should no longer carry **(proposed)**).

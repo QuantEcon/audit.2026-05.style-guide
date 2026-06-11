@@ -2,7 +2,13 @@
 
 Living document for the QuantEcon lecture style-audit project. Tracks strategic direction, open design decisions, and pending work.
 
-**Last updated:** 2026-05-28
+**Last updated:** 2026-06-11
+
+> **Program coordination has moved.** Program-level direction — the style-guide consolidation
+> (rules database, linter, AI review agent), repo naming, cadence, and tooling decisions — now
+> lives in the planning hub **`QuantEcon/project-style-guide`** (private), the program's home of
+> record. This file records the May-2026 audit's own context and follow-ups; where its phases
+> overlap program planning (cadence, automation, dashboards), **the hub supersedes**.
 
 ---
 

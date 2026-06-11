@@ -42,4 +42,4 @@ Two findings are build-breaking and were flagged for `lecture-python.myst` regar
 
 ## Status
 
-All four issues are open and awaiting team response. If #18 is accepted, the `rule-drafts/` entries go in as a single PR to `action-style-guide`. See [`contributions/README.md`](https://github.com/QuantEcon/audit.2026-05.style-guide/blob/main/contributions/README.md) for the current status and next steps.
+All four issues are open. Since they were filed, the broader style-guide program (coordinated in `QuantEcon/project-style-guide`, a private planning hub) has set a new direction: rules are being consolidated into a single `QuantEcon/style-guide` rule database, and `action-style-guide` is slated to be split and retired. Under that direction the `rule-drafts/` here serve as **transcription inputs** for the consolidated database rather than a PR against `action-style-guide`. See [`contributions/README.md`](https://github.com/QuantEcon/audit.2026-05.style-guide/blob/main/contributions/README.md) for the current status.

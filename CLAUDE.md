@@ -9,7 +9,8 @@ The **single source of truth** for the QuantEcon **May 2026 style audit**. It's 
 ## Read first
 
 - **[`UPDATE.md`](UPDATE.md)** — the runbook: how to re-run the audit, refresh the documents, maintain `contributions/`, and start a new audit period. **Follow it before any structural change.**
-- **[`ROADMAP.md`](ROADMAP.md)** — direction and open decisions (durable-vs-disposable, dashboard, cadence).
+- **[`ROADMAP.md`](ROADMAP.md)** — this audit's context and follow-ups.
+- **`QuantEcon/project-style-guide`** (private hub) — program-level direction (style-guide consolidation, linter/agent plans, audit cadence). Where this repo's docs and the hub overlap, **the hub is the home of record**.
 
 ## Non-negotiable conventions
 
