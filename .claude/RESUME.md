@@ -21,12 +21,33 @@ and says so honestly.
 
 ## Resuming the fan-out
 
-1. **Get the corpus back** — the container is ephemeral and `../quantecon` will be gone.
-   `UPDATE.md` § *Getting the corpus* has the blobless sparse-clone commands; check out the
-   pinned commit per series from `lectures/data/snapshot.json`. The `../quantecon-2026-05`
-   worktrees are only needed if you re-measure the trend.
-2. **Turn auto mode on** before fanning out. Every cross-repo read is denied without it and
-   the run stalls — this has happened.
+1. **Get the corpus back** — the container is ephemeral, so it will be gone. Clone it
+   **inside this repo**, at `.corpus/` (gitignored), not at `../quantecon`:
+
+```bash
+CORPUS=.corpus; mkdir -p $CORPUS
+for r in lecture-python-intro lecture-python-programming lecture-python.myst \
+         lecture-python-advanced.myst lecture-dp action-style-guide; do
+  git clone --depth 1 --filter=blob:none --sparse \
+      https://github.com/QuantEcon/$r $CORPUS/$r
+  git -C $CORPUS/$r sparse-checkout set --no-cone '/lectures/*.md' \
+      '/lectures/_config.yml' '/style_checker/rules/*.md'
+done
+```
+
+   Then check each series out at the commit `lectures/data/snapshot.json` pins — the
+   snapshot is what makes this pass reproducible, and the gate fails if a report's
+   snapshot line disagrees with it.
+
+   `UPDATE.md` § *Getting the corpus* uses `../quantecon` and is still the convention for
+   an interactive run. In-repo is for **this** resume specifically: it fires unattended, and
+   a path under the working directory needs no permission prompt, so the run cannot stall
+   on one with nobody there to answer. Every tool takes `--corpus`, so the path is free.
+   The `../quantecon-2026-05` worktrees are only needed to re-measure the trend, which this
+   resume does not do.
+2. **Do not depend on auto mode.** With the corpus in `.corpus/` you do not need it. If you
+   do find yourself reading outside the working directory and being denied, that is the
+   cause — move the clone rather than waiting for an approval that is not coming.
 3. **Fan out** over `.claude/review-queue.json`, which lists the 179 unreviewed lectures
    **worst-scoring first within each series**, series ordered by how much coverage they
    still need. `lecture-python-advanced.myst` (52 left) is the priority: it is the series

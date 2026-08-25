@@ -4,3 +4,5 @@ lectures/_build/
 __pycache__/
 *.pyc
 .venv/
+# Corpus clone for an unattended resume (see .claude/RESUME.md)
+.corpus/
