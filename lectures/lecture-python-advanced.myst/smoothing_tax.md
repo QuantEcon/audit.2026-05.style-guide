@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.4 / 10
+- **Overall score:** 7.9 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 7/10  | `qe-writing-008` ×60; `qe-writing-004` ×1; `qe-writing-001` ×1. |
-| Math         | 8.5/10 | `qe-math-002` ×1. |
+| Math         | 5/10  | `qe-math-010` (proposed) ×5; `qe-math-002` ×1. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 4/10  | `qe-fig-003` ×7; `qe-fig-006` ×9; `qe-fig-005` ×2, +2 more. |
@@ -31,6 +31,7 @@ _None found._
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 9. *Lines:* 255, 263, 289, 298, 590, 600, 607, 608, 613. *Example:* axis label `Periods`.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 20. *Lines:* 251, 252, 253, 258, 259, 260, 285, 286, 287, 293, …. *Example:* plot() without lw=.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 1. *Lines:* 364. *Example:* `^T` transpose in `R^T`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 5. *Lines:* 877, 884, 892, 898. *Example:* missing braces: `\mathbb E`.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 60. *Lines:* 26, 40, 42, 44, 46, 49, 68, 72, 75, 76, …. *Example:* 2 spaces.
 
 ### Medium severity
@@ -54,10 +55,10 @@ _None found._
 
 ## Recommended actions
 
-1. `qe-fig-003` — No matplotlib embedded titles (7 occurrences).
-2. `qe-fig-006` — Lowercase axis labels (9 occurrences).
-3. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
-4. `qe-math-002` — Use \top for transpose notation (1 occurrence).
-5. `qe-writing-008` — Remove excessive whitespace between words (60 occurrences).
-6. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (1 occurrence).
-7. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
+1. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (5 occurrences).
+2. `qe-fig-003` — No matplotlib embedded titles (7 occurrences).
+3. `qe-fig-006` — Lowercase axis labels (9 occurrences).
+4. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
+5. `qe-math-002` — Use \top for transpose notation (1 occurrence).
+6. `qe-writing-008` — Remove excessive whitespace between words (60 occurrences).
+7. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (1 occurrence).

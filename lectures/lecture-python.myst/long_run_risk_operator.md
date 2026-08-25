@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 4.5/10 | `qe-writing-001` ×6; `qe-writing-004` ×4; `qe-writing-006` ×1, +1 more. |
-| Math         | 7.5/10 | `qe-math-010` (proposed) ×3. |
+| Math         | 7.5/10 | `qe-math-010` (proposed) ×4. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6.5/10 | `qe-fig-005` ×2; `qe-fig-004` ×2; `qe-fig-008` ×7, +1 more. |
@@ -28,7 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 7. *Lines:* 2146, 2150, 2154, 2155, 2161, 2162, 2163. *Example:* plot() without lw=.
-- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 3. *Lines:* 955, 1011, 1066. *Example:* non-blackboard `\Pr`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 4. *Lines:* 391, 955, 1011, 1066. *Example:* non-blackboard `\Pr`.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 6. *Lines:* 747, 900, 2764, 2992, 3215, 3278. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 1. *Lines:* 1726. *Example:* H3 Title Case: 'A Breeden SDF' (Breeden).
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 14. *Lines:* 34, 44, 52, 121, 143, 179, 213, 248, 962, 1002, …. *Example:* 2 spaces.
@@ -53,7 +53,7 @@ _None found._
 
 ## Recommended actions
 
-1. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (3 occurrences).
+1. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (4 occurrences).
 2. `qe-writing-001` — Use one sentence per paragraph (6 occurrences).
 3. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (4 occurrences).
 4. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).

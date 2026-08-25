@@ -5,16 +5,16 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 7.3 / 10
+- **Overall score:** 6.2 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 9/10  | `qe-writing-008` ×19. |
-| Math         | 4/10  | `qe-math-002` ×57; `qe-math-011` (proposed) ×1. |
-| Code         | 8.5/10 | `qe-code-002` ×3. |
+| Writing      | 5/10  | `qe-writing-003` ×7; `qe-writing-002` ×5; `qe-writing-008` ×19, +1 more. |
+| Math         | 3.5/10 | `qe-math-002` ×57; `qe-math-011` (proposed) ×1; `qe-math-009` ×2. |
+| Code         | 6.5/10 | `qe-code-001` ×8; `qe-code-002` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 4/10  | `qe-fig-003` ×9; `qe-fig-006` ×9; `qe-fig-005` ×4, +2 more. |
 | References   | 8.5/10 | `qe-ref-001` ×3. |
@@ -27,18 +27,23 @@
 _None found._
 
 ### High severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 8. *Lines:* 443, 471, 709, 782, 784, 793. *Example:* 709 names the maximum maturity `T` - `def LQ_markov_mapping_restruct(A22, C2, Ug, T, p_t, c=0)`, documented at 714 as "p_t should be a T by 1 matrix" - in a lecture whose objective is built from tax collections $T_t$, and where 471, 518 and 813 bind `t` to the returned Markov-state path and then never use it. 782-783 rebind `p1` and `p2` from the scalars they were at 440 to (3,1) price vectors, so the same two names mean four different objects across two cells of one notebook; 440 itself packs maturity and Markov state into `p1, p2, p3, p4` while the function's own parameters `p1, p2` mean maturities only. 784 assigns `Pi = np.array([[0.9, 0.1], [0.1, 0.9]])` which is never used - the model at 809 takes `Π` from 462 - so the same matrix exists twice under two spellings. 793-798 apply the no-Ponzi penalty with six longhand `R1[i, i] = R1[i, i] + 1e-9` lines hard-coded for $H = 3$, which will silently stop covering the diagonal if $H$ changes. 443 writes `np.array([[1, 0], [Gbar, ρ] ,])`, with a space before the comma and a trailing comma; and 444 introduces `C_2` one line before `C2` is bound to something else entirely at 448, 499 and 790.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 9. *Lines:* 476, 479, 523, 526, 821, 824, 827, 830, 841. *Example:* .set_title.
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 9. *Lines:* 477, 480, 524, 527, 822, 825, 828, 831, 842. *Example:* axis label `Time`.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 9. *Lines:* 475, 478, 522, 525, 820, 823, 826, 829, 840. *Example:* plot() without lw=.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 57. *Lines:* 268, 274, 280, 287, 617, 625, 631, 637, 664, 671. *Example:* apostrophe transpose `x_t'`.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 5. *Lines:* 32, 35, 101, 119, 787. *Example:* 32 has "toimplement" and closes with a stray parenthesis after `{cite}`barro2003religion``, both inherited from the same sentence in tax_smoothing_1 (41). The possessive is dropped from the same construction twice: "{cite}`Barro1979` model is about a government" (35) and "{cite}`Barro1979` model looks a lot like a consumption-smoothing model" (39). 101 reads "$b_{t,t+2}$ betime $t+2$ goods". 116-119 ends the sentence that introduces the objective with a full stop before the display, "the government chooses a contingency plan for $\{b_{t, t+1}, b_{t,t+2}, T_t\}_{t=0}^\infty$ to maximize." And the comment at 787, "Put penalty on different issuance across maturities", describes $c_1$ (151-158) rather than the $c_2$ rescheduling cost it actually sets (540-544). The bullet lists at 96-108 and 141-149 also mix one-space and two-space markers, so several items render as nested sub-lists.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 7. *Lines:* 409, 544, 589, 605, 620, 641, 836. *Example:* the second half of the lecture silently changes notation and then contradicts itself. (i) Debt is $b_{t,t+1}$ and $b_{t,t+2}$ - issue date first, maturity second - from 99 through 229, and from 544 onward it is $b^{t}_{t+1}$, with the issue date moved to a superscript; nothing announces the change, and the two conventions never appear side by side to be reconciled. (ii) Prices are $p_{t,t+j}$ at 105-108, 550 and 579 but $p^t_{t+j}$ in the rearranged budget constraint at 605, one display before they are used as $p_t$ at 611. (iii) 589 writes the vector $[b^{t-1}_{t+1}, \ldots, b^{t-1}_{t+T-1}]'$, using $T$ for the horizon that 535, 558 and 596 call $H$ - the code's parameter name (`T` at 709) has leaked into the mathematics, in a lecture where $T_t$ is tax collections. (iv) 641 states the Markov-state convention as "$R_t \equiv R_{s_t}, Q_t \equiv W_{s_t}$". (v) 620 repeats the definition of $S_t$ from 617 with Unicode right single quotes in place of primes, `p_t’S_s’S_x`. (vi) 697 gives the left-hand side as $C$ where 691 and 315 write $C_t$. (vii) Both examples are introduced as "two Markov states, one with a flatter yield curve, and one with a steeper yield curve" (409-410, 760-761) without ever saying which state is which - the prices at 415-421 and 767-773 determine it - and no later sentence uses the distinction. The restructuring section then ends at 845 on five figures with no interpretation of any kind after 776.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 19. *Lines:* 29, 32, 41, 44, 66, 292, 321, 488, 490, 491, …. *Example:* 2 spaces.
 
 ### Medium severity
 - **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 3. *Lines:* 466, 514, 809. *Example:* spelled-out `beta`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 474, 521, 819. *Example:* figsize=.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 437, 494, 816, 836. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 2. *Lines:* 138, 403. *Example:* 138 uses $\sim$, which the same display uses two lines earlier in its ordinary sense ($w_{t+1} \sim {\cal N}(0,I)$ at 142), to mean "are functions of": a column vector of five objects $\sim \textrm{functions of Markov state with transition matrix } \Pi$. A sentence would say it, and would not put a distributional symbol between a matrix and an English phrase. Separately, 22 inter-equation separators are hard-coded as `\hspace{2mm}` (18 occurrences, e.g. 403, 415, 421, 559, 579) and `\hspace{5mm}` (4, e.g. 637, 697), so the same visual separator has two widths and neither is `\quad`; 617 and 620 also write $Ug$ where every other appearance of the same matrix is $U_g$ (403) or $U_{g,s_t}$ (130).
 - **[qe-math-011 (proposed)]** — Distribution names in plain letters, not \mathcal / \mathbb. *Count:* 1. *Lines:* 142. *Example:* decorated distribution `{\cal N}`.
 - **[qe-ref-001]** — Use correct citation style. *Count:* 3. *Lines:* 32, 35, 41. *Example:* {cite} in narrative flow: 'by  {cite}`'.
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 3. *Lines:* 474, 819, 836. *Example:* the lecture's central experiment is the comparison between $c_1 = 0$ and $c_1 = 0.01$, and the two figures that carry it (474-481, 521-528) are produced by identical code with identical titles - 'One-period debt issuance' and 'Two-period debt issuance' - no captions, no `name:`, and nothing anywhere in either figure recording which penalty produced it; the reader has only the intervening sentence at 488. The claim at 484-486 that the government "has an incentive to take large long-short positions" and at 490-492 that the penalty "is big enough to motivate the government to issue positive quantities of both" can only be checked from two auto-scaled vertical axes on separate figures. The restructuring example is worse served: 819 packs four panels into `figsize=(11, 3)` with independent y-axes and three-word titles, and 836-843 plots the short-term issuance share as the last object in the lecture, with no sentence after it. There are no admonitions in 845 lines, and the two modelling decisions that most need one - the no-Ponzi penalty added to $R$ (450-452, 792-798) and the rescheduling cost - exist only as code comments, one of which (787) mislabels $c_2$ as a penalty "on different issuance across maturities", which is what $c_1$ was.
 
 ### Low severity
 _None found._
@@ -46,18 +51,20 @@ _None found._
 
 ## Strengths
 
-- Writing, Links score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The mapping into the Markov jump LQ framework is carried out twice, once for each specification, and both times every object is constructed on its own line before being used: for the two-maturity model, $\hat b_t$ (172-176), the endogenous state $\bar b_t$ (180-185), the full state (189-193), the control (197-202), the law of motion with its two explicit matrices (206-235), the selector matrices (239-257) and finally $R_t, Q_t, W_t$ (267-281).
+- The penalty parameter is introduced with a reason and then demonstrated: 151-158 says $c_1$ deters "long-short" positions and promises "an example below will show the penalty in action", and 424-492 delivers exactly that - the same model solved at $c_1 = 0$ and at $c_1 = 0.01$, with everything else held fixed.
+- The restructuring model is derived rather than asserted: the three selector matrices $S_s$, $S_x$, $\tilde S_x$ are each defined by the equation they satisfy (582-594), their dimensions are stated (596-598), the budget constraint is rearranged into matrix form step by step (600-626), the rescheduling cost is multiplied out (645-665), and the three amended matrices $R^c_t, Q^c_t, W^c_t$ (670-680) appear verbatim in the code at 749-751.
+- Both mapping functions are written as one function each with a docstring that names the inputs and outputs (329-336, 709-717), and the two-step recipe for using them is stated explicitly at 382-388 - map the primitives for each Markov state, then hand the lists to `LQMarkov` - which is what the three examples then do.
+- The notational convention that makes the whole lecture readable is stated before it is used, twice: 164-166 says that $A_t \equiv A_{s_t}$ and so on, "so that dependence on $t$ is always intermediated through the Markov state", and 640-643 repeats it for the restructuring section.
+- The lecture is explicit about where it sits and what it adds: 29 and 49-55 say that the earlier lecture relaxed the constant-interest-rate assumption and that this one adds a maturity composition decision by expanding the state, and 83-92 distinguishes the two specifications - inherited maturity structure versus redesign every period - before either is built.
+- The restructuring example is dimensioned so that it can be checked by hand: $H = 3$ with six numerical prices (767-773), a 3-by-1 price vector per Markov state in the code (782-783), and a fourth panel plotting total issuance (829-831) alongside the three maturities.
 
 ## Recommended actions
 
-1. `qe-math-002` — Use \top for transpose notation (57 occurrences).
-2. `qe-fig-003` — No matplotlib embedded titles (9 occurrences).
-3. `qe-fig-006` — Lowercase axis labels (9 occurrences).
-4. `qe-ref-001` — Use correct citation style (3 occurrences).
-5. `qe-fig-005` — Descriptive figure names for cross-referencing (4 occurrences).
-6. `qe-code-002` — Use Unicode symbols for Greek letters in code (3 occurrences).
-7. `qe-math-011` (proposed) — Distribution names in plain letters, not \mathcal / \mathbb (1 occurrence).
+1. Reconcile the two notations for debt and prices: $b_{t,t+j}$ and $p_{t,t+j}$ up to line 229, $b^t_{t+j}$ from 544 and $p^t_{t+j}$ at 605 - either convert one section or state the change where it happens, and fix the $T$ that has leaked into 589 in place of $H$.
+2. Repair the four small errors in the derivation: "$Q_t \equiv W_{s_t}$" at 641, the missing subscript on $C$ at 697, the Unicode primes at 620 (`p_t’S_s’S_x`), and "toimplement" plus the stray parenthesis at 32.
+3. Label the two comparison figures: 474-481 and 521-528 are byte-identical apart from the data, so add the penalty value to each title or caption, give both `mystnb` `caption`/`name` metadata, and put them on a shared vertical scale so that the claims at 484-492 can be read off the figures.
+4. Say which Markov state is the flatter yield curve and which the steeper, at 409-410 and 760-761, and use the distinction when discussing the simulations - at present the prices at 415-421 and 767-773 imply it and nothing refers back to it.
+5. Write the interpretation the restructuring example is missing: 756-845 produces five figures - three maturities, total issuance and the short-term share - and says nothing about any of them after 776, though the short-term share at 836-843 is the natural payoff of the whole maturity-composition exercise.
+6. Rename the collisions in the code: `T` for the maximum maturity (709, 714), `t` for the Markov-state path (471, 518, 813), and the rebinding of `p1`/`p2` from scalars (440) to price vectors (782-783); drop the unused `Pi` at 784 that duplicates `Π`; and replace the six longhand no-Ponzi lines at 793-798 with an $H$-independent expression.
+7. Sweep the mechanical load: the 57 apostrophe transposes to `\top`, the 22 `\hspace{2mm}`/`\hspace{5mm}` separators to `\quad`, the `{\cal N}` at 142 to plain $N$, the nine embedded `set_title` calls (476, 479, 523, 526, 821, 824, 827, 830, 841) moved into `mystnb` captions with `name:` fields, the nine capitalised axis labels, the nine `plot()` calls without `lw=2`, the three `figsize` overrides, the three spelled-out `beta=` arguments, the 19 double-space runs, the three citations used in author position (32, 35, 41), and the inconsistent list markers at 96-108 and 141-149.

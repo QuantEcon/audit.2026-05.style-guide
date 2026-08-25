@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.9 / 10
+- **Overall score:** 7.6 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 5.5/10 | `qe-writing-005` ×4; `qe-writing-003` ×2; `qe-writing-002` ×3, +1 more. |
-| Math         | 7/10  | `qe-math-002` ×3; `qe-math-009` ×3. |
+| Math         | 5.5/10 | `qe-math-002` ×3; `qe-math-010` (proposed) ×1; `qe-math-009` ×3. |
 | Code         | 6.5/10 | `qe-code-001` ×20; `qe-code-002` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-003` ×2; `qe-fig-005` ×1; `qe-fig-004` ×1, +2 more. |
@@ -30,6 +30,7 @@ _None found._
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 20. *Lines:* 192, 220, 222, 235, 239, 312, 314, 319, 327, 353, …. *Example:* eighteen lines inside code cells run past 79 characters (PEP8 E501): 192, 220, 235, 239, 314, 319, 327, 353, 386, 460, 473, 582, 594, 701, 752, 753, 754 and 830, with 460 at 93 and 220 at 90 - and in several cases the overrun is a trailing comment (460 pushes `# date t-1 Euler realizes now` out to column 57) or a nested generator expression that would read better split (220, 239). 222 binds a lambda to a name inside `solve_benchmark` (E731) where a two-line `def` would do. Blank-line separation between top-level defs is inconsistent within the same cells: one line at 302-312, two at 316-318, one at 173 after the assignment.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 5. *Lines:* 257, 351, 484, 605, 828. *Example:* figsize=.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 3. *Lines:* 112, 137. *Example:* apostrophe transpose `u'`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 1. *Lines:* 112. *Example:* non-blackboard `\operatorname{Prob}`.
 
 ### Medium severity
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 2. *Lines:* 492, 499. *Example:* .set_title.

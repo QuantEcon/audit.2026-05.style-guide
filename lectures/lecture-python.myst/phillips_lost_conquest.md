@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.4 / 10
+- **Overall score:** 7.9 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 6.5/10 | `qe-writing-006` ×2; `qe-writing-004` ×1. |
-| Math         | 10/10 | no mechanical violations detected. |
+| Math         | 6.5/10 | `qe-math-010` (proposed) ×5. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 4.5/10 | `qe-fig-004` ×5; `qe-fig-003` ×2; `qe-fig-006` ×1, +3 more. |
@@ -30,6 +30,7 @@ _None found._
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 5. *Lines:* 182, 284, 317, 390, 465. *Example:* figsize=.
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 5. *Lines:* 175, 277, 305, 372. *Example:* caption of 9 words.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 5. *Lines:* 183, 188, 286, 319, 320. *Example:* plot() without lw=.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 5. *Lines:* 221, 346, 347, 354. *Example:* missing braces: `\mathbb E`.
 - **[qe-ref-001]** — Use correct citation style. *Count:* 6. *Lines:* 54, 57, 87, 206, 420. *Example:* {cite} in narrative flow: '{cite}`'.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 2. *Lines:* 301, 334. *Example:* H2 Title Case: 'Why the Fed was slow: a counterfactual' (Fed).
 
@@ -44,7 +45,7 @@ _None found._
 
 ## Strengths
 
-- Math, Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
 - No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
 - No `qe-admon-003` violations — Use tick count management for nested directives.
 - No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
@@ -52,10 +53,10 @@ _None found._
 
 ## Recommended actions
 
-1. `qe-writing-006` — Capitalize lecture titles properly (2 occurrences).
-2. `qe-ref-001` — Use correct citation style (6 occurrences).
-3. `qe-fig-004` — Caption formatting conventions (5 occurrences).
-4. `qe-fig-003` — No matplotlib embedded titles (2 occurrences).
-5. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (1 occurrence).
-6. `qe-fig-006` — Lowercase axis labels (1 occurrence).
-7. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
+1. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (5 occurrences).
+2. `qe-writing-006` — Capitalize lecture titles properly (2 occurrences).
+3. `qe-ref-001` — Use correct citation style (6 occurrences).
+4. `qe-fig-004` — Caption formatting conventions (5 occurrences).
+5. `qe-fig-003` — No matplotlib embedded titles (2 occurrences).
+6. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (1 occurrence).
+7. `qe-fig-006` — Lowercase axis labels (1 occurrence).

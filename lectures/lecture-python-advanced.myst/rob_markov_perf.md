@@ -5,16 +5,16 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 7.3 / 10
+- **Overall score:** 6.3 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8/10  | `qe-writing-008` ×55; `qe-writing-004` ×1. |
+| Writing      | 3.5/10 | `qe-writing-005` ×6; `qe-writing-003` ×6; `qe-writing-002` ×5, +3 more. |
 | Math         | 4/10  | `qe-math-002` ×44; `qe-math-003` ×1. |
-| Code         | 7.5/10 | `qe-code-002` ×6. |
+| Code         | 6/10  | `qe-code-002` ×6; `qe-code-001` ×8. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8/10  | `qe-fig-005` ×3; `qe-fig-001` ×3. |
 | References   | 9/10  | `qe-ref-001` ×1. |
@@ -27,9 +27,13 @@
 _None found._
 
 ### High severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 8. *Lines:* 559, 590, 628, 715, 791, 941. *Example:* 791 binds `n = 20` to the number of simulation periods, in a file where $n$ is the state dimension in the theory (141), in the docstring (505) and in the function body (567) - and where the loops that use it are written `range(n - 1)` (805, 817, 837). 559 and 788 build matrices with `np.asmatrix`, whose `np.matrix` type NumPy discourages and whose broadcasting rules are what let the dimension error at 828 pass silently. Four assignments have a double space after `=` (`D1P1 =  P1 + ...` at 590, 595, and `K1 =  P1 @ ...` at 827, 831). Five expressions use backslash continuations while a bracket is already open (604-605, 617-618, 619-620, 628-629, 941-944), and the two at 941-944 leave the continuation unindented at column 0 inside an open `print(...)`. 628-629 puts the continuation inside an f-string, so the raised message reads "Iteration limit of 1000             reached in nnash" - a twelve-space run, and the wrong function name inside `nnash_robust`. 715-721 pads the two `R` literals to align columns and mixes literal styles inside a single matrix: `0` beside `0.` and `-a0 / 2` beside `-a0 / 2.`. And the docstring's parameter block indents its descriptions at four different depths (504-541: 4, 8, 9 and 10 spaces).
 - **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 6. *Lines:* 470, 495, 536, 736, 741, 797. *Example:* spelled-out `beta`.
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 6. *Lines:* 47, 64, 83, 90, 273, 320. *Example:* raw link to python-intro.quantecon.org.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 44. *Lines:* 122, 123, 124, 125, 126, 127, 157, 184, 185, 186, …. *Example:* apostrophe transpose `x_t'`.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 5. *Lines:* 68, 311, 490, 762, 900. *Example:* the two bullets at 68-69 are reproduced verbatim as the first two of the three at 76-80, eight lines later, so the characterisation of the equilibrium is half restated before the new third bullet arrives. Four sentences are broken: 309-311 "the function nnash_robust to compute a Markov perfect equilibrium ... with robust planers"; 490 "The player i also concerns about the model misspecification, and maximizes"; 762 "the firms' robust decision rules within the robust markov_perfect equilibrium", which leaks a label into prose; and 900 "firm 1's output path is substantially lower when firms are robust firms". The docstring at 476-496 also states a different problem from the lecture: it writes the matrices in lower case ($r_i$, $w_i$, $q_i$, $s_i$, $m_i$), calls the distortion $w_{it+1}$ where the lecture calls it $v_{it}$ (110, 142), puts a stray index on the state (`x_{it+1}`), and gives the entropy term as something the player *maximizes* with a positive sign, which as written is unbounded.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 6. *Lines:* 155, 296, 438, 744, 826, 636. *Example:* six disagreements, two of them between the algebra and the code that implements it. (i) The closed-loop system {eq}`rmp-eq_mpe_cle` at 438 reads $x_{t+1} = (A - B_1 F_1 - B_1 F_2)x_t$, with $B_1$ twice; 759 and the code at 802 and 814 both use $A - B_1F_1 - B_2F_2$. (ii) The worst-case shock formula at 296 has last factor $(A - B_1 F_{it} - B_2 F_{2t})$, mixing the generic index $i$ with a literal 2, so for $i=2$ it reads $A - B_1F_{2t} - B_2F_{2t}$. (iii) The implementation of that formula at 826-828 and 830-832 uses `P1` and `P2`, which are the *non-robust* value functions returned by `qe.nnash` at 734, where the formula calls for the robust ones computed at 795 (`P1r`, `P2r`); and it forms `AOCK1 = AO + C.T @ K1`, where 927-928 states the worst-case transition as $A^o + CK_1$ - with `C` of shape (3,1) the code's `K1` comes out (3,3) rather than the (1,3) that $v_{it} = K_{it}x_t$ requires at 289-291, and `C.T @ K1` is (1,3), which NumPy then broadcasts onto the (3,3) `AO` without error. The three matrices printed at 940-944 and the two belief paths plotted at 947-968 are downstream of this. (iv) Two of the four consistency checks at 743-746 test the wrong pair: `print('F2 and F2r should be the same: ', np.allclose(F1, F1r))` and `print('P2 and P2r should be the same: ', np.allclose(P1, P1r))`, so the conclusion at 749 that "the results are consistent across the two functions" rests on F1 and P1 being compared twice each. (v) The "Some details" section restates firm $i$'s objective at 636-648 without the $-\theta_i v_{it}'v_{it}$ entropy term that {eq}`rmp-orig-1` carries at 127, after robustness has been introduced. (vi) 155 reads `$\theta_i < _\infty$`, a subscript attached to nothing.
+- **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 6. *Lines:* 109, 161, 756, 978, 980. *Example:* the two conventions are exactly inverted. The lecture's only two defined terms are italicised - the *volatility matrix* $C$ (109) and *admissibility* (982) - while every use of bold is emphasis: a "large **set** of alternative models" (161), the "**closed-loop** transition matrix" (756), beliefs that "**rationalize**" the decision rules (978), and "the unique **optimal** rules" (980). The rule asks for the opposite assignment in all six cases, and the lecture already uses italic correctly for emphasis at 912-914 (*ex-post*, *after*), so the two markers are doing one job each in the wrong direction.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 55. *Lines:* 37, 39, 47, 61, 62, 65, 66, 69, 71, 77, …. *Example:* 2 spaces.
 
 ### Medium severity
@@ -37,6 +41,7 @@ _None found._
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 857, 883, 947. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 1. *Lines:* 779. *Example:* pmatrix environment.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 458. *Example:* mid-sentence 'Equilibrium'.
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 3. *Lines:* 863, 940, 947. *Example:* three of the four panels fix their vertical range by hand - `ylim=(2, 4)` at 863 and 957, `ylim=(1, 2)` at 889 and 895 - and those are exactly the panels whose content the text asks the reader to compare: "the price path is higher with the Markov perfect equilibrium robust decision rules" (874-875), "firm 1's output path is substantially lower" (900-901), and the three-way belief comparison at 971-976. A hard limit that clips a path leaves the claim unfalsifiable, and nothing in the code guarantees the simulated series stay inside those windows. Second, the object the whole lecture builds toward - the difference between the baseline transition law and the two firms' worst-case laws - is presented at 940-944 as three 3-by-3 arrays printed with `np.round(..., 3)`, which is the least legible form available; the same three matrices as a small table, or the difference $CK_i$ alone, would show what 930-933 says in words. Third, there is no admonition anywhere in 983 lines, including at 588 and 593 where the code carries the warning "Note: INV1 may not be solved if the matrix is singular" - a condition on $\theta_i$ that the theory at 151 alludes to as $\underline\theta_i$ and that belongs in a `{warning}` beside it.
 
 ### Low severity
 - **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 47. *Example:* {cite} in narrative flow: 'of  {cite}`'.
@@ -44,18 +49,22 @@ _None found._
 
 ## Strengths
 
-- References score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The lecture states its answer before deriving it: 74-80 says a robust Markov perfect equilibrium is characterised by three pairs of equations - Bellman equations, decision rules, and worst-case shock rules - and 163-297 then produces exactly those three pairs, with the third (285-297) being the one new object relative to the non-robust lecture it builds on.
+- The reduction of the two-player problem to a single-agent robust LQ problem is done explicitly: substituting $u_{2t} = -F_{2t}x_t$ yields {eq}`rmp-eq_mpe_p1p` and {eq}`rmp-eq_mpe_p1d`, and the three compound matrices that absorb the other player are defined on their own lines at 201-203 ($\Lambda_{it}$, $\Pi_{it}$, $\Gamma_{it}$) and then reappear verbatim in the code at 609-614.
+- The entropy penalty is explained in economic terms rather than left as a term in a formula: 157-161 says the $\theta_i v_{it}'v_{it}$ charge is what an imaginary loss-maximising agent inside agent $i$'s mind levies, and that its purpose is to bound behaviour over a set of alternative models - which is also the sentence that makes $\theta_i = +\infty$ (153) and $\theta_i < \infty$ (155) interpretable.
+- The new function is validated against the existing library before it is used: 727-747 solves the same duopoly with `qe.nnash` and with `nnash_robust` at $\theta_i = 10^{-10}$ and compares the outputs, which is the right test and the right place for it.
+- The simulation is deterministic by construction: `rng = np.random.default_rng(0)` at 571 seeds the random starting values for $F_1$ and $F_2$, so the reported decision rules and every figure downstream of them are reproducible across builds.
+- The interpretation of simulating robust rules under the baseline model is spelled out in five bullets (764-770) rather than assumed: misspecification fears are "all 'just in the minds' of the firms", some assumption about the true model is unavoidable, and the worst-case beliefs that justify the rules are promised for later - which 916-982 then delivers.
+- The closing argument ties the two halves together: 971-980 reads the belief figure as firm 1 expecting higher output and lower price than firm 2, which is why firm 1 produces less, and then names what that means - the robust rules are best responses to the worst-case transition laws - with 982 pointing at the connection to admissibility in Bayesian decision theory.
+- 906-908 anticipates the reader's wrong inference from the second figure: firm 2's output looks unchanged, and the lecture says explicitly that this is "something of a coincidence" because firm 2's rule does respond to firm 1's.
 
 ## Recommended actions
 
-1. `qe-math-002` — Use \top for transpose notation (44 occurrences).
-2. `qe-link-002` — Use doc links for cross-series references (6 occurrences).
-3. `qe-code-002` — Use Unicode symbols for Greek letters in code (6 occurrences).
-4. `qe-fig-005` — Descriptive figure names for cross-referencing (3 occurrences).
-5. `qe-writing-008` — Remove excessive whitespace between words (55 occurrences).
-6. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (1 occurrence).
-7. `qe-math-003` — Use square brackets for matrix notation (1 occurrence).
+1. Fix the closed-loop system at 438 ($-B_1F_2$ for $-B_2F_2$) and the index mix in the worst-case shock formula at 296 ($F_{it}$ beside $F_{2t}$).
+2. Rebuild the worst-case transition cells at 825-832 from the formula at 289-297: they use the non-robust `P1`/`P2` from 734 where the robust `P1r`/`P2r` from 795 are needed, and they form `AO + C.T @ K1` where 927-928 specifies $A^o + CK_1$ - with `C` of shape (3,1), `K1` should be (1,3) and is currently (3,3), which only passes because `np.asmatrix` broadcasting hides it.
+3. Correct the two consistency checks at 744 and 746, which print `np.allclose(F1, F1r)` and `np.allclose(P1, P1r)` under labels claiming to compare F2 and P2, so that the conclusion at 749 is actually tested.
+4. Restore the entropy term to the objective restated at 636-648, or drop the restatement: as written the "Some details" section gives the non-robust objective after robustness has been introduced, and it also reprints the state, controls and both $R_i$ matrices already displayed at 370-404.
+5. Rewrite the copied docstring at 472-555 to match this lecture: lower-case matrix names for $R, W, Q, S, M$, $w_{it+1}$ for the distortion the lecture calls $v_{it}$, a stray index in `x_{it+1}`, an entropy term stated as something to be maximised with a positive sign, and `S1`/`S2` documented as $(k_1,k_1)$ and $(k_2,k_2)$ where 144 says $S_i$ is $k_{-i} \times k_{-i}$.
+6. Replace the escaped underscores in math, which render literally: `B\_1 F\_1^r`, `B\_2 F\_2^r` (918) and `C K\_1`, `C K\_2` (927-928); and fix `$\theta_i < _\infty$` at 155.
+7. Rename `n = 20` at 791, which collides with the state dimension $n$ used at 141, 505 and 567; drop the two `np.asmatrix` calls (559, 788); and fix the error message at 628-629, which embeds a twelve-space run from a backslash continuation inside an f-string and names `nnash` rather than `nnash_robust`.
+8. Sweep the mechanical load: the 44 apostrophe transposes to `\top`, the `pmatrix` at 779 to `bmatrix`, the six raw `python-intro.quantecon.org` links (47, 64, 83, 90, 273, 320) to `{doc}` references, `mystnb` caption and `name:` metadata on the three figure cells (857, 883, 947), the three `figsize` overrides, the six spelled-out `beta=` arguments, the 55 double-space runs, and "Markov Perfect Equilibrium model" at 458.

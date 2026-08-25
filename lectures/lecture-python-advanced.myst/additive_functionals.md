@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 9/10  | `qe-writing-008` ×21. |
-| Math         | 4/10  | `qe-math-010` (proposed) ×16; `qe-math-011` (proposed) ×3. |
+| Math         | 4/10  | `qe-math-010` (proposed) ×16; `qe-math-011` (proposed) ×4. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 3.5/10 | `qe-fig-003` ×11; `qe-fig-005` ×10; `qe-fig-008` ×23, +1 more. |
@@ -36,7 +36,7 @@ _None found._
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 21. *Lines:* 38, 44, 57, 66, 68, 89, 207, 225, 229, 863, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-math-011 (proposed)]** — Distribution names in plain letters, not \mathcal / \mathbb. *Count:* 3. *Lines:* 101, 103, 120. *Example:* decorated distribution `{\cal N}`.
+- **[qe-math-011 (proposed)]** — Distribution names in plain letters, not \mathcal / \mathbb. *Count:* 4. *Lines:* 101, 103, 120, 989. *Example:* decorated distribution `{\cal N}`.
 
 ### Low severity
 - **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 82. *Example:* {cite} in narrative flow: '{cite}`'.
@@ -56,6 +56,6 @@ _None found._
 2. `qe-fig-003` — No matplotlib embedded titles (11 occurrences).
 3. `qe-fig-005` — Descriptive figure names for cross-referencing (10 occurrences).
 4. `qe-link-002` — Use doc links for cross-series references (5 occurrences).
-5. `qe-math-011` (proposed) — Distribution names in plain letters, not \mathcal / \mathbb (3 occurrences).
+5. `qe-math-011` (proposed) — Distribution names in plain letters, not \mathcal / \mathbb (4 occurrences).
 6. `qe-writing-008` — Remove excessive whitespace between words (21 occurrences).
 7. `qe-fig-008` — Use lw=2 for line charts (23 occurrences).

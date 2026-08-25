@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 5/10  | `qe-writing-004` ×7; `qe-writing-009` (proposed) ×4; `qe-writing-008` ×64, +1 more. |
-| Math         | 3/10  | `qe-math-010` (proposed) ×7; `qe-math-003` ×15; `qe-math-011` (proposed) ×2. |
+| Math         | 3/10  | `qe-math-010` (proposed) ×81; `qe-math-003` ×15; `qe-math-011` (proposed) ×2. |
 | Code         | 7.5/10 | `qe-code-002` ×4; `qe-code-003` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5/10  | `qe-fig-005` ×10; `qe-fig-006` ×2; `qe-fig-008` ×2, +1 more. |
@@ -29,7 +29,7 @@ _None found._
 ### High severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 10. *Lines:* 955, 965, 991, 1000, 1037, 1056, 1071, 1078, 1703, 1811. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 15. *Lines:* 261, 391, 501, 599, 696, 711, 723, 733, 914, 917, …. *Example:* array used as matrix.
-- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 7. *Lines:* 588, 1632, 1634, 1636, 1676, 1694. *Example:* non-blackboard `\mathrm{E}`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 81. *Lines:* 104, 110, 149, 174, 210, 213, 220, 257, 316, 332, …. *Example:* non-blackboard `\textrm{Prob}`.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 7. *Lines:* 78, 194, 196, 1626, 1738, 1784. *Example:* mid-sentence 'Values'.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 64. *Lines:* 233, 234, 255, 258, 269, 274, 284, 286, 311, 319, …. *Example:* 2 spaces.
 
@@ -57,7 +57,7 @@ _None found._
 
 ## Recommended actions
 
-1. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (7 occurrences).
+1. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (81 occurrences).
 2. `qe-math-003` — Use square brackets for matrix notation (15 occurrences).
 3. `qe-fig-005` — Descriptive figure names for cross-referencing (10 occurrences).
 4. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (7 occurrences).

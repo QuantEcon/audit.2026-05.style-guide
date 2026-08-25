@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 5.5/10 | `qe-writing-006` ×3; `qe-writing-001` ×1; `qe-writing-008` ×22. |
-| Math         | 3/10  | `qe-math-002` ×19; `qe-math-003` ×10; `qe-math-006` ×1. |
+| Math         | 3/10  | `qe-math-002` ×19; `qe-math-003` ×10; `qe-math-006` ×1, +1 more. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | N/A   | no figures or plotting code. |
@@ -34,6 +34,7 @@ _None found._
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 22. *Lines:* 31, 33, 42, 47, 49, 63, 73, 96, 108, 111, …. *Example:* 2 spaces.
 
 ### Medium severity
+- **[qe-math-011 (proposed)]** — Distribution names in plain letters, not \mathcal / \mathbb. *Count:* 1. *Lines:* 379. *Example:* decorated distribution `{\mathcal N}`.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 379. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
@@ -54,4 +55,5 @@ _None found._
 3. `qe-writing-006` — Capitalize lecture titles properly (3 occurrences).
 4. `qe-math-006` — Use aligned environment correctly for PDF compatibility (1 occurrence).
 5. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
-6. `qe-writing-008` — Remove excessive whitespace between words (22 occurrences).
+6. `qe-math-011` (proposed) — Distribution names in plain letters, not \mathcal / \mathbb (1 occurrence).
+7. `qe-writing-008` — Remove excessive whitespace between words (22 occurrences).

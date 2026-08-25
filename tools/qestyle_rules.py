@@ -544,14 +544,19 @@ def check_math_010(doc: Doc):
     """(proposed) Blackboard P/E/V with braces for probability, expectation, variance."""
     hits = []
     # (a) The right symbol, missing its braces.
-    bare_mathbb = re.compile(r"\\(?:mathbb|Bbb)\s+[PEV]\b")
+    # Not ``[PEV]\b``: ``_`` is a word character, so ``\b`` never fires before a
+    # subscript and ``\mathbb E_t`` — the corpus's usual conditional expectation —
+    # went uncounted. ``(?![A-Za-z])`` still rejects ``\mathbb Exp``.
+    bare_mathbb = re.compile(r"\\(?:mathbb|Bbb)\s+[PEV](?![A-Za-z])")
     # (b) A plain letter used as the operator: E[X], E_t(...), P(A).
     #     Only counted where the letter is actually applied to something.
     applied = r"(?:\s*(?:_\{[^}]*\}|_[A-Za-z0-9])?\s*(?:\\left)?\s*(?:\[|\\\{|\())"
     bare_E = re.compile(r"(?<![\\A-Za-z0-9_{])E" + applied)
     # (c) Roman or calligraphic spellings of the same operators.
+    ROMAN = r"(?:Var|Cov|Pr|Prob|E|Cor)"
     other = re.compile(r"\\(Pr|Var|Cov|Prob)\b"
-                       r"|\\(?:text|mathrm|operatorname)\s*\{\s*(?:Var|Cov|Pr|E|Cor)\s*\}"
+                       r"|\\(?:text|textrm|mathrm|operatorname)\s*\{\s*" + ROMAN + r"\s*\}"
+                       r"|\{\s*\\rm\s+" + ROMAN + r"\s*\}"
                        r"|\\mathcal\s*\{\s*[EPV]\s*\}")
     spans = list(_math_spans(doc))
     # The bare-letter branch only makes sense in a lecture that really does use E as
@@ -585,6 +590,7 @@ def check_math_011(doc: Doc):
     """(proposed) Distribution names: plain letters, never \mathcal / \mathbb."""
     hits = []
     pat = re.compile(r"\\mathcal\s*\{\s*(N|U)\s*\}|\{\s*\\cal\s*(N|U)\s*\}"
+                     r"|\{\s*\\mathcal\s+(N|U)\s*\}"
                      r"|\\mathbb\s*\{\s*(N|U)\s*\}|\\mathcal\s+(N|U)\b")
     for no, src in _math_spans(doc):
         for m in pat.finditer(src):

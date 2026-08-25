@@ -5,16 +5,16 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 6.9 / 10
+- **Overall score:** 5.8 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 7/10  | `qe-writing-001` ×4; `qe-writing-008` ×133. |
-| Math         | 7.5/10 | `qe-math-002` ×2. |
-| Code         | 7.5/10 | `qe-code-002` ×5. |
+| Writing      | 3/10  | `qe-writing-005` ×11; `qe-writing-003` ×5; `qe-writing-002` ×6, +3 more. |
+| Math         | 7/10  | `qe-math-002` ×2; `qe-math-009` ×1. |
+| Code         | 5/10  | `qe-code-001` ×52; `qe-code-002` ×5. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 3/10  | `qe-fig-007` ×11; `qe-fig-003` ×9; `qe-fig-006` ×9, +4 more. |
 | References   | 8.5/10 | `qe-ref-001` ×4. |
@@ -27,6 +27,7 @@
 _None found._
 
 ### High severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 52. *Lines:* 316, 1151, 1521, 1756, 2189, 2334. *Example:* 52 spacing and idiom items across the 30 code cells, in four countable classes: (i) 28 lines put a space before a comma, several of them with none after, e.g. 316 `np.minimum(self.n_x[perfect_pairs_x] ,self.m_y[perfect_pairs_y])`, 329, 335, 412, 706, 1471, 1510, 2189, 2431, 2457; (ii) the keyword `title=` is written `title = ` on 12 lines and `figsize=` as `figsize = ` on 10 (1521-1525, 1561, 1616-1618, 1757, 2439), against `figsize=(15, 8)` correctly spelled at 241, 578 and 704 - so the same two keywords are written both ways in the same file; (iii) 1151 and 1165 test `if unmatched[k] == True:` where PEP8 asks for `if unmatched[k]:`. Beyond the counted classes: 2334 writes a module-level assignment with no spaces, `num_agents=1500`, four `def`s omit the space after a comma in `(self,layer)` (206, 841, 1046, 1120), 1756 writes `add_labels = True if num_agents < 16 else False` for `num_agents < 16`, 1757 passes `title = f'Composite Sorting'` - an f-string with no placeholder - `iter` shadows the builtin at 980 and 1311, 2350 writes `- var_workers/ 2`, eight expressions are joined with backslash continuations where parentheses are already open (164-165, 1093, 1180, 1220, 1253, 2366, 2461, 2466), and `off_diagoff_diagonal` (15 uses from 1209) names the object that is `off_diagonal` at 419 and `example_off_diag` at 435.
 - **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 5. *Lines:* 2041, 2042, 2044, 2081, 2089. *Example:* spelled-out `beta`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 37. *Lines:* 241, 243, 578, 583, 704, 708, 772, 774, 964, 1277, …. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 9. *Lines:* 262, 610, 733, 797, 989, 1323, 1927, 2408, 2515. *Example:* plt.title.
@@ -34,6 +35,9 @@ _None found._
 - **[qe-fig-007]** — Keep figure box and spines. *Count:* 11. *Lines:* 799, 800, 992, 993, 994, 1327, 1328, 1329, 1931, 1932, …. *Example:* spine removal.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 5. *Lines:* 594, 598, 2270, 2308, 2485. *Example:* plot() without lw=.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 2. *Lines:* 464. *Example:* apostrophe transpose `x'`.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 6. *Lines:* 53, 521, 533, 1101, 1454, 2420. *Example:* three sentences are long enough to lose their thread - 1101 is 95 words with two nested parentheticals and three subscripted indices, 521 is 75 words that state a case analysis twice ("the number of intersections between pairs $(x,y), (x',y')$ and the pair $(x'',y'')$ (i.e., after uncrossing) is not larger than the number of intersections between pairs $(x,y'), (x',y)$ and the pair $(x'',y'')$ (i.e., before uncrossing)"), and 657 is 60 words explaining an indexing choice - and four are broken outright: 53 "let a positive integer $m_y$ be the agents of agents of type $y \in Y$", 229 "Notice that we not normalizing the measures", 533 "When we introduce the off diagonal matching, to stress that the types sets are disjoint now." (no main clause), 1013 "We refer {cite}`boerma2023composite` and {cite}`delon2011minimum` for proofs", and 1454 "the matching with two medium side displacement". A dozen spelling slips run through the prose and comments: "lenght" (198), "semicirles" (448, 458, 1274), "cain" (466), "therby" (482), "umatched" (1115, 1162), "resitual" (1242), "correponding" (1454), "resemblence" (1495).
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 5. *Lines:* 610, 824, 2246, 2486, 2523. *Example:* (i) The central object of the layer decomposition is named only in a plot title: $H(z) := F(z) - G(z)$ is introduced at 570 with no name, 610 titles its figure `'Underqualification Measure (Off-Diagonal)'`, and 2420 then tells the reader "we plot the histograms and the measure of underqualification" - a term the prose never defines. (ii) 820 defines $V_{ij}$ for $j-i \in \{1,3,\dots\}$ and 1041 repeats "$j-i$ odd", but 824 and 826 invert it to $i-j \in \{1,3,\dots,t-2\}$ and $i-j = t$, so the recursion at 829 appears to run over pairs with $i > j$. (iii) The caption at 2246 is a copy of the one at 2288: it says "Average wage for each Standard Occupational Classification (SOC) code" over the figure that plots `std_Earnings` (2257) with y-axis "Wage Dispersion" (2274), which 2240 introduces as "the wage standard deviation". (iv) 2486 labels the horizontal axis "Occupations" for a plot of sorted *worker* wages $w_x$ (2474, 2519). (v) The lecture ends at 2523 on a bar chart of model wage dispersion, with no sentence comparing it to the two data figures at 2242-2316 that the Application section was built to match - the empirical payoff the Overview promises at 34 is never stated.
+- **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 11. *Lines:* 55, 94, 290, 529, 1685. *Example:* the convention inverts at line 65. The Overview and Setup define terms in bold, correctly - **coupling** (22), **positive assortative** / **negative assortative** / **composite assortative** (30), **cost function** and **optimal transport problem** (65) - and from there on every defined term is italicised instead: *marginals* (55), *balanced* (63), *strictly concave* / *strictly increasing* / *grounded* (89), *assignment problem* (536), *layers* (558), *mass* (644), *unitary* (646), *hidden* (1026), *composite sorting* (1415), *positive assortative matching* (1419), *dual problem* (1685), *Complementary Slackness* (1734). Bold is meanwhile used for structural labels that are neither definitions nor emphasis: `**Lemma.**` (94) paired with `*Proof.*` (100) - the statement bolded and its proof italicised - `**Theorem (DSS)**` (1030), and the four pseudo-headings `**Maximal number of perfect pairs**` (290), `**No intersecting pairs property**` (454), `**Layering**` (529) and `**Policy evaluation**` (892), which restate the numbered list already given at 282-286.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 133. *Lines:* 18, 20, 23, 26, 28, 30, 32, 34, 36, 38, …. *Example:* 2 spaces.
 
 ### Medium severity
@@ -42,24 +46,29 @@ _None found._
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 4. *Lines:* 40, 44. *Example:* raw link to python.quantecon.org.
 - **[qe-ref-001]** — Use correct citation style. *Count:* 4. *Lines:* 34, 1015, 1630, 1732. *Example:* {cite} in author position: '{cite}`boerma2023composite` show'.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 4. *Lines:* 42, 355, 2282, 2420. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 3. *Lines:* 94, 470, 1026. *Example:* 2524 lines, 20 figures, and not one admonition or `{prf:}` directive: the subadditivity lemma and its proof (94-102) and the DSS theorem (1030) are plain bold and italic text, so nothing in the built page distinguishes a proved statement from surrounding prose, and the three properties that the algorithm rests on (290, 454, 529) are bold lines rather than callouts. More striking, the two arguments in the lecture that are purely geometric are the two with no picture. The no-intersecting-pairs proof (448-523) asks the reader to hold two configurations in mind - $x < y < y' < x'$ (473) and $x < x' < y' < y$ (487) - and to see that reallocating mass "uncrosses" the semicircles, and the lecture already owns the routine that draws exactly this picture (`plot_layer_matching`, 962-998, and the arcs at 980-986); two four-point diagrams, before and after uncrossing, would replace 60 lines of case analysis. The same applies to the definition of a *hidden* pair at 1026-1028, whose whole content is that "the arc joining $(i',j')$ surmounts the arc joining $(i,j)$".
 
 ### Low severity
-_None found._
+- **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 1. *Lines:* 1700. *Example:* 1700 introduces $y_{xy} = \alpha_x + \gamma_y - c_{xy}$ as "the output generated by matching $x$ and $y$", but $y$ has denoted a member of the type set $Y$ since line 49 and is used that way in the same displays - 1708 reads $\sum_{(x,y) \in X \times Y} \mu_{xy} y_{xy}$ and 1717 reads $u_x + v_y \geq y_{xy}$, where $v_y$ is indexed by the type $y$ and $y_{xy}$ is not. Any unused letter (the lecture has no $s$ or $o$) removes the collision at no cost.
 
 
 ## Strengths
 
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The algorithm is derived from three named structural properties (282-286) and each one is proved and then immediately implemented: maximal perfect pairs by the subadditivity argument at 292-306 and `match_perfect_pairs` at 311-331; no intersecting pairs by the two uncrossing cases at 462-523; layering by the equal-count argument at 544-562 and `find_layers` at 662-685 - so no method appears before the mathematics that justifies it.
+- The subadditivity lemma at 94-102 is proved in two lines from concavity and groundedness, and it is exactly the inequality that does the work at 299 in the perfect-pairs proof, so the reader sees a small tool built and then used rather than asserted.
+- Both layer algorithms are implemented and then checked against each other: the plain Bellman recursion {eq}`eq:Bellman101` (841-870) and the DSS second-order recursion (1046-1075), with the difference between the two value functions printed at 1093-1094, the two layer values compared at 1180-1183, and both matchings drawn through the same routine (1004 and 1187) so the pictures can be compared too.
+- The whole computation is verified against an independent method: `solve_1to1` (1379-1396) solves the same problem as a linear program with `scipy.linprog`, and 1400-1405 prints the LP value beside the plain-Bellman and DSS values; the dual side is checked the same way, for feasibility and strong duality, at 2460-2471.
+- Examples 1-3 (1411-1670) are each built to isolate one claim - that composite sorting coincides with NAM for one configuration of four types and with PAM once a single type is shifted while its order is preserved (1495-1499) - and the type positions are colour-coded in the display mathematics (1443-1450) to match the blue-for-$X$, red-for-$Y$ convention that every figure in the lecture uses (234-236).
+- $H(z) = F(z) - G(z)$ is motivated before it is defined: 562-565 shows that two types lie in the same layer exactly when $F(x) - G(x) = F(y) - G(y)$, 570 names that difference, 575 says what its upward and downward jumps mean, and only then is it plotted (577-621) and used to read off the layers and their masses (628-650).
+- The restriction to integer marginals is argued rather than assumed (79-84): it is without loss for computation because float marginals can be transformed, and it is necessary here because some of the implementations would fail under float arithmetic - a rare admission of a code-driven modelling choice.
+- The class is grown by attaching each method to it as the corresponding result is established (211, 331, 427, 617, 685, 737, 804, 870, 939, 1000, 1075, 1175, 1229, 1262, 2369, 2415), which keeps a 2500-line lecture navigable: every code cell is one method and the prose immediately above it says what that method returns.
 
 ## Recommended actions
 
-1. `qe-fig-007` — Keep figure box and spines (11 occurrences).
-2. `qe-math-002` — Use \top for transpose notation (2 occurrences).
-3. `qe-fig-003` — No matplotlib embedded titles (9 occurrences).
-4. `qe-fig-006` — Lowercase axis labels (9 occurrences).
-5. `qe-code-002` — Use Unicode symbols for Greek letters in code (5 occurrences).
-6. `qe-writing-001` — Use one sentence per paragraph (4 occurrences).
-7. `qe-link-002` — Use doc links for cross-series references (4 occurrences).
+1. Finish the Application: 2523 plots the model's wage dispersion and the lecture stops, so nothing compares it with the two data figures at 2242-2316 - add the paragraph that reads the model against the data, and fix the caption at 2246, which is a copy of 2288's "Average wage" over the figure that plots `std_Earnings`.
+2. Name the underqualification measure in the prose at 570, where $H(z) := F(z) - G(z)$ is defined; at present the term exists only in a plot title (610) and is then used as established at 2420.
+3. Correct the index order at 824 and 826 ($i-j$ for $j-i$, against the definition at 820 and the restatement at 1041) and relabel the horizontal axis at 2486, which reads "Occupations" over sorted worker wages.
+4. Convert `**Lemma.**` / `*Proof.*` (94, 100) and `**Theorem (DSS)**` (1030) to `{prf:lemma}`, `{prf:proof}` and `{prf:theorem}`, and settle the emphasis convention: definitions are bold before line 65 and italic everywhere after it.
+5. Draw the uncrossing argument - two four-point diagrams for the cases at 473 and 487, before and after - reusing the arc code at 980-986; the same picture serves the definition of a hidden pair at 1026-1028.
+6. Run the PEP8 sweep: the 28 lines with a space before a comma, the 22 spaced `title = ` / `figsize = ` keywords, `== True` at 1151 and 1165, `num_agents=1500` at 2334, the ternary at 1756 and the empty f-string at 1757, `iter` at 980 and 1311, and the eight backslash continuations; and rename `off_diagoff_diagonal` (15 uses from 1209) to match `off_diagonal` at 419.
+7. Clear the mechanical figure load: 37 `figsize=` overrides, the 9 `plt.title` calls (262, 610, 733, 797, 989, 1323, 1927, 2408, 2515) moved into `mystnb` captions with `name:` fields, the 11 spine removals (799-800, 992-994, 1327-1329, 1931-1932), the 5 `plot()` calls without `lw=2` (594, 598, 2270, 2308, 2485), and the 9 capitalised axis labels; then the 133 double-space runs, the 5 spelled-out Greek names in code (2041-2089), the 4 raw links at 40 and 44, and the 12 spelling slips listed above.

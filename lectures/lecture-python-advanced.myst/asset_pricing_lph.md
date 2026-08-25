@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-005` ×8; `qe-writing-002` ×5; `qe-writing-004` ×2, +5 more. |
-| Math         | 3/10  | `qe-math-010` (proposed) ×26; `qe-math-006` ×2; `qe-math-002` ×2, +1 more. |
+| Math         | 3/10  | `qe-math-010` (proposed) ×26; `qe-math-006` ×2; `qe-math-002` ×2, +2 more. |
 | Code         | 5.5/10 | `qe-code-002` ×13; `qe-code-001` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7.5/10 | `qe-fig-003` ×1; `qe-fig-005` ×1; `qe-fig-008` ×3. |
@@ -42,6 +42,7 @@ _None found._
 - **[qe-link-001]** — Use markdown style links for lectures in same lecture series. *Count:* 3. *Lines:* 57, 59, 93. *Example:* full URL to own series (python-advanced.quantecon.org).
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 1. *Lines:* 96. *Example:* raw link to python.quantecon.org.
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 2. *Lines:* 174, 456. *Example:* $\beta$ carries two different meanings that meet inside the same bullet: it is the intertemporal discount factor at 218, 221 and 508, and the regression coefficient $\beta_{i,m}$, $\beta_{i,a}$, $\beta_{i,R^{mv}}$ at 174, 185, 473, 488 and 492 - and 508 uses both readings in one line ("specifies the factor to be $m_{t+1} = \beta \frac{u'(c_{t+1})}{u'(c_t)}$" in a passage about $\beta_{i,j}$ exposures). Separately, the scalar $a$ names three unrelated objects: the slope of the affine frontier relation at 456-457, one of four scalars at 462, and the SDF intercept at 705-708 and 852.
+- **[qe-math-011 (proposed)]** — Distribution names in plain letters, not \mathcal / \mathbb. *Count:* 1. *Lines:* 241. *Example:* decorated distribution `{\mathcal N}`.
 - **[qe-ref-001]** — Use correct citation style. *Count:* 4. *Lines:* 28, 83, 105. *Example:* {cite} in narrative flow: 'of {cite}`'.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 105, 457. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 3. *Lines:* 688, 701, 769. *Example:* exercise `apl_ex3` opens at 672 and does not close until 718, and at 701 a bold "**More Exercises**" heading starts a *second* question inside it - find the scalars $a, b$ such that $m_t = a + bR^m_t$ - which is then posed again as exercise `apl_ex4` at 830-838, so one exercise contains the next one's problem; the parameter list at 684-699 specifies $\lambda = 0.04$ while the solution's code at 734 sets `λ = 0.08`, so the simulation does not use the stated parameters; and 769-771 is an empty code cell holding only the comment `# Code for the inverse problem`, placed *before* the "**Inverse Problem:**" heading at 773 that introduces the section it belongs to.

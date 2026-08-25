@@ -5,15 +5,15 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.4 / 10
-- **Priority:** LOW
+- **Overall score:** 7.6 / 10
+- **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 5.5/10 | `qe-writing-005` ×4; `qe-writing-003` ×3; `qe-writing-002` ×4, +2 more. |
-| Math         | 9/10  | `qe-math-015` (proposed) ×4; `qe-math-014` (proposed) ×4. |
+| Math         | 4/10  | `qe-math-010` (proposed) ×31; `qe-math-015` (proposed) ×4; `qe-math-014` (proposed) ×4. |
 | Code         | 6.5/10 | `qe-code-001` ×5; `qe-code-002` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7.5/10 | `qe-fig-005` ×6; `qe-fig-001` ×1. |
@@ -29,6 +29,7 @@ _None found._
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 5. *Lines:* 322, 577, 832, 853, 951. *Example:* 322 names a parameter `l` (`def update(π, l)`), which PEP8 E741 singles out as ambiguous, and uses it again at 326; 577 and 156-157 bind lambdas to names (E731); 832-834, 845-846, 853, 899, 932 and 951-954 index without a space after the comma - `np.empty((N,T+1))`, `π_path[:,0]`, `π_path[:,t]`, `π_path[j,:]` (E231) - where the rest of the file writes `[i, :]`; 853 runs to 98 characters (E501); 951-954 and 370-371 and 410-411 indent continuation lines four spaces from the statement start rather than aligning under the opening bracket (E128); and 848-850 and 854-856 separate top-level defs by one blank line instead of two (E302). Line 844 also recomputes `f(w)/g(w)` twice in one expression.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 6. *Lines:* 50, 874, 896, 929, 948, 1005. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 31. *Lines:* 202, 217, 218, 226, 229, 230, 233, 247, 288, 300, …. *Example:* non-blackboard `{\rm Prob}`.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 65. *Lines:* 96, 105, 107, 143, 229, 230, 242, 262, 271, 274, …. *Example:* 2 spaces.
 
 ### Medium severity

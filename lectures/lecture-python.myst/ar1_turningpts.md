@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 8.2 / 10
+- **Overall score:** 7.8 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-006` ×7; `qe-writing-001` ×3; `qe-writing-005` ×3, +4 more. |
-| Math         | 9.5/10 | `qe-math-009` ×2. |
+| Math         | 7.5/10 | `qe-math-011` (proposed) ×2; `qe-math-009` ×2. |
 | Code         | 8.5/10 | `qe-code-001` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8/10  | `qe-fig-005` ×1; `qe-fig-001` ×4; `qe-fig-008` ×1. |
@@ -33,6 +33,7 @@ _None found._
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 4. *Lines:* 204, 315, 545, 659. *Example:* the code cells carry PEP8 whitespace problems on four distinct patterns: 29 lines have trailing whitespace (204, 210, 213, 247, 257, 269, 293, 299, 303, 311, 534, 542, 547, 550, 552, 559, 561, 569, 571, 572, 585, 594, 659, 662, 668, 670, 731, 744, 746); ten closing brackets are indented to the continuation column rather than to the opening line or its indent (315, 322, 325, 329, 541, 546, 551, 587, 702, 710); five lines exceed 79 characters (324, 540, 545, 550, 560); and the tuple unpacking at 659-661 and 731-733 under-indents its continuation line relative to the open paren.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 4. *Lines:* 70, 674, 749, 769. *Example:* style override.
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 2. *Lines:* 92, 98. *Example:* `{\mathcal N}` is used for the normal distribution at 92 and 98 - the only decorated symbols in the file - where the sibling lecture {doc}`ar1_bayes`, modelling exactly the same process, writes a plain `N`; the calligraphic form buys nothing here and makes the two lectures disagree on notation for the same object.
+- **[qe-math-011 (proposed)]** — Distribution names in plain letters, not \mathcal / \mathbb. *Count:* 2. *Lines:* 92, 98. *Example:* decorated distribution `{\mathcal N}`.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 3. *Lines:* 119, 182, 515. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 4. *Lines:* 117, 383, 515, 760. *Example:* line 117 ("Predictive distribution {eq}`ar1-tp-eq3` assumes that parameters $(\rho,\sigma)$ are known") restates line 101-102 ("The predictive distribution {eq}`ar1-tp-eq3` assumes that the parameters $\rho, \sigma$ are known") almost word for word, sixteen lines later; line 383 opens "By Wecker's definition, period $t$ is a turning point" with no stated hypothesis, so the clause asserts something unconditionally that is only true under the case at 376; the second sentence of 515 runs to 40 words covering both columns of the trace figure; line 760 is a 37-word sentence whose object is tangled ("we plot both the original Wecker method and the extended method with parameter values drawn from the posterior together").
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 355, 447. *Example:* line 355 is a one-line tangent to an unrelated lecture ("the coverage intervals have shapes like those described in {doc}`perm_income_cons`"), with no explanation of the connection and no closing period, dropped between a figure and a new H2; and the algorithm stated at 435-449 does not describe the code that follows - it asks for $W_t(\omega_i), W_{t+1}(\omega_i), \dots, W_{t+N}$ per path and treats each date's set as a separate predictive distribution, whereas `compute_path_statistics` (529-588) returns one scalar per path (the *first* occurrence), and nothing bridges the two.

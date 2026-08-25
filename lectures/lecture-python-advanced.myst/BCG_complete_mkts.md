@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.2 / 10
+- **Overall score:** 8.0 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 6.5/10 | `qe-writing-001` ×7; `qe-writing-008` ×36. |
-| Math         | 7.5/10 | `qe-math-002` ×2. |
+| Math         | 6/10  | `qe-math-002` ×2; `qe-math-011` (proposed) ×2. |
 | Code         | 9.5/10 | `qe-code-004` ×2. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-003` ×2; `qe-fig-010` ×1; `qe-fig-005` ×1, +2 more. |
@@ -38,6 +38,7 @@ _None found._
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 2. *Lines:* 1099, 1109. *Example:* .set_title.
 - **[qe-fig-010]** — Plotly figures require latex directive. *Count:* 1. *Lines:* 1. *Example:* plotly used with no {only} latex directive.
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 2. *Lines:* 56, 57. *Example:* raw link to python.quantecon.org.
+- **[qe-math-011 (proposed)]** — Distribution names in plain letters, not \mathcal / \mathbb. *Count:* 2. *Lines:* 140, 146. *Example:* decorated distribution `{\mathcal N}`.
 
 ### Low severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 1086. *Example:* code-cell figure without mystnb figure metadata.
@@ -55,8 +56,8 @@ _None found._
 
 1. `qe-math-002` — Use \top for transpose notation (2 occurrences).
 2. `qe-writing-001` — Use one sentence per paragraph (7 occurrences).
-3. `qe-link-002` — Use doc links for cross-series references (2 occurrences).
-4. `qe-fig-003` — No matplotlib embedded titles (2 occurrences).
-5. `qe-writing-008` — Remove excessive whitespace between words (36 occurrences).
-6. `qe-fig-010` — Plotly figures require latex directive (1 occurrence).
-7. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
+3. `qe-math-011` (proposed) — Distribution names in plain letters, not \mathcal / \mathbb (2 occurrences).
+4. `qe-link-002` — Use doc links for cross-series references (2 occurrences).
+5. `qe-fig-003` — No matplotlib embedded titles (2 occurrences).
+6. `qe-writing-008` — Remove excessive whitespace between words (36 occurrences).
+7. `qe-fig-010` — Plotly figures require latex directive (1 occurrence).

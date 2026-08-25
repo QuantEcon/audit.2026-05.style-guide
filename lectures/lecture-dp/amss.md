@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.7 / 10
+- **Overall score:** 7.3 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 3.5/10 | `qe-writing-005` ×8; `qe-writing-002` ×5; `qe-writing-001` ×2, +3 more. |
-| Math         | 6.5/10 | `qe-math-003` ×2; `qe-math-010` (proposed) ×1; `qe-math-009` ×2. |
+| Math         | 3.5/10 | `qe-math-010` (proposed) ×16; `qe-math-003` ×2; `qe-math-009` ×2. |
 | Code         | 8/10  | `qe-code-001` ×4; `qe-code-004` ×2. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-003` ×3; `qe-fig-005` ×3; `qe-fig-008` ×3, +1 more. |
@@ -27,7 +27,7 @@
 _None found._
 
 ### High severity
-- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 1. *Lines:* 451. *Example:* bare expectation `E_{t} \left[`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 16. *Lines:* 302, 313, 335, 344, 353, 378, 403, 405, 408, 451, …. *Example:* missing braces: `\mathbb E`.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 5. *Lines:* 327, 368, 470, 922, 924. *Example:* line 327 is a single 52-word sentence with three nested qualifiers ('it can be said that the AMSS model requires that at each $(t, s^t)$ what would be the present value of ... must belong to the marketable subspace'); line 368 runs 44 words before reaching its main verb. Line 470-471 trails off ungrammatically - 'code from an earlier lecture on optimal taxation with state-contingent debt sequential allocation implementation:'. Line 922 has a duplicated word, 'the Ramsey planner designs these purchases and sales designed so that'; line 924 reads 'This pattern facilities smoothing tax rates' for 'facilitates'. The heading at 645 has a fifth of the same kind, 'supercedes' for 'supersedes'.
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 8. *Lines:* 33, 245, 920, 921, 930, 932, 949, 950. *Example:* bold doing emphasis work: **without** (33), **purchases** / **sells** (920, 921), **low** twice in one sentence (930) and **low** / **lower** again (932), **increase** (949), **reduction** (950). Line 245 sets an entire sentence in bold as a pseudo-heading - '**This is what it means for one-period government debt to be risk-free**'. All of these want italic (or, for 245, ordinary text). The file uses bold correctly for its real definitions - **natural debt limit** (221), **measurability constraints** (249), **marketable subspace** (327), **continuation Ramsey planner** (601), **state variable degeneracy** (710) - which is precisely why the emphasis bolds blunt it.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 67. *Lines:* 27, 31, 33, 146, 149, 170, 181, 198, 293, 297, …. *Example:* 2 spaces.

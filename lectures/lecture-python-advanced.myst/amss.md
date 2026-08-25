@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.6 / 10
+- **Overall score:** 7.3 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 4/10  | `qe-writing-005` ×6; `qe-writing-001` ×2; `qe-writing-003` ×3, +3 more. |
-| Math         | 6.5/10 | `qe-math-003` ×2; `qe-math-010` (proposed) ×1; `qe-math-009` ×1. |
+| Math         | 4/10  | `qe-math-010` (proposed) ×16; `qe-math-003` ×2; `qe-math-009` ×1. |
 | Code         | 7/10  | `qe-code-001` ×7; `qe-code-004` ×2. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-003` ×3; `qe-fig-005` ×3; `qe-fig-008` ×3, +1 more. |
@@ -28,7 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 7. *Lines:* 86, 91, 866, 996, 1081, 1082, 1087. *Example:* five lines in the interpolation cell carry trailing whitespace (86, 96, 105, 115, 121); 91-92 and 100-101 use backslash line continuations with a two-space hanging indent (`slope = (y_values[1] - y_values[0]) \` then `  / (x_nodes[1] - x_nodes[0])`) where parentheses would wrap the expression cleanly; 866 and 999 write `) ** 2` with spaces around the exponentiation operator, which the rule explicitly asks to be written `a**b`; 996 leaves a space before a closing bracket, `np.hstack([1 - g, np.ones(S)]) ]).T`; 1081 puts a backslash continuation *inside* the parentheses of `zip(...)` and 1082 indents the continuation to a flat 8 spaces; and 1087 omits the space after the comma in `('Complete Markets','Incomplete Markets')`, where the identical call at 1043 has it.
-- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 1. *Lines:* 451. *Example:* bare expectation `E_{t} \left[`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 16. *Lines:* 302, 313, 335, 344, 353, 378, 403, 405, 408, 451, …. *Example:* missing braces: `\mathbb E`.
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 6. *Lines:* 33, 245, 294, 585, 677, 930. *Example:* the assignment of bold and italic is inconsistent in both directions. Definitions appear in bold in some places (**natural debt limit** 221, **measurability constraints** 249, **marketable subspace** 327, **continuation Ramsey planner** 601, **state variable degeneracy** 710) and in italic in others (*implementability constraints* 294, *measurability constraints* 585 - the same term as 249, *risk-adjusted martingale* 677, *martingale convergence theorem* 732). Emphasis likewise appears in bold (**without** 33, **purchases**/**sells** 920-921, **low** twice at 930 and again at 932, **increase**/**reduction** 949-950) and occasionally in italic (*only* 306, *increase* 384, *same* 922). Line 245 sets an entire sentence in bold.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 67. *Lines:* 27, 31, 33, 146, 149, 170, 181, 198, 293, 297, …. *Example:* 2 spaces.
 

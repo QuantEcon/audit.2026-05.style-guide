@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 7/10  | `qe-writing-002` ×4; `qe-writing-009` (proposed) ×1; `qe-writing-003` ×1, +1 more. |
-| Math         | 5/10  | `qe-math-010` (proposed) ×11; `qe-math-009` ×3. |
+| Math         | 5/10  | `qe-math-010` (proposed) ×12; `qe-math-009` ×3. |
 | Code         | 7/10  | `qe-code-002` ×2; `qe-code-001` ×2. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8.5/10 | `qe-fig-004` ×1; `qe-fig-001` ×1. |
@@ -27,7 +27,7 @@
 _None found._
 
 ### High severity
-- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 11. *Lines:* 168, 188, 211, 239, 245, 376, 378, 568, 600, 1044, …. *Example:* bare expectation `E_t[`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 12. *Lines:* 168, 188, 211, 239, 245, 376, 378, 568, 600, 841, …. *Example:* bare expectation `E_t[`.
 
 ### Medium severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 2. *Lines:* 86, 387. *Example:* lines 85-87 split a conditional expression across three continuation lines at a 9-space indent that matches neither the opening bracket nor a hanging indent (E128), leaving `if "\\" not in c / and "^" not in c and "_" not in c / else c for c in ...` hard to parse; line 387 leaves trailing whitespace inside a docstring. The `data[n_lags - 1 - j : t_obs - 1 - j, :]` spacing at 311, 363 and 368 is correct PEP8 for a slice with compound expressions and is left alone.

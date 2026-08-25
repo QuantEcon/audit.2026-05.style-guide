@@ -25,8 +25,8 @@ Verified against the 2026-08 snapshot (`lectures/data/snapshot.json`).
 | `qe-math-006` | needs-fix | 0 / 0 | Reported nothing, because there is no `align` inside `$$` anywhere in the corpus — which is itself the finding that withdrew the previous pass's headline build-risk claim. Now also reports bare top-level amsmath blocks, with distinct wording and non-Critical severity. |
 | `qe-math-007` | sound | 0 / 0 | Extended to `\label{}` and `\eqno`, which MyST also does not resolve. |
 | `qe-math-008` | broken | 8 / 8 | Every hit was an indicator function; genuine ones vectors written `\mathbf 1` were missed. Rewritten to detect ones-vector usage in any spelling and report only the *unexplained* case, leaving the bold spelling to `qe-math-004`. |
-| `qe-math-010` *(proposed)* | needs-fix | 207 / 24 | Double-counted `\mathbb E` in two branches, and the bare-`E` branch fired on `E` as a matrix name. Branches now mask each other, and the bare-letter branch is gated on the lecture actually applying `E` as an operator. |
-| `qe-math-011` *(proposed)* | broken | 79 / 18 | `\mathcal{G}` and `\mathcal{B}` are sigma-algebras, not distributions. Restricted to `N`/`U` *and* to a distribution context (after `\sim`, or applied to a parameter list). |
+| `qe-math-010` *(proposed)* | needs-fix, then **undercounting** | 207 / 24 | Double-counted `\mathbb E` in two branches, and the bare-`E` branch fired on `E` as a matrix name. Branches now mask each other, and the bare-letter branch is gated on the lecture actually applying `E` as an operator. **A later review found the opposite failure:** `[PEV]\b` never fires before a subscript, because `_` is a word character — so `\mathbb E_t`, the corpus's usual conditional expectation, was invisible. Now `[PEV](?![A-Za-z])`, which still rejects `\mathbb Exp`. The Roman branch also missed `\textrm{…}`, `{\rm …}` and the name `Prob` while catching `\mathrm{…}` and `\Prob` — same notation, same rule — so those were added. Reach 105 → 117, occurrences 1,167 → 1,396; 232 hits added, all corroborated against their own source line, 0 false positives found. |
+| `qe-math-011` *(proposed)* | broken, then **undercounting** | 79 / 18 | `\mathcal{G}` and `\mathcal{B}` are sigma-algebras, not distributions. Restricted to `N`/`U` *and* to a distribution context (after `\sim`, or applied to a parameter list). **A later review found that gate misfiring on one spelling:** the bare-`\mathcal` alternative did not consume the closing brace, so `{\mathcal N}(0,1)` presented the gate with `}` and was refused, while `{\cal N}(0,1)` and `\mathcal{N}(0,1)` passed. A brace-wrapped alternative now mirrors the `\cal` one. Reach 24 → 34, occurrences 86 → 140; 54 hits added, 0 false positives found. |
 | `qe-math-012` *(proposed)* | broken | 18 / 5 | Fired on `\operatorname*`, on a standalone `$*$` naming the symbol, and on convolution notation. All three excluded. |
 | `qe-math-013` *(proposed)* | broken | 16 / 20 | "equation (44) of {cite}`BEGS1`" is a reference into someone else's paper, where a number is the only citable thing. External-source references are now skipped. |
 | `qe-code-002` | broken | 22 / 12 | `alpha=` in a drawing call is matplotlib's opacity; capitalised Greek (`Sigma`, `Psi`, `Gamma`) was missed entirely. Opacity is judged per cell (the kwarg is often on a continuation line) and capitalised forms were added. |
@@ -72,6 +72,51 @@ would have corrupted several rules at once:
    every later directive look nested, and made `in_exercise` far too broad — which
    suppressed real `qe-fig-003` findings and invented `qe-admon-003` ones.
 6. **HTML comments were scanned.** Commented-out prose and maths never reach the page.
+
+## Known limitations, accepted deliberately
+
+Not every gap found is worth closing. These are left in, because closing them would trade a
+measured undercount for an unmeasured false-positive rate — and the false-positive rate is
+the number this audit's credibility rests on.
+
+- **`qe-math-010`'s bare-letter branch requires a delimiter.** It counts `E[…]`, `E_t(…)`,
+  `E\{…\}` but not `E_0 \sum` or `E \tilde\theta_t^2`, so a lecture that writes every
+  expectation without brackets is undercounted. Loosening it would have to treat a lone `E`
+  as an operator, and in this corpus `E` is very often a matrix. The same pattern computes
+  the `e_is_operator` gate, so in a file where *every* expectation is delimiter-free the
+  branch switches off entirely — `tax_smoothing_1` (lines 70, 203, 354) and
+  `tax_smoothing_2` (122) are the known instances, both scoring 0 on the branch. The
+  explicit-notation branches (`\mathbb E`, Roman spellings) are unaffected and do fire
+  there.
+- **`qe-ref-001` cannot see a bare author-year reference.** A reference written as plain
+  prose — "Rosen and Topel (1988)" with no `{cite}` role — is invisible to a check that
+  looks at roles. `match_transport` (1421) and `smoothing` (761, 791) score a clean
+  References mark while containing exactly that.
+- **`:load:` code cells are outside the scanner's reach.** A cell that executes a file from
+  `_static/lecture_specific/` has no source in the lecture, so no `qe-code-*` or `qe-fig-*`
+  rule can inspect it. `rob_markov_perf` (453) loads the non-robust MPE that every
+  comparison in that lecture is measured against.
+- **`qe-writing-006` depends on a curated noun list.** Any surname absent from
+  `PROPER_NOUNS` reads as a lowercase word that should have been capitalised, and
+  `_is_proper` requires *every* hyphen-part to be known — so `Rosen-Topel` fails on its
+  second half. Two false positives are known in `hs_recursive_models` (1695, 1892).
+
+Each of these is a reason to read the cited lines before trusting a category score, not a
+reason to distrust the corpus totals.
+
+### The build's 309 warnings
+
+Almost all of them are one thing: reviewer prose quotes a MyST role from the corpus
+verbatim — `` {cite}`X` ``, `` {cite:t}`X` ``, `` {eq}`label` ``, `` {doc}`advanced:…` `` —
+and Sphinx tries to resolve it in *this* book, where the cited work is not present. 308 of
+the 309 fall into that family (41 `cite`, 8 `cite:t`, 15 undefined labels, the rest
+`equation not found`); the one straggler, `unknown document: 'advanced:additive_functionals'`
+from `exchangeable.md:44`, is the same thing with a `{doc}` role.
+
+They are noise, but enough of it to hide a real warning. The fix belongs in
+`qestyle_draft.py`, where reviewer `detail` text is rendered: escape a bare MyST role into
+literal backticks so it displays rather than resolves. Not done yet — it rewrites all 348
+reports, so it wants its own pass and its own diff.
 
 ## Reproducing this
 

@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-006` ×9; `qe-writing-001` ×2; `qe-writing-003` ×2, +3 more. |
-| Math         | 3/10  | `qe-math-010` (proposed) ×6; `qe-math-002` ×6; `qe-math-004` ×3, +2 more. |
+| Math         | 3/10  | `qe-math-010` (proposed) ×10; `qe-math-002` ×6; `qe-math-004` ×3, +2 more. |
 | Code         | 6.5/10 | `qe-code-002` ×2; `qe-code-001` ×3; `qe-code-003` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7/10  | `qe-fig-005` ×3; `qe-fig-003` ×1; `qe-fig-001` ×3. |
@@ -29,7 +29,7 @@ _None found._
 ### High severity
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 6. *Lines:* 179, 182, 213, 234, 235, 294. *Example:* apostrophe transpose `u'`.
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 14. *Lines:* 117, 166, 170, 172, 200, 219, 223, 228, 241, 243, …. *Example:* `\mathscr C` for the class of candidate consumption policies runs through the whole theory section - 166, 170, 172, 200, 219, 223, 228, 241, 243, 244, 245, 248 - and `\mathsf Z` for the Markov state support appears at 117 and 305. Neither face carries information: plain $C$ and $Z$ would read the same, and neither symbol survives into the code, where the policy class is just a pair of arrays. The lecture writes $\rho$, $\sigma$, $P$ and $K$ undecorated in the same displays, so the script and sans-serif letters are the odd ones out. The 3 `\mathbf S` hits already counted under qe-math-004 (203, 221, 232) are the same object that {doc}`ifp_egm` writes as `\mathsf S` - a third face for the state space across two consecutive lectures.
-- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 6. *Lines:* 85, 141, 150, 152, 157. *Example:* missing braces: `\mathbb E`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 10. *Lines:* 85, 121, 141, 150, 152, 157, 181, 212, 292. *Example:* missing braces: `\mathbb E`.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 9. *Lines:* 73, 77, 193, 198, 226, 251, 265, 668, 675. *Example:* H2 Title Case: 'The Model' (Model).
 
 ### Medium severity

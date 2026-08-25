@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.4 / 10
+- **Overall score:** 7.1 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-006` ×25; `qe-writing-001` ×2; `qe-writing-008` ×30. |
-| Math         | 5/10  | `qe-math-002` ×43. |
+| Math         | 3/10  | `qe-math-002` ×43; `qe-math-010` (proposed) ×4. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7.5/10 | `qe-fig-005` ×2; `qe-fig-008` ×2; `qe-fig-001` ×1. |
@@ -28,6 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 43. *Lines:* 239, 404, 431, 444, 488, 535, 543, 575, 609, 635, …. *Example:* apostrophe transpose `A'`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 4. *Lines:* 575, 1218. *Example:* non-blackboard `\textrm{Var}`.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 25. *Lines:* 77, 119, 147, 224, 293, 374, 446, 508, 516, 560, …. *Example:* H2 Title Case: 'The Linear State Space Model' (Linear, State, Space, Model).
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 30. *Lines:* 87, 88, 465, 469, 488, 551, 552, 589, 613, 614, …. *Example:* 2 spaces.
 
@@ -53,8 +54,8 @@ _None found._
 
 1. `qe-writing-006` — Capitalize lecture titles properly (25 occurrences).
 2. `qe-math-002` — Use \top for transpose notation (43 occurrences).
-3. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
-4. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
-5. `qe-writing-008` — Remove excessive whitespace between words (30 occurrences).
-6. `qe-link-002` — Use doc links for cross-series references (1 occurrence).
-7. `qe-fig-008` — Use lw=2 for line charts (2 occurrences).
+3. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (4 occurrences).
+4. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
+5. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
+6. `qe-writing-008` — Remove excessive whitespace between words (30 occurrences).
+7. `qe-link-002` — Use doc links for cross-series references (1 occurrence).

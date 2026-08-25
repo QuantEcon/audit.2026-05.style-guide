@@ -65,7 +65,6 @@ already holds to.
 - **`qe-fig-010`** — Plotly figures require latex directive
 - **`qe-math-006`** — Use aligned environment correctly for PDF compatibility
 - **`qe-math-007`** — Use automatic equation numbering, not manual tags
-- **`qe-math-011`** *(proposed)* — Distribution names in plain letters, not \mathcal / \mathbb
 - **`qe-math-013`** *(proposed)* — Reference equations via {eq}`label`
 <!-- /qe:series-clean -->
 
@@ -120,9 +119,9 @@ that lecture. Click a lecture for its full report.
 | 20 | [networks](networks.md) | 6 | 6.5 | 9 | 5.5 | 8.5 | 10 | 10 | **7.9** | LOW |
 | 21 | [lp_intro](lp_intro.md) | 3.5 | 6.5 | 7.5 | 8.5 | 10 | 10 | 10 | **8.0** | HIGH |
 | 22 | [cons_smooth](cons_smooth.md) | 4.5 | 10 | 7.5 | 6 | 9 | 10 | 10 | **8.1** | LOW |
-| 23 | [cagan_adaptive](cagan_adaptive.md) | 5 | 10 | 7 | 6.5 | 9 | 10 | 10 | **8.2** | LOW |
-| 24 | [mle](mle.md) | 5 | 10 | 7 | 7.5 | — | 10 | 10 | **8.2** | LOW |
-| 25 | [time_series_with_matrices](time_series_with_matrices.md) | 5 | 7.5 | 10 | 7 | 10 | 8 | 10 | **8.2** | LOW |
+| 23 | [time_series_with_matrices](time_series_with_matrices.md) | 5 | 6.5 | 10 | 7 | 10 | 8 | 10 | **8.1** | LOW |
+| 24 | [cagan_adaptive](cagan_adaptive.md) | 5 | 10 | 7 | 6.5 | 9 | 10 | 10 | **8.2** | LOW |
+| 25 | [mle](mle.md) | 5 | 10 | 7 | 7.5 | — | 10 | 10 | **8.2** | LOW |
 | 26 | [bayes_intro](bayes_intro.md) | 7.5 | 9.5 | 7.5 | 5.5 | — | 10 | 10 | **8.3** | LOW |
 | 27 | [eigen_II](eigen_II.md) | 4.5 | 9.5 | 7.5 | — | 9 | 10 | 10 | **8.4** | LOW |
 | 28 | [input_output](input_output.md) | 7.5 | 10 | 6.5 | 6 | 8.5 | 10 | 10 | **8.4** | LOW |

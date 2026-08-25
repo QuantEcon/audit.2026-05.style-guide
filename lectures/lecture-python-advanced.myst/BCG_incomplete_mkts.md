@@ -5,15 +5,15 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 7.5 / 10
-- **Priority:** LOW
+- **Overall score:** 7.2 / 10
+- **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 5.5/10 | `qe-writing-001` ×7; `qe-writing-006` ×1; `qe-writing-008` ×41. |
-| Math         | 5/10  | `qe-math-002` ×46. |
+| Math         | 3.5/10 | `qe-math-002` ×46; `qe-math-011` (proposed) ×2. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 4.5/10 | `qe-fig-003` ×9; `qe-fig-005` ×2; `qe-fig-010` ×1, +2 more. |
@@ -38,6 +38,7 @@ _None found._
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 1864, 1909. *Example:* figsize=.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 1862, 1907. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-010]** — Plotly figures require latex directive. *Count:* 1. *Lines:* 1. *Example:* plotly used with no {only} latex directive.
+- **[qe-math-011 (proposed)]** — Distribution names in plain letters, not \mathcal / \mathbb. *Count:* 2. *Lines:* 201, 207. *Example:* decorated distribution `{\mathcal N}`.
 
 ### Low severity
 _None found._
@@ -56,7 +57,7 @@ _None found._
 1. `qe-math-002` — Use \top for transpose notation (46 occurrences).
 2. `qe-writing-001` — Use one sentence per paragraph (7 occurrences).
 3. `qe-fig-003` — No matplotlib embedded titles (9 occurrences).
-4. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
-5. `qe-writing-006` — Capitalize lecture titles properly (1 occurrence).
-6. `qe-writing-008` — Remove excessive whitespace between words (41 occurrences).
-7. `qe-fig-010` — Plotly figures require latex directive (1 occurrence).
+4. `qe-math-011` (proposed) — Distribution names in plain letters, not \mathcal / \mathbb (2 occurrences).
+5. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
+6. `qe-writing-006` — Capitalize lecture titles properly (1 occurrence).
+7. `qe-writing-008` — Remove excessive whitespace between words (41 occurrences).

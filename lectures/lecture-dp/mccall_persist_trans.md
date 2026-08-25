@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 9.2 / 10
+- **Overall score:** 8.7 / 10
 - **Priority:** NONE
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 9.5/10 | `qe-writing-007` ×1. |
-| Math         | 10/10 | no mechanical violations detected. |
+| Math         | 6.5/10 | `qe-math-010` (proposed) ×5. |
 | Code         | 7/10  | `qe-code-001` ×14. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8/10  | `qe-fig-005` ×4; `qe-fig-008` ×4. |
@@ -28,6 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 14. *Lines:* 185, 191, 194, 195, 238, 250, 255, 259, 265, 269, …. *Example:* trailing whitespace on five code lines - `# transient shock log variance  ` (185), `z_grid: jnp.ndarray ` (191), the `def create_job_search_model(...c=5.0, ` continuation break (194), `@jax.jit  ` (250) and `ax.plot(model.z_grid, res_wage_function, ` (318) - plus six whitespace-only lines inside function bodies (238, 255, 259, 265, 269, 274), which is pycodestyle W291/W293; and three misaligned continuation lines: 195 is indented 27 against a visual indent of 28 (E128, one short), 319 is indented 16 against 12 (E127, four over) and 364 is indented 28 against 26 (E127, two over).
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 5. *Lines:* 100, 104, 116, 129, 136. *Example:* missing braces: `\mathbb E`.
 
 ### Medium severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 289, 309, 416, 455. *Example:* code-cell figure without mystnb figure metadata.

@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.2 / 10
+- **Overall score:** 8.1 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 5/10  | `qe-writing-004` ×7; `qe-writing-001` ×2; `qe-writing-008` ×27. |
-| Math         | 7.5/10 | `qe-math-003` ×7. |
+| Math         | 6.5/10 | `qe-math-003` ×7; `qe-math-011` (proposed) ×1. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7/10  | `qe-fig-005` ×9; `qe-fig-008` ×9; `qe-fig-001` ×1. |
@@ -35,6 +35,7 @@ _None found._
 
 ### Medium severity
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 3. *Lines:* 371, 518, 533. *Example:* raw link to python.quantecon.org.
+- **[qe-math-011 (proposed)]** — Distribution names in plain letters, not \mathcal / \mathbb. *Count:* 1. *Lines:* 376. *Example:* decorated distribution `{\mathcal N}`.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 78, 213. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
@@ -57,4 +58,4 @@ _None found._
 4. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
 5. `qe-link-002` — Use doc links for cross-series references (3 occurrences).
 6. `qe-writing-008` — Remove excessive whitespace between words (27 occurrences).
-7. `qe-fig-008` — Use lw=2 for line charts (9 occurrences).
+7. `qe-math-011` (proposed) — Distribution names in plain letters, not \mathcal / \mathbb (1 occurrence).

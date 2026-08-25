@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.2 / 10
+- **Overall score:** 7.8 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-006` ×8; `qe-writing-004` ×9; `qe-writing-001` ×7, +1 more. |
-| Math         | 10/10 | no mechanical violations detected. |
+| Math         | 7.5/10 | `qe-math-011` (proposed) ×8. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6.5/10 | `qe-fig-003` ×6; `qe-fig-008` ×4; `qe-fig-001` ×2. |
@@ -28,6 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 6. *Lines:* 963, 965, 968, 974, 976, 979. *Example:* .suptitle.
+- **[qe-math-011 (proposed)]** — Distribution names in plain letters, not \mathcal / \mathbb. *Count:* 8. *Lines:* 135, 139, 198, 236, 248, 250, 273, 274. *Example:* decorated distribution `{\mathcal N}`.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 7. *Lines:* 136, 138, 140, 474, 557, 595, 614. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 9. *Lines:* 29, 115, 353, 403, 479, 622, 1041. *Example:* mid-sentence 'Vector'.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 8. *Lines:* 31, 61, 127, 324, 359, 509, 537, 672. *Example:* H2 Title Case: 'The Setting' (Setting).
@@ -43,7 +44,7 @@ _None found._
 
 ## Strengths
 
-- Math, Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
 - No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
 - No `qe-admon-003` violations — Use tick count management for nested directives.
 - No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
@@ -54,7 +55,7 @@ _None found._
 1. `qe-writing-006` — Capitalize lecture titles properly (8 occurrences).
 2. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (9 occurrences).
 3. `qe-writing-001` — Use one sentence per paragraph (7 occurrences).
-4. `qe-fig-003` — No matplotlib embedded titles (6 occurrences).
-5. `qe-writing-008` — Remove excessive whitespace between words (94 occurrences).
-6. `qe-fig-008` — Use lw=2 for line charts (4 occurrences).
-7. `qe-fig-001` — Do not set figure size unless necessary (2 occurrences).
+4. `qe-math-011` (proposed) — Distribution names in plain letters, not \mathcal / \mathbb (8 occurrences).
+5. `qe-fig-003` — No matplotlib embedded titles (6 occurrences).
+6. `qe-writing-008` — Remove excessive whitespace between words (94 occurrences).
+7. `qe-fig-008` — Use lw=2 for line charts (4 occurrences).
