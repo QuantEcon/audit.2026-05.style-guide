@@ -90,21 +90,24 @@ The same checks were run over both corpus snapshots, so the comparison is a meas
 of the lectures rather than of the method. See the
 [trend chart](charts.md#change-since-the-previous-pass) for every rule.
 
-The corpus grew from 300 to 348 lectures. Against that, most rules held roughly flat as a
-share of the corpus, three improved and two got worse:
+The corpus grew from 300 to 348 lectures. Of the 35 rules measurable in both snapshots,
+**27 improved as a share of the corpus, 5 held level and 3 got worse.** The four largest
+improvements and all three regressions:
 
 | Direction | Rule | Share of corpus |
 |-----------|------|-----------------|
 | 🟢 Improving | `qe-writing-008` — remove excessive whitespace between words | 78% → 68% |
 | 🟢 Improving | `qe-writing-006` — capitalize lecture titles properly | 48% → 42% |
 | 🟢 Improving | `qe-writing-001` — use one sentence per paragraph | 55% → 50% |
+| 🟢 Improving | `qe-fig-008` — figure-directive option conventions | 66% → 62% |
 | 🔴 Worsening | `qe-fig-004` — caption formatting conventions | 9% → 19% |
 | 🔴 Worsening | `qe-fig-001` — do not set figure size unless necessary | 62% → 64% |
+| 🔴 Worsening | `qe-fig-003` — no matplotlib embedded titles | 46% → 47% |
 
-Both regressions are in Figures, and for the same reason: new lectures add figures faster
-than the figure conventions are applied to them. `qe-fig-004` doubled because the newer
-lectures do add captions — which is progress — but write them in Title Case and over the
-six-word limit.
+All three regressions are in Figures, and for the same reason: new lectures add figures
+faster than the figure conventions are applied to them. Only `qe-fig-004` moved materially
+— it doubled because the newer lectures do add captions, which is progress, but write them
+in Title Case and over the six-word limit. The other two drifted by under three points.
 
 ---
 
