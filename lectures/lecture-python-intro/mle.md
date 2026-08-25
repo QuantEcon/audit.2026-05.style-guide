@@ -43,7 +43,7 @@ _None found._
 ## Strengths
 
 - The lecture is framed around a question a policymaker would actually ask - how much revenue does this wealth tax raise - and the answer changes by an order of magnitude when the distributional assumption changes (330-336), which makes the point about assumptions land.
-- Density notation follows the lowercase convention throughout: $f$ for the density (129, 186), $\ell$ for the log likelihood, $L$ for the likelihood, and hatted symbols for every estimate (proposed qe-math-015 satisfied).
+- Density notation follows the lowercase convention throughout: $f$ for the density (129, 186), $\ell$ for the log likelihood, $L$ for the likelihood, and hatted symbols for every estimate (proposed qe-math-015 (proposed) satisfied).
 - The MLE formulas are derived rather than quoted - the log likelihood is written out (204-212) and both first-order conditions are solved (218-235) before any code appears.
 - `total_revenue(dist)` (275-278) takes any frozen scipy distribution, so the lognormal, Pareto and exponential assumptions are compared through one identical code path.
 - The tail analysis (367-438) is the right follow-up to the whole-sample fit: the same two distributions are re-estimated above a threshold, and the conclusion reverses.

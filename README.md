@@ -30,12 +30,12 @@ drill-down report for every audited lecture.
 <!-- qe:readme-scoreboard -->
 | Series | Lectures | Overall | HIGH | weakest category |
 |--------|---------:|--------:|-----:|------------------|
+| lecture-dp | 52 | 7.8 | 27 | Writing (5.6) |
+| lecture-python-programming | 27 | 8.1 | 19 | Writing (4.1) |
+| lecture-python.myst | 145 | 8.1 | 55 | Writing (5.9) |
 | lecture-python-advanced.myst | 68 | 8.1 | 29 | Math (5.9) |
-| lecture-dp | 52 | 8.2 | 15 | Math (6.4) |
-| lecture-python.myst | 145 | 8.4 | 40 | Figures (6.5) |
-| lecture-python-intro | 56 | 8.5 | 11 | Figures (6.5) |
-| lecture-python-programming | 27 | 8.6 | 5 | Writing (5.7) |
-| **Corpus** | **348** | **8.3** | **100** | Figures (6.5) |
+| lecture-python-intro | 56 | 8.4 | 12 | Writing (6.3) |
+| **Corpus** | **348** | **8.1** | **142** | Writing (6.1) |
 <!-- /qe:readme-scoreboard -->
 
 Every HIGH-priority lecture in this pass is HIGH because of a single weak category

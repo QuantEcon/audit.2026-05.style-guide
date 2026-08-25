@@ -44,15 +44,15 @@ _None found._
 
 ## Strengths
 
-- Probability events are written with braces throughout - `\mathbb P\{X=1\}` (59, 72), `\mathbb P\{a \leq X_i \leq b\}` (154), `\mathbb P\{\bar X_n \to \mu\}` (183), `\mathbb P\{0 \leq U < p\}` (587) - so the proposed qe-math-014 convention holds without exception.
-- Density and CDF case discipline is exact: lowercase $f$ for the common density (147, 154, 165, 190) and uppercase $F$ for the distribution the draws come from (463, 469), matching proposed qe-math-015.
+- Probability events are written with braces throughout - `\mathbb P\{X=1\}` (59, 72), `\mathbb P\{a \leq X_i \leq b\}` (154), `\mathbb P\{\bar X_n \to \mu\}` (183), `\mathbb P\{0 \leq U < p\}` (587) - so the proposed qe-math-014 (proposed) convention holds without exception.
+- Density and CDF case discipline is exact: lowercase $f$ for the common density (147, 154, 165, 190) and uppercase $F$ for the distribution the draws come from (463, 469), matching proposed qe-math-015 (proposed).
 - "IID" is written in the correct form every time it appears (178, 189, 363, 376, 435, 611, 674), including inside the theorem statement - no "i.i.d." anywhere.
 - The LLN is introduced by simulation before it is stated (50-131), and the statement that follows is a real `prf:theorem` with a label that the prose then cites by `{eq}` (205).
 - The illustration section spells out the simulation algorithm as a numbered recipe (222-241) and then implements it in two small composable functions, `draw_means` and `generate_histogram`, whose parameters are documented inline.
 
 ## Recommended actions
 
-1. Add braces to the 21 blackboard operators - `\mathbb E` -> `\mathbb{E}`, `\mathbb P` -> `\mathbb{P}` - the single largest fix in this lecture (qe-math-010, proposed).
+1. Add braces to the 21 blackboard operators - `\mathbb E` -> `\mathbb{E}`, `\mathbb P` -> `\mathbb{P}` - the single largest fix in this lecture (qe-math-010 (proposed), proposed).
 2. Simulate the Cauchy failure in "### Infinite first moment": plot a running sample mean of Cauchy draws against $n$, in the style of the violin plots at 302-343, so the section demonstrates rather than asserts.
 3. Add `mystnb: figure: caption/name` metadata to the five un-named figures (260, 302, 475, 526, 679) - the CLT histogram at 475 is the lecture's headline figure and is referred to only as "[above](sim_one)".
 4. Replace `\mathbf 1` with the plain indicator `1` or `\mathbb{1}` (580, 590) and, whichever is chosen, say in the prose that it denotes the indicator - the current text explains it once but the notation is bold-face, which qe-math-004 rules out.

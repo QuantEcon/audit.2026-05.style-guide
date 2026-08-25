@@ -1,0 +1,30 @@
+{
+  "series": "lecture-dp",
+  "lecture": "mccall_persist_trans",
+  "judgment": [
+    {"rule": "qe-code-001", "count": 14,
+     "lines": [185, 191, 194, 195, 238, 250, 255, 259, 265, 269, 274, 318, 319, 364],
+     "detail": "trailing whitespace on five code lines - `# transient shock log variance  ` (185), `z_grid: jnp.ndarray ` (191), the `def create_job_search_model(...c=5.0, ` continuation break (194), `@jax.jit  ` (250) and `ax.plot(model.z_grid, res_wage_function, ` (318) - plus six whitespace-only lines inside function bodies (238, 255, 259, 265, 269, 274), which is pycodestyle W291/W293; and three misaligned continuation lines: 195 is indented 27 against a visual indent of 28 (E128, one short), 319 is indented 16 against 12 (E127, four over) and 364 is indented 28 against 26 (E127, two over)"},
+    {"rule": "qe-writing-007", "count": 1, "lines": [71],
+     "detail": "the lecture's whole premise is that a wage decomposes into a persistent and a transitory piece - it is in the title (22) and stated at 74-87 - and there is no figure of that decomposition anywhere. All four figures (289, 309, 416, 455) plot the reservation wage or mean duration. One simulated path showing $W_t$ against its two components $\\exp(Z_t)$ and $Y_t$ would show at a glance why $z$ has to enter the Bellman equation as a state (106) and why the transitory piece does not; the machinery to draw it already exists in `draw_duration` (354-355)"}
+  ],
+  "strengths": [
+    "The dimensionality reduction is derived rather than asserted, one display per step with one sentence between: the two-state Bellman equation (96-102), the definition of $f^*$ (115-117), the Bellman equation rewritten in terms of it (121-123), the functional equation for $f^*$ alone (128-130), and only then the operator $Q$ (135-137) - a reader can follow the collapse from $(w,z)$ to $z$ without re-reading",
+    "Every model parameter carries the same Unicode Greek name in the code as in the math - `μ, s, d, ρ, σ, β` in the `Model` fields (184-190) against $\\mu, s, d, \\rho, \\sigma, \\beta$ at 80-82 - and each field has an inline gloss, so `create_job_search_model` needs no separate parameter table",
+    "The one labelled equation, `corr_mcm_barw` (158-162), is cited by `{eq}` at 287 immediately before the cell that computes it (290) - no orphan label and no manual 'equation (1)' reference anywhere in the file",
+    "'IID' is written in the correct form at both occurrences (43, 85), including inside the model statement - qe-writing-009 clean",
+    "The four `{doc}` cross-references (41, 45, 47, 56) each say what the lecture they point at contributed - IID offers in the baseline, Markov wages plus separation in III, fitted VFI in IV - so the reader is told why this fifth variant exists rather than just that it is fifth"
+  ],
+  "actions": [
+    "Add `mystnb: figure: caption/name` metadata to the 4 code-cell figures (289, 309, 416, 455) and `lw=2` to the 4 line plots (293, 318, 418, 457) - qe-fig-005 x4 and qe-fig-008 x4 are the file's entire mechanical debt",
+    "Add a figure of the persistent-transitory decomposition to `## The model`: one simulated $\\{W_t\\}$ path with $\\exp(Z_t)$ and $Y_t$ plotted alongside it. This is the lecture's title claim and currently the only unillustrated idea in it",
+    "Brace the blackboard operators - `\\mathbb E_z` -> `\\mathbb{E}_z` at 100, 104, 116, 129 and 136, and `\\mathbb R` -> `\\mathbb{R}` at 142 (qe-math-010, proposed). The scanner reports 0 math violations here and that is a defect, not a clean bill of health - see scanner_doubts",
+    "Correct the `Model` field comments (184-190): `s` multiplies a standard normal in $\\exp(\\mu + s\\zeta_t)$ (80), so it is the log standard deviation and not the 'log variance'; `ρ` is the AR(1) persistence coefficient, not a 'correlation coefficient'; and the comments say 'transient' where the title, the prose and the reference list all say 'transitory'",
+    "Say in the prose near 176 that `e_draws` is drawn once, in `create_job_search_model` (207), and reused at every application of `Q` - holding the draws fixed is what makes $Q$ a deterministic operator with a fixed point, and 'the integral ... is calculated by Monte Carlo' leads a reader to expect fresh draws each iteration",
+    "Clean the PEP8 items above, and drop the two `enumerate` calls whose index is never used (`for i, c in enumerate(c_vals)` at 407, `for i, β in enumerate(beta_vals)` at 448) - plain `for c in c_vals` is what the loop bodies actually need",
+    "Consider writing `Y_t = \\exp(\\mu + s \\zeta_t)` at 80 rather than `Y_t \\sim \\exp(\\mu + s \\zeta_t)`: the display's other half uses `=` for exactly the same kind of construction (82), and the code writes `y_next = jnp.exp(μ + s * e2)` (234), so the lone `\\sim` reads as a distribution name that is not there"
+  ],
+  "scanner_doubts": [
+    "mccall_persist_trans.md, lines 100, 104, 116, 129, 136 - qe-math-010 (proposed) is reported as 0 for this lecture and the Math category scores 10/10, but all five of these lines write `\\mathbb E_z`, which is exactly the 'missing braces' case the rule targets. The cause is a word-boundary bug in `check_math_010` (tools/qestyle_rules.py:547): the pattern is `\\\\(?:mathbb|Bbb)\\s+[PEV]\\b`, and `\\b` cannot match between `E` and `_` because `_` is a word character. So `\\mathbb E` and `\\mathbb E[X]` are caught while `\\mathbb E_t`, `\\mathbb E_z` and `\\mathbb P_t` are silently missed. This is not local to one file: `grep -rE '\\\\(mathbb|Bbb)[[:space:]]+[PEV]_'` matches 98 lines across the five series, 44 of them in lecture-dp (amss 16, smoothing 11, mccall_persist_trans 5, ifp_advanced 4, smoothing_tax 4, lqramsey 3, opt_tax_recur 1). Replacing `\\b` with `(?![A-Za-z])` fixes it and would move several lectures' Math scores."
+  ]
+}

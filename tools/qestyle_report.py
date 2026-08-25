@@ -321,6 +321,12 @@ def block_snapshot(data_dir):
 # Per-series blocks (spliced into lectures/<series>/index.md)
 # ---------------------------------------------------------------------------
 
+def _review_coverage(series):
+    """How many of a series' lectures have a judgment-review overlay."""
+    import glob
+    return len(glob.glob(os.path.join("reviews", series, "*.json")))
+
+
 def block_series_meta(rows, data_dir, series):
     r = next((x for x in rows if x["series"] == series), None)
     if not r:
@@ -339,6 +345,13 @@ def block_series_meta(rows, data_dir, series):
         + (f"  *({', '.join(na)} not in scope for this series)*" if na else ""),
         "- **JAX:** out of scope — the `qe-jax-*` rules target `lecture-jax`.",
     ]
+    cov = _review_coverage(series)
+    n = r["lectures"]
+    note = ("all lectures reviewed" if cov >= n else
+            f"**{cov} of {n} reviewed** — scores for the unreviewed "
+            f"{n - cov} reflect the 41 measured rules only, so they are not "
+            f"directly comparable with the reviewed ones")
+    lines.append(f"- **Judgment-review coverage:** {note}.")
     return "\n".join(lines)
 
 

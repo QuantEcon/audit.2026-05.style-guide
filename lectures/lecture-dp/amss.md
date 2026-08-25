@@ -5,16 +5,16 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.5 / 10
-- **Priority:** LOW
+- **Overall score:** 7.7 / 10
+- **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 7/10  | `qe-writing-001` ×2; `qe-writing-008` ×67. |
-| Math         | 7/10  | `qe-math-003` ×2; `qe-math-010` (proposed) ×1. |
-| Code         | 9.5/10 | `qe-code-004` ×2. |
+| Writing      | 3.5/10 | `qe-writing-005` ×8; `qe-writing-002` ×5; `qe-writing-001` ×2, +3 more. |
+| Math         | 6.5/10 | `qe-math-003` ×2; `qe-math-010` (proposed) ×1; `qe-math-009` ×2. |
+| Code         | 8/10  | `qe-code-001` ×4; `qe-code-004` ×2. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-003` ×3; `qe-fig-005` ×3; `qe-fig-008` ×3, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -28,35 +28,41 @@ _None found._
 
 ### High severity
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 1. *Lines:* 451. *Example:* bare expectation `E_{t} \left[`.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 5. *Lines:* 327, 368, 470, 922, 924. *Example:* line 327 is a single 52-word sentence with three nested qualifiers ('it can be said that the AMSS model requires that at each $(t, s^t)$ what would be the present value of ... must belong to the marketable subspace'); line 368 runs 44 words before reaching its main verb. Line 470-471 trails off ungrammatically - 'code from an earlier lecture on optimal taxation with state-contingent debt sequential allocation implementation:'. Line 922 has a duplicated word, 'the Ramsey planner designs these purchases and sales designed so that'; line 924 reads 'This pattern facilities smoothing tax rates' for 'facilitates'. The heading at 645 has a fifth of the same kind, 'supercedes' for 'supersedes'.
+- **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 8. *Lines:* 33, 245, 920, 921, 930, 932, 949, 950. *Example:* bold doing emphasis work: **without** (33), **purchases** / **sells** (920, 921), **low** twice in one sentence (930) and **low** / **lower** again (932), **increase** (949), **reduction** (950). Line 245 sets an entire sentence in bold as a pseudo-heading - '**This is what it means for one-period government debt to be risk-free**'. All of these want italic (or, for 245, ordinary text). The file uses bold correctly for its real definitions - **natural debt limit** (221), **measurability constraints** (249), **marketable subspace** (327), **continuation Ramsey planner** (601), **state variable degeneracy** (710) - which is precisely why the emphasis bolds blunt it.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 67. *Lines:* 27, 31, 33, 146, 149, 170, 181, 198, 293, 297, …. *Example:* 2 spaces.
 
 ### Medium severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 4. *Lines:* 866, 996, 1081, 1087. *Example:* line 866 writes `-get_grid_nodes(x_grid[0]) ** 2` with spaces around the exponentiation operator, and 999 does the same - the rule asks for the tight `a**b` form. Line 996 has a space before a closing bracket, `np.hstack([1 - g, np.ones(S)]) ].T` (E202). Line 1081 breaks a `zip(...)` call with a backslash continuation although the call is already inside parentheses, where PEP8 asks for implicit continuation - the equivalent call at 904-906 does it correctly. Line 1087 writes `legend(('Complete Markets','Incomplete Markets'))` with no space after the comma while line 1043 writes the identical call with one.
 - **[qe-code-004]** — Use quantecon Timer context manager. *Count:* 2. *Lines:* 879, 1012. *Example:* %%time.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 900, 1036, 1079. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 3. *Lines:* 909, 1040, 1084. *Example:* .set(title=.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 889, 1022, 1071. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 907, 1039, 1083. *Example:* plot() without lw=.
 - **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 2. *Lines:* 802, 815. *Example:* pmatrix environment.
+- **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 2. *Lines:* 612, 624. *Example:* `{\cal S}` at 612 and 624 for the state space - the deprecated `\cal` form of calligraphic, used twice and nowhere else in the file. The same object is a plain $S$ in the code (`S = len(Π)` at 856, 995) and is written $s$ / $s_-$ / $\tilde s$ everywhere in the surrounding displays, so a plain $S$ both simplifies and matches.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 513, 1092. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 815, 688. *Example:* the displayed government-expenditure vector contradicts the code. Line 794 orders the six states as $(0,g_l), (1,g_l), (2,g_l), (3,g_l), (3,g_h), (t \geq 4, g_l)$ and line 815 accordingly displays $g = (0.1, 0.1, 0.1, 0.1, 0.2, 0.1)$ - war in the fifth slot. The code at 846 sets `g = np.array([0.1, 0.1, 0.1, 0.2, 0.1, 0.1])` - war in the fourth - and the simulated histories at 891-892 follow the code (`s_hist_h` visits state 3, `s_hist_l` visits state 4). The code is self-consistent; the display is not consistent with it, so a reader matching the algebra to the program is misled at exactly the point where the war experiment is set up. Separately, the gated exercise `amss_ex1` at 688-696 asks the reader to verify that $\check\Pi$ is a valid transition density and no solution appears anywhere in the file.
 
 ### Low severity
-_None found._
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 1. *Lines:* 799. *Example:* the six-state construction at 790-810 is a small directed graph described only as a $6 \times 6$ matrix of zeros, ones and two 0.5s: states 1-3 advance deterministically, state 3 branches with probability one half to the peace node and the war node, and both then absorb into the perpetual-peace node. A four-node diagram would take one figure and would make the war experiment legible at a glance - and would very likely have caught the ordering mismatch between the $g$ vector at 815 and the code at 846, since in a picture the war node is unmistakable. As it stands the reader has to reconstruct the chain by eye from the matrix.
 
 
 ## Strengths
 
-- Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The one idea the whole lecture turns on is made concrete as an index comparison rather than described: lines 242-249 point out that the right side of {eq}`TS_gov_wo2` depends on $s^t$ while the left side must depend only on $s^{t-1}$, name the consequence ('measurability constraints'), and line 275-276 says it again for {eq}`TS_gov_wo3` - 'Notice how the conditioning sets differ'.
+- The comparison with Lucas-Stokey is structural, not rhetorical: the single time-0 implementability constraint {eq}`TS_gov_wo4` (302) and the continuum of new ones {eq}`TS_gov_wo4a` (313) are displayed one after the other, the extra term in the first-order condition is identified and explained at 459-465, and the contrast between a time-varying $\Psi_t(s^t)$ and a time-invariant $\Phi$ is stated at 466-468.
+- Shared primitives are loaded from files rather than retyped - `sequential_allocation.py` (475), `crra_utility.py` (823), `log_utility.py` (971), `amss/recursive_allocation.py` (757), each with a `collapse-20` tag - so the AMSS and Lucas-Stokey computations are guaranteed to be running the same preferences and the same expenditure processes, which is the premise of every comparison in the Examples section.
+- Both comparison figures put complete and incomplete markets on the same six panels and the visual key is given in prose before the cell (829-833: black for state-contingent debt, red for the risk-free bond, circles for peace, triangles for war), so the reader knows how to read the panels before seeing them.
+- The two `{note}` admonitions flag exactly where the lecture departs from the paper it is teaching - transfers set to zero rather than constrained non-negative (512-514), and utility written over $n$ rather than leisure to match the code (775-778) - instead of leaving a reader who knows AMSS to wonder.
+- The two footnotes (1092-1103) hold the material that would otherwise derail the argument - why a Ramsey planner would ever hand revenues back, and how a negative multiplier on a measurability constraint is possible - and each is anchored at the point it arises (199, 387).
 
 ## Recommended actions
 
-1. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
-2. `qe-math-003` — Use square brackets for matrix notation (2 occurrences).
-3. `qe-fig-003` — No matplotlib embedded titles (3 occurrences).
-4. `qe-fig-005` — Descriptive figure names for cross-referencing (3 occurrences).
-5. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (1 occurrence).
-6. `qe-writing-008` — Remove excessive whitespace between words (67 occurrences).
-7. `qe-fig-008` — Use lw=2 for line charts (3 occurrences).
+1. Reconcile the $g$ vector at 815 with the code at 846. The display and the program disagree about which of the six states is the war state, and everything downstream - the histories at 891-892, the figure at 900-913, the narrative at 916-950 - follows the code. Either reorder the display to $(0.1, 0.1, 0.1, 0.2, 0.1, 0.1)$ or reorder the state list at 794 and the code together.
+2. Clear the 67 double spaces (qe-writing-008). At that density in a 1103-line file they are in nearly every paragraph, including inside displayed math labels and `{eq}` references, and they make diffs on this file noisy for everyone who edits it afterwards.
+3. Fix the unbalanced delimiters in the Lagrangian at 402-413: the `\Bigl[` opened at 405 is never closed - the group ends with `\biggr\}` at 406, which is the partner of the `\biggl\{` at 404. As written MathJax has one unmatched left delimiter in the lecture's central display.
+4. Give `amss_ex1` a solution (688-696), or convert it to a `{note}`. A gated exercise with no `{solution-start}` block is also why qe-admon-005 reports clean for this file.
+5. Tidy the equation labels: 10 of them are defined and never referenced (`feas1_amss` 153, `TSs_techr_amss` 161, `TS_prefr_amss` 173, `eqn:AMSSapp2a` 531, `eqn:AMSSapp3` 549, `eqn:AMSSapp4` 558, `eqn:AMSSapp100` 632, `eqn:AMMSSapp101` 640, `AMSS_lagr;` 419, `AMSS_foc;b` 449); `eqn:AMMSSapp101` has a doubled M in the name; and `AMSS_lagr;` / `AMSS_foc;a` / `AMSS_foc;b` carry semicolons that read as typos even though MyST tolerates them.
+6. Switch the 8 emphasis bolds to italic and turn the bold sentence at 245 into ordinary text; convert `{\cal S}` to $S$ at 612 and 624; convert the `pmatrix` at 802 and the `matrix` at 815 to `bmatrix` (qe-math-003 x2); and brace the bare `\mathbb E_{t}` at 451 (qe-math-010 (proposed), proposed).
+7. Finish the figures and the code slips: mystnb `name`/`caption` metadata on the 3 figure cells (889, 1022, 1071), the 3 `ax.set(title=title)` calls moved into captions or subplot labels (909, 1040, 1084), the 3 hand-set `figsize=(14, 10)` dropped (900, 1036, 1079), `lw=2` added (907, 1039, 1083), and the 2 `%%time` magics replaced with `qe.Timer` (879, 1012). While in the code, reconsider the three shouted comments '# WARNING: DO NOT EXPECT THE CODE TO WORK IF YOU CHANGE PARAMETERS' (836, 864, 890, 982, 1024) - they tell the reader not to do the one thing a runnable lecture invites; if the solver really is that sensitive to `x_min`/`x_max`, say why in prose and give the safe range.

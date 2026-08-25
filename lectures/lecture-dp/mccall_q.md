@@ -5,16 +5,16 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 7.6 / 10
+- **Overall score:** 6.8 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 4/10  | `qe-writing-006` ×5; `qe-writing-008` ×83; `qe-writing-004` ×1, +1 more. |
-| Math         | 5.5/10 | `qe-math-002` ×24. |
-| Code         | 10/10 | no mechanical violations detected. |
+| Writing      | 3/10  | `qe-writing-006` ×5; `qe-writing-002` ×5; `qe-writing-005` ×3, +5 more. |
+| Math         | 5/10  | `qe-math-002` ×24; `qe-math-009` ×4. |
+| Code         | 7/10  | `qe-code-001` ×17. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7/10  | `qe-fig-005` ×4; `qe-fig-008` ×7; `qe-fig-001` ×5. |
 | References   | 9/10  | `qe-ref-001` ×1. |
@@ -27,16 +27,22 @@
 _None found._
 
 ### High severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 17. *Lines:* 186, 192, 193, 214, 494, 532, 534, 538, 540, 560, …. *Example:* binary operators and comparisons are written without surrounding spaces throughout the file, against the same file's own practice elsewhere (`v_next - v` at 190, `c + β * (v @ q)` at 174): `flag=0` / `flag=1` (186, 193), `))<=eps` (192), `params=[` (494), `accept==0` (532), `β*np.max(...)` (534, 538, 540), `random()<=eps` (560), `lr*TD` (572), `qtable_new-qtable))<=δ` (574), `n%(N/10)==0` (591), `valfunc-valfunc_VFI` (602), `n%(max_epochs/10)==0` (679), `(len(w_new),2)` with no space after the comma (670). Line 214 is the substantive one: `for i in range(n)` is nested inside `for i in range(num_plots)` (211) and clobbers the outer index - it works today only because the label `f"iterate {i}"` is consumed at 212 before the inner loop runs. Line 660-663 also re-runs the two lines already executed at 656-657 verbatim.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 5. *Lines:* 136, 225, 627, 648, 673. *Example:* figsize=.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 7. *Lines:* 137, 212, 628, 629, 649, 674, 685. *Example:* plot() without lw=.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 24. *Lines:* 111, 119, 273, 301, 304, 323, 406, 407, 421, 427, …. *Example:* apostrophe transpose `w'`.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 5. *Lines:* 42, 245, 264, 298, 459. *Example:* lines 42-51 spend five separate paragraphs establishing that what Q-learning learns is a Q-table, including 'But it is something that is closely affiliated with it' (47) and 'Sometimes a Q-function or Q-table is called a quality-function or quality-table' (51), before the definition arrives. Four sentences are broken as written: 'A **quality function** $Q$ map state-action pairs into optimal values. / They are tightly linked...' (245-247, singular subject, plural pronoun, missing verb agreement); 'equals the maximum value of that a previously unemployed worker' (264); 'This fact provides us with an / an alternative' (298-299, doubled word across the line break); 'Either draw a new state $w'$ if required or else take existing wage if and update the Q-table again' (459). Four words are misspelled: 'illegitmate' (329), 'previos' (477), 'prematurally' (734), 'algorthm' (749).
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 5. *Lines:* 85, 242, 316, 707, 747. *Example:* H2 Title Case: 'Review of McCall Model' (Model).
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 83. *Lines:* 28, 33, 36, 38, 44, 51, 56, 58, 64, 66, …. *Example:* 2 spaces.
 
 ### Medium severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 128, 221, 625, 639. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 4. *Lines:* 258, 349, 385, 461. *Example:* the same Q estimate wears three different decorations: `\hat Q_t` in the informal derivation (349, 350, 357, 358, 365, 368), `\widetilde{Q}` in the algorithm (385, 399, 406, 407, 421-440, 457, 727, 728), and `\tilde{Q}` in step 6 of the pseudo-code (461) - the last differing from the second only in macro, so the same symbol is typeset two widths apart on the page. `\widetilde{TD}` puts an accent over a two-letter operator name (406, 411), and `\textrm{argmax}` / `\textrm{argmin}` (421, 427, 434, 440) hand-set what the series already provides as `\argmax` (`_config.yml:109`). The state and action spaces are calligraphic, $\mathcal{W}$ and $\mathcal{A}$ (258, 260), where plain $W$ and $A$ are unused and would do; the sibling lecture `inventory_q` writes the same two sets as $\mathsf X$ and $\mathsf A$.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 483. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 537, 698. *Example:* the `quit_allowed` flag means the opposite of its name, and as a result the lecture's two headline figures are swapped. In `temp_diff`, the branch `if self.quit_allowed == 0` takes `β*np.max(qtable[state_next, :])` (538) - a max over both actions at the same state, i.e. the employed worker may switch to reject, which is quitting - while `else` takes `β*qtable[state_next, 1]` (540), locking the worker into the accept column, i.e. quitting forbidden. Match that against the math: {eq}`eq:old4` (406-407) carries the `\max_{a'}` and is the version the text says allows quitting; {eq}`eq:temp-diff` (727-728) replaces it with `\widetilde{Q}^{old}(w,\text{accept})` and is the version that forbids it. So `plot_epochs(...)` at 698, which sits under '## Q-Learning' where quitting is allowed, defaults to `quit_allowed=1` (667) and actually forbids it, while `plot_epochs(..., quit_allowed=0)` at 744, under the heading '## Employed Worker Can't Quit', actually allows it. Each figure illustrates the other section.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 344. *Example:* mid-sentence 'Law'.
+- **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 3. *Lines:* 62, 245, 345. *Example:* '**on average**' (345) is bold used for emphasis, which the rule reverses - italic is what that sentence wants. And the same term is bolded three times as if new each time: **Q-function** at 49, again at 62 alongside **quality function**, and **quality function** again at 245 opening its own section. There is no italic anywhere in the file, so the bold is carrying both jobs.
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 2. *Lines:* 615, 701. *Example:* the Q-table is the object the whole lecture is about - it is a $(n+1) \times 2$ matrix, described at 53-54 and 489 - and the only time the reader sees one it is `print(qtable)` at 615, a wall of floats. A heatmap over (state, action) would show at a glance the thing the lecture claims at 703, that 'the Q-learning algorithm has trouble learning the Q-table well for wages that are rarely drawn'. That claim also needs the wage distribution next to the value functions: the distribution is plotted at 648 and the value functions at 698, fifty lines apart and never overlaid, so the reader has to hold one figure in mind while reading the other.
 
 ### Low severity
 - **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 20. *Example:* {cite} in narrative flow: '{cite}`'.
@@ -44,18 +50,18 @@ _None found._
 
 ## Strengths
 
-- Code, References, Links score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The lecture earns its Q-learning derivation instead of asserting it: the exact Q-factor system {eq}`eq:impliedq` (271-275), then the scalar reduction $Q_r$ (295) exploiting IID wages, then the deliberately 'illegitimate' step of erasing the integral (329-339), then the temporal-difference errors (357-358) and the adaptive rule (365) - and line 329 tells the reader in advance that the step is not legitimate, which is more honest than most treatments.
+- Every experiment is measured against a benchmark computed in the same file: `valfunc_VFI` from value function iteration (223) is carried through and plotted against the learned value function at 628-629 and again at 674, and `compute_error` (601-602) puts the mean absolute deviation in the legend of every snapshot (685) - so 'the quality of approximation improves for longer epochs' (705) is read off the figure.
+- The **Remark** at 483 states the exact condition under which the algorithm can be expected to work - $\widetilde{TD} = 0$ at an optimal Q-table, and convergence depends on visiting all state-action pairs often enough - rather than leaving convergence implicit.
+- The two-regime comparison is a genuinely good design: the same `plot_epochs` function is run twice, once where an employed worker may quit and once where she may not (698, 744), against the same VFI benchmark - so the cost of losing the option to explore is visible rather than argued (see the judgment findings for the flag that inverts which is which).
+- The state-space experiment at 637-664 re-runs the whole comparison with $n = 30$ instead of $n = 10$, which is what makes the 'rarely drawn wages' point at 703 observable at all.
 
 ## Recommended actions
 
-1. `qe-math-002` — Use \top for transpose notation (24 occurrences).
-2. `qe-writing-006` — Capitalize lecture titles properly (5 occurrences).
-3. `qe-fig-005` — Descriptive figure names for cross-referencing (4 occurrences).
-4. `qe-writing-008` — Remove excessive whitespace between words (83 occurrences).
-5. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (1 occurrence).
-6. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
-7. `qe-ref-001` — Use correct citation style (1 occurrence).
+1. Do not act on the 24 qe-math-002 findings. Every one is a prime denoting a next-period or next-iterate value - `w'` (111, 273, 304, 323, 407, 728), `a'` (406, 407, 421, 427, 434, 440, 728), `v^{\prime}` (119), `Q_r'` (301), `Q_{r}^\prime` (304) - and there is not a single transpose in the lecture. They are the sole reason Math scores 5.5/10. See scanner_doubts.
+2. Fix `quit_allowed` (509, 537-540): the flag is inverted relative to its name, so the figure at 698 demonstrates the no-quitting regime under the quitting-allowed narrative and the figure at 744 does the reverse. Either invert the branch test or rename the parameter to something like `no_quit`, then re-check the two call sites.
+3. Clear the 83 double spaces (qe-writing-008 x83 - by far the largest single item in the file; they are everywhere, e.g. 'faced by  a   McCall worker' at 28, 'tells  consequences' at 36) and sentence-case the 5 Title Case H2s: 'Review of McCall Model' (85), 'Implied Quality Function $Q$' (242), 'From Probabilities to Samples' (316), 'Employed Worker Can't Quit' (707), 'Possible Extensions' (747).
+4. Settle the notation on one symbol for the Q estimate: `\hat Q_t` (349-368), `\widetilde{Q}` (385-728) and `\tilde{Q}` (461) are the same object; use the series `\argmax` macro in place of `\textrm{argmax}` (421, 434) and `\textrm{argmin}` (427, 440); and consider plain $W$, $A$ for the state and action spaces (258, 260).
+5. Repair the delimiters at 287: `\left\{ Q(w, \text{accept} \right)` pairs an opening brace with a closing parenthesis and the brace is then closed by a bare `\}`. It happens to render acceptably, which is why it has survived, but the auto-sizing is wrong and the source is one edit away from breaking.
+6. Figures: add mystnb caption/name metadata (128, 221, 625, 639), drop the 5 hand-set `figsize=(10,6)` (136, 225, 627, 648, 673) and add `lw=2` to the 7 line plots (137, 212, 628, 629, 649, 674, 685); then add a Q-table heatmap after 615 and overlay the wage distribution on the value-function comparison so the 'rarely drawn wages' claim at 703 is visible.
+7. Clean up the loose ends: the two orphan labels `eq_mccallbellman` (112) and `eq:probtosample2` (339) are never cited - and 339 is written `$$(eq:probtosample2)` with no space, unlike every other label in the file, which is likely why it never attached. Also settle the label naming (`eq_mccallbellman` is the only one using an underscore rather than a colon), drop the stray `+++` cell marker at 314, convert line 20 to `{cite:t}`Sutton_2018`` since the author name is the subject of the sentence (qe-ref-001), lowercase 'Law of Large numbers' at 344 (qe-writing-004), split the two-sentence paragraph at 483, and fix the PEP8 spacing listed above.

@@ -1,0 +1,31 @@
+{
+  "series": "lecture-python.myst",
+  "lecture": "ifp_opi",
+  "judgment": [
+    {"rule": "qe-writing-002", "count": 3, "lines": [60, 109, 376],
+     "detail": "roughly a hundred lines are restated from {doc}`ifp_discrete` rather than referenced: `B` (114-127) is that lecture's 428-441 verbatim, the three staged `vmap` calls (133-135) are its 447-449, `T` and `get_greedy` (141-157) are its 456-469, and `value_function_iteration` (224-243) is its 475-492. The lecture says why - 'We repeat the key elements here for convenience' (60), 'We repeat some functions' (109) - but the material it repeats is the predecessor's *exercise solution*, so the duplication also silently makes this lecture depend on an answer the reader may not have seen. Separately, the same conclusion is drawn twice: 'confirming both algorithms converge to the same solution' (349) and 'confirming both methods produce the same solution' (376)"},
+    {"rule": "qe-writing-007", "count": 1, "lines": [473],
+     "detail": "the exercise computes speedup factors over a 3x3 grid of $(\\rho, \\nu)$ values and reports them as nine `print` lines (473-476), in a lecture whose entire subject is comparative speed and which plots its other sweep - OPI time against $m$ - as a figure with the VFI reference line drawn in (401-410). Nine numbers on a 3x3 grid is a small heatmap or a grouped bar chart, and the claim being tested ('the speed gains achieved by OPI are quite robust to parameter changes', 425) is a statement about a surface"},
+    {"rule": "qe-code-001", "count": 3, "lines": [96, 124, 133],
+     "detail": "line 96 closes the `create_consumption_model` signature with `    ):` at 4 spaces, leaving the arguments at the same indent as the body (E121/E125). Line 124 pads before `=` to align with the line above (E221), and the two staged-`vmap` blocks pad both before `=` and inside the `in_axes` tuples (133-135 and 194-195; E221, E241)"}
+  ],
+  "strengths": [
+    "The speed comparison is set up so that its numbers mean something: both algorithms are run once to compile and once to time (303-341), the two value functions are then checked with `jnp.allclose` (346) and the two policies compared side by side (353-374), so the speedup at 381 rests on both methods having solved the same problem",
+    "The $m$-sweep (386-410) is the right experiment for OPI and the figure shows the interior optimum, with the prose naming the mechanism behind the degradation at large $m$ - too much time iterating the policy operator (416-417) - rather than just reporting the shape",
+    "The policy operator is written in mathematics (165-167) before it is coded, and the code's index convention is documented in the docstring of `B` (119-121), which is what makes the staged-`vmap` style readable",
+    "The staged-`vmap` idiom is applied consistently to both operators (133-135 for `B`, 194-195 for `T_σ`), so the two vectorisations can be compared line for line",
+    "The exercise tests the robustness claim by varying the income process rather than the algorithm's own tuning parameter, which is the harder and more informative check, and it reports both raw timings and the ratio (471)"
+  ],
+  "actions": [
+    "Plot the exercise's 3x3 speedup grid instead of printing it (473-476), matching how the $m$-sweep is presented at 401-410",
+    "Replace the 14 bare `time()` readings at 305, 308, 315, 318, 326, 329, 336, 339, 391, 394, ... with the `quantecon.Timer` context manager - `qe` is already imported at 46 - and the hand-rolled benchmark loop at 387 with `qe.timeit` (qe-code-004, qe-code-005)",
+    "Make the $m$-sweep timings comparable with the reference line: the loop at 390-396 times the first value of $m$ without a warm-up call, while `vfi_time` drawn at 404 is a compile-free second run, so the leftmost point may carry compilation the others do not",
+    "Sentence-case the five Title Case headings at 56, 107, 219, 245 and 293 (qe-writing-006), and replace the raw dp.quantecon.org link at 30 with a proper cross-series reference (qe-link-002)",
+    "Figure hygiene: add mystnb name/caption metadata to the two figure cells at 353 and 401 (qe-fig-005), move the embedded titles at 361, 369 and 408 into captions (qe-fig-003), set `lw=2` on the plots at 359, 367 and 403 (qe-fig-008), and drop `figsize=` at 354 (qe-fig-001)",
+    "Reduce the duplication from {doc}`ifp_discrete`: keep `T_σ`, `iterate_policy_operator` and `optimistic_policy_iteration`, which are this lecture's contribution, and point at the predecessor for `B`, `T`, `get_greedy` and `value_function_iteration` - or promote them out of that lecture's exercise solution so both lectures can rely on one definition",
+    "Code tidy: the closing-paren indent at 96, the alignment padding at 124, 133-135 and 194-195, and the unused `num_iter` and `error` unpacked at 286"
+  ],
+  "scanner_doubts": [
+    "qe-code-002 x2 at ifp_opi.md:102 flags `rho` and `sigma`, but the line is `mc = qe.tauchen(n=y_size, rho=ρ, sigma=ν)` - those are QuantEcon's own keyword-argument names and cannot be renamed, while the values passed are already unicode `ρ` and `ν`. Identical false positive to ifp_discrete.md:182; the check needs to ignore the left-hand side of a keyword argument in a call"
+  ]
+}

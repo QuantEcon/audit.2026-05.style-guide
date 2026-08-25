@@ -195,6 +195,21 @@ JUDGMENT_RULES = {
 }
 
 
+def tag_proposed(text: str) -> str:
+    """Add the (proposed) tag to a bare proposed-rule citation in reviewer prose.
+
+    Reviewers write Strengths and Actions freehand, so they cite rules without the
+    tag the conventions require. Normalising here keeps the convention without
+    asking a reviewer to remember it.
+    """
+    import re as _re
+    for rule in sorted(PROPOSED, reverse=True):
+        text = _re.sub(
+            _re.escape(rule) + r"`?(?! ?\(proposed\))(?!`? ?\*\(proposed\)\*)",
+            lambda m: m.group(0) + " (proposed)", text)
+    return text
+
+
 def load_review(series, stem):
     """Read one review overlay, if the review pass has produced it.
 
@@ -308,7 +323,7 @@ def draft_report(series, stem, path, titles):
 
     # --- reviewer prose, with a measured fallback -------------------------
     out += ["", "## Strengths", ""]
-    strengths = [s for s in review.get("strengths", []) if s.strip()]
+    strengths = [tag_proposed(s) for s in review.get("strengths", []) if s.strip()]
     if strengths:
         out += [f"- {s.rstrip('.')}." for s in strengths]
     else:
@@ -327,7 +342,7 @@ def draft_report(series, stem, path, titles):
             out.append("- No mechanical violations of note.")
 
     out += ["", "## Recommended actions", ""]
-    actions = [a for a in review.get("actions", []) if a.strip()]
+    actions = [tag_proposed(a) for a in review.get("actions", []) if a.strip()]
     if actions:
         out += [f"{i}. {a.rstrip('.')}." for i, a in enumerate(actions, 1)]
     else:

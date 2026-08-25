@@ -18,11 +18,11 @@ are LOW or NONE.
 <!-- qe:focus -->
 | Attention | Series | Score | Needs work | Weakest categories |
 |-----------|--------|-------|-----------|--------------------|
+| 🔴 **High** | [lecture-dp](lecture-dp/index.md) | 7.8 | 28 / 52 | Writing (5.6), Math (6.3) |
+| 🔴 **High** | [lecture-python-programming](lecture-python-programming/index.md) | 8.1 | 19 / 27 | Writing (4.1), Figures (7.3) |
+| 🟠 **Some** | [lecture-python.myst](lecture-python.myst/index.md) | 8.1 | 57 / 145 | Writing (5.9), Figures (6.5) |
 | 🟠 **Some** | [lecture-python-advanced.myst](lecture-python-advanced.myst/index.md) | 8.1 | 30 / 68 | Math (5.9), Figures (6.3) |
-| 🟠 **Some** | [lecture-dp](lecture-dp/index.md) | 8.2 | 17 / 52 | Math (6.4), Figures (6.4) |
-| 🟠 **Some** | [lecture-python.myst](lecture-python.myst/index.md) | 8.4 | 41 / 145 | Figures (6.5), Writing (6.9) |
-| 🟢 **Low** | [lecture-python-intro](lecture-python-intro/index.md) | 8.5 | 11 / 56 | Figures (6.5), Writing (6.6) |
-| 🟢 **Low** | [lecture-python-programming](lecture-python-programming/index.md) | 8.6 | 5 / 27 | Writing (5.7), Figures (7.3) |
+| 🟠 **Some** | [lecture-python-intro](lecture-python-intro/index.md) | 8.4 | 12 / 56 | Writing (6.3), Figures (6.5) |
 <!-- /qe:focus -->
 
 **Every HIGH-priority lecture in this pass is HIGH because of one weak category, not
@@ -119,6 +119,21 @@ why they are separate; [§9](spec.md) lists exactly which rules fall where.
 
 That matters for reading the numbers: a category scoring 10 means *no mechanical
 violation was measured in it*, not that a human declared it perfect.
+
+```{warning}
+**Review coverage is incomplete in this pass, and it moves the scores.** The judgment
+layer covers some lectures and not others, and a lecture assessed against more rules
+scores lower — not because it is worse, but because more of it was looked at. The gap is
+large enough to matter: reviewed lectures average **7.84** with 56 % HIGH, unreviewed
+average **8.29** with 29 % HIGH.
+
+So **the cross-series comparison below is provisional** wherever coverage differs between
+series, and the per-series coverage is published in each series' Summary page. Treat the
+*within-series* ranking and the rule-reach numbers as sound — those are measured over the
+whole corpus by the same code — and treat a small gap between two series' overall scores
+as noise until coverage evens out. Tracked in
+[#5](https://github.com/QuantEcon/audit.2026-05.style-guide/issues/5).
+```
 
 ---
 

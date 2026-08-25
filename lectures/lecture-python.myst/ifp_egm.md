@@ -5,16 +5,16 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.3 / 10
-- **Priority:** LOW
+- **Overall score:** 7.6 / 10
+- **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 6/10  | `qe-writing-006` ×9; `qe-writing-008` ×3. |
-| Math         | 7.5/10 | `qe-math-002` ×3. |
-| Code         | 9/10  | `qe-code-004` ×6. |
+| Writing      | 3.5/10 | `qe-writing-006` ×9; `qe-writing-003` ×2; `qe-writing-002` ×3, +1 more. |
+| Math         | 7/10  | `qe-math-002` ×3; `qe-math-009` ×2. |
+| Code         | 7.5/10 | `qe-code-001` ×4; `qe-code-004` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6.5/10 | `qe-fig-005` ×5; `qe-fig-003` ×1; `qe-fig-008` ×8. |
 | References   | 9/10  | `qe-ref-001` ×1. |
@@ -34,7 +34,11 @@ _None found._
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 9. *Lines:* 73, 165, 207, 251, 325, 340, 488, 495, 767. *Example:* H2 Title Case: 'The Household Problem' (Household, Problem).
 
 ### Medium severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 4. *Lines:* 396, 408, 576, 731. *Example:* line 396 closes a hanging-indent signature with `    ) -> np.ndarray:` at 4 spaces, leaving the arguments at body indent (E121/E125); the pattern recurs at 442, 537, 597, 830 and 869. Lambdas are bound to names in eleven places, which PEP8 rules out in favour of `def` (408-410, 549-551, 713, 843-844, 885; E731). Line 576 leaves trailing whitespace, and line 731 puts a space before the comma in `+ y_bar(k) , label=label` (E203).
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 916. *Example:* .set(xlabel='assets', title=.
+- **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 2. *Lines:* 120, 382. *Example:* both sets are set in sans-serif for no reason - $\mathsf Z$ (120, 322, 387) and $\mathsf S$ (145, 147, 167, 211, 222) - where plain $Z$ and $S$ would sit better beside the $R$, $\Pi$, $K$ used around them. And the endogenous asset grid is $a_{ij}$ where it is derived (307, 310, 318) but $a^e_{ij}$ where it is described to the reader (382, 385), so the same object carries a superscript in one place and not the other.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 3. *Lines:* 156, 178, 693. *Example:* two sentences do not parse: 'consumption at time $t$ cannot be a function of outcomes are yet to be observed' (156) and 'where the maximization is overall feasible consumption paths' (178, for 'over all'). And the policy figure is presented twice with the same sentence - 'Here's a plot of the optimal consumption policy for each $z$ state' (474) and 'Here's a plot of the optimal policy for each $z$ state' (693) - producing the same picture from the same arrays.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 167, 776. *Example:* the value function is introduced with a labelled display, $V \colon \mathsf S \to \mathbb{R}$ at {eq}`eqvfs_egm` (167-176), and then never used again: optimality is characterised through the Euler equations, the algorithm computes a policy, and $V$ appears nowhere in the code or the figures. The same happens in the sanity check, where 776 announces 'the value function and optimal consumption policy are given by' and `v_star` is defined at 783 but only `c_star` is ever called (798-800).
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 3. *Lines:* 49, 823. *Example:* 2 spaces.
 
 ### Low severity
@@ -43,18 +47,19 @@ _None found._
 
 ## Strengths
 
-- Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The two implementations are cross-validated before either is trusted: the JAX policy is differenced against the NumPy policy and the maximum gap printed (637-649), and only then are they timed against each other (655-689).
+- The sanity check at 767-806 is a real validation, not a plausibility check: setting labour income to zero and $R$ to one reduces the problem to CRRA cake eating, and the numerical policy is plotted against the closed-form $c^*(x) = (1 - \beta^{1/\gamma}) x$.
+- The `{note}` at 122-137 explains why this lecture changes the budget-constraint timing relative to its predecessors, what the old convention was for (discretization), and what it costs (a larger state space) - a modelling choice usually left unexplained.
+- The EGM derivation is careful exactly where it matters: it says why the Euler equation applies only for $s_i > 0$, why $c_{0j} := 0$, and why that anchors the interpolation at the origin (296-313).
+- Every display is labelled and then cited: `eqst` (91) at 151, `ee00`/`ee01` (185, 193) at 213, 233 and 253, `eqtv` (216) at 233, `eqeul1` (258) at 271 and 273, `cfequ` (287) at 387 - and the stability condition is enforced by an `assert` at model creation (370).
+- The lecture ends by stating plainly where the model fails - the simulated wealth distribution is left-skewed with essentially no right tail, unlike the data (920-928) - which sets up the sequels rather than overselling this one.
 
 ## Recommended actions
 
-1. `qe-writing-006` — Capitalize lecture titles properly (9 occurrences).
-2. `qe-math-002` — Use \top for transpose notation (3 occurrences).
-3. `qe-fig-005` — Descriptive figure names for cross-referencing (5 occurrences).
-4. `qe-fig-003` — No matplotlib embedded titles (1 occurrence).
-5. `qe-ref-001` — Use correct citation style (1 occurrence).
-6. `qe-fig-008` — Use lw=2 for line charts (8 occurrences).
-7. `qe-code-004` — Use quantecon Timer context manager (6 occurrences).
+1. Fix the JAX section's policy figure at 695-702: it plots `a_vec[:, k]` and `c_vec[:, k]`, which are the NumPy arrays from 469, not the JAX solution `a_vec_jax`, `c_vec_jax` computed at 634 - so the figure under '## JAX Implementation' shows the NumPy result, and it duplicates the figure at 476-484 exactly.
+2. Repair the equation reference at 180: `{eq}`eqvfs`` is the label of the value-function display in {doc}`ifp_discrete`, while this lecture's is `eqvfs_egm` (170), so the cross-reference silently points at another lecture's equation.
+3. Sentence-case the nine Title Case headings at 73, 165, 207, 251, 325, 340, 488, 495 and 767 (qe-writing-006).
+4. Replace the six bare `time.time()` readings at 669-683 with the `quantecon.Timer` context manager, and move the mid-lecture `import time` at 656 into the import cell at 62-70 (qe-code-004).
+5. Decide what to do with the value function: either compute and plot it, or drop {eq}`eqvfs_egm` (167-176) and `v_star` (783) and characterise optimality through the Euler equations alone.
+6. Figure hygiene: add mystnb name/caption metadata to the five figure cells at 476, 695, 710, 789 and 906 (qe-fig-005), set `lw=2` on the eight plot calls at 479, 480, 697, 698, 731, 733, 797 and 798 (qe-fig-008), and move the embedded title at 916 into a caption (qe-fig-003).
+7. Code and prose tidy-up: the closing-paren indents and the eleven lambda bindings above; the dead locals `n_z` and `σ` in `compute_asset_stationary` (881, 885); the trailing whitespace at 576 and the space before the comma at 731; `{cite:t}` for the narrative citation at 761 (qe-ref-001); the two broken sentences at 156 and 178; and the double spaces at 49 and 823.

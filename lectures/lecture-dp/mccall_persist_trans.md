@@ -5,16 +5,16 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 9.7 / 10
+- **Overall score:** 9.2 / 10
 - **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 10/10 | no mechanical violations detected. |
+| Writing      | 9.5/10 | `qe-writing-007` ×1. |
 | Math         | 10/10 | no mechanical violations detected. |
-| Code         | 10/10 | no mechanical violations detected. |
+| Code         | 7/10  | `qe-code-001` ×14. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8/10  | `qe-fig-005` ×4; `qe-fig-008` ×4. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -27,25 +27,30 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 14. *Lines:* 185, 191, 194, 195, 238, 250, 255, 259, 265, 269, …. *Example:* trailing whitespace on five code lines - `# transient shock log variance  ` (185), `z_grid: jnp.ndarray ` (191), the `def create_job_search_model(...c=5.0, ` continuation break (194), `@jax.jit  ` (250) and `ax.plot(model.z_grid, res_wage_function, ` (318) - plus six whitespace-only lines inside function bodies (238, 255, 259, 265, 269, 274), which is pycodestyle W291/W293; and three misaligned continuation lines: 195 is indented 27 against a visual indent of 28 (E128, one short), 319 is indented 16 against 12 (E127, four over) and 364 is indented 28 against 26 (E127, two over).
 
 ### Medium severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 289, 309, 416, 455. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 4. *Lines:* 293, 318, 418, 457. *Example:* plot() without lw=.
 
 ### Low severity
-_None found._
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 1. *Lines:* 71. *Example:* the lecture's whole premise is that a wage decomposes into a persistent and a transitory piece - it is in the title (22) and stated at 74-87 - and there is no figure of that decomposition anywhere. All four figures (289, 309, 416, 455) plot the reservation wage or mean duration. One simulated path showing $W_t$ against its two components $\exp(Z_t)$ and $Y_t$ would show at a glance why $z$ has to enter the Bellman equation as a state (106) and why the transitory piece does not; the machinery to draw it already exists in `draw_duration` (354-355).
 
 
 ## Strengths
 
-- Writing, Math, Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The dimensionality reduction is derived rather than asserted, one display per step with one sentence between: the two-state Bellman equation (96-102), the definition of $f^*$ (115-117), the Bellman equation rewritten in terms of it (121-123), the functional equation for $f^*$ alone (128-130), and only then the operator $Q$ (135-137) - a reader can follow the collapse from $(w,z)$ to $z$ without re-reading.
+- Every model parameter carries the same Unicode Greek name in the code as in the math - `μ, s, d, ρ, σ, β` in the `Model` fields (184-190) against $\mu, s, d, \rho, \sigma, \beta$ at 80-82 - and each field has an inline gloss, so `create_job_search_model` needs no separate parameter table.
+- The one labelled equation, `corr_mcm_barw` (158-162), is cited by `{eq}` at 287 immediately before the cell that computes it (290) - no orphan label and no manual 'equation (1)' reference anywhere in the file.
+- 'IID' is written in the correct form at both occurrences (43, 85), including inside the model statement - qe-writing-009 (proposed) clean.
+- The four `{doc}` cross-references (41, 45, 47, 56) each say what the lecture they point at contributed - IID offers in the baseline, Markov wages plus separation in III, fitted VFI in IV - so the reader is told why this fifth variant exists rather than just that it is fifth.
 
 ## Recommended actions
 
-1. `qe-fig-005` — Descriptive figure names for cross-referencing (4 occurrences).
-2. `qe-fig-008` — Use lw=2 for line charts (4 occurrences).
+1. Add `mystnb: figure: caption/name` metadata to the 4 code-cell figures (289, 309, 416, 455) and `lw=2` to the 4 line plots (293, 318, 418, 457) - qe-fig-005 x4 and qe-fig-008 x4 are the file's entire mechanical debt.
+2. Add a figure of the persistent-transitory decomposition to `## The model`: one simulated $\{W_t\}$ path with $\exp(Z_t)$ and $Y_t$ plotted alongside it. This is the lecture's title claim and currently the only unillustrated idea in it.
+3. Brace the blackboard operators - `\mathbb E_z` -> `\mathbb{E}_z` at 100, 104, 116, 129 and 136, and `\mathbb R` -> `\mathbb{R}` at 142 (qe-math-010 (proposed), proposed). The scanner reports 0 math violations here and that is a defect, not a clean bill of health - see scanner_doubts.
+4. Correct the `Model` field comments (184-190): `s` multiplies a standard normal in $\exp(\mu + s\zeta_t)$ (80), so it is the log standard deviation and not the 'log variance'; `ρ` is the AR(1) persistence coefficient, not a 'correlation coefficient'; and the comments say 'transient' where the title, the prose and the reference list all say 'transitory'.
+5. Say in the prose near 176 that `e_draws` is drawn once, in `create_job_search_model` (207), and reused at every application of `Q` - holding the draws fixed is what makes $Q$ a deterministic operator with a fixed point, and 'the integral ... is calculated by Monte Carlo' leads a reader to expect fresh draws each iteration.
+6. Clean the PEP8 items above, and drop the two `enumerate` calls whose index is never used (`for i, c in enumerate(c_vals)` at 407, `for i, β in enumerate(beta_vals)` at 448) - plain `for c in c_vals` is what the loop bodies actually need.
+7. Consider writing `Y_t = \exp(\mu + s \zeta_t)` at 80 rather than `Y_t \sim \exp(\mu + s \zeta_t)`: the display's other half uses `=` for exactly the same kind of construction (82), and the code writes `y_next = jnp.exp(μ + s * e2)` (234), so the lone `\sim` reads as a distribution name that is not there.

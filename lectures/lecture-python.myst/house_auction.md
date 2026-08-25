@@ -5,16 +5,16 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.8 / 10
+- **Overall score:** 8.3 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 3/10  | `qe-writing-006` ×12; `qe-writing-001` ×7; `qe-writing-008` ×97, +1 more. |
+| Writing      | 3/10  | `qe-writing-006` ×12; `qe-writing-005` ×10; `qe-writing-001` ×7, +5 more. |
 | Math         | 10/10 | no mechanical violations detected. |
-| Code         | 10/10 | no mechanical violations detected. |
+| Code         | 7/10  | `qe-code-001` ×90. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | N/A   | no figures or plotting code. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -27,28 +27,35 @@
 _None found._
 
 ### High severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 90. *Lines:* 295, 298, 340, 343, 390, 457, 459, 849, 939, 1088, …. *Example:* PEP8 spacing is ignored across the whole file: 90 distinct lines carry violations, of which the twelve listed are representative. The counts by kind are 140 missing spaces after a comma or dict colon (`v[:,ii]`, `zip(bid_info.keys(),winner_list)`, `np.array([[8,5,9,4],...])`), 19 missing spaces around an operator (`result=[]` 295, `V==np.max(V)` 1097, `len(i)>1` 1254), 16 spaces around a keyword-argument equals (`any(axis = 0)` 343, 383, 471, 535, 720, 730, 784, 795), 3 unspaced `%` format operators (849, 855, 1280), 3 under-indented continuations (1387, 1400, 1411), 2 single-space inline comments (1088, 1089), 2 double spaces after `=` (390, 736), and a blank line at end of file (1288). None of this is the mathematical-notation exception: the numeric literals at 939, 967, 977, 987 and 998 are data, not matrix notation, and `axis = 0` has no defence.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 7. *Lines:* 221, 1077, 1101, 1109, 1126, 1137, 1344. *Example:* 4 sentences in one paragraph.
+- **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 10. *Lines:* 37, 60, 176, 189, 192, 964, 974, 984, 995, 1006. *Example:* bold does two jobs it should not. It carries emphasis at 37 ('**at most** one house'), 60 ('**simultaneously**'), 176 and 189 ('**plus** $\epsilon$') and 192 ('**any** house'), where italic is the convention; and it substitutes for headings in '## Robustness Checks', where the five cases are marked '**1. number of houses = number of buyers**' (964), '**2. multilple excess buyers**' (974), '**3. more houses than buyers**' (984), '**4. some houses have extremely high reservation prices**' (995) and '**5. reservation prices are so high that the auction can't start**' (1006) instead of `###` subheadings that the TOC could pick up.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 12. *Lines:* 52, 87, 102, 114, 117, 241, 659, 960, 1020, 1064, …. *Example:* H2 Title Case: 'Ascending Bids Auction for Multiple Goods' (Bids, Auction, Multiple, Goods).
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 97. *Lines:* 23, 25, 27, 29, 31, 33, 35, 50, 60, 68, …. *Example:* 2 spaces.
 
 ### Medium severity
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 3. *Lines:* 117, 161, 964. *Example:* the auction's rules are stated three times over 180 lines. Lines 52-83 give them as the auctioneer's protocol, '### Basic Setting' (117-151) restates the same setting as the seller's problem ($n$ houses, at most one per buyer, $v_{ij}$ private, surplus $v_{ij}-p_i$, outputs $p$, $Q$, $S$), and '## Pseudocode' (161-199) gives them a third time as inputs, protocols and outputs - with the $S$ and $Q$ definitions at 197-199 copied verbatim from 148-151. The five robustness cases at 964-1006 then repeat the parameter-matrix construction five times with no shared helper.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 114, 1344. *Example:* '## Ascending Bid Auction' at 114 opens a section on the mechanism that '## Ascending Bids Auction for Multiple Goods' at 52 has already described under a near-identical title, so the reader cannot tell from the headings which section is the overview and which the specification. Line 1344 asserts that 'the generalized second-price auction described in our pseudo code above does indeed satisfy (1)' - a bare numeric reference to {eq}`eq:GC1`, which the same paragraph cites properly by label two lines earlier.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 1211. *Example:* mid-sentence 'Class'.
 
 ### Low severity
-_None found._
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 1. *Lines:* 351. *Example:* 1412 lines with no figure at all, for a mechanism whose whole content is a price path: five rounds are worked through by hand at 351-657, each printing a price vector and a bid table, and the class then reports the same thing as text (849-921). One chart of the $n$ house prices against round number, with the temporary winner marked, would show convergence - 'the auction ends when the price of no house changes from one round to the next' (76) - in a way that reading six successive printed vectors cannot.
 
 
 ## Strengths
 
-- Math, Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The pseudocode section (161-227) is unusually complete for this corpus - inputs, auction protocols, outputs and the buyer's strategy - and it closes by naming the two ambiguities the protocol leaves open (219-223) and saying exactly how the code resolves them, which is why the custom argmax and `np.random.choice` appear later without explanation needed.
+- The auction is worked through by hand over five labelled rounds (351-657) before the class is written at 659, so `ascending_bid_auction` arrives as a packaging of something the reader has already seen operate.
+- Five robustness cases stress the implementation on the boundaries that matter - equal numbers of houses and buyers, excess buyers, excess houses, one prohibitive reservation price, and reservation prices so high the auction cannot start (960-1014).
+- The Groves-Clarke half does not stop at the algorithm: it states the VCG allocation and payment rules as labelled equations {eq}`eq:GC1` and {eq}`eq:GC2` (1324-1332), interprets the payment as an externality (1336-1342), and then verifies it numerically by re-running the mechanism with each buyer excluded in turn (1373-1411).
+- The minimum bid increment is written `ϵ` in the code to match the $\epsilon$ of the text (340, 469, 718, 969), and the install cell pins `prettytable<3.18` (20) rather than leaving the build to float.
 
 ## Recommended actions
 
-1. `qe-writing-006` — Capitalize lecture titles properly (12 occurrences).
-2. `qe-writing-001` — Use one sentence per paragraph (7 occurrences).
-3. `qe-writing-008` — Remove excessive whitespace between words (97 occurrences).
-4. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (1 occurrence).
+1. Run the code cells through a formatter: 90 lines need PEP8 spacing, and the mechanical parts (space after every comma, `axis=0`, `==` and `>` spacing, `%` formatting) are all machine-fixable in one pass.
+2. Sentence-case the 12 Title Case headings at 52, 87, 102, 114, 117, 241, 659, 960, 1020, 1064, ... (qe-writing-006), and remove the double space after `##` at 23, 1209 and 1349.
+3. Delete the stray HTML `</font>` tag at 215, which sits in the middle of a bulleted strategy line and has no opening tag anywhere in the file.
+4. Collapse the three statements of the auction rules (52-83, 117-151, 161-199) into one specification plus one short overview, and give the five robustness cases real `###` headings instead of bold lines.
+5. Add the round-by-round price chart described above - the lecture's only quantitative output is currently printed tables.
+6. Fix the errors in the prose and the strategy statement: 'if not prospective buyer offers more that $r_i$' (80), 'The mechanism provide' (95), 'for both mechanism' (106), 'rules for the auction it terms of' (155), 'randomize among such winner' (221), 'multilple' (974), 'decribe' (1024), 'mechanims' (1033), 'mechanim' (1340), and 'person $j$ bids ... on house $j$' at 216, where the house index should be $\hat i_t$.
+7. Tidy the tail: split the seven multi-sentence paragraphs at 221, 1077, 1101, 1109, 1126, 1137 and 1344 (qe-writing-001), replace the bare '(1)' at 1344 with {eq}`eq:GC1`, fold the three near-identical social-cost cells (1385-1411) into one loop, drop the no-op expression statements at 1378, 1395 and 1406, and sweep the 97 double-space runs.

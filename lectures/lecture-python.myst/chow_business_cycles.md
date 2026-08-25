@@ -5,16 +5,16 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.8 / 10
-- **Priority:** NONE
+- **Overall score:** 8.1 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 9/10  | `qe-writing-008` ×16. |
+| Writing      | 5.5/10 | `qe-writing-003` ×2; `qe-writing-002` ×3; `qe-writing-008` ×16, +2 more. |
 | Math         | 6.5/10 | `qe-math-010` (proposed) ×5. |
-| Code         | 10/10 | no mechanical violations detected. |
+| Code         | 8.5/10 | `qe-code-001` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-005` ×14; `qe-fig-001` ×11; `qe-fig-008` ×1. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -33,25 +33,30 @@ _None found._
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 16. *Lines:* 34, 35, 46, 50, 304, 847, 1199, 1203, 1227, 1230. *Example:* 2 spaces.
 
 ### Medium severity
-_None found._
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 4. *Lines:* 78, 633, 1163, 1484. *Example:* five continuation lines are indented to arbitrary columns unrelated to their opening bracket - 79 sits at column 33 under a bracket opened at 21, and 236, 238, 282, 827 and 829 are the same pattern; six lines carry trailing whitespace (78, 633, 640, 1010, 1297, 1597); and four lines exceed 79 characters (716, 1163 at 84, 1476 at 83, 1484 at 91). `I = np.eye(n)` at line 68 also uses one of the three single-character names PEP8 rules out, though the identity matrix has a genuine mathematical claim on the letter.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 3. *Lines:* 253, 477, 606. *Example:* lines 251-253 ask and answer the same thing in consecutive one-line paragraphs ("We can ask how the eigenvalues change as we increase the accelerator $v$." / "As we increase the accelerator $v$, the eigenvalues move further from the origin."); lines 477-479 spend two sentences saying that high frequencies mean short cycles and low frequencies mean long cycles, which is one sentence of content; line 606 is a 47-word sentence chaining five separate numerical substitutions ($\theta = 54^\circ$, 6.67 periods, $r = 0.4$, factor 1.45, $\cos\omega = 0.85$, $\omega = 31.5^\circ$, 11.4 periods) before reaching its verb.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 61, 783. *Example:* line 61 introduces four functions with "We will use the following helper functions throughout the lecture" and two of them - `simulate_var1` and `sample_autocorrelation` - are never called anywhere in the file. Separately, the real-roots example reports its peak three inconsistent ways within sixty lines: line 783 says "slightly below $\pi/8$ (corresponding to periods around 11)", but $\omega = \pi/8$ is a period of 16, and the lecture's own finer-grid computation at 843 reports "$\omega/\pi \approx 0.10$, which corresponds to a cycle length of approximately 20 periods". Nothing reconciles the paraphrase of Chow's table with the recomputation the section exists to perform.
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 2. *Lines:* 302, 446. *Example:* the lecture's pivot is Frisch's claim that damped oscillations are "maintained" by a stream of shocks (302-306, quoted at length at 350-356), and it is never shown: the deterministic impulse responses are plotted at 234-244 and 257-296, and the shocked counterpart of the same Samuelson system - the one thing that would make Frisch's point visible - is never simulated. Line 446 likewise states that complex roots "generate damped oscillatory autocovariance functions" in the stochastic model and no autocovariance function is ever plotted anywhere in 1652 lines. Both figures are one call away: `simulate_var1` (81-92) and `sample_autocorrelation` (94-102) are defined in the helper cell and never used.
 
 ### Low severity
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 1475. *Example:* plot() without lw=.
+- **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 1. *Lines:* 1273. *Example:* line 1273 introduces the *scalar kernel* in italic - "Each eigenvalue contributes a characteristic spectral shape through the *scalar kernel*" - which is a definition and the rule's case for bold; line 546 uses the same term unstyled ("the scalar kernel $g_i(\omega) = \ldots$"), so the one term the lecture returns to twice is the one it never bolds, against eight other terms that are correctly bolded at their definitions (**acceleration effect** 180, **damped cosine** 434, **spectral density matrix** 454, **cross-spectrum** 1125, **cross-amplitude** 1127, **squared coherence** 1129, **gain** 1141, **phase** 1153).
 
 
 ## Strengths
 
-- Writing, Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
-- Citations distinguish `{cite}` from `{cite:t}` correctly (8 parenthetical, 12 in-text).
+- The lecture separates the two meanings of "cycle" in its first section (50-52) - complex eigenvalues in a deterministic system, a local spectral peak in a stochastic one, and the warning that peaks depend on how shocks enter and how observables load on eigenmodes - and then holds that distinction all the way through, including the negative result at 697 and its non-generalisation at 743.
+- Chow's published table is reproduced as data rather than retyped: the nine tabulated values are scattered on top of the lecture's own finer-grid spectrum (826-829), so agreement with the 1968 paper is visible in the figure.
+- The same quantity is computed two independent ways wherever it can be: Chow's closed-form spectrum against the general `spectral_density_var1` (801-818), and in exercise 3 the autocovariance recursion against the eigendecomposition, checked with `solve_discrete_lyapunov` and a printed max absolute difference.
+- The frequency axis follows the source paper's convention - cycles per year on $[0, 1/2]$, with ticks labelled by period ($1/18$, $1/9$, $1/6$, $1/4$, $1/3$, $1/2$) through a shared `paper_frequency_axis` helper (1066-1071) - and the spectra are normalised to unit area (1113) so the plots compare shape and not scale.
+- The negative result about real positive roots is proved rather than asserted (665-695: the first-order condition requires $\cos\omega$ outside $[-1,1]$, which the stability condition rules out), and the very next section immediately shows the result does not generalise beyond the Hansen-Samuelson structure.
 
 ## Recommended actions
 
-1. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (5 occurrences).
-2. `qe-fig-005` — Descriptive figure names for cross-referencing (14 occurrences).
-3. `qe-writing-008` — Remove excessive whitespace between words (16 occurrences).
-4. `qe-fig-001` — Do not set figure size unless necessary (11 occurrences).
-5. `qe-fig-008` — Use lw=2 for line charts (1 occurrence).
+1. Add `mystnb: figure: caption/name` metadata to the fourteen code-cell figures at 222, 257, 608, 701, 787, 1065, 1175, 1207, 1241, 1291 and the four remaining ones, so a lecture with fourteen figures can cross-reference them (qe-fig-005, 14 occurrences, the largest mechanical item here).
+2. Drop the eleven `figsize=` overrides at 234, 262, 630, 825, 1084, 1178, 1208, 1300, 1373, 1471 and the eleventh, and let the theme size the figures (qe-fig-001, 11 occurrences).
+3. Fix the peak arithmetic at line 783: $\omega$ slightly below $\pi/8$ is a period near 16, not 11, and the lecture's own computation at 843 gives about 20 - reconcile the three numbers or say which one is Chow's and which is the recomputation.
+4. Plot the stochastic counterparts the argument needs - a shocked simulation of the Samuelson system next to the deterministic impulse response, and an autocovariance function showing the damped cosine of line 439 - using the `simulate_var1` and `sample_autocorrelation` helpers that are currently defined and unused, or delete them and drop the claim at 61 that all four are used throughout.
+5. Brace the five bare `\mathbb E` operators at 317, 319, 321, 333 and 914 as `\mathbb{E}` (qe-math-010 (proposed), proposed, 5 occurrences).
+6. Collapse the sixteen double spaces at 34, 35, 46, 50, 304, 847, 1199, 1203, 1227, 1230 and the rest (qe-writing-008, 16 occurrences), and set `lw=2` on the plot call at 1475 (qe-fig-008).
+7. Sweep the code hygiene: strip the six trailing-whitespace lines (78, 633, 640, 1010, 1297, 1597), wrap the four over-length lines (716, 1163, 1476, 1484), align the five stray continuation indents (79, 236, 238, 282, 827), and give the second binding of `ω_peak` at 833 a distinct name - at 618-627 it is an array of peak frequencies, at 833 a scalar.

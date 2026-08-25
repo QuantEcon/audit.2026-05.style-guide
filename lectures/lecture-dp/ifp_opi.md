@@ -5,16 +5,16 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.1 / 10
+- **Overall score:** 7.8 / 10
 - **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 6.5/10 | `qe-writing-006` ×5. |
+| Writing      | 5/10  | `qe-writing-006` ×5; `qe-writing-003` ×2. |
 | Math         | 10/10 | no mechanical violations detected. |
-| Code         | 7/10  | `qe-code-002` ×2; `qe-code-004` ×14; `qe-code-005` ×1. |
+| Code         | 6.5/10 | `qe-code-002` ×2; `qe-code-004` ×14; `qe-code-001` ×1, +1 more. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-003` ×3; `qe-fig-005` ×2; `qe-fig-008` ×3, +1 more. |
 | References   | N/A   | no citations in this lecture. |
@@ -36,26 +36,27 @@ _None found._
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 353, 401. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 359, 367, 403. *Example:* plot() without lw=.
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 1. *Lines:* 30. *Example:* raw link to dp.quantecon.org.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 28, 427. *Example:* line 28 asserts 'OPI combines elements of both value function iteration and policy iteration' and then never says how - the reader is sent off-site to DP1 at line 30, and the algorithm box at 249-252 only lists the two steps. The missing connection is the one the whole lecture turns on: $m = 1$ is exactly VFI and $m \to \infty$ is policy iteration, so $m$ interpolates between them. It is never stated, even though the sweep at 387 includes $m=1$ and the summary at 416-417 relies on the large-$m$ end of that same idea. Separately, the exercise at 427 asks the reader to vary '$\rho$ and $\nu$' - symbols that appear nowhere in the lecture's narrative or math; they exist only as keyword arguments at line 95, because the income process itself was left in {doc}`ifp_discrete`.
 
 ### Low severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 1. *Lines:* 124. *Example:* line 124 writes `a, y, ap  = a_grid[i], y_grid[j], a_grid[ip]` with two spaces before the `=` (pycodestyle E221); the parallel unpacking at line 177 in `T_σ` has one. The multi-space alignment at 133-135 and 194-195 is a different case and should be left alone - the aligned `in_axes` tuples make the moving axis read as a diagonal, which is the 'closer to mathematical notation' exception the rule allows for.
 - **[qe-code-005]** — Use quantecon timeit for benchmarking. *Count:* 1. *Lines:* 387. *Example:* hand-rolled benchmark loop — use qe.timeit.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 1. *Lines:* 354. *Example:* figsize=.
 
 
 ## Strengths
 
-- Math, Links, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The vectorization is built up one axis at a time (133-135) from a single scalar `B` at 114, with the `in_axes` tuples column-aligned so the axis being mapped reads down the diagonal - a reader can see what each `vmap` adds instead of facing one opaque call.
+- `B`'s docstring at 116-121 writes the Bellman right-hand side out in ASCII and then pins the index convention, `(i, j, ip) -> (a, y, a')`, so every indexed expression in `T`, `get_greedy` and `T_σ` can be read straight back to the display at 166.
+- Both solvers are timed twice with the first run labelled as including compile time (305-309, then 312 and 315-319; the same again at 325-341) - the right protocol for JIT-compiled code, and the prose says why rather than leaving the reader to wonder about the two numbers.
+- Equivalence of VFI and OPI is checked rather than asserted: `jnp.allclose(v_star_vfi, v_star_opi)` at 346, then a side-by-side policy plot at 353-374 with the 45-degree line drawn in for reference.
+- The $m$-sweep at 387-397 spans 1 to 400 and the resulting figure at 402-404 draws `vfi_time` as a horizontal reference line, so the crossover and the degradation at large $m$ are both readable off the plot rather than only stated in the bullets at 414-417.
 
 ## Recommended actions
 
-1. `qe-writing-006` — Capitalize lecture titles properly (5 occurrences).
-2. `qe-fig-003` — No matplotlib embedded titles (3 occurrences).
-3. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
-4. `qe-code-002` — Use Unicode symbols for Greek letters in code (2 occurrences).
-5. `qe-link-002` — Use doc links for cross-series references (1 occurrence).
-6. `qe-code-004` — Use quantecon Timer context manager (14 occurrences).
-7. `qe-fig-008` — Use lw=2 for line charts (3 occurrences).
+1. Replace the 14 bare `time()` readings with the `qe.Timer` context manager (305, 308, 315, 318, 326, 329, 336, 339, 391, 394 and the rest) and the hand-rolled sweep loop at 387-397 with `qe.timeit` (qe-code-004 x14, qe-code-005 x1) - this is the bulk of the file's remaining debt and would also delete the repeated `start = time()` / `elapsed = time() - start` boilerplate.
+2. State the $m$ = 1 is VFI, $m \to \infty$ is policy iteration relation where line 28 currently gestures at it - one sentence there makes the algorithm box at 249-252, the sweep at 387 and the large-$m$ degradation bullet at 416 all land, and removes the need to send the reader off-site to understand the method the lecture is about.
+3. Move the 3 embedded matplotlib titles into captions ('VFI' at 361, 'OPI' at 369, 'OPI execution time vs step size m' at 408) and give the 2 figure cells mystnb `name`/`caption` metadata (353, 401) so they can be cross-referenced (qe-fig-003 x3, qe-fig-005 x2).
+4. Sentence-case the 5 H2 headings at 56, 107, 219, 245 and 293 - 'Model and primitives', 'Operators and policies', 'Value function iteration', 'Optimistic policy iteration', 'Timing comparison' (qe-writing-006 x5).
+5. Add `lw=2` to the 3 default-width line plots (359, 367, 403) and drop the hand-set `figsize=(12, 5)` at 354 (qe-fig-008 x3, qe-fig-001 x1).
+6. Write the income process into the lecture body - even two lines giving $\log y_{t+1} = \rho \log y_t + \nu \varepsilon_{t+1}$ - so that $\rho$ and $\nu$ in exercise `ifp_opi_ex1` (427-433) refer to something the reader has seen, and fix the double space before `=` at line 124.

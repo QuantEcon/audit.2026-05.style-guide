@@ -5,16 +5,16 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 7.0 / 10
+- **Overall score:** 6.2 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8.5/10 | `qe-writing-009` (proposed) ×1; `qe-writing-008` ×5. |
+| Writing      | 5/10  | `qe-writing-005` ×3; `qe-writing-003` ×3; `qe-writing-002` ×4, +3 more. |
 | Math         | 3/10  | `qe-math-002` ×45; `qe-math-010` (proposed) ×1; `qe-math-011` (proposed) ×1. |
-| Code         | 7.5/10 | `qe-code-002` ×8. |
+| Code         | 6/10  | `qe-code-002` ×8; `qe-code-001` ×7. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5.5/10 | `qe-fig-003` ×6; `qe-fig-005` ×2; `qe-fig-008` ×12. |
 | References   | 8.5/10 | `qe-ref-001` ×3. |
@@ -27,6 +27,7 @@
 _None found._
 
 ### High severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 7. *Lines:* 245, 319, 505, 510, 673, 844, 868. *Example:* `from mpl_toolkits.mplot3d import Axes3D` (245) is unused - `projection='3d'` has needed no import since matplotlib 3.2 (F401). Both array constructors take mutable list defaults, and `f1_vals=[1. ,1.]` (319, 844) puts a space before the comma and none after (E203 plus E231) while the five sibling defaults on the following lines write `[1., 1.]`. Eight calls end in a semicolon - `ex1_a.stationary_values();` at 411, 510, 520, 537, 579, 603, 648, 704 - and six of them are inert, since the statement is not the last expression in its cell (510, 520) or is inside a loop (537, 603, 648, 704). Line 505 and 515 put one space before an inline comment where PEP8 asks for two (E261). Lines 673 and 675 build labels by `+` concatenation with `str(i+1)` where an f-string would read better, and 868-869 write `1/2` without spaces two lines after `f1_vals[i] / 2` with them.
 - **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 8. *Lines:* 409, 509, 519, 536, 578, 602, 647, 703. *Example:* spelled-out `beta`.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 6. *Lines:* 488, 550, 619, 660, 682, 716. *Example:* .set_title.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 12. *Lines:* 443, 444, 448, 451, 485, 545, 546, 655, 656, 672, …. *Example:* plot() without lw=.
@@ -39,25 +40,29 @@ _None found._
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 1. *Lines:* 37. *Example:* raw link to python-intro.quantecon.org.
 - **[qe-math-011 (proposed)]** — Distribution names in plain letters, not \mathcal / \mathbb. *Count:* 1. *Lines:* 180. *Example:* decorated distribution `{\cal N}`.
 - **[qe-ref-001]** — Use correct citation style. *Count:* 3. *Lines:* 39, 41, 43. *Example:* {cite} in narrative flow: 'in {cite}`'.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 4. *Lines:* 469, 474, 736, 762. *Example:* line 474 compares a quantity with itself: '$| u_{t,2}| > | u_{t,2} |$, so that the decision-maker adjusts toward the fixed point faster when the Markov state $s_t$ takes a value that makes it cheaper' - the intended claim is $|u_{t,2}| > |u_{t,1}|$, and this is the sentence that explains the lecture's first figure. The sentence just above says 'in Markov state $2$' twice: 'the optimal decision rule in Markov state $2$, in which the adjustment cost is lower, makes $k_{t+1}$ a flatter function of $k_t$ in Markov state $2$' (469-471). Line 736-737 reads 'there are different $s_t$-dependent optimal static $k$ level in different states', and line 762 'in the two states Markov jump state'. Also 'Construct matrices that maps' in the docstring at 851.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 3. *Lines:* 200, 205, 262. *Example:* the central display of the lecture - the $N$ interrelated Bellman equations at 204-209 - is malformed in three ways at once. It carries two `&` markers on one row (`& = \max_u - x'R_i x  & + u' Q_i u`), which opens a third alignment column; the leading minus binds only to `x'R_i x`, so `u'Q_i u`, `2u'W_i x` and the quadratic form inside the expectation all enter with the wrong sign; and there is a stray `x` after `(A_i x + B_i u + C_i w)' P_j (A_i x + B_i u + C_i w)` with `+ \rho_j` where the value function form at 197 requires `- \rho_j`. The correctly signed version is two displays later at 217-221, which is how the errors can be identified. Second, the $N$ Markov states are indexed as '$i = 1, \ldots, n$' at 201 and '$\rho_{s_t} = \rho_i, i = 1, \ldots$, n' at 213, but $n$ is the dimension of $x_t$ (57, 72) and $N$ is the number of Markov states (54-55) - two different quantities. Third, the problem is a minimisation of a loss at 94 and 163 and a maximisation of a payoff at 262 and 205, with nothing said about the sign flip in between.
+- **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 3. *Lines:* 45, 53, 71. *Example:* the same long phrase is bolded five times in the first 80 lines: '**Markov jump linear quadratic dynamic programming**' at 37 and again at 45, '**linear quadratic dynamic programming**' at 48-49, '**linear quadratic dynamic programming problem**' at 53 and again at 71. After the first, the bold is not marking a definition but re-emphasising a term the reader has just met. The two italics in the file, *closed loop* (465) and *more nearly periodic* (558), are both correct emphasis, so the convention is understood.
 
 ### Low severity
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 1. *Lines:* 366. *Example:* the lecture turns on the shape of the transition matrix and works through three of them - $\Pi_1$ strictly periodic (367-371), $\Pi_2$ symmetric with parameter $\lambda$ (498-502), $\Pi_3$ asymmetric with $\lambda$ and $\delta$ (567-571) - and there is no diagram of the two-state chain anywhere. Three small state-transition diagrams, or one with labelled arrows, would make 'strictly periodic', 'becomes close to absorbing state' (749-750) and 'more nearly periodic' (558) visible instead of arithmetic the reader has to do on the matrix entries. Every figure in the file plots a decision-rule coefficient; none shows the object that is being varied.
 - **[qe-writing-009 (proposed)]** — Write "IID" — not "i.i.d." or "iid". *Count:* 1. *Lines:* 179. *Example:* i.i.d..
 
 
 ## Strengths
 
-- Links score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The comparative-statics design is systematic in a way few lectures manage: `run` (627-718) is written once and then called eight times, each call changing exactly one primitive - $d$, $f_1$, $f_2$, $\alpha_0$, $\rho$, $\sigma$ (766, 776, 895-925) - so the reader can attribute every difference between figures to one parameter.
+- The reduction of each example to LQ form is shown, not stated: the one-period payoff is rewritten with `\underset{\equiv R(s_t)}{\underbrace{...}}` under the matrix it becomes, and the transition law likewise for $A$, $B$ and $C$ (297-316 for Example 1, 806-841 for Example 2), so `construct_arrays1` (319-353) and `construct_arrays2` (844-885) can be checked entry by entry against the algebra.
+- The distinction between the static optimum $k^*_{s_t} = f_{1,s_t}/(2f_{2,s_t})$ and the dynamic target $k^{target}_{s_t}$ is introduced carefully (736-759), given a reason ('optimal policies are contraction mappings and will push $k_t$ towards a fixed point'), and then plotted against each other with a marked crossover at $\lambda = 0.5$ (664-685) - a genuinely non-obvious result made visible.
+- Section 'Review of useful LQ dynamic programming formulas' (67-131) restates the constant-matrix Riccati equation, the $\rho$ recursion and the $F$ formula immediately before generalising each one, so the reader can see exactly which $\sum_j \Pi_{ij}$ has been inserted where (compare 114-128 against 217-232).
+- Example 2 is a strict extension of Example 1 - one extra state variable $w_t$, one extra term $-w_t k_t$ in the payoff - and the lecture says so at 781-792, reuses `run` unchanged, and only has to introduce a new `state_vec` (889).
 
 ## Recommended actions
 
-1. `qe-math-002` — Use \top for transpose notation (45 occurrences).
-2. `qe-fig-003` — No matplotlib embedded titles (6 occurrences).
-3. `qe-code-002` — Use Unicode symbols for Greek letters in code (8 occurrences).
-4. `qe-ref-001` — Use correct citation style (3 occurrences).
-5. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
-6. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (1 occurrence).
-7. `qe-math-011` (proposed) — Distribution names in plain letters, not \mathcal / \mathbb (1 occurrence).
+1. Repair the Bellman-equation display at 204-209: remove the second `&`, put the whole one-period loss and the whole continuation term inside a single leading minus, delete the stray `x`, and change `+ \rho_j` to `- \rho_j`. It is the equation the entire lecture is about, and as printed its signs do not match the Riccati equation twelve lines below it.
+2. Fix `$| u_{t,2}| > | u_{t,2} |$` at 474 - it should be $|u_{t,2}| > |u_{t,1}|$ - and change '$i = 1, \ldots, n$' at 201 and 213 to $N$, which is what indexes the Markov states.
+3. Convert the 30 transposes to `^\top` (81, 94, 108, 114, 115, 122, 128, 169, 191, 197, 200, 205-207, 217-232) and the two `^{\prime}` spellings at 299 and 809 with them - the file uses both. Note the reported count of 45 overstates the 30 that exist; see scanner_doubts.
+4. Ignore the 8 qe-code-002 findings (409, 509, 519, 536, 578, 602, 647, 703): every one is `beta=β` passed to `qe.LQMarkov`, whose keyword the author cannot rename. They are the whole of the Code deduction; see scanner_doubts.
+5. Figures are the weakest real category (5.5/10): add mystnb caption/name metadata (434, 478), move the 6 `set_title` calls into captions (488, 550, 619, 660, 682, 716) and add `lw=2` to the 12 line plots. While there, note that `run` emits five or six untitled-but-for-`set_title` figures per call and is called eight times, so lines 892-925 produce roughly forty figures against one line of prose each - either interpret them or cut the last four calls.
+6. Convert the raw `python-intro.quantecon.org/lqcontrol.html` URL at 37 to `{doc}`lqcontrol`` (qe-link-002), make the three narrative citations `{cite:t}` (39, 41, 43, qe-ref-001 x3), write `\mathbb{P}` in place of `\Pr` at 288 (qe-math-010 (proposed), proposed), replace `{\cal N}` with `N` at 180 (qe-math-011 (proposed), proposed) and 'i.i.d.' with 'IID' at 179 (qe-writing-009 (proposed), proposed).
+7. Add a two-state transition diagram for $\Pi_1$, $\Pi_2$ and $\Pi_3$; then the PEP8 items above (the unused `Axes3D` import, the mutable list defaults and `[1. ,1.]` spacing, the six inert semicolons, the `+` string concatenation at 673-675) and the 5 double spaces (57, 59, 64, 99, 294).

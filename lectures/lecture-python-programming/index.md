@@ -6,9 +6,10 @@ Style audit of the **lecture-python-programming** series.
 - **Audit date:** 2026-08-21
 - **Corpus snapshot:** `ceec881028`
 - **Lectures audited:** 27
-- **Average overall score:** 8.6 / 10
-- **Average per-category scores:** writing 5.7, math 9.1, code 9.8, figures 7.3, links 9.8, admon 9.9  *(references not in scope for this series)*
+- **Average overall score:** 8.1 / 10
+- **Average per-category scores:** writing 4.1, math 9.0, code 8.5, figures 7.3, links 9.8, admon 9.9  *(references not in scope for this series)*
 - **JAX:** out of scope — the `qe-jax-*` rules target `lecture-jax`.
+- **Judgment-review coverage:** **26 of 27 reviewed** — scores for the unreviewed 1 reflect the 41 measured rules only, so they are not directly comparable with the reviewed ones.
 <!-- /qe:series-meta -->
 
 <!-- qe:series-narrative -->
@@ -30,10 +31,10 @@ series. No other series has that property.
 <!-- qe:series-priority -->
 | Priority | Count | % |
 |----------|-------|---|
-| HIGH     | 5     | 18.5% |
+| HIGH     | 19    | 70.4% |
 | MEDIUM   | 0     | 0.0% |
-| LOW      | 11    | 40.7% |
-| NONE     | 11    | 40.7% |
+| LOW      | 5     | 18.5% |
+| NONE     | 3     | 11.1% |
 <!-- /qe:series-priority -->
 
 ## Top systemic issues across the series
@@ -106,31 +107,31 @@ that lecture. Click a lecture for its full report.
 <!-- qe:series-ranked -->
 | # | Lecture | Writing | Math | Code | Figures | References | Links | Admon | Overall | Priority |
 |---|---------|---|---|---|---|---|---|---|---------|----------|
-| 1 | [about_py](about_py.md) | 4.5 | — | 10 | 7.5 | — | 8 | — | **7.5** | LOW |
-| 2 | [python_by_example](python_by_example.md) | 4 | 9 | 10 | 6.5 | — | 10 | 7.5 | **7.8** | HIGH |
-| 3 | [numpy](numpy.md) | 3.5 | 8.5 | 9 | 7 | — | 10 | 10 | **8.0** | HIGH |
-| 4 | [numba](numba.md) | 4.5 | 7.5 | 10 | 7.5 | — | 9 | 10 | **8.1** | LOW |
-| 5 | [scipy](scipy.md) | 4.5 | 7.5 | 8.5 | 8 | — | 10 | 10 | **8.1** | LOW |
-| 6 | [matplotlib](matplotlib.md) | 5.5 | 10 | 9 | 4.5 | — | 10 | 10 | **8.2** | LOW |
-| 7 | [pandas](pandas.md) | 4.5 | — | 10 | 6.5 | — | 10 | 10 | **8.2** | LOW |
-| 8 | [pandas_panel](pandas_panel.md) | 6.5 | — | 10 | 4.5 | — | 10 | 10 | **8.2** | LOW |
-| 9 | [jax_intro](jax_intro.md) | 4.5 | — | 10 | 7 | — | 10 | 10 | **8.3** | LOW |
-| 10 | [troubleshooting](troubleshooting.md) | 6 | — | — | 9 | — | 10 | — | **8.3** | LOW |
-| 11 | [getting_started](getting_started.md) | 5 | — | 10 | 7 | — | 10 | 10 | **8.4** | LOW |
-| 12 | [need_for_speed](need_for_speed.md) | 4 | — | 10 | 8.5 | — | 10 | 10 | **8.5** | HIGH |
-| 13 | [polars](polars.md) | 6.5 | — | 9 | 7 | — | 10 | 10 | **8.5** | LOW |
-| 14 | [workspace](workspace.md) | 7 | — | 10 | 5.5 | — | 10 | 10 | **8.5** | LOW |
-| 15 | [names](names.md) | 6 | — | 10 | 7 | — | 10 | 10 | **8.6** | NONE |
-| 16 | [python_oop](python_oop.md) | 4 | 10 | 10 | 7.5 | — | 10 | 10 | **8.6** | HIGH |
-| 17 | [autodiff](autodiff.md) | 8 | 7.5 | 10 | 6.5 | — | 10 | 10 | **8.7** | NONE |
-| 18 | [python_essentials](python_essentials.md) | 3.5 | 10 | 10 | — | — | 10 | 10 | **8.7** | HIGH |
-| 19 | [writing_good_code](writing_good_code.md) | 4.5 | 10 | 10 | 7.5 | — | 10 | 10 | **8.7** | NONE |
-| 20 | [functions](functions.md) | 5 | 10 | 10 | 7.5 | — | 10 | 10 | **8.8** | NONE |
-| 21 | [sympy](sympy.md) | 7.5 | 8 | 10 | 10 | — | 8 | 10 | **8.9** | NONE |
-| 22 | [debugging](debugging.md) | 5 | 10 | 10 | 9 | — | 10 | 10 | **9.0** | NONE |
-| 23 | [numpy_vs_numba_vs_jax](numpy_vs_numba_vs_jax.md) | 5.5 | 10 | 10 | 8.5 | — | 10 | 10 | **9.0** | NONE |
-| 24 | [oop_intro](oop_intro.md) | 7 | — | 10 | — | — | 10 | 10 | **9.2** | NONE |
-| 25 | [python_advanced_features](python_advanced_features.md) | 7.5 | — | 10 | 8.5 | — | 10 | 10 | **9.2** | NONE |
+| 1 | [about_py](about_py.md) | 3 | — | 10 | 7.5 | — | 8 | — | **7.1** | HIGH |
+| 2 | [python_by_example](python_by_example.md) | 3 | 9 | 7.5 | 6.5 | — | 10 | 7.5 | **7.2** | HIGH |
+| 3 | [pandas](pandas.md) | 3 | — | 7 | 6.5 | — | 10 | 10 | **7.3** | HIGH |
+| 4 | [pandas_panel](pandas_panel.md) | 3.5 | — | 8.5 | 4.5 | — | 10 | 10 | **7.3** | HIGH |
+| 5 | [jax_intro](jax_intro.md) | 3 | — | 7.5 | 7 | — | 10 | 10 | **7.5** | HIGH |
+| 6 | [numpy](numpy.md) | 3 | 8 | 7 | 7 | — | 10 | 10 | **7.5** | HIGH |
+| 7 | [matplotlib](matplotlib.md) | 4 | 10 | 7 | 4.5 | — | 10 | 10 | **7.6** | HIGH |
+| 8 | [numba](numba.md) | 3 | 7.5 | 8.5 | 7.5 | — | 9 | 10 | **7.6** | HIGH |
+| 9 | [scipy](scipy.md) | 3 | 7.5 | 7 | 8 | — | 10 | 10 | **7.6** | HIGH |
+| 10 | [names](names.md) | 3 | — | 8.5 | 7 | — | 10 | 10 | **7.7** | HIGH |
+| 11 | [workspace](workspace.md) | 4.5 | — | 8.5 | 5.5 | — | 10 | 10 | **7.7** | LOW |
+| 12 | [getting_started](getting_started.md) | 3 | — | 10 | 7 | — | 10 | 10 | **8.0** | HIGH |
+| 13 | [python_oop](python_oop.md) | 3 | 10 | 7.5 | 7.5 | — | 10 | 10 | **8.0** | HIGH |
+| 14 | [autodiff](autodiff.md) | 7 | 7.5 | 7.5 | 6.5 | — | 10 | 10 | **8.1** | LOW |
+| 15 | [polars](polars.md) | 4.5 | — | 9 | 7 | — | 10 | 10 | **8.1** | LOW |
+| 16 | [sympy](sympy.md) | 4 | 8 | 8.5 | 10 | — | 8 | 10 | **8.1** | HIGH |
+| 17 | [functions](functions.md) | 3 | 10 | 8.5 | 7.5 | — | 10 | 10 | **8.2** | HIGH |
+| 18 | [oop_intro](oop_intro.md) | 4 | — | 9 | — | — | 10 | 10 | **8.2** | HIGH |
+| 19 | [troubleshooting](troubleshooting.md) | 5.5 | — | — | 9 | — | 10 | — | **8.2** | LOW |
+| 20 | [need_for_speed](need_for_speed.md) | 3 | — | 10 | 8.5 | — | 10 | 10 | **8.3** | HIGH |
+| 21 | [numpy_vs_numba_vs_jax](numpy_vs_numba_vs_jax.md) | 3 | 10 | 8.5 | 8.5 | — | 10 | 10 | **8.3** | HIGH |
+| 22 | [python_advanced_features](python_advanced_features.md) | 4.5 | — | 8.5 | 8.5 | — | 10 | 10 | **8.3** | LOW |
+| 23 | [python_essentials](python_essentials.md) | 3 | 10 | 8.5 | — | — | 10 | 10 | **8.3** | HIGH |
+| 24 | [writing_good_code](writing_good_code.md) | 4.5 | 10 | 10 | 7.5 | — | 10 | 10 | **8.7** | NONE |
+| 25 | [debugging](debugging.md) | 3.5 | 10 | 10 | 9 | — | 10 | 10 | **8.8** | HIGH |
 | 26 | [status](status.md) | 10 | — | 9 | — | — | 10 | — | **9.7** | NONE |
 | 27 | [intro](intro.md) | 10 | — | — | — | — | 10 | — | **10.0** | NONE |
 <!-- /qe:series-ranked -->

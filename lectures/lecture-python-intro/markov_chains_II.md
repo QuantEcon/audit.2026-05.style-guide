@@ -47,7 +47,7 @@ _None found._
 - Definitions are bolded once, at the point of definition, and never re-bolded: accessible and reachable (61), communicate (63), irreducible (71), ergodicity (189).
 - The ergodicity result is presented as a `prf:theorem` with a labelled equation, and then the lecture immediately gives the two interpretations that make it useful - fraction of time for one worker versus fraction of a population (218-222).
 - The periodic-chain example (278-342) is exactly the right counterexample in the right place: it shows ergodicity holding while asymptotic stationarity fails, and 338-342 states that distinction in one sentence.
-- The indicator is written `\mathbb{1}\{X_t = x\}` with braces around the event throughout (177, 238, 533), matching the proposed qe-math-014 convention, and `\mathbb{1}` is explained at 187.
+- The indicator is written `\mathbb{1}\{X_t = x\}` with braces around the event throughout (177, 238, 533), matching the proposed qe-math-014 (proposed) convention, and `\mathbb{1}` is explained at 187.
 - The inline comment "# Careful: P and p are distinct" at 563 pre-empts exactly the confusion the reader is about to have between the transition matrix and the unemployment probability.
 
 ## Recommended actions

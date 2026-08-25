@@ -5,16 +5,16 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.6 / 10
-- **Priority:** NONE
+- **Overall score:** 8.3 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 7/10  | `qe-writing-001` ×2; `qe-writing-004` ×1. |
-| Math         | 5.5/10 | `qe-math-002` ×10. |
-| Code         | 10/10 | no mechanical violations detected. |
+| Writing      | 6/10  | `qe-writing-001` ×2; `qe-writing-004` ×1; `qe-writing-005` ×1, +2 more. |
+| Math         | 5/10  | `qe-math-002` ×10; `qe-math-009` ×7. |
+| Code         | 9/10  | `qe-code-001` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8/10  | `qe-fig-005` ×2; `qe-fig-008` ×4. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -28,29 +28,35 @@ _None found._
 
 ### High severity
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 10. *Lines:* 338, 361, 362, 466, 469, 498, 508. *Example:* \prime transpose.
+- **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 7. *Lines:* 338, 361, 362, 466, 469, 498, 508. *Example:* the derivative is written two ways in one lecture. Seven displays use the verbose `u^{\prime}` / `v^{\prime}` - {eq}`euler-cep` (338), {eq}`euler_pol` (361-362), {eq}`bellman_FOC` (466), the text at 469, {eq}`bellman_envelope` (498) and {eq}`bellman_v_prime` (508) - while the plain `'` is used for exactly the same object at 396, 399, 422, 446, 483, 495 and in both exercise solutions (643, 649, 655). `u'` renders identically, is four characters shorter and is what the rest of the file already uses, so the `\prime` spelling is decoration; picking one would also remove the collision with the transpose convention that qe-math-002 polices.
 
 ### Medium severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 245, 305. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 4. *Lines:* 251, 307, 308, 309. *Example:* plot() without lw=.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 456, 652. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 501. *Example:* mid-sentence 'Theorem'.
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 2. *Lines:* 115, 411. *Example:* the two things in this lecture a reader is most likely to need a picture of are the two with no picture. '### Trade-off' (115-125) argues from the concavity of $u$ to consumption smoothing in prose alone, and the perturbation at 411-417 - 'reduces consumption at time $t$ to $c^*_t - h$ and increases it in the next period to $c^*_{t+1} + h$', with everything else held fixed - is a two-bar sketch that would make $U'(c^*) = 0$ concrete before four displays of algebra (421-447). The lecture's only two figures (245, 305) both come from the closed-form solution, so the entire Euler-equation half of the file (317-513) is unillustrated.
 
 ### Low severity
-_None found._
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 1. *Lines:* 299. *Example:* `return (1 - β ** (1/γ)) * x` (299) and `return (1 - β**(1 / γ))**(-γ) * u(x, γ)` (240) write the same subexpression $1 - \beta^{1/\gamma}$ two different ways in adjacent cells - spaces around `**` and none around `/` in one, the reverse in the other. PEP8 and this rule both prefer the tight `**`, so 240 is the one to copy.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 1. *Lines:* 513. *Example:* Derivation II ends on the wrong equation. Line 513 says 'Combining this fact with {eq}`bellman_envelope` recovers the Euler equation', where 'this fact' is $u'(c) = v'(x)$ from {eq}`bellman_v_prime` (508). But `bellman_envelope` (495-499) says $v'(x) = \beta v'(x-c)$, so combining the two just returns {eq}`bellman_FOC` (466) - the reader is walked in a circle. The Euler equation needs {eq}`bellman_v_prime` applied one period ahead: $v'(x-c) = u'(\sigma(x-c))$, substituted into {eq}`bellman_FOC`. That step is the whole point of the derivation and it is missing.
+- **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 1. *Lines:* 179. *Example:* 'the value function will satisfy a version of the *Bellman equation*' (179) italicises the term at the point where the lecture first names it - the pattern the rule gives as incorrect. Every other term the lecture introduces is bolded (**feasible** 107, **state variable** 111, **consumption smoothing** 123, **optimal policy** 270, **Euler equation** 323, **functional equation** 374), and the H3 two lines earlier is '### The Bellman equation' (159), so this one is out of step with the file's own convention.
 
 
 ## Strengths
 
-- Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The parameter intuition is set up as a falsifiable guess and then actually checked: 'Here's an educated guess' with two numbered predictions (131-136), a summary claim at 147, and then 288-292 returning to it - 'We guessed that consumption would be decreasing in both parameters. This is in fact the case, as can be seen from {eq}`crra_opt_pol`' - so the reader sees the prediction confirmed against a formula rather than being told.
+- The Euler equation is derived twice by independent routes, each in its own labelled subsection - a perturbation argument (383-449) and an envelope argument from the Bellman equation (451-513) - and each states its own extra assumption up front, differentiability of $U$ at 396 and of $v$ in the note at 455-458.
+- The four `{note}` admonitions carry exactly the material that would otherwise break the main line: the IES gloss (138-145), the warning that the closed form is an artefact of CRRA (223-233), the Gateaux-derivative aside with an explicit 'such knowledge is not assumed' (401-406), and the differentiability reference (455-458).
+- Terms are bolded once, at the point of definition, and never re-bolded - **feasible** (107), the three-item state/control/parameters glossary (111-113), **consumption smoothing** (123), **optimal policy** (270), **Euler equation** (323), **feasible consumption policy** (350), **functional equation** (374) - and *function* at 270 is genuine emphasis rather than a definition in disguise.
+- Both exercise solutions do the algebra in full rather than gesturing at it: exercise 1 (540-622) starts from the linear conjecture and recovers both {eq}`crra_vstar` and {eq}`crra_opt_pol`, which the body had asserted on faith at 210-221, and exercise 2 (634-685) verifies the policy against {eq}`euler_pol` line by line.
 
 ## Recommended actions
 
-1. `qe-math-002` — Use \top for transpose notation (10 occurrences).
-2. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
-3. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
-4. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (1 occurrence).
-5. `qe-fig-008` — Use lw=2 for line charts (4 occurrences).
+1. Do not act on the 10 qe-math-002 findings - every one is a derivative of a scalar function, not a transpose, and inserting `\top` would be wrong. See scanner_doubts; the Math score of 5.5/10 is an artefact. What the same lines do need is one derivative notation: replace `^{\prime}` at 338, 361, 362, 466, 469, 498 and 508 with the `'` the rest of the lecture already uses.
+2. Repair the last step of Derivation II (503-513): apply {eq}`bellman_v_prime` at the next period's state to get $v'(x-c) = u'(\sigma(x-c))$, substitute into {eq}`bellman_FOC`, and cite `bellman_FOC` rather than `bellman_envelope` at 513. As written the derivation closes a loop instead of reaching the Euler equation.
+3. Cite or delete the four orphan equation labels - `cake_objective` (90), `value_fun` (167), `bellman_equality` (474) and `bellman_v_prime` (506) are labelled and never referenced, while `bellman_v_prime` is precisely the one the fixed argument above needs. While there, settle the label naming: `bellman-cep` and `euler-cep` use hyphens, everything else underscores, and `bellman_FOC` is the only one carrying capitals.
+4. Add the two missing figures: a sketch of the perturbation described at 411-417 (consumption at $t$ and $t+1$ before and after, everything else flat), and a concavity picture for '### Trade-off' (115-125) showing why spreading consumption raises $\sum \beta^t u(c_t)$.
+5. Give the 2 figures mystnb caption/name metadata (245, 305), add `lw=2` to the 4 line plots (251, 307, 308, 309), and drop the hand-set `fontsize=12` at 253 and 254 (qe-fig-005 x2, qe-fig-008 x4).
+6. Bold 'Bellman equation' at 179 instead of italicising it, matching the treatment every other defined term in the file gets.
+7. Small cleanups: split the two-sentence paragraphs at 456 and 652 (qe-writing-001 x2), lowercase 'Envelope Theorem' at 501 (qe-writing-004), write `(1 - β**(1/γ))` the same way at 240 and 299, hyphenate 'trade off' at 202 to match 'trade-off' at 22, 25 and 117, and add the missing full stop at the end of line 85.

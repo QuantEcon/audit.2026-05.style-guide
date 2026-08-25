@@ -5,16 +5,16 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `ceec881028`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.6 / 10
+- **Overall score:** 8.0 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 4/10  | `qe-writing-006` ×8; `qe-writing-004` ×4; `qe-writing-008` ×16. |
+| Writing      | 3/10  | `qe-writing-006` ×8; `qe-writing-005` ×7; `qe-writing-004` ×4, +3 more. |
 | Math         | 10/10 | no mechanical violations detected. |
-| Code         | 10/10 | no mechanical violations detected. |
+| Code         | 7.5/10 | `qe-code-001` ×9. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7.5/10 | `qe-fig-005` ×4; `qe-fig-008` ×2; `qe-fig-001` ×1. |
 | References   | N/A   | no citations in this lecture. |
@@ -27,12 +27,16 @@
 _None found._
 
 ### High severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 9. *Lines:* 157, 163, 179, 344, 417, 506, 523, 614, 626. *Example:* the code is the least PEP8-compliant in the series, and it is the code a reader copies. No space after the comma or around the operator in `def earn(w,y): ... return w+y` (157-159) and `def spend(w,x)` (161); `new_wealth = w -x`, spaced on one side only (163); the whole usage block written without spaces around `=` or after commas - `w0=100`, `w1=earn(w0,10)`, `print("w0,w1,w2,w3,w4 = ", w0,w1,w2,w3,w4)` (179-184); a 5-space method body in the re-displayed `earn` (344-345); `self.k =  self.h()` with a double space after `=` (417, and the same in `return  (self.ad ...)` at 497 and 501); `integrand = lambda x: ...` bound to a name instead of a `def` (506, 513); `(1 / self.bd)* x` missing the space before `*` (523); a 2-space class body and 6-space method bodies in `Chaos` (614-634); and `self.x =  self.r * self.x *(1 - self.x)`, both faults on one line (626).
+- **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 7. *Lines:* 80, 90, 94, 101, 106, 187, 241. *Example:* the lecture bolds **class definitions** (51) and **steady state** (377) and italicises everything else it defines, including the same term twice over: 'A *class definition* is a blueprint' (94) contradicts the bold at 51; 'hence called a *method*' (90); 'An *object* or *instance* is a realization of the class' (101); 'collectively referred to as *attributes*' (106); 'A *Class* bundles a set of data tied to a particular *instance*' (187); 'The `__init__` method is a *constructor method*' (241). At 80 the reverse happens - **bundled together** is bolded for emphasis, where the rule asks for italics.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 8. *Lines:* 64, 75, 126, 146, 199, 353, 460, 695. *Example:* H2 Title Case: 'OOP Review' (Review).
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 16. *Lines:* 101, 132, 170, 172, 189, 195, 247, 266, 279, 301, …. *Example:* 2 spaces.
 
 ### Medium severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 439, 549, 646, 660. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 447, 667. *Example:* plot() without lw=.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 3. *Lines:* 154, 189, 195. *Example:* 'Before we do so, in order to indicate some of the power of Classes, we'll define two functions that we'll call `earn` and `spend`' (154) spends 23 words on a lead-in; 'an *instance* will be the name of  particular *person* whose *instance data* consist solely of its wealth' (189) is missing an article and does not agree in number; and 'Taken together,  the instance data and functions  are called *attributes*' (195) redefines a term the lecture already defined 89 lines earlier at 106, in the same words and the same italics.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 193, 239. *Example:* the prose asserts a link between the standalone functions and the class that the code does not have. 'In our example, two functions `earn` and `spend` can be applied to the current instance data' (193) and 'The `earn` and `spend` methods deploy the functions we described earlier' (239) both describe the `Consumer` class at 211-229 as using the `earn`/`spend` defined at 156-168, but the methods reimplement the arithmetic inline (`self.wealth += y`) and never call them. A reader who takes 239 at face value goes looking for a call that is not there.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 4. *Lines:* 154, 209, 297, 765. *Example:* mid-sentence 'Classes'.
 
 ### Low severity
@@ -41,17 +45,18 @@ _None found._
 
 ## Strengths
 
-- Math, Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The Solow class ties code to mathematics: the law of motion is a labelled equation (363-367) and each method is then described by `{eq}` reference to it (384, 385), so `h` and `update` are not just names.
+- Instance state is demonstrated rather than asserted - `c1.__dict__` and `c2.__dict__` are printed side by side (281-287), and `Consumer.__dict__` shows where the methods actually live (317-319).
+- The `self` mechanics are explained by exhibiting the equivalence of `c1.earn(10)` and `Consumer.earn(c1, 10)` (331-338) rather than by analogy.
+- The bifurcation diagram (660-673) is followed by four paragraphs that read it for the reader (675-693), ending on the observation that no value of $r$ gives a three-cycle.
+- The indicator in the ECDF exercise is explained in the sentence immediately after the equation (762-763) - exactly what qe-math-008 asks for - and $F_n$, $F$ keep the uppercase-for-CDF convention of proposed qe-math-015 (proposed).
 
 ## Recommended actions
 
-1. `qe-writing-006` — Capitalize lecture titles properly (8 occurrences).
-2. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (4 occurrences).
-3. `qe-fig-005` — Descriptive figure names for cross-referencing (4 occurrences).
-4. `qe-writing-008` — Remove excessive whitespace between words (16 occurrences).
-5. `qe-fig-008` — Use lw=2 for line charts (2 occurrences).
-6. `qe-fig-001` — Do not set figure size unless necessary (1 occurrence).
+1. Bring the code up to the standard the series teaches (qe-code-001, 9 places above): the consumer functions at 156-184 and the `Chaos` class at 614-634 are the two worst blocks, and both are the first code a reader of this lecture copies.
+2. Lower-case the 8 Title Case headings (64, 75, 126, 146, 199, 353, 460, 695) - qe-writing-006, 8 occurrences.
+3. Settle the emphasis convention: bold the definitions at 90, 94, 101, 106, 187 and 241 to match 51 and 377, and make **bundled together** (80) italic.
+4. Fix the false connection at 193 and 239 - either have the `Consumer` methods call `earn`/`spend` from 156-168, or say plainly that the class reimplements them.
+5. Remove the 16 double spaces in the prose (101, 132, 170, 172, 189, 195, 247, 266, 279, 301, ...) and lower-case 'Classes' (154) and 'Class' (297) - qe-writing-008 and qe-writing-004; see the doubt below before touching 209 and 765.
+6. Add `:name:`/caption metadata to the four code-cell figures (439, 549, 646, 660), set `lw=2` at 447 and 667, and drop `figsize=(9, 6)` at 444 unless that aspect ratio is deliberate - qe-fig-005, qe-fig-008, qe-fig-001.
+7. Repair the small errors: `__init_` -> `__init__` (243), 'Insufficent' -> 'Insufficient' (226, spelled correctly at 165), 'inital' (158), 'Here how we set up' (209), `$c1$` -> `` `c1` `` (251, 253), the comment `# x0 = 0.1 and r = 0.4` where `r` is 4.0 (640), and the anchor `(oop_consumer_class)=` (153), which is referenced nowhere in the corpus and sits on a lead-in paragraph rather than on the class definition at 211.

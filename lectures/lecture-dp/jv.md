@@ -5,16 +5,16 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.8 / 10
-- **Priority:** NONE
+- **Overall score:** 8.0 / 10
+- **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 6/10  | `qe-writing-006` ×3; `qe-writing-001` ×1; `qe-writing-008` ×3. |
-| Math         | 10/10 | no mechanical violations detected. |
-| Code         | 10/10 | no mechanical violations detected. |
+| Writing      | 3.5/10 | `qe-writing-006` ×3; `qe-writing-005` ×2; `qe-writing-003` ×2, +3 more. |
+| Math         | 9.5/10 | `qe-math-009` ×2. |
+| Code         | 7.5/10 | `qe-code-001` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6.5/10 | `qe-fig-005` ×3; `qe-fig-003` ×1; `qe-fig-008` ×4, +1 more. |
 | References   | 9/10  | `qe-ref-001` ×1. |
@@ -27,6 +27,7 @@
 _None found._
 
 ### High severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 6. *Lines:* 205, 247, 287, 308, 329, 378. *Example:* line 205 is the substantive one: `ɛ = 1e-4` inside `__init__` rebinds the constructor's own `ɛ` parameter (195), so `grid_max` (206) and `x_grid` (209) silently ignore whatever the caller passed while `self.ɛ` (198) keeps it - `JVWorker(ɛ=1e-2)` therefore changes the tolerance the operator uses but not the grid it was supposed to change. Beyond that: lines 287 and 308 are 89 characters (E501); a blank line separates `def` from its docstring in `operator_factory` (246-247) and `solve_model` (328-329); and `titles = ["s policy", "ϕ policy",  "value function"]` has two spaces after the second comma (378, E241).
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 3. *Lines:* 45, 130, 359. *Example:* H3 Title Case: 'Model Features' (Features).
 
 ### Medium severity
@@ -34,7 +35,11 @@ _None found._
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 384. *Example:* .set(title=.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 376, 444, 526. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 4. *Lines:* 383, 468, 474, 536. *Example:* plot() without lw=.
+- **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 2. *Lines:* 99, 227. *Example:* `\vee` is defined at 104 as `a \vee b := \max\{a, b\}` purely so it can be used twice, in {eq}`jvbell` (99) and {eq}`defw` (227). The identical quantity is written out as `\max \{ g(x_t, \phi_t), u_{t+1}\}` in {eq}`jd` (84) and as `max(g(x, ϕ), u)` in the code (266, 456), so the join symbol saves nothing, costs the reader a definition to carry, and leaves the lecture using two notations for one operation.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 168. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 4. *Lines:* 87, 143, 166, 395. *Example:* the substitutes prediction is stated three times in almost the same words - 'Our risk-neutral worker should focus on whatever instrument has the highest expected return' (143), 'worker will focus on whichever instrument has the higher expected return' (166), 'Worker switches from one investment strategy to the other depending on relative return' (395) - and the third is presented as a finding from the computation when it is a restatement of the second. The lecture also drops articles into note form at several points, so sentences read as slides rather than prose: 'Agent's objective: maximize expected discounted sum of wages via controls' (87), 'marginal cost of investment via either $\phi$ or $s$ is identical' (141), 'Return from investment via $\phi$ dominates expected return from search' (161), 'worker does better by investing' (397).
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 236, 366. *Example:* lines 236-239 tell the reader that $w$ 'is maximized over all feasible $(s, \phi)$ pairs', but the code does no maximization - it evaluates a fixed 15x15 grid and keeps the best point (283-290, and again 304-312). That is the reason the $s$ and $\phi$ policies in the figure at 376 come out as visible steps rather than smooth curves, and the prose leaves the reader with no way to connect the two. The same three sentences also introduce $w(z)$ with $z = (s, \phi)$ (237), notation that appears nowhere else in the lecture. Separately, the `(jv_policies)=` anchor at 366 sits on the solve cell (368-372), which draws nothing, so 'Referring back to the figure {ref}`here <jv_policies>`' at 486 sends the reader to a cell with no figure - the plotting cell is 376-389.
+- **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 2. *Lines:* 58, 63. *Example:* no term anywhere in the file is bolded, including the two objects the whole model is built from: 'Let $x_t$ denote the time-$t$ job-specific human capital of a worker' (58) and '$s_t$ is search effort, devoted to obtaining new offers from other firms' (63). 'job-specific human capital' then recurs at 50, 69 and 168 as if already established, and 'search effort' at 67. Italic is used correctly and sparingly - once, at 501 (*infinitely* patient) - so the emphasis half of the rule is clean and only the definition half is missing.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 3. *Lines:* 58, 69, 168. *Example:* 2 spaces.
 
 ### Low severity
@@ -43,18 +48,18 @@ _None found._
 
 ## Strengths
 
-- Math, Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The back-of-the-envelope section (129-170) is the best thing in the lecture: two arithmetic comparisons at $x = 0.05$ and $x = 0.4$ (147-159) yield two numbered predictions (165-168), and line 393 returns to them and checks them against the computed policies - the loop is actually closed rather than left for the reader.
+- Probability and density notation is right on all three counts: `\mathbb{P}\{b_{t+1} = 1\}` uses braces for an event (408, qe-math-014 (proposed)), `\mathbb{E} u` carries its braces (150-151, qe-math-010 (proposed)), and lowercase $f$ is the offer density everywhere it appears (69, 99, 118, 227, qe-math-015 (proposed)).
+- Every symbol in the code is the Unicode Greek letter from the math - `α`, `β`, `π`, `ϕ` in the constructor signature (188-195) and in the operator body (260-270) - so `x * (1 - ϕ - s) + β * q` at 270 can be read straight off {eq}`defw`.
+- Exercise 1 hands the reader a `{code-block}` scaffold with the axes already configured (421-428) instead of a bare instruction, and its solution's 45-degree scatter (461-476) answers exactly the two claims (430-433) the reader was asked to argue.
+- Both solutions are gated and collapsed - `solution-start` with `:class: dropdown` at 438-440 and 520-522, each closed by `solution-end` - so no code cell is stranded inside a non-gated directive.
 
 ## Recommended actions
 
-1. `qe-writing-006` — Capitalize lecture titles properly (3 occurrences).
-2. `qe-fig-005` — Descriptive figure names for cross-referencing (3 occurrences).
-3. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
-4. `qe-fig-003` — No matplotlib embedded titles (1 occurrence).
-5. `qe-ref-001` — Use correct citation style (1 occurrence).
-6. `qe-writing-008` — Remove excessive whitespace between words (3 occurrences).
-7. `qe-fig-008` — Use lw=2 for line charts (4 occurrences).
+1. Delete line 205: it discards the `ɛ` the caller passed to `JVWorker` (195), so the grid endpoints at 206 and 209 are computed from a hard-coded tolerance while `self.ɛ` (198) holds a different one. This is the only correctness defect in the file.
+2. Move the `(jv_policies)=` anchor from 366 to the plotting cell at 376 so the back-reference at 486 lands on the figure it names, and cite `{eq}`jvbell`` at 215-218 - `jvbell` (93) is the one labelled equation in the file that is never referenced, and the definition of $Tv$ is exactly where it belongs.
+3. Sentence-case the three Title Case H3s - 'Model Features' (45), 'Back-of-the-Envelope Calculations' (130), 'Solving for Policies' (359) - clear the 3 double spaces (58, 69, 168) and split the two-sentence paragraph at 167-168 (qe-writing-006 x3, qe-writing-008 x3, qe-writing-001 x1). These are the file's highest-weight mechanical findings.
+4. Give the 3 figures mystnb caption/name metadata (376, 444, 526), drop the 3 hand-set `figsize` arguments (380, 461, 534), move the embedded `set(title=...)` at 384 into a caption, and add `lw=2` to the 4 line plots (383, 468, 474, 536).
+5. Replace the prose at 236-239 with what the code actually does - a 15-point grid search over $(s, \phi)$ in the feasible triangle - and say that the coarseness of that grid is why the plotted policies are stepped; then drop the unused $w(z)$ notation at 237.
+6. Replace `\vee` at 99 and 227 with the explicit `\max\{\cdot, \cdot\}` already used in {eq}`jd` (84) and in the code, and delete its definition at 104.
+7. Write the substitutes prediction once (keep 165-166, drop the restatements at 143 and 395), restore the dropped articles at 87, 141, 161 and 397, and turn line 34 into `{cite:t}`Ljungqvist2012`, exercise 6.18, and {cite:t}`Jovanovic1979`` since the citations are the object of 'based on' rather than parenthetical (qe-ref-001). While in the code, factor the grid search duplicated verbatim between `T` (282-290) and `get_greedy` (303-312) into one helper.

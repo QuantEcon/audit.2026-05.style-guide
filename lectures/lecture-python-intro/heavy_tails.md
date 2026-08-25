@@ -49,14 +49,14 @@ _None found._
 ## Strengths
 
 - Every labelled equation is actually cited: `pareto` (428) at 1272 and 1308, `plrt` (699) at 1176, `lln_cch` (1415) at 1445 - no orphan labels and no manual "equation (3)" references.
-- Probability events are written with braces throughout - `\mathbb P\{X > x\}`, `\mathbb P\{\bar X_n \to \mu\}` - so the proposed qe-math-014 convention is already satisfied even though \mathbb P is missing its braces.
+- Probability events are written with braces throughout - `\mathbb P\{X > x\}`, `\mathbb P\{\bar X_n \to \mu\}` - so the proposed qe-math-014 (proposed) convention is already satisfied even though \mathbb P is missing its braces.
 - Density/CDF case discipline is consistent: lowercase $f$ for the density (67, 1094), uppercase $F$ for the CDF and $G$, $\hat G$ for the counter-CDF (488, 593).
 - All four exercises use the gated `exercise` / `solution-start` / `solution-end` form with `:class: dropdown`, and `{numref}` is used to point back at a generated figure (1202).
 - Writes "IID" in the correct form at line 956 rather than "i.i.d.".
 
 ## Recommended actions
 
-1. Add braces to every blackboard operator - `\mathbb P` -> `\mathbb{P}`, `\mathbb E` -> `\mathbb{E}`, `\mathbb R` -> `\mathbb{R}`, `\mathbb 1` -> `\mathbb{1}` - 23 occurrences and the single largest fix in this lecture (qe-math-010, proposed).
+1. Add braces to every blackboard operator - `\mathbb P` -> `\mathbb{P}`, `\mathbb E` -> `\mathbb{E}`, `\mathbb R` -> `\mathbb{R}`, `\mathbb 1` -> `\mathbb{1}` - 23 occurrences and the single largest fix in this lecture (qe-math-010 (proposed), proposed).
 2. Replace spelled-out Greek names in code with Unicode letters (`alpha` -> `α` and similar), 23 occurrences; the exercise solutions at 1337-1368 already do this, so make the earlier cells match them.
 3. Set `lw=2` on the 13 line plots that currently take the matplotlib default, and drop the 8 hand-set `figsize=` arguments unless a specific aspect ratio is needed.
 4. Move the four `ax.set_title(...)` calls (365, 372, 680, 789) out of the code and into mystnb figure captions, and add `mystnb: figure: caption/name` metadata to the two Q-Q plot cells at 665 and 673 so they can be cross-referenced.

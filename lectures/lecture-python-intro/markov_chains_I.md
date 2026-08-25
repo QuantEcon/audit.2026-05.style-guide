@@ -50,14 +50,14 @@ _None found._
 ## Strengths
 
 - Definitions are bolded exactly once at the point of definition and never re-bolded - probability mass function (75), stochastic matrix and Markov matrix (80), states (111), state space and state values (320), distribution (322), Markov chain and Markov property (324), stationary and invariant (700), asymptotic stationarity and global stability (808) - and italic is reserved for genuine emphasis (336, 632, 659).
-- Probability events use braces throughout - `\mathbb P\{X_{t+1} = 0 \,|\, X_t = 1\}` (145), `\mathbb P\{X_{t+1} = y \,|\, X_t\}` (332) - satisfying the proposed qe-math-014 convention without exception.
+- Probability events use braces throughout - `\mathbb P\{X_{t+1} = 0 \,|\, X_t = 1\}` (145), `\mathbb P\{X_{t+1} = y \,|\, X_t\}` (332) - satisfying the proposed qe-math-014 (proposed) convention without exception.
 - Three worked examples (Hamilton's economic states, the unemployment chain, the Imam-Temple political chain) are each given a label at first appearance and then re-used by `{ref}` in later sections (630, 655, 743, 895) rather than restated.
 - The two 3D simplex animations (844-891, 934-985) are a genuinely good pedagogical pairing: the same figure shows convergence for Hamilton's chain and cycling for the periodic chain, so the reader sees exactly what the positivity condition buys.
 - The lecture writes its own simulator first (419-441) and only then introduces `qe.MarkovChain`, and times the two against each other (490, 494) so the reader sees why the library version exists.
 
 ## Recommended actions
 
-1. Add braces to the 15 blackboard operators - `\mathbb P` -> `\mathbb{P}`, `\mathbb E` -> `\mathbb{E}`, `\mathbb N` -> `\mathbb{N}`, `\mathbb R` -> `\mathbb{R}` (qe-math-010, proposed).
+1. Add braces to the 15 blackboard operators - `\mathbb P` -> `\mathbb{P}`, `\mathbb E` -> `\mathbb{E}`, `\mathbb N` -> `\mathbb{N}`, `\mathbb R` -> `\mathbb{R}` (qe-math-010 (proposed), proposed).
 2. Replace `\mathbf 1` with a non-bold ones vector in the exercise 3 solution (1258, 1259, 1261 - seven occurrences) and say in the prose that it denotes a column of ones.
 3. Fix the figure description at 986-994: the four colours are four initial distributions, and the periodic-chain figure plots no stationary distribution; either plot $\psi^*$ as the Hamilton figure does or correct the text.
 4. Rename the three initial distributions at 828 and 847-849 (for example $\psi^a, \psi^b, \psi^c$) so the subscript on $\psi$ keeps meaning time throughout.

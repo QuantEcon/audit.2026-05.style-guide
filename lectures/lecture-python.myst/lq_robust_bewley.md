@@ -5,16 +5,16 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 9.0 / 10
-- **Priority:** NONE
+- **Overall score:** 8.1 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 10/10 | no mechanical violations detected. |
+| Writing      | 6.5/10 | `qe-writing-005` ×2; `qe-writing-002` ×2; `qe-writing-007` ×2. |
 | Math         | 5.5/10 | `qe-math-003` ×13; `qe-math-002` ×1. |
-| Code         | 10/10 | no mechanical violations detected. |
+| Code         | 7.5/10 | `qe-code-001` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7.5/10 | `qe-fig-003` ×2; `qe-fig-001` ×1. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -27,11 +27,15 @@
 _None found._
 
 ### High severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 6. *Lines:* 268, 273, 283, 290, 327, 351. *Example:* six one-line docstrings are written with a single pair of double quotes rather than triple quotes (PEP 257, referenced by PEP 8): `"Worst-case persistence ζ(σ) of marginal utility, eq:rbew-zeta."` (268) and similarly at 273, 283, 290, 327 and 351. The one multi-line docstring in the lecture, at 712-717, does use triple quotes, so the file is inconsistent with itself.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 1. *Lines:* 345. *Example:* apostrophe transpose `}'`.
 - **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 13. *Lines:* 87, 89, 90, 92, 95, 115, 345, 564, 566, 567, …. *Example:* pmatrix environment.
 
 ### Medium severity
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 2. *Lines:* 448, 462. *Example:* .set_title.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 2. *Lines:* 188, 199. *Example:* line 188 is a 45-word sentence inside the proof that states two market-clearing conditions, asserts they are the benchmark conditions, gives the rate at which they hold, and defers the reason to another lecture - four moves in one sentence, in the one place a reader is checking each step; line 199 runs to 38 words with a three-way disjunction at the end. Everywhere else the lecture holds to one claim per paragraph, which is what makes these two visible.
+- **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 2. *Lines:* 404, 46. *Example:* line 404 bolds **its own** for emphasis - 'simulate each type using **its own** solved rule' - while line 314 italicises the identical phrase for the identical purpose, *its own*, ninety lines earlier; and line 46 bolds **same consumption-saving rule** in a bullet where the emphasis is on 'same', not on a term being defined. The lecture's genuine definitions are bolded correctly (**Bewley observational-equivalence locus** 125, **worst-case expected consumption path** 227) and its other emphases are italic (*do* / *believe* 213, *drift away* 235, *not* 528, 615).
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 2. *Lines:* 128, 505. *Example:* the two quantitative claims most in need of a picture get printed tables instead. The observational-equivalence locus $\hat\beta(\sigma)$ (128) is the central object of the lecture and is never drawn, although the lecture computes $\underline\sigma$ at 255 and a table of four types at 300-307 - a plot of $\hat\beta$ over $(\underline\sigma, 0]$ with the breakdown point and the four types marked would carry the whole argument in one frame. Likewise the cross-section check at 505-509 prints four rows of variance against $t\alpha^2$, where the companion lecture lq_bewley_complete_markets plots exactly this comparison.
 
 ### Low severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 1. *Lines:* 441. *Example:* figsize=.
@@ -39,16 +43,18 @@ _None found._
 
 ## Strengths
 
-- Writing, Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
-- Citations distinguish `{cite}` from `{cite:t}` correctly (0 parenthetical, 1 in-text).
+- The computation is a test rather than a demonstration, and the lecture says so: 317-319 state that assuming the common rule would establish nothing, so each type's robust problem is solved separately at 380-381, and then 390-402 move each discount factor one percent off the locus to show the comparison has power.
+- The proof of the proposition marks its own logical limits - 'The argument is a verification: the locus is itself constructed at $R = \beta^{-1}$ ... not that no other rate could' (192) - rather than presenting a verification as a uniqueness result.
+- Lines 201-209 raise and answer the objection a reader will have, that heterogeneous discount factors should let the most patient type accumulate all the wealth, and explain why the offset holds date by date rather than on average.
+- The breakdown point is given an economic reading instead of being left as an algebraic bound: $\zeta(\underline\sigma) = R$ means the feared growth of marginal utility just reaches the gross interest rate, so the worst-case objective stops converging (147-159).
+- The single figure is built to carry the thesis - identical realized paths in the left panel, divergent worst-case forecasts in the right - and its multi-line caption at 433-439 explains both panels, so the figure stands on its own.
 
 ## Recommended actions
 
-1. `qe-math-003` — Use square brackets for matrix notation (13 occurrences).
-2. `qe-fig-003` — No matplotlib embedded titles (2 occurrences).
-3. `qe-math-002` — Use \top for transpose notation (1 occurrence).
-4. `qe-fig-001` — Do not set figure size unless necessary (1 occurrence).
+1. Convert the thirteen `pmatrix` environments to `bmatrix` (87, 89, 90, 92, 95, 115, 345, 564, 566, 567 and the rest) - this is the whole of the lecture's math deduction (qe-math-003, 13 occurrences).
+2. Replace the apostrophe transpose at 345, `\begin{pmatrix}1 & a_t & z_{1t} & z_{2t}\end{pmatrix}'`, with `^\top` (qe-math-002, 1 occurrence, and a very-high-weight rule).
+3. Add a figure of the locus: $\hat\beta(\sigma)$ against $\sigma$ on $(\underline\sigma, 0]$, with $\underline\sigma$ and the four computed types marked - the lecture's organising object is currently visible only as algebra and a printed table.
+4. Turn the cross-section check at 505-509 into a plot of the simulated variance against $t\alpha^2$, matching the figure that makes the same point in lq_bewley_complete_markets.
+5. Drop the two `set_title` calls at 448 and 462 - the cell's mystnb caption already names both panels - and drop `figsize=(11, 4)` at 441 unless the aspect ratio is deliberate (qe-fig-003 x2, qe-fig-001 x1).
+6. Settle the subscript on the marginal-utility state: {eq}`eq:rbew-zeta` writes both $\mu_{s,t+1}^i$ and $\mu_{st}^i$ inside the same display (220), and 215 and 227 differ again - pick one form and use it in all four places.
+7. Split the two long sentences at 188 and 199, change the two emphasis-bolds at 46 and 404 to italic, and give the six one-line docstrings triple quotes.

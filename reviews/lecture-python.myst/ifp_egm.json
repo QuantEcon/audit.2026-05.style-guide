@@ -1,0 +1,34 @@
+{
+  "series": "lecture-python.myst",
+  "lecture": "ifp_egm",
+  "judgment": [
+    {"rule": "qe-writing-003", "count": 2, "lines": [167, 776],
+     "detail": "the value function is introduced with a labelled display, $V \\colon \\mathsf S \\to \\mathbb{R}$ at {eq}`eqvfs_egm` (167-176), and then never used again: optimality is characterised through the Euler equations, the algorithm computes a policy, and $V$ appears nowhere in the code or the figures. The same happens in the sanity check, where 776 announces 'the value function and optimal consumption policy are given by' and `v_star` is defined at 783 but only `c_star` is ever called (798-800)"},
+    {"rule": "qe-writing-002", "count": 3, "lines": [156, 178, 693],
+     "detail": "two sentences do not parse: 'consumption at time $t$ cannot be a function of outcomes are yet to be observed' (156) and 'where the maximization is overall feasible consumption paths' (178, for 'over all'). And the policy figure is presented twice with the same sentence - 'Here's a plot of the optimal consumption policy for each $z$ state' (474) and 'Here's a plot of the optimal policy for each $z$ state' (693) - producing the same picture from the same arrays"},
+    {"rule": "qe-code-001", "count": 4, "lines": [396, 408, 576, 731],
+     "detail": "line 396 closes a hanging-indent signature with `    ) -> np.ndarray:` at 4 spaces, leaving the arguments at body indent (E121/E125); the pattern recurs at 442, 537, 597, 830 and 869. Lambdas are bound to names in eleven places, which PEP8 rules out in favour of `def` (408-410, 549-551, 713, 843-844, 885; E731). Line 576 leaves trailing whitespace, and line 731 puts a space before the comma in `+ y_bar(k) , label=label` (E203)"},
+    {"rule": "qe-math-009", "count": 2, "lines": [120, 382],
+     "detail": "both sets are set in sans-serif for no reason - $\\mathsf Z$ (120, 322, 387) and $\\mathsf S$ (145, 147, 167, 211, 222) - where plain $Z$ and $S$ would sit better beside the $R$, $\\Pi$, $K$ used around them. And the endogenous asset grid is $a_{ij}$ where it is derived (307, 310, 318) but $a^e_{ij}$ where it is described to the reader (382, 385), so the same object carries a superscript in one place and not the other"}
+  ],
+  "strengths": [
+    "The two implementations are cross-validated before either is trusted: the JAX policy is differenced against the NumPy policy and the maximum gap printed (637-649), and only then are they timed against each other (655-689)",
+    "The sanity check at 767-806 is a real validation, not a plausibility check: setting labour income to zero and $R$ to one reduces the problem to CRRA cake eating, and the numerical policy is plotted against the closed-form $c^*(x) = (1 - \\beta^{1/\\gamma}) x$",
+    "The `{note}` at 122-137 explains why this lecture changes the budget-constraint timing relative to its predecessors, what the old convention was for (discretization), and what it costs (a larger state space) - a modelling choice usually left unexplained",
+    "The EGM derivation is careful exactly where it matters: it says why the Euler equation applies only for $s_i > 0$, why $c_{0j} := 0$, and why that anchors the interpolation at the origin (296-313)",
+    "Every display is labelled and then cited: `eqst` (91) at 151, `ee00`/`ee01` (185, 193) at 213, 233 and 253, `eqtv` (216) at 233, `eqeul1` (258) at 271 and 273, `cfequ` (287) at 387 - and the stability condition is enforced by an `assert` at model creation (370)",
+    "The lecture ends by stating plainly where the model fails - the simulated wealth distribution is left-skewed with essentially no right tail, unlike the data (920-928) - which sets up the sequels rather than overselling this one"
+  ],
+  "actions": [
+    "Fix the JAX section's policy figure at 695-702: it plots `a_vec[:, k]` and `c_vec[:, k]`, which are the NumPy arrays from 469, not the JAX solution `a_vec_jax`, `c_vec_jax` computed at 634 - so the figure under '## JAX Implementation' shows the NumPy result, and it duplicates the figure at 476-484 exactly",
+    "Repair the equation reference at 180: `{eq}`eqvfs`` is the label of the value-function display in {doc}`ifp_discrete`, while this lecture's is `eqvfs_egm` (170), so the cross-reference silently points at another lecture's equation",
+    "Sentence-case the nine Title Case headings at 73, 165, 207, 251, 325, 340, 488, 495 and 767 (qe-writing-006)",
+    "Replace the six bare `time.time()` readings at 669-683 with the `quantecon.Timer` context manager, and move the mid-lecture `import time` at 656 into the import cell at 62-70 (qe-code-004)",
+    "Decide what to do with the value function: either compute and plot it, or drop {eq}`eqvfs_egm` (167-176) and `v_star` (783) and characterise optimality through the Euler equations alone",
+    "Figure hygiene: add mystnb name/caption metadata to the five figure cells at 476, 695, 710, 789 and 906 (qe-fig-005), set `lw=2` on the eight plot calls at 479, 480, 697, 698, 731, 733, 797 and 798 (qe-fig-008), and move the embedded title at 916 into a caption (qe-fig-003)",
+    "Code and prose tidy-up: the closing-paren indents and the eleven lambda bindings above; the dead locals `n_z` and `σ` in `compute_asset_stationary` (881, 885); the trailing whitespace at 576 and the space before the comma at 731; `{cite:t}` for the narrative citation at 761 (qe-ref-001); the two broken sentences at 156 and 178; and the double spaces at 49 and 823"
+  ],
+  "scanner_doubts": [
+    "qe-math-002 x3 at ifp_egm.md:260, 261 and 267 flags `u'`, but all three are the derivative of the utility function in the composition $(u' \\circ \\sigma)$, and line 268 of this same lecture states the convention explicitly: 'primes indicate next period states (as well as derivatives)'. The documented derivative-prime exception is not firing when the prime is followed by `\\circ`; the same false positive appears in ifp_advanced.md (179, 182, 213, 234, 235, 294) and ifp_discrete.md (130)"
+  ]
+}

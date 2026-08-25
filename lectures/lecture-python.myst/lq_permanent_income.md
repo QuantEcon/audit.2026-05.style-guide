@@ -5,16 +5,16 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 9.1 / 10
-- **Priority:** NONE
+- **Overall score:** 8.3 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 9.5/10 | `qe-writing-008` ×3. |
+| Writing      | 5.5/10 | `qe-writing-005` ×2; `qe-writing-003` ×3; `qe-writing-002` ×3, +2 more. |
 | Math         | 7.5/10 | `qe-math-003` ×5. |
-| Code         | 10/10 | no mechanical violations detected. |
+| Code         | 8.5/10 | `qe-code-001` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6.5/10 | `qe-fig-003` ×2; `qe-fig-005` ×3; `qe-fig-001` ×3. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -30,28 +30,33 @@ _None found._
 - **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 5. *Lines:* 338, 340, 341, 343, 344. *Example:* pmatrix environment.
 
 ### Medium severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 4. *Lines:* 449, 459, 461, 592. *Example:* arithmetic inside f-strings drops the spaces the same expressions carry in ordinary statements: `{1-β:.4f}` (449), `β*(1-K)` (459, 461) and `(1-β)*σ2` (592), against `(1 - β * (1 - K))` at 476 and `(1 - β) * M @ C_check` at 441. The `**` exponentiations at 454 and 704 are correctly left unspaced.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 478, 565, 650. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 2. *Lines:* 488, 497. *Example:* .set_title.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 543, 629, 697. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 3. *Lines:* 526, 682, 720. *Example:* three sentences run past 40 words and each carries two or three separate stipulations: line 526 sets an initial condition, a shock date, two alternative shock vectors and a no-further-shocks assumption in one breath (45 words); line 682 recalls a result, names its coefficient and states what that coefficient depends on (40 words); line 720 states a limit, its consequence for $K$, the consumer's inference and the comparison with the full-information model (42 words). The rest of the lecture keeps to one short claim per paragraph, so these stand out.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 3. *Lines:* 383, 317, 300. *Example:* line 383 introduces $\Sigma$ inside the Kalman-gain formula and never says what it is - the steady-state conditional variance of the permanent component - so the reader is handed a closed form with an undefined symbol in it, and the sentence at 377 that invokes 'the Kalman filter' carries no {doc} pointer to the Kalman lecture where it is derived; the 'Debt dynamics' section at 313-317 derives $b_{t+1}-b_t = \check{G}(I-\beta\check{A})^{-1}(\check{A}-I)z_t$ as if it were new, although the same law is already the second line of representation {eq}`eq:rep1` at 217, and neither place points at the other; and item 4 of the numbered list at 295 breaks out of its own list to carry an unindented display at 300-302, so the list ends mid-item.
+- **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 2. *Lines:* 360, 606. *Example:* line 360 bolds **zero net saving** as emphasis in the middle of a result statement (the neighbouring emphasis on the same line, *one-for-one*, is correctly italic); line 606 re-bolds **cointegration** in the exercise preamble although the term was already defined at 295, so the bold no longer marks a definition.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 3. *Lines:* 166, 167, 266. *Example:* 2 spaces.
 
 ### Low severity
-_None found._
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 1. *Lines:* 413. *Example:* lines 413-419 make the sharpest empirical point in the lecture - the first difference of income is an MA(1) while the first difference of consumption is IID - and show nothing. The figure at 464 plots only the consumption response, so the contrast that motivates the Muth example (income surprises are partly reversed, consumption changes are not) is left entirely to the algebra.
 
 
 ## Strengths
 
-- Writing, Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
-- Citations distinguish `{cite}` from `{cite:t}` correctly (0 parenthetical, 3 in-text).
+- The four-item numbered summary of representation {eq}`eq:sprob16` at 283-304 is not decorative: each item is discharged later - the state claim by the representation itself, the random-walk claim by {eq}`eq:sprob13`, the box impulse response by the figure at 464, and the cointegration claim by exercise 2.
+- Both state-space representations are given a name and a stated purpose - $(b_t, z_t)$ at 209 with the exogenous/endogenous split spelled out at 223, $(c_t, z_t)$ at 227 with the note that $b_t$ becomes an outcome at 233 - and the closing paragraphs at 508-514 say which sequel lecture consumes which representation.
+- The three `{note}` admonitions each carry a real caveat rather than a restatement: the timing convention that $b_t$ is chosen at $t-1$ (100), the martingale-versus-submartingale contrast that isolates what quadratic utility is doing (152), and the box shape of the impulse response (503).
+- Code and math use the same alphabet: Greek unicode identifiers throughout (β, σ1, σ2, Σ, K, ρ, σε) map one-for-one onto the symbols in the displays, and the matrices keep their mathematical capitals (`M`, `A_check`, `C_check`, `G_check`).
+- Every exercise opens with a one-line statement of what it is for (522, 606, 680) and closes with economic interpretation rather than a plot (595-597, 669-671, 720-724).
 
 ## Recommended actions
 
-1. `qe-math-003` — Use square brackets for matrix notation (5 occurrences).
-2. `qe-fig-003` — No matplotlib embedded titles (2 occurrences).
-3. `qe-fig-005` — Descriptive figure names for cross-referencing (3 occurrences).
-4. `qe-writing-008` — Remove excessive whitespace between words (3 occurrences).
-5. `qe-fig-001` — Do not set figure size unless necessary (3 occurrences).
+1. Replace the five `pmatrix` environments in the two-factor system at 338-344 with `bmatrix` (qe-math-003, 5 occurrences) - this is the only math-notation violation measured in the lecture.
+2. Say what $\Sigma$ is at 383 and link 377 to the Kalman lecture with {doc}; as written the innovations representation arrives with an undefined symbol and an uncited method.
+3. Add a panel to the figure at 464 (or a small figure after 419) contrasting a simulated path of $\Delta y_t$ with $\Delta c_t$, so the MA(1)-versus-IID result at 413-419 is shown rather than only derived.
+4. Tie 'Debt dynamics' back to {eq}`eq:rep1`: state at 313 that the law being derived is the second line of representation 1, instead of deriving it a second time from {eq}`eq:sprob16`.
+5. Add `mystnb: figure: caption/name` metadata to the three solution-cell figures (543, 629, 697) and drop `figsize=(12, 4)` at 478, 565, 650 unless the two-panel aspect is deliberate (qe-fig-005 x3, qe-fig-001 x3).
+6. Remove the two `set_title` calls at 488 and 497 - the cell already carries a mystnb caption, so the title is duplicated inside the image (qe-fig-003, 2 occurrences).
+7. Split the three long sentences at 526, 682, 720; fix the double spaces at 166, 167, 266 (qe-writing-008, 3 occurrences); space the f-string arithmetic at 449, 459, 461, 592; and cite Muth at 374, which is the one named model in the lecture with no reference.
