@@ -2,16 +2,66 @@
   "series": "lecture-python-advanced.myst",
   "lecture": "doubts_or_variability",
   "judgment": [
-    {"rule": "qe-writing-005", "count": 9, "lines": [438, 452, 512, 518, 525, 532, 593, 619, 706],
-     "detail": "nine terms are introduced in italic where the rule asks for bold: the two consumption specifications *geometric-random-walk* (438) and *geometric-trend-stationary* (452), the four agent types at 512, 518, 525 and 532 (each italic label heading its own defining bullet list), the *type I recursion* (593), the *risk-sensitive recursion* (619) and the *multiplier* preference ordering at 706 - the last one is definitional in the same sentence (\"is defined by\") and the same word is correctly bolded at 506, which shows the file knows the convention"},
-    {"rule": "qe-writing-002", "count": 8, "lines": [51, 85, 89, 93, 110, 508, 1013, 1924],
-     "detail": "eight sentences run past 34 words, and the long ones stack up in the Overview where the reader has least context: 51-52 (37), 85 (34), 89 (39), 93 (39) and 110 (36) are five of the first twenty prose lines; 508-509 is 38 words listing three citations inside a subordinate clause; 1013 is 43 words that name three value functions in one breath; 1924 is 36"},
-    {"rule": "qe-math-014", "count": 4, "lines": [1068, 1070, 2906, 2916],
-     "detail": "the detection-error probabilities are written with parentheses round events - `p_A = \\Pr_A(L_T < 0)` (1068), `p_B = \\Pr_B(L_T > 0)` (1070) and the same two again at 2906 and 2916 - where `\\{L_T < 0\\}` is an event and the proposed convention reserves parentheses for sets"},
-    {"rule": "qe-writing-007", "count": 1, "lines": [502],
-     "detail": "the 780 lines from 403 to 1180 carry no figure at all, and the passage that most needs one is the four-agent taxonomy at 502-558: four bullet lists of parameters followed by two prose sentences (541, 543) asserting which types are observationally equivalent to which, in what sense, and for which objects - a small table (type, parameters, penalty vs constraint, equivalence) or a diagram of the equivalences would carry the whole section, which the rest of the lecture then depends on"},
-    {"rule": "qe-code-001", "count": 3, "lines": [141, 152, 1342],
-     "detail": "trailing whitespace on three code lines - `T = 235  ` (141), `R_mean = np.array([...])  ` (152) and `w_star = w_from_θ(θ_star, \"rw\") ` (1342) - PEP8 W291; these are the only PEP8 marks in an otherwise clean set of cells"}
+    {
+      "rule": "qe-writing-005",
+      "count": 9,
+      "lines": [
+        438,
+        452,
+        512,
+        518,
+        525,
+        532,
+        593,
+        619,
+        706
+      ],
+      "detail": "nine terms are introduced in italic where the rule asks for bold: the two consumption specifications *geometric-random-walk* (438) and *geometric-trend-stationary* (452), the four agent types at 512, 518, 525 and 532 (each italic label heading its own defining bullet list), the *type I recursion* (593), the *risk-sensitive recursion* (619) and the *multiplier* preference ordering at 706 - the last one is definitional in the same sentence (\"is defined by\") and the same word is correctly bolded at 506, which shows the file knows the convention"
+    },
+    {
+      "rule": "qe-writing-002",
+      "count": 8,
+      "lines": [
+        51,
+        85,
+        89,
+        93,
+        110,
+        508,
+        1013,
+        1924
+      ],
+      "detail": "eight sentences run past 34 words, and the long ones stack up in the Overview where the reader has least context: 51-52 (37), 85 (34), 89 (39), 93 (39) and 110 (36) are five of the first twenty prose lines; 508-509 is 38 words listing three citations inside a subordinate clause; 1013 is 43 words that name three value functions in one breath; 1924 is 36"
+    },
+    {
+      "rule": "qe-math-014",
+      "count": 4,
+      "lines": [
+        1068,
+        1070,
+        2906,
+        2916
+      ],
+      "detail": "the detection-error probabilities are written with parentheses round events - `p_A = \\Pr_A(L_T < 0)` (1068), `p_B = \\Pr_B(L_T > 0)` (1070) and the same two again at 2906 and 2916 - where `\\{L_T < 0\\}` is an event and the proposed convention reserves parentheses for sets"
+    },
+    {
+      "rule": "qe-writing-007",
+      "count": 1,
+      "lines": [
+        502
+      ],
+      "detail": "the 780 lines from 403 to 1180 carry no figure at all, and the passage that most needs one is the four-agent taxonomy at 502-558: four bullet lists of parameters followed by two prose sentences (541, 543) asserting which types are observationally equivalent to which, in what sense, and for which objects - a small table (type, parameters, penalty vs constraint, equivalence) or a diagram of the equivalences would carry the whole section, which the rest of the lecture then depends on"
+    },
+    {
+      "rule": "qe-code-001",
+      "count": 3,
+      "lines": [
+        141,
+        152,
+        1342
+      ],
+      "detail": "trailing whitespace on three code lines - `T = 235  ` (141), `R_mean = np.array([...])  ` (152) and `w_star = w_from_θ(θ_star, \"rw\") ` (1342) - PEP8 W291; these are the only PEP8 marks in an otherwise clean set of cells"
+    }
   ],
   "strengths": [
     "All eleven exercises use `{exercise}` with a labelled `{solution-start}` / `{solution-end}` pair and `:class: dropdown`, and the body of the lecture hands work to them by label at the point it skips a step - line 619 says \"{ref}`Exercise 3 <dov_ex3>` asks you to verify this step\" instead of leaving a gap",
@@ -28,7 +78,7 @@
     "Add a table or diagram of the four agent types near 502 giving each one's parameters and its equivalence class, and reference the figures by `{numref}` - the file names ten figures and cites none of them, so the prose still says \"the following figure\" (1327) and \"the left panel\" (1329) where a numbered reference would do",
     "Write the four detection-error probabilities as events in braces - `\\Pr_A\\{L_T < 0\\}` at 1068 and 2906, `\\Pr_B\\{L_T > 0\\}` at 1070 and 2916 (qe-math-014, proposed)",
     "Drop the nine `figsize=` overrides at 363, 1182, 1276, 1346, 1453, 1785, 1899, 1951 and 2107 and let the theme set figure size (qe-fig-001, 9 occurrences)",
-    "Sweep the small items: `\\mathbf{1}` at 265, 270, 2193, 2195 and 2206 should be a plain $1$ with the ones-vector convention explained where it first appears (qe-math-004, 6 occurrences); `iid` to `IID` at 984, 2861, 3013 (qe-writing-009, proposed); the apostrophe transpose `W'` at 2537 to `W^\\top` (qe-math-002); split the two-sentence paragraphs at 2352, 2582, 2778 and 3115 (qe-writing-001); and strip the trailing whitespace on 38 lines, including the three code lines at 141, 152 and 1342"
+    "Sweep the small items: `\\mathbf{1}` at 265, 270, 2193, 2195 and 2206 should be `\\mathbb{1}` with the ones-vector convention spelled out where it first appears, as `math.md` asks (qe-math-004, qe-math-008; 6 occurrences); `iid` to `IID` at 984, 2861, 3013 (qe-writing-009, proposed); the apostrophe transpose `W'` at 2537 to `W^\\top` (qe-math-002); split the two-sentence paragraphs at 2352, 2582, 2778 and 3115 (qe-writing-001); and strip the trailing whitespace on 38 lines, including the three code lines at 141, 152 and 1342"
   ],
   "scanner_doubts": [
     "doubts_or_variability.md:339 - qe-fig-004 flags the caption as Title Case, but the caption is \"SDF moments and Hansen-Jagannathan bound\": only the first word, the acronym SDF and the proper noun Hansen-Jagannathan are capitalised, which is exactly the sentence-case convention the rule asks for. The hyphenated surname pair looks like what triggered it, so this single hit is probably a false positive."

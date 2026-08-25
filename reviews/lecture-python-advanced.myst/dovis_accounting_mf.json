@@ -1,0 +1,29 @@
+{
+  "series": "lecture-python-advanced.myst",
+  "lecture": "dovis_accounting_mf",
+  "judgment": [
+    {"rule": "qe-writing-002", "count": 10, "lines": [66, 282, 375, 995, 1565, 1580, 1597, 1599, 2042, 2048],
+     "detail": "twenty-four sentences in this file run past 34 words and ten of them past 42: 2048 is 56 words comparing Colombia and Chile on two channels at once, 1580 is 55, 1565 and 1599 are 53, 2042 is 51, 1597 is 50, 66 is 48, and 282, 375 and 995 are 42-43 each; the pattern is a main clause followed by two or three subordinate clauses that each deserve their own sentence, and it is worst exactly where the argument is hardest (the disinflation mechanics at 1565-1599 and the case studies at 2042-2048)"},
+    {"rule": "qe-writing-007", "count": 1, "lines": [409],
+     "detail": "the Ramsey and Markov benchmarks are set up at 350-427 as the two poles the model lives between - line 409 says \"The full model *interpolates* between these two extremes depending on the cost $\\xi_t$\" - and that interpolation is never drawn; the section is entirely prose and bullet lists, the next figure (497) is about indirect utility, and no later figure plots inflation or debt against $\\xi$ with the two benchmarks marked, although the model is solved on a $\\xi$ grid and the values needed are already in hand"}
+  ],
+  "strengths": [
+    "Figures are named and then actually referenced: `fig-credibility-targets` is cited at 308 before it appears, `fig-fundamental` at 1584 and 1734, `fig-institutional` at 1756 - this is the only lecture in the series that uses `{numref}` as a matter of course",
+    "The lecture is explicit about where its stripped-down implementation departs from the paper: 1576-1590 states that the debt-issuance policy shifts the wrong way, names the two reasons (fixed $\\theta$ instead of an AR(1), coarse grids putting debt near the lower bound at roughly 15% of GDP against the paper's 34.9%), and says which of the two experiments is unaffected",
+    "Bold marks definitions and italic marks emphasis with almost no slippage across 2201 lines - **fiscal dominance** / **monetary dominance** (43), **real primary surplus** (165), **regime indicator** (284), **fundamental** / **institutional disinflation** (1557) against *endogenous* (263), *state-contingent* (366), *interpolates* (409), *upward* (1578)",
+    "The reason for dampened value function iteration is derived rather than asserted: 995-997 explains that the value function feeds back within the period through $J$ and the surplus, so $T$ need not be a contraction, which is why $\\omega = 0.01$ appears in `solve_model` at 1002",
+    "Code uses Unicode Greek throughout (`θ`, `φ`, `ξ`, `χ`, `ψ`, `β_hat`), keeps JAX kernels small and jitted, and reports the Bellman residual it converged on (1044-1049) instead of silently returning"
+  ],
+  "actions": [
+    "Split the ten 42-plus-word sentences listed above - starting with 2048, 1580, 1599 and 1565 - into one clause per sentence; at 24 sentences over 34 words this is the dominant readability issue in the lecture",
+    "Replace the 17 `\\Pr` operators with `\\mathbb{P}` at 132, 137, 193, 207, 314, 323, 331, 360, 363, 383 and 7 more (qe-math-010, proposed)",
+    "Move the nine embedded matplotlib titles at 1619, 1624, 1628, 1641, 1646, 1650, 1654, 1658 and 1663 into figure captions (qe-fig-003), add `mystnb: figure: caption/name` to the two case-study cells at 2116 and 2165 so Colombia and Chile can be cross-referenced like the other figures (qe-fig-005), and set `lw=2` on the eight `plot` calls at 1623, 1627, 1631, 1645, 1649, 1653, 1657 and 1662 (qe-fig-008)",
+    "Add a figure for the Ramsey-Markov interpolation claimed at 409 - inflation and debt as functions of $\\xi$ with the two benchmark levels marked - which would also give the reader something to hold on to across the 250 prose-and-code lines of the computational algorithm section",
+    "Drop the seven `figsize=` overrides at 504, 604, 1226, 1618, 1976 and 2132, 2166 (qe-fig-001) and restore the spines removed at 666-667 (qe-fig-007)",
+    "Sweep the small items: `\\mathcal{N}` to plain `N` at 1775 (qe-math-011, proposed), `i.i.d.` to `IID` at 688 (qe-writing-009, proposed), split the two-sentence paragraphs at 2054, 2062 and 2074 (qe-writing-001), and collapse the double space at 272 (qe-writing-008)"
+  ],
+  "scanner_doubts": [
+    "dovis_accounting_mf.md:693,694,695,740,746,752,753 - qe-math-002 reports 11 apostrophe transposes and is the second-largest contributor to the 3/10 Math score, but every one of them is a next-period prime: `\\xi_1'` (693-695), `b'`, `\\phi'` and `s_1'` (740, 746, 752, 753). None is a transpose. All 11 hits look like false positives. This is the same defect I saw in discrete_dp (six `s'` hits), so it is systemic rather than a one-file accident - the transpose check needs to exclude primes on scalar state variables, or at least require a matrix-shaped symbol to its left.",
+    "dovis_accounting_mf.md:680 - qe-writing-006 flags the H2 \"The full model with Gumbel shocks\" as Title Case, but the only capitals are the leading \"The\" and the proper noun \"Gumbel\" (as in the Gumbel distribution). This heading is already in the sentence case the rule requires, so the single hit looks like a false positive."
+  ]
+}

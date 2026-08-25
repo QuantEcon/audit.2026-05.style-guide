@@ -19,9 +19,9 @@ are LOW or NONE.
 | Attention | Series | Score | Needs work | Weakest categories |
 |-----------|--------|-------|-----------|--------------------|
 | 🔴 **High** | [lecture-dp](lecture-dp/index.md) | 7.8 | 28 / 52 | Writing (5.6), Math (6.3) |
+| 🔴 **High** | [lecture-python-advanced.myst](lecture-python-advanced.myst/index.md) | 7.9 | 35 / 68 | Math (5.9), Figures (6.3) |
 | 🔴 **High** | [lecture-python-programming](lecture-python-programming/index.md) | 8.1 | 19 / 27 | Writing (4.1), Figures (7.3) |
 | 🟠 **Some** | [lecture-python.myst](lecture-python.myst/index.md) | 8.1 | 57 / 145 | Writing (5.9), Figures (6.5) |
-| 🟠 **Some** | [lecture-python-advanced.myst](lecture-python-advanced.myst/index.md) | 8.1 | 30 / 68 | Math (5.9), Figures (6.3) |
 | 🟠 **Some** | [lecture-python-intro](lecture-python-intro/index.md) | 8.4 | 12 / 56 | Writing (6.3), Figures (6.5) |
 <!-- /qe:focus -->
 
@@ -113,7 +113,8 @@ in Title Case and over the six-word limit. The other two drifted by under three 
 
 ## How this pass was measured
 
-41 of the 49 rules are checked by program, over a **pinned corpus snapshot** — one commit
+41 of the 49 rules — 36 of the 42 in-scope registry rules plus 5 of the 7 proposed — are
+checked by program, over a **pinned corpus snapshot**: one commit
 per series, recorded in every report header and in
 [`lectures/data/snapshot.json`](https://github.com/QuantEcon/audit.2026-05.style-guide/blob/main/lectures/data/snapshot.json).
 Scores and priority buckets are then derived arithmetically from the rubric. The 8
@@ -126,10 +127,10 @@ violation was measured in it*, not that a human declared it perfect.
 ```{warning}
 <!-- qe:review-coverage -->
 **Review coverage is incomplete in this pass, and it moves the scores.** The judgment
-layer has reached **166 of the 348 lectures**; a lecture assessed against more rules
+layer has reached **169 of the 348 lectures**; a lecture assessed against more rules
 scores lower — not because it is worse, but because more of it was looked at. The gap is
-large enough to matter: the 166 reviewed average **7.88** with 54 % HIGH, the 182
-unreviewed **8.30** with 29 % HIGH.
+large enough to matter: the 169 reviewed average **7.82** with 57 % HIGH, the 179
+unreviewed **8.30** with 28 % HIGH.
 <!-- /qe:review-coverage -->
 
 So **the cross-series comparison below is provisional** wherever coverage differs between

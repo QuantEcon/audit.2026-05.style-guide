@@ -20,8 +20,9 @@ drill-down report for every audited lecture.
   `lecture-dp`
 - **7 in-scope rule categories**: Writing, Math, Code, Figures, References, Links,
   Admonitions (the 7 `qe-jax-*` rules are out of scope — they target `lecture-jax`)
-- **41 of the 49 rules are checked by program**; the remaining 8 are genuine judgment
-  calls and are reviewed by reading
+- **41 of the 49 rules are checked by program** — 36 of the 42 in-scope registry rules
+  plus 5 of the 7 proposed in [issue #18](https://github.com/QuantEcon/action-style-guide/issues/18);
+  the remaining 8 are genuine judgment calls and are reviewed by reading
 - **Corpus snapshot pinned per series** — see
   [`lectures/data/snapshot.json`](lectures/data/snapshot.json)
 
@@ -31,11 +32,11 @@ drill-down report for every audited lecture.
 | Series | Lectures | Overall | HIGH | weakest category |
 |--------|---------:|--------:|-----:|------------------|
 | lecture-dp | 52 | 7.8 | 27 | Writing (5.6) |
+| lecture-python-advanced.myst | 68 | 7.9 | 35 | Math (5.9) |
 | lecture-python-programming | 27 | 8.1 | 19 | Writing (4.1) |
 | lecture-python.myst | 145 | 8.1 | 55 | Writing (5.9) |
-| lecture-python-advanced.myst | 68 | 8.1 | 29 | Math (5.9) |
 | lecture-python-intro | 56 | 8.4 | 12 | Writing (6.3) |
-| **Corpus** | **348** | **8.1** | **142** | Writing (6.1) |
+| **Corpus** | **348** | **8.1** | **148** | Writing (5.9) |
 <!-- /qe:readme-scoreboard -->
 
 Every HIGH-priority lecture in this pass is HIGH because of a single weak category

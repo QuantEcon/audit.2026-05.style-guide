@@ -5,16 +5,16 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.6 / 10
-- **Priority:** NONE
+- **Overall score:** 8.1 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 7.5/10 | `qe-writing-001` ×4; `qe-writing-008` ×7. |
-| Math         | 10/10 | no mechanical violations detected. |
-| Code         | 7.5/10 | `qe-code-002` ×9. |
+| Writing      | 6/10  | `qe-writing-001` ×4; `qe-writing-002` ×3; `qe-writing-005` ×1, +1 more. |
+| Math         | 9/10  | `qe-math-009` ×7. |
+| Code         | 6/10  | `qe-code-002` ×9; `qe-code-001` ×5. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7/10  | `qe-fig-005` ×5; `qe-fig-008` ×3; `qe-fig-002` ×2. |
 | References   | 8.5/10 | `qe-ref-001` ×3. |
@@ -27,8 +27,10 @@
 _None found._
 
 ### High severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 5. *Lines:* 440, 471, 482, 503, 585. *Example:* lines 471, 482 and 503 bind lambdas to names (`Tp`, `p_func`, `f`) where PEP8 asks for `def` (E731) - none of the three is closer to mathematical notation; the `__init__` signature at 440-443 opens arguments on the same line as `(` and then continues at 12 spaces instead of aligning with `self` (E128); line 585 indents the loop body 3 spaces instead of 4.
 - **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 9. *Lines:* 442, 445, 463, 471, 502, 503, 583, 585. *Example:* spelled-out `delta`.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 145, 165, 529, 548, 627. *Example:* {figure} without :name:.
+- **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 7. *Lines:* 304, 308, 309, 310, 324, 429, 451. *Example:* the set of candidate price functions is written `\mathcal P` throughout (defined at 304, then used at 308-310, 324, 429, 451); plain `P` is unused anywhere in the lecture, so this is the exact case the rule names - `$P$` instead of `$\mathcal{P}$` when freely choosing.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 7. *Lines:* 68, 278, 301, 424, 570, 623. *Example:* 2 spaces.
 
 ### Medium severity
@@ -36,25 +38,26 @@ _None found._
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 537, 555, 638. *Example:* plot() without lw=.
 - **[qe-ref-001]** — Use correct citation style. *Count:* 3. *Lines:* 306, 354, 381. *Example:* {cite} in narrative flow: 'In {cite}`'.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 4. *Lines:* 89, 278, 570, 622. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 3. *Lines:* 105, 173, 213. *Example:* line 173 is a 45-word sentence that states the recursive structure and its one qualification in a single breath; line 105 is 39 words carrying the pyramid analogy plus its cost implication; line 213 is 35 words joining the free-entry assumption to its zero-profit consequence - each splits cleanly into two sentences (the quotation at 89-91 is 50 words but is a direct quote from Coase and should stay intact).
 
 ### Low severity
-_None found._
+- **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 1. *Lines:* 87. *Example:* line 87 uses bold for emphasis on a rhetorical question - `**what determines the size of firms**?` - which is the reverse of the rule; every other bold in the file (184, 192, 233, 241, 268, 417, 598) correctly marks a definition, so this is the one outlier.
 
 
 ## Strengths
 
-- Math, Links, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The verbal Coase quotation introduced at 89-91 is deliberately closed at 399-405: the same passage is re-quoted right after the marginal conditions {eq}`coase_env` and {eq}`coase_foc` are derived, so the reader sees the model reproduce the prose argument.
+- Bold is reserved for the six formal definitions the lecture actually needs - allocation (233), feasible (241), equilibrium (268), Coase-Euler equation (417), value added (598), plus the two cost concepts at 184 and 192 - and italic carries the emphasis (39, 71, 97-98, 169, 204).
+- Every labelled equation is genuinely used: `coase_env` and `coase_foc` are combined at 407, `coase_deft` is cited at 431, `coase_ralloc` at 352 - no label is dead weight.
+- The formal-definition section is explicitly marked skippable on first reading (line 231), which lets the informal three-condition definition at 221-225 carry the narrative.
+- Both exercises use gated `{exercise-start}` / `{solution-start}` with `:class: dropdown`, and exercise 2's solution answers the intuition question in prose before it plots anything (613-620).
 
 ## Recommended actions
 
-1. `qe-fig-005` — Descriptive figure names for cross-referencing (5 occurrences).
-2. `qe-code-002` — Use Unicode symbols for Greek letters in code (9 occurrences).
-3. `qe-writing-001` — Use one sentence per paragraph (4 occurrences).
-4. `qe-ref-001` — Use correct citation style (3 occurrences).
-5. `qe-writing-008` — Remove excessive whitespace between words (7 occurrences).
-6. `qe-fig-008` — Use lw=2 for line charts (3 occurrences).
-7. `qe-fig-002` — Prefer code-generated figures (2 occurrences).
+1. Rename the spelled-out `delta` to Unicode `δ` in the nine places at 442, 445 (twice), 463, 471, 502, 503, 583 and 585 - the prose calls it $\delta$ everywhere, so the code is the only place the name is spelled out (qe-code-002, 9 occurrences).
+2. Add `:name:` to the two `{figure}` directives at 145 and 165 and `mystnb: figure:` metadata to the three generated plots at 535, 554 and 637, then reference them with `{numref}` - line 143 currently says "the figure below" instead of naming it (qe-fig-005, 5 occurrences).
+3. Regenerate `subcontracting.png` (145) and `allocation.png` (165) as code cells so they are versioned with the lecture rather than committed as static PNGs (qe-fig-002, 2 occurrences).
+4. Fix the two typos that survive in the narrative: `Coases ideas` at 121 needs an apostrophe, and `intution` at 602 is misspelled.
+5. Correct line 391 - it calls $s$ the "upstream boundary" of the minimizing firm, but the whole surrounding argument (including the identical minimization at 389) uses $s$ as the firm's downstream boundary and $t$ as its choice of upstream boundary; as written the sentence contradicts the model.
+6. Replace the three named lambdas at 471, 482 and 503 with `def`, align the `__init__` continuation lines at 441-443, and re-indent the loop body at 585 to 4 spaces.
+7. Sweep the remaining mechanical items: split the two-sentence paragraphs at 89, 278, 570 and 622-623 (qe-writing-001, 4 occurrences), collapse the double spaces at 68, 278 (twice), 301, 424, 570 and 623 (qe-writing-008, 7 occurrences), move the three narrative `{cite}` calls at 306, 354 and 381 out of the sentence flow (qe-ref-001, 3 occurrences), and set `lw=2` on the plots at 537, 555 and 638 (qe-fig-008, 3 occurrences).

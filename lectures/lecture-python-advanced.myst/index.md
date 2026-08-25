@@ -6,10 +6,10 @@ Style audit of the **lecture-python-advanced.myst** series.
 - **Audit date:** 2026-08-19
 - **Corpus snapshot:** `b83d6da399`
 - **Lectures audited:** 68
-- **Average overall score:** 8.1 / 10
-- **Average per-category scores:** writing 7.3, math 5.9, code 9.3, figures 6.3, references 9.2, links 9.2, admon 10.0
+- **Average overall score:** 7.9 / 10
+- **Average per-category scores:** writing 6.6, math 5.9, code 8.9, figures 6.3, references 9.2, links 9.2, admon 10.0
 - **JAX:** out of scope — the `qe-jax-*` rules target `lecture-jax`.
-- **Judgment-review coverage:** **13 of 68 reviewed** — scores for the unreviewed 55 reflect the 41 measured rules only, so they are not directly comparable with the reviewed ones.
+- **Judgment-review coverage:** **16 of 68 reviewed** — scores for the unreviewed 52 reflect the 41 measured rules only, so they are not directly comparable with the reviewed ones.
 <!-- /qe:series-meta -->
 
 <!-- qe:series-narrative -->
@@ -33,10 +33,10 @@ this series stops being the outlier.
 <!-- qe:series-priority -->
 | Priority | Count | % |
 |----------|-------|---|
-| HIGH     | 29    | 42.6% |
-| MEDIUM   | 1     | 1.5% |
+| HIGH     | 35    | 51.5% |
+| MEDIUM   | 0     | 0.0% |
 | LOW      | 20    | 29.4% |
-| NONE     | 18    | 26.5% |
+| NONE     | 13    | 19.1% |
 <!-- /qe:series-priority -->
 
 ## Top systemic issues across the series
@@ -102,61 +102,61 @@ that lecture. Click a lecture for its full report.
 | # | Lecture | Writing | Math | Code | Figures | References | Links | Admon | Overall | Priority |
 |---|---------|---|---|---|---|---|---|---|---------|----------|
 | 1 | [hs_recursive_models](hs_recursive_models.md) | 3 | 3 | — | — | 8.5 | 8 | — | **5.6** | HIGH |
-| 2 | [knowing_forecasts_of_others](knowing_forecasts_of_others.md) | 4 | 3 | 10 | 9 | 7.5 | 8 | — | **6.9** | HIGH |
-| 3 | [match_transport](match_transport.md) | 7 | 7.5 | 7.5 | 3 | 8.5 | 8 | — | **6.9** | HIGH |
-| 4 | [asset_pricing_lph](asset_pricing_lph.md) | 5.5 | 3 | 7 | 7.5 | 8.5 | 7.5 | 10 | **7.0** | HIGH |
-| 5 | [cons_news](cons_news.md) | 5.5 | 4.5 | 8.5 | 6 | 10 | 7.5 | — | **7.0** | MEDIUM |
-| 6 | [entropy](entropy.md) | 5.5 | 4 | — | 8.5 | 8.5 | 8.5 | — | **7.0** | HIGH |
-| 7 | [markov_jump_lq](markov_jump_lq.md) | 8.5 | 3 | 7.5 | 5.5 | 8.5 | 9 | — | **7.0** | HIGH |
-| 8 | [black_litterman](black_litterman.md) | 5 | 3 | 10 | 4 | 10 | 8.5 | 10 | **7.2** | HIGH |
-| 9 | [smoothing](smoothing.md) | 6.5 | 4.5 | 10 | 5 | 10 | 7.5 | — | **7.2** | LOW |
-| 10 | [tax_smoothing_1](tax_smoothing_1.md) | 8.5 | 4.5 | 7.5 | 6 | 7.5 | 9 | — | **7.2** | LOW |
-| 11 | [rob_markov_perf](rob_markov_perf.md) | 8 | 4 | 7.5 | 8 | 9 | 7.5 | — | **7.3** | HIGH |
-| 12 | [tax_smoothing_2](tax_smoothing_2.md) | 9 | 4 | 8.5 | 4 | 8.5 | 10 | — | **7.3** | HIGH |
-| 13 | [robustness](robustness.md) | 6 | 3 | 9 | 6.5 | 10 | 7.5 | 10 | **7.4** | HIGH |
-| 14 | [BCG_incomplete_mkts](BCG_incomplete_mkts.md) | 5.5 | 5 | 10 | 4.5 | 10 | 10 | — | **7.5** | LOW |
-| 15 | [discrete_dp](discrete_dp.md) | 8.5 | 4 | 8 | 6 | 9 | 7 | 10 | **7.5** | HIGH |
-| 16 | [subjective_beliefs_business_cycles](subjective_beliefs_business_cycles.md) | 4.5 | 3 | 9 | 7 | 9 | 10 | 10 | **7.5** | HIGH |
-| 17 | [additive_functionals](additive_functionals.md) | 9 | 4 | 10 | 3.5 | 9 | 7.5 | 10 | **7.6** | HIGH |
-| 18 | [dovis_accounting_mf](dovis_accounting_mf.md) | 6 | 3 | 10 | 4.5 | 10 | 10 | 10 | **7.6** | HIGH |
-| 19 | [dyn_stack](dyn_stack.md) | 8 | 5 | 8.5 | 4.5 | 10 | 7.5 | 10 | **7.6** | LOW |
-| 20 | [risk_aversion_or_mistaken_beliefs](risk_aversion_or_mistaken_beliefs.md) | 6.5 | 3 | 10 | 3.5 | 10 | 10 | 10 | **7.6** | HIGH |
-| 21 | [tsyrennikov_2013](tsyrennikov_2013.md) | 6.5 | 3 | 9 | 5 | 10 | 10 | 10 | **7.6** | HIGH |
-| 22 | [calvo](calvo.md) | 6 | 5.5 | 9 | 7 | 8.5 | 8 | 10 | **7.7** | LOW |
-| 23 | [orth_proj](orth_proj.md) | 6 | 3 | 10 | 7 | 10 | 8 | 10 | **7.7** | HIGH |
-| 24 | [classical_filtering](classical_filtering.md) | 6.5 | 3.5 | 10 | — | 8.5 | 8 | 10 | **7.8** | HIGH |
-| 25 | [stationary_densities](stationary_densities.md) | 7 | 6.5 | 8.5 | 6 | 9 | 7.5 | 10 | **7.8** | LOW |
-| 26 | [cagan_rational_expectations](cagan_rational_expectations.md) | 9.5 | 3 | 8.5 | 5.5 | 8.5 | 10 | 10 | **7.9** | HIGH |
-| 27 | [five_preferences](five_preferences.md) | 6.5 | 10 | 10 | 4 | 7 | 10 | — | **7.9** | HIGH |
-| 28 | [opt_tax_recur](opt_tax_recur.md) | 7 | 5 | 10 | 4.5 | 9 | 10 | 10 | **7.9** | LOW |
-| 29 | [chang_ramsey](chang_ramsey.md) | 6 | 7.5 | 10 | 6 | 8.5 | 10 | — | **8.0** | LOW |
-| 30 | [gorman_heterogeneous_households](gorman_heterogeneous_households.md) | 4 | 8.5 | 8.5 | 5 | 10 | 10 | 10 | **8.0** | HIGH |
-| 31 | [growth_in_dles](growth_in_dles.md) | 4.5 | 7.5 | 10 | 7 | 9 | 10 | — | **8.0** | LOW |
-| 32 | [arellano](arellano.md) | 9 | 3.5 | 8.5 | 7 | 9 | 10 | 10 | **8.1** | HIGH |
-| 33 | [calvo_machine_learn](calvo_machine_learn.md) | 8 | 3.5 | 7 | 8 | 10 | 10 | 10 | **8.1** | HIGH |
-| 34 | [hansen_richard_1987](hansen_richard_1987.md) | 3.5 | 5 | 8.5 | 9.5 | 10 | 10 | 10 | **8.1** | HIGH |
-| 35 | [repeat_mh](repeat_mh.md) | 6 | 3 | 9.5 | 8.5 | 10 | 10 | 10 | **8.1** | HIGH |
-| 36 | [BCG_complete_mkts](BCG_complete_mkts.md) | 6.5 | 7.5 | 9.5 | 6 | 10 | 8 | 10 | **8.2** | LOW |
-| 37 | [doubts_or_variability](doubts_or_variability.md) | 7 | 3 | 10 | 8.5 | 9 | 10 | 10 | **8.2** | HIGH |
-| 38 | [permanent_income_dles](permanent_income_dles.md) | 7 | 7.5 | 10 | 8 | 8.5 | 8 | — | **8.2** | LOW |
-| 39 | [arma](arma.md) | 8 | 7.5 | 10 | 6.5 | 10 | 8 | — | **8.3** | LOW |
-| 40 | [cattle_cycles](cattle_cycles.md) | 9.5 | 7 | 10 | 5 | 8.5 | 10 | — | **8.3** | LOW |
-| 41 | [hs_invertibility_example](hs_invertibility_example.md) | 9 | 7.5 | 10 | 5 | 8.5 | 10 | — | **8.3** | LOW |
-| 42 | [tax_smoothing_3](tax_smoothing_3.md) | 9 | 9 | 8.5 | 5 | 8.5 | 10 | — | **8.3** | LOW |
-| 43 | [info_projection](info_projection.md) | 8 | 3.5 | 10 | 8 | 9 | 10 | 10 | **8.4** | HIGH |
-| 44 | [lqramsey](lqramsey.md) | 9 | 3 | 10 | 7 | 10 | 10 | 10 | **8.4** | HIGH |
-| 45 | [lu_tricks](lu_tricks.md) | 5 | 7 | 10 | 8.5 | 10 | 8 | 10 | **8.4** | LOW |
-| 46 | [lucas_asset_pricing_dles](lucas_asset_pricing_dles.md) | 9.5 | 5.5 | 10 | 7 | 8.5 | 10 | — | **8.4** | LOW |
-| 47 | [smoothing_tax](smoothing_tax.md) | 7 | 8.5 | 10 | 4 | 10 | 9 | 10 | **8.4** | HIGH |
-| 48 | [amss](amss.md) | 7 | 7 | 9.5 | 6 | 10 | 10 | 10 | **8.5** | LOW |
-| 49 | [atkeson_1991](atkeson_1991.md) | 10 | 5 | 9 | 5.5 | 10 | 10 | 10 | **8.5** | LOW |
-| 50 | [irfs_in_hall_model](irfs_in_hall_model.md) | 6 | 9 | 10 | 7 | 9 | 10 | — | **8.5** | LOW |
-| 51 | [amss3](amss3.md) | 8.5 | 9 | 10 | 5.5 | 7.5 | 10 | 10 | **8.6** | NONE |
-| 52 | [coase](coase.md) | 7.5 | 10 | 7.5 | 7 | 8.5 | 10 | 10 | **8.6** | NONE |
-| 53 | [muth_kalman](muth_kalman.md) | 8.5 | 7.5 | 10 | 5.5 | 10 | 9 | 10 | **8.6** | NONE |
-| 54 | [chang_credible](chang_credible.md) | 5 | 7.5 | 10 | 9.5 | 10 | 10 | — | **8.7** | NONE |
-| 55 | [amss2](amss2.md) | 8.5 | 10 | 10 | 6 | 8.5 | 10 | — | **8.8** | NONE |
-| 56 | [calvo_abreu](calvo_abreu.md) | 8 | 9 | 8 | 9 | 8.5 | 10 | — | **8.8** | NONE |
+| 2 | [cons_news](cons_news.md) | 3 | 4.5 | 7 | 6 | 10 | 7.5 | — | **6.3** | HIGH |
+| 3 | [asset_pricing_lph](asset_pricing_lph.md) | 3 | 3 | 5.5 | 7.5 | 8.5 | 7.5 | 10 | **6.4** | HIGH |
+| 4 | [discrete_dp](discrete_dp.md) | 6 | 4 | 6.5 | 6 | 9 | 7 | 10 | **6.9** | HIGH |
+| 5 | [knowing_forecasts_of_others](knowing_forecasts_of_others.md) | 4 | 3 | 10 | 9 | 7.5 | 8 | — | **6.9** | HIGH |
+| 6 | [match_transport](match_transport.md) | 7 | 7.5 | 7.5 | 3 | 8.5 | 8 | — | **6.9** | HIGH |
+| 7 | [entropy](entropy.md) | 5.5 | 4 | — | 8.5 | 8.5 | 8.5 | — | **7.0** | HIGH |
+| 8 | [markov_jump_lq](markov_jump_lq.md) | 8.5 | 3 | 7.5 | 5.5 | 8.5 | 9 | — | **7.0** | HIGH |
+| 9 | [black_litterman](black_litterman.md) | 5 | 3 | 10 | 4 | 10 | 8.5 | 10 | **7.2** | HIGH |
+| 10 | [smoothing](smoothing.md) | 6.5 | 4.5 | 10 | 5 | 10 | 7.5 | — | **7.2** | LOW |
+| 11 | [tax_smoothing_1](tax_smoothing_1.md) | 8.5 | 4.5 | 7.5 | 6 | 7.5 | 9 | — | **7.2** | LOW |
+| 12 | [rob_markov_perf](rob_markov_perf.md) | 8 | 4 | 7.5 | 8 | 9 | 7.5 | — | **7.3** | HIGH |
+| 13 | [tax_smoothing_2](tax_smoothing_2.md) | 9 | 4 | 8.5 | 4 | 8.5 | 10 | — | **7.3** | HIGH |
+| 14 | [arellano](arellano.md) | 5.5 | 3.5 | 6.5 | 7 | 9 | 10 | 10 | **7.4** | HIGH |
+| 15 | [classical_filtering](classical_filtering.md) | 4.5 | 3.5 | 10 | — | 8.5 | 8 | 10 | **7.4** | HIGH |
+| 16 | [dovis_accounting_mf](dovis_accounting_mf.md) | 4 | 3 | 10 | 4.5 | 10 | 10 | 10 | **7.4** | HIGH |
+| 17 | [robustness](robustness.md) | 6 | 3 | 9 | 6.5 | 10 | 7.5 | 10 | **7.4** | HIGH |
+| 18 | [BCG_incomplete_mkts](BCG_incomplete_mkts.md) | 5.5 | 5 | 10 | 4.5 | 10 | 10 | — | **7.5** | LOW |
+| 19 | [amss3](amss3.md) | 3.5 | 8.5 | 7.5 | 5.5 | 7.5 | 10 | 10 | **7.5** | HIGH |
+| 20 | [arma](arma.md) | 4.5 | 7.5 | 8.5 | 6.5 | 10 | 8 | — | **7.5** | LOW |
+| 21 | [subjective_beliefs_business_cycles](subjective_beliefs_business_cycles.md) | 4.5 | 3 | 9 | 7 | 9 | 10 | 10 | **7.5** | HIGH |
+| 22 | [additive_functionals](additive_functionals.md) | 9 | 4 | 10 | 3.5 | 9 | 7.5 | 10 | **7.6** | HIGH |
+| 23 | [amss](amss.md) | 4 | 6.5 | 7 | 6 | 10 | 10 | 10 | **7.6** | HIGH |
+| 24 | [amss2](amss2.md) | 3.5 | 10 | 7.5 | 6 | 8.5 | 10 | — | **7.6** | HIGH |
+| 25 | [calvo_abreu](calvo_abreu.md) | 4 | 8.5 | 5.5 | 9 | 8.5 | 10 | — | **7.6** | HIGH |
+| 26 | [doubts_or_variability](doubts_or_variability.md) | 4 | 3 | 8.5 | 8.5 | 9 | 10 | 10 | **7.6** | HIGH |
+| 27 | [dyn_stack](dyn_stack.md) | 8 | 5 | 8.5 | 4.5 | 10 | 7.5 | 10 | **7.6** | LOW |
+| 28 | [risk_aversion_or_mistaken_beliefs](risk_aversion_or_mistaken_beliefs.md) | 6.5 | 3 | 10 | 3.5 | 10 | 10 | 10 | **7.6** | HIGH |
+| 29 | [tsyrennikov_2013](tsyrennikov_2013.md) | 6.5 | 3 | 9 | 5 | 10 | 10 | 10 | **7.6** | HIGH |
+| 30 | [calvo](calvo.md) | 6 | 5.5 | 9 | 7 | 8.5 | 8 | 10 | **7.7** | LOW |
+| 31 | [orth_proj](orth_proj.md) | 6 | 3 | 10 | 7 | 10 | 8 | 10 | **7.7** | HIGH |
+| 32 | [cattle_cycles](cattle_cycles.md) | 7 | 7 | 9 | 5 | 8.5 | 10 | — | **7.8** | LOW |
+| 33 | [stationary_densities](stationary_densities.md) | 7 | 6.5 | 8.5 | 6 | 9 | 7.5 | 10 | **7.8** | LOW |
+| 34 | [cagan_rational_expectations](cagan_rational_expectations.md) | 9.5 | 3 | 8.5 | 5.5 | 8.5 | 10 | 10 | **7.9** | HIGH |
+| 35 | [five_preferences](five_preferences.md) | 6.5 | 10 | 10 | 4 | 7 | 10 | — | **7.9** | HIGH |
+| 36 | [opt_tax_recur](opt_tax_recur.md) | 7 | 5 | 10 | 4.5 | 9 | 10 | 10 | **7.9** | LOW |
+| 37 | [chang_ramsey](chang_ramsey.md) | 6 | 7.5 | 10 | 6 | 8.5 | 10 | — | **8.0** | LOW |
+| 38 | [gorman_heterogeneous_households](gorman_heterogeneous_households.md) | 4 | 8.5 | 8.5 | 5 | 10 | 10 | 10 | **8.0** | HIGH |
+| 39 | [growth_in_dles](growth_in_dles.md) | 4.5 | 7.5 | 10 | 7 | 9 | 10 | — | **8.0** | LOW |
+| 40 | [calvo_machine_learn](calvo_machine_learn.md) | 8 | 3.5 | 7 | 8 | 10 | 10 | 10 | **8.1** | HIGH |
+| 41 | [chang_credible](chang_credible.md) | 3 | 7.5 | 8.5 | 9.5 | 10 | 10 | — | **8.1** | HIGH |
+| 42 | [coase](coase.md) | 6 | 9 | 6 | 7 | 8.5 | 10 | 10 | **8.1** | LOW |
+| 43 | [hansen_richard_1987](hansen_richard_1987.md) | 3.5 | 5 | 8.5 | 9.5 | 10 | 10 | 10 | **8.1** | HIGH |
+| 44 | [repeat_mh](repeat_mh.md) | 6 | 3 | 9.5 | 8.5 | 10 | 10 | 10 | **8.1** | HIGH |
+| 45 | [BCG_complete_mkts](BCG_complete_mkts.md) | 6.5 | 7.5 | 9.5 | 6 | 10 | 8 | 10 | **8.2** | LOW |
+| 46 | [permanent_income_dles](permanent_income_dles.md) | 7 | 7.5 | 10 | 8 | 8.5 | 8 | — | **8.2** | LOW |
+| 47 | [hs_invertibility_example](hs_invertibility_example.md) | 9 | 7.5 | 10 | 5 | 8.5 | 10 | — | **8.3** | LOW |
+| 48 | [tax_smoothing_3](tax_smoothing_3.md) | 9 | 9 | 8.5 | 5 | 8.5 | 10 | — | **8.3** | LOW |
+| 49 | [info_projection](info_projection.md) | 8 | 3.5 | 10 | 8 | 9 | 10 | 10 | **8.4** | HIGH |
+| 50 | [lqramsey](lqramsey.md) | 9 | 3 | 10 | 7 | 10 | 10 | 10 | **8.4** | HIGH |
+| 51 | [lu_tricks](lu_tricks.md) | 5 | 7 | 10 | 8.5 | 10 | 8 | 10 | **8.4** | LOW |
+| 52 | [lucas_asset_pricing_dles](lucas_asset_pricing_dles.md) | 9.5 | 5.5 | 10 | 7 | 8.5 | 10 | — | **8.4** | LOW |
+| 53 | [smoothing_tax](smoothing_tax.md) | 7 | 8.5 | 10 | 4 | 10 | 9 | 10 | **8.4** | HIGH |
+| 54 | [atkeson_1991](atkeson_1991.md) | 10 | 5 | 9 | 5.5 | 10 | 10 | 10 | **8.5** | LOW |
+| 55 | [irfs_in_hall_model](irfs_in_hall_model.md) | 6 | 9 | 10 | 7 | 9 | 10 | — | **8.5** | LOW |
+| 56 | [muth_kalman](muth_kalman.md) | 8.5 | 7.5 | 10 | 5.5 | 10 | 9 | 10 | **8.6** | NONE |
 | 57 | [estspec](estspec.md) | 7.5 | 10 | 10 | 5 | 9 | 10 | 10 | **8.8** | NONE |
 | 58 | [matsuyama](matsuyama.md) | 7 | 10 | 9 | 6.5 | 10 | 9 | 10 | **8.8** | NONE |
 | 59 | [troubleshooting](troubleshooting.md) | 8.5 | — | — | 9 | — | 9 | — | **8.8** | NONE |

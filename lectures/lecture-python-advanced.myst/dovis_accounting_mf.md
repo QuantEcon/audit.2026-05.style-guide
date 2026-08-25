@@ -5,14 +5,14 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.6 / 10
+- **Overall score:** 7.4 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 6/10  | `qe-writing-001` ×3; `qe-writing-006` ×1; `qe-writing-009` (proposed) ×1, +1 more. |
+| Writing      | 4/10  | `qe-writing-002` ×10; `qe-writing-001` ×3; `qe-writing-006` ×1, +3 more. |
 | Math         | 3/10  | `qe-math-010` (proposed) ×17; `qe-math-002` ×11; `qe-math-011` (proposed) ×1. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
@@ -32,6 +32,7 @@ _None found._
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 8. *Lines:* 1623, 1627, 1631, 1645, 1649, 1653, 1657, 1662. *Example:* plot() without lw=.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 11. *Lines:* 693, 694, 695, 740, 746, 752, 753. *Example:* apostrophe transpose `i_1'`.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 17. *Lines:* 132, 137, 193, 207, 314, 323, 331, 360, 363, 383, …. *Example:* non-blackboard `\Pr`.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 10. *Lines:* 66, 282, 375, 995, 1565, 1580, 1597, 1599, 2042, 2048. *Example:* twenty-four sentences in this file run past 34 words and ten of them past 42: 2048 is 56 words comparing Colombia and Chile on two channels at once, 1580 is 55, 1565 and 1599 are 53, 2042 is 51, 1597 is 50, 66 is 48, and 282, 375 and 995 are 42-43 each; the pattern is a main clause followed by two or three subordinate clauses that each deserve their own sentence, and it is worst exactly where the argument is hardest (the disinflation mechanics at 1565-1599 and the case studies at 2042-2048).
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 1. *Lines:* 680. *Example:* H2 Title Case: 'The full model with Gumbel shocks' (Gumbel).
 
 ### Medium severity
@@ -41,25 +42,24 @@ _None found._
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 3. *Lines:* 2054, 2062, 2074. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 1. *Lines:* 409. *Example:* the Ramsey and Markov benchmarks are set up at 350-427 as the two poles the model lives between - line 409 says "The full model *interpolates* between these two extremes depending on the cost $\xi_t$" - and that interpolation is never drawn; the section is entirely prose and bullet lists, the next figure (497) is about indirect utility, and no later figure plots inflation or debt against $\xi$ with the two benchmarks marked, although the model is solved on a $\xi$ grid and the values needed are already in hand.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 1. *Lines:* 272. *Example:* 2 spaces.
 - **[qe-writing-009 (proposed)]** — Write "IID" — not "i.i.d." or "iid". *Count:* 1. *Lines:* 688. *Example:* i.i.d..
 
 
 ## Strengths
 
-- Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
-- Citations distinguish `{cite}` from `{cite:t}` correctly (2 parenthetical, 29 in-text).
+- Figures are named and then actually referenced: `fig-credibility-targets` is cited at 308 before it appears, `fig-fundamental` at 1584 and 1734, `fig-institutional` at 1756 - this is the only lecture in the series that uses `{numref}` as a matter of course.
+- The lecture is explicit about where its stripped-down implementation departs from the paper: 1576-1590 states that the debt-issuance policy shifts the wrong way, names the two reasons (fixed $\theta$ instead of an AR(1), coarse grids putting debt near the lower bound at roughly 15% of GDP against the paper's 34.9%), and says which of the two experiments is unaffected.
+- Bold marks definitions and italic marks emphasis with almost no slippage across 2201 lines - **fiscal dominance** / **monetary dominance** (43), **real primary surplus** (165), **regime indicator** (284), **fundamental** / **institutional disinflation** (1557) against *endogenous* (263), *state-contingent* (366), *interpolates* (409), *upward* (1578).
+- The reason for dampened value function iteration is derived rather than asserted: 995-997 explains that the value function feeds back within the period through $J$ and the surplus, so $T$ need not be a contraction, which is why $\omega = 0.01$ appears in `solve_model` at 1002.
+- Code uses Unicode Greek throughout (`θ`, `φ`, `ξ`, `χ`, `ψ`, `β_hat`), keeps JAX kernels small and jitted, and reports the Bellman residual it converged on (1044-1049) instead of silently returning.
 
 ## Recommended actions
 
-1. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (17 occurrences).
-2. `qe-math-002` — Use \top for transpose notation (11 occurrences).
-3. `qe-fig-003` — No matplotlib embedded titles (9 occurrences).
-4. `qe-writing-001` — Use one sentence per paragraph (3 occurrences).
-5. `qe-fig-007` — Keep figure box and spines (2 occurrences).
-6. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
-7. `qe-writing-006` — Capitalize lecture titles properly (1 occurrence).
+1. Split the ten 42-plus-word sentences listed above - starting with 2048, 1580, 1599 and 1565 - into one clause per sentence; at 24 sentences over 34 words this is the dominant readability issue in the lecture.
+2. Replace the 17 `\Pr` operators with `\mathbb{P}` at 132, 137, 193, 207, 314, 323, 331, 360, 363, 383 and 7 more (qe-math-010 (proposed), proposed).
+3. Move the nine embedded matplotlib titles at 1619, 1624, 1628, 1641, 1646, 1650, 1654, 1658 and 1663 into figure captions (qe-fig-003), add `mystnb: figure: caption/name` to the two case-study cells at 2116 and 2165 so Colombia and Chile can be cross-referenced like the other figures (qe-fig-005), and set `lw=2` on the eight `plot` calls at 1623, 1627, 1631, 1645, 1649, 1653, 1657 and 1662 (qe-fig-008).
+4. Add a figure for the Ramsey-Markov interpolation claimed at 409 - inflation and debt as functions of $\xi$ with the two benchmark levels marked - which would also give the reader something to hold on to across the 250 prose-and-code lines of the computational algorithm section.
+5. Drop the seven `figsize=` overrides at 504, 604, 1226, 1618, 1976 and 2132, 2166 (qe-fig-001) and restore the spines removed at 666-667 (qe-fig-007).
+6. Sweep the small items: `\mathcal{N}` to plain `N` at 1775 (qe-math-011 (proposed), proposed), `i.i.d.` to `IID` at 688 (qe-writing-009 (proposed), proposed), split the two-sentence paragraphs at 2054, 2062 and 2074 (qe-writing-001), and collapse the double space at 272 (qe-writing-008).
