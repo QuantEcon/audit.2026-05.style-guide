@@ -1,6 +1,6 @@
 ---
 name: audit-pass
-description: Run a full QuantEcon lecture style-audit pass in this repo — clone the corpus at a pinned snapshot, measure it, draft every per-lecture report, fan out the judgment review, derive scores, splice the aggregate pages, gate, build and commit. Use when asked to refresh the audit, run the next pass, re-assess the lectures, update the report to the current corpus, or add a period to the trend. Also use for a partial re-run after changing a rule check.
+description: Run a full QuantEcon lecture style-audit pass in this repo — clone the corpus at a pinned snapshot, measure it, draft every per-lecture report, run the judgment review, derive scores, splice the aggregate pages, gate, build and commit. Use when asked to refresh the audit, run the next pass, re-assess the lectures, update the report to the current corpus, or add a period to the trend. Also use for a partial re-run after changing a rule check.
 ---
 
 # Run an audit pass
@@ -111,8 +111,8 @@ PY
 
 ## Step 3 — The judgment review
 
-Fan out subagents, one batch of ~18 lectures each, over the lectures with **no overlay
-yet**. Reviewers judge only these 8 rules — everything else is already measured:
+Send subagents, one batch of ~10 lectures each, over the lectures with **no overlay
+yet** — one agent at a time; see *Pace it for the session limit* below. Reviewers judge only these 8 rules — everything else is already measured:
 
 `qe-writing-002` `qe-writing-003` `qe-writing-005` `qe-writing-007` `qe-math-009`
 `qe-code-001` `qe-math-014` *(proposed)* `qe-math-015` *(proposed)*
@@ -144,25 +144,48 @@ Steps 2 and 5 never destroys review work. That also makes the review resumable: 
 the to-do list and only review what is missing.
 
 ```bash
-python3 - <<'PY'
+python3 - <<PY
 import glob, os, json
+CORPUS = "$CORPUS"
 todo = {}
 for s in sorted(d for d in os.listdir('lectures') if d.startswith('lecture-')):
     have = {os.path.basename(p)[:-5] for p in glob.glob(f'reviews/{s}/*.json')}
     todo[s] = [os.path.basename(p)[:-3]
-               for p in sorted(glob.glob(f'../quantecon/{s}/lectures/*.md'))
+               for p in sorted(glob.glob(f'{CORPUS}/{s}/lectures/*.md'))
                if os.path.basename(p)[:-3] not in have]
     print(f'{s:32s} {len(have):3d} done, {len(todo[s]):3d} to do')
 json.dump(todo, open('/tmp/todo.json','w'), indent=1)
 PY
 ```
 
-Two things about the fan-out:
+### Pace it for the session limit, not for wall-clock
 
-- **Auto mode must be ON.** Subagents cannot read outside the working directory otherwise,
-  every corpus read is denied, and the run stalls. This has bitten two passes.
-- **Split across two workflow invocations.** Each gets its own concurrency cap, so four
-  agents run instead of two — roughly halving wall-clock on a 300-lecture review.
+This step is the whole pass's token budget. Measured here: **one overlay per ~5
+agent-minutes**, so a 348-lecture review is on the order of **30 agent-hours**. It will not
+fit in one session at any concurrency, and concurrency does not reduce the total — it only
+raises the burn rate and the amount in flight when a session ends.
+
+- **One agent at a time.** Two concurrent agents exhausted a session limit in under half an
+  hour mid-batch. Sequential is slower per hour and far more predictable, which is what
+  matters when the work spans sessions.
+- **Batch ~10 lectures, and commit each batch.** `reviews/<series>/<stem>.json` is the
+  durable unit; an overlay is useful the moment it is written and does not need the reports
+  regenerated. A session that dies then loses at most one batch.
+- **Refresh once per session, at the end** — not per batch. Step 5 rewrites all 348 reports,
+  and a diff that size per batch buries the review work in the history.
+- **End every session deliberately:** refresh, gate, build, commit, push, then schedule the
+  next resume. Overlays committed but not yet folded in are safe; a dirty tree is not.
+- **Order the queue worst-first**, and put a series with little or no coverage ahead of one
+  that is nearly done — an uneven judgment layer makes the cross-series scoreboard partly a
+  ranking of coverage, which is the one thing the scoreboard must not be.
+
+One more, unrelated to pace:
+
+- **Auto mode must be ON** if the corpus lives outside the working directory. Subagents
+  cannot read outside it otherwise, every corpus read is denied, and the run stalls; this
+  has bitten two passes. For an *unattended* run there is nobody to approve a prompt, so
+  clone the corpus **inside** the repo instead — `.corpus/` is gitignored — and the question
+  does not arise. Every tool takes `--corpus`, so the path is free.
 
 ## Step 4 — Series summaries
 
