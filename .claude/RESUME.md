@@ -19,7 +19,32 @@ front-page caveat, the five per-series coverage lines and the scoreboard all reg
 themselves from whichever overlays exist, so the book is publishable at any coverage level
 and says so honestly.
 
-## Resuming the fan-out
+## Resuming the review — one agent, many sessions
+
+**Run a single review agent at a time.** Not a fan-out. Two concurrent agents burned
+through a session limit in under half an hour, and a run that dies mid-batch leaves the
+repo in a state someone has to reason about. One agent is slower per hour and strictly
+more predictable, which is what matters when the work spans sessions.
+
+And it does span sessions. Measured on this box: **one overlay per ~5 agent-minutes**, so
+the 179 remaining are roughly **14 hours of single-agent work** — four to six sessions, not
+one. No concurrency setting changes that total; it only changes how much gets wasted when a
+session ends mid-flight. So do not try to finish. Aim to end every session with durable,
+consistent, pushed state and the next resume already scheduled.
+
+The architecture is built for exactly this, so use it:
+
+- **`reviews/<series>/<stem>.json` is the durable unit.** Commit overlays in batches of
+  about ten, with a plain message (`Review 10 more advanced lectures`). An overlay is worth
+  keeping the moment it is written — it does not need the reports regenerated to be useful,
+  and a later session folds it in.
+- **Everything else is derived**, so it costs nothing to redo. Run the refresh below **once
+  per session**, at the end, rather than after every batch: it rewrites all 348 reports and
+  a diff that size per batch buries the actual work.
+- **Before the session budget runs out**, run the refresh, the gate and the build, commit,
+  push, and schedule the next resume with `send_later`. Leaving overlays committed but
+  unfolded is fine and safe; leaving the tree dirty is not.
+
 
 1. **Get the corpus back** — the container is ephemeral, so it will be gone. Clone it
    **inside this repo**, at `.corpus/` (gitignored), not at `../quantecon`:
@@ -54,12 +79,12 @@ done
    the evidence calls weakest, so its scores are the least trustworthy while coverage is
    thin. Reviewer instructions are in `.claude/skills/audit-pass/SKILL.md` § *Step 3*;
    spec §8.3 is what the reviewer must read first.
-   Concurrency is capped at `min(16, nproc - 2)` **per workflow** — 2 on a 4-CPU box, so
-   split into several workflows if you want more agents.
+   Give one agent a batch of about ten and let it finish before starting the next, so a
+   session that ends abruptly loses at most one batch.
 4. **Fold in and regenerate** — never hand-edit a number:
 
 ```bash
-CORPUS=../quantecon; R=$CORPUS/action-style-guide/style_checker/rules
+CORPUS=.corpus; R=$CORPUS/action-style-guide/style_checker/rules
 python3 tools/qestyle_draft.py --corpus $CORPUS --out lectures --date 2026-08-25 \
     --rules $R --reviews reviews --judgment-csv lectures/data/judgment.csv
 python3 tools/qestyle_score.py --root lectures --fix --csv lectures/data/scores.csv
@@ -67,8 +92,12 @@ python3 tools/qestyle_report.py --summarise --history 2026-08 --splice
 python3 tools/qestyle_check.py --root lectures --data lectures/data --corpus $CORPUS
 ```
 
-5. **Build**, then commit and push to the same branch. The PR against `main` is the last
-   step and has deliberately **not** been opened yet — it should describe a finished pass.
+5. **Build**, then commit and push to the same branch.
+6. **Re-arm.** If coverage is not finished, `send_later` the next resume before ending the
+   turn, pointing at this file again. If it *is* finished — the front-page caveat will say
+   so itself, having switched to "every one of the 348 lectures has been through the
+   judgment layer" — then open the PR against `main`. The user has asked for it once the
+   pass is ready, and not before: it should describe a finished pass.
 
 ## What is still open when coverage lands
 
