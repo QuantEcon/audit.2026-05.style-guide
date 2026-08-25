@@ -2,18 +2,43 @@
   "series": "lecture-python.myst",
   "lecture": "ar1_bayes",
   "judgment": [
-    {"rule": "qe-code-001", "count": 5, "lines": [470, 485, 522, 525, 537],
-     "detail": "five code lines exceed the PEP8 79-character limit, two of them badly: `numpyro.infer.MCMC(NUTS_kernel, num_samples=50000, num_warmup=10000, progress_bar=False)` is 95 characters at line 485 and 96 at line 537, and the `numpyro.sample(...)` calls at 470, 522 and 525 run to 82-84; none of the five is close to a mathematical expression, so nothing here overrides PEP8"},
-    {"rule": "qe-writing-003", "count": 3, "lines": [461, 479, 510],
-     "detail": "the NumPyro half silently rebinds three names the PyMC half established: `AR1_model` is a `pm.Model()` object from line 238 until line 461 turns it into a plain function, `AR1_model_y0` likewise at 321 versus 510, and line 479 rebinds `y` from the NumPy array built at 215 to a JAX array; nothing in the prose at 418-428 warns the reader, and after line 479 none of the PyMC cells at 277-373 can be re-executed"},
-    {"rule": "qe-writing-002", "count": 3, "lines": [315, 426, 504],
-     "detail": "the stationary density $y_0 \\sim N(0, \\sigma_x^2/(1-\\rho^2))$ is set as an unlabelled display three separate times - lines 85-87, 314-316 and 503-505 - each time preceded by a \"recall that\" sentence; labelling it once and citing it with `{eq}` would remove two displays and two lead-ins. Line 426 is a 36-word sentence that comma-splices three separate NumPyro-versus-PyMC correspondences (function versus `with` block, `numpyro.sample` versus a `pm` variable, `obs=` versus `observed=`) into one span"}
+    {
+      "rule": "qe-code-001",
+      "count": 5,
+      "lines": [
+        470,
+        485,
+        522,
+        525,
+        537
+      ],
+      "detail": "five code lines exceed the PEP8 79-character limit, two of them badly: `numpyro.infer.MCMC(NUTS_kernel, num_samples=50000, num_warmup=10000, progress_bar=False)` is 95 characters at line 485 and 96 at line 537, and the `numpyro.sample(...)` calls at 470, 522 and 525 run to 82-84; none of the five is close to a mathematical expression, so nothing here overrides PEP8"
+    },
+    {
+      "rule": "qe-writing-003",
+      "count": 3,
+      "lines": [
+        461,
+        479,
+        510
+      ],
+      "detail": "the NumPyro half silently rebinds three names the PyMC half established: `AR1_model` is a `pm.Model()` object from line 238 until line 461 turns it into a plain function, `AR1_model_y0` likewise at 321 versus 510, and line 479 rebinds `y` from the NumPy array built at 215 to a JAX array; nothing in the prose at 418-428 warns the reader, and after line 479 none of the PyMC cells at 277-373 can be re-executed"
+    },
+    {
+      "rule": "qe-writing-002",
+      "count": 3,
+      "lines": [
+        315,
+        426,
+        504
+      ],
+      "detail": "the stationary density $y_0 \\sim N(0, \\sigma_x^2/(1-\\rho^2))$ is set as an unlabelled display three separate times - lines 85-87, 314-316 and 503-505 - each time preceded by a \"recall that\" sentence; labelling it once and citing it with `{eq}` would remove two displays and two lead-ins. Line 426 is a 36-word sentence that comma-splices three separate NumPyro-versus-PyMC correspondences (function versus `with` block, `numpyro.sample` versus a `pm` variable, `obs=` versus `observed=`) into one span"
+    }
   ],
   "strengths": [
     "The two assumptions are named once (\"conditioning assumption\", \"stationary assumption\" at 77 and 83) and then used by name for the rest of the lecture, so the reader never has to re-derive which is which",
     "The second PyMC model differs from the first by exactly one line (337), the prose says so at 340, and the note at 342-348 draws the consequence explicitly - \"any difference between the two posteriors comes entirely from this one term\"",
     "The mechanism behind the result is spelled out step by step at 404-416 rather than asserted: extreme $y_0$, low stationary likelihood, Bayes' law seeking parameters that make it plausible, $\\rho \\to 1$ inflating $\\sigma_x^2/(1-\\rho^2)$",
-    "The initial condition $y_0 = 10$ is chosen deliberately to sit far out in the tail, and the lecture flags the choice twice before using it (166, 205) so the reader knows the experiment is rigged and why",
     "The PyMC and NumPyro posteriors are overlaid at 557-567 as an explicit cross-library check, matching the promise made at line 107",
     "The Hurwicz small-sample bias is named and cited ({cite:t}`hurwicz1950least`, {cite}`Orcutt_Winokur_69`) rather than left as an unexplained gap between the posterior mode and the true 0.5"
   ],

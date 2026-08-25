@@ -1,0 +1,48 @@
+{
+  "series": "lecture-python-programming",
+  "lecture": "autodiff",
+  "judgment": [
+    {
+      "rule": "qe-writing-003",
+      "count": 3,
+      "lines": [
+        263,
+        293,
+        450
+      ],
+      "detail": "two figures are produced and the narrative moves straight on without saying what the reader should see - the derivative through control flow (257-263) and the derivative of the linear interpolant (289-293) are each followed immediately by a new heading, while the comparable plot at 216-222 does get its comment at 224; and at 450 `α_hat` and `β_hat` are bound for the third time to a third pair of objects (closed-form OLS slope/intercept at 373-374, gradient-descent slope/intercept at 411, quadratic and linear coefficients at 450), with the plot annotations at 455-456 still labelling them α and β"
+    },
+    {
+      "rule": "qe-code-001",
+      "count": 6,
+      "lines": [
+        93,
+        316,
+        322,
+        324,
+        339,
+        341
+      ],
+      "detail": "`return (f(x + h) - f(x))/h` at 93 has no spaces around the division, unlike every other operator in the same function; and the `grad_descent` body carries trailing whitespace on the `tol=1e-5,` continuation line (316) plus four whitespace-only lines (322, 324, 339, 341) - pycodestyle W291/W293"
+    }
+  ],
+  "strengths": [
+    "The lecture defines autodiff by elimination - \"not finite differences\" (64), \"not symbolic calculus\" (117), then autodiff (150) - and backs each negation with a runnable demonstration rather than an assertion",
+    "The finite-difference failure is shown before it is claimed: `Df` is plotted against the true `f'` (95-100) and only then does the text say the approximation is inaccurate and unstable (103)",
+    "Gradient descent is validated against the closed-form OLS estimates (370-379) before it is trusted on harder problems, and the check is stated explicitly at 426",
+    "`grad_descent` is written once with a documented Barzilai-Borwein step rule (312-340) and then reused unchanged for all three loss functions (403, 441, 501)",
+    "Greek and mathematical unicode identifiers (`λ`, `ϵ`, `Δx`, `Δdf`, `α`, `β`, `σ`) keep the code next to the mathematics - exactly the PEP8 exception qe-code-001 allows"
+  ],
+  "actions": [
+    "Add mystnb figure metadata (caption plus name) to the 11 code-cell figures (82, 193, 216, 257, 271, 289, 362, 381, 416, 448 and the solution figure) - not one plot in the lecture can be cross-referenced, and the prose refers to them only by position",
+    "Add `lw=2` to the 14 plot calls (97, 98, 195, 196, 218, 219, 259, 260, 277, 291 ...)",
+    "Fix the comment at 356: `α, β, σ = 0.5, 1.0, 0.1  # Set the true intercept and slope.` names them in the wrong order - the model at 359 is `y = α * x + β`, so α is the slope",
+    "Give the three fits distinct names instead of rebinding `α_hat`/`β_hat` at 373, 411 and 450, and add a comment at 263 and 293 saying what the reader should look for in those two plots",
+    "Sentence-case \"Gradient Descent\" (295), and strip the 15 stray `+++` jupytext cell separators (115, 119, 148, 160, 164, 168, 172, 203, 232, 267, 297, 303, 307, 392, 428) from published source",
+    "Clean the code cells: the unspaced division at 93 and the trailing/blank-line whitespace at 316, 322, 324, 339, 341",
+    "Delete the double space at 468 (qe-writing-008) and the trailing double-space line breaks at 105, 150 and 466"
+  ],
+  "scanner_doubts": [
+    "qe-math-002 ×3 at autodiff.md:140-141 is a false positive. The math is `(f g h)' = (f' g + g' f) h + (f g) h'` - the product rule, where every prime is a derivative, not a transpose. `check_math_002` in tools/qestyle_rules.py:388-393 matches `)'` at end-of-line (140) and the `prime_vec` pattern on `f' g` and `g' f` (141). The derivative-prime exception at line 391 only guards primes followed by `(`, so a prime followed by a space and another symbol slips through. The lecture has no transposes at all."
+  ]
+}

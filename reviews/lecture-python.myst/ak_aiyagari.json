@@ -1,0 +1,77 @@
+{
+  "series": "lecture-python.myst",
+  "lecture": "ak_aiyagari",
+  "judgment": [
+    {
+      "rule": "qe-writing-003",
+      "count": 3,
+      "lines": [
+        203,
+        1369,
+        1439
+      ],
+      "detail": "line 150 promises that agents \"hold assets $a_{i,j,t}$ (subject to borrowing constraints)\", but the household problem at 197-211 constrains only $c \\geq 0$ and no borrowing limit is ever stated - it enters silently as `a_min=0.` in `create_household` at 390. Line 1369 reads \"Notice how prices and quantities respond immediately to the anticipated tax rate increase\" in a section titled \"Experiment 2: Preannounced tax cut\", whose figure at 1380 is annotated `tax cut`. And the lecture stops at 1439 in the middle of a figure cell: two pairs of 3-D consumption mean/variance surfaces are produced (1252-1273, 1417-1439) and neither pair is discussed, there is no concluding section, and the four questions the Overview poses at 39-44 are never answered"
+    },
+    {
+      "rule": "qe-writing-002",
+      "count": 4,
+      "lines": [
+        91,
+        145,
+        159,
+        265
+      ],
+      "detail": "the environment is described three times over. Line 91 (\"An agent's effective labor supply depends on a life-cycle efficiency profile and an idiosyncratic stochastic process\") adds nothing to 87-89 immediately above it; lines 141-145 restate 87-89 again under a new heading; and \"Key features\" (155-171) restates the Overview bullets at 39-44. Line 159 also states something the model does not contain - \"asset holdings typically follow a lifecycle pattern of accumulation during working years and decumulation during retirement\" - when every agent supplies labour for all 50 periods and $l(j) = 0.5 + 0.05j - 0.0008j^2$ is still 1.03 at $j = 49$. Line 265 is a 34-word sentence that begins \"For a candidate sequence of prices interest rates $r_t$ and wages $w_t$\""
+    },
+    {
+      "rule": "qe-writing-007",
+      "count": 2,
+      "lines": [
+        326,
+        1252
+      ],
+      "detail": "the age-efficiency profile $l(j)$ is the primitive that generates the entire life-cycle savings motive the lecture is about, and it is never plotted: it appears only as three magic constants at line 326 (`l1, l2, l3 = 0.5, 0.05, -0.0008`) and a one-line quadratic at 332, so the reader has no idea what shape it has or where it peaks. Separately the two pairs of 3-D surfaces at 1252-1273 and 1417-1439 are the lecture's punchline - how the reform moves the mean and the *dispersion* of consumption across ages and dates - and they are drawn at `figsize=[20, 20]`, 170 lines apart, with no shared colour scale and no side-by-side comparison of the two experiments"
+    },
+    {
+      "rule": "qe-code-001",
+      "count": 4,
+      "lines": [
+        456,
+        565,
+        1019,
+        1259
+      ],
+      "detail": "ten code lines exceed 79 characters, the worst being 104 at line 565 and 86 at 742 and 959 (742, 959, 1094, 1142, 1192, 1243, 1249, 1324, 1407 are the rest); three places use backslash line continuations where parentheses are the PEP8 preference (1019-1021, 1045-1046, 1123-1124); and four continuation lines are indented one column off their opening bracket (457, 730, 1260, 1425). Line 1302 also carries trailing whitespace"
+    },
+    {
+      "rule": "qe-writing-005",
+      "count": 3,
+      "lines": [
+        157,
+        163,
+        167
+      ],
+      "detail": "the three organising concepts of the \"Key features\" section - *Lifecycle patterns* (157), *Within-cohort heterogeneity* (163) and *Cross-cohort interactions* (167) - are each named and then explained, which is a definition, and each is set in italic. The lecture uses no bold outside the `prf:algorithm` block at 916-956, so there is no competing convention; it also switches emphasis markers mid-file, using `_backward induction_` and `_forward iteration_` with underscores at line 273 where everything else uses asterisks"
+    }
+  ],
+  "strengths": [
+    "The algorithm is written out as a labelled `prf:algorithm` block (916-956) with inputs, outputs, the outer while loop, the backward-induction and forward-simulation passes, the convergence metric and the damped price update - so the 90 lines of `path_iteration` that follow have a specification to be read against",
+    "The two directions of the computation are separated into `solve_backwards` (826-857) and `simulate_forwards` (883-911), and line 790 says exactly why two steady states are needed: the initial one for the forward pass's initial condition, the final one for the backward pass's continuation values",
+    "Every heavy step is timed with `%time ... .block_until_ready()` (519, 557, 742) and line 516 explains why `block_until_ready` is necessary with JAX's asynchronous dispatch - a trap that silently reports near-zero times",
+    "The marginal savings distributions at 563-575 are read back to the reader age group by age group (578-592), each bullet naming the colour and the age it belongs to, so the five overlaid curves are interpretable without a legend lookup",
+    "The step from `ak2`'s two-period model to fifty cohorts is handled explicitly (1157-1165): the lecture says the representative young/old aggregation no longer exists, then defines two equal-sized age groups splitting at age 25 so the transition figures stay comparable with the earlier lecture's"
+  ],
+  "actions": [
+    "Write the discussion the lecture is missing: interpret the four 3-D surfaces (1252-1273, 1417-1439), compare the two experiments, and close with a section that answers the four questions posed at 39-44",
+    "Move the eighteen embedded matplotlib titles into figure captions (570, 610, 617, 1039-1041, 1153, 1207, 1212, 1224, and the rest) and add `mystnb: figure: caption/name` metadata to the eight bare figures at 563, 599, 1136, 1201, 1252, 1337, 1373 and 1417 (qe-fig-003 18 occurrences, qe-fig-005 8 occurrences - together the largest mechanical load here)",
+    "Collapse the six verbatim copies of the consumption-computation block (1117-1129, 1136-1154, 1181-1199, 1235-1249, 1313-1330, 1399-1414) into one function; each copy recomputes `ap`, `δ`, `inc` and `c` identically, and the cell at 1106-1108 computes an `ap` that is immediately overwritten at 1120",
+    "Set `lw=2` on the nineteen plot calls that lack it (565, 605, 606, 612, 613, 989, 990, 991, 1026, 1027 and nine more) and drop the six `figsize=` overrides at 603, 988, 1202, 1255, 1338 and 1420 - `figsize=[20, 20]` at 1255 and 1420 in particular (qe-fig-008 19 occurrences, qe-fig-001 6 occurrences)",
+    "Plot the age-efficiency profile $l(j)$ before it is used, and state the borrowing constraint in the household problem at 203-208 rather than leaving it to `a_min=0.` at line 390",
+    "Fix \"tax rate increase\" at 1369 (the experiment is a cut) and \"Sum across cohorts both\" at 289, and cut the duplicated environment description at 91, 141-145 and 155-171",
+    "Sweep the code hygiene: replace `%time` with the `quantecon` `Timer` context manager at 519, 557 and 742 (qe-code-004, 3 occurrences), collapse the 53 double spaces (qe-writing-008, 53 occurrences), wrap the ten over-length lines, remove the unused `verbose` parameter of `find_ss` (669, passed as `True` at 736 with no effect), the unused `firm` parameter of `solve_backwards` (827), the unused `num_action` bindings at 481, 803 and the `ϕ, k_bar = 0., 0.` machinery at 308-314 that makes `V_bar` a constant zero"
+  ],
+  "scanner_doubts": [
+    "ak_aiyagari.md:1 - qe-code-003 reports \"non-Anaconda import with no install cell: ['jax']\" at line 1, but there is an install cell at 22-26; it carries `:tags: [skip-execution]` rather than `:tags: [hide-output]`. As with back_prop.md, the finding may be defensible but the stated reason is wrong and the line number is a placeholder inside the YAML front matter",
+    "ak_aiyagari.md:33-35 - qe-ref-001 flags three `{cite}` calls as \"in narrative flow\", quoting `'in   {cite}`'. All three are of the form \"as in {cite}`auerbach1987dynamic`\" inside bullet items, which renders as \"as in (Auerbach and Kotlikoff, 1987)\" - ordinary parenthetical usage, which is what plain `{cite}` is for. The trigger appears to be the preposition immediately before the role, which would also fire on correct usage; these three look like false positives"
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "series": "lecture-python-programming",
+  "lecture": "jax_intro",
+  "judgment": [
+    {
+      "rule": "qe-code-001",
+      "count": 8,
+      "lines": [
+        172,
+        435,
+        441,
+        673,
+        681,
+        714,
+        722,
+        738
+      ],
+      "detail": "four statements end in a redundant semicolon, `jax.block_until_ready(y);` (673, 681, 714, 722 - pycodestyle E703); trailing whitespace inside code cells at 172 (a comment), 435 and 441 (W291); and `pass # put function body here` at 738 has one space before the inline comment where PEP8 wants two (E262)"
+    },
+    {
+      "rule": "qe-writing-002",
+      "count": 4,
+      "lines": [
+        61,
+        356,
+        612,
+        689
+      ],
+      "detail": "61 reads \"this interface conform to the NumPy API\"; 356 reads \"an example of a *impure* function\"; 612 is broken outright - \"We saw the power of JAX's JIT compiler combined with parallel hardware when we {ref}`above <jax_speed>`, when we applied `cos` to a large array\" - and it is the lecture's own back-reference to its headline result; and the three JIT passages at 640-649, 687-694 and 725-730 are written as verbless presentation bullets (\"Minimal parallelization\", \"Lots of memory read/write\", \"Also, many separate kernels launched on the GPU\") rather than prose"
+    },
+    {
+      "rule": "qe-writing-005",
+      "count": 3,
+      "lines": [
+        287,
+        337,
+        743
+      ],
+      "detail": "three definitions are set in italic where the lecture's own good practice is bold - \"a *functional programming style*\" (287) against \"**immutable**\" (253) and \"**Eager** execution model\" (640); the two defining properties of a pure function, *Deterministic* and *No side effects* (337-338); and \"JAX *traces* it\" (743), the term the whole JIT section turns on"
+    },
+    {
+      "rule": "qe-writing-003",
+      "count": 2,
+      "lines": [
+        117,
+        317
+      ],
+      "detail": "117 and 141 introduce H5 subsections (\"With NumPy\", \"With JAX\") nested four deep under `## JAX as a NumPy Replacement` > `### Differences` > `#### Speed!`, each wrapping one or two code cells, which splits a single timing comparison across four headings; and 317's aside - \"Although it can in fact be efficient inside JIT-compiled functions -- but let's put this aside for now\" - is never returned to, even though the JIT section arrives 300 lines later"
+    }
+  ],
+  "strengths": [
+    "Purity is defined once (331-350) and then used as the lecture's organizing test: the impure `add_tax` (358-374), NumPy's hidden generator state (431-450) and the frozen global under `jit` (763-799) are each diagnosed against the same two criteria",
+    "The key-splitting diagram (495-563) is drawn in matplotlib rather than described - root key, split, subkey consumed by a draw, repeated three levels down - which is precisely the part of JAX's RNG design that prose does not convey",
+    "Immutability is a two-cell diff: the NumPy mutation that works (264-267) followed immediately by the same assignment caught as an exception in JAX (277-283)",
+    "Every timing cell holds the interpreter with `block_until_ready` and the `{note}` at 159-164 says why - without it the numbers would be meaningless under asynchronous dispatch",
+    "The JIT section separates measurement from explanation: first-call versus second-call timings (668-682, 709-723), then a plain-language account of tracing and XLA (743-753)"
+  ],
+  "actions": [
+    "Sentence-case the nine headings (51, 193, 294, 321, 354, 396, 429, 606, 696)",
+    "Repair the broken sentence at 611-612 - as written the lecture cannot point back to its own `jax_speed` result",
+    "Add mystnb caption/name to the two code-cell figures (495, 891), drop `figsize=` at 498, and move the `set_title` at 560 into the caption (qe-fig-005, qe-fig-001, qe-fig-003)",
+    "Rewrite the slide-style fragments at 640-649, 687-694 and 725-730 as sentences - this is the lecture's core explanation of eager execution versus kernel fusion",
+    "Clean the code cells: drop the four trailing semicolons (673, 681, 714, 722), strip trailing whitespace at 172, 435, 441, and use two spaces before the inline comment at 738",
+    "Bold the definitions at 287, 337-338 and 743, matching `**immutable**` at 253; fix \"conform\" (61) and \"a impure\" (356)",
+    "Split the three multi-sentence paragraphs at 160, 900 and 971 and delete the double space at 901 (qe-writing-001, qe-writing-008)"
+  ],
+  "scanner_doubts": [
+    "qe-writing-001 ×3 at jax_intro.md:160, 900, 971 - two of the three (160, 971) are inside `{note}` directives, not running prose. qe-writing-001 counts the bodies of admonition directives as ordinary prose. tools/qestyle_rules.py:_paragraph_blocks (line 214) excludes headings, list items, tables, targets and option lines but not directive bodies, and no rule in tools/ mentions `epigraph`, `note`, `tip` or `admonition`."
+  ]
+}

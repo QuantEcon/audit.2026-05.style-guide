@@ -1,0 +1,64 @@
+{
+  "series": "lecture-python-programming",
+  "lecture": "python_by_example",
+  "judgment": [
+    {
+      "rule": "qe-writing-005",
+      "count": 3,
+      "lines": [
+        224,
+        225,
+        239
+      ],
+      "detail": "the lecture bolds its definitions correctly almost everywhere - **package** (118), **modules** (120), **subpackage** (141), **method** (263), **code block** (309) - but the two terms introduced in the bullet list at 221-227 are italicised instead: 'an empty *list* called `ϵ_values`' (224) and 'The statement `# empty list` is a *comment*' (225), the latter a textbook definition set in emphasis. The fuller definition of a list at 239 ('Lists are a native Python data structure used to group a collection of objects') then carries no emphasis at all"
+    },
+    {
+      "rule": "qe-code-001",
+      "count": 5,
+      "lines": [
+        391,
+        420,
+        641,
+        660,
+        721
+      ],
+      "detail": "inline-comment and unary-operator spacing in a lecture that itself teaches PEP8 indentation: `i == ts_length #the ending condition for the while loop` has one space before the hash and none after it (391); one space before the inline comment where PEP8 asks for two (420, 721); and a space after the unary minus in `abs_x = - x[t]` (641) and `abs_x = - x[t] if x[t] < 0 else x[t]` (660)"
+    },
+    {
+      "rule": "qe-writing-003",
+      "count": 1,
+      "lines": [
+        56
+      ],
+      "detail": "'## Version 1' (56) is the only numbered section in the lecture and there is no Version 2 - the second attempt arrives 140 lines later as '## Alternative Implementations' (195). The numbering promises a sequence the lecture never continues, and a reader scanning the contents cannot tell that 195 is the continuation of 56"
+    },
+    {
+      "rule": "qe-writing-002",
+      "count": 2,
+      "lines": [
+        349,
+        513
+      ],
+      "detail": "'Once you get used to it, this is a good thing: It' (349) ends on a dangling pronoun that the two following bullets have to finish, so the sentence cannot be read on its own; and the exercise-2 hint at 513 - 'For the legend, noted that suppose `var = 42`, the expression `f'foo{var}'` evaluates to `'foo42'`' - is ungrammatical, in the one place a stuck reader goes for help"
+    }
+  ],
+  "strengths": [
+    "The white-noise program is written three times - vectorised (61-69), with a `for` loop (209-219) and with a `while` loop (374-384) - and the first two carry labels that later prose actually cites by `{ref}` (197, 299, 371), so 'let's do this another way' is always a link rather than a description",
+    "Unicode Greek is used from the very first code cell (`ϵ_values`, 66) through to the last exercise (`α_values`, 525); qe-code-002 has nothing to report",
+    "The indentation rule is introduced where it is first needed (307-315) and then given its own section (338-362) that ends on something concrete: 'The Python standard is 4 spaces, and that's what you should use'",
+    "Every exercise is a labelled `exercise-start`/`exercise-end` pair with a `:class: dropdown` solution, and two carry `{hint}` dropdowns (509, 686) so the help is opt-in",
+    "'IID' is written in the correct form at 197, 461 and 692 - no 'i.i.d.' anywhere"
+  ],
+  "actions": [
+    "Close the two `{exercise-start}` fences at 499 and 549 (qe-admon-003, critical, 2 occurrences): each opens a 3-tick block that is never closed, so the exercise body swallows the `{hint}` and the `{exercise-end}` that follow it",
+    "Lower-case the 10 Title Case headings (39, 99, 147, 174, 195, 204, 294, 338, 364, 399) - qe-writing-006, 10 occurrences and the largest routine fix here",
+    "Add `:name:`/caption metadata to the 11 figures (46, 61, 179, 209, 374, 417, 481, 524, 576, 632, 652) and set `lw=2` on the 10 plots (67, 182, 217, 382, 426, 491, 534, 586, 646, 663) - qe-fig-005 and qe-fig-008",
+    "Rewrite the exercise-2 hint at 513 as a sentence, and finish the sentence at 349 before the bullet list starts",
+    "Bold the two definitions at 224-225 and the definition sentence at 239, matching 118, 120, 141, 263 and 309",
+    "Fix the PEP8 items above (391, 420, 641, 660, 721) and replace `*` with `\\cdot` in the circle-area hint at 693 (qe-math-012, proposed, 1 occurrence)",
+    "Either rename '## Version 1' (56) or add the Version 2 it implies, and correct 'There are no withdraws over the time period' to 'withdrawals' (405)"
+  ],
+  "scanner_doubts": [
+    "qe-fig-002 records nothing for python_by_example.md:46, where a static PNG (`_static/lecture_specific/python_by_example/test_program_1_updated.png`) shows the output of the very program printed 15 lines later at 61-69 - the clearest code-generatable static image in the series. The cause is the `NOT_A_PLOT` guard in tools/qestyle_rules.py:909-913, which exempts every path containing `/python_by_example/` rather than only the screenshots in that directory."
+  ]
+}

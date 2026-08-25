@@ -1,0 +1,65 @@
+{
+  "series": "lecture-python-programming",
+  "lecture": "functions",
+  "judgment": [
+    {
+      "rule": "qe-writing-005",
+      "count": 7,
+      "lines": [
+        137,
+        183,
+        185,
+        263,
+        322,
+        384,
+        450
+      ],
+      "detail": "the lecture bolds exactly one term (`**built-in**`, 57) and italicises every other definition: the function body (137), a keyword argument (183), positional arguments (185), anonymous (263), bound (322), callable (384), and frame and stack together at 450 - seven definitions in italic, which the rule reserves for emphasis"
+    },
+    {
+      "rule": "qe-writing-002",
+      "count": 3,
+      "lines": [
+        28,
+        38,
+        404
+      ],
+      "detail": "28 is a truncated sentence - \"Functions are an extremely useful construct provided by almost all programming\" is missing its noun; 38 reads \"learn to do is build our own user-defined functions\"; and 404 is a 41-word sentence that restates what 386-388 has just said about binding names to callables"
+    },
+    {
+      "rule": "qe-writing-003",
+      "count": 1,
+      "lines": [
+        224
+      ],
+      "detail": "\"The Flexibility of Python Functions\" (213-225) lists four capabilities and promises \"We will give examples of how straightforward it is to pass a function to a function in the following sections\" (224), but functions defined inside other functions (220) and functions returning functions (222) are never exemplified anywhere in the lecture"
+    },
+    {
+      "rule": "qe-code-001",
+      "count": 3,
+      "lines": [
+        112,
+        605,
+        685
+      ],
+      "detail": "trailing whitespace after `f(1)` at 112 (W291); whitespace immediately inside the parentheses at 605, `count = count + ( 1 if U < 0.5 else 0 )` (E201/E202), where the equivalent line at 585 is written correctly; and `recursion_factorial` indented three spaces instead of four at 685-688 (E111)"
+    }
+  ],
+  "strengths": [
+    "The `lambda` motivation is genuine rather than illustrative: `quad(lambda x: x**3, 0, 2)` (260) needs a function object where naming one would be pure overhead, so the reader sees why anonymous functions exist",
+    "`generate_data` is refactored in four steps - inline loop (283-295), function (307-318), conditional argument (336-350), callable argument (368-379) - and each step is motivated by a stated limitation of the one before (\"Our function `generate_data()` is rather limited\", 329)",
+    "The recursion section is honest about itself: it flags its own example as contrived and says the iterative version would normally be preferred (456), instead of selling recursion",
+    "Rebinding `max` to `m` (396-399) is a two-line demonstration that functions are objects - the cheapest possible illustration of the claim at 221",
+    "Five exercises use gated `exercise-start`/`solution-start` with dropdown solutions, and two of them build on named earlier targets (`factorial_exercise` at 461, referenced at 672)"
+  ],
+  "actions": [
+    "Sentence-case the 13 headings (47, 55, 80, 94, 100, 168, 213, 227, 266, 279 ...) - the largest single fix and what floors Writing at 5",
+    "Move the seven italicised definitions (137, 183, 185, 263, 322, 384, 450) to bold; `**built-in**` at 57 is the one that already gets it right",
+    "Fix the two broken sentences: 28 (\"provided by almost all programming\" - the noun is missing) and 38 (\"learn to do is build our own user-defined functions\")",
+    "Add mystnb caption/name to the four code-cell figures (283, 307, 336, 368) and `lw=2` to the five plot calls (178, 293, 316, 348, 377)",
+    "Either give examples of the two claims at 220 and 222 or drop the promise at 224",
+    "Cut 404 to its point, delete the double space at 386 (qe-writing-008), and add the missing full stop at 85",
+    "Run the code cells through pycodestyle for the three-space indent at 685-688, the bracket spacing at 605 and the trailing whitespace at 112"
+  ],
+  "scanner_doubts": []
+}

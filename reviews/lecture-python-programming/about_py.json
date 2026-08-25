@@ -1,0 +1,54 @@
+{
+  "series": "lecture-python-programming",
+  "lecture": "about_py",
+  "judgment": [
+    {
+      "rule": "qe-writing-005",
+      "count": 2,
+      "lines": [
+        47,
+        170
+      ],
+      "detail": "the only two bold spans in the lecture are both emphasis, which the rule reserves for italic: \"You do **not** need to understand everything\" (47) and \"You do **not** need to read and understand this code\" (170); no term the lecture introduces - high-level language (148), open source (92) - is bolded at its point of definition"
+    },
+    {
+      "rule": "qe-writing-002",
+      "count": 3,
+      "lines": [
+        274,
+        364,
+        519
+      ],
+      "detail": "the same promise is made five times in five sections - \"We will discuss the details later in the lecture series, where we cover NumPy in depth\" (344), \"as we'll explain later in this series\" (356), \"This lecture series will provide you with extensive background in NumPy\" (364), \"Later we'll discuss SciPy in more detail\" (393), \"In this lecture series we will learn how to use many of these libraries\" (519); and 274 opens a section with \"We have already discussed the importance of Python for AI, machine learning and data science\", which restates 254-257, which restates 133, which restates 78"
+    },
+    {
+      "rule": "qe-writing-003",
+      "count": 2,
+      "lines": [
+        50,
+        142
+      ],
+      "detail": "the two rhetorical asides \"Can't I Just Use LLMs?\" (50) and \"Isn't MATLAB Better?\" (69) sit under `## Overview` and before `## Introducing Python` (88), so MATLAB, JAX, deep learning and reinforcement learning are all invoked before Python itself has been introduced; and 142 (\"PyTorch is just one of several Python libraries for deep learning and AI.\") is stranded after the `{figure}` block at 140-141, where it reads as a caption but is a body paragraph"
+    }
+  ],
+  "strengths": [
+    "The Java-versus-Python comparison (173-248) makes the \"simple and elegant design\" claim at 164 concrete instead of asserting it: the same task, 47 lines of Java against 12 lines of Python, with the reader told twice that they need not read the Java",
+    "The NumPy walk-through (296-336) builds from a three-element Python list to a 100-point grid to `b @ c`, so the motivation for the library arrives before the library does",
+    "Every library named is hyperlinked to its own documentation, and the SciPy list at 384-389 links each subpackage to its own reference page rather than to the project root",
+    "Greek unicode identifiers appear in narrative code exactly where the convention wants them - `ϕ = norm()` (377) and the comment \"Create even grid from -π to π\" (321)",
+    "The lecture is honest about its own level: \"You do not need to understand everything you see in this lecture\" (47) sets the right expectation for a showcase chapter"
+  ],
+  "actions": [
+    "Sentence-case the 10 H2/H3 headings (50, 69, 101, 127, 159, 252, 269, 347, 438, 493) - the single largest fix, and the only thing holding Writing at 4.5",
+    "Add `:name:` and a caption to the five figures (140, 411, 417, 423, 464), and fold the orphan sentence at 142 into the caption of the figure above it",
+    "Regenerate `qs.png` (411), `bn_density1.png` (417) and `career_vf.png` (423) from code - they are a LaTeX-annotated 2D plot, a contour plot and a 3D surface, not screenshots (see scanner doubt)",
+    "Replace the raw links to jax.quantecon.org (84) and networks.quantecon.org (440) with `{doc}` cross-references (qe-link-002)",
+    "Cut the repeated \"we will cover this later\" promises at 274, 364 and 519 to one, and move the LLM and MATLAB asides after \"Introducing Python\"",
+    "Change `**not**` to `*not*` at 47 and 170, and bold the terms the lecture actually defines",
+    "Fix the missing full stops at 133 and 274 and the \"we are interesting in studying\" at 443"
+  ],
+  "scanner_doubts": [
+    "qe-fig-002 is suppressed for the whole `/about_py/` path by the NOT_A_PLOT exclusion in tools/qestyle_rules.py:911, but `qs.png` (about_py.md:411), `bn_density1.png` (417) and `career_vf.png` (423) are code-generable plots, not screenshots or photographs - the lecture itself calls them \"Example 2D plot\", \"Example contour plot\" and \"Example 3D plot\". Three real qe-fig-002 occurrences are being hidden by a directory-level exclusion.",
+    "qe-writing-001 ×1 at about_py.md:27 is the body of an `{epigraph}` - a verbatim quotation from Chris Wiggins. A quotation cannot be re-punctuated into one sentence per paragraph, and `{epigraph}` is not excluded anywhere in tools/ (grep finds no mention). Same defect in debugging.md:27 and numpy.md:27."
+  ]
+}

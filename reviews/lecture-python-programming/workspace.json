@@ -1,0 +1,64 @@
+{
+  "series": "lecture-python-programming",
+  "lecture": "workspace",
+  "judgment": [
+    {
+      "rule": "qe-writing-005",
+      "count": 3,
+      "lines": [
+        294,
+        323,
+        325
+      ],
+      "detail": "the two definitions in the Git section are italicised, not bolded - Git 'is a *version control system*' (323) and 'the associated collections of files --- called *repositories* ---' (325) - which is the reverse of the rule; and at 294 bold is used for a UI label (**Run Current File in Interactive Window**) although every other UI label in the lecture is plain text (155-156, 246, 252, 261)"
+    },
+    {
+      "rule": "qe-code-001",
+      "count": 3,
+      "lines": [
+        89,
+        90,
+        104
+      ],
+      "detail": "the two example scripts, which are the reader's model for 'longer programs', are not PEP8: a space before the annotation colon in `def plot_wave(title : str = 'Sine Wave')` (89), a 2-space body indent instead of 4 (90-97), and one space before the inline comment where PEP8 asks for two in `import sine_wave # Import the sine_wave script` (104)"
+    },
+    {
+      "rule": "qe-writing-003",
+      "count": 2,
+      "lines": [
+        114,
+        259
+      ],
+      "detail": "'## Development environments' (114-121) states that 'This lecture takes you through the workings of two development environments' and then ends, with both environments following as sibling H2s (123, 211) rather than as its subsections, so the heading structure denies the relationship the text asserts; and at 259 'Further discussions about version control can be found in the next section' points forward across two intervening subsections (286, 301) to '## Git your hands dirty' at 319"
+    },
+    {
+      "rule": "qe-writing-002",
+      "count": 2,
+      "lines": [
+        31,
+        75
+      ],
+      "detail": "line 31 ('Jupyter Notebooks are well suited to interactive computing ... and can help execute chunks of code one at a time') restates the point already made at 29 ('While they are efficient and adaptable when working with short pieces of code, Notebooks are not the best choice for longer programs'), interrupting the Overview's argument to repeat its premise; and 75 pads a simple claim - 'One major advantage of using Python scripts lies in the fact that you can \"import\" functionality' - where 'One major advantage of Python scripts is that you can import' says the same thing"
+    }
+  ],
+  "strengths": [
+    "The `%%writefile` cell at 83 creates the very file that the next cell imports at 104, so the 'import from another script' lesson actually executes rather than being described",
+    "Every step of both walkthroughs is anchored to a screenshot of the exact screen the reader is looking at - 16 `{figure}` directives between 141 and 309 - which is what makes a UI tour followable",
+    "The three `{note}` admonitions carry genuine asides: the Anaconda assumption (44-48), the ipykernel console alternative (203-209) and Docker being out of scope (313-317). None of them is used for emphasis",
+    "The script listings carry `:caption:` and `:lineno-start:` (57-58, 80-81, 101-102), so each cell is labelled with the file it stands for and its line numbers match the file",
+    "One sentence per paragraph holds across the whole file - the scanner records no qe-writing-001 at all, which is unusual for a 371-line lecture"
+  ],
+  "actions": [
+    "Add a `:name:` (and a caption) to each of the 17 figures (56, 141, 149, 164, 169, 185, 199, 221, 227, 232, 237, 248, 254, 267, 290, 296, 309) - qe-fig-005, 17 occurrences and the largest fix here; a screenshot walkthrough is exactly where `{numref}` pointers pay off and none of these can currently be referenced",
+    "Bold the definitions at 323 and 325 and keep italics for emphasis; then either drop the bold on the UI label at 294 or bold every UI label, since all the others are plain",
+    "Make the two example scripts PEP8-clean: 4-space indent at 90-97, `title: str` at 89, two spaces before the inline comment at 104",
+    "Fix the forward reference at 259 - point at '## Git your hands dirty' (319) with a `{ref}`, or move the sentence to the end of the VS Code section",
+    "Decide what '## Development environments' (114) is for: demote 123 and 211 to subsections under it, or fold its three lines into the Overview",
+    "Repair the typos: 'write to to a file' (77), 'go ahead an install' (230), 'in the the current working directory' (279)",
+    "Move the two `plt.title(...)` calls (69, 96) out of the code into mystnb figure captions and set `lw=2` on the two plots (66, 93) - qe-fig-003 and qe-fig-008, 2 occurrences each"
+  ],
+  "scanner_doubts": [
+    "qe-writing-004 x4 (workspace.md:37, 213, 246, 252): every hit is a product or UI name rather than narrative capitalisation. 37 and 213 flag the word 'Code' inside 'Visual Studio Code (VS Code)'; 246 flags 'Kernel' in 'the Select Kernel button' and 252 flags 'Control' in 'the Source Control tab'. The proper-noun list needs 'Visual Studio Code'/'VS Code'; the two UI labels are at most a missing-backticks issue, not a capitalisation one.",
+    "qe-writing-006 x1 (workspace.md:211): the H2 'A walk through Visual Studio Code' is already sentence case - the three flagged words (Visual, Studio, Code) are the product name. If this and the four qe-writing-004 hits above are discounted, nothing measured remains behind the drafted Writing score of 7/10."
+  ]
+}

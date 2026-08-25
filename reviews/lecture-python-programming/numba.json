@@ -1,0 +1,64 @@
+{
+  "series": "lecture-python-programming",
+  "lecture": "numba",
+  "judgment": [
+    {
+      "rule": "qe-writing-005",
+      "count": 4,
+      "lines": [
+        196,
+        199,
+        212,
+        852
+      ],
+      "detail": "the bullet list at 196-200 carries five italic spans in five bullets - *ahead of time*, *call*, *other variables*, the whole clause *can be inferred once the input types are known*, and *wait until the function is called* - which is the overuse of emphasis formatting the rule names; *decorator* (212) is a term being defined and belongs in bold, as **just in time (JIT) compiler** (57) and **data race** (845) correctly are; and 852 and 865 italicise entire sentences (\"*Symptom 1: the result is no longer reproducible.*\") as pseudo-headings"
+    },
+    {
+      "rule": "qe-writing-003",
+      "count": 2,
+      "lines": [
+        441,
+        552
+      ],
+      "detail": "441 says \"We generate them here and store them in `u_draws` and `v_draws`\" before any draws have been mentioned - \"them\" has no antecedent, and the sentence forward-references two exercise labels that do not yet exist; and the three exercises on pre-drawing versus drawing in the loop reach conclusions that read as contradictory in sequence: 552-556 warns that drawing inside the loop \"interacts badly with parallelization\", 912 offers pre-drawing as \"the other safe option\", and 951 concludes \"Drawing inside the loop is much faster\" - the distinction that reconciles them (legacy `np.random` versus a `Generator`) is stated at 869 but not at 951 where the recommendation lands"
+    },
+    {
+      "rule": "qe-writing-002",
+      "count": 2,
+      "lines": [
+        531,
+        856
+      ],
+      "detail": "39- and 32-word single sentences at the two points where the exercise sequence most needs to be clear: 529-531 on which cells are actually being timed, and 856 on why the data race destroys reproducibility"
+    },
+    {
+      "rule": "qe-code-001",
+      "count": 3,
+      "lines": [
+        109,
+        116,
+        176
+      ],
+      "detail": "the body of the `for` loop in `qm` is indented six spaces instead of four (109, pycodestyle E111); `ax.set_ylabel('$x_{t}$', fontsize = 12)` at 116 puts spaces around a keyword-argument `=` (E251) one line after 115 writes `fontsize=12` correctly; and 176 has two spaces around the division in `timer1.elapsed /  timer3.elapsed` (E222)"
+    }
+  ],
+  "strengths": [
+    "The Numba case is made by measurement rather than assertion: the same `qm` is timed unjitted (125), jitted (155) and jitted-with-cache (168), and the ratio is computed in the notebook at 176",
+    "\"Sharp Bits\" (217-296) is unusually honest for an introductory lecture - it shows the type-inference failure as a caught exception (247-250) and the frozen-global surprise (274-291) instead of only the happy path",
+    "The `numba_ex_race` exercise (791-915) is the best thing here: it takes a program that runs, returns roughly the right answer, and is silently wrong, then diagnoses it with two symptoms - non-reproducibility under a fixed seed (858-861) and an inflated spread shown as a confidence band against the correct version (885-908)",
+    "Parallelization is applied to the dimension that admits it and the lecture says so: \"we parallelize across households rather than over time -- updates of an individual household across time periods are inherently sequential\" (432-433)",
+    "Large arrays are flagged before they are allocated (`{note}` at 732-735) and released when finished with (`del u_big, v_big`, 777) - the kind of housekeeping most lectures skip"
+  ],
+  "actions": [
+    "Add braces to `\\mathbb E` at 975 and 1014 (qe-math-010, proposed) - the only math violations in the lecture",
+    "Sentence-case the six headings (87, 100, 183, 217, 267, 300)",
+    "Reconcile the three pre-draw-versus-in-loop conclusions (552-556, 912, 951) into one recommendation that restates the `Generator`-versus-legacy distinction where the recommendation is actually made",
+    "Add mystnb caption/name to the four figures (104, 340, 575, 885), add `lw=2` at 349 and 899, and regenerate the static PNG at 575 from code",
+    "Replace the raw intro.quantecon.org link at 566 with a `{doc}` cross-reference (qe-link-002)",
+    "Fix the code cells: the six-space loop body at 109, `fontsize = 12` at 116, and the double space at 176; give 441 a real antecedent",
+    "Cut the italic emphasis at 196-200 to at most one span per bullet, bold *decorator* at 212, promote the italic pseudo-headings at 852 and 865 to real subheadings, fix \"libaries\" at 263, and delete the double spaces at 70, 198 and 219"
+  ],
+  "scanner_doubts": [
+    "qe-writing-001 ×2 at numba.md:69 and 211 - 69 is the body of a `{note}` (68-75) and 211 the body of an `{admonition} Remark` (210-214), neither of which is running prose. tools/qestyle_rules.py:_paragraph_blocks (line 214) excludes headings, list items, tables, targets and option lines from qe-writing-001 but not the bodies of directives; no rule in tools/ mentions `note`, `tip`, `admonition` or `epigraph`."
+  ]
+}

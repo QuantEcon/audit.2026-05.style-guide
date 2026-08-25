@@ -1,0 +1,61 @@
+{
+  "series": "lecture-python-programming",
+  "lecture": "need_for_speed",
+  "judgment": [
+    {
+      "rule": "qe-writing-007",
+      "count": 1,
+      "lines": [
+        225
+      ],
+      "detail": "\"Data Access\" (217-247) is the lecture's second explanation of why pure Python is slow and it is entirely verbal: a contiguous block of 8-byte integers (225-228) against CPython's \"pointers to data rather than actual data\" (243) is the canonical box-and-arrow memory diagram, and the section has no figure. The lecture's three figures are a MATLAB screenshot (313) and two hardware photographs (458, 492), none of which carries an idea"
+    },
+    {
+      "rule": "qe-writing-005",
+      "count": 3,
+      "lines": [
+        82,
+        90,
+        288
+      ],
+      "detail": "\"**Python is small**\" (82) and \"**Python is slow**\" (90) use bold as a substitute for headings - neither is a definition nor an emphasis - and at 288 the term the whole section turns on is introduced in quotation marks: \"Many economists usually refer to array programming as \\\"vectorization.\\\"\"; the lecture does get bold right later for **GPUs** (453), **core** (466) and **TPUs** (477)"
+    },
+    {
+      "rule": "qe-writing-003",
+      "count": 2,
+      "lines": [
+        272,
+        313
+      ],
+      "detail": "272 announces \"three related techniques for accelerating Python code\" (the same triple listed at 96-98), but only vectorization and JIT compilers arrive under that heading - Parallelization is promoted to its own H2 at 387, so the promised grouping is split across two top-level sections; and the `matlab.png` figure at 313 is dropped between two sentences that read continuously (310 and 316) with no caption saying what it shows"
+    },
+    {
+      "rule": "qe-writing-002",
+      "count": 2,
+      "lines": [
+        300,
+        421
+      ],
+      "detail": "38- and 33-word single sentences carrying two clauses each: 300-302 on subcontracting matrix inversion to pre-compiled machine code, and 421 on splitting an array operation across a laptop's cores"
+    }
+  ],
+  "strengths": [
+    "The \"why pure Python is slow\" argument is built from two named mechanisms - type checking (136-214) and data access (217-247) - each set against the C program at 191-205 rather than against an abstraction",
+    "It refuses the obvious wrong conclusion out loud: \"Does the discussion above mean that we should just switch to C or Fortran for everything? The answer is: Definitely not!\" (252-254), with the reason given in the two sentences that follow",
+    "The vectorization claim is measured in the notebook, not asserted - the same sum of squares as a Python loop (331-337) and as three NumPy batch operations (342-347), with those three operations then named (353-355)",
+    "GPUs and cores are defined at the point of first use inside `{note}` blocks (423-429, 465-472), so a reader who does not know what a core is is not left behind",
+    "The parallelization taxonomy is complete and decided: multithreading, multiprocessing, and a \"Which Should We Use?\" section that actually answers the question (441-447)"
+  ],
+  "actions": [
+    "Sentence-case the 10 headings (70, 103, 130, 136, 217, 223, 236, 441, 450, 481) - the whole of the Writing score of 4",
+    "Move Parallelization (387) under \"Accelerating Python\" (270) as the third of the three techniques promised at 96-98 and 272, or change the promise",
+    "Add `:name:` and captions to the three figures (313, 458, 492); `matlab.png` in particular needs a caption saying what the reader is looking at",
+    "Add a memory-layout diagram to \"Data Access\" (217-247) - contiguous integers against an array of pointers is the picture the section spends 30 lines describing",
+    "Turn the bold pseudo-headings at 82 and 90 into real H4s, and bold \"vectorization\" at 288 where it is defined instead of quoting it",
+    "Trim the two long sentences at 300-302 and 421, and split the two multi-sentence `{note}` paragraphs at 424 and 466",
+    "Make the numbering at 96-98 consistent (it runs 1., 1., 2.) and the slash spacing at 98 uniform (\"threads/ CPUs / GPUs /TPUs\")"
+  ],
+  "scanner_doubts": [
+    "qe-writing-001 ×2 at need_for_speed.md:424 and 466 - both are the bodies of `{note}` directives (423-429 and 465-472), not running prose. tools/qestyle_rules.py:_paragraph_blocks (line 214) excludes headings, list items, tables, targets and option lines from qe-writing-001 but not the bodies of directives; no rule in tools/ mentions `note`, `tip`, `admonition` or `epigraph`."
+  ]
+}

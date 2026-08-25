@@ -1,0 +1,85 @@
+{
+  "series": "lecture-python-programming",
+  "lecture": "numpy",
+  "judgment": [
+    {
+      "rule": "qe-code-001",
+      "count": 7,
+      "lines": [
+        491,
+        492,
+        613,
+        678,
+        748,
+        807,
+        961
+      ],
+      "detail": "trailing whitespace after the array rows at 491-492 (W291); a redundant trailing semicolon closing each of the four broadcasting diagram cells, `ax.text(...);` at 613, 678, 748 and 807 (E703); and a space after the unary minus in `np.exp(- 0.5 * z**2)` at 961 (E225)"
+    },
+    {
+      "rule": "qe-writing-005",
+      "count": 4,
+      "lines": [
+        818,
+        907,
+        1031,
+        1417
+      ],
+      "detail": "the file bolds terms well in places (**flat**, 133; **broadcasting**, 475; **ufuncs**, 951) and then breaks the convention four ways: *deep copy* (907) and *conditional extraction* (1031) are definitions set in italic; *Step 1:*, *Step 2:* and *Step 3:* (818, 824, 829) use italic as structural labels; and **Part 1**, **Part 2**, **Part 1 Solution**, **Part 2 Solution** (1417, 1436, 1476, 1506) use bold as headings"
+    },
+    {
+      "rule": "qe-writing-003",
+      "count": 2,
+      "lines": [
+        1087,
+        1440
+      ],
+      "detail": "\"Implicit Multithreading\" (1087-1118) ends the lecture body with an htop screenshot loaded from `/_static/lecture_specific/parallelization/`, a directory belonging to a lecture that is not in this series, with no transition from \"Sub-packages\" above it and no closing paragraph before \"## Exercises\"; and 1440-1447 wraps a second `!pip install quantecon` cell - 1,400 lines after the one at 32-36 - with \"Let's make sure this library is installed\" and \"Now we can import the quantecon package\", but the cell that follows at 1449 performs no import, using the `qe` bound at line 60"
+    },
+    {
+      "rule": "qe-writing-007",
+      "count": 1,
+      "lines": [
+        872
+      ],
+      "detail": "\"Mutability\" (848-890) turns on the aliasing surprise `b = a; b[0] = 0.0` (872-876) and explains it in five sentences of prose (878-889) with no figure, in a lecture that invests four hand-drawn cube diagrams in broadcasting - and `names.md` already draws exactly this box-and-arrow picture for the same idea at its lines 524-565, so the figure exists and could be reused"
+    },
+    {
+      "rule": "qe-writing-002",
+      "count": 2,
+      "lines": [
+        850,
+        1273
+      ],
+      "detail": "850 reads \"We already saw examples of multability above\"; and 1273-1274 (\"The logic is not obvious, but if you take your time and read it slowly, you will understand\") substitutes an exhortation for the explanation of the `cumsum`/`searchsorted` trick, which is the one line of the `DiscreteRV` solution that needs explaining"
+    },
+    {
+      "rule": "qe-math-015",
+      "count": 1,
+      "lines": [
+        1390
+      ],
+      "detail": "(proposed) inside `ECDF.plot` the vectorized CDF evaluator is bound to lowercase `f` (`f = np.vectorize(self.__call__)`), while the same solution correctly uses uppercase `F` for the CDF object 11 lines later (`F = ECDF(X)`, 1401) - lowercase is reserved for densities and mass functions, uppercase for CDFs"
+    }
+  ],
+  "strengths": [
+    "The broadcasting section earns its length: three cube diagrams (501, 630, 699) show the expansion NumPy performs, and a fourth (773) shows the case that fails, placed immediately after the `ValueError` it raises (755-766)",
+    "The three broadcasting rules at 816-832 are stated as an algorithm and then traced on concrete shapes, so a reader can apply them rather than merely recognise them",
+    "Mutability is taught in the order a reader hits it - the aliasing surprise first (866-876), then `np.copy` (897-918) - rather than as a rule to remember in advance",
+    "`DiscreteRV` (1246-1271) is followed by an honest critique of itself: 1276-1300 shows that mutating `q` leaves `Q` stale, then points at the descriptor-based version in QuantEcon.py rather than pretending the solution is finished",
+    "Every dtype claim is checked in the notebook instead of asserted - `type(a[0])` at 111 and 118 demonstrates both the `float64` default and the `dtype=int` override"
+  ],
+  "actions": [
+    "Sentence-case the 12 headings (69, 122, 161, 222, 314, 383, 432, 836, 891, 923 ...) - Writing at 3.5 is the lowest score in the series and this is nearly all of it",
+    "Move the duplicate `!pip install quantecon` at 1442-1445 up to the one at 32-36 and delete the stranded sentence at 1447 (qe-code-003)",
+    "Give the four near-identical `draw_cube` call blocks (574-613, 639-678, 709-748, 782-807) one parameterised helper - 200 lines of hidden-input code repeated four times, in the lecture that teaches loop elimination",
+    "Add `:name:` and a caption to the two figures (1111, 1397) and remove the unused `Axes3D` and `cm` imports at 62-63 (there are no 3D plots in this lecture)",
+    "Add a reference diagram to \"Mutability\" (848-890), reusing the one `names.md` already has, and give \"Implicit Multithreading\" (1087) either a transition into it or a home in the lecture it was taken from",
+    "Clean the code cells: trailing whitespace at 491-492, the four trailing semicolons at 613, 678, 748, 807, and the unary-minus spacing at 961",
+    "Bold the definitions at 907 and 1031, make 818/824/829 and 1417/1436/1476/1506 real headings, add braces to `\\mathbb P` at 1190, rename the lowercase `f` at 1390, and fix \"multability\" at 850"
+  ],
+  "scanner_doubts": [
+    "qe-fig-008 ×13 at numpy.md is almost entirely a false positive. Twelve of the flagged lines (519, 522, 525, 528, 532, 535, 538, 541, 545, 548, 551, 554) are the `ax.plot` calls inside `draw_cube`, which draw the edges of a schematic cube - not line charts. They also do set line width, through `**kwargs` from the `solid` and `dotted` dicts at 563-566, which deliberately use `lw=1` and `lw=0.5`; forcing `lw=2` would ruin the diagram. Only 1391 (`ax.plot(x_vals, f(x_vals))` in `ECDF.plot`) is a genuine occurrence. Consider skipping `qe-fig-008` for plot calls that pass `**kwargs`, or inside a helper whose caller sets `lw`.",
+    "qe-writing-001 ×3 at numpy.md:27, 468, 1436 and qe-writing-008 at 27: line 27 is the body of an `{epigraph}` - a five-sentence verbatim quotation from Michael Crichton, whose own double space after \"consensus.\" is what qe-writing-008 flags. Line 468 is the body of a `{note}`. Only 1436 is running prose. tools/qestyle_rules.py:_paragraph_blocks (line 214) excludes headings, list items, tables, targets and option lines from qe-writing-001 but not the bodies of directives; no rule in tools/ mentions `note`, `tip`, `admonition` or `epigraph`."
+  ]
+}

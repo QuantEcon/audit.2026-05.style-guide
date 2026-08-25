@@ -1,0 +1,58 @@
+{
+  "series": "lecture-python-programming",
+  "lecture": "getting_started",
+  "judgment": [
+    {
+      "rule": "qe-writing-005",
+      "count": 9,
+      "lines": [
+        88,
+        102,
+        199,
+        211,
+        224,
+        240,
+        242,
+        372,
+        415
+      ],
+      "detail": "the convention is inverted throughout: the four bold spans are all emphasis - \"the core Python language **and**\" (88), the whole sentence at 102, \"**depends on which mode you are in**\" (242), \"**static** html representations\" (415) - while the terms being defined are italic or unmarked: the Jupyter *dashboard* (199), an *active cell* (211), *edit mode* (224), a *modal* editing system (240), and \"Debugging is the process of identifying and removing errors from a program\" (372) with nothing marked at all"
+    },
+    {
+      "rule": "qe-writing-002",
+      "count": 3,
+      "lines": [
+        63,
+        74,
+        394
+      ],
+      "detail": "three sentences are broken rather than merely long: 63-64 \"Most of our lectures include a \\\"Launch notebook\\\" button (with a play icon) on the top right connects you to an executable version on Colab\" is missing its relative pronoun; 74 reads \"runs you through the some details\"; and 394 reads \"using the buttons on the \\\"Next\\\" button on the CALLSTACK toolbar\""
+    },
+    {
+      "rule": "qe-writing-003",
+      "count": 2,
+      "lines": [
+        56,
+        268
+      ],
+      "detail": "Colab is recommended as the way to start (52-64) two sections before Jupyter notebooks are introduced at 131, so the reader is told to run notebooks in the cloud before being told what a notebook is; and \"A Test Program\" - item 4 of the five-item plan at 42-48 - arrives at 268 as an H4 buried under \"Notebook Basics\", so the promised structure and the delivered structure do not line up"
+    }
+  ],
+  "strengths": [
+    "The cloud-first ordering is the right call for a first lecture: Colab (50-64) gets a reader executing code before any local install is attempted, and the local route is honestly framed as the one that \"require[s] more work\" (72)",
+    "Twelve screenshots carry the walkthrough (154, 182, 195, 207, 230, 320, 338, 357, 363, 378, 397), so every instruction is paired with what the reader should actually see on screen",
+    "Modal editing - the thing that most confuses new notebook users - gets its own subsection with both modes tabulated and both switching keystrokes given (238-259)",
+    "The test program is deliberately arbitrary and says so (\"Don't worry about the details for now\", 296), which keeps the reader's attention on running a cell rather than on polar bar charts",
+    "Cross-reference targets are set for exactly the things later lectures need to point at: `install_anaconda` (104), `a_test_program` (267), `gs_help` (328), `gs_install_qe` (452)"
+  ],
+  "actions": [
+    "Sentence-case the 17 headings (50, 67, 77, 213, 220, 238, 261, 268, 306, 329 ...) - this alone accounts for the Writing score of 5",
+    "Add `:name:` and a caption to the 12 figures (154, 182, 195, 207, 230, 276, 320, 338, 357, 363, 378, 397) - none can be cross-referenced today, yet the prose says \"in the previous figure\" (222) and \"like so\" (336)",
+    "Fix the three broken sentences at 63-64, 74 and 394",
+    "Invert the emphasis convention: bold the definitions (dashboard 199, active cell 211, edit mode 224, debugging 372) and italicise the four emphases now in bold (88, 102, 242, 415)",
+    "Remove the leftover author comments and the inline `<style>` block from published source (21, 23-32, 385, 396) - move the CSS into `_static` and file the two IDEAs as issues",
+    "Add a forward reference at 56 so the reader knows what a notebook is before being sent to run one in the cloud, or move the Colab recommendation after 131",
+    "Delete the double space at 144 and the trailing double-space line breaks at 372, 383, 390, 392"
+  ],
+  "scanner_doubts": []
+}

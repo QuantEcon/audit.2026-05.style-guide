@@ -1,0 +1,35 @@
+{
+  "series": "lecture-python.myst",
+  "lecture": "exchangeable",
+  "judgment": [
+    {"rule": "qe-writing-005", "count": 8, "lines": [114, 148, 166, 172, 193, 219, 223, 239],
+     "detail": "bold is used for emphasis at least eight times: '**nothing to learn**' at 114 and again at 148, '**either** ... **or**' at 166 and 172, the four bolded verbs in the bullet list at 193-195 ('**knows**', '**doesn't know**', '**acting as if**', '**thinking that**'), '**conditional on nature having selected**' at 219 and 223, and '**not**' at 239. The file uses italic correctly for emphasis elsewhere (51, 58, 175, 299-303, 602) and bold correctly for the terms it defines (83, 89-96, 265, 274, 281, 592), so these are inconsistent with its own practice"},
+    {"rule": "qe-writing-002", "count": 3, "lines": [148, 191, 195],
+     "detail": "line 148 repeats line 114 verbatim, bold and all - 'there is **nothing to learn** about the densities of future random variables from past random variables' - and 150 then repeats 112 as well. The bullet list at 191-197 re-lists the three facts that 178-189 have just stated in prose, with no new content. Its third bullet (195-196) is a 51-word item that hedges twice over ('by **acting as if** or **thinking that**')"},
+    {"rule": "qe-math-015", "count": 3, "lines": [166, 391, 721],
+     "detail": "line 162 sets up the case convention explicitly - $F$ and $G$ are the cumulative distribution functions, $f$ and $g$ their densities - and the lecture then uses the two cases for the same object. Nature 'selects **either** $f$ **or** $g$' at 166 but draws 'from **either** $F$ **or** $G$' at 172; $\\pi$ is defined as $\\mathbb{P}\\{q = f\\}$ at 311 and 322 but described as 'the probability $\\pi$ put on distribution $F$' at 391 and 'under true distribution $F$' at 512; and the same experiment is labelled 'F generates' in the figure at 683-684 and 'f generates' at 721"},
+    {"rule": "qe-writing-003", "count": 3, "lines": [579, 589, 757],
+     "detail": "the three subsections under '## Appendix' (579-757) are the lecture's payoff - the sample-path ensembles, the convergence rates and the ensemble dynamics - so the strongest exhibits sit under a heading that tells the reader they are optional. Line 589-590 asserts that 'outcomes depend on a peculiar property of likelihood ratio processes' and points at {doc}`advanced:additive_functionals` without saying what the property is, and 610-611 restates the same non-explanation. The third case is computed at 756 and then the lecture ends at 759 with no reading of the figure, unlike the two cases before it, which each get one (736-737, 749)"},
+    {"rule": "qe-code-001", "count": 7, "lines": [424, 425, 429, 712, 713, 714, 719],
+     "detail": "seven functions are bound by assigning a lambda to a name, which PEP8 rules out explicitly in favour of `def` (E731); `def f(w): return p(w, F_a, F_b)` reads the same and gives the function a name in tracebacks. The single-letter names themselves are fine here - `l` for the likelihood ratio $l(w)$ is the mathematical-notation exception the rule allows"}
+  ],
+  "strengths": [
+    "Every probability is written as an event in braces - $\\mathbb{P}\\{q = f\\}$ (311), $\\mathbb{P}\\{q = f \\mid w^t\\}$ (322), and the three-way Bayes statement at 348-356 - so the proposed qe-math-014 convention holds throughout",
+    "The three graphs are assembled from one `create_model` (418-432) that returns $f$, $g$ and the two roots of $l(w) = 1$, so 'Another instance' at 571-574 is three lines of reuse rather than three new plotting functions",
+    "The odds form of Bayes' Law is derived (596-607) and then actually exploited: the simulator computes the whole ensemble with one `np.cumprod` (626) precisely because the belief path is a running product of likelihood ratios",
+    "The claim that the mixture is not IID is settled by writing the non-factorisation out at 244-255 instead of asserting it, which is what makes the exchangeable-but-not-IID distinction land",
+    "Every reused equation is labelled and cited by {eq}: `eq_definetti` (233) at 278, `eq_Bayes102` (341) at 344, 368 and 594, `eq_Bayes103` (379) at 394 and 464, `eq_odds` (597) at 602, and `π` is written in unicode in the code (525, 617, 715) to match the mathematics"
+  ],
+  "actions": [
+    "Convert the eight bold emphases at 114, 148, 166, 172, 193-195, 219, 223 and 239 to italic, keeping bold for the defined terms it already marks correctly",
+    "Honour the $F$/$f$ distinction announced at 162: pick the CDF or the density for each statement and stay with it at 166, 172, 311, 388-391, 512 and in the figure labels at 683-684 and 721 (qe-math-015, proposed)",
+    "Cut the redundancy in the setup: delete the bullet list at 191-197, which restates 178-189, and the repetition of 112-114 at 148-150",
+    "Brace the two bare expectation operators at 700: `E\\left[` becomes `\\mathbb{E}\\left[` (qe-math-010, proposed)",
+    "Replace the seven lambda assignments at 424, 425, 429, 712, 713, 714 and 719 with `def` statements",
+    "Figure hygiene: add mystnb name/caption metadata to the cell at 681 (qe-fig-005), move the embedded `title='convergence'` at 685 into a caption (qe-fig-003), add `lw=2` at 683, 684 and 721 (qe-fig-008), and drop `figsize=` at 446, 479 and 534 (qe-fig-001)",
+    "Structural and prose tidy-up: promote the '## Appendix' subsections (579-757) into the body or say why they are an appendix, say what the third instance at 756 shows, split the two-sentence paragraphs at 640 and 659 (qe-writing-001), and sweep the 62 double-space runs (31, 36, 43, 44, 48, 58, 60, 83, 94, 99, ...)"
+  ],
+  "scanner_doubts": [
+    "qe-code-002 x4 at exchangeable.md:73 and :412 flags `gamma`, but this is `math.gamma` - the standard-library Gamma function imported at 73 and called three times at 412 - not a spelled-out Greek variable name. The same false positive appears in divergence_measures.md at :56 and :173, so it looks systematic: the check seems to match Greek-letter words inside function names as well as identifiers"
+  ]
+}

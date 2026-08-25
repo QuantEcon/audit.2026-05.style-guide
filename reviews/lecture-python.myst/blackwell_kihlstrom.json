@@ -1,0 +1,97 @@
+{
+  "series": "lecture-python.myst",
+  "lecture": "blackwell_kihlstrom",
+  "judgment": [
+    {
+      "rule": "qe-writing-003",
+      "count": 3,
+      "lines": [
+        318,
+        964,
+        1174
+      ],
+      "detail": "line 318 writes \"let $Q = p^\\mu(X)$ denote the random posterior\" - inside the section whose whole subject is the garbling matrix $Q$ defined at 129-146 and bound in code at 111 - and $Q$ then takes a third meaning at 1180-1211 as one of the two distributions in $D_f(P \\| Q)$, which line 1306 makes explicit as \"$(P, Q) = (\\mu_1, \\mu_2)$\". Application 1 contradicts itself: line 958 says \"the unknown state $\\tilde s$ is a product parameter $\\theta$\", and 964-1034 then treat $\\theta$ as the consumer's chosen quality investment, while the $\\lambda$ units of information priced at $c(\\lambda)$ in line 959 disappear and are replaced by $c(\\theta) = c\\theta^2$ at 968. And the lecture summarises itself at \"## Summary\" (1152-1171) and then runs for another 210 lines across two further H2 sections (1174, 1316)"
+    },
+    {
+      "rule": "qe-math-014",
+      "count": 5,
+      "lines": [
+        100,
+        377,
+        389,
+        739,
+        1335
+      ],
+      "detail": "every probability in the lecture is an event - a logical condition on random variables - and every one is written with parentheses: `\\Pr(\\tilde x_\\mu = x_j \\mid \\tilde s = s_i)` (100), `\\Pr(\\tilde s = s_i \\mid \\tilde x_\\mu = x)` (377), `\\Pr(\\tilde x_\\mu = x)` (389, 739) and `\\Pr(s_1 \\mid w^t)` (1335). The proposed convention is braces for events, so these should read `\\mathbb{P}\\{\\tilde x_\\mu = x_j \\mid \\tilde s = s_i\\}` and so on; there is no set-valued argument anywhere in the file that would want parentheses"
+    },
+    {
+      "rule": "qe-writing-005",
+      "count": 4,
+      "lines": [
+        96,
+        245,
+        372,
+        711
+      ],
+      "detail": "four terms are introduced in italic where the lecture's own convention is bold: *Markov matrix* (96), *achievable expected-utility vectors* (245), *posterior belief vector* (372) and *value of experiment $\\mu$ given prior $p$* (711). Compare the seventeen terms it bolds at their point of definition - **experiment** (44), **stochastic transformation** (129), **uncertainty function** (296), **standard experiment** (395), **informationally equivalent** (400), **mean-preserving spread** (416), **f-divergence** (1180), and so on. The two criteria named in italic at 60-61 (*Sufficiency*, *Uncertainty reduction*) are the same terms that get bold treatment at 256 and 307"
+    },
+    {
+      "rule": "qe-writing-007",
+      "count": 2,
+      "lines": [
+        351,
+        1284
+      ],
+      "detail": "the garbling operation is the lecture's central object and is never drawn: criterion 2 (275-290) and the theorem sketch at 351-360 describe in words the chain state $\\to$ signal of $\\mu$ $\\to$ kernel $Q$ $\\to$ signal of $\\nu$, and the reader has eight figures of posterior distributions but no picture of the transformation that generates them. The DPI section is worse: line 1284 writes out a layered Markov chain inline as prose (\"layers $X \\to T_1 \\to T_2 \\to \\cdots \\to T_L \\to \\hat Y$\") and 1272 another (\"$Y - X - T$ forms a Markov chain\"), then states the resulting chain of inequalities at 1289 - and the whole 140-line section (1174-1313) contains no figure at all"
+    },
+    {
+      "rule": "qe-writing-002",
+      "count": 3,
+      "lines": [
+        39,
+        48,
+        217
+      ],
+      "detail": "line 48 is a 56-word sentence that ends \"in this QuantEcon lecture {doc}`likelihood_bayes` as well as several other lectures in this suite of QuantEcon lectures\"; lines 39-40 use \"appreciate\" twice in one sentence (\"To appreciate the connection involved, it is helpful to appreciate how...\"); and lines 217-218 (\"No stochastic transformation can undo the information loss\") repeat 214-215 (\"The reverse residual is large: no stochastic transformation can recover $\\mu$ from $\\nu$\") in the very next paragraph"
+    },
+    {
+      "rule": "qe-math-009",
+      "count": 2,
+      "lines": [
+        286,
+        1267
+      ],
+      "detail": "line 286 reaches for `\\mathscr{G}` for the sigma-algebra of the signal space - the only script letter in the file, used once, and never defined anywhere; line 1267 writes the information-bottleneck objective as $\\mathcal{L}[p(T \\mid X)]$, the only calligraphic symbol in that section, where a plain $L$ collides with nothing"
+    },
+    {
+      "rule": "qe-code-001",
+      "count": 3,
+      "lines": [
+        178,
+        509,
+        889
+      ],
+      "detail": "lines 178-179 split a lambda's parameter list across two lines with the continuation at the same indent as the opening line and trailing whitespace after `lambda q_flat,`; line 509 indents the `zip(...)` continuation to column 9 under a paren opened at column 42; and lines 889 and 935 reach exactly 80 characters"
+    }
+  ],
+  "strengths": [
+    "The sufficiency criterion is tested rather than asserted: `find_stochastic_transform` (163-196) solves for the garbling in both directions and prints the residual each way (199-208), so the reader sees that $\\nu = \\mu Q$ has a solution and $\\mu = \\nu Q'$ does not",
+    "The mean-preserving-spread claim is verified three independent ways - the call-option convex-order sweep over 200 thresholds (548-583), the integrated-CDF test (881-951), and a table of four different concave uncertainty functions (791-806) - which is exactly the right response to a theorem quantified over *all* concave functions",
+    "Definitions and theorems are placed in labelled `prf:` directives throughout (`def-sufficiency`, `def-economic-criterion`, `def-blackwell-sufficiency`, `def-degroot-uncertainty`, `prop-mean-preservation`, `thm-blackwell`, `thm-kihlstrom`, `thm-data-processing`), so the formal statements are separable from the discussion",
+    "The note at 743-749 states the limit of the entropy special case honestly - the Blackwell order implies the entropy inequality but not conversely, because one concave function cannot detect every difference in posterior dispersion",
+    "The closing dictionary table (1349-1363) maps twelve concepts from {doc}`likelihood_bayes` onto their counterparts here, which is a better closing than a restatement of the theorem"
+  ],
+  "actions": [
+    "Replace the ten `\\Pr` operators with `\\mathbb{P}` and brace their arguments (100, 377, 389, 538, 586, 739, 861, 1335, 1341, 1359) - this clears qe-math-010 (13 occurrences, proposed) and qe-math-014 (proposed) at the same time and is the largest single mathematical fix",
+    "Rename the random posterior at 318 and the divergence argument at 1180-1211: $Q$ is already the garbling kernel, in the prose, the mathematics and the code",
+    "Fix Application 1 (954-1034): $\\theta$ cannot be both the unknown product parameter (958) and the consumer's choice variable (964 onward), and $\\lambda$ is introduced at 959 with a cost $c(\\lambda)$ that is never used",
+    "Drop the eight `figsize=` overrides at 505, 566, 664, 840, 908, 994, 1074 and 1130 (qe-fig-001, 8 occurrences) and remove the `\\mathbf{1}\\mathbf{1}^\\top` bold at 818 in favour of a plain ones vector, explaining it in the prose (qe-math-004 2 occurrences, qe-math-008)",
+    "Move \"## Summary\" (1152) to the end, after the DPI and likelihood-ratio sections, or demote those two sections so the lecture does not conclude twice",
+    "Bold the four terms currently italicised at their definitions (96, 245, 372, 711), and give the f-divergence generator a letter other than $f$ - $f$ and $g$ are the conditional densities at 48 and again at 1320-1322",
+    "Sweep the remaining items: split the six two-sentence paragraphs at 362, 366, 397, 404, 859 and 877 (qe-writing-001, 6 occurrences), collapse the six double spaces at 35, 40, 44 and 48 (qe-writing-008, 6 occurrences), sentence-case the H2 at 1174, shorten the captions at 1048 and 1103 (qe-fig-004, 2 occurrences), move the mid-narrative `{cite}` at 703 (qe-ref-001), fix \"synyomyms\" at 52, and replace the Unicode μ/ν inside the math span of the matplotlib label at 572 with `\\mu`/`\\nu`"
+  ],
+  "scanner_doubts": [
+    "blackwell_kihlstrom.md:572 - the matplotlib label `label=\"$E[g(p^μ)] - E[g(p^ν)] \\\\geq 0$\"` puts Unicode μ and ν inside a `$...$` math span, which qe-math-001 forbids (\"Never use unicode characters inside math environments\"). No qe-math-001 violation is reported for this file, which suggests the check does not look inside code cells. That is a defensible scope decision, but math spans in matplotlib labels do render as mathematics on the site",
+    "blackwell_kihlstrom.md - qe-math-004 is reported with count 2 but only one line number (818), where `\\mathbf{1}\\mathbf{1}^\\top` contains two `\\mathbf` tokens on one line. If the count is per-token and the line list is per-line, the two figures are consistent but the evidence reads as though a line number is missing"
+  ]
+}

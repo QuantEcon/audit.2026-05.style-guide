@@ -1,0 +1,44 @@
+{
+  "series": "lecture-python-programming",
+  "lecture": "debugging",
+  "judgment": [
+    {
+      "rule": "qe-writing-005",
+      "count": 3,
+      "lines": [
+        209,
+        297,
+        354
+      ],
+      "detail": "all three of the lecture's defined terms avoid bold: a \"break point\" is introduced in scare quotes (209), the two-way split \"syntax errors and exceptions\" is set in plain text (297), and \"In Python, these errors are called *exceptions*\" (354) puts the definition in italic - the exact inversion the rule names"
+    },
+    {
+      "rule": "qe-writing-002",
+      "count": 2,
+      "lines": [
+        157,
+        291
+      ],
+      "detail": "157-181 pastes the entire `ipdb> h` command table - 25 lines reproducing every pdb command - when the sentence at 154-155 plus the link is what the reader needs, and the lecture only ever uses `n`, `q` and `h c`; and 291 (\"In this section, we'll discuss different types of errors in Python and techniques to handle potential errors in our programs\") restates the Overview's own sentence at 44"
+    }
+  ],
+  "strengths": [
+    "The bug is introduced deliberately and then debugged live: `plt.subplots(2, 1)` at 74 raises a real `AttributeError`, so the traceback the reader sees is the traceback the text discusses at 88-90",
+    "The lecture teaches both failure modes and gives each its own tool - an exception you can see (69-80, handled with `%debug`) and a silent wrong answer you cannot (`np.logspace` for `np.linspace` at 195, handled with `breakpoint()`)",
+    "Every error-raising cell is tagged `raises-exception` (71, 98, 112, 191, 306, 317, 326, 335, 344, 380), so the book builds while still showing the reader the real traceback",
+    "The `try`/`except` progression is stepwise and ends with the right warning: one exception type (408-415), then two (437-446), then a bare `except` followed by \"In general it's better to be specific\" (487)",
+    "The Kernighan epigraph (26-30) earns its place - the claim that clever code is code you cannot debug is the lecture's actual argument, not decoration"
+  ],
+  "actions": [
+    "Sentence-case the six H3 headings (65, 183, 247, 260, 390, 402)",
+    "Cut the verbatim `ipdb> h` dump at 157-181 down to the three commands the lecture uses, and keep the documentation link",
+    "Show the reader the correct plot: `plot_log` appears broken (74), wrong-but-silent (195) and never right, so the section that sets out \"to plot the `log` function over the interval [1, 2]\" (82) never shows that plot",
+    "Bold the defined terms - \"break point\" (209) and \"syntax errors and exceptions\" (297) - and change *exceptions* (354) from italic to bold",
+    "Add `lw=2` to the five plot calls (76, 117, 196, 217, 234)",
+    "Attach the \"be specific\" advice at 487 to the bare `except:` cell at 464-471 as a `{warning}`, rather than leaving it as the last line of the section",
+    "Delete the double space at 209 and the trailing space at 64; fix the parenthetical at 86, which has no closing full stop"
+  ],
+  "scanner_doubts": [
+    "qe-writing-001 ×1 at debugging.md:27 is the body of an `{epigraph}` - a verbatim three-sentence quotation from Brian Kernighan. Quotations cannot be re-punctuated one sentence per paragraph, and `{epigraph}` is not excluded in tools/ (grep for \"epigraph\" over tools/*.py returns nothing). Same defect in about_py.md:27 and numpy.md:27."
+  ]
+}

@@ -12,6 +12,19 @@ All four are open on `action-style-guide`. The files here are the bodies as post
 | [#19](https://github.com/QuantEcon/action-style-guide/issues/19) | Phase 4.3 acceleration: 41 of 49 rules are mechanically checkable + corpus test data | [`issues/02-phase-4-3-deterministic-checks.md`](issues/02-phase-4-3-deterministic-checks.md) | Extension of existing plan |
 | [#20](https://github.com/QuantEcon/action-style-guide/issues/20) | Discussion: bulk audit / cross-series synthesis mode — where should it live? | [`issues/03-bulk-audit-mode.md`](issues/03-bulk-audit-mode.md) | Design question |
 | [#21](https://github.com/QuantEcon/action-style-guide/issues/21) | Offer: labelled lecture corpus with per-rule violation counts as test fixtures | [`issues/04-corpus-offer.md`](issues/04-corpus-offer.md) | Resource offer |
+| *(not yet posted)* | Proposal: rule-definition format changes so the registry determines its own counts | [`issues/05-rule-format-for-checkability.md`](issues/05-rule-format-for-checkability.md) | Concrete proposal |
+
+### Not yet posted
+
+`issues/05-rule-format-for-checkability.md` came out of the 2026-08 pass and has **no issue
+number yet** — it needs filing against whichever repo ends up owning the rule registry
+(`action-style-guide` today, the consolidated `QuantEcon/style-guide` under the current
+program direction). It is the one contribution here that is about the *format* of the rule
+definitions rather than their content: 144 under-specification gaps across 42 of the
+in-scope rules, measured by auditing the rule files against a working implementation of 41
+of them. The single strongest datum is that `qe-fig-003` — the only rule in the registry
+carrying an explicit exemption clause — is also the only figure rule with zero false
+positives.
 
 ## Rule entry drafts
 

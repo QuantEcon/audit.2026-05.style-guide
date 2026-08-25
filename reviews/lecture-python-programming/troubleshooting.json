@@ -1,0 +1,29 @@
+{
+  "series": "lecture-python-programming",
+  "lecture": "troubleshooting",
+  "judgment": [
+    {
+      "rule": "qe-writing-003",
+      "count": 1,
+      "lines": [
+        56
+      ],
+      "detail": "the 'report an issue' branch is opened inside '## Fixing Your Local Environment' (56-59: 'Second, you can report an issue, so we can try to fix your local set up') and then opened again from scratch as its own section at 61-63 ('One way to give feedback is to raise an issue through our issue tracker'). The reader is given the same instruction twice, and the first telling carries no pointer to the section that actually explains it"
+    }
+  ],
+  "strengths": [
+    "The remedies are ordered by effort - update Anaconda (34-39), upgrade the external libraries (41-46), then run on a remote machine (50-54) - so a reader stops as soon as their problem is solved",
+    "The Launch Notebook instruction is paired with a screenshot of the button itself (50-54) rather than described in words",
+    "The Anaconda prerequisite is a `{doc}` cross-reference to `getting_started` (32) rather than a bare URL",
+    "The page ends with two concrete routes to a human - the issue tracker (63) and a mailto address (68) - instead of a vague invitation to get in touch"
+  ],
+  "actions": [
+    "Lower-case the two Title Case H2s: 'Fixing your local environment' (25) and 'Reporting an issue' (61) - qe-writing-006, 2 occurrences",
+    "Move 56-59 under '## Reporting an Issue', or replace them with a `{ref}` to it, so the reporting instructions appear once",
+    "Wrap the two commands at 45-46 in inline code - `conda upgrade quantecon` and `!conda upgrade quantecon` are the only copy-and-paste text on the page and are currently plain prose",
+    "Add a `:name:` and a caption to the `{image}` at 52 so it can be cross-referenced (qe-fig-005, 1 occurrence)",
+    "Split the two-sentence paragraph at 65 and close the double space in 'possible.  Tell' (qe-writing-001 and qe-writing-008, 1 occurrence each)",
+    "Consider making the rhetorical question at 32 ('You have installed Anaconda, haven't you...?') a plain statement - a reader who arrives on this page is already stuck"
+  ],
+  "scanner_doubts": []
+}
