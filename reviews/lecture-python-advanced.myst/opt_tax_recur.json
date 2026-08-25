@@ -1,0 +1,93 @@
+{
+  "series": "lecture-python-advanced.myst",
+  "lecture": "opt_tax_recur",
+  "judgment": [
+    {
+      "rule": "qe-writing-003",
+      "count": 3,
+      "lines": [
+        1109,
+        1271,
+        1303
+      ],
+      "detail": "the algebra and the code disagree about which state is the war state. 1053-1056 lists the six $(t,g)$ pairs as $(0,g_l),(1,g_l),(2,g_l),(3,g_l),(3,g_h),(t\\geq4,g_l)$ mapped to $s = 1,\\ldots,6$, and the displayed expenditure vector at 1071-1073 is $g = (0.1, 0.1, 0.1, 0.1, 0.2, 0.1)$ - so $g_h$ sits in the fifth state. The code at 1109 writes `g = np.array([0.1, 0.1, 0.1, 0.2, 0.1, 0.1])`, putting $g_h$ in the fourth, and 1114-1115 then simulate the war history through index 3 and the peace history through index 4, consistent with the code and not with the display. (The same discrepancy appears in `amss.md` at 794/815 against 846 and 891-892, which shares this construction, so the two files should be fixed together.) Second, 1271-1272 reverses the mechanism the surrounding paragraphs establish: \"A side effect of lowering time $t=0$ consumption is that it lowers the one-period interest rate at time $t=0$ below that of subsequent periods\" - but 1150-1154 and 1263-1266 both say the planner *raises* $c_0$, and by the definition of $R_t$ at 1156-1158, $R_t = u_{c,t}/(\\beta\\mathbb E_t[u_{c,t+1}])$, lowering $c_0$ raises $u_{c,0}$ and therefore raises $R_0$. Third, the cell at 1302-1322 rebuilds and re-solves what the cell at 1233-1257 has already computed - the same `SequentialLS(CRRAutility(), g=np.array([0.15]), π=np.ones((1, 1)))`, the same `gov_debt` grid, the same 100-iteration `tax_policy` loop - so the slower of the lecture's two solves runs twice"
+    },
+    {
+      "rule": "qe-code-001",
+      "count": 4,
+      "lines": [
+        1174,
+        1245,
+        1315,
+        1393
+      ],
+      "detail": "1393-1396 indents a loop body to column 35, aligned under the arguments of the `zip(...)` call on the line above rather than one level past the `for`: `for ax, title, sim_s, sim_b in zip(axes.flatten(), titles, sim_seq[:6], sim_rec[:6]):` followed by three statements at 35 spaces - legal Python that reads as a continuation of the call, and directly at odds with the identically shaped loop at 1123-1129, which uses a four-space body. 1174 writes `fix, ax = plt.subplots(figsize=(8, 5))`, leaving an unused variable misspelled from `fig` while every other cell uses `fig` (1119, 1245, 1314, 1389). 1245 has `figsize=(10,8)` without the space after the comma that 1119, 1174, 1314 and 1389 all use. And 1307-1318 mismatches shapes against labels: `τ_reset` is allocated as `np.empty((n, 2))` but filled at 1312 from `simulate(..., 0, 1)[3]`, which returns a single period and broadcasts across both columns, so `ax.plot(gov_debt, tax_policy[:, 1], gov_debt, τ_reset, lw=2)` at 1315 creates three line artists - two of them identical - against the two legend entries supplied at 1318, leaving one line unlabelled and the mapping of `$\\tau_1^R$` to an artist implicit"
+    },
+    {
+      "rule": "qe-math-009",
+      "count": 4,
+      "lines": [
+        84,
+        282,
+        810,
+        1061
+      ],
+      "detail": "the state space is written three ways. 84 defines it with square brackets, `${\\cal S} = [1, 2, \\ldots, S]$`, which is interval notation for a finite set; 480-481 restates it as `$s\\in [1, \\ldots, S]$`, again with brackets and without the calligraphic; and 810 sums over `\\sum_{s'\\in S}` with a plain $S$ while the very next display at 820 sums over `\\sum_{s' \\in {\\cal S}}` - so the two halves of the same Bellman-equation pair disagree about the symbol, and 826, 837, 848, 858 and 934 all use `{\\cal S}` while 810 does not. Fractions are written two ways: `\\frac{}{}` fourteen times, against the plain-TeX `{a \\over b}` form at 282 and twice more at 286, in displays adjacent to a `\\frac` at 270. And the two matrix displays at 1061 and 1072 use `\\left(\\begin{matrix}...\\end{matrix}\\right)`, which is `bmatrix` written the long way and with the wrong delimiters (qe-math-003 flags both)"
+    },
+    {
+      "rule": "qe-writing-007",
+      "count": 3,
+      "lines": [
+        1060,
+        1128,
+        1173
+      ],
+      "detail": "every figure in the lecture distinguishes its series by a matplotlib format string and nothing else: `'-ok'` against `'-or'` at 1128 and 1176, `'-ob'` against `'-xk'` at 1394, and two unnamed columns at 1249 and 1315 - and only two of the five figures carry a legend (1253, 1398), each on one panel of a six-panel grid, so ten of the twelve panels leave the reader to recall from prose which colour is which. 1096-1099 has to state the convention in words (\"black when $g_3 = .1$, and red when $g_3 = .2$\") for a figure that could carry it. Second, the figure at 1173-1178 plots the gross interest rate against time with an embedded title and no axis labels at all - no `set_xlabel`, no `set_ylabel` - even though the point being made (that $R_0$ is below its later values) is about a specific date on the horizontal axis. Third, the six-state $(t,g)$ construction at 1053-1067, with the war branch opening at $t=3$ and both branches merging at $t\\geq4$, is presented only as a $6\\times6$ transition matrix, where a small transition diagram would make the device immediately legible - the same construction, and the same gap, as in `amss.md`"
+    },
+    {
+      "rule": "qe-writing-002",
+      "count": 4,
+      "lines": [
+        640,
+        651,
+        1208,
+        1296
+      ],
+      "detail": "640-647 spends four one-line paragraphs establishing that two phrases are synonyms: \"The means that a Ramsey plan is *not time consistent*.\" (which also mis-types \"This\"), then \"Another way to say the same thing is that a Ramsey plan is *time inconsistent*.\", then the reason, then \"We shall discuss this more below.\" The section \"Time 0 manipulation of interest rate\" (1208-1218) restates in three paragraphs what 1146-1168 has just said at greater length and with the formula for $R_t$ attached, so the same mechanism is explained twice within sixty lines. 651-654 interrupts the specialisation with a bracketed aside about why the earlier utility function was used and that the lecture will revert to it. And two sentences carry duplicated words: \"confronting this value for initial government debt government\" (1296) and \"the risk-free rate one-period interest rate\" (1161)"
+    },
+    {
+      "rule": "qe-writing-005",
+      "count": 4,
+      "lines": [
+        40,
+        286,
+        290,
+        1135
+      ],
+      "detail": "three terms are introduced in italic where the lecture's own convention is bold: \"Here a *war* means a more or less temporary surge in an exogenous government expenditure process\" (40), \"what finance economists call a *stochastic discount factor* process\" (286), and \"we derive the *implementability condition*\" (290) - the last of which names the single constraint the rest of the lecture is built on, and which {eq}`TSs_cham1` labels. The bold convention is used correctly for **Ramsey problem** (300) and **Ramsey plan**, so the italics read as emphasis rather than definition. 1135 then uses bold as a section heading, `**Tax smoothing**`, standing alone above a bullet list, where a real `####` heading would put it in the table of contents alongside \"Government saving\" (1181) and \"Time 0 manipulation of interest rate\" (1208), which are headings"
+    }
+  ],
+  "strengths": [
+    "The single constraint that carries the whole Ramsey problem is traceable to its source: the household's Arrow-security budget constraints are consolidated into a present-value condition, the first-order conditions give {eq}`LSA_taxr` and {eq}`LS101`, {eq}`LS102` turns the latter into the Arrow-Debreu price system, and 289-298 then states exactly what was eliminated - taxes and prices - to arrive at the *implementability condition* {eq}`TSs_cham1`",
+    "Each specialisation is fenced and dated: 476-490 says which assumptions are being added (finite Markov chain with transition matrix $\\Pi$, time-invariant $g(s)$) and that they hold \"throughout the remainder of this lecture\"; 649-677 says which of Lucas and Stokey's assumptions are being replaced - leisure eliminated, $\\ell_t + n_t \\leq 1$ dropped, $n_t \\in [0,+\\infty]$ - and 654 explains why the original specification was presented first and will be reverted to",
+    "The recursive representation is built in the two pieces the problem actually has, and the reader is told what comes out of each: {eq}`LSA_Bellman1` with the single implementability constraint {eq}`LSA_Bellman1cons` for $t \\geq 1$ (807-826), the separate time-0 problem for $W(b_0, s_0)$ (848-858), and 829-840 naming the $S+1$ time-invariant policy functions and the law of motion $x_{t+1}(s_{t+1}) = h(s_{t+1}; x_t, s_t)$ that the value function delivers",
+    "Time inconsistency is given a cause and then a sharp characterisation: 644-645 identifies it as the continuation planner taking $u_{ct}b_t(s_t|s^{t-1})$ as given rather than $b_t$ itself, and 1274-1290 finds the only two initial debt levels at which the Ramsey plan is time consistent - $b_0 = 0$, where the $t=0$ tax rate cannot move the value of the debt, and the first-best asset level, where $\\tau_t = 0$ - then 1298-1325 checks it by plotting the original planner's $\\tau_1$ against a reborn planner's $\\tau_1^R$",
+    "The anticipated-war example is fully specified before anything runs: the six $(t,g)$ states listed (1053-1056), the $6\\times6$ transition matrix written out entry by entry (1060-1067), the expenditure vector (1071-1073), the utility function with $\\sigma = 2$, $\\gamma = 2$, $\\beta = 0.9$ (1077-1081), and $b_0 = 1$ (1094) - so every number in the figure that follows is accounted for",
+    "The war example's economics is read off the figures date by date rather than in general terms: dissaving at $t=0$ and why (1183-1186), saving at $t=1$ and its motive (1188-1191), the two Arrow securities bought and sold at $t=2$ named individually (1193-1197), the consequence that $t=4$ debt is the same either way (1198-1202), and roll-over thereafter (1204-1206)",
+    "The tax-smoothing result is attributed and then deliberately broken: 1329-1345 uses $U_{cc}c = -\\sigma U_c$ and $U_{nn}n = \\gamma U_n$ to derive the CRRA relation that forces $\\tau$ to be constant, and 1349-1408 then swaps in $u(c,n) = \\log c + 0.69\\log(1-n)$, computes the path both sequentially and recursively, plots the two together as a mutual check, and states the new outcome - the tax rate rises with $g_t$ (1403-1408)"
+  ],
+  "actions": [
+    "Reconcile the war state: 1053-1056 and the display at 1071-1073 put $g_h$ in the fifth state, while the code at 1109 puts it at index 3 and 1114-1115 simulate the war history through index 3 - and fix the same disagreement in `amss.md` (794, 815, 846, 891-892), which shares this six-state construction",
+    "Correct 1271-1272, which says that *lowering* time-0 consumption lowers the time-0 interest rate: 1150-1154 and 1263-1266 both have the planner raising $c_0$, and the definition of $R_t$ at 1156-1158 makes $R_0$ increasing in $u_{c,0}$, so lowering $c_0$ raises $R_0$",
+    "Fix the two code defects that change what the figures show: `fix, ax = plt.subplots(...)` at 1174 (an unused misspelling of `fig`), and the `τ_reset` shape at 1307-1315, which is `(n, 2)` filled from a one-period simulation so that `ax.plot` draws three artists against the two legend labels at 1318",
+    "Re-indent the loop body at 1394-1396 from column 35 to one level past the `for` at 1393, matching the identical loop at 1123-1129",
+    "Delete the duplicate solve at 1302-1312, which rebuilds the same `SequentialLS` and re-runs the same 100-point `tax_policy` loop already computed at 1234-1242",
+    "Settle the state-space notation: 84 writes the finite set with square brackets, `${\\cal S} = [1, 2, \\ldots, S]$`, and 480-481 repeats it - use braces - and make 810 use `{\\cal S}` like the seven other occurrences, or drop the calligraphic form everywhere; while there, convert the three `{a \\over b}` groups at 282 and 286 to `\\frac`, which the file uses fourteen times elsewhere",
+    "Move the figure titles into `mystnb` captions and lowercase them - `titles = ['Consumption', 'Labor Supply', 'Government Debt', 'Tax Rate', 'Government Spending', 'Output']` at 1120 and 1390, `'Gross Interest Rate'` at 1175, and the two `set(title=...)` calls at 1250 and 1316 - and add `:name:` metadata to the five figure cells (1101, 1173, 1233, 1302, 1368) so the prose at 1167 (\"a figure below\") and 1228 (\"The figure below\") can reference them",
+    "Give every figure a legend rather than relying on the format strings, and add axis labels to the interest-rate figure at 1173-1178, which currently has neither; lowercase `'Initial Government Debt'` at 1254 and 1316",
+    "Finish the mechanical items: the two `\\begin{matrix}` displays recast as `bmatrix` (1061, 1072 - qe-math-003), `{\\rm Prob}` to `\\mathbb{P}` at 484 and the bare expectation at 1157 (qe-math-010, proposed), the five `figsize=`, `lw=2` at 1128, 1176 and 1394, `{cite}` to `{cite:t}` at 55, the 106 double spaces, and the typos \"The means\" (640), \"debt government\" (1296) and \"the risk-free rate one-period interest rate\" (1161)"
+  ],
+  "scanner_doubts": [
+    "opt_tax_recur.md:810,820,826 - qe-math-002 is reported with count 3 and all three are false positives of the same kind reported at length for tsyrennikov_2013.md: the prime here is next-period notation in a recursive problem, not a transpose. The file contains no `\\top`, no `^T` and no matrix transpose; `s'` occurs 20 times and `x'` 13 times, all as \"next period's state\" and \"next period's $x$\" (defined as such by {eq}`LSA_Bellman1` at 810). The specific branch that fires is `prime_vec` in `check_math_002` - `(?<![A-Za-z0-9\\\\])([a-z])'(?=\\s*(?:[A-Za-z]|\\\\[A-Za-z]))` - which matches `s'` whenever the next token is a LaTeX command, so `\\sum_{s'\\in S}` (810), `\\sum_{s' \\in {\\cal S}}` (820) and `$s' \\in {\\cal S}$` (826) all count while the twelve other `s'` occurrences, followed by `)` or `|`, do not. That the same construction is counted three times out of twenty is itself a sign the branch is not measuring what it names. With only 3 hits here the Math score is barely affected (`qe-math-003` ×2 and `qe-math-010` ×2 are the real findings), but the same gap costs tsyrennikov_2013 54 occurrences and a HIGH priority, so a fix there should be re-run against this file"
+  ]
+}
