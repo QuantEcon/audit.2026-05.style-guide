@@ -12,6 +12,9 @@ built from `lectures/` by `.github/workflows/deploy.yml` on every push to `main`
 
 ## Read first
 
+- **`/audit-pass`** — the skill that drives a full pass end to end
+  (`.claude/skills/audit-pass/SKILL.md`). Start here for the *how*; it carries the
+  step order, the resumable review loop, and the traps that have actually cost time.
 - **[`UPDATE.md`](UPDATE.md)** — the runbook: how to run a pass, the consistency gate, how
   to maintain `contributions/`, how to start a new audit period. **Follow it before any
   structural change.**
@@ -92,6 +95,7 @@ Enforce everywhere. `tools/qestyle_check.py` asserts all of these; run it before
   `appendix` · `data/` (the numbers) · `lecture-<series>/` (`index` = Summary +
   per-lecture reports)
 - `contributions/` — issue bodies + rule drafts (root, not published)
+- `.claude/skills/audit-pass/` — the pass skill; keep it in step with `UPDATE.md`
 - `README.md` · `ROADMAP.md` · `UPDATE.md` · `CLAUDE.md` — root docs
 
 ## Commits

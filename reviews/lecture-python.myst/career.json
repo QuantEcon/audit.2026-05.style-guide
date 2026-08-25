@@ -1,0 +1,33 @@
+{
+  "series": "lecture-python.myst",
+  "lecture": "career",
+  "judgment": [
+    {"rule": "qe-math-009", "count": 2, "lines": [117, 153],
+     "detail": "the three continuation values are named $I$, $II$ and $III$ (117, 126-128, 132, 217-218); in math mode `$II$` typesets as two adjacent italic capital I's, so it reads as a product rather than a label - $v_1, v_2, v_3$ would be both simpler and unambiguous, and the code already calls them `stay_put`, `new_job`, `new_life`. Separately, $B$ carries three unrelated meanings in one lecture: the grid upper bound (139-142), the Beta function in the beta-binomial pmf (153), and the Bellman option-value array in the code (249)"},
+    {"rule": "qe-writing-003", "count": 2, "lines": [359, 508],
+     "detail": "line 359 is a lone bullet (\"Sometimes a good job must be sacrificed...\") dangling two prose paragraphs after the list it belongs to at 349-353, so it reads as a list of one; and the exercise 2 solution at line 508 calls `median_passage_time(cw, greedy_star, ...)` using `cw` and `greedy_star` that are bound inside the exercise 1 solution cell (419-421) and `draw` defined there at 397 - the second solution silently depends on the first, and both are behind `:class: dropdown`"},
+    {"rule": "qe-writing-007", "count": 1, "lines": [508],
+     "detail": "exercise 2 sets up a random variable $T^*$, defines it twice (450, 460), asks for 25,000 draws of it, and then the solution reports a single median at 508 and another at 519; the 25,000 first-passage times are already in `times` at line 504, so the distribution the exercise is about is computed and then thrown away without a histogram - the natural companion to the \"about 7 and 14 respectively\" claim at 522"},
+    {"rule": "qe-code-001", "count": 3, "lines": [231, 244, 504],
+     "detail": "line 231 has a single space before the inline `# III` comment where PEP8 asks for two (and where the two lines above it align theirs); lines 244-245 pad with extra spaces both before `=` and inside the `in_axes` tuples (`_B_j  = jax.vmap(_B,   in_axes=(None, None, None, 0))`), which PEP8 explicitly discourages even for alignment; line 504 is 82 characters"},
+    {"rule": "qe-writing-002", "count": 1, "lines": [303],
+     "detail": "the note at 303-305 is a 43-word sentence that carries the readability claim, the scaling claim, three examples of what it scales to, and the GPU claim in one span"}
+  ],
+  "strengths": [
+    "The three continuation values are coded for a single state first (`_B` at 224-232, with `# I`, `# II`, `# III` marking the correspondence to {eq}`eyes`) and only then vectorised with two `jax.vmap` calls at 244-245 - the code sits next to the equation instead of next to the array shapes, and lines 220-221 say that is the intent",
+    "The Bellman operator and the greedy policy are derived from the same `B(v, cw)` array as its max and argmax (259-268), so the policy cannot drift out of step with the value function",
+    "The note at 300-309 justifies the choice of JAX for a problem that does not need it, and points at the specific place where the choice pays off ({ref}`career_ex2`, 25,000 simulated careers)",
+    "`solve_model` returns the iteration count and the final error alongside the value function (278-297) and line 318 prints them, so convergence is visible rather than assumed",
+    "The optimal-policy contour plot is annotated in place with `ax.text` naming the three regions (343-345), and the prose at 349-359 reads the figure back to the reader region by region"
+  ],
+  "actions": [
+    "Add `:name:` to the `{image}` at 373 and `mystnb: figure: caption/name` metadata to the five code-cell figures at 170, 313, 336, 396 and 542 so every figure is captionable and `{numref}`-referenceable (qe-fig-005, 6 occurrences)",
+    "Drop the five `figsize=` overrides at 175, 320, 337, 424 and 547 and let the theme set the size (qe-fig-001, 5 occurrences)",
+    "Replace the static PNG at 373 with the code that generates it - the exercise 1 solution at 396-435 already produces that figure, so the target image can be generated rather than shipped as `/\\_static/lecture_specific/career/career_solutions_ex1_py.png` (qe-fig-002)",
+    "Rename $I$, $II$, $III$ to $v_1$, $v_2$, $v_3$ (117, 126-128, 132, 217-218) and give the Beta function at 153 a name other than $B$, which is already the grid upper bound",
+    "Plot the 25,000 first-passage times in the exercise 2 solution instead of reducing them to a median, and make the exercise 2 solution self-contained rather than depending on names bound in the exercise 1 solution",
+    "Set `lw=2` on the three plot calls at 178, 429 and 430 (qe-fig-008, 3 occurrences)",
+    "Sweep the small mechanical items: sentence-case the H3 at line 64 to `### Model features` (qe-writing-006), collapse the double space at line 74 (qe-writing-008), delete the two `\\nonumber` commands at 127-128 which do nothing inside `aligned`, fix \"overall feasible\" to \"over all feasible\" at line 111, and tidy the PEP8 spacing at 231 and 244-245"
+  ],
+  "scanner_doubts": []
+}

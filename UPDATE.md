@@ -79,6 +79,11 @@ The pass has three layers — evidence (code), scoring (arithmetic), review (jud
 [Spec §8](lectures/spec.md) explains why they are separate; this section is the
 mechanics.
 
+> **Working with an agent?** `.claude/skills/audit-pass/SKILL.md` is the same process as an
+> invokable skill, with the environment checks, the resumable review loop and the known
+> traps folded in. This file stays the reference; the skill is the procedure. Change one,
+> check the other.
+
 ### Step 1 — Measure the corpus
 
 ```bash

@@ -58,8 +58,8 @@ The numbers live in `lectures/data/`. The per-lecture reports, the scoreboard, t
 triage page and the charts are all derived from them, so they cannot disagree.
 `tools/qestyle_check.py` is the gate that asserts it.
 
-Reproduce or refresh a pass with [`UPDATE.md`](UPDATE.md); the methodology is
-[`lectures/spec.md`](lectures/spec.md) §8–§10.
+Reproduce or refresh a pass with [`UPDATE.md`](UPDATE.md), or invoke the `/audit-pass`
+skill; the methodology is [`lectures/spec.md`](lectures/spec.md) §8–§10.
 
 ## Repository layout
 
@@ -71,6 +71,7 @@ Reproduce or refresh a pass with [`UPDATE.md`](UPDATE.md); the methodology is
 ├── CLAUDE.md                  ← read-me-first orientation for agents
 ├── requirements.txt           ← Jupyter Book build dependencies (needs Python 3.12+)
 ├── tools/                     ← the audit pipeline (lexer, rule checks, scoring, reports)
+├── .claude/skills/audit-pass/ ← skill that drives a full pass end to end
 ├── contributions/             ← source behind the action-style-guide issues (#18–#21)
 ├── .github/workflows/         ← build + deploy to GitHub Pages
 └── lectures/                  ← Jupyter Book source
