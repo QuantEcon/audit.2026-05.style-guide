@@ -315,6 +315,36 @@ def check_narrative(ck, root, data):
                             f"{path}: {rule} row cites {cited}, which is none of its "
                             f"measured reach ({reach}), occurrences ({occ}) or "
                             f"corpus size ({corpus})")
+    # The trend *sentence*, not a table: "Of the 35 rules measurable in both
+    # snapshots, 28 improved as a share of the corpus, 4 held level and 3 got
+    # worse." Two rule fixes this pass moved those counts and the sentence did not
+    # follow, both times — so it is checked too.
+    if len(periods) > 1:
+        shared = sorted(set(before) & set(now))
+        want = {
+            "measurable in both snapshots": len(shared),
+            "improved": sum(1 for r in shared if now[r][2] < before[r][2]),
+            "held level": sum(1 for r in shared if now[r][2] == before[r][2]),
+            "got worse": sum(1 for r in shared if now[r][2] > before[r][2]),
+        }
+        pats = {
+            "measurable in both snapshots": r"(\d+)\s+rules?\s+measurable in both snapshots",
+            "improved": r"(\d+)\s+improved",
+            "held level": r"(\d+)\s+held level",
+            "got worse": r"(\d+)\s+got worse",
+        }
+        for path in docs:
+            with open(path, encoding="utf-8") as fh:
+                text = FENCE_RE.sub("", SPLICE_RE.sub("", fh.read()))
+            flat = " ".join(text.split())
+            for label, pat in pats.items():
+                for m in re.finditer(pat, flat):
+                    n += 1
+                    if int(m.group(1)) != want[label]:
+                        ck.fail("narrative-claims",
+                                f"{path}: says {m.group(1)} {label}, "
+                                f"the history gives {want[label]}")
+
     ck.note(f"{n} hand-written corpus claims cross-checked against "
             f"rule_reach_history.csv")
 

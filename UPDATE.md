@@ -207,7 +207,7 @@ so `matplotlib`/`numpy` must stay in `requirements.txt`.
 | **Report ↔ CSV agreement** | A per-lecture report citing a count that `violations.csv` does not have — i.e. a reviewer edited a mechanical number. |
 | **Conventions** | Legacy `W#`/`M#` or `qe-*-A#` rule IDs; a proposed rule cited without its **(proposed)** tag; a `# Style Audit —` title prefix; a `Spec version` line; two-pass or "carry-forward" narrative. |
 | **Snapshot** | Reports whose pinned snapshot does not match `snapshot.json`. |
-| **Narrative claims** | A hand-written table still quoting a reach the data has since moved — the `intro.md` trend row (`A% → B%`) and any counts table whose header names *Lectures* and *Occurrences*. The report↔CSV check does not reach these, and a rule fix moves reach without touching the sentence quoting it. |
+| **Narrative claims** | A hand-written figure the data has since moved: the `intro.md` trend row (`A% → B%`), any counts table whose header names *Lectures* and *Occurrences*, and the trend sentence's own tallies (*N rules measurable in both snapshots*, *N improved*, *N held level*, *N got worse*). The report↔CSV check does not reach any of these, and a rule fix moves reach without touching the prose quoting it — which happened twice in the 2026-08 pass before the sentence tallies were covered. |
 
 Run it after any agent pass. It exits non-zero on any failure.
 

@@ -227,8 +227,9 @@ python3 tools/qestyle_check.py --root lectures --data lectures/data --corpus $CO
 The gate must print **All checks passed**. It asserts coverage, score arithmetic, priority
 buckets, report↔CSV agreement, the conventions, and snapshot pinning. It will also catch
 your own prose citing a proposed rule without its **(proposed)** tag, and any
-hand-written table that still quotes a reach the data has since moved — a trend row
-(`A% → B%`) or a counts table whose header names *Lectures* and *Occurrences*.
+hand-written figure the data has since moved — a trend row (`A% → B%`), a counts table
+whose header names *Lectures* and *Occurrences*, or the trend sentence's own tallies
+(*N improved*, *N held level*, *N got worse*).
 
 Also refresh the hand-written trend table in `lectures/intro.md` from the measured history
 rather than editing digits:
