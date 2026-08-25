@@ -1,15 +1,5 @@
 {
  "lecture-python-advanced.myst": [
-  "stationary_densities",
-  "cagan_rational_expectations",
-  "five_preferences",
-  "smoothing_tax",
-  "chang_ramsey",
-  "gorman_heterogeneous_households",
-  "growth_in_dles",
-  "calvo_machine_learn",
-  "hansen_richard_1987",
-  "repeat_mh",
   "permanent_income_dles",
   "BCG_complete_mkts",
   "hs_invertibility_example",
