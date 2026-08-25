@@ -1,0 +1,33 @@
+{
+  "series": "lecture-python.myst",
+  "lecture": "ar1_bayes",
+  "judgment": [
+    {"rule": "qe-code-001", "count": 5, "lines": [470, 485, 522, 525, 537],
+     "detail": "five code lines exceed the PEP8 79-character limit, two of them badly: `numpyro.infer.MCMC(NUTS_kernel, num_samples=50000, num_warmup=10000, progress_bar=False)` is 95 characters at line 485 and 96 at line 537, and the `numpyro.sample(...)` calls at 470, 522 and 525 run to 82-84; none of the five is close to a mathematical expression, so nothing here overrides PEP8"},
+    {"rule": "qe-writing-003", "count": 3, "lines": [461, 479, 510],
+     "detail": "the NumPyro half silently rebinds three names the PyMC half established: `AR1_model` is a `pm.Model()` object from line 238 until line 461 turns it into a plain function, `AR1_model_y0` likewise at 321 versus 510, and line 479 rebinds `y` from the NumPy array built at 215 to a JAX array; nothing in the prose at 418-428 warns the reader, and after line 479 none of the PyMC cells at 277-373 can be re-executed"},
+    {"rule": "qe-writing-002", "count": 3, "lines": [315, 426, 504],
+     "detail": "the stationary density $y_0 \\sim N(0, \\sigma_x^2/(1-\\rho^2))$ is set as an unlabelled display three separate times - lines 85-87, 314-316 and 503-505 - each time preceded by a \"recall that\" sentence; labelling it once and citing it with `{eq}` would remove two displays and two lead-ins. Line 426 is a 36-word sentence that comma-splices three separate NumPyro-versus-PyMC correspondences (function versus `with` block, `numpyro.sample` versus a `pm` variable, `obs=` versus `observed=`) into one span"}
+  ],
+  "strengths": [
+    "The two assumptions are named once (\"conditioning assumption\", \"stationary assumption\" at 77 and 83) and then used by name for the rest of the lecture, so the reader never has to re-derive which is which",
+    "The second PyMC model differs from the first by exactly one line (337), the prose says so at 340, and the note at 342-348 draws the consequence explicitly - \"any difference between the two posteriors comes entirely from this one term\"",
+    "The mechanism behind the result is spelled out step by step at 404-416 rather than asserted: extreme $y_0$, low stationary likelihood, Bayes' law seeking parameters that make it plausible, $\\rho \\to 1$ inflating $\\sigma_x^2/(1-\\rho^2)$",
+    "The initial condition $y_0 = 10$ is chosen deliberately to sit far out in the tail, and the lecture flags the choice twice before using it (166, 205) so the reader knows the experiment is rigged and why",
+    "The PyMC and NumPyro posteriors are overlaid at 557-567 as an explicit cross-library check, matching the promise made at line 107",
+    "The Hurwicz small-sample bias is named and cited ({cite:t}`hurwicz1950least`, {cite}`Orcutt_Winokur_69`) rather than left as an unexplained gap between the posterior mode and the true 0.5"
+  ],
+  "actions": [
+    "Rename the spelled-out Greek in the NumPyro and PyMC cells - `sigma=` keyword values aside, the identifiers `sigma` and `rho` used as PyMC/NumPyro variable *names* at 243, 244, 326, 327, 463, 464, 512, 513 are the lecture's own choice and should be `'ρ'`/`'σ'` or at least consistent with the `ρ`, `σ` Python names bound to them (qe-code-002, 8 occurrences)",
+    "Fix the density-versus-random-variable conflation at 154-155: `f(y_t \\mid y_{t-1}) \\sim N(\\rho y_{t-1}, \\sigma_x^2)` says a density is normally distributed; it should read `y_t \\mid y_{t-1} \\sim N(\\rho y_{t-1}, \\sigma_x^2)`",
+    "Give the stationary density one equation label and cite it with `{eq}` at 312 and 501 instead of restating the display (315, 504)",
+    "Rename `AR1_model`/`AR1_model_y0` in the NumPyro section so they do not shadow the PyMC model objects, and keep the NumPy `y` distinct from the JAX `y` created at 479",
+    "Convert the two raw `intro.quantecon.org` links at 39 and 47 into `{doc}` cross-series references (qe-link-002, 2 occurrences)",
+    "Add `mystnb: figure: caption/name` metadata to the three code-cell figures at 220, 383 and 557 (qe-fig-005, 3 occurrences) and drop the `figsize=(17, 6)` override at 441 (qe-fig-001)",
+    "Wrap the five over-length code lines at 470, 485, 522, 525 and 537, and delete the four assigned-but-unused bindings `y_like` (250), `y_data` (334, 470, 522) and `y0_data` (337, 525) - the `pm.Normal`/`numpyro.sample` calls register with the model by side effect, so the names are noise"
+  ],
+  "scanner_doubts": [
+    "ar1_bayes.md - qe-code-002 is reported with count 8 but only five line numbers (244, 250, 327, 334, 337); three line numbers appear to be missing from the evidence. The NumPyro half has the same `'rho'`/`'sigma'` string names at 463, 464, 512, 513, so the true set of sites is probably larger than either number suggests",
+    "ar1_bayes.md:244, 327 - qe-code-002 flags `sigma` here, but on those lines the token is the PyMC keyword argument `pm.HalfNormal('sigma', sigma=np.sqrt(10))`, i.e. part of the library's API and not an author-chosen variable name. The author-chosen part is the string label `'sigma'`, which is a real hit; the keyword is not"
+  ]
+}

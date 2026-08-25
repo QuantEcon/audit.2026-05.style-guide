@@ -1,0 +1,33 @@
+{
+  "series": "lecture-python-intro",
+  "lecture": "equalizing_difference",
+  "judgment": [
+    {"rule": "qe-writing-002", "count": 5, "lines": [22, 34, 44, 178, 368],
+     "detail": "line 22 is a 38-word sentence carrying Friedman's motive, the dentists/doctors comparison and the entry-barrier alternative at once; line 34 runs 31 words and ends with the redundant \"between going to college and not going to college but instead going to work immediately\"; line 44 \"And doing that will let illustrate how good Python is at doing calculus!\" is ungrammatical; line 178 restates line 170 almost verbatim across the section break (\"write Python code to compute $\\phi$ and plot it as a function of ... its determinants\"); and 362-372 spends five sentences re-announcing the calculus section that lines 42-46 already announced in the Overview"},
+    {"rule": "qe-writing-003", "count": 1, "lines": [428],
+     "detail": "\"Thus, as with our earlier graph, we find that raising $R$ increases the initial college wage premium $\\phi$\" sits directly under the cells at 417-425, which compute and evaluate $\\partial\\phi/\\partial D$, not $\\partial\\phi/\\partial R$ - the $R$ derivative is not computed until 480 and is correctly discussed at 490, so the reader meets the conclusion 60 lines before its evidence"},
+    {"rule": "qe-writing-005", "count": 2, "lines": [38, 244],
+     "detail": "bold used where italic is called for: **Wealth of Nations** at 38 is a book title, and **waiting** at 244 is emphasis (\"must rise to compensate a prospective high school student for **waiting** to start receiving income\") - neither is a definition, while the genuine definitions **equalizing difference** (130) and **free college** (160) use the same weight"},
+    {"rule": "qe-code-001", "count": 5, "lines": [190, 316, 565, 569, 611],
+     "detail": "the closing `):` of `create_edm` at 190 and of `create_edm_π` at 316 is indented three columns short of the visually-aligned arguments above it; the exercise solutions pad assignments and arguments to align them - `gaps_free   = [...]` / `gaps_costly = [...]` at 565-566, `ax.plot(T_arr, gaps_free,   'o-', ...)` at 569-570, `gap_plus  = ...` / `dϕ_dR_fd  = ...` at 611-613 - which PEP8 rules out (multiple spaces before an operator, multiple spaces after a comma) and which the body of the lecture does not do"}
+  ],
+  "strengths": [
+    "The model is packaged once as a `namedtuple` plus a `create_edm` factory with the economics written into the default comments (181-192), so every comparative-statics cell reduces to one list comprehension over `create_edm(...)` (235, 251, 270, 347) instead of re-deriving $A_h$ and $A_c$",
+    "Greek parameters in code are Unicode and match the mathematics symbol for symbol - `γ_h`, `γ_c`, `ϕ`, `π`, `ε`, `w_h0` - so a reader can move between the display equations and the cells without a translation table",
+    "Every comparative static is established twice: graphically at 233-277 and again symbolically with SymPy at 376-490, and each derivative's sign is checked back against the corresponding graph (460, 475, 490)",
+    "The entrepreneur-worker reinterpretation at 279-356 reuses the same indifference equation with a single extra parameter $\\pi$, which makes the model's real subject - waiting and risk, not college - visible without new algebra",
+    "All four exercises are gated `{exercise}` / `{solution-start}` ... `{solution-end}` with `:class: dropdown`, and three of them close the loop numerically against the lecture's own symbolic results (531-535, 616-620, 663-667)"
+  ],
+  "actions": [
+    "Fix the conclusion at 428: the cells above it differentiate with respect to $D$, so either state the $D$ result there or move the sentence down to 480-490 where $\\partial\\phi/\\partial R$ is actually computed",
+    "Stop the second model from shadowing the first: line 307 rebinds the name `EqDiffModel` and 321 rebinds `compute_gap`, so the 6-field `create_edm` from 184 is unusable from that point on - which is why every exercise has to call `create_edm_π(..., π=1.0)` and explain the workaround in a comment (515, 565-566, 611-612). Give the entrepreneur version its own names, and change the `π=0` default at 315, which makes `compute_gap` divide by zero",
+    "Replace the literal Unicode gamma inside the two math spans at 447 and 462 with `\\gamma_h` and `\\gamma_c` - as written they are the only two math expressions in the lecture that do not render as LaTeX (qe-math-001 x2)",
+    "Squash the 42 runs of two and three spaces in the prose - they are concentrated in the Overview at 22-46 and in 102-176 (qe-writing-008 x42)",
+    "Add `mystnb: figure: name/caption` metadata to the 7 plotting cells (233, 249, 268, 345, 512, 562, 648) and lower-case the 5 Title Case axis labels at 522, 572, 573, 656, 657 (qe-fig-005 x7, qe-fig-006 x5); while there, move the three `ax.set_title` calls in the solution cells (523, 574, 658) into captions as well, even though the checker exempts titles inside solutions",
+    "Set `lw=2` on the 8 default-width line plots at 238, 254, 273, 350, 519, 569, 570, 654 (qe-fig-008 x8)",
+    "Tidy the prose: shorten the 38-word opener at 22, delete the calculus preamble at 362-372 that repeats 42-46, un-bold *Wealth of Nations* (38) and *waiting* (244), and lift the `{cite}` at 25 out of the middle of the sentence (qe-ref-001). Also either cite the `eq:wagepremium` label from 158 or drop it - `eq:equalize` is cited at 154, this one never is"
+  ],
+  "scanner_doubts": [
+    "qe-code-002 count 9 in equalizing_difference.md (lines 54, 384, 391, 398, 424, 439, 456, 471, 486) is 9 false positives. Every hit is SymPy's `Lambda` class, imported at line 54 (`from sympy import Symbol, Lambda, symbols`) and then called at 384, 391, 398, 424, 439, 456, 471, 486. It is a library class name, not an author-chosen variable, and renaming it to `Λ` would break the code. GREEK_WORDS in tools/qestyle_rules.py matches the bare word `Lambda`; the guard `(?<![\\w.])` at line 662 only exempts the attribute form `sympy.Lambda`. This is the whole of the lecture's Code score (7.5/10) - with the false positives removed the category is clean. Same shape as the `beta` false positive already noted in ar1_processes.md."
+  ]
+}

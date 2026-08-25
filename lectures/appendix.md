@@ -49,8 +49,8 @@ Ready-to-merge rule entries for each are in [`contributions/rule-drafts/`](https
 Two findings are build-breaking and were flagged for `lecture-python.myst` regardless of the tooling discussion (also on the [front page](intro.md#fix-immediately)):
 
 - [`lecture-python-programming/python_by_example.md:499` and `:549`](https://github.com/QuantEcon/lecture-python-programming/blob/main/lectures/python_by_example.md#L499) — two `{exercise-start}` fences that are never closed, each swallowing the rest of its exercise including a nested `{hint}` at the same tick count (`qe-admon-003`). The only two malformed gated directives in roughly 690 across the corpus.
-- [`cross_product_trick.md:133`](https://github.com/QuantEcon/lecture-python.myst/blob/main/lectures/cross_product_trick.md#L133) — malformed `` {eq}`eq:Kalman102} `` reference. `lecture-dp` carries a synced copy with the same defect.
-- [`ifp_advanced.md:158`](https://github.com/QuantEcon/lecture-python.myst/blob/main/lectures/ifp_advanced.md#L158) — raw `\label{a:y0}` inside `$$`, which MyST does not resolve (`qe-math-007`). Same synced-copy situation.
+- [`cross_product_trick.md:133`](https://github.com/QuantEcon/lecture-python.myst/blob/main/lectures/cross_product_trick.md#L133) — malformed `` {eq}`eq:Kalman102} `` reference. `lecture-dp` carries a byte-identical copy, so one upstream fix clears both.
+- [`ifp_advanced.md:158`](https://github.com/QuantEcon/lecture-python.myst/blob/main/lectures/ifp_advanced.md#L158) — raw `\label{a:y0}` inside `$$`, which MyST does not resolve (`qe-math-007`). `lecture-dp` has the same defect at the same line, but its copy of this lecture has diverged from the upstream one — so each needs its own fix.
 
 > **Withdrawn.** An earlier pass reported `divergence_measures.md:134` as `\begin{align}` inside `$$`, breaking the PDF build. Re-measured mechanically, there is no `align` inside `$$` anywhere in the corpus — that line is a bare top-level `\begin{align}`, which MyST's amsmath extension handles. It remains a convention outlier and is reported as one under `qe-math-006`, but no issue should be filed calling it a build break.
 

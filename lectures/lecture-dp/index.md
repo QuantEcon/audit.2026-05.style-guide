@@ -21,11 +21,15 @@ transpose debt in the corpus after `lecture-python-advanced.myst`. Beyond it the
 findings thin out quickly (`qe-math-010` *(proposed)* 16 / 52 but only 63 occurrences), so this is one
 rule rather than a cluster.
 
-**A caveat specific to this series:** `lecture-dp` syncs several lectures verbatim from
-`lecture-python.myst` — `cross_product_trick`, `ifp_advanced`, `inventory_q`,
-`rs_inventory_q` and others. Their findings are counted in both series, and two of the
-four worst lectures here (`cross_product_trick` at 6.3, `rs_inventory_q` at 6.9) are
-synced copies. Fix those upstream and both series improve.
+**A caveat specific to this series.** 31 of these 52 lectures share a filename with a
+lecture in `lecture-python.myst` — but only **6 are byte-identical** today
+(`cross_product_trick`, `ifp_discrete`, `ifp_opi`, `lq_inventories`,
+`mccall_model_with_separation`, `os_numerical`). The other 25 share an origin and have
+since diverged. So the two situations need different handling: for the identical 6, a
+finding here and a finding there are the same finding, and one upstream fix clears both;
+for the diverged 25, the same defect often appears in both copies but each needs its own
+fix. `cross_product_trick` (6.3) is in the identical set. `rs_inventory_q` (6.9) is not —
+it has drifted from its upstream namesake, so it needs fixing here.
 <!-- /qe:series-narrative -->
 
 ## Priority distribution
@@ -76,11 +80,12 @@ already holds to.
 <!-- qe:series-recommendations -->
 1. **`qe-math-002` — transpose notation** (31 / 52, 509 occurrences). The dominant
    finding and the floor under most of the HIGH list. `lqcontrol` alone carries 85.
-2. **Fix the synced lectures upstream in `lecture-python.myst`, not here.**
-   `cross_product_trick` (6.3) and `rs_inventory_q` (6.9) are verbatim copies; a fix
-   applied in this repo would be overwritten by the next sync. `cross_product_trick:133`
-   also carries a malformed `` {eq}`eq:Kalman102} `` reference, and `ifp_advanced:158` a
-   raw `\label{}` inside `$$` — both structural, both upstream.
+2. **Check whether a lecture is still identical to its upstream namesake before fixing
+   it.** `cross_product_trick` is byte-identical to the `lecture-python.myst` copy, so its
+   malformed `` {eq}`eq:Kalman102} `` reference at line 133 should be fixed upstream — a
+   fix here would be overwritten by the next sync. `rs_inventory_q` and `ifp_advanced`
+   have diverged, so they need fixing in this repo as well; `ifp_advanced:158` carries a
+   raw `\label{}` inside `$$` in **both** copies, and each needs its own edit.
 3. **`qe-fig-005` — name the figures** (42 / 52, 164 figures) and **`qe-fig-008` — `lw=2`**
    (39 / 52, 252 calls). Routine sweeps.
 4. **`qe-writing-008` — collapse repeated spaces** (40 / 52, 1,578 occurrences).

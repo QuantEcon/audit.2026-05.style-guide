@@ -20,8 +20,10 @@ built from `lectures/` by `.github/workflows/deploy.yml` on every push to `main`
   structural change.**
 - **[`lectures/spec.md`](lectures/spec.md)** §8–§10 — the pass methodology (evidence /
   scoring / review layers), the measured deterministic coverage, and the exact commands.
-- **[`ROADMAP.md`](ROADMAP.md)** — direction and the open decisions, including the
-  unresolved repo-naming question.
+- **[`ROADMAP.md`](ROADMAP.md)** — direction and the open decisions. Naming is now
+  settled: this repo is being renamed `audit-lectures-style-guide`
+  ([#2](https://github.com/QuantEcon/audit.2026-05.style-guide/issues/2)), so the Pages
+  URL below moves and 16 in-repo references to it need editing at rename time.
 - **`QuantEcon/project-style-guide`** (private hub) — program-level direction. Where this
   repo's docs and the hub overlap, **the hub is the home of record**.
 

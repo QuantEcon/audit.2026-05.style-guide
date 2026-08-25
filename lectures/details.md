@@ -320,10 +320,16 @@ needs a reading pass; the third is small and structural.
 13. The four findings on the [front page](intro.md#fix-immediately): two unclosed
     `{exercise-start}` fences, two malformed `` {eq}` ` `` references, and a raw
     `\label{}` inside `$$`.
-14. **Duplicated lectures.** `lecture-dp` syncs several lectures verbatim from
-    `lecture-python.myst` (`cross_product_trick`, `ifp_advanced`, `inventory_q`,
-    `rs_inventory_q` and others). Their findings appear twice in this report because both
-    copies are audited. Fix upstream and both clear.
+14. **Shared lectures between `lecture-dp` and `lecture-python.myst`.** 31 filenames
+    appear in both series, but only **6 are byte-identical** at this snapshot:
+    `cross_product_trick`, `ifp_discrete`, `ifp_opi`, `lq_inventories`,
+    `mccall_model_with_separation`, `os_numerical`. Those 6 account for 229 of the corpus's
+    19,057 findings — **1.2 % genuinely counted twice**, which is the honest size of the
+    double-count. The other 25 share an origin and have diverged, so their findings are
+    about different files even where the defect is the same. For the identical 6, fix
+    upstream and both clear; for the diverged 25, each copy needs its own fix. Worth a
+    decision on whether the corpus totals should de-duplicate the 6 —
+    [#4](https://github.com/QuantEcon/audit.2026-05.style-guide/issues/4).
 
 ---
 
