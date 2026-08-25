@@ -9,7 +9,7 @@ Style audit of the **lecture-python-advanced.myst** series.
 - **Average overall score:** 8.1 / 10
 - **Average per-category scores:** writing 7.3, math 5.9, code 9.3, figures 6.3, references 9.2, links 9.2, admon 10.0
 - **JAX:** out of scope — the `qe-jax-*` rules target `lecture-jax`.
-- **Judgment-review coverage:** **0 of 68 reviewed** — scores for the unreviewed 68 reflect the 41 measured rules only, so they are not directly comparable with the reviewed ones.
+- **Judgment-review coverage:** **13 of 68 reviewed** — scores for the unreviewed 55 reflect the 41 measured rules only, so they are not directly comparable with the reviewed ones.
 <!-- /qe:series-meta -->
 
 <!-- qe:series-narrative -->

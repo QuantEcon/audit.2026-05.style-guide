@@ -124,11 +124,13 @@ That matters for reading the numbers: a category scoring 10 means *no mechanical
 violation was measured in it*, not that a human declared it perfect.
 
 ```{warning}
+<!-- qe:review-coverage -->
 **Review coverage is incomplete in this pass, and it moves the scores.** The judgment
-layer covers some lectures and not others, and a lecture assessed against more rules
+layer has reached **166 of the 348 lectures**; a lecture assessed against more rules
 scores lower — not because it is worse, but because more of it was looked at. The gap is
-large enough to matter: reviewed lectures average **7.84** with 56 % HIGH, unreviewed
-average **8.29** with 29 % HIGH.
+large enough to matter: the 166 reviewed average **7.88** with 54 % HIGH, the 182
+unreviewed **8.30** with 29 % HIGH.
+<!-- /qe:review-coverage -->
 
 So **the cross-series comparison below is provisional** wherever coverage differs between
 series, and the per-series coverage is published in each series' Summary page. Treat the

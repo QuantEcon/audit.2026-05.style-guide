@@ -26,6 +26,7 @@ import json
 import os
 import re
 import sys
+import textwrap
 
 CATS = ["writing", "math", "code", "figures", "references", "links", "admonitions"]
 CAT_LABEL = {"writing": "Writing", "math": "Math", "code": "Code",
@@ -417,6 +418,50 @@ def block_series_ranked(rows, data_dir, series):
     return "\n".join(lines)
 
 
+def _wrap(text, width=88):
+    """Wrap a generated paragraph to the width the hand-written prose uses."""
+    return textwrap.fill(text, width=width, break_long_words=False,
+                         break_on_hyphens=False)
+
+
+def block_review_coverage(rows, data_dir):
+    """The coverage caveat on `intro.md`, with the gap measured rather than asserted.
+
+    A lecture assessed against more rules scores lower, so an uneven judgment
+    layer makes the cross-series scoreboard partly a ranking of coverage. The
+    size of that effect moves every time an overlay lands, which is exactly why
+    this paragraph is generated and not written.
+    """
+    scores = read_csv(os.path.join(data_dir, "scores.csv"))
+    have, lack = [], []
+    for r in scores:
+        overlay = os.path.join("reviews", r["series"], r["lecture"] + ".json")
+        (have if os.path.exists(overlay) else lack).append(r)
+
+    def stats(group):
+        vals = [float(r["overall"]) for r in group if r["overall"]]
+        high = sum(1 for r in group if r["priority"] == "HIGH")
+        return sum(vals) / len(vals), 100.0 * high / len(group)
+
+    n, k = len(scores), len(have)
+    if not lack:
+        return _wrap(f"**Every one of the {n} lectures has been through the judgment "
+                f"layer**, so the scores below are comparable across series.")
+    if not have:
+        return _wrap("**No lecture has been through the judgment layer yet**, so every "
+                "score below reflects the measured rules only.")
+
+    a, b = stats(have), stats(lack)
+    return _wrap(
+        f"**Review coverage is incomplete in this pass, and it moves the scores.** "
+        f"The judgment layer has reached **{k} of the {n} lectures**; a lecture "
+        f"assessed against more rules scores lower — not because it is worse, but "
+        f"because more of it was looked at. The gap is large enough to matter: the "
+        f"{k} reviewed average **{a[0]:.2f}** with {a[1]:.0f} % HIGH, the {n - k} "
+        f"unreviewed **{b[0]:.2f}** with {b[1]:.0f} % HIGH."
+    )
+
+
 BLOCKS = {
     "scoreboard": lambda rows, d: block_scoreboard(rows, readme=False),
     "readme-scoreboard": lambda rows, d: block_scoreboard(rows, readme=True),
@@ -426,6 +471,7 @@ BLOCKS = {
     "focus": lambda rows, d: block_focus(rows, d),
     "high-list": lambda rows, d: block_high_list(d),
     "snapshot": lambda rows, d: block_snapshot(d),
+    "review-coverage": block_review_coverage,
 }
 
 SERIES_BLOCKS = {

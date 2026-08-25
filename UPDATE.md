@@ -154,6 +154,7 @@ from its own score table, so a header can never contradict its categories.
 | `<!-- qe:systemic -->` | details.md every recurring rule, ranked |
 | `<!-- qe:high-list -->` | details.md every HIGH-priority lecture |
 | `<!-- qe:snapshot -->` | details.md pinned-snapshot table |
+| `<!-- qe:review-coverage -->` | intro.md coverage caveat — how far the judgment layer has reached, and what reviewed and unreviewed lectures actually average. Generated because it moves with every overlay that lands. |
 
 **Prose outside those markers is hand-written** — rewrite it to match the new
 numbers. Never edit inside a marker; the next `--splice` overwrites it.

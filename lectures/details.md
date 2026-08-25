@@ -402,11 +402,10 @@ row above corresponds to a check that now fails loudly.
   reviewed by reading. A category scoring 10 means no mechanical violation was measured,
   not that every rule in it was verified by a human.
 - **Review coverage is partial in this pass, and scores depend on it.** A lecture assessed
-  against more rules scores lower: reviewed lectures average 7.84 with 56 % HIGH,
-  unreviewed 8.29 with 29 % HIGH. The scoreboard above is therefore only comparable
-  between two series to the extent their coverage matches — per-series coverage is on each
-  Summary page. The rule-reach tables are unaffected, because those are measured over
-  every lecture by the same code.
+  against more rules scores lower, so the scoreboard above is only comparable between two
+  series to the extent their coverage matches. The size of the gap is quantified on the
+  [front page](intro.md), and per-series coverage is on each Summary page. The rule-reach
+  tables are unaffected, because those are measured over every lecture by the same code.
 - **Three checks are heuristic** and say so where they fire: `qe-writing-004` and
   `qe-writing-006` depend on curated proper-noun and common-noun lists, and `qe-math-002`
   has to distinguish a transpose apostrophe from a derivative and a `^T` transpose from a
