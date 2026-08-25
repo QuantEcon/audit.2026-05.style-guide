@@ -21,8 +21,8 @@ are LOW or NONE.
 | 🟠 **Some** | [lecture-python-advanced.myst](lecture-python-advanced.myst/index.md) | 8.1 | 29 / 68 | Math (5.9), Figures (6.2) |
 | 🟠 **Some** | [lecture-dp](lecture-dp/index.md) | 8.2 | 16 / 52 | Figures (6.2), Math (6.4) |
 | 🟠 **Some** | [lecture-python.myst](lecture-python.myst/index.md) | 8.3 | 42 / 145 | Figures (6.3), Writing (6.9) |
+| 🟢 **Low** | [lecture-python-intro](lecture-python-intro/index.md) | 8.6 | 8 / 56 | Figures (6.3), Writing (7.1) |
 | 🟠 **Some** | [lecture-python-programming](lecture-python-programming/index.md) | 8.6 | 6 / 27 | Writing (5.7), Figures (7.2) |
-| 🟢 **Low** | [lecture-python-intro](lecture-python-intro/index.md) | 8.7 | 7 / 56 | Figures (6.3), Writing (7.5) |
 <!-- /qe:focus -->
 
 **Every HIGH-priority lecture in this pass is HIGH because of one weak category, not

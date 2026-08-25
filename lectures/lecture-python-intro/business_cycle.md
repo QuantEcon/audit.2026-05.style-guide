@@ -5,16 +5,16 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, code, figures, links  *(JAX out of scope)*
-- **Overall score:** 8.5 / 10
+- **Overall score:** 7.4 / 10
 - **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8/10  | `qe-writing-004` ×1; `qe-writing-001` ×1. |
+| Writing      | 6/10  | `qe-writing-005` ×2; `qe-writing-004` ×1; `qe-writing-001` ×1, +2 more. |
 | Math         | N/A   | no mathematical content. |
-| Code         | 9/10  | `qe-code-003` ×1. |
+| Code         | 6.5/10 | `qe-code-001` ×15; `qe-code-003` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7/10  | `qe-fig-004` ×2; `qe-fig-006` ×1; `qe-fig-008` ×7, +1 more. |
 | References   | N/A   | no citations in this lecture. |
@@ -27,6 +27,7 @@
 _None found._
 
 ### High severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 15. *Lines:* 84, 110, 193, 194, 195, 339, 386, 499, 500, 501, …. *Example:* three distinct PEP8 spacing patterns. (a) Missing space after the colon in dict literals, inconsistent within a single line - `{'color':'grey', 'alpha': 0.2}` at lines 193, 194, 195 and the duplicated block at 499, 500, 501. (b) `nber['USREC']==1` with no spaces around the comparison at lines 386, 652, 673, 730. (c) Continuation lines that do not reach the visual-indent column - 12 spaces instead of 31 for `wb.data.DataFrame(` at lines 84, 110, 513, 4 spaces at 587, and 16 instead of 22 at line 339.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 7. *Lines:* 162, 375, 378, 381, 471, 648, 726. *Example:* plot() without lw=.
 
 ### Medium severity
@@ -34,26 +35,29 @@ _None found._
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 2. *Lines:* 628, 756. *Example:* caption of 8 words.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 601. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 623. *Example:* mid-sentence 'Consumer'.
+- **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 2. *Lines:* 20, 22. *Example:* the lecture's central terms are defined in plain text: 'Business cycles are fluctuations in economic activity over time' (line 20) and the four names introduced at line 22 - expansions, booms, contractions, recessions - all of which are used throughout. No bold appears anywhere in the file.
 
 ### Low severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 1. *Lines:* 53. *Example:* style override.
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 1. *Lines:* 736. *Example:* axis label `YoY real output change (%)`.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 1. *Lines:* 601. *Example:* line 601 is a single 64-word paragraph holding two sentences: a 36-word causal claim about French labour unions, employment protection, firing costs and wage rigidity, then a 28-word consequence clause. It is also the only unsourced institutional argument in a lecture that is otherwise purely descriptive.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 1. *Lines:* 417. *Example:* line 417 says 'In our previous discussion, we found that developed economies have had relatively synchronized periods of recession', and line 420 adds that this synchronization did not appear in Argentina until the 2000s. The GDP growth section it points to (lines 101-321) plots the five countries in five separate figures on separate axes and never makes either claim, so the Synchronization section opens by treating an unstated conclusion as established.
 
 
 ## Strengths
 
-- Code, Links score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The plotting helper defined at line 129 carries a full numpy-style docstring (Parameters and Returns sections, lines 131-158) and is reused for every country panel, which is why all twelve figures share one axis convention and one recession-shading treatment.
+- NBER recession bands are shaded on every US series (lines 384-390, 653, 674, 731) and the 1974/1991/2008/2020 episodes are labelled in-axes, so the reader reads the cyclical timing off the figure instead of being told it.
+- The data cutoff at lines 59-61 is a single named variable with a comment explaining how to freeze it for a reproducible build - unusual and genuinely useful hygiene in a lecture that pulls live FRED and World Bank series.
+- Every series is linked to its source page - the two FRED unemployment series at line 328, the Michigan sentiment index at line 620, core CPI at line 625, the World Bank API at line 24 - so the numbers can be verified or refreshed.
+- The developed-versus-developing comparison at lines 504-561 puts both groups through the same function on the same axes, which is what makes the synchronization claim at line 562 readable rather than asserted.
 
 ## Recommended actions
 
-1. `qe-fig-004` — Caption formatting conventions (2 occurrences).
-2. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (1 occurrence).
-3. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
-4. `qe-code-003` — Package installation at lecture top (1 occurrence).
-5. `qe-fig-006` — Lowercase axis labels (1 occurrence).
-6. `qe-fig-008` — Use lw=2 for line charts (7 occurrences).
-7. `qe-fig-001` — Do not set figure size unless necessary (1 occurrence).
+1. Fix the fifteen PEP8 spacing sites: add the space after the colon in the six dict-literal lines (193-195, 499-501), space the four `nber['USREC'] == 1` comparisons (386, 652, 673, 730), and align the five continuation lines (84, 110, 339, 513, 587) with their opening parenthesis.
+2. Set `lw=2` on the two `ax.plot` calls at lines 162 and 471 - these plot through `**g_params`, which is only `{'alpha': 0.7}`, so no line width reaches them. The other five lines the scanner flagged already set `linewidth=2` on a continuation line (see scanner doubt) and need no change.
+3. Split line 601 into two paragraphs, one sentence each, and either cite the labour-market claim or cut it back to what the figure supports - as written it is a 64-word unsourced causal argument in a descriptive lecture.
+4. Bold the defined terms at lines 20 and 22 (business cycles, expansions/booms, contractions/recessions); the lecture currently uses no bold or italic at all.
+5. Either state the synchronization finding in the GDP growth section - for example by plotting the five countries on shared axes - or rewrite line 417 so it introduces the claim rather than recalling it.
+6. Add an install cell near the top for `pandas_datareader` alongside the existing `wbgapi` install (qe-code-003, line 28), lowercase the axis label at line 736 (qe-fig-006), shorten the 8-word captions at lines 628 and 756 (qe-fig-004), and drop the style override at line 53 (qe-fig-001).
+7. Remove the duplicated graphical-parameter block - `g_params`/`b_params`/`t_params` are defined identically at lines 191-195 and again at 496-501 - and delete the leftover jupytext `+++` cell markers at lines 219, 227 and 251.

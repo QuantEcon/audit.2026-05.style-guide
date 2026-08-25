@@ -38,9 +38,9 @@ category.
 | 1 | [lecture-python-advanced.myst](lecture-python-advanced.myst/index.md) | 68 | 7.3 | **5.9** | 9.3 | 6.2 | 9.0 | 9.6 | 10.0 | **8.1** | 29 | 0 | 21 | 18 |
 | 2 | [lecture-dp](lecture-dp/index.md) | 52 | 7.0 | 6.4 | 9.0 | **6.2** | 9.2 | 9.7 | 10.0 | **8.2** | 15 | 1 | 18 | 18 |
 | 3 | [lecture-python.myst](lecture-python.myst/index.md) | 145 | 6.9 | 7.1 | 9.2 | **6.3** | 9.4 | 9.8 | 10.0 | **8.3** | 41 | 1 | 42 | 61 |
-| 4 | [lecture-python-programming](lecture-python-programming/index.md) | 27 | **5.7** | 9.1 | 9.8 | 7.2 | N/A | 9.9 | 9.9 | **8.6** | 6 | 0 | 10 | 11 |
-| 5 | [lecture-python-intro](lecture-python-intro/index.md) | 56 | 7.5 | 8.7 | 9.3 | **6.3** | 9.0 | 9.7 | 9.9 | **8.7** | 7 | 0 | 16 | 33 |
-|   | **TOTAL / corpus average** | **348** | **7.0** | **7.1** | **9.2** | **6.3** | **9.2** | **9.7** | **10.0** | **8.3** | **98** | **2** | **107** | **141** |
+| 4 | [lecture-python-intro](lecture-python-intro/index.md) | 56 | 7.1 | 8.7 | 8.9 | **6.3** | 9.0 | 9.7 | 9.9 | **8.6** | 8 | 0 | 19 | 29 |
+| 5 | [lecture-python-programming](lecture-python-programming/index.md) | 27 | **5.7** | 9.1 | 9.8 | 7.2 | N/A | 9.9 | 9.9 | **8.6** | 6 | 0 | 10 | 11 |
+|   | **TOTAL / corpus average** | **348** | **6.9** | **7.1** | **9.2** | **6.3** | **9.2** | **9.7** | **10.0** | **8.3** | **99** | **2** | **110** | **137** |
 <!-- /qe:full-scoreboard -->
 
 See the [charts](charts.md) for the visual version.
@@ -232,6 +232,7 @@ HIGH lecture was triggered by the category floor; none has an overall at or belo
 | python.myst | [ge_arrow](lecture-python.myst/ge_arrow.md) | 3.0 | 3.0 | 10.0 | 8.0 | 10.0 | 10.0 | 10.0 | **7.7** | 3.0 |
 | dp | [lq_inventories](lecture-dp/lq_inventories.md) | 5.5 | 3.0 | 9.0 | 7.0 | 10.0 | 10.0 | 10.0 | **7.8** | 3.0 |
 | intro | [inequality](lecture-python-intro/inequality.md) | 4.0 | 9.0 | 6.5 | 5.0 | 10.0 | 10.0 | 10.0 | **7.8** | 4.0 |
+| intro | [laffer_adaptive](lecture-python-intro/laffer_adaptive.md) | 4.0 | 10.0 | 7.0 | 6.0 | 7.5 | 10.0 | 10.0 | **7.8** | 4.0 |
 | intro | [markov_chains_I](lecture-python-intro/markov_chains_I.md) | 8.0 | 3.0 | 9.5 | 7.5 | 8.5 | 9.0 | 9.0 | **7.8** | 3.0 |
 | programming | [python_by_example](lecture-python-programming/python_by_example.md) | 4.0 | 9.0 | 10.0 | 6.0 | — | 10.0 | 7.5 | **7.8** | 4.0 |
 | python.myst | [affine_risk_prices](lecture-python.myst/affine_risk_prices.md) | 7.0 | 4.0 | 10.0 | 5.0 | 8.5 | 10.0 | 10.0 | **7.8** | 4.0 |
