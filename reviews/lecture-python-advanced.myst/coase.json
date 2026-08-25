@@ -1,0 +1,31 @@
+{
+  "series": "lecture-python-advanced.myst",
+  "lecture": "coase",
+  "judgment": [
+    {"rule": "qe-math-009", "count": 7, "lines": [304, 308, 309, 310, 324, 429, 451],
+     "detail": "the set of candidate price functions is written `\\mathcal P` throughout (defined at 304, then used at 308-310, 324, 429, 451); plain `P` is unused anywhere in the lecture, so this is the exact case the rule names - `$P$` instead of `$\\mathcal{P}$` when freely choosing"},
+    {"rule": "qe-writing-002", "count": 3, "lines": [105, 173, 213],
+     "detail": "line 173 is a 45-word sentence that states the recursive structure and its one qualification in a single breath; line 105 is 39 words carrying the pyramid analogy plus its cost implication; line 213 is 35 words joining the free-entry assumption to its zero-profit consequence - each splits cleanly into two sentences (the quotation at 89-91 is 50 words but is a direct quote from Coase and should stay intact)"},
+    {"rule": "qe-code-001", "count": 5, "lines": [440, 471, 482, 503, 585],
+     "detail": "lines 471, 482 and 503 bind lambdas to names (`Tp`, `p_func`, `f`) where PEP8 asks for `def` (E731) - none of the three is closer to mathematical notation; the `__init__` signature at 440-443 opens arguments on the same line as `(` and then continues at 12 spaces instead of aligning with `self` (E128); line 585 indents the loop body 3 spaces instead of 4"},
+    {"rule": "qe-writing-005", "count": 1, "lines": [87],
+     "detail": "line 87 uses bold for emphasis on a rhetorical question - `**what determines the size of firms**?` - which is the reverse of the rule; every other bold in the file (184, 192, 233, 241, 268, 417, 598) correctly marks a definition, so this is the one outlier"}
+  ],
+  "strengths": [
+    "The verbal Coase quotation introduced at 89-91 is deliberately closed at 399-405: the same passage is re-quoted right after the marginal conditions {eq}`coase_env` and {eq}`coase_foc` are derived, so the reader sees the model reproduce the prose argument",
+    "Bold is reserved for the six formal definitions the lecture actually needs - allocation (233), feasible (241), equilibrium (268), Coase-Euler equation (417), value added (598), plus the two cost concepts at 184 and 192 - and italic carries the emphasis (39, 71, 97-98, 169, 204)",
+    "Every labelled equation is genuinely used: `coase_env` and `coase_foc` are combined at 407, `coase_deft` is cited at 431, `coase_ralloc` at 352 - no label is dead weight",
+    "The formal-definition section is explicitly marked skippable on first reading (line 231), which lets the informal three-condition definition at 221-225 carry the narrative",
+    "Both exercises use gated `{exercise-start}` / `{solution-start}` with `:class: dropdown`, and exercise 2's solution answers the intuition question in prose before it plots anything (613-620)"
+  ],
+  "actions": [
+    "Rename the spelled-out `delta` to Unicode `δ` in the nine places at 442, 445 (twice), 463, 471, 502, 503, 583 and 585 - the prose calls it $\\delta$ everywhere, so the code is the only place the name is spelled out (qe-code-002, 9 occurrences)",
+    "Add `:name:` to the two `{figure}` directives at 145 and 165 and `mystnb: figure:` metadata to the three generated plots at 535, 554 and 637, then reference them with `{numref}` - line 143 currently says \"the figure below\" instead of naming it (qe-fig-005, 5 occurrences)",
+    "Regenerate `subcontracting.png` (145) and `allocation.png` (165) as code cells so they are versioned with the lecture rather than committed as static PNGs (qe-fig-002, 2 occurrences)",
+    "Fix the two typos that survive in the narrative: `Coases ideas` at 121 needs an apostrophe, and `intution` at 602 is misspelled",
+    "Correct line 391 - it calls $s$ the \"upstream boundary\" of the minimizing firm, but the whole surrounding argument (including the identical minimization at 389) uses $s$ as the firm's downstream boundary and $t$ as its choice of upstream boundary; as written the sentence contradicts the model",
+    "Replace the three named lambdas at 471, 482 and 503 with `def`, align the `__init__` continuation lines at 441-443, and re-indent the loop body at 585 to 4 spaces",
+    "Sweep the remaining mechanical items: split the two-sentence paragraphs at 89, 278, 570 and 622-623 (qe-writing-001, 4 occurrences), collapse the double spaces at 68, 278 (twice), 301, 424, 570 and 623 (qe-writing-008, 7 occurrences), move the three narrative `{cite}` calls at 306, 354 and 381 out of the sentence flow (qe-ref-001, 3 occurrences), and set `lw=2` on the plots at 537, 555 and 638 (qe-fig-008, 3 occurrences)"
+  ],
+  "scanner_doubts": []
+}

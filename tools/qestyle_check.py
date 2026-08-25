@@ -4,7 +4,8 @@
 Each check here corresponds to something that silently broke in a previous pass:
 lectures that were never audited, a report describing a lecture that does not
 exist, a header whose score does not match its own table, a reviewer quietly
-editing a measured count, a proposed rule cited without its tag.
+editing a measured count, a proposed rule cited without its tag, a hand-written
+table still quoting a reach the last rule fix moved.
 
     python3 tools/qestyle_check.py --root lectures --data lectures/data --corpus ../quantecon
 
@@ -207,6 +208,117 @@ def check_snapshot(ck, root, data):
             ck.fail("snapshot", f"{rp}: snapshot {m.group(1)} != {want}")
 
 
+# The generated regions of a narrative document are `qestyle_report --splice`'s
+# business; these regexes strip them so only hand-written prose is examined.
+SPLICE_RE = re.compile(r"<!-- qe:[A-Za-z0-9_-]+ -->.*?<!-- /qe:[A-Za-z0-9_-]+ -->", re.S)
+FENCE_RE = re.compile(r"^(```|~~~).*?^\1", re.S | re.M)
+INT_RE = re.compile(r"\d[\d,]*(?:\.\d+)?")
+
+
+def _reach_history(data):
+    """{period: {rule: (reach, occurrences, share_pct, corpus_size)}}."""
+    path = os.path.join(data, "rule_reach_history.csv")
+    if not os.path.exists(path):
+        return {}
+    per = {}
+    with open(path, newline="", encoding="utf-8") as fh:
+        for r in csv.DictReader(fh):
+            per.setdefault(r["period"], {})[r["rule"]] = (
+                int(r["lectures_affected"]), int(r["total_occurrences"]),
+                float(r["share_pct"]), int(r["corpus_size"]))
+    return per
+
+
+def _table_rows(text):
+    """Markdown table rows as (header_cells, row_cells)."""
+    header, out = None, []
+    for line in text.split("\n"):
+        s = line.strip()
+        if not s.startswith("|"):
+            header = None
+            continue
+        cells = [c.strip() for c in s.strip("|").split("|")]
+        if all(re.fullmatch(r":?-{2,}:?", c) for c in cells if c):
+            continue
+        if header is None:
+            header = cells
+            continue
+        out.append((header, cells))
+    return out
+
+
+def check_narrative(ck, root, data):
+    """A hand-written table may not quote a corpus number that has since moved.
+
+    The gate already holds the per-lecture reports to `violations.csv`, but the
+    narrative documents mirror the same numbers in prose that nothing regenerates
+    — and a rule fix moves reach without touching the sentence quoting it. This
+    caught `qe-code-002` still being described at its pre-fix reach.
+    """
+    per = _reach_history(data)
+    if not per:
+        ck.note("rule_reach_history.csv absent, narrative claims not checked")
+        return
+    periods = sorted(per)
+    now, before = per[periods[-1]], per.get(periods[-2], {}) if len(periods) > 1 else {}
+
+    docs = [p for p in sorted(glob.glob(os.path.join(root, "*.md"))) if os.path.exists(p)]
+    docs += sorted(glob.glob(os.path.join(root, "lecture-*", "index.md")))
+    if os.path.exists("README.md"):
+        docs.append("README.md")
+
+    n = 0
+    for path in docs:
+        with open(path, encoding="utf-8") as fh:
+            text = FENCE_RE.sub("", SPLICE_RE.sub("", fh.read()))
+        for header, cells in _table_rows(text):
+            row = " ".join(cells)
+            ids = set(RULE_RE.findall(row))
+            if len(ids) != 1:
+                continue
+            rule = ids.copy().pop()
+
+            # A trend row: "A% -> B%" spans the previous pass and this one.
+            trend = re.search(r"(\d+)\s*%\s*(?:\u2192|->)\s*(\d+)\s*%", row)
+            if trend:
+                n += 1
+                for label, cited, table in (("previous", int(trend.group(1)), before),
+                                            ("current", int(trend.group(2)), now)):
+                    want = table.get(rule)
+                    if want is None:
+                        ck.fail("narrative-claims",
+                                f"{path}: {rule} cites a {label} share, but that "
+                                f"period has no measurement for it")
+                    elif abs(round(want[2]) - cited) > 1:
+                        ck.fail("narrative-claims",
+                                f"{path}: {rule} {label} share cited as {cited}%, "
+                                f"measured {want[2]}%")
+                continue
+
+            # A counts table, declared as such by its own header.
+            head = " ".join(header).lower()
+            if "lecture" not in head or "occurrence" not in head:
+                continue
+            want = now.get(rule)
+            if want is None:
+                continue
+            reach, occ, share, corpus = want
+            allowed = {reach, occ, corpus, round(share)}
+            body = re.sub(r"\u00a7\s*\d+(\.\d+)*|#\d+", "", RULE_RE.sub("", row))
+            n += 1
+            for m in INT_RE.finditer(body):
+                if "." in m.group(0):
+                    continue
+                cited = int(m.group(0).replace(",", ""))
+                if cited not in allowed:
+                    ck.fail("narrative-claims",
+                            f"{path}: {rule} row cites {cited}, which is none of its "
+                            f"measured reach ({reach}), occurrences ({occ}) or "
+                            f"corpus size ({corpus})")
+    ck.note(f"{n} hand-written corpus claims cross-checked against "
+            f"rule_reach_history.csv")
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--root", default="lectures")
@@ -221,6 +333,7 @@ def main():
     check_agreement(ck, args.root, args.data)
     check_conventions(ck, args.root)
     check_snapshot(ck, args.root, args.data)
+    check_narrative(ck, args.root, args.data)
     return ck.report()
 
 

@@ -203,7 +203,9 @@ python3 tools/qestyle_check.py --root lectures --data lectures/data --corpus $CO
 
 The gate must print **All checks passed**. It asserts coverage, score arithmetic, priority
 buckets, report↔CSV agreement, the conventions, and snapshot pinning. It will also catch
-your own prose citing a proposed rule without its **(proposed)** tag.
+your own prose citing a proposed rule without its **(proposed)** tag, and any
+hand-written table that still quotes a reach the data has since moved — a trend row
+(`A% → B%`) or a counts table whose header names *Lectures* and *Occurrences*.
 
 Also refresh the hand-written trend table in `lectures/intro.md` from the measured history
 rather than editing digits:
@@ -255,9 +257,11 @@ python3 tools/qestyle_report.py --summarise --history YYYY-MM --splice
 python3 tools/qestyle_check.py --root lectures --data lectures/data --corpus $CORPUS
 ```
 
-**Then re-check any prose that quotes the numbers that moved** (Step 4's verifier, plus the
-`intro.md` trend table and the narrative claims in `intro.md` / `details.md` / `README.md`).
-A rule fix changes reach, and hand-written sentences do not follow.
+**Then re-check any prose that quotes the numbers that moved.** The gate now verifies the
+`intro.md` trend table and the `appendix.md` counts table for you; it cannot verify a
+number written into a *sentence*, so re-read the narrative claims in `intro.md` /
+`details.md` / `README.md` yourself. A rule fix changes reach, and hand-written
+sentences do not follow.
 
 ### Before trusting a new or changed check
 
