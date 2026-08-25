@@ -1,6 +1,6 @@
 # Resume brief — 2026-08 audit pass
 
-Session state as of commit `c0fb7fc` on `claude/project-review-lecture-updates-6o9a2f`.
+Session state as of commit `5b31e36` on `claude/project-review-lecture-updates-6o9a2f`.
 Everything below is committed and pushed; the working tree is clean.
 
 ## Where the pass stands
@@ -8,16 +8,41 @@ Everything below is committed and pushed; the working tree is clean.
 | | |
 |---|---|
 | Corpus | 348 lectures, 5 series, pinned per series in `lectures/data/snapshot.json` |
-| Evidence layer | **complete** — 41 checks over all 348, all 19,057 findings in `lectures/data/violations.csv` |
-| Scoring layer | **complete** — corpus mean 8.06, 148 HIGH / 3 MEDIUM / 108 LOW / 89 NONE |
-| Judgment layer | **169 of 348 reviewed** — 179 to go, queued in `.claude/review-queue.json` |
+| Evidence layer | **complete** — 41 checks over all 348, 19,076 findings in `lectures/data/violations.csv` |
+| Scoring layer | **complete** — corpus mean 8.03, 153 HIGH / 1 MEDIUM / 102 LOW / 92 NONE |
+| Judgment layer | **189 of 348 reviewed** — 159 to go, queued in `.claude/review-queue.json` |
 | Gate | `All checks passed` |
+| Build | succeeds on Python 3.12 (`.venv`), 353 pages, 5 charts |
 | Trend | 2026-05 and 2026-08 both measured with today's code; 27 rules improved, 5 level, 3 worse |
 
 The only unfinished work is the judgment review. Nothing else is waiting on it: the
 front-page caveat, the five per-series coverage lines and the scoreboard all regenerate
 themselves from whichever overlays exist, so the book is publishable at any coverage level
 and says so honestly.
+
+## What the 2026-08-25 session changed
+
+Five verified detector fixes came out of reviewer `scanner_doubts`, which is now the most
+productive source of defects in the project — worth reading every batch's doubts carefully.
+
+- **`qe-math-010`** was undercounting: `[PEV]\b` never fires before a subscript, because
+  `_` is a word character, so `\mathbb E_t` — the corpus's usual conditional expectation —
+  was invisible. Its Roman branch also missed `\textrm{…}`, `{\rm …}` and `Prob`.
+  Reach 105 → 117.
+- **`qe-math-011`**'s bare-`\mathcal` alternative did not consume its closing brace, so
+  `{\mathcal N}(0,1)` failed the distribution-context gate. Reach 24 → 34.
+- **`qe-math-002`** had three false-positive classes, all guards a sibling branch already
+  had: no guard at all on `^\prime`, no relation guard on `prime_vec`, and no
+  double-prime exclusion. Occurrences 2,129 → 1,865.
+
+Both snapshots were re-measured after each fix, so the trend is still like-for-like.
+`tools/VERIFICATION.md` carries the details, plus a *Known limitations, accepted
+deliberately* section listing what was left and why — read it before "fixing" something
+there.
+
+The gate also grew a `narrative-claims` check that holds hand-written tables to
+`rule_reach_history.csv`, and the `intro.md` coverage caveat is now a generated
+`<!-- qe:review-coverage -->` block rather than two hand-typed figures.
 
 ## Resuming the review — one agent, many sessions
 
