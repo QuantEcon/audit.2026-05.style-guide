@@ -137,6 +137,10 @@ def check_conventions(ck, root):
     """The conventions that were deliberately applied and are easy to regress."""
     n_prop = 0
     for path in sorted(glob.glob(os.path.join(root, "**", "*.md"), recursive=True)):
+        # Skip build output: jupyter-book copies the sources into _build/html/_sources,
+        # and the runbook has people build before re-running this gate.
+        if "_build" in path.split(os.sep):
+            continue
         with open(path, encoding="utf-8") as fh:
             text = fh.read()
         base = os.path.basename(path)

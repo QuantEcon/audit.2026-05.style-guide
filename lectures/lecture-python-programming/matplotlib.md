@@ -16,7 +16,7 @@
 | Math         | 10/10 | no mechanical violations detected. |
 | Code         | 9/10  | `qe-code-003` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 4.5/10 | `qe-fig-005` ×13; `qe-fig-003` ×3; `qe-fig-007` ×1, +4 more. |
+| Figures      | 4.5/10 | `qe-fig-005` ×13; `qe-fig-003` ×3; `qe-fig-007` ×1, +3 more. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -40,7 +40,6 @@ _None found._
 ### Low severity
 - **[qe-fig-002]** — Prefer code-generated figures. *Count:* 1. *Lines:* 465. *Example:* static image .png.
 - **[qe-fig-007]** — Keep figure box and spines. *Count:* 1. *Lines:* 245. *Example:* spine removal.
-- **[qe-fig-009]** — Figure sizing. *Count:* 1. *Lines:* 465. *Example:* :scale: 130 (outside 80–100%).
 
 
 ## Strengths

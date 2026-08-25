@@ -1099,21 +1099,24 @@ def check_fig_008(doc: Doc):
 
 
 def check_fig_009(doc: Doc):
-    """Figures should occupy 80–100% of text width."""
+    """Figures should occupy 80–100% of text width.
+
+    Only ``:width:`` expresses a fraction of the text width. ``:scale:`` is
+    relative to the image's own pixel size, so a screenshot at ``:scale: 50``
+    says nothing about how wide it renders — counting it measured the wrong
+    quantity, and every hit in this corpus was a scaled-down screenshot.
+    """
     hits = []
     for no, name, arg, opts, marker in doc.directives:
         if name not in ("figure", "image"):
             continue
-        for key in ("width", "scale"):
-            val = opts.get(key)
-            if not val:
-                continue
-            m = re.match(r"^(\d+(?:\.\d+)?)\s*%?$", val.strip())
-            if not m:
-                continue
-            pct = float(m.group(1))
-            if pct < 80 or pct > 100:
-                hits.append(Hit("qe-fig-009", no, f":{key}: {val} (outside 80–100%)"))
+        val = (opts.get("width") or "").strip()
+        m = re.match(r"^(\d+(?:\.\d+)?)\s*%$", val)
+        if not m:
+            continue        # an absolute width (px, em) is not a share of the page
+        pct = float(m.group(1))
+        if pct < 80 or pct > 100:
+            hits.append(Hit("qe-fig-009", no, f":width: {val} (outside 80–100%)"))
     return hits
 
 
@@ -1236,15 +1239,27 @@ PROOF_NAMES = {"theorem", "lemma", "proof", "definition", "corollary",
 
 
 def check_admon_001(doc: Doc):
-    """Exercises containing code cells must use gated syntax."""
+    """An exercise containing an *executable* cell must use gated syntax.
+
+    A plain ```` ```python ```` block is displayed, not run, so it does not need
+    the gated form — every hit before this distinction was drawn was one of those.
+    """
     hits = []
+    seen = set()
     for l in doc.lines:
-        if l.kind != "code":
+        if l.kind != "code" or "code-cell" not in l.directives:
             continue
         if "exercise" in l.directives and "exercise-start" not in l.directives:
-            hits.append(Hit("qe-admon-001", l.no, "code cell inside non-gated {exercise}"))
-    seen = {h.line for h in hits}
-    return [h for h in hits if h.line in seen][:1] if hits else []
+            if "exercise" not in seen:
+                hits.append(Hit("qe-admon-001", l.no,
+                                "executable cell inside a non-gated {exercise}"))
+                seen.add("exercise")
+        if "solution" in l.directives and "solution-start" not in l.directives:
+            if "solution" not in seen:
+                hits.append(Hit("qe-admon-001", l.no,
+                                "executable cell inside a non-gated {solution}"))
+                seen.add("solution")
+    return hits
 
 
 def check_admon_002(doc: Doc):

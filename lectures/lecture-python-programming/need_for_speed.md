@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `ceec881028`
 - **Categories audited:** writing, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.4 / 10
+- **Overall score:** 8.5 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -16,7 +16,7 @@
 | Math         | N/A   | no mathematical content. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 8/10  | `qe-fig-005` ×3; `qe-fig-009` ×2. |
+| Figures      | 8.5/10 | `qe-fig-005` ×3. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -31,7 +31,6 @@ _None found._
 
 ### Medium severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 313, 458, 492. *Example:* {figure} without :name:.
-- **[qe-fig-009]** — Figure sizing. *Count:* 2. *Lines:* 458, 492. *Example:* :scale: 40 (outside 80–100%).
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 424, 466. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
@@ -51,4 +50,3 @@ _None found._
 1. `qe-writing-006` — Capitalize lecture titles properly (10 occurrences).
 2. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
 3. `qe-fig-005` — Descriptive figure names for cross-referencing (3 occurrences).
-4. `qe-fig-009` — Figure sizing (2 occurrences).

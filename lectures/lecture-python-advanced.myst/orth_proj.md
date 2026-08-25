@@ -16,7 +16,7 @@
 | Math         | 3/10  | `qe-math-002` ×52; `qe-math-003` ×6. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 7/10  | `qe-fig-005` ×6; `qe-fig-002` ×6; `qe-fig-009` ×1. |
+| Figures      | 7/10  | `qe-fig-005` ×6; `qe-fig-002` ×6. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 8/10  | `qe-link-002` ×2. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -39,7 +39,7 @@ _None found._
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 2. *Lines:* 55, 104. *Example:* mid-sentence 'Theory'.
 
 ### Low severity
-- **[qe-fig-009]** — Figure sizing. *Count:* 1. *Lines:* 195. *Example:* :scale: 65% (outside 80–100%).
+_None found._
 
 
 ## Strengths

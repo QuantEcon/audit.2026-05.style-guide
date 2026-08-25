@@ -16,7 +16,7 @@
 | Math         | 10/10 | no mechanical violations detected. |
 | Code         | 9/10  | `qe-code-003` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6.5/10 | `qe-fig-005` ×4; `qe-fig-003` ×1; `qe-fig-002` ×2, +2 more. |
+| Figures      | 6.5/10 | `qe-fig-005` ×4; `qe-fig-003` ×1; `qe-fig-002` ×2, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 9/10  | `qe-link-002` ×1. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -40,7 +40,7 @@ _None found._
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 27. *Example:* mid-sentence 'Innovation'.
 
 ### Low severity
-- **[qe-fig-009]** — Figure sizing. *Count:* 1. *Lines:* 709. *Example:* :scale: 50 (outside 80–100%).
+_None found._
 
 
 ## Strengths

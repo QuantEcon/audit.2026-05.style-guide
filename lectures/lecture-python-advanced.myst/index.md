@@ -12,7 +12,19 @@ Style audit of the **lecture-python-advanced.myst** series.
 <!-- /qe:series-meta -->
 
 <!-- qe:series-narrative -->
-_The series-level reading of these numbers goes here._
+The weakest series (8.1) and the one with the clearest single cause. **Math scores 5.9 —
+the lowest category average anywhere in the corpus** — and it is the floor for **22 of the
+29 HIGH lectures**. Figures (4) and Writing (3) account for the rest.
+
+The Math problem is notation debt in the older LQ, filtering and robustness material, and
+it is concentrated in two rules: `qe-math-002` in 35 of 68 lectures with **941
+occurrences**, and `qe-math-010` *(proposed)* in 28 with 485. Those are the densest
+per-lecture counts of either rule in the corpus. `hs_recursive_models` at **5.6** is the
+lowest-scoring lecture in all 348.
+
+Everything else here is ordinary: `qe-fig-005` (54 / 68), `qe-writing-008` (53 / 68, 2,144
+occurrences) and `qe-fig-001` (47 / 68) look much like the other series. Fix the maths and
+this series stops being the outlier.
 <!-- /qe:series-narrative -->
 
 ## Priority distribution
@@ -49,7 +61,6 @@ Checked rules with no violation anywhere in the series — the conventions this 
 already holds to.
 
 <!-- qe:series-clean -->
-- **`qe-admon-001`** — Use gated syntax for executable code in exercises
 - **`qe-admon-002`** — Use dropdown class for solutions
 - **`qe-admon-003`** — Use tick count management for nested directives
 - **`qe-math-001`** — Prefer UTF-8 unicode for simple parameter mentions, be consistent
@@ -60,7 +71,24 @@ already holds to.
 ## Series-level recommendations
 
 <!-- qe:series-recommendations -->
-_generated_
+1. **`qe-math-002` — transpose notation** (35 / 68, **941 occurrences**). The largest
+   concentration of any rule in any series. Replace `'` and `^T` with `^\top`. Worth doing
+   as one pass over the LQ/filtering cluster rather than lecture by lecture, so the
+   notation stays consistent within a topic.
+2. **`qe-math-010` *(proposed)* — expectation and probability operators** (28 / 68, 485
+   occurrences). `\mathbb{E}` / `\mathbb{P}` / `\mathbb{V}`, with braces. Same cluster,
+   same pass.
+3. **`qe-math-003` — `bmatrix` for matrices** (15 / 68, 113 blocks) and **`qe-math-011`
+   *(proposed)*** — plain `N` rather than `\mathcal{N}` (12 / 68). Both fall out naturally
+   while doing items 1–2.
+4. **Items 1–3 together should clear most of the 22 Math-floored HIGH lectures**, which is
+   three quarters of the series' HIGH list. Nothing else here has comparable leverage.
+5. **`qe-fig-005` — name the figures** (54 / 68, 203 figures) and **`qe-writing-008`**
+   (53 / 68, 2,144 occurrences). Routine sweeps, best kept in separate commits from the
+   maths so the notation diff stays reviewable.
+6. **Start with `hs_recursive_models`** (5.6, the corpus minimum), then
+   `knowing_forecasts_of_others` and `match_transport` (6.9 each) and `asset_pricing_lph`
+   (7.0).
 <!-- /qe:series-recommendations -->
 
 ## Lectures ranked by priority (lowest score first)

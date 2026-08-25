@@ -7,12 +7,22 @@ Style audit of the **lecture-python-intro** series.
 - **Corpus snapshot:** `a12d17c0ef`
 - **Lectures audited:** 56
 - **Average overall score:** 8.5 / 10
-- **Average per-category scores:** writing 6.6, math 8.7, code 8.5, figures 6.5, references 9.3, links 9.7, admon 9.9
+- **Average per-category scores:** writing 6.6, math 8.7, code 8.5, figures 6.5, references 9.3, links 9.7, admon 10.0
 - **JAX:** out of scope — the `qe-jax-*` rules target `lecture-jax`.
 <!-- /qe:series-meta -->
 
 <!-- qe:series-narrative -->
-_The series-level reading of these numbers goes here._
+This series is in the best shape of the five, and its problems are shallow: no lecture
+scores below 7.2, and 23 of 56 need nothing at all. What holds the average down is not
+a hard spot but a pair of habits applied almost everywhere — `qe-fig-005` (46 of 56
+lectures have a figure with no `name:`) and `qe-writing-008` (710 runs of extra
+whitespace across 39 lectures).
+
+The 11 HIGH lectures are all triggered by a single category floor rather than a low
+overall: **Writing** in 6 of them, Figures in 3, Math in 2. Math is barely a factor here —
+`qe-math-002` appears in only 6 lectures, against 35 in `lecture-python-advanced.myst`.
+So the whole series is reachable with figure metadata and a prose sweep; there is no
+notation debt to work through.
 <!-- /qe:series-narrative -->
 
 ## Priority distribution
@@ -51,7 +61,6 @@ already holds to.
 <!-- qe:series-clean -->
 - **`qe-admon-003`** — Use tick count management for nested directives
 - **`qe-code-005`** — Use quantecon timeit for benchmarking
-- **`qe-fig-009`** — Figure sizing
 - **`qe-fig-010`** — Plotly figures require latex directive
 - **`qe-math-006`** — Use aligned environment correctly for PDF compatibility
 - **`qe-math-007`** — Use automatic equation numbering, not manual tags
@@ -62,7 +71,21 @@ already holds to.
 ## Series-level recommendations
 
 <!-- qe:series-recommendations -->
-_generated_
+1. **`qe-fig-005` — name the figures** (46 / 56, 174 figures). The single highest-return
+   fix in the series, and a pure sweep: add `name:` under the `mystnb.figure` metadata of
+   each figure-producing cell. Unlocks `{numref}` cross-referencing as a side effect.
+2. **`qe-writing-008` — collapse repeated spaces** (39 / 56, 710 occurrences). Entirely
+   safe to automate, and it is the largest raw count in the series.
+3. **`qe-fig-008` — `lw=2` on line plots** (39 / 56, 266 calls). Scriptable, though worth
+   a glance where a plot deliberately uses a thin line.
+4. **`qe-fig-001` — drop `figsize=`** (30 / 56, 91 overrides). Let the series
+   `_config.yml` defaults apply; keep an override only where a plot needs a different
+   aspect ratio.
+5. **`qe-writing-001` — one sentence per paragraph** (30 / 56, 53 blocks). A reading pass,
+   not a sweep: splitting a paragraph changes its rhythm, so it wants an editor.
+6. **Figures and Writing together clear 9 of the 11 HIGH lectures.** Start with
+   `linear_equations` (7.2), then `business_cycle`, `heavy_tails` and `inflation_history`
+   (7.4 each).
 <!-- /qe:series-recommendations -->
 
 ## Lectures ranked by priority (lowest score first)
@@ -75,15 +98,15 @@ that lecture. Click a lecture for its full report.
 | # | Lecture | Writing | Math | Code | Figures | References | Links | Admon | Overall | Priority |
 |---|---------|---|---|---|---|---|---|---|---------|----------|
 | 1 | [linear_equations](linear_equations.md) | 5.5 | 6.5 | 7.5 | 6 | — | 7.5 | 10 | **7.2** | LOW |
-| 2 | [markov_chains_I](markov_chains_I.md) | 6 | 3 | 7 | 7.5 | 9 | 9 | 9 | **7.2** | HIGH |
-| 3 | [business_cycle](business_cycle.md) | 6 | — | 6.5 | 7 | — | 10 | — | **7.4** | LOW |
-| 4 | [heavy_tails](heavy_tails.md) | 6 | 5.5 | 6.5 | 5 | 10 | 9 | 10 | **7.4** | LOW |
-| 5 | [inflation_history](inflation_history.md) | 3 | 10 | 6 | 4.5 | 8.5 | 10 | 10 | **7.4** | HIGH |
-| 6 | [lln_clt](lln_clt.md) | 8 | 4 | 7.5 | 8 | — | 9 | 9 | **7.6** | HIGH |
-| 7 | [french_rev](french_rev.md) | 3.5 | 10 | 10 | 3 | 7.5 | 10 | 10 | **7.7** | HIGH |
-| 8 | [bivariate_dist](bivariate_dist.md) | 6.5 | 5.5 | 7.5 | 5 | 10 | 10 | 10 | **7.8** | LOW |
-| 9 | [inequality](inequality.md) | 4 | 9 | 6.5 | 5 | 10 | 10 | 10 | **7.8** | HIGH |
-| 10 | [intro_supply_demand](intro_supply_demand.md) | 4.5 | 10 | 7.5 | 6.5 | — | 8 | 10 | **7.8** | LOW |
+| 2 | [business_cycle](business_cycle.md) | 6 | — | 6.5 | 7 | — | 10 | — | **7.4** | LOW |
+| 3 | [heavy_tails](heavy_tails.md) | 6 | 5.5 | 6.5 | 5 | 10 | 9 | 10 | **7.4** | LOW |
+| 4 | [inflation_history](inflation_history.md) | 3 | 10 | 6 | 4.5 | 8.5 | 10 | 10 | **7.4** | HIGH |
+| 5 | [markov_chains_I](markov_chains_I.md) | 6 | 3 | 7 | 7.5 | 9 | 9 | 10 | **7.4** | HIGH |
+| 6 | [french_rev](french_rev.md) | 3.5 | 10 | 10 | 3 | 7.5 | 10 | 10 | **7.7** | HIGH |
+| 7 | [bivariate_dist](bivariate_dist.md) | 6.5 | 5.5 | 7.5 | 5 | 10 | 10 | 10 | **7.8** | LOW |
+| 8 | [inequality](inequality.md) | 4 | 9 | 6.5 | 5 | 10 | 10 | 10 | **7.8** | HIGH |
+| 9 | [intro_supply_demand](intro_supply_demand.md) | 4.5 | 10 | 7.5 | 6.5 | — | 8 | 10 | **7.8** | LOW |
+| 10 | [lln_clt](lln_clt.md) | 8 | 4 | 7.5 | 8 | — | 9 | 10 | **7.8** | HIGH |
 | 11 | [long_run_growth](long_run_growth.md) | 5 | — | 7.5 | 6 | 8.5 | 10 | 10 | **7.8** | LOW |
 | 12 | [ar1_processes](ar1_processes.md) | 6 | 7.5 | 6 | 7 | 9 | 10 | 10 | **7.9** | LOW |
 | 13 | [complex_and_trig](complex_and_trig.md) | 3 | 9.5 | 7 | 5.5 | 10 | 10 | 10 | **7.9** | HIGH |
@@ -98,9 +121,9 @@ that lecture. Click a lecture for its full report.
 | 22 | [mle](mle.md) | 5 | 10 | 7 | 7.5 | — | 10 | 10 | **8.2** | LOW |
 | 23 | [time_series_with_matrices](time_series_with_matrices.md) | 5 | 7.5 | 10 | 7 | 10 | 8 | 10 | **8.2** | LOW |
 | 24 | [bayes_intro](bayes_intro.md) | 7.5 | 9.5 | 7.5 | 5.5 | — | 10 | 10 | **8.3** | LOW |
-| 25 | [markov_chains_II](markov_chains_II.md) | 6.5 | 10 | 7.5 | 6.5 | 8.5 | 10 | 9 | **8.3** | LOW |
-| 26 | [equalizing_difference](equalizing_difference.md) | 8.5 | 8 | 7.5 | 5.5 | 9 | 10 | 10 | **8.4** | LOW |
-| 27 | [input_output](input_output.md) | 7.5 | 10 | 6.5 | 6 | 8.5 | 10 | 10 | **8.4** | LOW |
+| 25 | [equalizing_difference](equalizing_difference.md) | 8.5 | 8 | 7.5 | 5.5 | 9 | 10 | 10 | **8.4** | LOW |
+| 26 | [input_output](input_output.md) | 7.5 | 10 | 6.5 | 6 | 8.5 | 10 | 10 | **8.4** | LOW |
+| 27 | [markov_chains_II](markov_chains_II.md) | 6.5 | 10 | 7.5 | 6.5 | 8.5 | 10 | 10 | **8.4** | LOW |
 | 28 | [mobility](mobility.md) | 7 | 7.5 | 10 | 7.5 | 7 | 10 | 10 | **8.4** | LOW |
 | 29 | [monte_carlo](monte_carlo.md) | 8 | 5.5 | 9 | 8 | — | 10 | 10 | **8.4** | LOW |
 | 30 | [about](about.md) | 8 | — | — | — | — | 9 | — | **8.5** | LOW |

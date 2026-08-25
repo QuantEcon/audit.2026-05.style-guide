@@ -16,7 +16,7 @@
 | Math         | 9/10  | `qe-math-012` (proposed) ×1. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6/10  | `qe-fig-005` ×11; `qe-fig-008` ×10; `qe-fig-009` ×1. |
+| Figures      | 6.5/10 | `qe-fig-005` ×11; `qe-fig-008` ×10. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 7.5/10 | `qe-admon-003` ×2. |
@@ -36,7 +36,6 @@
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 3. *Lines:* 124, 397, 445. *Example:* 2 spaces.
 
 ### Low severity
-- **[qe-fig-009]** — Figure sizing. *Count:* 1. *Lines:* 46. *Example:* :scale: 120 (outside 80–100%).
 - **[qe-math-012 (proposed)]** — Multiplication via \cdot or juxtaposition, never *. *Count:* 1. *Lines:* 693. *Example:* * as multiplication.
 
 

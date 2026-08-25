@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 9.0 / 10
+- **Overall score:** 9.1 / 10
 - **Priority:** NONE
 
 ## Score breakdown
@@ -19,7 +19,7 @@
 | Figures      | 7/10  | `qe-fig-005` ×3; `qe-fig-004` ×1; `qe-fig-001` ×6. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
-| Admonitions  | 9/10  | `qe-admon-001` ×1. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -31,7 +31,6 @@ _None found._
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 1. *Lines:* 1032. *Example:* non-blackboard `\operatorname{Var}`.
 
 ### Medium severity
-- **[qe-admon-001]** — Use gated syntax for executable code in exercises. *Count:* 1. *Lines:* 890. *Example:* code cell inside non-gated {exercise}.
 - **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 3. *Lines:* 485, 488, 513. *Example:* spelled-out `theta`.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 906, 958, 1002. *Example:* code-cell figure without mystnb figure metadata.
 
@@ -53,6 +52,5 @@ _None found._
 1. `qe-fig-005` — Descriptive figure names for cross-referencing (3 occurrences).
 2. `qe-code-002` — Use Unicode symbols for Greek letters in code (3 occurrences).
 3. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (1 occurrence).
-4. `qe-admon-001` — Use gated syntax for executable code in exercises (1 occurrence).
-5. `qe-fig-004` — Caption formatting conventions (1 occurrence).
-6. `qe-fig-001` — Do not set figure size unless necessary (6 occurrences).
+4. `qe-fig-004` — Caption formatting conventions (1 occurrence).
+5. `qe-fig-001` — Do not set figure size unless necessary (6 occurrences).

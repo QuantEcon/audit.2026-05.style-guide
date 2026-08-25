@@ -16,7 +16,7 @@
 | Math         | N/A   | no mathematical content. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 7/10  | `qe-fig-005` ×12; `qe-fig-009` ×1. |
+| Figures      | 7/10  | `qe-fig-005` ×12. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -34,7 +34,6 @@ _None found._
 _None found._
 
 ### Low severity
-- **[qe-fig-009]** — Figure sizing. *Count:* 1. *Lines:* 378. *Example:* :scale: 50% (outside 80–100%).
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 1. *Lines:* 144. *Example:* 2 spaces.
 
 
@@ -51,4 +50,3 @@ _None found._
 1. `qe-writing-006` — Capitalize lecture titles properly (17 occurrences).
 2. `qe-fig-005` — Descriptive figure names for cross-referencing (12 occurrences).
 3. `qe-writing-008` — Remove excessive whitespace between words (1 occurrence).
-4. `qe-fig-009` — Figure sizing (1 occurrence).

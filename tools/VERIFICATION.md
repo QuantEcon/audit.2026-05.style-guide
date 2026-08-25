@@ -1,9 +1,10 @@
 # Detector verification
 
-Every check in `qestyle_rules.py` was reviewed adversarially against the real corpus
-before its counts were published: for each rule, at least ten flagged occurrences were
+**All 41 checks have now been sampled.** Every check in `qestyle_rules.py` was reviewed
+adversarially against the real corpus before its counts were published: for each rule, at least ten flagged occurrences were
 opened in the lecture source and judged against the canonical rule text, and the corpus
-was probed for forms the check might miss. The table records the verdict *before* fixes
+was probed for forms the check might miss. Where a rule's total reach was small enough,
+every hit in the corpus was read rather than a sample. The table records the verdict *before* fixes
 and what the fix was, because the false positives are the interesting part — a wrong
 count is worse than a missing one when the number ends up in a published report.
 
@@ -45,8 +46,13 @@ Verified against the 2026-08 snapshot (`lectures/data/snapshot.json`).
 | `qe-link-001` | needs-fix | 2 / 21 | A PDF under `/_static/` is a downloadable asset, not a sibling lecture. Asset paths are skipped. |
 | `qe-link-002` | needs-fix | 0 / 25 | Missed hosts that occur in the corpus. Added `python-intro`, `dp`, `networks` and `dle` to the known series domains. |
 | `qe-ref-001` | broken | 11 / 29 | `and` was treated as an author-position verb, so a list of parenthetical citations was flagged twice over. Removed, list contexts (`include`, `see`) exempted, and findings de-duplicated to one per citation site. |
-| `qe-fig-009`, `qe-fig-011` | **not yet reviewed** | — | The `fig-b` group's report did not cover these two. Both are low-reach (9 and 0 lectures). |
-| `qe-admon-001` … `qe-admon-005` | **not yet reviewed** | — | The `admonitions` group had not reported when the pass was published. All five were rewritten during development after the gated-directive lexer bug was found — `qe-admon-005` had 202 false positives before it, and `qe-admon-003` reported 26 downstream symptoms of a single root cause — so they have been corrected once, but not independently sampled. Current reach is low (4, 1, 1, 0, 0 lectures), so the exposure is small. |
+| `qe-fig-009` | broken | 13 / 0 | Counted `:scale:`, which is relative to the image's own pixel size — a screenshot at `:scale: 50` says nothing about how wide it renders, and every one of the 13 hits was a scaled-down screenshot. Restricted to `:width:` as a percentage, which *is* a share of the text width. The corpus has exactly one such value (`100%`), so the rule is now correctly silent. |
+| `qe-fig-011` | sound | 0 / 0 | Exhaustively checked: the only nestings in the corpus are `{image}` inside `{prf:example}`, which is what the rule asks for. |
+| `qe-admon-001` | broken | 4 / 0 | Counted plain ```` ```python ```` display blocks, which are shown rather than run. The rule is about *executable* cells, so the check now requires a `{code-cell}`. All four hits were display blocks. |
+| `qe-admon-002` | sound | 0 / 1 | The single hit is genuine — a `:::{solution-start}` colon fence with no `:class: dropdown`. |
+| `qe-admon-003` | sound | 0 / 2 | Both hits read in source and confirmed: `python_by_example.md` has two `{exercise-start}` fences that are never closed. |
+| `qe-admon-004` | sound | 0 / 0 | Exhaustively checked: all 244 proof-family directives in the corpus carry the `prf:` prefix. A genuine clean result, not a dead check. |
+| `qe-admon-005` | sound | 0 / 0 | Zero hits confirmed live rather than dead — a synthetic solution label with no matching exercise does fire the check. |
 
 ## Lexer bugs found along the way
 

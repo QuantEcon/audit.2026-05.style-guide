@@ -177,7 +177,7 @@ git add -A && git commit -m "Refresh audit — <period>" && git push origin main
 gh run watch "$(gh run list --limit 1 --json databaseId -q '.[0].databaseId')" --exit-status
 ```
 
-The build carries a standing set of warnings (~87) from the audit quoting rule examples
+The build carries a standing set of warnings (a few dozen) from the audit quoting rule examples
 — stray `$`, `\begin{align}`, `` {eq}`…` `` — inside prose. `_config.yml` suppresses the
 classes that are expected; the rest are pre-existing and not introduced by a pass. Treat
 a *new* warning class as a regression, not the absolute count.

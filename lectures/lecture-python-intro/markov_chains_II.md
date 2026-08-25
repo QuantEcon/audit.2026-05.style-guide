@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.3 / 10
+- **Overall score:** 8.4 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -19,7 +19,7 @@
 | Figures      | 6.5/10 | `qe-fig-005` ×5; `qe-fig-008` ×5; `qe-fig-002` ×3. |
 | References   | 8.5/10 | `qe-ref-001` ×2. |
 | Links        | 10/10 | no mechanical violations detected. |
-| Admonitions  | 9/10  | `qe-admon-001` ×1. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -33,7 +33,6 @@ _None found._
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 5. *Lines:* 96, 114, 224, 344, 420. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-admon-001]** — Use gated syntax for executable code in exercises. *Count:* 1. *Lines:* 429. *Example:* code cell inside non-gated {exercise}.
 - **[qe-fig-002]** — Prefer code-generated figures. *Count:* 3. *Lines:* 79, 116, 296. *Example:* static image .png.
 - **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 158, 404. *Example:* {cite} in narrative flow: 'of {cite}`'.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 2. *Lines:* 351, 406. *Example:* the eight-state Benhabib matrix is printed three times within thirty lines - as a `bmatrix` (406-418), as a Python literal inside the exercise (429-438), and as the same literal again in the solution (458-465); and the six-state political-institutions matrix is printed twice more here (351-361, 372-377) on top of the three copies it already has in markov_chains_I. Referring back to the labelled matrix in the earlier lecture would carry the same information.

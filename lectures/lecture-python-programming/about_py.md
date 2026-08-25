@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `ceec881028`
 - **Categories audited:** writing, code, figures, links  *(JAX out of scope)*
-- **Overall score:** 7.4 / 10
+- **Overall score:** 7.5 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -16,7 +16,7 @@
 | Math         | N/A   | no mathematical content. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 7/10  | `qe-fig-005` ×5; `qe-fig-009` ×2. |
+| Figures      | 7.5/10 | `qe-fig-005` ×5. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 8/10  | `qe-link-002` ×2. |
 | Admonitions  | N/A   | no admonitions, exercises or solutions. |
@@ -31,7 +31,6 @@ _None found._
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 10. *Lines:* 50, 69, 101, 127, 159, 252, 269, 347, 438, 493. *Example:* H3 Title Case: "Can't I Just Use LLMs?" (Just, Use).
 
 ### Medium severity
-- **[qe-fig-009]** — Figure sizing. *Count:* 2. *Lines:* 411, 417. *Example:* :scale: 75 (outside 80–100%).
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 2. *Lines:* 84, 440. *Example:* raw link to jax.quantecon.org.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 27. *Example:* 3 sentences in one paragraph.
 
@@ -53,4 +52,3 @@ _None found._
 2. `qe-fig-005` — Descriptive figure names for cross-referencing (5 occurrences).
 3. `qe-link-002` — Use doc links for cross-series references (2 occurrences).
 4. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
-5. `qe-fig-009` — Figure sizing (2 occurrences).

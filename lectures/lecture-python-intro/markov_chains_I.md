@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.2 / 10
+- **Overall score:** 7.4 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -19,7 +19,7 @@
 | Figures      | 7.5/10 | `qe-fig-005` ×2; `qe-fig-002` ×2; `qe-fig-008` ×1. |
 | References   | 9/10  | `qe-ref-001` ×1. |
 | Links        | 9/10  | `qe-link-002` ×1. |
-| Admonitions  | 9/10  | `qe-admon-001` ×1. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -33,7 +33,6 @@ _None found._
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 15. *Lines:* 30, 38, 47, 70, 80, 97, 103, 336, 555, 1003, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-admon-001]** — Use gated syntax for executable code in exercises. *Count:* 1. *Lines:* 1165. *Example:* code cell inside non-gated {exercise}.
 - **[qe-code-004]** — Use quantecon Timer context manager. *Count:* 2. *Lines:* 490, 494. *Example:* %time.
 - **[qe-fig-002]** — Prefer code-generated figures. *Count:* 2. *Lines:* 105, 1122. *Example:* static image .png.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 261, 1206. *Example:* code-cell figure without mystnb figure metadata.

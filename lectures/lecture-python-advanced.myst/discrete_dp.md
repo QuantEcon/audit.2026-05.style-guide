@@ -16,7 +16,7 @@
 | Math         | 4/10  | `qe-math-002` ×6; `qe-math-010` (proposed) ×1; `qe-math-004` ×1, +1 more. |
 | Code         | 8/10  | `qe-code-002` ×2; `qe-code-005` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6/10  | `qe-fig-005` ×6; `qe-fig-003` ×1; `qe-fig-009` ×2, +2 more. |
+| Figures      | 6/10  | `qe-fig-005` ×6; `qe-fig-003` ×1; `qe-fig-002` ×2, +1 more. |
 | References   | 9/10  | `qe-ref-001` ×1. |
 | Links        | 7/10  | `qe-link-002` ×10. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -38,7 +38,6 @@ _None found._
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 4. *Lines:* 751, 865, 885, 925. *Example:* figsize=.
 - **[qe-fig-002]** — Prefer code-generated figures. *Count:* 2. *Lines:* 552, 566. *Example:* static image .png.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 904. *Example:* .set_title.
-- **[qe-fig-009]** — Figure sizing. *Count:* 2. *Lines:* 552, 566. *Example:* :scale: 70% (outside 80–100%).
 - **[qe-math-004]** — Do not use bold face for matrices or vectors. *Count:* 1. *Lines:* 1001. *Example:* \mathbf.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 727. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 4. *Lines:* 183, 285, 543, 951. *Example:* 2 spaces.

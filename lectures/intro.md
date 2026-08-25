@@ -22,7 +22,7 @@ are LOW or NONE.
 | 🟠 **Some** | [lecture-dp](lecture-dp/index.md) | 8.2 | 17 / 52 | Math (6.4), Figures (6.4) |
 | 🟠 **Some** | [lecture-python.myst](lecture-python.myst/index.md) | 8.4 | 41 / 145 | Figures (6.5), Writing (6.9) |
 | 🟢 **Low** | [lecture-python-intro](lecture-python-intro/index.md) | 8.5 | 11 / 56 | Figures (6.5), Writing (6.6) |
-| 🟢 **Low** | [lecture-python-programming](lecture-python-programming/index.md) | 8.6 | 5 / 27 | Writing (5.7), Figures (7.2) |
+| 🟢 **Low** | [lecture-python-programming](lecture-python-programming/index.md) | 8.6 | 5 / 27 | Writing (5.7), Figures (7.3) |
 <!-- /qe:focus -->
 
 **Every HIGH-priority lecture in this pass is HIGH because of one weak category, not

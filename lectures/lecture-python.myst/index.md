@@ -12,7 +12,22 @@ Style audit of the **lecture-python.myst** series.
 <!-- /qe:series-meta -->
 
 <!-- qe:series-narrative -->
-_The series-level reading of these numbers goes here._
+The largest series at 145 lectures, and the widest spread: 63 lectures need nothing,
+40 are HIGH. The average (8.4) sits mid-field, but that average is hiding two different
+populations rather than describing a uniform state.
+
+**Math is the binding constraint on the HIGH list** — 21 of the 40 HIGH lectures are
+floored by it, against 14 by Writing and 5 by Figures. Two rules do most of that work:
+`qe-math-010` *(proposed)* in 50 lectures (521 bare or unbraced expectation operators) and
+`qe-math-002` in 49 (661 apostrophe or `^T` transposes). `qe-math-004` is narrower but
+intense — 18 lectures carrying 509 bold vectors between them.
+
+Figures are the weakest category by average (6.5) but rarely the floor: `qe-fig-005`
+(110 / 145) and `qe-fig-001` (107 / 145) are near-universal and low-weight, so they lower
+scores broadly without pushing lectures into HIGH.
+
+`qe-writing-008` deserves a mention for scale alone: **2,569 occurrences** across 89
+lectures, the largest single count anywhere in the corpus.
 <!-- /qe:series-narrative -->
 
 ## Priority distribution
@@ -51,13 +66,29 @@ already holds to.
 <!-- qe:series-clean -->
 - **`qe-admon-002`** — Use dropdown class for solutions
 - **`qe-admon-003`** — Use tick count management for nested directives
-- **`qe-fig-009`** — Figure sizing
 <!-- /qe:series-clean -->
 
 ## Series-level recommendations
 
 <!-- qe:series-recommendations -->
-_generated_
+1. **`qe-math-010` *(proposed)* and `qe-math-002` together** (50 and 49 lectures,
+   1,182 occurrences). The Math floor is what makes 21 lectures HIGH, and these two rules
+   are almost all of it. Best done as one careful pass — both are mechanical substitutions
+   (`E[·]` → `\mathbb{E}[·]`, `'` and `^T` → `^\top`) but they touch equations, so they
+   want review rather than blind `sed`.
+2. **`qe-fig-005` — name the figures** (110 / 145, 446 figures). Largest reach in the
+   series; a pure sweep.
+3. **`qe-fig-001` — drop `figsize=`** (107 / 145, 462 overrides).
+4. **`qe-writing-008` — collapse repeated spaces** (89 / 145, 2,569 occurrences). The
+   biggest raw count in the corpus and entirely safe to automate.
+5. **`qe-fig-003` — plot titles into captions** (79 / 145, 329 calls). Needs a human: each
+   `ax.set_title(...)` becomes a caption that has to be written. Titles inside
+   `exercise`/`solution` regions are exempt and already excluded from the count.
+6. **`qe-math-004` — un-bold the vectors** (18 / 145, 509 occurrences). Narrow but dense;
+   a good single-sitting fix.
+7. **Start with the four worst:** `navy_captain` (6.1), `cross_product_trick` (6.3),
+   `prob_matrix` (6.8), `rs_inventory_q` (6.9). Note that `cross_product_trick` and
+   `rs_inventory_q` are also synced into `lecture-dp` — fixing them here clears both.
 <!-- /qe:series-recommendations -->
 
 ## Lectures ranked by priority (lowest score first)
@@ -188,12 +219,12 @@ that lecture. Click a lecture for its full report.
 | 117 | [kalman_filter_var](kalman_filter_var.md) | 10 | 8 | 8.5 | 6.5 | 10 | 10 | 10 | **9.0** | NONE |
 | 118 | [lq_robust_bewley](lq_robust_bewley.md) | 10 | 5.5 | 10 | 7.5 | 10 | 10 | 10 | **9.0** | NONE |
 | 119 | [phillips_credible_policies](phillips_credible_policies.md) | 8.5 | 10 | 10 | 5.5 | 10 | 9 | 10 | **9.0** | NONE |
-| 120 | [rational_learning_re](rational_learning_re.md) | 10 | 8.5 | 8.5 | 7 | 10 | 10 | 9 | **9.0** | NONE |
-| 121 | [ar1_bayes](ar1_bayes.md) | 10 | 10 | 7.5 | 8 | 10 | 8 | 10 | **9.1** | NONE |
-| 122 | [lq_permanent_income](lq_permanent_income.md) | 9.5 | 7.5 | 10 | 6.5 | 10 | 10 | 10 | **9.1** | NONE |
-| 123 | [morris_learn](morris_learn.md) | 5 | 10 | 10 | 10 | 8.5 | 10 | 10 | **9.1** | NONE |
-| 124 | [organization_capital](organization_capital.md) | 7.5 | 7.5 | 10 | 9 | 10 | 10 | 10 | **9.1** | NONE |
-| 125 | [phillips_adaptive](phillips_adaptive.md) | 10 | 10 | 9 | 6.5 | 8.5 | 10 | 10 | **9.1** | NONE |
+| 120 | [ar1_bayes](ar1_bayes.md) | 10 | 10 | 7.5 | 8 | 10 | 8 | 10 | **9.1** | NONE |
+| 121 | [lq_permanent_income](lq_permanent_income.md) | 9.5 | 7.5 | 10 | 6.5 | 10 | 10 | 10 | **9.1** | NONE |
+| 122 | [morris_learn](morris_learn.md) | 5 | 10 | 10 | 10 | 8.5 | 10 | 10 | **9.1** | NONE |
+| 123 | [organization_capital](organization_capital.md) | 7.5 | 7.5 | 10 | 9 | 10 | 10 | 10 | **9.1** | NONE |
+| 124 | [phillips_adaptive](phillips_adaptive.md) | 10 | 10 | 9 | 6.5 | 8.5 | 10 | 10 | **9.1** | NONE |
+| 125 | [rational_learning_re](rational_learning_re.md) | 10 | 8.5 | 8.5 | 7 | 10 | 10 | 10 | **9.1** | NONE |
 | 126 | [unemployment_linear](unemployment_linear.md) | 9 | 8.5 | 9 | 8.5 | 9 | 10 | 10 | **9.1** | NONE |
 | 127 | [career](career.md) | 8 | 10 | 10 | 6.5 | 10 | 10 | 10 | **9.2** | NONE |
 | 128 | [likelihood_bayes](likelihood_bayes.md) | 8.5 | 10 | 8.5 | 7.5 | 10 | 10 | 10 | **9.2** | NONE |

@@ -1,123 +1,110 @@
 ## Summary
 
-Phase 4.3 in the [roadmap](https://github.com/QuantEcon/action-style-guide/blob/main/docs/developer/roadmap.md) (and section 2.C of [IMPROVEMENTS.md](https://github.com/QuantEcon/action-style-guide/blob/main/IMPROVEMENTS.md)) targets **~13 mechanical rules via regex** to remove hallucination risk and reduce per-rule LLM cost.
+Phase 4.3 in the [roadmap](https://github.com/QuantEcon/action-style-guide/blob/main/docs/developer/roadmap.md) (and §2.C of [IMPROVEMENTS.md](https://github.com/QuantEcon/action-style-guide/blob/main/IMPROVEMENTS.md)) targets **~13 mechanical rules via regex**, to remove hallucination risk and cut per-rule LLM cost.
 
-The recent [May 2026 lecture audit](https://github.com/QuantEcon/audit.2026-05.style-guide) (299 lectures across 5 series, 7 in-scope rule categories) generated rule-by-rule violation data that supports a more aggressive Phase 4.3 scope:
+This issue originally argued from corpus evidence that the number should be **22**. That estimate has since been settled by building the checks: **41 of the 49 rules are mechanically checkable.** 36 of the 42 in-scope registry rules, plus 5 of the 7 rules proposed in [#18](https://github.com/QuantEcon/action-style-guide/issues/18). The 8 that are not are genuine judgment and are listed below.
 
-- **22 rules** can be fully or near-fully deterministic (vs ~13 currently estimated)
-- The audit corpus provides **labelled regression test data** for every one of them
-- Concrete prioritisation order is now possible, driven by corpus violation frequency
-- **Six rules each have 60+ corpus violations** — extending Phase 4.3 to cover them would touch the majority of lectures in the corpus
+A working reference implementation exists — one function per rule, plus the MyST lexer they need — in the [lecture style audit](https://github.com/QuantEcon/audit.2026-05.style-guide) under `tools/`. It runs the whole 348-lecture corpus in seconds. **It is offered for adoption rather than as something to maintain separately**; see [§ What's being asked](#whats-being-asked).
 
-This issue extends — not replaces — the existing Phase 4.3 plan.
+## What is mechanically checkable
 
-## Comparison with current Phase 4.3 candidate list
+| Category | Checked | Not checked |
+|----------|--------:|-------------|
+| Writing | 4 / 8 | `qe-writing-002`, `-003`, `-005`, `-007` |
+| Math | 8 / 9 | `qe-math-009` |
+| Code | 5 / 6 | `qe-code-001` |
+| Figures | 11 / 11 | — |
+| References | 1 / 1 | — |
+| Links | 2 / 2 | — |
+| Admonitions | 5 / 5 | — |
+| Proposed (#18) | 5 / 7 | `qe-math-014`, `qe-math-015` |
+| **Total** | **41 / 49** | **8** |
 
-The IMPROVEMENTS.md §2.C "high confidence" list:
+The 7 `qe-jax-*` rules are out of scope for this corpus (they target `lecture-jax`), so the in-scope registry denominator is 42, not 49.
 
-- `qe-math-002` (transpose) — `^T` → `^\top`
-- `qe-math-003` (matrix brackets) — `pmatrix` → `bmatrix`
-- `qe-math-004` (no bold vectors) — `\mathbf` removal
-- `qe-math-006` (aligned vs align) inside `$$`
-- `qe-math-007` (no `\tag`)
-- `qe-writing-008` (multiple spaces)
-- `qe-fig-003` (`ax.set_title`/`suptitle`)
+## Measured reach, 348 lectures
 
-That's 7 explicit candidates plus an "approximately 15–20" estimate.
+Prioritisation by corpus frequency, from `lectures/data/rule_reach.csv` at a pinned snapshot (one commit per series):
 
-The audit-extended list adds eight more deterministic candidates (validated against the corpus), most with substantial violation counts:
+| Rule | Lectures | Occurrences |
+|------|---------:|------------:|
+| `qe-fig-005` — figures without a `name:` | 273 / 348 | 1,115 |
+| `qe-writing-008` — repeated spaces | 237 | 7,044 |
+| `qe-fig-001` — unnecessary `figsize=` | 224 | 892 |
+| `qe-fig-008` — missing `lw=2` | 216 | 1,382 |
+| `qe-writing-001` — one sentence per paragraph | 173 | 442 |
+| `qe-fig-003` — embedded matplotlib titles | 165 | 630 |
+| `qe-writing-006` — Title Case in H2+ headings | 146 | 781 |
+| `qe-math-002` — `'` / `^T` for transpose | 122 | 2,129 |
+| `qe-ref-001` — `{cite}` vs `{cite:t}` | 110 | 298 |
+| `qe-code-002` — Greek spelled out in code | 106 | 579 |
+| `qe-math-010` *(proposed)* — `\mathbb{E}` with braces | 105 | 1,167 |
+| `qe-writing-004` — capitalised common nouns | 105 | 339 |
 
-| Rule | Corpus violations | Detection |
-|------|-------------------|-----------|
-| **`qe-code-002`** — Greek spelled out | **~150 / 299** | regex on identifiers in code cells |
-| **`qe-fig-001`** — unnecessary `figsize=` | **~125 / 299** | regex on `figsize=` in `plt.subplots`/`plt.figure` |
-| **`qe-fig-005`** — figures missing `:name:` field | **~120 / 299** | parse figure / image directive metadata |
-| **`qe-link-002`** — raw `*.quantecon.org` URLs | **~60 / 299** | regex on hard-coded intersphinx URLs |
-| **`qe-fig-006`** — Title Case axis labels | **~50 / 299** | regex on `set_xlabel`/`set_ylabel` case |
-| `qe-fig-007` — removed matplotlib spines | ~30 / 299 | regex on `spines[*].set_visible(False)` |
-| `qe-fig-008` — `lw=2` for line charts | low count, easy detection | AST on `plot()` calls |
-| `qe-fig-010` — Plotly without `{only} latex` | low count, easy detection | detect plotly + check for directive |
-| `qe-admon-003` — tick-count mismatch | **build-risk** | parse fence tick counts |
-| `qe-admon-004` — missing `prf:` prefix | low count, easy detection | regex on proof-family directives |
-| `qe-code-004` / `qe-code-005` — `time.time()`/`%timeit` | ~15 lectures combined | regex on timing patterns |
+Six checked rules have **zero** hits corpus-wide, which is a result rather than a gap: `qe-admon-001`, `qe-admon-004`, `qe-admon-005`, `qe-code-006`, `qe-fig-009`, `qe-fig-011`. All 244 proof-family directives in the corpus carry the `prf:` prefix, for instance.
 
-### Net-new rules from [#18 — Proposal: 7 new style rules](https://github.com/QuantEcon/action-style-guide/issues/18) (if accepted)
+## Two findings that matter for the checker design
 
-| Rule | Detection | Audit evidence |
-|------|-----------|---------------|
-| `qe-writing-009` (IID) | case-sensitive regex `\bi\.i\.d\.\b\|\biid\b` | ~30 lectures |
-| `qe-math-010` (`\mathbb{P/E/V}`) | regex on bare `E[`, `E_t`, `\mathbb E` (no braces), `\Pr(`, `\Var(` | **~60 lectures** |
-| `qe-math-011` (distribution naming) | regex on `\mathcal{N}`, `\{\cal N\}` for distributions | ~30 lectures |
-| `qe-math-012` (`\cdot` not `*` in math) | regex `\*` inside `$…$` / `$$…$$` | small but clear |
+**1. Regex over the raw file is not enough — it needs a lexer.** Most wrong counts during development were structural, not pattern errors, and each corrupted several rules at once:
 
-## Full deterministic candidate list (22)
+- `{math}` directive bodies (1,783 blocks in 172 lectures) look like code unless typed as maths. Every math rule was blind to them and every code rule was reading LaTeX.
+- Display math closed at the end of a content line (`… p}$$`), or wrapped in a blockquote (`> $$`), inverts a naive `$$` state machine and mistypes the rest of the file.
+- Inline maths spanning a line break (`$N(0,\n\sigma^2)$`) is invisible to a line-oriented match, so its LaTeX reads as narrative.
+- A gated `{exercise-start}` is a *marker*, not a container — its fence closes immediately and `{exercise-end}` is separate. Treating it as a container makes every later directive look nested.
+- HTML comments are not published and should not be scanned.
 
-In priority order — based on audit-measured violation frequency × ease of implementation × build-risk severity:
+**2. Precision needs adversarial sampling, not just a passing test.** Every check here was reviewed by opening at least ten flagged occurrences in the source and judging them against the rule text. Nineteen of the 41 needed fixing, several badly:
 
-### Tier 1 — Build-risk (1 occurrence is enough)
+| Rule | False positives found | Cause |
+|------|----------------------:|-------|
+| `qe-fig-008` | 149 / 15 sampled | Multi-line `plot(...)` judged on its first line, missing `linewidth=2` two lines down |
+| `qe-math-010` | 207 / 24 | Two branches double-counting; bare `E` matched `E` as a matrix name |
+| `qe-fig-005` | 99 / 15 | Cells that only *define* a plotting helper counted as rendering |
+| `qe-math-011` | 79 / 18 | `\mathcal{G}` is a sigma-algebra, not a distribution |
+| `qe-fig-004` | 70 / 60 | LaTeX tokenised into words, so `$\bar\pi_t$` counted as five |
+| `qe-fig-002` | 36 / 20 | Screenshots and photographs flagged as "should be code-generated" |
+| `qe-writing-006` | 52 / 40 | Possessives (`Newton's`) and hyphenated surnames (`Gram-Schmidt`) defeated the proper-noun list |
 
-1. **`qe-math-006`** — `\begin{align}` inside `$$` (would break PDF builds). Found in [`lecture-python.myst/divergence_measures.md:134`](https://github.com/QuantEcon/lecture-python.myst/blob/main/lectures/divergence_measures.md#L134) during the audit.
-2. **`qe-admon-003`** — Tick-count mismatch in nested directives (build-breaking).
+A shipped checker with `qe-fig-008`'s original behaviour would have told authors to add `lw=2` to plots that already had it, 149 times. The full table, with the fix for each, is in [`tools/VERIFICATION.md`](https://github.com/QuantEcon/audit.2026-05.style-guide/blob/main/tools/VERIFICATION.md).
 
-### Tier 2 — Highest corpus impact (>100 lectures affected)
+Three checks remain deliberately heuristic and say so where they fire: `qe-writing-004` and `qe-writing-006` consult curated proper-noun and common-noun lists, and `qe-math-002` has to tell a transpose apostrophe from a derivative, and a `^T` transpose from a terminal date — `Y^T` is a data history in several lectures.
 
-3. **`qe-writing-006`** — Title Case in H2+ headings (partial: needs proper-noun list). Affects **~170 / 299 lectures**. Single biggest corpus pattern. Could ship as Tier-2 partial-deterministic (curated proper-noun list maintained in the repo) with LLM fallback for unknown words.
-4. **`qe-code-002`** — Greek letters spelled out (`alpha`, `beta`) in code instead of unicode. **~150 lectures**, mostly mixed within-file (would benefit from per-lecture normalisation).
-5. **`qe-fig-001`** — Unnecessary `figsize=` overrides. **~125 lectures**, heavy in `lecture-python.myst` (75/110).
-6. **`qe-fig-005`** — Figures missing `:name:` field for `numref` cross-referencing. **~120 lectures**.
+## A correction to this issue's earlier evidence
 
-### Tier 3 — Strong corpus impact (40–100 lectures)
+The original body cited [`lecture-python.myst/divergence_measures.md:134`](https://github.com/QuantEcon/lecture-python.myst/blob/main/lectures/divergence_measures.md#L134) as `\begin{align}` inside `$$`, a Tier-1 build-risk example for `qe-math-006`.
 
-7. **`qe-fig-003`** — Embedded matplotlib titles. ~90 lectures.
-8. **`qe-link-002`** — Raw `*.quantecon.org` URLs instead of `{doc}` links. ~60 lectures.
-9. **`qe-math-010`** (new rule) — Bare `E_t` for expectation. ~60 lectures.
-10. **`qe-fig-006`** — Title Case axis labels. ~50 lectures.
-11. **`qe-math-002`** — Prime / `^T` for transpose. ~46 lectures. Care needed: preserve derivative-prime (`u'`, `f'`) and next-period notation (`x'`).
+Checked mechanically, **there is no `align` inside `$$` anywhere in the 348-lecture corpus.** That line is a *bare* top-level `\begin{align}`, which MyST's amsmath extension handles. It is a convention outlier — 17 bare alignment blocks against 6,094 `$$` blocks and 1,783 `{math}` directives — but not a build breaker, and a checker should report the two shapes differently.
 
-### Tier 4 — Moderate (15–40 lectures)
+The genuine build-risk finding in the corpus is elsewhere: `lecture-python-programming/python_by_example.md:499` and `:549` have `{exercise-start}` fences that are never closed, each swallowing the rest of its exercise including a nested `{hint}` at the same tick count. Those are the only two malformed gated directives in roughly 690.
 
-12. **`qe-math-011`** (new rule) — `\mathcal{N}` for normal distribution. ~30 lectures.
-13. **`qe-writing-009`** (new rule) — IID. ~30 lectures.
-14. **`qe-fig-007`** — Removed matplotlib spines. ~30 lectures.
-15. **`qe-ref-001`** — `{cite}` vs `{cite:t}` for author-name narrative citations. ~37 lectures plus **zero-`{cite:t}`-usage in 2 entire series**.
-16. **`qe-code-003`** — Mid-lecture pip install. ~15 lectures.
-17. **`qe-code-004`** / **`qe-code-005`** — `time.time()` / `%timeit`. ~15 lectures combined.
+## Labelled test data
 
-### Tier 5 — Pure regex, lower frequency
+`lectures/data/violations.csv` is per-lecture, per-rule counts with line numbers, at a pinned commit per series — 348 lectures across 7 categories. That is a regression fixture set, not a prose summary:
 
-18. `qe-math-003` — pmatrix/matrix → bmatrix
-19. `qe-math-004` — `\mathbf`/`\boldsymbol` removal on vectors
-20. `qe-math-007` — `\tag{` detection
-21. `qe-writing-008` — Multiple spaces between words
-22. **`qe-math-012`** (new rule) — `*` in math
+```csv
+series,lecture,rule,count,proposed,build_risk
+lecture-dp,lqcontrol,qe-math-002,85,0,0
+lecture-dp,lqcontrol,qe-math-003,17,0,0
+```
 
-## Test data offer
+Useful as:
 
-The audit corpus contains **labelled violations per rule per lecture across 7 categories**. Per-series READMEs in the audit repo list which lectures violate which rules. For example, from [lecture-dp/README.md](https://quantecon.github.io/audit.2026-05.style-guide/lecture-dp/index.html):
+- **Regression corpus** — run a candidate check over the same commits and diff against these counts.
+- **False-positive validation** — a lecture absent from a rule's rows should not fire.
+- **Precision/recall measurement** per rule, per series.
 
-> **`qe-fig-001`** — Unnecessary `figsize=` declarations. Heavy in `odu` (7×), `calvo` (5×), `career` (5×), `chang_ramsey` (5×), `lqcontrol` (5×), `mccall_q` (5×), `mccall_fitted_vfi` (5×)…
-
-That gives a concrete labelled set: 7+ specific lectures known to violate `qe-fig-001` with occurrence counts. A deterministic regex for `qe-fig-001` can be validated against these exact files.
-
-This can serve as:
-
-- **Regression test corpus** — for each candidate regex, run on the lecture files of the audit repos and validate the regex flags the same lectures the audit flagged (and not others).
-- **False-positive validation** — lectures *not* flagged by the audit should not trigger the regex.
-- **Coverage target** — count of audit-flagged lectures the regex catches gives a precision/recall measurement.
-
-A small companion can be added to action-style-guide's test suite that ingests the audit's per-series rankings as expected violations.
+`lectures/data/snapshot.json` pins the commits, so the fixtures are reproducible rather than approximate.
 
 ## What's being asked
 
-1. Should Phase 4.3 scope be extended from ~13 to 22 rules, using the prioritisation above?
-2. Is the team open to ingesting the audit corpus as a test-data dependency? Two possible shapes:
-   - Reference the audit repo by commit SHA from tests
-   - Vendor the audit's series-README data into `tests/fixtures/audits/2026-05/`
-3. Should Tier 1 (build-risk) ship first as a one-off PR, separate from the larger Phase 4.3 effort?
+1. Should Phase 4.3's scope be **41 rules** rather than ~13, using the measured prioritisation above?
+2. Would the team rather **adopt `tools/qestyle_rules.py` and `qestyle_lex.py`** than reimplement? They are dependency-free Python, one function per rule, and the lexer is the part worth having. Maintaining them in an audit repo is the wrong home — this is a checker, and `action-style-guide` is where checkers live. Related: [#20](https://github.com/QuantEcon/action-style-guide/issues/20).
+3. Should the corpus be ingested as test data — referenced by commit SHA, or vendored into `tests/fixtures/`?
+4. Should the two genuine build-risk findings ship as their own small PR, separate from the larger Phase 4.3 effort?
 
 ## References
 
-- **Audit data:** https://github.com/QuantEcon/audit.2026-05.style-guide
-- **Cross-series synthesis (with corpus counts per rule):** https://quantecon.github.io/audit.2026-05.style-guide/intro.html
-- **Audit spec § 9 (deterministic-check candidates):** https://quantecon.github.io/audit.2026-05.style-guide/spec.html
-- **Existing Phase 4.3:** [`docs/developer/roadmap.md`](https://github.com/QuantEcon/action-style-guide/blob/main/docs/developer/roadmap.md), [`IMPROVEMENTS.md § 2.C`](https://github.com/QuantEcon/action-style-guide/blob/main/IMPROVEMENTS.md)
+- **Audit repo:** https://github.com/QuantEcon/audit.2026-05.style-guide
+- **Measured coverage (spec §9):** https://quantecon.github.io/audit.2026-05.style-guide/spec.html
+- **Detector verification:** [`tools/VERIFICATION.md`](https://github.com/QuantEcon/audit.2026-05.style-guide/blob/main/tools/VERIFICATION.md)
+- **Existing Phase 4.3:** [`docs/developer/roadmap.md`](https://github.com/QuantEcon/action-style-guide/blob/main/docs/developer/roadmap.md), [`IMPROVEMENTS.md §2.C`](https://github.com/QuantEcon/action-style-guide/blob/main/IMPROVEMENTS.md)

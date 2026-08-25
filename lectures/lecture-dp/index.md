@@ -12,7 +12,20 @@ Style audit of the **lecture-dp** series.
 <!-- /qe:series-meta -->
 
 <!-- qe:series-narrative -->
-_The series-level reading of these numbers goes here._
+A mid-field series (8.2) with the same shape as `lecture-python-advanced.myst` but less
+of it. Math and Figures tie as the weakest categories (6.4 each), and **Math is the floor
+for 12 of the 15 HIGH lectures**.
+
+`qe-math-002` is the story: 31 of 52 lectures, **509 occurrences** — the second-densest
+transpose debt in the corpus after `lecture-python-advanced.myst`. Beyond it the Math
+findings thin out quickly (`qe-math-010` *(proposed)* 16 / 52 but only 63 occurrences), so this is one
+rule rather than a cluster.
+
+**A caveat specific to this series:** `lecture-dp` syncs several lectures verbatim from
+`lecture-python.myst` — `cross_product_trick`, `ifp_advanced`, `inventory_q`,
+`rs_inventory_q` and others. Their findings are counted in both series, and two of the
+four worst lectures here (`cross_product_trick` at 6.3, `rs_inventory_q` at 6.9) are
+synced copies. Fix those upstream and both series improve.
 <!-- /qe:series-narrative -->
 
 ## Priority distribution
@@ -49,7 +62,6 @@ Checked rules with no violation anywhere in the series — the conventions this 
 already holds to.
 
 <!-- qe:series-clean -->
-- **`qe-admon-001`** — Use gated syntax for executable code in exercises
 - **`qe-admon-002`** — Use dropdown class for solutions
 - **`qe-admon-003`** — Use tick count management for nested directives
 - **`qe-fig-004`** — Caption formatting conventions
@@ -62,7 +74,20 @@ already holds to.
 ## Series-level recommendations
 
 <!-- qe:series-recommendations -->
-_generated_
+1. **`qe-math-002` — transpose notation** (31 / 52, 509 occurrences). The dominant
+   finding and the floor under most of the HIGH list. `lqcontrol` alone carries 85.
+2. **Fix the synced lectures upstream in `lecture-python.myst`, not here.**
+   `cross_product_trick` (6.3) and `rs_inventory_q` (6.9) are verbatim copies; a fix
+   applied in this repo would be overwritten by the next sync. `cross_product_trick:133`
+   also carries a malformed `` {eq}`eq:Kalman102} `` reference, and `ifp_advanced:158` a
+   raw `\label{}` inside `$$` — both structural, both upstream.
+3. **`qe-fig-005` — name the figures** (42 / 52, 164 figures) and **`qe-fig-008` — `lw=2`**
+   (39 / 52, 252 calls). Routine sweeps.
+4. **`qe-writing-008` — collapse repeated spaces** (40 / 52, 1,578 occurrences).
+5. **`qe-fig-001` — drop `figsize=`** (31 / 52) and **`qe-fig-003` — titles into captions**
+   (30 / 52, 105 calls). The second needs a reading pass.
+6. **Start with `lqcontrol`** (6.6) — it is the largest genuine (non-synced) Math debt in
+   the series, then `cons_news` (7.0).
 <!-- /qe:series-recommendations -->
 
 ## Lectures ranked by priority (lowest score first)

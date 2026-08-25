@@ -146,11 +146,11 @@ lecture-python-intro,intro_supply_demand,4.5,10.0,7.5,out-of-scope,6.5,N/A,8.0,1
 lecture-python-intro,laffer_adaptive,4.0,10.0,7.0,out-of-scope,6.0,8.5,10.0,10.0,7.9,HIGH
 lecture-python-intro,lake_model,4.5,10.0,7.5,out-of-scope,5.5,N/A,10.0,10.0,7.9,LOW
 lecture-python-intro,linear_equations,5.5,6.5,7.5,out-of-scope,6.0,N/A,7.5,10.0,7.2,LOW
-lecture-python-intro,lln_clt,8.0,4.0,7.5,out-of-scope,8.0,N/A,9.0,9.0,7.6,HIGH
+lecture-python-intro,lln_clt,8.0,4.0,7.5,out-of-scope,8.0,N/A,9.0,10.0,7.8,HIGH
 lecture-python-intro,long_run_growth,5.0,N/A,7.5,out-of-scope,6.0,8.5,10.0,10.0,7.8,LOW
 lecture-python-intro,lp_intro,3.5,6.5,7.5,out-of-scope,8.5,10.0,10.0,10.0,8.0,HIGH
-lecture-python-intro,markov_chains_I,6.0,3.0,7.0,out-of-scope,7.5,9.0,9.0,9.0,7.2,HIGH
-lecture-python-intro,markov_chains_II,6.5,10.0,7.5,out-of-scope,6.5,8.5,10.0,9.0,8.3,LOW
+lecture-python-intro,markov_chains_I,6.0,3.0,7.0,out-of-scope,7.5,9.0,9.0,10.0,7.4,HIGH
+lecture-python-intro,markov_chains_II,6.5,10.0,7.5,out-of-scope,6.5,8.5,10.0,10.0,8.4,LOW
 lecture-python-intro,mle,5.0,10.0,7.0,out-of-scope,7.5,N/A,10.0,10.0,8.2,LOW
 lecture-python-intro,mobility,7.0,7.5,10.0,out-of-scope,7.5,7.0,10.0,10.0,8.4,LOW
 lecture-python-intro,money_inflation,7.0,7.0,10.0,out-of-scope,6.0,10.0,10.0,10.0,8.6,NONE
@@ -175,7 +175,7 @@ lecture-python-intro,time_series_with_matrices,5.0,7.5,10.0,out-of-scope,7.0,10.
 lecture-python-intro,troubleshooting,8.5,N/A,N/A,out-of-scope,9.0,N/A,9.0,N/A,8.8,NONE
 lecture-python-intro,unpleasant,5.5,8.5,10.0,out-of-scope,6.0,10.0,10.0,10.0,8.6,NONE
 lecture-python-intro,zreferences,10.0,N/A,N/A,out-of-scope,N/A,N/A,10.0,N/A,10.0,NONE
-lecture-python-programming,about_py,4.5,N/A,10.0,out-of-scope,7.0,N/A,8.0,N/A,7.4,LOW
+lecture-python-programming,about_py,4.5,N/A,10.0,out-of-scope,7.5,N/A,8.0,N/A,7.5,LOW
 lecture-python-programming,autodiff,8.0,7.5,10.0,out-of-scope,6.5,N/A,10.0,10.0,8.7,NONE
 lecture-python-programming,debugging,5.0,10.0,10.0,out-of-scope,9.0,N/A,10.0,10.0,9.0,NONE
 lecture-python-programming,functions,5.0,10.0,10.0,out-of-scope,7.5,N/A,10.0,10.0,8.8,NONE
@@ -184,7 +184,7 @@ lecture-python-programming,intro,10.0,N/A,N/A,out-of-scope,N/A,N/A,10.0,N/A,10.0
 lecture-python-programming,jax_intro,4.5,N/A,10.0,out-of-scope,7.0,N/A,10.0,10.0,8.3,LOW
 lecture-python-programming,matplotlib,5.5,10.0,9.0,out-of-scope,4.5,N/A,10.0,10.0,8.2,LOW
 lecture-python-programming,names,6.0,N/A,10.0,out-of-scope,7.0,N/A,10.0,10.0,8.6,NONE
-lecture-python-programming,need_for_speed,4.0,N/A,10.0,out-of-scope,8.0,N/A,10.0,10.0,8.4,HIGH
+lecture-python-programming,need_for_speed,4.0,N/A,10.0,out-of-scope,8.5,N/A,10.0,10.0,8.5,HIGH
 lecture-python-programming,numba,4.5,7.5,10.0,out-of-scope,7.5,N/A,9.0,10.0,8.1,LOW
 lecture-python-programming,numpy,3.5,8.5,9.0,out-of-scope,7.0,N/A,10.0,10.0,8.0,HIGH
 lecture-python-programming,numpy_vs_numba_vs_jax,5.5,10.0,10.0,out-of-scope,8.5,N/A,10.0,10.0,9.0,NONE
@@ -193,7 +193,7 @@ lecture-python-programming,pandas,4.5,N/A,10.0,out-of-scope,6.5,N/A,10.0,10.0,8.
 lecture-python-programming,pandas_panel,6.5,N/A,10.0,out-of-scope,4.5,N/A,10.0,10.0,8.2,LOW
 lecture-python-programming,polars,6.5,N/A,9.0,out-of-scope,7.0,N/A,10.0,10.0,8.5,LOW
 lecture-python-programming,python_advanced_features,7.5,N/A,10.0,out-of-scope,8.5,N/A,10.0,10.0,9.2,NONE
-lecture-python-programming,python_by_example,4.0,9.0,10.0,out-of-scope,6.0,N/A,10.0,7.5,7.8,HIGH
+lecture-python-programming,python_by_example,4.0,9.0,10.0,out-of-scope,6.5,N/A,10.0,7.5,7.8,HIGH
 lecture-python-programming,python_essentials,3.5,10.0,10.0,out-of-scope,N/A,N/A,10.0,10.0,8.7,HIGH
 lecture-python-programming,python_oop,4.0,10.0,10.0,out-of-scope,7.5,N/A,10.0,10.0,8.6,HIGH
 lecture-python-programming,scipy,4.5,7.5,8.5,out-of-scope,8.0,N/A,10.0,10.0,8.1,LOW
@@ -319,7 +319,7 @@ lecture-python.myst,prospects_bounded_rationality,10.0,10.0,10.0,out-of-scope,8.
 lecture-python.myst,qr_decomp,5.5,3.0,10.0,out-of-scope,N/A,N/A,10.0,N/A,7.1,HIGH
 lecture-python.myst,rand_resp,6.5,10.0,10.0,out-of-scope,N/A,10.0,10.0,N/A,9.3,NONE
 lecture-python.myst,rational_expectations,7.0,5.5,8.5,out-of-scope,10.0,8.5,10.0,10.0,8.5,LOW
-lecture-python.myst,rational_learning_re,10.0,8.5,8.5,out-of-scope,7.0,10.0,10.0,9.0,9.0,NONE
+lecture-python.myst,rational_learning_re,10.0,8.5,8.5,out-of-scope,7.0,10.0,10.0,10.0,9.1,NONE
 lecture-python.myst,re_with_feedback,3.5,9.0,10.0,out-of-scope,6.0,10.0,10.0,10.0,8.4,HIGH
 lecture-python.myst,robust_permanent_income,7.5,10.0,7.5,out-of-scope,6.0,10.0,10.0,10.0,8.7,NONE
 lecture-python.myst,ross_recovery,6.5,4.0,8.5,out-of-scope,6.0,10.0,10.0,10.0,7.9,HIGH

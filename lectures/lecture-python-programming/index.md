@@ -7,12 +7,22 @@ Style audit of the **lecture-python-programming** series.
 - **Corpus snapshot:** `ceec881028`
 - **Lectures audited:** 27
 - **Average overall score:** 8.6 / 10
-- **Average per-category scores:** writing 5.7, math 9.1, code 9.8, figures 7.2, links 9.8, admon 9.9  *(references not in scope for this series)*
+- **Average per-category scores:** writing 5.7, math 9.1, code 9.8, figures 7.3, links 9.8, admon 9.9  *(references not in scope for this series)*
 - **JAX:** out of scope — the `qe-jax-*` rules target `lecture-jax`.
 <!-- /qe:series-meta -->
 
 <!-- qe:series-narrative -->
-_The series-level reading of these numbers goes here._
+The highest-scoring series overall (8.6) and the corpus's model for code and mathematics:
+Math scores 9.1, and `qe-code-002` — spelled-out Greek letters, which reaches 106 lectures
+corpus-wide — appears in **1 of 27** here, four occurrences in total.
+
+It also carries the weakest single category anywhere in the corpus: **Writing, at 5.7**.
+That is almost entirely one rule. `qe-writing-006` (Title Case in H2+ headings) appears in
+**23 of 27 lectures**, 178 headings in total — 85 % of the series. And it accounts for the
+whole HIGH list: **all 5 HIGH lectures are floored by Writing**, none by anything else.
+
+One scripted sweep over heading capitalisation would clear every HIGH lecture in this
+series. No other series has that property.
 <!-- /qe:series-narrative -->
 
 ## Priority distribution
@@ -40,7 +50,7 @@ Ranked by how many of the series' lectures each rule reaches.
 7. **`qe-writing-004`** — Avoid unnecessary capitalization in narrative text — **6 / 27** lectures, 14 occurrences.
 8. **`qe-fig-002`** — Prefer code-generated figures — **5 / 27** lectures, 15 occurrences.
 9. **`qe-fig-003`** — No matplotlib embedded titles — **5 / 27** lectures, 11 occurrences.
-10. **`qe-fig-009`** — Figure sizing — **5 / 27** lectures, 7 occurrences.
+10. **`qe-code-003`** — Package installation at lecture top — **3 / 27** lectures, 3 occurrences.
 <!-- /qe:series-systemic -->
 
 ## Clean across the series
@@ -49,7 +59,6 @@ Checked rules with no violation anywhere in the series — the conventions this 
 already holds to.
 
 <!-- qe:series-clean -->
-- **`qe-admon-001`** — Use gated syntax for executable code in exercises
 - **`qe-admon-002`** — Use dropdown class for solutions
 - **`qe-code-005`** — Use quantecon timeit for benchmarking
 - **`qe-fig-004`** — Caption formatting conventions
@@ -70,7 +79,22 @@ already holds to.
 ## Series-level recommendations
 
 <!-- qe:series-recommendations -->
-_generated_
+1. **`qe-writing-006` — sentence-case the H2+ headings** (23 / 27, 178 headings). This is
+   the series. It is a sweep, but it needs the proper-noun allowlist in
+   `tools/qestyle_rules.py` to avoid lowercasing `Python`, `Jupyter` or `Anaconda` — the
+   list is already curated from this corpus.
+2. **`qe-fig-005` — name the figures** (21 / 27, 128 figures). Second-largest reach, same
+   mechanical fix as elsewhere.
+3. **`qe-writing-008` — collapse repeated spaces** (16 / 27, 43 occurrences). Small here;
+   fold it into the same commit as item 1.
+4. **`qe-fig-008` — `lw=2` on line plots** (15 / 27, 66 calls).
+5. **`python_by_example.md` — two unclosed `{exercise-start}` fences** (lines 499 and 549,
+   `qe-admon-003`). Structural rather than stylistic: each swallows the rest of its
+   exercise, including a nested `{hint}` at the same tick count. These are the only two
+   malformed gated directives in roughly 690 across the whole corpus — fix them regardless
+   of the rest.
+6. **Leave the code alone.** This series is where the other four should be looking for
+   Greek-letter and timing conventions, not the reverse.
 <!-- /qe:series-recommendations -->
 
 ## Lectures ranked by priority (lowest score first)
@@ -82,8 +106,8 @@ that lecture. Click a lecture for its full report.
 <!-- qe:series-ranked -->
 | # | Lecture | Writing | Math | Code | Figures | References | Links | Admon | Overall | Priority |
 |---|---------|---|---|---|---|---|---|---|---------|----------|
-| 1 | [about_py](about_py.md) | 4.5 | — | 10 | 7 | — | 8 | — | **7.4** | LOW |
-| 2 | [python_by_example](python_by_example.md) | 4 | 9 | 10 | 6 | — | 10 | 7.5 | **7.8** | HIGH |
+| 1 | [about_py](about_py.md) | 4.5 | — | 10 | 7.5 | — | 8 | — | **7.5** | LOW |
+| 2 | [python_by_example](python_by_example.md) | 4 | 9 | 10 | 6.5 | — | 10 | 7.5 | **7.8** | HIGH |
 | 3 | [numpy](numpy.md) | 3.5 | 8.5 | 9 | 7 | — | 10 | 10 | **8.0** | HIGH |
 | 4 | [numba](numba.md) | 4.5 | 7.5 | 10 | 7.5 | — | 9 | 10 | **8.1** | LOW |
 | 5 | [scipy](scipy.md) | 4.5 | 7.5 | 8.5 | 8 | — | 10 | 10 | **8.1** | LOW |
@@ -93,7 +117,7 @@ that lecture. Click a lecture for its full report.
 | 9 | [jax_intro](jax_intro.md) | 4.5 | — | 10 | 7 | — | 10 | 10 | **8.3** | LOW |
 | 10 | [troubleshooting](troubleshooting.md) | 6 | — | — | 9 | — | 10 | — | **8.3** | LOW |
 | 11 | [getting_started](getting_started.md) | 5 | — | 10 | 7 | — | 10 | 10 | **8.4** | LOW |
-| 12 | [need_for_speed](need_for_speed.md) | 4 | — | 10 | 8 | — | 10 | 10 | **8.4** | HIGH |
+| 12 | [need_for_speed](need_for_speed.md) | 4 | — | 10 | 8.5 | — | 10 | 10 | **8.5** | HIGH |
 | 13 | [polars](polars.md) | 6.5 | — | 9 | 7 | — | 10 | 10 | **8.5** | LOW |
 | 14 | [workspace](workspace.md) | 7 | — | 10 | 5.5 | — | 10 | 10 | **8.5** | LOW |
 | 15 | [names](names.md) | 6 | — | 10 | 7 | — | 10 | 10 | **8.6** | NONE |
