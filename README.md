@@ -91,8 +91,9 @@ Reproduce or refresh a pass with [`UPDATE.md`](UPDATE.md); the methodology is
 This repo was created under QuantEcon's date-stamped audit convention, on the
 assumption that each audit is a one-off snapshot. `lectures/data/` now carries a
 cross-period time series, which is the thing a dated-and-archived repo cannot
-accumulate. [`ROADMAP.md`](ROADMAP.md) §1 sets out the choice; it is a decision for the
-planning hub, not one this pass takes.
+accumulate — so the repo is being renamed to **`audit-lectures-style-guide`**, tracked in
+[#2](https://github.com/QuantEcon/audit.2026-05.style-guide/issues/2). The dated
+convention stays right for genuinely episodic audits. See [`ROADMAP.md`](ROADMAP.md) §1.
 
 ## Related
 

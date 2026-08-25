@@ -24,10 +24,12 @@ explains how.
 ## Update in place, or start a new audit period?
 
 - **Correcting or refreshing *this* audit** → run the pass below and push.
-- **A new audit period** → see [§ Starting a new audit period](#starting-a-new-audit-period).
-  Note the open naming question in `ROADMAP.md` §1: the recorded decision was one new
-  dated repo per period, but the cross-period time series in `lectures/data/` now argues
-  for a single durable home. Settle it in the planning hub before standing up a new repo.
+- **A new audit period** → run the pass in place. The repo is a durable home now: the
+  cross-period series in `lectures/data/` is the reason, and the rename to
+  `audit-lectures-style-guide` follows from it
+  ([#2](https://github.com/QuantEcon/audit.2026-05.style-guide/issues/2), `ROADMAP.md` §1).
+  [§ Standing up a separate audit](#standing-up-a-separate-audit) covers the case where a
+  genuinely episodic audit does want its own dated repo.
 
 ---
 
@@ -301,7 +303,7 @@ audit.2026-05.style-guide/
 
 ---
 
-## Starting a new audit period
+## Standing up a separate audit
 
 ```bash
 NEW=audit.YYYY-MM.style-guide
@@ -316,6 +318,10 @@ cp lectures/data/rule_reach_history.csv lectures/data/history.csv ../$NEW/lectur
 gh api -X POST repos/QuantEcon/$NEW/pages -f build_type=workflow
 ```
 
-Carrying `rule_reach_history.csv` and `history.csv` forward is what keeps the trend
-charts working across periods — they are the only files whose *old* rows matter.
-Generate everything else fresh.
+Use this only for a genuinely **separate** audit — a different subject, not the next pass
+of this one. The next pass of *this* audit runs in place (Steps 1–8); that is the whole
+point of the durable repo.
+
+If the new audit does track something over time, carry `rule_reach_history.csv` and
+`history.csv` forward — they are the only files whose *old* rows matter. Generate
+everything else fresh.

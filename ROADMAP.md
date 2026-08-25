@@ -39,30 +39,37 @@ direction, open design decisions, and pending work.
 
 ---
 
-## 1. Naming: the decision is open again
+## 1. Naming: decided
 
-> **Where this stands.** The recorded decision (2026-05) was to keep the dated
-> `audit.YYYY-MM.{topic}` convention: publish a **new dated repo** per period and archive
-> the prior one, rather than rename in place — renaming would break the published Pages
-> URL and the posted issue cross-links.
->
-> **What has changed since.** `lectures/data/rule_reach_history.csv` and `history.csv`
-> now accumulate across periods, and the trend chart is built from them. A new repo per
-> period either loses that history or requires copying it forward by hand at every pass
-> (which `UPDATE.md` § Starting a new audit period documents, but which is exactly the
-> kind of manual step that drifts). The dated convention and a cross-period time series
-> pull in opposite directions.
->
-> **This pass did not settle it.** The refresh was published into this repo because that
-> is where the history and the tooling already are. That leaves the repo named for
-> 2026-05 while carrying a 2026-08 snapshot, which is not a stable end state. **The
-> decision belongs in the planning hub**; §2.1–§2.3 below set out the options and the
-> trade-offs unchanged.
+> **Decision (2026-08).** Rename this repo to **`QuantEcon/audit-lectures-style-guide`** —
+> the date comes out of the name, the scope and the topic stay in it. Tracked in
+> [#2](https://github.com/QuantEcon/audit.2026-05.style-guide/issues/2), with the
+> migration checklist and the Pages-URL consequences.
 
-The `audit.YYYY-MM.{topic}` convention is not wrong — it is a good fit for *episodic*
-one-off audits (a security review of a release, a one-time deep dive). Style-guide
-compliance turned out to be a *persistent* concern with a time series attached, which is
-a different shape.
+The earlier decision (2026-05) was to keep `audit.YYYY-MM.{topic}` and publish a new dated
+repo per period, archiving the prior one — a rename was avoided because it would break the
+published Pages URL and the posted issue cross-links.
+
+What changed is that `lectures/data/` began accumulating across passes.
+`history.csv` and `rule_reach_history.csv` now hold one row per period, and the trend chart
+is built from them: the same checks over two pinned snapshots, so the comparison measures
+the lectures rather than the method. A new dated repo per period either loses that series
+or requires copying it forward by hand at every pass. The dated convention and a
+cross-period time series pull in opposite directions, and the series is worth more.
+
+The immediate prompt was that this pass left the repo named for 2026-05 while carrying a
+2026-08 snapshot — not a stable end state either way.
+
+Of the migration options in §2.3, **α (rename in place)** is what was chosen: the
+accumulated `lectures/data/` history is the asset, and a rename keeps it where it is.
+GitHub redirects `github.com` links, so the four posted `action-style-guide` issue
+cross-links survive; the Pages URL does not redirect and the 16 in-repo references to it
+need editing.
+
+**The dated convention is not retired.** It remains the right fit for genuinely episodic
+audits — a security review of a release, a one-time deep dive. Style-guide compliance
+turned out to be a persistent concern with a time series attached, which is a different
+shape.
 
 ---
 
@@ -78,7 +85,11 @@ a different shape.
 | `QuantEcon/style-compliance` | Direct, professional | Less discoverable; "compliance" reads as regulatory |
 | Keep `audit.YYYY-MM.style-guide` | No migration; preserves the Pages URL and issue cross-links | The name goes stale the moment a pass refreshes it, as it has now |
 
-**Leaning:** `QuantEcon/style-audits`.
+**Resolved:** `QuantEcon/audit-lectures-style-guide` — see §1. It reads as
+"an audit, of the lectures, against the style guide", and leaves room for a
+sibling (`audit-lectures-accessibility`) without implying a one-off or needing a
+date. `style-audits` was the earlier leaning; the chosen name keeps the `audit-`
+prefix that already signals what kind of repo this is.
 
 ### 2.2 Time-series storage
 
@@ -96,9 +107,8 @@ alongside, or whether git history is enough. **Leaning:** git history is enough.
   `lectures/data/` forward. Cleaner conceptually; loses the per-lecture git history.
 - **γ** — keep both: this repo as the 2026-05 reference, the new one going forward.
 
-**Leaning:** α is now more attractive than it was, because the accumulated
-`lectures/data/` history is the asset and a rename keeps it in place. A redirect from the
-old Pages URL costs less than re-establishing the series.
+**Resolved: α.** The accumulated `lectures/data/` history is the asset and a rename keeps
+it in place. Losing the old Pages URL costs less than re-establishing the series.
 
 ### 2.4 Cadence + automation
 
@@ -180,9 +190,10 @@ Jupyter Book with `quantecon-book-theme`, per-lecture reports committed, charts,
 TOC, GitHub Pages deploy. Chart data externalised to `lectures/data/` (was a Phase 1
 follow-up; done).
 
-### Phase 2 — Repo naming ⏸ reopened
-See §1. The decision now has new information (an accumulating time series) and belongs in
-the planning hub.
+### Phase 2 — Repo naming ✅ decided, migration pending
+Rename to `audit-lectures-style-guide`, tracked in
+[#2](https://github.com/QuantEcon/audit.2026-05.style-guide/issues/2). See §1 for the
+reasoning and §2.3 for why the rename is in place rather than a fresh repo.
 
 ### Phase 3 — Cadence ◐ in progress
 A second pass has run, on a pinned snapshot, with a like-for-like comparison to the
