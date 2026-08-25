@@ -16,7 +16,7 @@
 | Math         | 8.5/10 | `qe-math-010` (proposed) ×1. |
 | Code         | 9/10  | `qe-code-003` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 7/10  | `qe-fig-005` ×4; `qe-fig-008` ×13; `qe-fig-001` ×4. |
+| Figures      | 7/10  | `qe-fig-005` ×2; `qe-fig-008` ×13; `qe-fig-001` ×4. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -34,7 +34,7 @@ _None found._
 ### Medium severity
 - **[qe-code-003]** — Package installation at lecture top. *Count:* 1. *Lines:* 1442. *Example:* install cell at line 1442 of 1539 (not near the top).
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 4. *Lines:* 570, 635, 705, 778. *Example:* figsize=.
-- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 501, 1111, 1326, 1397. *Example:* {figure} without :name:.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 1111, 1397. *Example:* {figure} without :name:.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 3. *Lines:* 27, 468, 1436. *Example:* 5 sentences in one paragraph.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 4. *Lines:* 27, 83, 103, 826. *Example:* 2 spaces.
 
@@ -54,7 +54,7 @@ _None found._
 
 1. `qe-writing-006` — Capitalize lecture titles properly (12 occurrences).
 2. `qe-writing-001` — Use one sentence per paragraph (3 occurrences).
-3. `qe-fig-005` — Descriptive figure names for cross-referencing (4 occurrences).
+3. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
 4. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (1 occurrence).
 5. `qe-code-003` — Package installation at lecture top (1 occurrence).
 6. `qe-fig-008` — Use lw=2 for line charts (13 occurrences).

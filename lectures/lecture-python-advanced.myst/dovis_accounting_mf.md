@@ -29,7 +29,7 @@ _None found._
 ### High severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 7. *Lines:* 504, 604, 1226, 1618, 1976, 2132, 2166. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 9. *Lines:* 1619, 1624, 1628, 1641, 1646, 1650, 1654, 1658, 1663. *Example:* .suptitle.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 9. *Lines:* 1623, 1627, 1631, 1632, 1645, 1649, 1653, 1657, 1662. *Example:* plot() without lw=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 8. *Lines:* 1623, 1627, 1631, 1645, 1649, 1653, 1657, 1662. *Example:* plot() without lw=.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 11. *Lines:* 693, 694, 695, 740, 746, 752, 753. *Example:* apostrophe transpose `i_1'`.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 17. *Lines:* 132, 137, 193, 207, 314, 323, 331, 360, 363, 383, …. *Example:* non-blackboard `\Pr`.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 1. *Lines:* 680. *Example:* H2 Title Case: 'The full model with Gumbel shocks' (Gumbel).

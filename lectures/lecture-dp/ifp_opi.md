@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.2 / 10
+- **Overall score:** 8.1 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -18,7 +18,7 @@
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-003` ×3; `qe-fig-005` ×2; `qe-fig-008` ×3, +1 more. |
 | References   | N/A   | no citations in this lecture. |
-| Links        | 10/10 | no mechanical violations detected. |
+| Links        | 9/10  | `qe-link-002` ×1. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
@@ -35,6 +35,7 @@ _None found._
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 3. *Lines:* 361, 369, 408. *Example:* .set(xlabel='current assets', ylabel='next period assets', title=.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 353, 401. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 359, 367, 403. *Example:* plot() without lw=.
+- **[qe-link-002]** — Use doc links for cross-series references. *Count:* 1. *Lines:* 30. *Example:* raw link to dp.quantecon.org.
 
 ### Low severity
 - **[qe-code-005]** — Use quantecon timeit for benchmarking. *Count:* 1. *Lines:* 387. *Example:* hand-rolled benchmark loop — use qe.timeit.
@@ -55,6 +56,6 @@ _None found._
 2. `qe-fig-003` — No matplotlib embedded titles (3 occurrences).
 3. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
 4. `qe-code-002` — Use Unicode symbols for Greek letters in code (2 occurrences).
-5. `qe-code-004` — Use quantecon Timer context manager (14 occurrences).
-6. `qe-fig-008` — Use lw=2 for line charts (3 occurrences).
-7. `qe-fig-001` — Do not set figure size unless necessary (1 occurrence).
+5. `qe-link-002` — Use doc links for cross-series references (1 occurrence).
+6. `qe-code-004` — Use quantecon Timer context manager (14 occurrences).
+7. `qe-fig-008` — Use lw=2 for line charts (3 occurrences).

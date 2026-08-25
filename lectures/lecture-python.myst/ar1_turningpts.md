@@ -16,7 +16,7 @@
 | Math         | 10/10 | no mechanical violations detected. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 8/10  | `qe-fig-005` ×1; `qe-fig-008` ×2; `qe-fig-001` ×4. |
+| Figures      | 8/10  | `qe-fig-005` ×1; `qe-fig-001` ×4; `qe-fig-008` ×1. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | N/A   | no admonitions, exercises or solutions. |
@@ -31,12 +31,12 @@ _None found._
 
 ### Medium severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 4. *Lines:* 70, 674, 749, 769. *Example:* style override.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 317, 326. *Example:* plot() without lw=.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 3. *Lines:* 119, 182, 515. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 2. *Lines:* 104, 121. *Example:* 2 spaces.
 
 ### Low severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 51. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 317. *Example:* plot() without lw=.
 
 
 ## Strengths
@@ -53,5 +53,5 @@ _None found._
 2. `qe-writing-001` — Use one sentence per paragraph (3 occurrences).
 3. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
 4. `qe-writing-008` — Remove excessive whitespace between words (2 occurrences).
-5. `qe-fig-008` — Use lw=2 for line charts (2 occurrences).
-6. `qe-fig-001` — Do not set figure size unless necessary (4 occurrences).
+5. `qe-fig-001` — Do not set figure size unless necessary (4 occurrences).
+6. `qe-fig-008` — Use lw=2 for line charts (1 occurrence).

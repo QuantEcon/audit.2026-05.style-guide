@@ -16,7 +16,7 @@
 | Math         | 8.5/10 | `qe-math-002` ×1. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6/10  | `qe-fig-005` ×4; `qe-fig-003` ×1; `qe-fig-004` ×1, +2 more. |
+| Figures      | 6/10  | `qe-fig-005` ×3; `qe-fig-003` ×1; `qe-fig-004` ×1, +2 more. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -35,7 +35,7 @@ _None found._
 ### Medium severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 475, 564. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 482. *Example:* .set_title.
-- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 414, 472, 542, 624. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 414, 542, 624. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 525. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
@@ -53,7 +53,7 @@ _None found._
 ## Recommended actions
 
 1. `qe-writing-006` — Capitalize lecture titles properly (2 occurrences).
-2. `qe-fig-005` — Descriptive figure names for cross-referencing (4 occurrences).
+2. `qe-fig-005` — Descriptive figure names for cross-referencing (3 occurrences).
 3. `qe-math-002` — Use \top for transpose notation (1 occurrence).
 4. `qe-writing-008` — Remove excessive whitespace between words (31 occurrences).
 5. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).

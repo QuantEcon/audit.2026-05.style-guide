@@ -16,7 +16,7 @@
 | Math         | 10/10 | no mechanical violations detected. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6/10  | `qe-fig-003` ×4; `qe-fig-005` ×2; `qe-fig-008` ×2, +1 more. |
+| Figures      | 6/10  | `qe-fig-003` ×4; `qe-fig-005` ×2; `qe-fig-008` ×4, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 7/10  | `qe-link-002` ×2; `qe-link-001` ×2. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -34,7 +34,7 @@ _None found._
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 856, 894, 976. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 4. *Lines:* 872, 908, 984, 987. *Example:* .set(title=.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 853, 890. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 871, 907. *Example:* plot() without lw=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 4. *Lines:* 871, 907, 983, 986. *Example:* plot() without lw=.
 - **[qe-link-001]** — Use markdown style links for lectures in same lecture series. *Count:* 2. *Lines:* 52, 426. *Example:* full URL to own series (python.quantecon.org).
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 2. *Lines:* 53, 427. *Example:* raw link to python-advanced.quantecon.org.
 
@@ -58,4 +58,4 @@ _None found._
 4. `qe-link-001` — Use markdown style links for lectures in same lecture series (2 occurrences).
 5. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
 6. `qe-writing-008` — Remove excessive whitespace between words (61 occurrences).
-7. `qe-fig-008` — Use lw=2 for line charts (2 occurrences).
+7. `qe-fig-008` — Use lw=2 for line charts (4 occurrences).

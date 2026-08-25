@@ -16,7 +16,7 @@
 | Math         | 10/10 | no mechanical violations detected. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6.5/10 | `qe-fig-005` ×7; `qe-fig-008` ×11; `qe-fig-001` ×2. |
+| Figures      | 6.5/10 | `qe-fig-005` ×6; `qe-fig-008` ×11; `qe-fig-001` ×2. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 8/10  | `qe-link-002` ×1; `qe-link-001` ×1. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -27,7 +27,7 @@
 _None found._
 
 ### High severity
-- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 7. *Lines:* 383, 441, 500, 523, 610, 718, 829. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 6. *Lines:* 383, 441, 500, 523, 610, 718. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 11. *Lines:* 390, 392, 398, 508, 509, 527, 528, 616, 618, 841, …. *Example:* plot() without lw=.
 
 ### Medium severity
@@ -49,7 +49,7 @@ _None found._
 
 ## Recommended actions
 
-1. `qe-fig-005` — Descriptive figure names for cross-referencing (7 occurrences).
+1. `qe-fig-005` — Descriptive figure names for cross-referencing (6 occurrences).
 2. `qe-link-002` — Use doc links for cross-series references (1 occurrence).
 3. `qe-fig-008` — Use lw=2 for line charts (11 occurrences).
 4. `qe-link-001` — Use markdown style links for lectures in same lecture series (1 occurrence).

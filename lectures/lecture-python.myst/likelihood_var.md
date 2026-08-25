@@ -16,7 +16,7 @@
 | Math         | 4.5/10 | `qe-math-002` ×4; `qe-math-011` (proposed) ×2; `qe-math-004` ×3. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 5/10  | `qe-fig-003` ×6; `qe-fig-005` ×6; `qe-fig-001` ×2, +1 more. |
+| Figures      | 5/10  | `qe-fig-003` ×6; `qe-fig-005` ×6; `qe-fig-001` ×2. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | N/A   | no admonitions, exercises or solutions. |
@@ -39,7 +39,7 @@ _None found._
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 39. *Example:* mid-sentence 'Vector'.
 
 ### Low severity
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 478. *Example:* plot() without lw=.
+_None found._
 
 
 ## Strengths

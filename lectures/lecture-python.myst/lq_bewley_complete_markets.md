@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 9.3 / 10
+- **Overall score:** 9.4 / 10
 - **Priority:** NONE
 
 ## Score breakdown
@@ -16,7 +16,7 @@
 | Math         | 10/10 | no mechanical violations detected. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 5.5/10 | `qe-fig-003` ×4; `qe-fig-005` ×3; `qe-fig-004` ×1, +2 more. |
+| Figures      | 6/10  | `qe-fig-003` ×4; `qe-fig-005` ×3; `qe-fig-004` ×1, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -37,7 +37,6 @@ _None found._
 
 ### Low severity
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 1. *Lines:* 389. *Example:* caption of 8 words.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 188. *Example:* plot() without lw=.
 
 
 ## Strengths
@@ -56,4 +55,3 @@ _None found._
 3. `qe-fig-004` — Caption formatting conventions (1 occurrence).
 4. `qe-writing-008` — Remove excessive whitespace between words (3 occurrences).
 5. `qe-fig-001` — Do not set figure size unless necessary (2 occurrences).
-6. `qe-fig-008` — Use lw=2 for line charts (1 occurrence).

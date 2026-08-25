@@ -16,7 +16,7 @@
 | Math         | N/A   | no mathematical content. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6.5/10 | `qe-fig-005` ×9; `qe-fig-002` ×3; `qe-fig-001` ×2, +1 more. |
+| Figures      | 6.5/10 | `qe-fig-005` ×8; `qe-fig-002` ×3; `qe-fig-001` ×2, +1 more. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -27,7 +27,7 @@
 _None found._
 
 ### High severity
-- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 9. *Lines:* 46, 473, 489, 583, 624, 686, 726, 753, 797. *Example:* {figure} without :name:.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 8. *Lines:* 46, 473, 489, 583, 624, 686, 726, 753. *Example:* {figure} without :name:.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 8. *Lines:* 182, 210, 295, 348, 428, 496, 515, 594. *Example:* H3 Title Case: 'Select Data by Position' (Data, Position).
 
 ### Medium severity
@@ -51,7 +51,7 @@ _None found._
 ## Recommended actions
 
 1. `qe-writing-006` — Capitalize lecture titles properly (8 occurrences).
-2. `qe-fig-005` — Descriptive figure names for cross-referencing (9 occurrences).
+2. `qe-fig-005` — Descriptive figure names for cross-referencing (8 occurrences).
 3. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (2 occurrences).
 4. `qe-fig-002` — Prefer code-generated figures (3 occurrences).
 5. `qe-fig-001` — Do not set figure size unless necessary (2 occurrences).

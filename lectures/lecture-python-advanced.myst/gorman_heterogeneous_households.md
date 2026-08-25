@@ -38,7 +38,7 @@ _None found._
 ### Medium severity
 - **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 2. *Lines:* 1270, 1374. *Example:* spelled-out `beta`.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 2. *Lines:* 1927, 1936. *Example:* .set_title.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 4. *Lines:* 1764, 1768, 2055, 2057. *Example:* plot() without lw=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 1764, 1768. *Example:* plot() without lw=.
 
 ### Low severity
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 1. *Lines:* 158. *Example:* caption of 7 words.

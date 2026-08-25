@@ -16,7 +16,7 @@
 | Math         | 7.5/10 | `qe-math-002` ×3. |
 | Code         | 9/10  | `qe-code-002` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 4.5/10 | `qe-fig-003` ×6; `qe-fig-004` ×5; `qe-fig-005` ×1, +2 more. |
+| Figures      | 4.5/10 | `qe-fig-003` ×6; `qe-fig-004` ×5; `qe-fig-005` ×1, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -38,7 +38,6 @@ _None found._
 ### Low severity
 - **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 903. *Example:* spelled-out `gamma`.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 794. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 731. *Example:* plot() without lw=.
 
 
 ## Strengths

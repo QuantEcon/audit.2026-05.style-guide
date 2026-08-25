@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.3 / 10
+- **Overall score:** 7.4 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -17,7 +17,7 @@
 | Code         | 6.5/10 | `qe-code-001` ×7; `qe-code-002` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5/10  | `qe-fig-003` ×4; `qe-fig-005` ×4; `qe-fig-004` ×3, +2 more. |
-| References   | 9/10  | `qe-ref-001` ×1. |
+| References   | 10/10 | no mechanical violations detected. |
 | Links        | 9/10  | `qe-link-001` ×1. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
@@ -43,7 +43,6 @@ _None found._
 
 ### Low severity
 - **[qe-link-001]** — Use markdown style links for lectures in same lecture series. *Count:* 1. *Lines:* 649. *Example:* full URL to own series (intro.quantecon.org).
-- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 1143. *Example:* {cite} in author position: '{cite}`pareto1896cours` and'.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 1. *Lines:* 1062. *Example:* "we saw above that if every $X_i$ is Cauchy, then so is $Y_n$" points backwards, but the stability of the Cauchy under averaging is not established anywhere above - it is derived only in exercise `ht_ex_cauchy` at line 1410ff, 350 lines later.
 
 

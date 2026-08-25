@@ -17,7 +17,7 @@
 | Code         | 8.5/10 | `qe-code-002` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 10/10 | no mechanical violations detected. |
-| References   | 8.5/10 | `qe-ref-001` ×3. |
+| References   | 8.5/10 | `qe-ref-001` ×2. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
@@ -33,7 +33,7 @@ _None found._
 
 ### Medium severity
 - **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 4. *Lines:* 690, 787, 884, 944. *Example:* spelled-out `beta`.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 3. *Lines:* 978. *Example:* {cite} in author position: '{cite}`MarcetSargent1989` and'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 978. *Example:* {cite} in narrative flow: 'See {cite}`'.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 973. *Example:* 3 sentences in one paragraph.
 
 ### Low severity
@@ -51,7 +51,7 @@ _None found._
 ## Recommended actions
 
 1. `qe-math-002` — Use \top for transpose notation (14 occurrences).
-2. `qe-ref-001` — Use correct citation style (3 occurrences).
+2. `qe-ref-001` — Use correct citation style (2 occurrences).
 3. `qe-code-002` — Use Unicode symbols for Greek letters in code (4 occurrences).
 4. `qe-writing-006` — Capitalize lecture titles properly (1 occurrence).
 5. `qe-writing-008` — Remove excessive whitespace between words (30 occurrences).

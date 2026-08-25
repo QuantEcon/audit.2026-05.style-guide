@@ -37,10 +37,16 @@ Verified against the 2026-08 snapshot (`lectures/data/snapshot.json`).
 | `qe-fig-002` | needs-fix | 36 / 20 | Flagged screenshots and photographs — a terminal capture or a photo of a GPU cannot be code-generated. Those asset families are excluded. |
 | `qe-fig-003` | needs-fix | 0 / 15 | Missed `ax.set(title=…)` and `ax.title.set_text(…)`, ~73 lines corpus-wide. Added; the exercise/solution exemption was already correct. |
 | `qe-fig-004` | broken | 70 / 60 | Tokenised LaTeX into words, so `$\bar\pi_t$` counted as five; split hyphenated compounds; and repeated the possessive bug. Maths is masked, compounds are one token, and the proper-noun test now routes through `_is_proper()`. |
-| `qe-fig-005` | not yet reviewed | — | Extended during development from `{figure}`/`{image}` directives to code-cell figures via `mystnb.figure.name`, which is where most QuantEcon figures live — reach went from 44 to 293 lectures. **The remaining verification group for this rule had not reported when the pass was published.** |
-| `qe-fig-006` … `qe-fig-011` | not yet reviewed | — | Same: the `fig-b` verification group had not reported. |
-| `qe-link-001`, `qe-link-002`, `qe-ref-001` | not yet reviewed | — | The `links-refs` group had not reported. `qe-ref-001` is the heuristic most likely to over-fire, since it infers author position from surrounding words. |
-| `qe-admon-001` … `qe-admon-005` | not yet reviewed | — | The `admonitions` group had not reported. `qe-admon-003` and `qe-admon-005` were both rewritten during development after the gated-directive lexer bug was found: `qe-admon-005` had 202 false positives before it, and `qe-admon-003` had 26 downstream symptoms of a single root cause. |
+| `qe-fig-005` | needs-fix | 99 / 15 | Counted cells that only *define* a plotting helper. A cell renders a figure only if a plotting or render call sits at column zero; `_strip_py` also had to stop collapsing docstrings, which was pulling indented code to column zero. (Reach had already been extended during development from `{figure}` directives to code-cell `mystnb.figure.name` metadata, where most QuantEcon figures live — 44 lectures to 293.) |
+| `qe-fig-006` | needs-fix | 7 / 12 | `Im` for the imaginary part is correctly capitalised, and a hyphenated first word (`Taylor-rule`) defeated the proper-noun lookup. |
+| `qe-fig-007` | needs-fix | 25 / 12 | `spines['bottom'].set_position(('data', 0))` moves an axis; it does not remove the box. Only removal counts now. |
+| `qe-fig-008` | broken | 149 / 15 | A `plot(...)` call spanning several lines was judged on its first line, so `linewidth=2` two lines down was missed. The check now assembles the whole argument list by balancing parentheses. |
+| `qe-fig-010` | sound | 0 / 4 | — |
+| `qe-link-001` | needs-fix | 2 / 21 | A PDF under `/_static/` is a downloadable asset, not a sibling lecture. Asset paths are skipped. |
+| `qe-link-002` | needs-fix | 0 / 25 | Missed hosts that occur in the corpus. Added `python-intro`, `dp`, `networks` and `dle` to the known series domains. |
+| `qe-ref-001` | broken | 11 / 29 | `and` was treated as an author-position verb, so a list of parenthetical citations was flagged twice over. Removed, list contexts (`include`, `see`) exempted, and findings de-duplicated to one per citation site. |
+| `qe-fig-009`, `qe-fig-011` | **not yet reviewed** | — | The `fig-b` group's report did not cover these two. Both are low-reach (9 and 0 lectures). |
+| `qe-admon-001` … `qe-admon-005` | **not yet reviewed** | — | The `admonitions` group had not reported when the pass was published. All five were rewritten during development after the gated-directive lexer bug was found — `qe-admon-005` had 202 false positives before it, and `qe-admon-003` reported 26 downstream symptoms of a single root cause — so they have been corrected once, but not independently sampled. Current reach is low (4, 1, 1, 0, 0 lectures), so the exposure is small. |
 
 ## Lexer bugs found along the way
 

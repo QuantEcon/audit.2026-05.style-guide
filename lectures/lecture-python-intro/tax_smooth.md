@@ -16,7 +16,7 @@
 | Math         | 10/10 | no mechanical violations detected. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6/10  | `qe-fig-005` ×7; `qe-fig-006` ×1; `qe-fig-008` ×9, +1 more. |
+| Figures      | 6/10  | `qe-fig-005` ×6; `qe-fig-006` ×1; `qe-fig-008` ×9, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -27,7 +27,7 @@
 _None found._
 
 ### High severity
-- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 7. *Lines:* 315, 361, 567, 627, 645, 739, 844. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 6. *Lines:* 315, 567, 627, 645, 739, 844. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 9. *Lines:* 590, 594, 630, 637, 648, 655, 752, 753, 857. *Example:* plot() without lw=.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 1. *Lines:* 482. *Example:* H3 Title Case: 'Feasible Tax Variations' (Tax, Variations).
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 21. *Lines:* 19, 22, 27, 33, 50, 54, 58, 62, 69, 77, …. *Example:* 2 spaces.
@@ -50,7 +50,7 @@ _None found._
 
 ## Recommended actions
 
-1. `qe-fig-005` — Descriptive figure names for cross-referencing (7 occurrences).
+1. `qe-fig-005` — Descriptive figure names for cross-referencing (6 occurrences).
 2. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
 3. `qe-writing-006` — Capitalize lecture titles properly (1 occurrence).
 4. `qe-writing-008` — Remove excessive whitespace between words (21 occurrences).

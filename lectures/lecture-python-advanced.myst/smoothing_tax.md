@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.5 / 10
+- **Overall score:** 8.4 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -16,9 +16,9 @@
 | Math         | 8.5/10 | `qe-math-002` ×1. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 4/10  | `qe-fig-003` ×7; `qe-fig-006` ×9; `qe-fig-005` ×3, +2 more. |
+| Figures      | 4/10  | `qe-fig-003` ×7; `qe-fig-006` ×9; `qe-fig-005` ×2, +2 more. |
 | References   | 10/10 | no mechanical violations detected. |
-| Links        | 10/10 | no mechanical violations detected. |
+| Links        | 9/10  | `qe-link-002` ×1. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
@@ -29,13 +29,14 @@ _None found._
 ### High severity
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 7. *Lines:* 250, 257, 284, 292, 585, 593, 604. *Example:* .set_title.
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 9. *Lines:* 255, 263, 289, 298, 590, 600, 607, 608, 613. *Example:* axis label `Periods`.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 8. *Lines:* 586, 587, 588, 594, 595, 596, 597, 605. *Example:* plot() without lw=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 20. *Lines:* 251, 252, 253, 258, 259, 260, 285, 286, 287, 293, …. *Example:* plot() without lw=.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 1. *Lines:* 364. *Example:* `^T` transpose in `R^T`.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 60. *Lines:* 26, 40, 42, 44, 46, 49, 68, 72, 75, 76, …. *Example:* 2 spaces.
 
 ### Medium severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 248, 282. *Example:* figsize=.
-- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 239, 281, 548. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 239, 281. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-link-002]** — Use doc links for cross-series references. *Count:* 1. *Lines:* 80. *Example:* raw link to python-intro.quantecon.org.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 847. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 80. *Example:* mid-sentence 'Savings'.
 
@@ -55,7 +56,7 @@ _None found._
 
 1. `qe-fig-003` — No matplotlib embedded titles (7 occurrences).
 2. `qe-fig-006` — Lowercase axis labels (9 occurrences).
-3. `qe-fig-005` — Descriptive figure names for cross-referencing (3 occurrences).
+3. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
 4. `qe-math-002` — Use \top for transpose notation (1 occurrence).
 5. `qe-writing-008` — Remove excessive whitespace between words (60 occurrences).
 6. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (1 occurrence).

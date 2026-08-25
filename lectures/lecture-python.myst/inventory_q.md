@@ -16,7 +16,7 @@
 | Math         | 4/10  | `qe-math-010` (proposed) ×3; `qe-math-002` ×3; `qe-math-005` ×3. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6/10  | `qe-fig-003` ×4; `qe-fig-005` ×3; `qe-fig-008` ×7, +1 more. |
+| Figures      | 6/10  | `qe-fig-003` ×4; `qe-fig-005` ×2; `qe-fig-008` ×7, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | N/A   | no admonitions, exercises or solutions. |
@@ -35,7 +35,7 @@ _None found._
 ### Medium severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 682, 721. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 4. *Lines:* 689, 696, 732, 742. *Example:* .set_title.
-- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 374, 681, 718. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 681, 718. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-math-005]** — Use curly brackets for sequences. *Count:* 3. *Lines:* 92, 94, 96. *Example:* parenthesised sequence.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 3. *Lines:* 488, 557, 561. *Example:* 2 sentences in one paragraph.
 
@@ -59,4 +59,4 @@ _None found._
 4. `qe-writing-001` — Use one sentence per paragraph (3 occurrences).
 5. `qe-fig-003` — No matplotlib embedded titles (4 occurrences).
 6. `qe-math-005` — Use curly brackets for sequences (3 occurrences).
-7. `qe-fig-005` — Descriptive figure names for cross-referencing (3 occurrences).
+7. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).

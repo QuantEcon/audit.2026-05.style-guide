@@ -17,7 +17,7 @@
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-005` ×3; `qe-fig-003` ×1; `qe-fig-006` ×1, +2 more. |
-| References   | 8.5/10 | `qe-ref-001` ×4. |
+| References   | 8.5/10 | `qe-ref-001` ×3. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
@@ -37,7 +37,7 @@ _None found._
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 494, 511, 826. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 833. *Example:* .set_title.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 474, 510, 803. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 4. *Lines:* 45, 858, 898. *Example:* {cite} in author position: '{cite}`Hall1978`  and'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 3. *Lines:* 858, 898. *Example:* {cite} in narrative flow: 'of {cite}`'.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 4. *Lines:* 173, 222, 997, 1005. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
@@ -58,6 +58,6 @@ _None found._
 2. `qe-math-002` — Use \top for transpose notation (8 occurrences).
 3. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (3 occurrences).
 4. `qe-writing-001` — Use one sentence per paragraph (4 occurrences).
-5. `qe-ref-001` — Use correct citation style (4 occurrences).
+5. `qe-ref-001` — Use correct citation style (3 occurrences).
 6. `qe-fig-005` — Descriptive figure names for cross-referencing (3 occurrences).
 7. `qe-writing-008` — Remove excessive whitespace between words (29 occurrences).

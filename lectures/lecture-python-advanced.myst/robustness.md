@@ -18,7 +18,7 @@
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6.5/10 | `qe-fig-006` ×2; `qe-fig-005` ×4; `qe-fig-002` ×3, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
-| Links        | 7.5/10 | `qe-link-002` ×5. |
+| Links        | 7.5/10 | `qe-link-002` ×9. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
@@ -27,7 +27,7 @@
 _None found._
 
 ### High severity
-- **[qe-link-002]** — Use doc links for cross-series references. *Count:* 5. *Lines:* 164, 319, 452, 617, 1154. *Example:* raw link to python.quantecon.org.
+- **[qe-link-002]** — Use doc links for cross-series references. *Count:* 9. *Lines:* 162, 164, 260, 266, 319, 452, 617, 858, 1154. *Example:* raw link to python-intro.quantecon.org.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 117. *Lines:* 171, 211, 221, 241, 242, 246, 248, 260, 274, 277, …. *Example:* apostrophe transpose `x_t'`.
 - **[qe-math-004]** — Do not use bold face for matrices or vectors. *Count:* 13. *Lines:* 388, 389, 397, 412, 417, 429, 441, 450, 510, 530, …. *Example:* \mathbf.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 1. *Lines:* 877. *Example:* missing braces: `\mathbb E`.
@@ -57,7 +57,7 @@ _None found._
 
 1. `qe-math-002` — Use \top for transpose notation (117 occurrences).
 2. `qe-math-004` — Do not use bold face for matrices or vectors (13 occurrences).
-3. `qe-link-002` — Use doc links for cross-series references (5 occurrences).
+3. `qe-link-002` — Use doc links for cross-series references (9 occurrences).
 4. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
 5. `qe-fig-006` — Lowercase axis labels (2 occurrences).
 6. `qe-fig-005` — Descriptive figure names for cross-referencing (4 occurrences).

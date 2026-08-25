@@ -27,7 +27,8 @@ QE_SERIES_DOMAINS = [
     "intro.quantecon.org", "python-programming.quantecon.org",
     "python.quantecon.org", "python-advanced.quantecon.org",
     "jax.quantecon.org", "julia.quantecon.org", "stats.quantecon.org",
-    "quantecon.github.io/lecture-dp",
+    "quantecon.github.io/lecture-dp", "python-intro.quantecon.org",
+    "dp.quantecon.org", "networks.quantecon.org", "dle.quantecon.org",
 ]
 
 
@@ -724,9 +725,17 @@ def _python_blocks(doc: Doc):
 
 
 def _strip_py(src: str) -> str:
-    """Drop comments and string literals so identifier checks stay on identifiers."""
-    src = re.sub(r'"""(?:.|\n)*?"""', " ", src)
-    src = re.sub(r"'''(?:.|\n)*?'''", " ", src)
+    """Drop comments and string literals so identifier checks stay on identifiers.
+
+    Line structure is preserved — a docstring is replaced by the same number of
+    newlines, not by a space. Collapsing it would pull indented code up to column
+    zero, which made an indented ``plt.show()`` look top-level.
+    """
+    def blank(m):
+        return "\n" * m.group(0).count("\n")
+
+    src = re.sub(r'"""(?:.|\n)*?"""', blank, src)
+    src = re.sub(r"'''(?:.|\n)*?'''", blank, src)
     src = re.sub(r'"[^"\n]*"', " ", src)
     src = re.sub(r"'[^'\n]*'", " ", src)
     src = re.sub(r"#[^\n]*", " ", src)
@@ -971,16 +980,22 @@ PLOT_CALL = re.compile(
 )
 
 
-def _cell_makes_figure(body: str) -> bool:
+def _cell_makes_figure(body) -> bool:
+    """Does this cell actually render a figure?
+
+    A cell whose plotting all happens inside a ``def`` renders nothing by itself —
+    the figure appears where the helper is called. So the plotting call, or a
+    render call, has to sit at column zero.
+    """
     src = _strip_py("\n".join(body) if isinstance(body, list) else body)
     if not PLOT_CALL.search(src):
         return False
-    # Helper cells that only define a plotting function render nothing themselves.
-    if re.search(r"^\s*(?:def|class)\s", src, re.M) and not re.search(
-            r"^\s*(?:plt\.show|display)\s*\(", src, re.M):
-        if not re.search(r"^(?:[a-zA-Z_][\w.]*\s*\(|\w+\s*=\s*\w+\()", src, re.M):
-            return False
-    return True
+    for line in src.split("\n"):
+        if not line[:1].strip():
+            continue            # indented: inside a def, a loop or a with-block
+        if PLOT_CALL.search(line):
+            return True
+    return False
 
 
 def check_fig_005(doc: Doc):
@@ -1037,12 +1052,12 @@ def check_fig_006(doc: Doc):
 def check_fig_007(doc: Doc):
     """Keep the figure box — do not remove spines."""
     hits = []
-    pat = re.compile(r"spines\s*(?:\[|\.)|despine\s*\(|set_frame_on\s*\(\s*False")
+    pat = re.compile(r"spines\s*(?:\[|\.)[^\n]*(?:set_visible\s*\(\s*False|set_color\s*\(\s*['\"]none)|despine\s*\(|set_frame_on\s*\(\s*False")
     for l in doc.lines:
         if l.kind != "code":
             continue
         if re.search(r"spines", l.raw) and not re.search(r"set_visible\s*\(\s*False|despine|"
-                                                        r"set_color\s*\(\s*['\"]none|set_position", l.raw):
+                                                        r"set_color\s*\(\s*['\"]none", l.raw):
             continue
         for m in pat.finditer(l.raw):
             hits.append(Hit("qe-fig-007", l.no, "spine removal"))
@@ -1050,15 +1065,35 @@ def check_fig_007(doc: Doc):
 
 
 def check_fig_008(doc: Doc):
-    """Line charts should use lw=2."""
+    """Line charts should use lw=2.
+
+    A ``plot(...)`` call often spans several source lines, so the whole argument
+    list has to be assembled before deciding whether ``lw=`` is there.
+    """
     hits = []
-    pat = re.compile(r"\b(?:ax\d?|axes\[[^\]]*\]|plt)\.plot\s*\(")
-    for l in doc.lines:
-        if l.kind != "code":
-            continue
+    pat = re.compile(r"\b(?:ax\d?|axes?\[[^\]]*\]|axs?\[[^\]]*\]|plt|ax)\.plot\s*\(")
+    code = [l for l in doc.lines if l.kind == "code"]
+    by_no = {l.no: i for i, l in enumerate(code)}
+    for i, l in enumerate(code):
         for m in pat.finditer(l.raw):
-            tail = l.raw[m.end():]
-            if not re.search(r"\b(?:lw|linewidth)\s*=", tail):
+            # Walk forward until the call's parentheses balance.
+            depth, args, j, pos = 0, [], i, m.end() - 1
+            while j < len(code) and j - i < 12:
+                seg = code[j].raw[pos:] if j == i else code[j].raw
+                for ch in seg:
+                    if ch == "(":
+                        depth += 1
+                    elif ch == ")":
+                        depth -= 1
+                        if depth == 0:
+                            break
+                    args.append(ch)
+                if depth == 0:
+                    break
+                j += 1
+                pos = 0
+            call = "".join(args)
+            if not re.search(r"\b(?:lw|linewidth)\s*=", call):
                 hits.append(Hit("qe-fig-008", l.no, "plot() without lw="))
     return hits
 
@@ -1113,11 +1148,15 @@ def check_link_001(doc: Doc):
     own = SERIES_DOMAIN.get(doc.series, "")
     if not own:
         return hits
-    pat = re.compile(r"\]\(\s*https?://" + re.escape(own) + r"[^)]*\)")
+    pat = re.compile(r"\]\(\s*(https?://" + re.escape(own) + r"[^)\s]*)\)")
+    asset = re.compile(r"/_static/|/_downloads/|\.(?:pdf|zip|py|ipynb|csv|xlsx|png|jpg)$",
+                       re.IGNORECASE)
     for l in doc.lines:
         if l.kind not in ("text", "option"):
             continue
-        for _ in pat.finditer(l.raw):
+        for m in pat.finditer(l.raw):
+            if asset.search(m.group(1)):
+                continue        # a downloadable asset, not a sibling lecture
             hits.append(Hit("qe-link-001", l.no, f"full URL to own series ({own})"))
     return hits
 
@@ -1151,7 +1190,7 @@ NARRATIVE_LEAD = re.compile(
 NARRATIVE_TRAIL = re.compile(
     r"\{cite\}`[^`]+`\s+(?:show|shows|showed|prove|proves|proved|argue|argues|argued|"
     r"introduce|introduced|study|studies|studied|develop|developed|derive|derived|"
-    r"note|notes|noted|find|finds|found|consider|considers|considered|and|use|uses)\b",
+    r"note|notes|noted|find|finds|found|consider|considers|considered)\b",
     re.IGNORECASE)
 
 
@@ -1162,14 +1201,23 @@ def check_ref_001(doc: Doc):
         if l.kind != "text":
             continue
         s = l.raw
+        # One finding per citation site, whichever pattern spotted it.
+        flagged = {}
         for m in NARRATIVE_TRAIL.finditer(s):
-            hits.append(Hit("qe-ref-001", l.no, f"{{cite}} in author position: {m.group(0)[:48]!r}"))
+            flagged[m.start()] = f"{{cite}} in author position: {m.group(0)[:48]!r}"
         for m in NARRATIVE_LEAD.finditer(s):
-            # A parenthetical citation at the end of a sentence is correct.
+            # A parenthetical citation at the end of a clause is correct.
             after = s[m.end():]
             if re.match(r"[^`]*`\s*[.,;:)]", after):
                 continue
-            hits.append(Hit("qe-ref-001", l.no, f"{{cite}} in narrative flow: {m.group(0)[:48]!r}"))
+            # "include {cite}`a` and {cite}`b`." is a list, not an author position.
+            if re.search(r"\b(?:include|includes|including|see|e\.g\.|cf\.)\s*$",
+                         s[:m.start() + 1], re.IGNORECASE):
+                continue
+            flagged.setdefault(m.start(),
+                               f"{{cite}} in narrative flow: {m.group(0)[:48]!r}")
+        for pos, detail in sorted(flagged.items()):
+            hits.append(Hit("qe-ref-001", l.no, detail))
     return hits
 
 

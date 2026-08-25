@@ -28,7 +28,6 @@ _None found._
 
 ### High severity
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 6. *Lines:* 1880, 1889, 1899, 1909, 1923, 1936. *Example:* .set_title.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 7. *Lines:* 1783, 1786, 2049, 2056, 2065, 2073, 2263. *Example:* plot() without lw=.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 54. *Lines:* 79, 324, 347, 423, 427, 438, 439, 448, 460, 476, …. *Example:* apostrophe transpose `n_2'`.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 6. *Lines:* 136, 144, 221, 222, 1004, 1955. *Example:* non-blackboard `\Pr`.
 
@@ -41,6 +40,7 @@ _None found._
 
 ### Low severity
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 1. *Lines:* 1847. *Example:* caption of 10 words.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 2263. *Example:* plot() without lw=.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 1. *Lines:* 30. *Example:* 2 spaces.
 
 

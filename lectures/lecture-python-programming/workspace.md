@@ -16,7 +16,7 @@
 | Math         | N/A   | no mathematical content. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 5.5/10 | `qe-fig-005` ×18; `qe-fig-003` ×2; `qe-fig-008` ×2. |
+| Figures      | 5.5/10 | `qe-fig-005` ×17; `qe-fig-003` ×2; `qe-fig-008` ×2. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -27,7 +27,7 @@
 _None found._
 
 ### High severity
-- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 18. *Lines:* 56, 79, 141, 149, 164, 169, 185, 199, 221, 227, …. *Example:* {figure} without :name:.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 17. *Lines:* 56, 141, 149, 164, 169, 185, 199, 221, 227, 232, …. *Example:* {figure} without :name:.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 1. *Lines:* 211. *Example:* H2 Title Case: 'A walk through Visual Studio Code' (Visual, Studio, Code).
 
 ### Medium severity
@@ -49,7 +49,7 @@ _None found._
 
 ## Recommended actions
 
-1. `qe-fig-005` — Descriptive figure names for cross-referencing (18 occurrences).
+1. `qe-fig-005` — Descriptive figure names for cross-referencing (17 occurrences).
 2. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (4 occurrences).
 3. `qe-fig-003` — No matplotlib embedded titles (2 occurrences).
 4. `qe-writing-006` — Capitalize lecture titles properly (1 occurrence).

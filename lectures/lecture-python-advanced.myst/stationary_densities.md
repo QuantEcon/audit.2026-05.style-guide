@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.7 / 10
+- **Overall score:** 7.8 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -17,7 +17,7 @@
 | Code         | 8.5/10 | `qe-code-002` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-005` ×6; `qe-fig-004` ×1; `qe-fig-002` ×2, +1 more. |
-| References   | 8.5/10 | `qe-ref-001` ×2. |
+| References   | 9/10  | `qe-ref-001` ×1. |
 | Links        | 7.5/10 | `qe-link-002` ×7. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
@@ -36,16 +36,16 @@ _None found._
 - **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 4. *Lines:* 77, 476, 879, 915. *Example:* spelled-out `beta`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 908, 1026. *Example:* figsize=.
 - **[qe-fig-002]** — Prefer code-generated figures. *Count:* 2. *Lines:* 696, 794. *Example:* static image .png.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 678. *Example:* {cite} in author position: '{cite}`LasotaMackey1994`  and'.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 4. *Lines:* 66, 244, 328, 353. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 1. *Lines:* 464. *Example:* caption of 7 words.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 678. *Example:* {cite} in narrative flow: 'and {cite}`'.
 
 
 ## Strengths
 
-- Admonitions score 9 or above — no material violations measured in those categories.
+- References, Admonitions score 9 or above — no material violations measured in those categories.
 - No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
 - No `qe-admon-003` violations — Use tick count management for nested directives.
 - No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
@@ -57,6 +57,6 @@ _None found._
 2. `qe-link-002` — Use doc links for cross-series references (7 occurrences).
 3. `qe-fig-005` — Descriptive figure names for cross-referencing (6 occurrences).
 4. `qe-writing-001` — Use one sentence per paragraph (4 occurrences).
-5. `qe-ref-001` — Use correct citation style (2 occurrences).
-6. `qe-code-002` — Use Unicode symbols for Greek letters in code (4 occurrences).
-7. `qe-writing-008` — Remove excessive whitespace between words (12 occurrences).
+5. `qe-code-002` — Use Unicode symbols for Greek letters in code (4 occurrences).
+6. `qe-writing-008` — Remove excessive whitespace between words (12 occurrences).
+7. `qe-ref-001` — Use correct citation style (1 occurrence).

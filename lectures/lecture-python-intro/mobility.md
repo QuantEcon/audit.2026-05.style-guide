@@ -17,7 +17,7 @@
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7.5/10 | `qe-fig-003` ×1; `qe-fig-005` ×1; `qe-fig-004` ×1, +1 more. |
-| References   | 7/10  | `qe-ref-001` ×24. |
+| References   | 7/10  | `qe-ref-001` ×19. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
@@ -28,7 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 4. *Lines:* 92, 899, 904, 905. *Example:* missing braces: `\mathbb P`.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 24. *Lines:* 248, 286, 298, 360, 504, 590, 597, 771, 804, 984, …. *Example:* {cite} in narrative flow: 'of {cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 19. *Lines:* 248, 286, 298, 360, 504, 590, 597, 771, 804, 984, …. *Example:* {cite} in narrative flow: 'of {cite}`'.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 1. *Lines:* 246. *Example:* H3 Title Case: 'The Shorrocks index' (Shorrocks).
 
 ### Medium severity
@@ -51,7 +51,7 @@ _None found._
 
 ## Recommended actions
 
-1. `qe-ref-001` — Use correct citation style (24 occurrences).
+1. `qe-ref-001` — Use correct citation style (19 occurrences).
 2. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (4 occurrences).
 3. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (2 occurrences).
 4. `qe-writing-006` — Capitalize lecture titles properly (1 occurrence).

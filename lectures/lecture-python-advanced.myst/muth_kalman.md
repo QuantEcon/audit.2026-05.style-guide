@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.8 / 10
+- **Overall score:** 8.6 / 10
 - **Priority:** NONE
 
 ## Score breakdown
@@ -18,7 +18,7 @@
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5.5/10 | `qe-fig-003` ×3; `qe-fig-006` ×3; `qe-fig-005` ×4, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
-| Links        | 10/10 | no mechanical violations detected. |
+| Links        | 9/10  | `qe-link-002` ×1. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
@@ -27,13 +27,14 @@
 _None found._
 
 ### High severity
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 5. *Lines:* 280, 281, 301, 302, 319. *Example:* plot() without lw=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 7. *Lines:* 280, 281, 301, 302, 319, 350, 352. *Example:* plot() without lw=.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 2. *Lines:* 144, 145. *Example:* bare expectation `E [`.
 
 ### Medium severity
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 3. *Lines:* 284, 304, 321. *Example:* .set_title.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 278, 299, 317, 339. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 3. *Lines:* 283, 305, 322. *Example:* axis label `Time`.
+- **[qe-link-002]** — Use doc links for cross-series references. *Count:* 1. *Lines:* 97. *Example:* raw link to python-intro.quantecon.org.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 314. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 3. *Lines:* 72, 155. *Example:* 2 spaces.
 
@@ -56,5 +57,5 @@ _None found._
 3. `qe-fig-006` — Lowercase axis labels (3 occurrences).
 4. `qe-fig-005` — Descriptive figure names for cross-referencing (4 occurrences).
 5. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
-6. `qe-fig-008` — Use lw=2 for line charts (5 occurrences).
-7. `qe-writing-008` — Remove excessive whitespace between words (3 occurrences).
+6. `qe-link-002` — Use doc links for cross-series references (1 occurrence).
+7. `qe-fig-008` — Use lw=2 for line charts (7 occurrences).

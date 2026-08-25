@@ -16,7 +16,7 @@
 | Math         | 7.5/10 | `qe-math-010` (proposed) ×2. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 4.5/10 | `qe-fig-003` ×6; `qe-fig-005` ×8; `qe-fig-008` ×10, +1 more. |
+| Figures      | 4.5/10 | `qe-fig-003` ×6; `qe-fig-005` ×8; `qe-fig-008` ×12, +1 more. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -30,7 +30,7 @@ _None found._
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 8. *Lines:* 184, 215, 247, 449, 504, 537, 603, 634. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 6. *Lines:* 188, 219, 251, 606, 613, 641. *Example:* .set_title.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 8. *Lines:* 183, 214, 246, 437, 496, 536, 599, 626. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 10. *Lines:* 186, 187, 217, 218, 249, 250, 452, 457, 505, 541. *Example:* plot() without lw=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 12. *Lines:* 186, 187, 217, 218, 249, 250, 452, 457, 505, 541, …. *Example:* plot() without lw=.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 2. *Lines:* 578, 592. *Example:* non-blackboard `\operatorname{Var}`.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 6. *Lines:* 228, 381, 399, 561, 661, 663. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 3. *Lines:* 58, 286, 665. *Example:* H2 Title Case: 'Frequentist Interpretation' (Interpretation).

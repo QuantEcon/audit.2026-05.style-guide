@@ -17,7 +17,7 @@
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5.5/10 | `qe-fig-003` ×3; `qe-fig-004` ×4; `qe-fig-005` ×1, +2 more. |
-| References   | 7/10  | `qe-ref-001` ×14. |
+| References   | 7/10  | `qe-ref-001` ×10. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
@@ -28,8 +28,8 @@ _None found._
 
 ### High severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 5. *Lines:* 328, 366, 397, 553, 655. *Example:* figsize=.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 7. *Lines:* 329, 376, 398, 555, 557, 656, 657. *Example:* plot() without lw=.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 14. *Lines:* 40, 57, 444, 446, 448, 587, 599, 668. *Example:* {cite} in author position: '{cite}`Sargent1999` and'.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 5. *Lines:* 329, 376, 398, 656, 657. *Example:* plot() without lw=.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 10. *Lines:* 40, 57, 444, 446, 448, 587, 599, 668. *Example:* {cite} in narrative flow: 'of {cite}`'.
 
 ### Medium severity
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 3. *Lines:* 372, 379, 564. *Example:* .set_title.
@@ -50,10 +50,10 @@ _None found._
 
 ## Recommended actions
 
-1. `qe-ref-001` — Use correct citation style (14 occurrences).
+1. `qe-ref-001` — Use correct citation style (10 occurrences).
 2. `qe-fig-003` — No matplotlib embedded titles (3 occurrences).
 3. `qe-fig-004` — Caption formatting conventions (4 occurrences).
 4. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (1 occurrence).
 5. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
-6. `qe-fig-008` — Use lw=2 for line charts (7 occurrences).
+6. `qe-fig-008` — Use lw=2 for line charts (5 occurrences).
 7. `qe-fig-001` — Do not set figure size unless necessary (5 occurrences).

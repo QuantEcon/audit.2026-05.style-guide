@@ -16,7 +16,7 @@
 | Math         | 7.5/10 | `qe-math-010` (proposed) ×4. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 8.5/10 | `qe-fig-001` ×10; `qe-fig-008` ×1. |
+| Figures      | 9/10  | `qe-fig-001` ×10. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -34,13 +34,12 @@ _None found._
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 3. *Lines:* 428, 513, 886. *Example:* mid-sentence 'Law'.
 
 ### Low severity
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 775. *Example:* plot() without lw=.
 - **[qe-writing-009 (proposed)]** — Write "IID" — not "i.i.d." or "iid". *Count:* 1. *Lines:* 647. *Example:* i.i.d..
 
 
 ## Strengths
 
-- Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- Code, Figures, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
 - No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
 - No `qe-admon-003` violations — Use tick count management for nested directives.
 - No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
@@ -53,4 +52,3 @@ _None found._
 2. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (3 occurrences).
 3. `qe-fig-001` — Do not set figure size unless necessary (10 occurrences).
 4. `qe-writing-009` (proposed) — Write "IID" — not "i.i.d." or "iid" (1 occurrence).
-5. `qe-fig-008` — Use lw=2 for line charts (1 occurrence).

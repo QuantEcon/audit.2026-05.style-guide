@@ -16,7 +16,7 @@
 | Math         | 3/10  | `qe-math-010` (proposed) ×31; `qe-math-002` ×27; `qe-math-003` ×38, +1 more. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 5.5/10 | `qe-fig-005` ×8; `qe-fig-007` ×4; `qe-fig-008` ×14, +1 more. |
+| Figures      | 5.5/10 | `qe-fig-005` ×8; `qe-fig-007` ×2; `qe-fig-008` ×14, +1 more. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -37,7 +37,7 @@ _None found._
 
 ### Medium severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 384, 2810. *Example:* figsize=.
-- **[qe-fig-007]** — Keep figure box and spines. *Count:* 4. *Lines:* 387, 388, 389, 390. *Example:* spine removal.
+- **[qe-fig-007]** — Keep figure box and spines. *Count:* 2. *Lines:* 389, 390. *Example:* spine removal.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 2822, 2830. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 2145. *Example:* mid-sentence 'Components'.
 - **[qe-writing-009 (proposed)]** — Write "IID" — not "i.i.d." or "iid". *Count:* 3. *Lines:* 602, 1830, 1832. *Example:* i.i.d..

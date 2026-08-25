@@ -16,7 +16,7 @@
 | Math         | 4.5/10 | `qe-math-002` ×8; `qe-math-010` (proposed) ×2. |
 | Code         | 9/10  | `qe-code-002` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 5.5/10 | `qe-fig-005` ×6; `qe-fig-003` ×3; `qe-fig-008` ×2, +1 more. |
+| Figures      | 5.5/10 | `qe-fig-005` ×6; `qe-fig-003` ×3; `qe-fig-008` ×12, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 9/10  | `qe-link-002` ×1. |
 | Admonitions  | N/A   | no admonitions, exercises or solutions. |
@@ -28,6 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 6. *Lines:* 625, 635, 716, 759, 769, 788. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 12. *Lines:* 563, 564, 565, 566, 572, 573, 605, 606, 613, 614, …. *Example:* plot() without lw=.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 8. *Lines:* 244, 247, 249, 298. *Example:* apostrophe transpose `x'`.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 2. *Lines:* 227, 240. *Example:* missing braces: `\mathbb E`.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 12. *Lines:* 137, 165, 201, 221, 253, 328, 407, 472, 494, 508, …. *Example:* H3 Title Case: 'Digression on a Useful Isomorphism' (Useful, Isomorphism).
@@ -36,7 +37,6 @@ _None found._
 ### Medium severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 559, 601, 707. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 3. *Lines:* 568, 609, 711. *Example:* .set(title=.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 708, 709. *Example:* plot() without lw=.
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 1. *Lines:* 163. *Example:* raw link to python-advanced.quantecon.org.
 
 ### Low severity

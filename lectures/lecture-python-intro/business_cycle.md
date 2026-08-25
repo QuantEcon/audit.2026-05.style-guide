@@ -16,7 +16,7 @@
 | Math         | N/A   | no mathematical content. |
 | Code         | 6.5/10 | `qe-code-001` ×15; `qe-code-003` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 7/10  | `qe-fig-004` ×2; `qe-fig-006` ×1; `qe-fig-008` ×7, +1 more. |
+| Figures      | 7/10  | `qe-fig-004` ×2; `qe-fig-006` ×1; `qe-fig-008` ×2, +1 more. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | N/A   | no admonitions, exercises or solutions. |
@@ -28,11 +28,11 @@ _None found._
 
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 15. *Lines:* 84, 110, 193, 194, 195, 339, 386, 499, 500, 501, …. *Example:* three distinct PEP8 spacing patterns. (a) Missing space after the colon in dict literals, inconsistent within a single line - `{'color':'grey', 'alpha': 0.2}` at lines 193, 194, 195 and the duplicated block at 499, 500, 501. (b) `nber['USREC']==1` with no spaces around the comparison at lines 386, 652, 673, 730. (c) Continuation lines that do not reach the visual-indent column - 12 spaces instead of 31 for `wb.data.DataFrame(` at lines 84, 110, 513, 4 spaces at 587, and 16 instead of 22 at line 339.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 7. *Lines:* 162, 375, 378, 381, 471, 648, 726. *Example:* plot() without lw=.
 
 ### Medium severity
 - **[qe-code-003]** — Package installation at lecture top. *Count:* 1. *Lines:* 28. *Example:* non-Anaconda import with no install cell: ['pandas_datareader'].
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 2. *Lines:* 628, 756. *Example:* caption of 8 words.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 162, 471. *Example:* plot() without lw=.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 601. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 623. *Example:* mid-sentence 'Consumer'.
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 2. *Lines:* 20, 22. *Example:* the lecture's central terms are defined in plain text: 'Business cycles are fluctuations in economic activity over time' (line 20) and the four names introduced at line 22 - expansions, booms, contractions, recessions - all of which are used throughout. No bold appears anywhere in the file.

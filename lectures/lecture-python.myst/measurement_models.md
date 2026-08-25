@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.0 / 10
+- **Overall score:** 8.1 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -16,7 +16,7 @@
 | Math         | 5.5/10 | `qe-math-010` (proposed) ×9; `qe-math-011` (proposed) ×1. |
 | Code         | 7.5/10 | `qe-code-002` ×8. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 8.5/10 | `qe-fig-005` ×1; `qe-fig-001` ×2. |
+| Figures      | 9.5/10 | `qe-fig-001` ×2. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -38,12 +38,12 @@ _None found._
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 45, 276. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
-- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 1283. *Example:* code-cell figure without mystnb figure metadata.
+_None found._
 
 
 ## Strengths
 
-- References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- Figures, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
 - No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
 - No `qe-admon-003` violations — Use tick count management for nested directives.
 - No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
@@ -58,4 +58,4 @@ _None found._
 4. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
 5. `qe-math-011` (proposed) — Distribution names in plain letters, not \mathcal / \mathbb (1 occurrence).
 6. `qe-writing-008` — Remove excessive whitespace between words (20 occurrences).
-7. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
+7. `qe-fig-001` — Do not set figure size unless necessary (2 occurrences).

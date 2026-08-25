@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.8 / 10
+- **Overall score:** 7.9 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -16,7 +16,7 @@
 | Math         | 10/10 | no mechanical violations detected. |
 | Code         | 7.5/10 | `qe-code-001` ×8. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 5/10  | `qe-fig-003` ×4; `qe-fig-007` ×2; `qe-fig-005` ×4, +3 more. |
+| Figures      | 5.5/10 | `qe-fig-003` ×4; `qe-fig-005` ×3; `qe-fig-007` ×1, +3 more. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -34,14 +34,14 @@ _None found._
 ### Medium severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 4. *Lines:* 171, 315, 470, 552. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 4. *Lines:* 175, 178, 181, 482. *Example:* .set_title.
-- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 160, 290, 456, 551. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-fig-007]** — Keep figure box and spines. *Count:* 2. *Lines:* 322, 324. *Example:* spine removal.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 343, 351, 556. *Example:* plot() without lw=.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 160, 456, 551. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 343, 351. *Example:* plot() without lw=.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 404, 490. *Example:* the "### Properties" heading at 404 names nothing (properties of what?) and opens by asserting "the column sums of $A$ are $r(A)=1$", which contradicts the result two sections earlier that $r(A) = 1 + b - d$ (269-272); and 490-517 is a second, self-contained derivation of the same convergence result "without the Perron-Frobenius theorem" - 28 lines of diagonalisation algebra tacked onto the end of another section with no heading of its own.
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 2. *Lines:* 258, 286. *Example:* the lecture bolds **lake model** at 27 and then nothing else, so the two terms it goes on to define in the body - the dominant eigenvalue ("$r(A)$ can be considered as the dominant eigenvalue in this lecture", 258) and the dominant eigenvector ("we call $\bar{x}$ the dominant eigenvector", 286) - are introduced in plain text.
 
 ### Low severity
 - **[qe-fig-002]** — Prefer code-generated figures. *Count:* 1. *Lines:* 41. *Example:* static image .png.
+- **[qe-fig-007]** — Keep figure box and spines. *Count:* 1. *Lines:* 324. *Example:* spine removal.
 
 
 ## Strengths

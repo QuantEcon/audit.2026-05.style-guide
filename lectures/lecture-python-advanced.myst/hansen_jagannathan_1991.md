@@ -16,7 +16,7 @@
 | Math         | 5/10  | `qe-math-010` (proposed) ×39. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 8.5/10 | `qe-fig-001` ×6; `qe-fig-008` ×2. |
+| Figures      | 9/10  | `qe-fig-001` ×6. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -31,7 +31,7 @@ _None found._
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 39. *Lines:* 56, 99, 107, 121, 139, 169, 260, 278, 282, 285, …. *Example:* bare expectation `E(`.
 
 ### Medium severity
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 878, 1169. *Example:* plot() without lw=.
+_None found._
 
 ### Low severity
 _None found._
@@ -39,7 +39,7 @@ _None found._
 
 ## Strengths
 
-- Writing, Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- Writing, Code, Figures, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
 - No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
 - No `qe-admon-003` violations — Use tick count management for nested directives.
 - No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
@@ -50,4 +50,3 @@ _None found._
 
 1. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (39 occurrences).
 2. `qe-fig-001` — Do not set figure size unless necessary (6 occurrences).
-3. `qe-fig-008` — Use lw=2 for line charts (2 occurrences).

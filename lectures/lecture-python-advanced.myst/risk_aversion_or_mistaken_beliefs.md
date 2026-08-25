@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.5 / 10
+- **Overall score:** 7.6 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -16,7 +16,7 @@
 | Math         | 3/10  | `qe-math-010` (proposed) ×34; `qe-math-011` (proposed) ×18. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 3/10  | `qe-fig-006` ×19; `qe-fig-005` ×12; `qe-fig-004` ×2, +3 more. |
+| Figures      | 3.5/10 | `qe-fig-006` ×19; `qe-fig-005` ×12; `qe-fig-004` ×2, +2 more. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -30,7 +30,6 @@ _None found._
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 10. *Lines:* 196, 549, 603, 657, 758, 1112, 1527, 1572, 1618, 1704. *Example:* figsize=.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 12. *Lines:* 188, 278, 539, 594, 646, 756, 885, 1096, 1193, 1503, …. *Example:* {figure} without :name:.
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 19. *Lines:* 212, 213, 214, 554, 555, 612, 662, 663, 776, 1116, …. *Example:* axis label `Density`.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 5. *Lines:* 1536, 1583, 1705, 1707, 1709. *Example:* plot() without lw=.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 34. *Lines:* 150, 152, 290, 832, 856, 870, 876, 909, 912, 917, …. *Example:* bare expectation `E_t(`.
 - **[qe-math-011 (proposed)]** — Distribution names in plain letters, not \mathcal / \mathbb. *Count:* 18. *Lines:* 104, 125, 137, 152, 164, 219, 223, 251, 329, 361, …. *Example:* decorated distribution `\mathcal{N}`.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 5. *Lines:* 32, 52, 68, 704. *Example:* 2 spaces.

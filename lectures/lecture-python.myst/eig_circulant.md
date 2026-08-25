@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.3 / 10
+- **Overall score:** 8.4 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -16,7 +16,7 @@
 | Math         | 8/10  | `qe-math-003` ×4. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6.5/10 | `qe-fig-003` ×2; `qe-fig-005` ×2; `qe-fig-001` ×2. |
+| Figures      | 7/10  | `qe-fig-003` ×2; `qe-fig-005` ×1; `qe-fig-001` ×2. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -33,11 +33,10 @@ _None found._
 ### Medium severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 264, 522. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 2. *Lines:* 280, 528. *Example:* .set_title.
-- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 263, 504. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 4. *Lines:* 54, 170, 186, 297. *Example:* array used as matrix.
 
 ### Low severity
-_None found._
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 263. *Example:* code-cell figure without mystnb figure metadata.
 
 
 ## Strengths
@@ -53,6 +52,6 @@ _None found._
 1. `qe-writing-006` — Capitalize lecture titles properly (5 occurrences).
 2. `qe-math-003` — Use square brackets for matrix notation (4 occurrences).
 3. `qe-fig-003` — No matplotlib embedded titles (2 occurrences).
-4. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
-5. `qe-writing-008` — Remove excessive whitespace between words (44 occurrences).
+4. `qe-writing-008` — Remove excessive whitespace between words (44 occurrences).
+5. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
 6. `qe-fig-001` — Do not set figure size unless necessary (2 occurrences).

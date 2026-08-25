@@ -16,7 +16,7 @@
 | Math         | 3/10  | `qe-math-002` ×19; `qe-math-004` ×106. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 5.5/10 | `qe-fig-005` ×7; `qe-fig-006` ×4; `qe-fig-001` ×7, +1 more. |
+| Figures      | 5.5/10 | `qe-fig-005` ×6; `qe-fig-006` ×4; `qe-fig-001` ×7, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -28,7 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 7. *Lines:* 130, 180, 232, 301, 418, 628, 827. *Example:* figsize=.
-- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 7. *Lines:* 127, 175, 217, 291, 415, 624, 800. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 6. *Lines:* 127, 175, 217, 415, 624, 800. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 19. *Lines:* 207, 465, 871, 900, 901, 918, 919, 926, 927, 929, …. *Example:* apostrophe transpose `i'`.
 - **[qe-math-004]** — Do not use bold face for matrices or vectors. *Count:* 106. *Lines:* 195, 202, 207, 212, 215, 257, 264, 267, 276, 278, …. *Example:* \mathbf.
 
@@ -54,7 +54,7 @@ _None found._
 
 1. `qe-math-002` — Use \top for transpose notation (19 occurrences).
 2. `qe-math-004` — Do not use bold face for matrices or vectors (106 occurrences).
-3. `qe-fig-005` — Descriptive figure names for cross-referencing (7 occurrences).
+3. `qe-fig-005` — Descriptive figure names for cross-referencing (6 occurrences).
 4. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (2 occurrences).
 5. `qe-fig-006` — Lowercase axis labels (4 occurrences).
 6. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).

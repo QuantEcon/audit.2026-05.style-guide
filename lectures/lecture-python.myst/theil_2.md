@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.8 / 10
+- **Overall score:** 8.9 / 10
 - **Priority:** NONE
 
 ## Score breakdown
@@ -17,7 +17,7 @@
 | Code         | 8.5/10 | `qe-code-002` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8.5/10 | `qe-fig-005` ×1; `qe-fig-001` ×5. |
-| References   | 9/10  | `qe-ref-001` ×1. |
+| References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
@@ -37,7 +37,6 @@ _None found._
 
 ### Low severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 770. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 73. *Example:* {cite} in author position: '{cite}`hansen2004certainty` and'.
 
 
 ## Strengths
@@ -47,13 +46,13 @@ _None found._
 - No `qe-admon-003` violations — Use tick count management for nested directives.
 - No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
 - No `qe-admon-004` violations — Use prf prefix for proof directives.
+- Citations distinguish `{cite}` from `{cite:t}` correctly (3 parenthetical, 11 in-text).
 
 ## Recommended actions
 
 1. `qe-writing-001` — Use one sentence per paragraph (3 occurrences).
 2. `qe-math-004` — Do not use bold face for matrices or vectors (3 occurrences).
 3. `qe-code-002` — Use Unicode symbols for Greek letters in code (4 occurrences).
-4. `qe-ref-001` — Use correct citation style (1 occurrence).
-5. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
-6. `qe-fig-001` — Do not set figure size unless necessary (5 occurrences).
-7. `qe-writing-008` — Remove excessive whitespace between words (4 occurrences).
+4. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
+5. `qe-fig-001` — Do not set figure size unless necessary (5 occurrences).
+6. `qe-writing-008` — Remove excessive whitespace between words (4 occurrences).

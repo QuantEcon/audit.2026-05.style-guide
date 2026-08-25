@@ -1,0 +1,32 @@
+{
+  "series": "lecture-python-intro",
+  "lecture": "markov_chains_II",
+  "judgment": [
+    {"rule": "qe-writing-003", "count": 3, "lines": [189, 202, 208],
+     "detail": "three cross-references do not connect to what they claim. Line 208 reads `{ref}`discussed before <mc_eg1-1>`` but no label `mc_eg1-1` exists in either Markov lecture - markov_chains_I defines `mc_eg1` and this file defines `mc_eg1-2`, so the reference is broken. Line 189 says \"The result in [theorem 4.3](llnfmc0)\", which hard-codes a theorem number and then links to the *equation* label `llnfmc0` rather than the theorem's own label `stationary` (169). Line 202 links `[not IID](iid_violation)` to a target defined in lln_clt.md (line 406), which a bare markdown link cannot resolve across documents"},
+    {"rule": "qe-code-001", "count": 7, "lines": [258, 261, 321, 441, 468, 576, 629],
+     "detail": "spaces around the keyword-argument `=` in `label = fr'...'` (261-262, 321-322); a single space before an inline comment plus trailing whitespace (258); missing space after commas in `('1','2',...)` (441, 468), where `codes_B` is also assigned and never used; an invalid escape sequence in the non-raw f-string `f'$x_0 = \\, {x0} $'` (576), which pycodestyle flags as W605 and which the neighbouring cells correctly write as `fr'...'`; and `result = lambda P: ...` bound to a name inside the loop it is used in, shadowing both `result` and the loop variable `P` (629)"},
+    {"rule": "qe-writing-002", "count": 2, "lines": [351, 406],
+     "detail": "the eight-state Benhabib matrix is printed three times within thirty lines - as a `bmatrix` (406-418), as a Python literal inside the exercise (429-438), and as the same literal again in the solution (458-465); and the six-state political-institutions matrix is printed twice more here (351-361, 372-377) on top of the three copies it already has in markov_chains_I. Referring back to the labelled matrix in the earlier lecture would carry the same information"}
+  ],
+  "strengths": [
+    "Definitions are bolded once, at the point of definition, and never re-bolded: accessible and reachable (61), communicate (63), irreducible (71), ergodicity (189)",
+    "The ergodicity result is presented as a `prf:theorem` with a labelled equation, and then the lecture immediately gives the two interpretations that make it useful - fraction of time for one worker versus fraction of a population (218-222)",
+    "The periodic-chain example (278-342) is exactly the right counterexample in the right place: it shows ergodicity holding while asymptotic stationarity fails, and 338-342 states that distinction in one sentence",
+    "The indicator is written `\\mathbb{1}\\{X_t = x\\}` with braces around the event throughout (177, 238, 533), matching the proposed qe-math-014 convention, and `\\mathbb{1}` is explained at 187",
+    "The inline comment \"# Careful: P and p are distinct\" at 563 pre-empts exactly the confusion the reader is about to have between the transition matrix and the unemployment probability"
+  ],
+  "actions": [
+    "Fix the broken reference at 208 - `mc_eg1-1` does not exist; the cross-sectional discussion it points at is `cross-sectional-distributions` in markov_chains_I (line 648)",
+    "Replace \"[theorem 4.3](llnfmc0)\" at 189 with `{prf:ref}`stationary`` so the theorem number is generated rather than hard-coded, and convert the cross-document link at 202 to a `{ref}` role",
+    "Replace the three static transition-graph PNGs (79, 116, 296) with networkx code of the kind markov_chains_I uses at 261-288, and add `mystnb: figure: caption/name` metadata to the five un-named figures (251, 311, 371, 484, 558)",
+    "Make the state labelling consistent: the figures at 391 and 494 label the series `$x = 1$ ... $x = 8$` while indexing `ψ_star[x0]` and `(X == x0)` from zero, and the figure at 267 labels from zero - and for the political chain the states have names (DG, DC, ...) rather than numbers",
+    "Cite the eight-state matrix once and refer back to it rather than printing it three times (406, 429, 458); the same applies to the six-state matrix already given in markov_chains_I",
+    "Convert the three narrative-position citations to `{cite:t}` (158, 404, 597) and the code cell inside the non-gated `{exercise}` at 429 to gated `exercise-start`/`exercise-end` syntax",
+    "Set `lw=2` on the five line plots (267, 331, 391, 494, 576), fix the PEP8 items above, and drop the unused `codes_B` assignments"
+  ],
+  "scanner_doubts": [
+    "markov_chains_II.md:208 - the reference `{ref}`discussed before <mc_eg1-1>`` targets a label that exists nowhere in the corpus, which per spec section 5 is a build-risk (Critical) item; no rule in the drafted report catches it, so broken `{ref}` targets appear to be outside the mechanised layer's coverage even though broken `{eq}` refs are in scope",
+    "markov_chains_II.md:189 - \"The result in [theorem 4.3](llnfmc0)\" hard-codes a theorem number in prose, which is the same defect qe-math-013 (proposed) catches for equations (\"see equation (3)\"); the drafted report shows no qe-math-013 finding for this lecture"
+  ]
+}

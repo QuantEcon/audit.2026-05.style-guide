@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.2 / 10
+- **Overall score:** 7.4 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -16,9 +16,9 @@
 | Math         | 5/10  | `qe-math-002` ×43. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 7/10  | `qe-fig-005` ×5; `qe-fig-008` ×2; `qe-fig-001` ×1. |
+| Figures      | 7.5/10 | `qe-fig-005` ×2; `qe-fig-008` ×2; `qe-fig-001` ×1. |
 | References   | N/A   | no citations in this lecture. |
-| Links        | 8/10  | `qe-link-002` ×1; `qe-link-001` ×1. |
+| Links        | 9/10  | `qe-link-002` ×1. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
@@ -27,24 +27,23 @@
 _None found._
 
 ### High severity
-- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 190, 656, 728, 782, 910. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 43. *Lines:* 239, 404, 431, 444, 488, 535, 543, 575, 609, 635, …. *Example:* apostrophe transpose `A'`.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 25. *Lines:* 77, 119, 147, 224, 293, 374, 446, 508, 516, 560, …. *Example:* H2 Title Case: 'The Linear State Space Model' (Linear, State, Space, Model).
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 30. *Lines:* 87, 88, 465, 469, 488, 551, 552, 589, 613, 614, …. *Example:* 2 spaces.
 
 ### Medium severity
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 728, 782. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 689, 946. *Example:* plot() without lw=.
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 1. *Lines:* 1343. *Example:* raw link to python-programming.quantecon.org.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 444, 1409. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 1. *Lines:* 668. *Example:* figsize=.
-- **[qe-link-001]** — Use markdown style links for lectures in same lecture series. *Count:* 1. *Lines:* 1046. *Example:* full URL to own series (python.quantecon.org).
 
 
 ## Strengths
 
-- Code, Admonitions score 9 or above — no material violations measured in those categories.
+- Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
 - No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
 - No `qe-admon-003` violations — Use tick count management for nested directives.
 - No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
@@ -54,8 +53,8 @@ _None found._
 
 1. `qe-writing-006` — Capitalize lecture titles properly (25 occurrences).
 2. `qe-math-002` — Use \top for transpose notation (43 occurrences).
-3. `qe-fig-005` — Descriptive figure names for cross-referencing (5 occurrences).
-4. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
+3. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
+4. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
 5. `qe-writing-008` — Remove excessive whitespace between words (30 occurrences).
 6. `qe-link-002` — Use doc links for cross-series references (1 occurrence).
-7. `qe-link-001` — Use markdown style links for lectures in same lecture series (1 occurrence).
+7. `qe-fig-008` — Use lw=2 for line charts (2 occurrences).

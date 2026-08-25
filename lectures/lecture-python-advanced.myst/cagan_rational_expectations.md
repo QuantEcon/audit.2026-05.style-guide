@@ -17,7 +17,7 @@
 | Code         | 8.5/10 | `qe-code-002` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5.5/10 | `qe-fig-006` ×2; `qe-fig-004` ×2; `qe-fig-003` ×1, +2 more. |
-| References   | 8.5/10 | `qe-ref-001` ×3. |
+| References   | 8.5/10 | `qe-ref-001` ×2. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
@@ -37,7 +37,7 @@ _None found._
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 2. *Lines:* 451, 1178. *Example:* caption of 7 words.
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 2. *Lines:* 473, 1683. *Example:* axis label `True $\alpha$`.
 - **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 2. *Lines:* 632, 1037. *Example:* pmatrix environment.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 3. *Lines:* 739, 1030. *Example:* {cite} in author position: '{cite}`sims1972money` proved'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 739, 1030. *Example:* {cite} in author position: '{cite}`sims1972money` proved'.
 
 ### Low severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 1669. *Example:* code-cell figure without mystnb figure metadata.
@@ -57,7 +57,7 @@ _None found._
 1. `qe-math-002` — Use \top for transpose notation (6 occurrences).
 2. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (4 occurrences).
 3. `qe-math-003` — Use square brackets for matrix notation (2 occurrences).
-4. `qe-ref-001` — Use correct citation style (3 occurrences).
+4. `qe-ref-001` — Use correct citation style (2 occurrences).
 5. `qe-fig-006` — Lowercase axis labels (2 occurrences).
 6. `qe-fig-004` — Caption formatting conventions (2 occurrences).
 7. `qe-code-002` — Use Unicode symbols for Greek letters in code (3 occurrences).

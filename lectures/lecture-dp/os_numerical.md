@@ -16,7 +16,7 @@
 | Math         | 10/10 | no mechanical violations detected. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 5.5/10 | `qe-fig-005` ×6; `qe-fig-003` ×3; `qe-fig-008` ×9. |
+| Figures      | 5.5/10 | `qe-fig-005` ×6; `qe-fig-003` ×3; `qe-fig-008` ×7. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -28,7 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 6. *Lines:* 287, 359, 376, 464, 572, 614. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 9. *Lines:* 293, 303, 362, 379, 380, 469, 470, 635, 636. *Example:* plot() without lw=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 7. *Lines:* 362, 379, 380, 469, 470, 635, 636. *Example:* plot() without lw=.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 5. *Lines:* 55, 86, 106, 125, 411. *Example:* H2 Title Case: 'Reviewing the Model' (Model).
 
 ### Medium severity
@@ -51,5 +51,5 @@ _None found._
 1. `qe-writing-006` — Capitalize lecture titles properly (5 occurrences).
 2. `qe-fig-005` — Descriptive figure names for cross-referencing (6 occurrences).
 3. `qe-fig-003` — No matplotlib embedded titles (3 occurrences).
-4. `qe-fig-008` — Use lw=2 for line charts (9 occurrences).
+4. `qe-fig-008` — Use lw=2 for line charts (7 occurrences).
 5. `qe-writing-008` — Remove excessive whitespace between words (1 occurrence).

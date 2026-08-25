@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.2 / 10
+- **Overall score:** 8.4 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -17,7 +17,7 @@
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-003` ×3; `qe-fig-005` ×4; `qe-fig-008` ×6. |
-| References   | 9/10  | `qe-ref-001` ×1. |
+| References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
@@ -38,7 +38,7 @@ _None found._
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 3. *Lines:* 195, 629, 1023. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
-- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 68. *Example:* {cite} in author position: '{cite}`Blanchard_Khan` and'.
+_None found._
 
 
 ## Strengths
@@ -57,4 +57,4 @@ _None found._
 4. `qe-fig-005` — Descriptive figure names for cross-referencing (4 occurrences).
 5. `qe-writing-008` — Remove excessive whitespace between words (33 occurrences).
 6. `qe-math-004` — Do not use bold face for matrices or vectors (1 occurrence).
-7. `qe-ref-001` — Use correct citation style (1 occurrence).
+7. `qe-fig-008` — Use lw=2 for line charts (6 occurrences).

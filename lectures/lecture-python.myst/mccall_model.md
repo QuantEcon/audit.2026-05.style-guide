@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.4 / 10
+- **Overall score:** 7.3 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -18,7 +18,7 @@
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-005` ×8; `qe-fig-003` ×2; `qe-fig-008` ×2. |
 | References   | 10/10 | no mechanical violations detected. |
-| Links        | 9/10  | `qe-link-002` ×1. |
+| Links        | 8/10  | `qe-link-002` ×2. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
@@ -36,7 +36,7 @@ _None found._
 ### Medium severity
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 2. *Lines:* 602, 868. *Example:* .set_title.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 375, 1178. *Example:* plot() without lw=.
-- **[qe-link-002]** — Use doc links for cross-series references. *Count:* 1. *Lines:* 382. *Example:* raw link to python-programming.quantecon.org.
+- **[qe-link-002]** — Use doc links for cross-series references. *Count:* 2. *Lines:* 124, 382. *Example:* raw link to dp.quantecon.org.
 - **[qe-math-001]** — Prefer UTF-8 unicode for simple parameter mentions, be consistent. *Count:* 1. *Lines:* 425. *Example:* unicode `β` inside a math environment.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 33. *Example:* 2 sentences in one paragraph.
 
@@ -46,7 +46,7 @@ _None found._
 
 ## Strengths
 
-- Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- Code, References, Admonitions score 9 or above — no material violations measured in those categories.
 - No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
 - No `qe-admon-003` violations — Use tick count management for nested directives.
 - No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
@@ -57,7 +57,7 @@ _None found._
 1. `qe-writing-006` — Capitalize lecture titles properly (12 occurrences).
 2. `qe-math-002` — Use \top for transpose notation (12 occurrences).
 3. `qe-fig-005` — Descriptive figure names for cross-referencing (8 occurrences).
-4. `qe-fig-003` — No matplotlib embedded titles (2 occurrences).
-5. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (1 occurrence).
-6. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
-7. `qe-math-001` — Prefer UTF-8 unicode for simple parameter mentions, be consistent (1 occurrence).
+4. `qe-link-002` — Use doc links for cross-series references (2 occurrences).
+5. `qe-fig-003` — No matplotlib embedded titles (2 occurrences).
+6. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (1 occurrence).
+7. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).

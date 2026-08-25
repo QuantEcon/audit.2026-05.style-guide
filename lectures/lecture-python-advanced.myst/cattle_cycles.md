@@ -17,7 +17,7 @@
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5/10  | `qe-fig-003` ×5; `qe-fig-005` ×3; `qe-fig-008` ×11, +1 more. |
-| References   | 8.5/10 | `qe-ref-001` ×4. |
+| References   | 8.5/10 | `qe-ref-001` ×3. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | N/A   | no admonitions, exercises or solutions. |
 
@@ -34,7 +34,7 @@ _None found._
 ### Medium severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 354, 388. *Example:* figsize=.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 331, 347, 384. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 4. *Lines:* 27, 206, 325. *Example:* {cite} in narrative flow: '{cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 3. *Lines:* 27, 206, 325. *Example:* {cite} in narrative flow: '{cite}`'.
 
 ### Low severity
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 1. *Lines:* 38. *Example:* 2 spaces.
@@ -52,7 +52,7 @@ _None found._
 
 1. `qe-math-003` — Use square brackets for matrix notation (10 occurrences).
 2. `qe-fig-003` — No matplotlib embedded titles (5 occurrences).
-3. `qe-ref-001` — Use correct citation style (4 occurrences).
+3. `qe-ref-001` — Use correct citation style (3 occurrences).
 4. `qe-fig-005` — Descriptive figure names for cross-referencing (3 occurrences).
 5. `qe-fig-008` — Use lw=2 for line charts (11 occurrences).
 6. `qe-fig-001` — Do not set figure size unless necessary (2 occurrences).

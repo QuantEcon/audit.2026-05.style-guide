@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.9 / 10
+- **Overall score:** 9.0 / 10
 - **Priority:** NONE
 
 ## Score breakdown
@@ -16,7 +16,7 @@
 | Math         | 7/10  | `qe-math-005` ×3; `qe-math-010` (proposed) ×1. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 7/10  | `qe-fig-005` ×2; `qe-fig-004` ×1; `qe-fig-008` ×1, +1 more. |
+| Figures      | 7.5/10 | `qe-fig-005` ×2; `qe-fig-004` ×1; `qe-fig-001` ×1. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -37,7 +37,6 @@ _None found._
 ### Low severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 1. *Lines:* 1161. *Example:* figsize=.
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 1. *Lines:* 1032. *Example:* Title Case caption (Student-t).
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 1211. *Example:* plot() without lw=.
 
 
 ## Strengths
@@ -55,5 +54,4 @@ _None found._
 3. `qe-writing-006` — Capitalize lecture titles properly (1 occurrence).
 4. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (1 occurrence).
 5. `qe-fig-004` — Caption formatting conventions (1 occurrence).
-6. `qe-fig-008` — Use lw=2 for line charts (1 occurrence).
-7. `qe-fig-001` — Do not set figure size unless necessary (1 occurrence).
+6. `qe-fig-001` — Do not set figure size unless necessary (1 occurrence).

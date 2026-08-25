@@ -17,7 +17,7 @@
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 3/10  | `qe-fig-007` ×30; `qe-fig-004` ×19; `qe-fig-006` ×6, +3 more. |
-| References   | 7.5/10 | `qe-ref-001` ×6. |
+| References   | 7.5/10 | `qe-ref-001` ×5. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
@@ -30,8 +30,8 @@ _None found._
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 19. *Lines:* 95, 144, 221, 273, 425, 461, 507, 570, 639, 733, …. *Example:* Title Case caption (Spending).
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 6. *Lines:* 124, 1049, 1050, 1134, 1214, 1215. *Example:* axis label `Millions of livres`.
 - **[qe-fig-007]** — Keep figure box and spines. *Count:* 30. *Lines:* 119, 120, 164, 165, 249, 250, 295, 296, 440, 441, …. *Example:* spine removal.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 34. *Lines:* 160, 240, 244, 285, 520, 585, 586, 654, 745, 749, …. *Example:* plot() without lw=.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 6. *Lines:* 39, 313, 340, 405, 981. *Example:* {cite} in author position: '{cite}`smith2010wealth` and'.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 28. *Lines:* 244, 585, 586, 745, 749, 752, 800, 803, 806, 831, …. *Example:* plot() without lw=.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 5. *Lines:* 39, 313, 340, 405, 981. *Example:* {cite} in narrative flow: '     {cite}`'.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 5. *Lines:* 57, 80, 342, 979, 990. *Example:* H2 Title Case: 'Data Sources' (Sources).
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 89. *Lines:* 19, 22, 24, 30, 32, 34, 36, 43, 45, 47, …. *Example:* 2 spaces.
 
@@ -58,7 +58,7 @@ _None found._
 1. `qe-writing-006` — Capitalize lecture titles properly (5 occurrences).
 2. `qe-fig-007` — Keep figure box and spines (30 occurrences).
 3. `qe-fig-004` — Caption formatting conventions (19 occurrences).
-4. `qe-ref-001` — Use correct citation style (6 occurrences).
+4. `qe-ref-001` — Use correct citation style (5 occurrences).
 5. `qe-fig-006` — Lowercase axis labels (6 occurrences).
 6. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
 7. `qe-fig-005` — Descriptive figure names for cross-referencing (3 occurrences).

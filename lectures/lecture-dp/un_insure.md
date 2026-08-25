@@ -17,7 +17,7 @@
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5.5/10 | `qe-fig-003` ×2; `qe-fig-006` ×3; `qe-fig-005` ×1, +2 more. |
-| References   | 8.5/10 | `qe-ref-001` ×2. |
+| References   | 9/10  | `qe-ref-001` ×1. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
@@ -34,16 +34,16 @@ _None found._
 ### Medium severity
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 2. *Lines:* 854, 863. *Example:* plt.title.
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 3. *Lines:* 852, 861, 862. *Example:* axis label `Replacement ratio (c/w)`.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 317. *Example:* {cite} in author position: '{cite}`Shavell_Weiss_79` and'.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 755. *Example:* mid-sentence 'Algorithm'.
 
 ### Low severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 835. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 317. *Example:* {cite} in narrative flow: 'Following  {cite}`'.
 
 
 ## Strengths
 
-- Math, Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- Math, Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
 - No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
 - No `qe-admon-003` violations — Use tick count management for nested directives.
 - No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
@@ -52,9 +52,9 @@ _None found._
 ## Recommended actions
 
 1. `qe-fig-003` — No matplotlib embedded titles (2 occurrences).
-2. `qe-ref-001` — Use correct citation style (2 occurrences).
-3. `qe-fig-006` — Lowercase axis labels (3 occurrences).
-4. `qe-writing-008` — Remove excessive whitespace between words (107 occurrences).
-5. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (1 occurrence).
+2. `qe-fig-006` — Lowercase axis labels (3 occurrences).
+3. `qe-writing-008` — Remove excessive whitespace between words (107 occurrences).
+4. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (1 occurrence).
+5. `qe-ref-001` — Use correct citation style (1 occurrence).
 6. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
 7. `qe-fig-008` — Use lw=2 for line charts (6 occurrences).

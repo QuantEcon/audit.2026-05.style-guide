@@ -16,7 +16,7 @@
 | Math         | 10/10 | no mechanical violations detected. |
 | Code         | 7.5/10 | `qe-code-002` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 5/10  | `qe-fig-005` ×9; `qe-fig-003` ×3; `qe-fig-007` ×1, +2 more. |
+| Figures      | 5/10  | `qe-fig-005` ×7; `qe-fig-003` ×3; `qe-fig-007` ×1, +2 more. |
 | References   | 9/10  | `qe-ref-001` ×1. |
 | Links        | 8/10  | `qe-link-002` ×1; `qe-link-001` ×1. |
 | Admonitions  | N/A   | no admonitions, exercises or solutions. |
@@ -29,7 +29,7 @@ _None found._
 ### High severity
 - **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 6. *Lines:* 741, 742, 979. *Example:* spelled-out `alpha`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 6. *Lines:* 413, 653, 1068, 1196, 1310, 1333. *Example:* figsize=.
-- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 9. *Lines:* 405, 649, 1143, 1155, 1169, 1235, 1358, 1363, 1368. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 7. *Lines:* 405, 1143, 1155, 1169, 1358, 1363, 1368. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 8. *Lines:* 430, 431, 432, 654, 1069, 1200, 1316, 1337. *Example:* plot() without lw=.
 
 ### Medium severity
@@ -53,7 +53,7 @@ _None found._
 
 ## Recommended actions
 
-1. `qe-fig-005` — Descriptive figure names for cross-referencing (9 occurrences).
+1. `qe-fig-005` — Descriptive figure names for cross-referencing (7 occurrences).
 2. `qe-code-002` — Use Unicode symbols for Greek letters in code (6 occurrences).
 3. `qe-fig-003` — No matplotlib embedded titles (3 occurrences).
 4. `qe-link-002` — Use doc links for cross-series references (1 occurrence).

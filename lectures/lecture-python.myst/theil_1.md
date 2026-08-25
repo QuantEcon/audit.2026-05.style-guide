@@ -16,7 +16,7 @@
 | Math         | 7.5/10 | `qe-math-010` (proposed) ×3. |
 | Code         | 8.5/10 | `qe-code-002` ×2. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6.5/10 | `qe-fig-003` ×2; `qe-fig-005` ×1; `qe-fig-004` ×1, +2 more. |
+| Figures      | 6.5/10 | `qe-fig-003` ×2; `qe-fig-005` ×1; `qe-fig-004` ×1, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -38,7 +38,6 @@ _None found._
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 1. *Lines:* 290. *Example:* figsize=.
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 1. *Lines:* 264. *Example:* caption of 7 words.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 360. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 369. *Example:* plot() without lw=.
 
 
 ## Strengths
@@ -58,4 +57,4 @@ _None found._
 4. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
 5. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
 6. `qe-fig-004` — Caption formatting conventions (1 occurrence).
-7. `qe-fig-008` — Use lw=2 for line charts (1 occurrence).
+7. `qe-fig-001` — Do not set figure size unless necessary (1 occurrence).

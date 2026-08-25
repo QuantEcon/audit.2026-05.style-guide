@@ -16,8 +16,8 @@
 | Math         | 5/10  | `qe-math-002` ×8; `qe-math-001` ×2. |
 | Code         | 9.5/10 | `qe-code-004` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 8/10  | `qe-fig-005` ×3; `qe-fig-008` ×4. |
-| References   | 8.5/10 | `qe-ref-001` ×2. |
+| Figures      | 8/10  | `qe-fig-005` ×3; `qe-fig-008` ×3. |
+| References   | 9/10  | `qe-ref-001` ×1. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
@@ -32,17 +32,17 @@ _None found._
 
 ### Medium severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 407, 488, 561. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 4. *Lines:* 423, 427, 431, 497. *Example:* plot() without lw=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 423, 427, 431. *Example:* plot() without lw=.
 - **[qe-math-001]** — Prefer UTF-8 unicode for simple parameter mentions, be consistent. *Count:* 2. *Lines:* 380, 405. *Example:* unicode `σ` inside a math environment.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 194. *Example:* {cite} in author position: '{cite}`Coleman1990` and'.
 
 ### Low severity
 - **[qe-code-004]** — Use quantecon Timer context manager. *Count:* 1. *Lines:* 562. *Example:* %%time.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 194. *Example:* {cite} in narrative flow: '{cite}`'.
 
 
 ## Strengths
 
-- Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
 - No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
 - No `qe-admon-003` violations — Use tick count management for nested directives.
 - No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
@@ -53,7 +53,7 @@ _None found._
 1. `qe-math-002` — Use \top for transpose notation (8 occurrences).
 2. `qe-writing-006` — Capitalize lecture titles properly (4 occurrences).
 3. `qe-math-001` — Prefer UTF-8 unicode for simple parameter mentions, be consistent (2 occurrences).
-4. `qe-ref-001` — Use correct citation style (2 occurrences).
-5. `qe-fig-005` — Descriptive figure names for cross-referencing (3 occurrences).
-6. `qe-fig-008` — Use lw=2 for line charts (4 occurrences).
+4. `qe-fig-005` — Descriptive figure names for cross-referencing (3 occurrences).
+5. `qe-ref-001` — Use correct citation style (1 occurrence).
+6. `qe-fig-008` — Use lw=2 for line charts (3 occurrences).
 7. `qe-code-004` — Use quantecon Timer context manager (1 occurrence).

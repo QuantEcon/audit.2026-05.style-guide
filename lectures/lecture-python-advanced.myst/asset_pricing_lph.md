@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 6.9 / 10
+- **Overall score:** 7.0 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -17,7 +17,7 @@
 | Code         | 7/10  | `qe-code-002` ×13. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7.5/10 | `qe-fig-003` ×1; `qe-fig-005` ×1; `qe-fig-008` ×3. |
-| References   | 7.5/10 | `qe-ref-001` ×7. |
+| References   | 8.5/10 | `qe-ref-001` ×4. |
 | Links        | 7.5/10 | `qe-link-001` ×3; `qe-link-002` ×1. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
@@ -31,7 +31,6 @@ _None found._
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 2. *Lines:* 508. *Example:* \prime transpose.
 - **[qe-math-006]** — Use aligned environment correctly for PDF compatibility. *Count:* 2. *Lines:* 684, 713. *Example:* bare \begin{align*} display block; the corpus convention is $$ … \begin{aligned} … $$.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 26. *Lines:* 118, 144, 266, 307, 394, 414, 470, 477, 633, 640, …. *Example:* bare expectation `E(`.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 7. *Lines:* 28, 33, 83, 105. *Example:* {cite} in narrative flow: 'of {cite}`'.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 76. *Lines:* 22, 23, 25, 35, 39, 44, 51, 57, 63, 83, …. *Example:* 2 spaces.
 
 ### Medium severity
@@ -39,6 +38,7 @@ _None found._
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 380, 381, 387. *Example:* plot() without lw=.
 - **[qe-link-001]** — Use markdown style links for lectures in same lecture series. *Count:* 3. *Lines:* 57, 59, 93. *Example:* full URL to own series (python-advanced.quantecon.org).
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 1. *Lines:* 96. *Example:* raw link to python.quantecon.org.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 4. *Lines:* 28, 83, 105. *Example:* {cite} in narrative flow: 'of {cite}`'.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 105, 457. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 2. *Lines:* 725, 773. *Example:* mid-sentence 'Problem'.
 
@@ -60,6 +60,6 @@ _None found._
 2. `qe-code-002` — Use Unicode symbols for Greek letters in code (13 occurrences).
 3. `qe-math-006` — Use aligned environment correctly for PDF compatibility (2 occurrences).
 4. `qe-math-002` — Use \top for transpose notation (2 occurrences).
-5. `qe-ref-001` — Use correct citation style (7 occurrences).
-6. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (2 occurrences).
-7. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
+5. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (2 occurrences).
+6. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
+7. `qe-ref-001` — Use correct citation style (4 occurrences).

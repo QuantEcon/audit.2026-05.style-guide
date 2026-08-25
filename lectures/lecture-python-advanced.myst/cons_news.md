@@ -5,8 +5,8 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 7.4 / 10
-- **Priority:** LOW
+- **Overall score:** 7.0 / 10
+- **Priority:** MEDIUM
 
 ## Score breakdown
 
@@ -18,7 +18,7 @@
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-003` ×4; `qe-fig-005` ×4; `qe-fig-008` ×11. |
 | References   | 10/10 | no mechanical violations detected. |
-| Links        | 10/10 | no mechanical violations detected. |
+| Links        | 7.5/10 | `qe-link-002` ×7. |
 | Admonitions  | N/A   | no admonitions, exercises or solutions. |
 
 ## Issues
@@ -28,6 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 11. *Lines:* 748, 749, 768, 769, 770, 798, 799, 800, 807, 808, …. *Example:* plot() without lw=.
+- **[qe-link-002]** — Use doc links for cross-series references. *Count:* 7. *Lines:* 36, 56, 86, 412, 486, 498, 501. *Example:* raw link to python-intro.quantecon.org.
 - **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 17. *Lines:* 549, 553, 557, 561, 565, 566, 576, 580, 584, 588, …. *Example:* array used as matrix.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 4. *Lines:* 234, 380, 383, 405. *Example:* bare expectation `E [`.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 8. *Lines:* 485, 486, 680, 711. *Example:* mid-sentence 'Difference'.
@@ -45,7 +46,7 @@ _None found._
 
 ## Strengths
 
-- References, Links score 9 or above — no material violations measured in those categories.
+- References score 9 or above — no material violations measured in those categories.
 - No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
 - No `qe-admon-003` violations — Use tick count management for nested directives.
 - No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
@@ -56,7 +57,7 @@ _None found._
 1. `qe-math-003` — Use square brackets for matrix notation (17 occurrences).
 2. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (4 occurrences).
 3. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (8 occurrences).
-4. `qe-fig-003` — No matplotlib embedded titles (4 occurrences).
-5. `qe-writing-009` (proposed) — Write "IID" — not "i.i.d." or "iid" (4 occurrences).
-6. `qe-fig-005` — Descriptive figure names for cross-referencing (4 occurrences).
-7. `qe-code-002` — Use Unicode symbols for Greek letters in code (2 occurrences).
+4. `qe-link-002` — Use doc links for cross-series references (7 occurrences).
+5. `qe-fig-003` — No matplotlib embedded titles (4 occurrences).
+6. `qe-writing-009` (proposed) — Write "IID" — not "i.i.d." or "iid" (4 occurrences).
+7. `qe-fig-005` — Descriptive figure names for cross-referencing (4 occurrences).

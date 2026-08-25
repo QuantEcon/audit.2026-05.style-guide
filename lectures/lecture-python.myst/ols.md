@@ -17,7 +17,7 @@
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5/10  | `qe-fig-005` ×5; `qe-fig-003` ×3; `qe-fig-006` ×4, +2 more. |
-| References   | 7.5/10 | `qe-ref-001` ×8. |
+| References   | 7.5/10 | `qe-ref-001` ×5. |
 | Links        | 9/10  | `qe-link-002` ×1. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
@@ -29,7 +29,7 @@ _None found._
 ### High severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 60, 102, 136, 281, 411. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 3. *Lines:* 651, 665. *Example:* apostrophe transpose `}'`.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 8. *Lines:* 80, 314, 398, 444, 544. *Example:* {cite} in narrative flow: '{cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 5. *Lines:* 80, 314, 398, 444, 544. *Example:* {cite} in narrative flow: '{cite}`'.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 2. *Lines:* 78, 304. *Example:* H2 Title Case: 'Simple Linear Regression' (Linear, Regression).
 
 ### Medium severity
@@ -54,7 +54,7 @@ _None found._
 
 1. `qe-writing-006` — Capitalize lecture titles properly (2 occurrences).
 2. `qe-math-002` — Use \top for transpose notation (3 occurrences).
-3. `qe-ref-001` — Use correct citation style (8 occurrences).
+3. `qe-ref-001` — Use correct citation style (5 occurrences).
 4. `qe-fig-005` — Descriptive figure names for cross-referencing (5 occurrences).
 5. `qe-fig-003` — No matplotlib embedded titles (3 occurrences).
 6. `qe-fig-006` — Lowercase axis labels (4 occurrences).

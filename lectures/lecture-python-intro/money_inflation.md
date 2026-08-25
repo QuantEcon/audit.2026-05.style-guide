@@ -5,8 +5,8 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.4 / 10
-- **Priority:** LOW
+- **Overall score:** 8.6 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
@@ -16,8 +16,8 @@
 | Math         | 7/10  | `qe-math-001` ×2; `qe-math-002` ×1. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 5.5/10 | `qe-fig-005` ×5; `qe-fig-004` ×3; `qe-fig-008` ×10, +1 more. |
-| References   | 9/10  | `qe-ref-001` ×1. |
+| Figures      | 6/10  | `qe-fig-005` ×3; `qe-fig-004` ×3; `qe-fig-008` ×10, +1 more. |
+| References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
@@ -27,7 +27,6 @@
 _None found._
 
 ### High severity
-- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 509, 884, 1038, 1108, 1203. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 10. *Lines:* 329, 535, 538, 905, 908, 912, 1048, 1121, 1122, 1209. *Example:* plot() without lw=.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 1. *Lines:* 1036. *Example:* apostrophe transpose `S'`.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 90. *Lines:* 35, 36, 43, 50, 54, 60, 78, 80, 81, 96, …. *Example:* 3 spaces.
@@ -35,12 +34,13 @@ _None found._
 ### Medium severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 4. *Lines:* 262, 328, 525, 889. *Example:* style override.
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 3. *Lines:* 313, 557, 930. *Example:* caption of 32 words.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 1038, 1108, 1203. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-math-001]** — Prefer UTF-8 unicode for simple parameter mentions, be consistent. *Count:* 2. *Lines:* 446. *Example:* LaTeX `\gamma` outside math delimiters.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 410. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 1180. *Example:* mid-sentence 'Method'.
 
 ### Low severity
-- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 993. *Example:* {cite} in author position: '{cite}`bruno1990seigniorage` and'.
+_None found._
 
 
 ## Strengths
@@ -53,8 +53,8 @@ _None found._
 
 ## Recommended actions
 
-1. `qe-fig-005` — Descriptive figure names for cross-referencing (5 occurrences).
-2. `qe-math-001` — Prefer UTF-8 unicode for simple parameter mentions, be consistent (2 occurrences).
+1. `qe-math-001` — Prefer UTF-8 unicode for simple parameter mentions, be consistent (2 occurrences).
+2. `qe-fig-005` — Descriptive figure names for cross-referencing (3 occurrences).
 3. `qe-fig-004` — Caption formatting conventions (3 occurrences).
 4. `qe-math-002` — Use \top for transpose notation (1 occurrence).
 5. `qe-writing-008` — Remove excessive whitespace between words (90 occurrences).

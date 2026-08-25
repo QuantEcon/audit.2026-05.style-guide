@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.3 / 10
+- **Overall score:** 8.4 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -16,7 +16,7 @@
 | Math         | 6.5/10 | `qe-math-010` (proposed) ×1; `qe-math-006` ×1; `qe-math-005` ×1. |
 | Code         | 8.5/10 | `qe-code-002` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6/10  | `qe-fig-003` ×3; `qe-fig-005` ×4; `qe-fig-008` ×2, +1 more. |
+| Figures      | 6.5/10 | `qe-fig-003` ×3; `qe-fig-005` ×3; `qe-fig-001` ×4. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -36,8 +36,7 @@ _None found._
 - **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 4. *Lines:* 56, 173. *Example:* spelled-out `gamma`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 4. *Lines:* 185, 274, 438, 473. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 3. *Lines:* 443, 448, 499. *Example:* .set_title.
-- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 166, 268, 433, 467. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 492, 494. *Example:* plot() without lw=.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 166, 268, 433. *Example:* code-cell figure without mystnb figure metadata.
 
 ### Low severity
 - **[qe-math-005]** — Use curly brackets for sequences. *Count:* 1. *Lines:* 310. *Example:* parenthesised sequence.
@@ -54,7 +53,7 @@ _None found._
 ## Recommended actions
 
 1. `qe-fig-003` — No matplotlib embedded titles (3 occurrences).
-2. `qe-fig-005` — Descriptive figure names for cross-referencing (4 occurrences).
+2. `qe-fig-005` — Descriptive figure names for cross-referencing (3 occurrences).
 3. `qe-code-002` — Use Unicode symbols for Greek letters in code (4 occurrences).
 4. `qe-writing-006` — Capitalize lecture titles properly (1 occurrence).
 5. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (1 occurrence).

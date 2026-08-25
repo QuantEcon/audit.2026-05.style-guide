@@ -16,7 +16,7 @@
 | Math         | 3/10  | `qe-math-010` (proposed) ×11; `qe-math-002` ×8. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6.5/10 | `qe-fig-006` ×3; `qe-fig-008` ×12; `qe-fig-005` ×1, +1 more. |
+| Figures      | 7/10  | `qe-fig-006` ×3; `qe-fig-008` ×12; `qe-fig-001` ×2. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -37,7 +37,7 @@ _None found._
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 3. *Lines:* 780, 835, 842. *Example:* axis label `Time`.
 
 ### Low severity
-- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 587. *Example:* code-cell figure without mystnb figure metadata.
+_None found._
 
 
 ## Strengths
@@ -54,6 +54,5 @@ _None found._
 2. `qe-math-002` — Use \top for transpose notation (8 occurrences).
 3. `qe-fig-006` — Lowercase axis labels (3 occurrences).
 4. `qe-fig-008` — Use lw=2 for line charts (12 occurrences).
-5. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
-6. `qe-writing-008` — Remove excessive whitespace between words (7 occurrences).
-7. `qe-fig-001` — Do not set figure size unless necessary (2 occurrences).
+5. `qe-writing-008` — Remove excessive whitespace between words (7 occurrences).
+6. `qe-fig-001` — Do not set figure size unless necessary (2 occurrences).

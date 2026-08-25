@@ -16,7 +16,7 @@
 | Math         | 10/10 | no mechanical violations detected. |
 | Code         | 6/10  | `qe-code-001` ×8; `qe-code-003` ×2. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 4.5/10 | `qe-fig-006` ×9; `qe-fig-004` ×9; `qe-fig-005` ×4, +2 more. |
+| Figures      | 4.5/10 | `qe-fig-006` ×9; `qe-fig-004` ×9; `qe-fig-005` ×4, +1 more. |
 | References   | 8.5/10 | `qe-ref-001` ×4. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -38,7 +38,6 @@ _None found._
 - **[qe-code-003]** — Package installation at lecture top. *Count:* 2. *Lines:* 22, 30. *Example:* non-Anaconda import with no install cell: ['packaging'].
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 4. *Lines:* 110, 810, 890, 910. *Example:* figsize=.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 538, 701, 786, 871. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 113, 892. *Example:* plot() without lw=.
 - **[qe-ref-001]** — Use correct citation style. *Count:* 4. *Lines:* 69, 646, 668, 672. *Example:* {cite} in narrative flow: 'of {cite}`'.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 164, 454. *Example:* 164-174 announces {numref}`lrpl_lg`, then describes what it shows (166), then interrupts with a note about logarithms (168) and an unrelated sentence about 1914 (172) before the figure finally appears at 174; and line 452 promises "We'll see similar patterns in the next three episodes that we'll study now", but the Hungary, Poland and Germany sections (454-630) contain six figures and not one sentence of interpretation - the reader gets no commentary again until 632.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 2. *Lines:* 502. *Example:* mid-sentence 'Price'.

@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.8 / 10
+- **Overall score:** 8.9 / 10
 - **Priority:** NONE
 
 ## Score breakdown
@@ -16,7 +16,7 @@
 | Math         | 10/10 | no mechanical violations detected. |
 | Code         | 7/10  | `qe-code-002` ×9; `qe-code-003` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6/10  | `qe-fig-006` ×2; `qe-fig-005` ×4; `qe-fig-004` ×1, +1 more. |
+| Figures      | 6.5/10 | `qe-fig-006` ×2; `qe-fig-005` ×3; `qe-fig-004` ×1. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -31,9 +31,8 @@ _None found._
 
 ### Medium severity
 - **[qe-code-003]** — Package installation at lecture top. *Count:* 1. *Lines:* 20. *Example:* non-Anaconda import with no install cell: ['jax'].
-- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 123, 409, 913, 942. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 123, 913, 942. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 2. *Lines:* 933, 962. *Example:* axis label `Posterior mean of $x$`.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 443, 450, 917. *Example:* plot() without lw=.
 
 ### Low severity
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 1. *Lines:* 269. *Example:* Title Case caption (Monte, Carlo).
@@ -51,7 +50,6 @@ _None found._
 
 1. `qe-code-002` — Use Unicode symbols for Greek letters in code (9 occurrences).
 2. `qe-fig-006` — Lowercase axis labels (2 occurrences).
-3. `qe-fig-005` — Descriptive figure names for cross-referencing (4 occurrences).
+3. `qe-fig-005` — Descriptive figure names for cross-referencing (3 occurrences).
 4. `qe-code-003` — Package installation at lecture top (1 occurrence).
 5. `qe-fig-004` — Caption formatting conventions (1 occurrence).
-6. `qe-fig-008` — Use lw=2 for line charts (3 occurrences).

@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 9.1 / 10
+- **Overall score:** 9.2 / 10
 - **Priority:** NONE
 
 ## Score breakdown
@@ -16,7 +16,7 @@
 | Math         | 10/10 | no mechanical violations detected. |
 | Code         | 8.5/10 | `qe-code-002` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 7/10  | `qe-fig-005` ×6; `qe-fig-008` ×5; `qe-fig-001` ×1. |
+| Figures      | 7.5/10 | `qe-fig-005` ×6; `qe-fig-001` ×1. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -28,7 +28,6 @@ _None found._
 
 ### High severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 6. *Lines:* 50, 874, 896, 929, 948, 1005. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 5. *Lines:* 370, 410, 550, 951, 953. *Example:* plot() without lw=.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 65. *Lines:* 96, 105, 107, 143, 229, 230, 242, 262, 271, 274, …. *Example:* 2 spaces.
 
 ### Medium severity
@@ -51,5 +50,4 @@ _None found._
 1. `qe-fig-005` — Descriptive figure names for cross-referencing (6 occurrences).
 2. `qe-code-002` — Use Unicode symbols for Greek letters in code (4 occurrences).
 3. `qe-writing-008` — Remove excessive whitespace between words (65 occurrences).
-4. `qe-fig-008` — Use lw=2 for line charts (5 occurrences).
-5. `qe-fig-001` — Do not set figure size unless necessary (1 occurrence).
+4. `qe-fig-001` — Do not set figure size unless necessary (1 occurrence).

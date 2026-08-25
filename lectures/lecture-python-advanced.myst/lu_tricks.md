@@ -5,8 +5,8 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.6 / 10
-- **Priority:** NONE
+- **Overall score:** 8.4 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
@@ -16,9 +16,9 @@
 | Math         | 7/10  | `qe-math-003` ×10. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 8/10  | `qe-fig-003` ×1; `qe-fig-005` ×1; `qe-fig-001` ×1. |
+| Figures      | 8.5/10 | `qe-fig-003` ×1; `qe-fig-001` ×1. |
 | References   | 10/10 | no mechanical violations detected. |
-| Links        | 10/10 | no mechanical violations detected. |
+| Links        | 8/10  | `qe-link-002` ×4. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
@@ -33,16 +33,16 @@ _None found._
 
 ### Medium severity
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 942. *Example:* .set(title=.
+- **[qe-link-002]** — Use doc links for cross-series references. *Count:* 4. *Lines:* 25, 34, 103. *Example:* raw link to python-intro.quantecon.org.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 4. *Lines:* 25, 1028, 1045, 1065. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 1. *Lines:* 937. *Example:* figsize=.
-- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 920. *Example:* code-cell figure without mystnb figure metadata.
 
 
 ## Strengths
 
-- Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- Code, References, Admonitions score 9 or above — no material violations measured in those categories.
 - No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
 - No `qe-admon-003` violations — Use tick count management for nested directives.
 - No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
@@ -53,7 +53,7 @@ _None found._
 1. `qe-math-003` — Use square brackets for matrix notation (10 occurrences).
 2. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (6 occurrences).
 3. `qe-writing-001` — Use one sentence per paragraph (4 occurrences).
-4. `qe-fig-003` — No matplotlib embedded titles (1 occurrence).
-5. `qe-writing-008` — Remove excessive whitespace between words (10 occurrences).
-6. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
+4. `qe-link-002` — Use doc links for cross-series references (4 occurrences).
+5. `qe-fig-003` — No matplotlib embedded titles (1 occurrence).
+6. `qe-writing-008` — Remove excessive whitespace between words (10 occurrences).
 7. `qe-fig-001` — Do not set figure size unless necessary (1 occurrence).

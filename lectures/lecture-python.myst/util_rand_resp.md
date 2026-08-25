@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 8.0 / 10
+- **Overall score:** 8.2 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -16,7 +16,7 @@
 | Math         | 5/10  | `qe-math-010` (proposed) ×113. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 8.5/10 | `qe-fig-005` ×1; `qe-fig-008` ×3. |
+| Figures      | 9.5/10 | `qe-fig-008` ×3. |
 | References   | 9/10  | `qe-ref-001` ×1. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | N/A   | no admonitions, exercises or solutions. |
@@ -35,13 +35,12 @@ _None found._
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 423, 544, 638. *Example:* plot() without lw=.
 
 ### Low severity
-- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 406. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 723. *Example:* {cite} in narrative flow: 'of {cite}`'.
 
 
 ## Strengths
 
-- Code, References, Links score 9 or above — no material violations measured in those categories.
+- Code, Figures, References, Links score 9 or above — no material violations measured in those categories.
 - No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
 - No `qe-admon-003` violations — Use tick count management for nested directives.
 - No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
@@ -53,5 +52,4 @@ _None found._
 2. `qe-writing-006` — Capitalize lecture titles properly (5 occurrences).
 3. `qe-writing-008` — Remove excessive whitespace between words (13 occurrences).
 4. `qe-ref-001` — Use correct citation style (1 occurrence).
-5. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
-6. `qe-fig-008` — Use lw=2 for line charts (3 occurrences).
+5. `qe-fig-008` — Use lw=2 for line charts (3 occurrences).

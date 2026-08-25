@@ -28,13 +28,13 @@ _None found._
 
 ### High severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 5. *Lines:* 569, 657, 829, 895, 1087. *Example:* figsize=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 8. *Lines:* 577, 672, 852, 901, 1093, 1097, 1101, 1102. *Example:* plot() without lw=.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 13. *Lines:* 278, 280, 293, 295, 347, 356, 357, 977, 984, 989. *Example:* apostrophe transpose `f'`.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 11. *Lines:* 82, 102, 154, 216, 250, 477, 691, 785, 913, 967, …. *Example:* H2 Title Case: 'The Model' (Model).
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 79. *Lines:* 30, 33, 37, 39, 54, 61, 84, 86, 95, 116, …. *Example:* 2 spaces.
 
 ### Medium severity
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 3. *Lines:* 578, 673, 903. *Example:* .set(xlabel='t', ylabel=ylabels[i], title=.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 4. *Lines:* 1093, 1097, 1101, 1102. *Example:* plot() without lw=.
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 1. *Lines:* 31. *Example:* raw link to python-programming.quantecon.org.
 
 ### Low severity

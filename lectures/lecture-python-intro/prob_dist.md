@@ -16,7 +16,7 @@
 | Math         | 7.5/10 | `qe-math-010` (proposed) ×3. |
 | Code         | 7.5/10 | `qe-code-002` ×8. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 8/10  | `qe-fig-008` ×14; `qe-fig-005` ×1. |
+| Figures      | 8.5/10 | `qe-fig-005` ×1; `qe-fig-008` ×4. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -28,11 +28,10 @@ _None found._
 
 ### High severity
 - **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 8. *Lines:* 911, 912, 934, 935, 983, 984, 1006, 1007. *Example:* spelled-out `beta`.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 14. *Lines:* 306, 434, 528, 571, 692, 713, 780, 799, 848, 867, …. *Example:* plot() without lw=.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 3. *Lines:* 152, 591, 615. *Example:* missing braces: `\mathbb P`.
 
 ### Medium severity
-_None found._
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 4. *Lines:* 306, 434, 528, 571. *Example:* plot() without lw=.
 
 ### Low severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 473. *Example:* code-cell figure without mystnb figure metadata.
@@ -51,6 +50,6 @@ _None found._
 
 1. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (3 occurrences).
 2. `qe-code-002` — Use Unicode symbols for Greek letters in code (8 occurrences).
-3. `qe-fig-008` — Use lw=2 for line charts (14 occurrences).
-4. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
+3. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
+4. `qe-fig-008` — Use lw=2 for line charts (4 occurrences).
 5. `qe-writing-008` — Remove excessive whitespace between words (1 occurrence).

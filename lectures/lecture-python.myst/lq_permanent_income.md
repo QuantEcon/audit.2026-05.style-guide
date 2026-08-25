@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 9.0 / 10
+- **Overall score:** 9.1 / 10
 - **Priority:** NONE
 
 ## Score breakdown
@@ -16,7 +16,7 @@
 | Math         | 7.5/10 | `qe-math-003` ×5. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6/10  | `qe-fig-003` ×2; `qe-fig-005` ×3; `qe-fig-001` ×3, +1 more. |
+| Figures      | 6.5/10 | `qe-fig-003` ×2; `qe-fig-005` ×3; `qe-fig-001` ×3. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -36,7 +36,7 @@ _None found._
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 3. *Lines:* 166, 167, 266. *Example:* 2 spaces.
 
 ### Low severity
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 658. *Example:* plot() without lw=.
+_None found._
 
 
 ## Strengths
@@ -55,4 +55,3 @@ _None found._
 3. `qe-fig-005` — Descriptive figure names for cross-referencing (3 occurrences).
 4. `qe-writing-008` — Remove excessive whitespace between words (3 occurrences).
 5. `qe-fig-001` — Do not set figure size unless necessary (3 occurrences).
-6. `qe-fig-008` — Use lw=2 for line charts (1 occurrence).

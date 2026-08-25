@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.0 / 10
+- **Overall score:** 7.7 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -18,7 +18,7 @@
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7/10  | `qe-fig-005` ×6; `qe-fig-002` ×6; `qe-fig-009` ×1. |
 | References   | 10/10 | no mechanical violations detected. |
-| Links        | 10/10 | no mechanical violations detected. |
+| Links        | 8/10  | `qe-link-002` ×2. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
@@ -34,6 +34,7 @@ _None found._
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 16. *Lines:* 71, 77, 111, 130, 186, 311, 333, 348, 394, 437, …. *Example:* 2 spaces.
 
 ### Medium severity
+- **[qe-link-002]** — Use doc links for cross-series references. *Count:* 2. *Lines:* 53, 665. *Example:* raw link to python-intro.quantecon.org.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 3. *Lines:* 348, 740, 883. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 2. *Lines:* 55, 104. *Example:* mid-sentence 'Theory'.
 
@@ -43,7 +44,7 @@ _None found._
 
 ## Strengths
 
-- Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- Code, References, Admonitions score 9 or above — no material violations measured in those categories.
 - No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
 - No `qe-admon-003` violations — Use tick count management for nested directives.
 - No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
@@ -56,5 +57,5 @@ _None found._
 3. `qe-fig-005` — Descriptive figure names for cross-referencing (6 occurrences).
 4. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (2 occurrences).
 5. `qe-writing-001` — Use one sentence per paragraph (3 occurrences).
-6. `qe-writing-008` — Remove excessive whitespace between words (16 occurrences).
-7. `qe-fig-002` — Prefer code-generated figures (6 occurrences).
+6. `qe-link-002` — Use doc links for cross-series references (2 occurrences).
+7. `qe-writing-008` — Remove excessive whitespace between words (16 occurrences).

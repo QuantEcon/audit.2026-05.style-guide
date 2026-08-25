@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.8 / 10
+- **Overall score:** 7.9 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -16,8 +16,8 @@
 | Math         | 10/10 | no mechanical violations detected. |
 | Code         | 7/10  | `qe-code-001` ×13. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6/10  | `qe-fig-005` ×3; `qe-fig-004` ×2; `qe-fig-008` ×7, +1 more. |
-| References   | 7.5/10 | `qe-ref-001` ×6. |
+| Figures      | 6/10  | `qe-fig-005` ×2; `qe-fig-004` ×2; `qe-fig-008` ×7, +1 more. |
+| References   | 8.5/10 | `qe-ref-001` ×4. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
@@ -29,7 +29,6 @@ _None found._
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 13. *Lines:* 183, 243, 250, 302, 329, 344, 381, 459, 483, 525, …. *Example:* invalid escape sequences in non-raw strings - `'$\pi_l$'`, `'$\pi$'` (243, 250), which pycodestyle flags as W605 and which the exercise solutions correctly write as `r'$\pi_l$'` (541); `eq_g = lambda x: ...` bound to a name instead of a `def`, twice (329, 344); a backslash continuation inside an expression that is already parenthesisable, with a misaligned second line (302-303); two different continuation indents for the same `axes[2].text(...)` call (380-383); a continuation line under-indented relative to the opening paren (183); and alignment padding before `=` that PEP8 rules out (459, 483, 525, 535, 557, 559).
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 7. *Lines:* 241, 373, 374, 375, 376, 468, 469. *Example:* plot() without lw=.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 6. *Lines:* 23, 49, 51. *Example:* {cite} in author position: '{cite}`Cagan` and'.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 5. *Lines:* 20, 31, 44, 94, 282. *Example:* line 20 is a 38-word sentence that cites `{doc}`money_inflation`` twice within itself ("As in the lecture money_inflation ... in place of the linear demand function used in this lecture money_inflation"), and lines 18, 20 and 31 all repeat the same cross-reference; 44-46 is a 48-word sentence; and two sentences have lost a word, so the reader has to reconstruct them: "Equation the expressions for $m_{t+1}$" (94, for "Equate") and "if we initial $\pi_{-1}^*, p_{-1}$ appropriately" (282, for "initialise").
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 5. *Lines:* 36, 37, 101, 124. *Example:* bold used for emphasis where the rule asks for italic: **lower** (36), **reduced** and **lower** (two on line 37), **lower** (124); and **Pseudo-code** at 101 is a bolded pseudo-heading rather than a definition - the parallel material at 103-112 is real body text under a real heading.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 31. *Lines:* 14, 18, 20, 22, 23, 31, 33, 37, 44, 46, …. *Example:* 2 spaces.
@@ -37,7 +36,8 @@ _None found._
 ### Medium severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 364, 529. *Example:* figsize=.
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 2. *Lines:* 219, 398. *Example:* caption of 10 words.
-- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 360, 457, 524. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 457, 524. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 4. *Lines:* 23, 49, 51. *Example:* {cite} in narrative flow: 'by  {cite}`'.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 33. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 158, 261. *Example:* 158-160 describes both sides of the same equation the same way - "The left side of {eq}`eq:ada_steadypi` is steady state revenue raised by printing money" followed by "The right side ... is the quantity of time $t$ goods that the government raises by printing money" - when the right side is $g$, defined at 68 as the part of government *expenditure* financed by printing money; and the initial condition changes index between sections without comment: the claims at 126-130 are stated for $p_0$ and $m_1 - p_0 = -\alpha\bar\pi$, while 261-266 and the code compute $p_{-1} = m_0 + \alpha\pi^*$, and the figure caption at 402 calls the same object $\pi_0$.
 

@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.6 / 10
+- **Overall score:** 8.8 / 10
 - **Priority:** NONE
 
 ## Score breakdown
@@ -16,7 +16,7 @@
 | Math         | 10/10 | no mechanical violations detected. |
 | Code         | 8.5/10 | `qe-code-002` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6.5/10 | `qe-fig-006` ×4; `qe-fig-005` ×2; `qe-fig-008` ×5. |
+| Figures      | 7.5/10 | `qe-fig-006` ×4; `qe-fig-008` ×5. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -33,7 +33,6 @@ _None found._
 
 ### Medium severity
 - **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 3. *Lines:* 368, 371, 373. *Example:* spelled-out `beta`.
-- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 720, 1007. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 4. *Lines:* 763, 764, 1060, 1061. *Example:* axis label `Quantity`.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 482. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 642. *Example:* mid-sentence 'Economy'.
@@ -53,9 +52,9 @@ _None found._
 ## Recommended actions
 
 1. `qe-fig-006` — Lowercase axis labels (4 occurrences).
-2. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
-3. `qe-code-002` — Use Unicode symbols for Greek letters in code (3 occurrences).
-4. `qe-writing-006` — Capitalize lecture titles properly (1 occurrence).
-5. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (1 occurrence).
-6. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
-7. `qe-writing-008` — Remove excessive whitespace between words (10 occurrences).
+2. `qe-code-002` — Use Unicode symbols for Greek letters in code (3 occurrences).
+3. `qe-writing-006` — Capitalize lecture titles properly (1 occurrence).
+4. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (1 occurrence).
+5. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
+6. `qe-writing-008` — Remove excessive whitespace between words (10 occurrences).
+7. `qe-fig-008` — Use lw=2 for line charts (5 occurrences).

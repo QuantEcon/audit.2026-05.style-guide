@@ -17,7 +17,7 @@
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7/10  | `qe-fig-005` ×5; `qe-fig-008` ×9. |
-| References   | 8.5/10 | `qe-ref-001` ×3. |
+| References   | 8.5/10 | `qe-ref-001` ×2. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | N/A   | no admonitions, exercises or solutions. |
 
@@ -33,7 +33,7 @@ _None found._
 - **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 6. *Lines:* 89, 99, 104, 113, 121, 129. *Example:* array used as matrix.
 
 ### Medium severity
-- **[qe-ref-001]** — Use correct citation style. *Count:* 3. *Lines:* 27, 137. *Example:* {cite} in narrative flow: '{cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 27, 137. *Example:* {cite} in narrative flow: '{cite}`'.
 
 ### Low severity
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 1. *Lines:* 38. *Example:* 2 spaces.
@@ -52,6 +52,6 @@ _None found._
 1. `qe-math-002` — Use \top for transpose notation (2 occurrences).
 2. `qe-math-003` — Use square brackets for matrix notation (6 occurrences).
 3. `qe-fig-005` — Descriptive figure names for cross-referencing (5 occurrences).
-4. `qe-ref-001` — Use correct citation style (3 occurrences).
+4. `qe-ref-001` — Use correct citation style (2 occurrences).
 5. `qe-fig-008` — Use lw=2 for line charts (9 occurrences).
 6. `qe-writing-008` — Remove excessive whitespace between words (1 occurrence).

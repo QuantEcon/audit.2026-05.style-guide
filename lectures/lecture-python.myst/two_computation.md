@@ -16,7 +16,7 @@
 | Math         | 3/10  | `qe-math-002` ×15; `qe-math-010` (proposed) ×6; `qe-math-004` ×2, +1 more. |
 | Code         | 9/10  | `qe-code-003` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 3/10  | `qe-fig-003` ×28; `qe-fig-006` ×46; `qe-fig-005` ×6, +3 more. |
+| Figures      | 3/10  | `qe-fig-003` ×28; `qe-fig-006` ×46; `qe-fig-005` ×5, +3 more. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | N/A   | no admonitions, exercises or solutions. |
@@ -29,9 +29,8 @@ _None found._
 ### High severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 10. *Lines:* 294, 599, 1578, 1885, 2037, 2096, 2152, 2509, 2727, 2923. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 28. *Lines:* 602, 606, 711, 1895, 1907, 2046, 2064, 2104, 2114, 2123, …. *Example:* .set_title.
-- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 6. *Lines:* 2024, 2080, 2151, 2488, 2710, 2855. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 2024, 2080, 2151, 2488, 2710. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 46. *Lines:* 301, 302, 603, 607, 709, 710, 1167, 1586, 1587, 1893, …. *Example:* axis label `Date born`.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 6. *Lines:* 708, 1160, 2513, 2526, 2541, 2556. *Example:* plot() without lw=.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 15. *Lines:* 153, 162, 173, 367, 368, 369, 377, 479, 488. *Example:* apostrophe transpose `)'`.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 6. *Lines:* 149, 153, 227, 358. *Example:* bare expectation `E_t[`.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 7. *Lines:* 51, 91, 133, 229, 341, 380. *Example:* 2 spaces.
@@ -39,6 +38,7 @@ _None found._
 ### Medium severity
 - **[qe-code-003]** — Package installation at lecture top. *Count:* 1. *Lines:* 1. *Example:* non-Anaconda import with no install cell: ['jax'].
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 2. *Lines:* 1143, 1571. *Example:* caption of 10 words.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 4. *Lines:* 601, 605, 708, 1160. *Example:* plot() without lw=.
 - **[qe-math-004]** — Do not use bold face for matrices or vectors. *Count:* 2. *Lines:* 459, 472. *Example:* \mathbf.
 
 ### Low severity
@@ -60,6 +60,6 @@ _None found._
 2. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (6 occurrences).
 3. `qe-fig-003` — No matplotlib embedded titles (28 occurrences).
 4. `qe-fig-006` — Lowercase axis labels (46 occurrences).
-5. `qe-fig-005` — Descriptive figure names for cross-referencing (6 occurrences).
+5. `qe-fig-005` — Descriptive figure names for cross-referencing (5 occurrences).
 6. `qe-math-004` — Do not use bold face for matrices or vectors (2 occurrences).
 7. `qe-fig-004` — Caption formatting conventions (2 occurrences).

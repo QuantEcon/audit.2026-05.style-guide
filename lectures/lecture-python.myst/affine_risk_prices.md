@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.8 / 10
+- **Overall score:** 7.9 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -17,7 +17,7 @@
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5/10  | `qe-fig-006` ×16; `qe-fig-004` ×4; `qe-fig-001` ×5, +1 more. |
-| References   | 8.5/10 | `qe-ref-001` ×2. |
+| References   | 9/10  | `qe-ref-001` ×1. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
@@ -36,17 +36,17 @@ _None found._
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 4. *Lines:* 567, 782, 958, 1324. *Example:* caption of 7 words.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 594, 805. *Example:* plot() without lw=.
 - **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 2. *Lines:* 731, 1303. *Example:* pmatrix environment.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 63. *Example:* {cite} in author position: '{cite}`Bansal_Yaron_2004` and'.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 652, 680. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 4. *Lines:* 51, 54, 653, 680. *Example:* 2 spaces.
 
 ### Low severity
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 63. *Example:* {cite} in narrative flow: 'and {cite}`'.
 - **[qe-writing-009 (proposed)]** — Write "IID" — not "i.i.d." or "iid". *Count:* 1. *Lines:* 110. *Example:* i.i.d..
 
 
 ## Strengths
 
-- Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
 - No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
 - No `qe-admon-003` violations — Use tick count management for nested directives.
 - No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
@@ -59,5 +59,5 @@ _None found._
 3. `qe-math-011` (proposed) — Distribution names in plain letters, not \mathcal / \mathbb (9 occurrences).
 4. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
 5. `qe-math-003` — Use square brackets for matrix notation (2 occurrences).
-6. `qe-ref-001` — Use correct citation style (2 occurrences).
-7. `qe-fig-004` — Caption formatting conventions (4 occurrences).
+6. `qe-fig-004` — Caption formatting conventions (4 occurrences).
+7. `qe-writing-009` (proposed) — Write "IID" — not "i.i.d." or "iid" (1 occurrence).

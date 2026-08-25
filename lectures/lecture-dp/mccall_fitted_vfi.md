@@ -16,7 +16,7 @@
 | Math         | 8/10  | `qe-math-004` ×2. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 5.5/10 | `qe-fig-005` ×7; `qe-fig-003` ×4; `qe-fig-001` ×5, +1 more. |
+| Figures      | 5.5/10 | `qe-fig-005` ×6; `qe-fig-003` ×4; `qe-fig-001` ×5, +1 more. |
 | References   | 9/10  | `qe-ref-001` ×1. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -28,7 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 5. *Lines:* 408, 451, 563, 772, 861. *Example:* figsize=.
-- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 7. *Lines:* 210, 407, 448, 557, 740, 812, 852. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 6. *Lines:* 210, 407, 448, 557, 812, 852. *Example:* code-cell figure without mystnb figure metadata.
 
 ### Medium severity
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 4. *Lines:* 571, 581, 597, 782. *Example:* .set_title.
@@ -50,7 +50,7 @@ _None found._
 
 ## Recommended actions
 
-1. `qe-fig-005` — Descriptive figure names for cross-referencing (7 occurrences).
+1. `qe-fig-005` — Descriptive figure names for cross-referencing (6 occurrences).
 2. `qe-math-004` — Do not use bold face for matrices or vectors (2 occurrences).
 3. `qe-fig-003` — No matplotlib embedded titles (4 occurrences).
 4. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).

@@ -17,7 +17,7 @@
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 4.5/10 | `qe-fig-004` ×5; `qe-fig-003` ×2; `qe-fig-006` ×1, +3 more. |
-| References   | 7.5/10 | `qe-ref-001` ×7. |
+| References   | 7.5/10 | `qe-ref-001` ×6. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
@@ -30,7 +30,7 @@ _None found._
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 5. *Lines:* 182, 284, 317, 390, 465. *Example:* figsize=.
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 5. *Lines:* 175, 277, 305, 372. *Example:* caption of 9 words.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 5. *Lines:* 183, 188, 286, 319, 320. *Example:* plot() without lw=.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 7. *Lines:* 54, 57, 87, 206, 420. *Example:* {cite} in narrative flow: '{cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 6. *Lines:* 54, 57, 87, 206, 420. *Example:* {cite} in narrative flow: '{cite}`'.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 2. *Lines:* 301, 334. *Example:* H2 Title Case: 'Why the Fed was slow: a counterfactual' (Fed).
 
 ### Medium severity
@@ -53,7 +53,7 @@ _None found._
 ## Recommended actions
 
 1. `qe-writing-006` — Capitalize lecture titles properly (2 occurrences).
-2. `qe-ref-001` — Use correct citation style (7 occurrences).
+2. `qe-ref-001` — Use correct citation style (6 occurrences).
 3. `qe-fig-004` — Caption formatting conventions (5 occurrences).
 4. `qe-fig-003` — No matplotlib embedded titles (2 occurrences).
 5. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (1 occurrence).

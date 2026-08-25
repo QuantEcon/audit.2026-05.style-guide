@@ -17,7 +17,7 @@
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-004` ×5; `qe-fig-003` ×1; `qe-fig-005` ×1, +1 more. |
-| References   | 7/10  | `qe-ref-001` ×25. |
+| References   | 7/10  | `qe-ref-001` ×17. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
@@ -29,7 +29,7 @@ _None found._
 ### High severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 6. *Lines:* 606, 633, 669, 701, 736, 813. *Example:* figsize=.
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 5. *Lines:* 597, 624, 662, 694, 729. *Example:* caption of 11 words.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 25. *Lines:* 186, 189, 194, 220, 267, 313, 330, 375, 377, 394, …. *Example:* {cite} in author position: '{cite}`BenvenisteMetivierPriouret1990` and'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 17. *Lines:* 186, 189, 194, 220, 267, 313, 330, 375, 377, 394, …. *Example:* {cite} in narrative flow: '{cite}`'.
 
 ### Medium severity
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 682. *Example:* .suptitle.
@@ -49,7 +49,7 @@ _None found._
 
 ## Recommended actions
 
-1. `qe-ref-001` — Use correct citation style (25 occurrences).
+1. `qe-ref-001` — Use correct citation style (17 occurrences).
 2. `qe-fig-004` — Caption formatting conventions (5 occurrences).
 3. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (1 occurrence).
 4. `qe-fig-003` — No matplotlib embedded titles (1 occurrence).

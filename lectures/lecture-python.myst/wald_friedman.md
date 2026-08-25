@@ -16,7 +16,7 @@
 | Math         | 9/10  | `qe-math-011` (proposed) ×1. |
 | Code         | 7.5/10 | `qe-code-002` ×5. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 4.5/10 | `qe-fig-003` ×5; `qe-fig-005` ×8; `qe-fig-006` ×1, +3 more. |
+| Figures      | 4.5/10 | `qe-fig-003` ×5; `qe-fig-005` ×5; `qe-fig-006` ×1, +2 more. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 9/10  | `qe-link-001` ×1. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -30,12 +30,11 @@ _None found._
 - **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 5. *Lines:* 71, 73, 302. *Example:* spelled-out `gamma`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 5. *Lines:* 606, 801, 844, 1177, 1352. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 5. *Lines:* 621, 631, 655, 817, 889. *Example:* .set_title.
-- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 8. *Lines:* 326, 402, 594, 738, 793, 836, 1162, 1336. *Example:* {figure} without :name:.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 326, 402, 738, 1162, 1336. *Example:* {figure} without :name:.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 1. *Lines:* 81. *Example:* H2 Title Case: 'Source of the Problem' (Problem).
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 80. *Lines:* 36, 37, 40, 44, 45, 47, 49, 79, 89, 121, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 870, 875. *Example:* plot() without lw=.
 - **[qe-math-011 (proposed)]** — Distribution names in plain letters, not \mathcal / \mathbb. *Count:* 1. *Lines:* 1206. *Example:* decorated distribution `\mathcal{N}`.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 3. *Lines:* 36, 89, 129. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 4. *Lines:* 992, 996, 998. *Example:* mid-sentence 'Type'.
@@ -57,7 +56,7 @@ _None found._
 ## Recommended actions
 
 1. `qe-fig-003` — No matplotlib embedded titles (5 occurrences).
-2. `qe-fig-005` — Descriptive figure names for cross-referencing (8 occurrences).
+2. `qe-fig-005` — Descriptive figure names for cross-referencing (5 occurrences).
 3. `qe-code-002` — Use Unicode symbols for Greek letters in code (5 occurrences).
 4. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (4 occurrences).
 5. `qe-writing-001` — Use one sentence per paragraph (3 occurrences).

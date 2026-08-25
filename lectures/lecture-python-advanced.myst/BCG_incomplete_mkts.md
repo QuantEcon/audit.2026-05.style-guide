@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 7.4 / 10
+- **Overall score:** 7.5 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -16,8 +16,8 @@
 | Math         | 5/10  | `qe-math-002` ×46. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 5/10  | `qe-fig-003` ×9; `qe-fig-005` ×2; `qe-fig-010` ×1, +1 more. |
-| References   | 9/10  | `qe-ref-001` ×1. |
+| Figures      | 4.5/10 | `qe-fig-003` ×9; `qe-fig-005` ×2; `qe-fig-010` ×1, +2 more. |
+| References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | N/A   | no admonitions, exercises or solutions. |
 
@@ -28,6 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 9. *Lines:* 1866, 1868, 1870, 1872, 1874, 1889, 1915, 1922, 1926. *Example:* .set_title.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 13. *Lines:* 1865, 1867, 1869, 1871, 1873, 1888, 1911, 1912, 1913, 1918, …. *Example:* plot() without lw=.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 46. *Lines:* 353, 354, 365, 366, 375, 376, 391, 392, 445, 446, …. *Example:* \prime transpose.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 7. *Lines:* 567, 574, 630, 688, 692, 698, 1331. *Example:* 4 sentences in one paragraph.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 1. *Lines:* 1278. *Example:* H4 Title Case: 'A Modigliani-Miller theorem?' (Modigliani-Miller).
@@ -39,7 +40,7 @@ _None found._
 - **[qe-fig-010]** — Plotly figures require latex directive. *Count:* 1. *Lines:* 1. *Example:* plotly used with no {only} latex directive.
 
 ### Low severity
-- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 79. *Example:* {cite} in author position: '{cite}`BCG_2018` and'.
+_None found._
 
 
 ## Strengths

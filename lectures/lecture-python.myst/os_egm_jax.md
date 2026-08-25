@@ -16,7 +16,7 @@
 | Math         | 10/10 | no mechanical violations detected. |
 | Code         | 8.5/10 | `qe-code-002` ×2. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6.5/10 | `qe-fig-006` ×2; `qe-fig-005` ×2; `qe-fig-008` ×2. |
+| Figures      | 7/10  | `qe-fig-006` ×2; `qe-fig-005` ×2; `qe-fig-008` ×1. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -33,10 +33,9 @@ _None found._
 - **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 2. *Lines:* 158, 160. *Example:* spelled-out `mu`.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 224, 384. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 2. *Lines:* 395, 396. *Example:* axis label `State x`.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 230, 393. *Example:* plot() without lw=.
 
 ### Low severity
-_None found._
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 393. *Example:* plot() without lw=.
 
 
 ## Strengths
@@ -52,4 +51,4 @@ _None found._
 1. `qe-fig-006` — Lowercase axis labels (2 occurrences).
 2. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
 3. `qe-code-002` — Use Unicode symbols for Greek letters in code (2 occurrences).
-4. `qe-fig-008` — Use lw=2 for line charts (2 occurrences).
+4. `qe-fig-008` — Use lw=2 for line charts (1 occurrence).

@@ -17,7 +17,7 @@
 | Code         | 8.5/10 | `qe-code-002` ×2. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5/10  | `qe-fig-003` ×4; `qe-fig-006` ×4; `qe-fig-005` ×2, +2 more. |
-| References   | 8.5/10 | `qe-ref-001` ×3. |
+| References   | 8.5/10 | `qe-ref-001` ×2. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | N/A   | no admonitions, exercises or solutions. |
 
@@ -37,7 +37,7 @@ _None found._
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 4. *Lines:* 276, 279, 317, 320. *Example:* axis label `Time`.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 4. *Lines:* 274, 277, 315, 318. *Example:* plot() without lw=.
 - **[qe-math-011 (proposed)]** — Distribution names in plain letters, not \mathcal / \mathbb. *Count:* 1. *Lines:* 97. *Example:* decorated distribution `{\cal N}`.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 3. *Lines:* 32, 35. *Example:* {cite} in author position: '{cite}`barro1999determinants` and'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 32, 35. *Example:* {cite} in narrative flow: 'of  {cite}`'.
 
 ### Low severity
 _None found._
@@ -54,7 +54,7 @@ _None found._
 ## Recommended actions
 
 1. `qe-fig-003` — No matplotlib embedded titles (4 occurrences).
-2. `qe-ref-001` — Use correct citation style (3 occurrences).
+2. `qe-ref-001` — Use correct citation style (2 occurrences).
 3. `qe-fig-006` — Lowercase axis labels (4 occurrences).
 4. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
 5. `qe-code-002` — Use Unicode symbols for Greek letters in code (2 occurrences).

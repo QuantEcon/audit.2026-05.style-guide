@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.8 / 10
+- **Overall score:** 9.1 / 10
 - **Priority:** NONE
 
 ## Score breakdown
@@ -16,7 +16,7 @@
 | Math         | 10/10 | no mechanical violations detected. |
 | Code         | 8.5/10 | `qe-code-002` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 7/10  | `qe-fig-007` ×2; `qe-fig-005` ×1; `qe-fig-008` ×3. |
+| Figures      | 8.5/10 | `qe-fig-007` ×1; `qe-fig-008` ×2. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -31,12 +31,11 @@ _None found._
 
 ### Medium severity
 - **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 4. *Lines:* 425, 426. *Example:* spelled-out `alpha`.
-- **[qe-fig-007]** — Keep figure box and spines. *Count:* 2. *Lines:* 341, 344. *Example:* spine removal.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 377, 386, 410. *Example:* plot() without lw=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 377, 386. *Example:* plot() without lw=.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 300, 421. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
-- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 330. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-007]** — Keep figure box and spines. *Count:* 1. *Lines:* 344. *Example:* spine removal.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 1. *Lines:* 111. *Example:* 2 spaces.
 
 
@@ -51,8 +50,7 @@ _None found._
 ## Recommended actions
 
 1. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
-2. `qe-fig-007` — Keep figure box and spines (2 occurrences).
-3. `qe-code-002` — Use Unicode symbols for Greek letters in code (4 occurrences).
-4. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
-5. `qe-fig-008` — Use lw=2 for line charts (3 occurrences).
-6. `qe-writing-008` — Remove excessive whitespace between words (1 occurrence).
+2. `qe-code-002` — Use Unicode symbols for Greek letters in code (4 occurrences).
+3. `qe-fig-007` — Keep figure box and spines (1 occurrence).
+4. `qe-fig-008` — Use lw=2 for line charts (2 occurrences).
+5. `qe-writing-008` — Remove excessive whitespace between words (1 occurrence).

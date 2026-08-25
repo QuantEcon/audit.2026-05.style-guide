@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.1 / 10
+- **Overall score:** 7.2 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -16,7 +16,7 @@
 | Math         | 6.5/10 | `qe-math-002` ×2; `qe-math-003` ×1. |
 | Code         | 7.5/10 | `qe-code-001` ×9. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 5.5/10 | `qe-fig-007` ×6; `qe-fig-005` ×5; `qe-fig-008` ×4. |
+| Figures      | 6/10  | `qe-fig-005` ×5; `qe-fig-007` ×3; `qe-fig-008` ×4. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 7.5/10 | `qe-link-002` ×5. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -29,11 +29,11 @@ _None found._
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 9. *Lines:* 170, 258, 268, 328, 915, 1077, 1081, 1217, 1330. *Example:* continuation lines inside `arrowprops=dict(...)` indented to the outer call rather than the opening paren (170, 258, 268, 328); `plt.plot`/`plt.xlabel` used on the pyplot state machine right after `fig, ax = plt.subplots()`, with f-strings that have no placeholders (915-916, 1374-1375); `h.shape = 2,1` with no space after the comma (1077, against `(3, 1)` at 1210); and imports scattered through the body instead of the imports cell at 44-47 (1081, 1107, 1202-1203, 1217, 1227, 1330-1331) - the cell at 1215 imports `det` for the second time and then calls `inv`, which it never imports.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 155, 242, 315, 912, 1365. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-fig-007]** — Keep figure box and spines. *Count:* 6. *Lines:* 161, 163, 248, 250, 321, 323. *Example:* spine removal.
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 5. *Lines:* 352, 660, 666, 955, 1388. *Example:* raw link to python-programming.quantecon.org.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 2. *Lines:* 1273. *Example:* `^T` transpose in `A^T`.
 
 ### Medium severity
+- **[qe-fig-007]** — Keep figure box and spines. *Count:* 3. *Lines:* 163, 250, 323. *Example:* spine removal.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 4. *Lines:* 915, 916, 1372, 1373. *Example:* plot() without lw=.
 - **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 1. *Lines:* 817. *Example:* matrix environment.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 1157. *Example:* 2 sentences in one paragraph.

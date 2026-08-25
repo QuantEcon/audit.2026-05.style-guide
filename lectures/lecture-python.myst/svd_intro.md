@@ -16,7 +16,7 @@
 | Math         | 10/10 | no mechanical violations detected. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6/10  | `qe-fig-003` ×6; `qe-fig-005` ×1; `qe-fig-001` ×2. |
+| Figures      | 6.5/10 | `qe-fig-003` ×6; `qe-fig-008` ×4; `qe-fig-001` ×2. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -35,9 +35,10 @@ _None found._
 
 ### Medium severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 962, 973. *Example:* figsize=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 4. *Lines:* 964, 967, 975, 978. *Example:* plot() without lw=.
 
 ### Low severity
-- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 947. *Example:* code-cell figure without mystnb figure metadata.
+_None found._
 
 
 ## Strengths
@@ -55,5 +56,5 @@ _None found._
 3. `qe-writing-001` — Use one sentence per paragraph (7 occurrences).
 4. `qe-fig-003` — No matplotlib embedded titles (6 occurrences).
 5. `qe-writing-008` — Remove excessive whitespace between words (94 occurrences).
-6. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
+6. `qe-fig-008` — Use lw=2 for line charts (4 occurrences).
 7. `qe-fig-001` — Do not set figure size unless necessary (2 occurrences).

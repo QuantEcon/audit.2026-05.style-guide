@@ -17,7 +17,7 @@
 | Code         | 8.5/10 | `qe-code-002` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 4/10  | `qe-fig-003` ×9; `qe-fig-006` ×9; `qe-fig-005` ×4, +2 more. |
-| References   | 8.5/10 | `qe-ref-001` ×4. |
+| References   | 8.5/10 | `qe-ref-001` ×3. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | N/A   | no admonitions, exercises or solutions. |
 
@@ -38,7 +38,7 @@ _None found._
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 474, 521, 819. *Example:* figsize=.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 437, 494, 816, 836. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-math-011 (proposed)]** — Distribution names in plain letters, not \mathcal / \mathbb. *Count:* 1. *Lines:* 142. *Example:* decorated distribution `{\cal N}`.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 4. *Lines:* 32, 35, 41. *Example:* {cite} in author position: '{cite}`barro1999determinants` and'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 3. *Lines:* 32, 35, 41. *Example:* {cite} in narrative flow: 'by  {cite}`'.
 
 ### Low severity
 _None found._
@@ -57,7 +57,7 @@ _None found._
 1. `qe-math-002` — Use \top for transpose notation (57 occurrences).
 2. `qe-fig-003` — No matplotlib embedded titles (9 occurrences).
 3. `qe-fig-006` — Lowercase axis labels (9 occurrences).
-4. `qe-ref-001` — Use correct citation style (4 occurrences).
+4. `qe-ref-001` — Use correct citation style (3 occurrences).
 5. `qe-fig-005` — Descriptive figure names for cross-referencing (4 occurrences).
 6. `qe-code-002` — Use Unicode symbols for Greek letters in code (3 occurrences).
 7. `qe-math-011` (proposed) — Distribution names in plain letters, not \mathcal / \mathbb (1 occurrence).

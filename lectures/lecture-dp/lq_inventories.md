@@ -16,7 +16,7 @@
 | Math         | 3/10  | `qe-math-002` ×15; `qe-math-003` ×17. |
 | Code         | 9/10  | `qe-code-002` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 7/10  | `qe-fig-003` ×4; `qe-fig-005` ×1; `qe-fig-001` ×1. |
+| Figures      | 7/10  | `qe-fig-003` ×4; `qe-fig-008` ×10; `qe-fig-001` ×1. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -27,6 +27,7 @@
 _None found._
 
 ### High severity
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 10. *Lines:* 306, 307, 308, 312, 326, 327, 328, 332, 333, 335. *Example:* plot() without lw=.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 15. *Lines:* 131, 137, 148, 149, 151, 153, 661, 720. *Example:* apostrophe transpose `x_t'`.
 - **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 17. *Lines:* 114, 150, 151, 154, 157, 158, 161, 164, 165, 168, …. *Example:* array used as matrix.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 2. *Lines:* 417, 448. *Example:* H2 Title Case: 'Inventories Not Useful' (Not, Useful).
@@ -39,7 +40,6 @@ _None found._
 ### Low severity
 - **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 278. *Example:* spelled-out `beta`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 1. *Lines:* 304. *Example:* figsize=.
-- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 211. *Example:* code-cell figure without mystnb figure metadata.
 
 
 ## Strengths
@@ -57,5 +57,5 @@ _None found._
 3. `qe-writing-006` — Capitalize lecture titles properly (2 occurrences).
 4. `qe-writing-001` — Use one sentence per paragraph (4 occurrences).
 5. `qe-fig-003` — No matplotlib embedded titles (4 occurrences).
-6. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
+6. `qe-fig-008` — Use lw=2 for line charts (10 occurrences).
 7. `qe-code-002` — Use Unicode symbols for Greek letters in code (1 occurrence).

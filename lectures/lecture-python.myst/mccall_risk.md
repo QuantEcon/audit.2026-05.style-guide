@@ -5,8 +5,8 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.5 / 10
-- **Priority:** LOW
+- **Overall score:** 8.6 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
@@ -16,7 +16,7 @@
 | Math         | 6.5/10 | `qe-math-010` (proposed) ×4; `qe-math-001` ×1. |
 | Code         | 8/10  | `qe-code-003` ×1; `qe-code-002` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6.5/10 | `qe-fig-006` ×2; `qe-fig-005` ×2; `qe-fig-008` ×2. |
+| Figures      | 7/10  | `qe-fig-006` ×2; `qe-fig-005` ×2. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -33,7 +33,6 @@ _None found._
 - **[qe-code-003]** — Package installation at lecture top. *Count:* 1. *Lines:* 69. *Example:* non-Anaconda import with no install cell: ['jax'].
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 287, 651. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 2. *Lines:* 615, 754. *Example:* axis label `Reservation wage`.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 612, 751. *Example:* plot() without lw=.
 - **[qe-math-001]** — Prefer UTF-8 unicode for simple parameter mentions, be consistent. *Count:* 1. *Lines:* 460. *Example:* unicode `β` inside a math environment.
 
 ### Low severity
@@ -56,4 +55,3 @@ _None found._
 4. `qe-math-001` — Prefer UTF-8 unicode for simple parameter mentions, be consistent (1 occurrence).
 5. `qe-code-003` — Package installation at lecture top (1 occurrence).
 6. `qe-code-002` — Use Unicode symbols for Greek letters in code (1 occurrence).
-7. `qe-fig-008` — Use lw=2 for line charts (2 occurrences).

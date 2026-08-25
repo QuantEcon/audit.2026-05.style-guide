@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.2 / 10
+- **Overall score:** 8.3 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -17,7 +17,7 @@
 | Code         | 9/10  | `qe-code-004` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6.5/10 | `qe-fig-005` ×5; `qe-fig-003` ×1; `qe-fig-008` ×8. |
-| References   | 8.5/10 | `qe-ref-001` ×2. |
+| References   | 9/10  | `qe-ref-001` ×1. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
@@ -35,16 +35,15 @@ _None found._
 
 ### Medium severity
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 916. *Example:* .set(xlabel='assets', title=.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 49, 761. *Example:* {cite} in author position: '{cite}`Reiter2009`  and'.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 3. *Lines:* 49, 823. *Example:* 2 spaces.
 
 ### Low severity
-_None found._
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 761. *Example:* {cite} in narrative flow: 'see {cite}`'.
 
 
 ## Strengths
 
-- Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
 - No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
 - No `qe-admon-003` violations — Use tick count management for nested directives.
 - No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
@@ -55,7 +54,7 @@ _None found._
 1. `qe-writing-006` — Capitalize lecture titles properly (9 occurrences).
 2. `qe-math-002` — Use \top for transpose notation (3 occurrences).
 3. `qe-fig-005` — Descriptive figure names for cross-referencing (5 occurrences).
-4. `qe-ref-001` — Use correct citation style (2 occurrences).
-5. `qe-fig-003` — No matplotlib embedded titles (1 occurrence).
+4. `qe-fig-003` — No matplotlib embedded titles (1 occurrence).
+5. `qe-ref-001` — Use correct citation style (1 occurrence).
 6. `qe-fig-008` — Use lw=2 for line charts (8 occurrences).
 7. `qe-code-004` — Use quantecon Timer context manager (6 occurrences).

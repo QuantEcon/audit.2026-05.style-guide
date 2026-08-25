@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.3 / 10
+- **Overall score:** 8.5 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -16,7 +16,7 @@
 | Math         | 7.5/10 | `qe-math-010` (proposed) ×2. |
 | Code         | 8.5/10 | `qe-code-002` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6/10  | `qe-fig-005` ×6; `qe-fig-003` ×1; `qe-fig-008` ×3, +1 more. |
+| Figures      | 7.5/10 | `qe-fig-003` ×1; `qe-fig-005` ×1; `qe-fig-008` ×3, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -27,7 +27,6 @@
 _None found._
 
 ### High severity
-- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 6. *Lines:* 441, 474, 522, 632, 681, 709. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 2. *Lines:* 700. *Example:* bare expectation `E\left[`.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 1. *Lines:* 290. *Example:* H2 Title Case: "Bayes' Law" (Law).
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 62. *Lines:* 31, 36, 43, 44, 48, 58, 60, 83, 94, 99, …. *Example:* 2 spaces.
@@ -40,7 +39,7 @@ _None found._
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 640, 659. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
-_None found._
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 681. *Example:* code-cell figure without mystnb figure metadata.
 
 
 ## Strengths
@@ -54,9 +53,9 @@ _None found._
 ## Recommended actions
 
 1. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (2 occurrences).
-2. `qe-fig-005` — Descriptive figure names for cross-referencing (6 occurrences).
-3. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
-4. `qe-code-002` — Use Unicode symbols for Greek letters in code (4 occurrences).
-5. `qe-writing-006` — Capitalize lecture titles properly (1 occurrence).
-6. `qe-writing-008` — Remove excessive whitespace between words (62 occurrences).
-7. `qe-fig-003` — No matplotlib embedded titles (1 occurrence).
+2. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
+3. `qe-code-002` — Use Unicode symbols for Greek letters in code (4 occurrences).
+4. `qe-writing-006` — Capitalize lecture titles properly (1 occurrence).
+5. `qe-writing-008` — Remove excessive whitespace between words (62 occurrences).
+6. `qe-fig-003` — No matplotlib embedded titles (1 occurrence).
+7. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).

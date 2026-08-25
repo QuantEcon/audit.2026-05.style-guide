@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 9.4 / 10
+- **Overall score:** 9.6 / 10
 - **Priority:** NONE
 
 ## Score breakdown
@@ -16,7 +16,7 @@
 | Math         | 10/10 | no mechanical violations detected. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 7/10  | `qe-fig-005` ×2; `qe-fig-003` ×1; `qe-fig-008` ×3. |
+| Figures      | 8.5/10 | `qe-fig-003` ×1; `qe-fig-008` ×3. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 9/10  | `qe-link-002` ×1. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -31,7 +31,6 @@ _None found._
 
 ### Medium severity
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 250. *Example:* .set_title.
-- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 229, 372. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 246, 248, 427. *Example:* plot() without lw=.
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 1. *Lines:* 154. *Example:* raw link to python-programming.quantecon.org.
 
@@ -49,8 +48,7 @@ _None found._
 
 ## Recommended actions
 
-1. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
-2. `qe-link-002` — Use doc links for cross-series references (1 occurrence).
-3. `qe-fig-003` — No matplotlib embedded titles (1 occurrence).
-4. `qe-fig-008` — Use lw=2 for line charts (3 occurrences).
-5. `qe-writing-008` — Remove excessive whitespace between words (1 occurrence).
+1. `qe-link-002` — Use doc links for cross-series references (1 occurrence).
+2. `qe-fig-003` — No matplotlib embedded titles (1 occurrence).
+3. `qe-fig-008` — Use lw=2 for line charts (3 occurrences).
+4. `qe-writing-008` — Remove excessive whitespace between words (1 occurrence).

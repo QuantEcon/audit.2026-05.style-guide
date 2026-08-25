@@ -16,7 +16,7 @@
 | Math         | 10/10 | no mechanical violations detected. |
 | Code         | 9/10  | `qe-code-003` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 5.5/10 | `qe-fig-003` ×6; `qe-fig-005` ×3; `qe-fig-008` ×5, +1 more. |
+| Figures      | 5.5/10 | `qe-fig-003` ×6; `qe-fig-005` ×3; `qe-fig-008` ×2, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -28,13 +28,13 @@ _None found._
 
 ### High severity
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 6. *Lines:* 351, 358, 364, 374, 380, 387. *Example:* .set_title.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 5. *Lines:* 368, 370, 372, 577, 578. *Example:* plot() without lw=.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 2. *Lines:* 44, 79. *Example:* H2 Title Case: 'A Two-Country Cass-Koopmans Model' (Two-Country, Model).
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 8. *Lines:* 18, 22, 65, 394, 588. *Example:* 2 spaces.
 
 ### Medium severity
 - **[qe-code-003]** — Package installation at lecture top. *Count:* 1. *Lines:* 1. *Example:* non-Anaconda import with no install cell: ['mpmath'].
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 441, 503, 569. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 577, 578. *Example:* plot() without lw=.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 83. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
@@ -58,4 +58,4 @@ _None found._
 4. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
 5. `qe-code-003` — Package installation at lecture top (1 occurrence).
 6. `qe-writing-008` — Remove excessive whitespace between words (8 occurrences).
-7. `qe-fig-008` — Use lw=2 for line charts (5 occurrences).
+7. `qe-fig-008` — Use lw=2 for line charts (2 occurrences).

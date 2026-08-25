@@ -27,7 +27,6 @@
 _None found._
 
 ### High severity
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 5. *Lines:* 1170, 1343, 1512, 1606, 1608. *Example:* plot() without lw=.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 71. *Lines:* 66, 145, 185, 198, 334, 419, 443, 444, 460, 476, …. *Example:* apostrophe transpose `Y'`.
 
 ### Medium severity
@@ -35,6 +34,7 @@ _None found._
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 1079, 1156, 1341. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 2. *Lines:* 1165, 1176. *Example:* .set_title.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 1496, 1582. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 1343, 1512. *Example:* plot() without lw=.
 
 ### Low severity
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 1. *Lines:* 977. *Example:* Title Case caption (Program).
@@ -56,5 +56,5 @@ _None found._
 3. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
 4. `qe-code-003` — Package installation at lecture top (1 occurrence).
 5. `qe-fig-004` — Caption formatting conventions (1 occurrence).
-6. `qe-fig-008` — Use lw=2 for line charts (5 occurrences).
+6. `qe-fig-008` — Use lw=2 for line charts (2 occurrences).
 7. `qe-fig-001` — Do not set figure size unless necessary (3 occurrences).

@@ -17,7 +17,7 @@
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5.5/10 | `qe-fig-005` ×5; `qe-fig-003` ×3; `qe-fig-008` ×3, +2 more. |
-| References   | 7.5/10 | `qe-ref-001` ×6. |
+| References   | 7.5/10 | `qe-ref-001` ×5. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
@@ -28,7 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 177, 212, 226, 238, 259. *Example:* {figure} without :name:.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 6. *Lines:* 40, 60, 219, 231, 301, 398. *Example:* {cite} in narrative flow: 'of {cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 5. *Lines:* 40, 60, 231, 301, 398. *Example:* {cite} in narrative flow: 'of {cite}`'.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 69. *Lines:* 29, 34, 35, 37, 39, 42, 44, 46, 50, 52, …. *Example:* 2 spaces.
 
 ### Medium severity
@@ -51,7 +51,7 @@ _None found._
 
 ## Recommended actions
 
-1. `qe-ref-001` — Use correct citation style (6 occurrences).
+1. `qe-ref-001` — Use correct citation style (5 occurrences).
 2. `qe-fig-005` — Descriptive figure names for cross-referencing (5 occurrences).
 3. `qe-fig-003` — No matplotlib embedded titles (3 occurrences).
 4. `qe-writing-008` — Remove excessive whitespace between words (69 occurrences).

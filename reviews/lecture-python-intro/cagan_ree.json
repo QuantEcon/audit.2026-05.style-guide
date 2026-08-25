@@ -1,0 +1,31 @@
+{
+  "series": "lecture-python-intro",
+  "lecture": "cagan_ree",
+  "judgment": [
+    {"rule": "qe-writing-002", "count": 9, "lines": [39, 50, 420, 473, 570, 582, 586, 615, 618],
+     "detail": "nine sentences of 30-44 words. Line 39 opens with a 39-word sentence that carries a parenthetical definition inside it; line 420 is a 41-word sentence defining the velocity dividend; line 473 runs 44 words across three source lines and also leaves its opening double quote unclosed; lines 570, 582, 586, 615 and 618 each join two findings with 'and how', 'but how', or 'that it reaps from'"},
+    {"rule": "qe-writing-003", "count": 3, "lines": [23, 455, 623],
+     "detail": "two structural gaps. (a) The bullet list at lines 23-25 hangs directly off line 21 with no introducing clause, so the reader meets three claims about fiscal policy with nothing saying what the list enumerates. (b) The heading tree misplaces two of the three experiments: 'Experiment 1' is an H4 under '### Some quantitative experiments' (line 285), but '### The log price level' (372) and '### What jumps?' (398) close that section, and 'Experiment 2' (455) and 'Experiment 3' (623) are then H4s nested under 'What jumps?'. The three experiments are not siblings in the document tree even though the text treats them as such"},
+    {"rule": "qe-writing-005", "count": 4, "lines": [421, 461, 465, 469],
+     "detail": "the lecture's two coined terms are defined in scare quotes rather than bold - 'the velocity dividend' at line 421 and 'MIT shock' at line 461, both of which the text then reuses. Conversely the only bold in the lecture, at lines 465 and 469 ('Initial Path:', 'Revised Continuation Path'), is doing the job of a heading rather than marking a definition or emphasis"},
+    {"rule": "qe-code-001", "count": 4, "lines": [245, 330, 518, 643],
+     "detail": "line 245 indents the namedtuple continuation to column 24 where the visual-indent target is 22; lines 330, 518 and 643 space the same operator two ways - `μ0*np.ones(T1), μ_star*np.ones(T-T1+1)` at 330 against the identical `μ0 * np.ones(T1+1), μ_star * np.ones(T - T1)` at 681 and 857, `cm2.α*(μ0 - μ_star)` at 518, and `ϕ**t * μ0 + (1-ϕ**t)*μ_star` at 643 where one product is spaced and the other is not inside a single expression"}
+  ],
+  "strengths": [
+    "Twelve display equations are labelled and re-cited by name (eq:caganmd, eq:ree, eq:cagan, eq:pieq, eq:fisctheory1, eq:eq101, eq:mcum, eq:fisctheory2, eq:piterm, eq:pformula2, eq:pfiscaltheory2, eq:eqnmoneyjump), and the exercise solutions at lines 765 and 886 cite them back to the derivation they check",
+    "The theory is anchored to named sources and named episodes - Sargent and Wallace's 'Unpleasant Monetarist Arithmetic' at lines 27-28, Cochrane at 32, Cagan at 48, Sargent's four big inflations at 50 - with three {doc} links to the inflation_history data lecture at 34, 612 and 618",
+    "Line 621 states the limit of its own evidence: the informal comparison between model paths and the four hyperinflations 'should be supplemented with a more formal structural statistical analysis', rather than letting eyeballed pattern-matching stand as proof",
+    "All four exercises verify something the lecture asserts rather than extending it decoratively - the anticipation effect against alpha, the matrix solution against the closed-form discounted sum (agreeing to machine precision, line 765), gradual against sudden stabilization, and the real-balance path implied by eq:caganmd",
+    "The namedtuple at lines 245-251 documents each of its five fields with an inline comment, so the model parameters are self-describing where they are defined rather than only in the prose above"
+  ],
+  "actions": [
+    "Promote 'Experiment 2' (line 455) and 'Experiment 3' (line 623) to the same heading level as 'Experiment 1' (line 302), or move 'The log price level' (372) and 'What jumps?' (398) so they no longer close the section the experiments belong to - as it stands two of the three experiments are nested inside a subsection about whether m or p jumps",
+    "Break the nine 30-44 word sentences at lines 39, 50, 420, 473, 570, 582, 586, 615 and 618 into one idea each, and close the unterminated double quote that opens at line 473",
+    "Give the bullet list at lines 23-25 an introducing clause, and bold the two terms the lecture coins and then reuses - 'velocity dividend' (line 421) and 'MIT shock' (line 461) - instead of leaving them in scare quotes",
+    "Add mystnb figure metadata to the six figure cells at lines 340, 529, 676, 732, 792 and 850 (qe-fig-005), set `lw=2` on the plot calls at 344, 690, 812, 875 and 876 (qe-fig-008), and drop the `figsize=` overrides at 342, 535 and 593 (qe-fig-001)",
+    "Convert the bold pseudo-headings at lines 465 and 469 into real headings (or into ordinary sentences), which also removes the mid-sentence capitals flagged there by qe-writing-004, and split the two-sentence paragraph at line 469",
+    "Delete the stray LaTeX comment `% \\forall t` left inside the display equation at line 105 - MathJax silently swallows the rest of the line, so the source carries a fragment that does nothing",
+    "Fix the four PEP8 spacing sites at lines 245, 330, 518 and 643, the typo 'goverment's' at line 23, the double space at line 292 (qe-writing-008), and the two-sentence bullet at line 74"
+  ],
+  "scanner_doubts": []
+}

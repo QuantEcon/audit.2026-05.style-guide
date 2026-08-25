@@ -16,7 +16,7 @@
 | Math         | 7.5/10 | `qe-math-010` (proposed) ×2. |
 | Code         | 6/10  | `qe-code-002` ×10; `qe-code-001` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 7/10  | `qe-fig-005` ×7; `qe-fig-008` ×9; `qe-fig-001` ×1. |
+| Figures      | 7/10  | `qe-fig-005` ×6; `qe-fig-008` ×9; `qe-fig-001` ×1. |
 | References   | 9/10  | `qe-ref-001` ×1. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -28,7 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 10. *Lines:* 166, 180, 182, 211, 213, 216, 537, 542. *Example:* spelled-out `mu`.
-- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 7. *Lines:* 171, 209, 228, 263, 407, 523, 623. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 6. *Lines:* 171, 209, 228, 263, 407, 623. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 9. *Lines:* 182, 215, 436, 437, 530, 531, 633, 634, 635. *Example:* plot() without lw=.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 2. *Lines:* 372. *Example:* missing braces: `\mathbb E`.
 

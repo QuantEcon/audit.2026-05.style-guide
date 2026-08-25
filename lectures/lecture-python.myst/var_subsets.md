@@ -16,7 +16,7 @@
 | Math         | 7/10  | `qe-math-003` ×15. |
 | Code         | 7/10  | `qe-code-002` ×38. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 5/10  | `qe-fig-003` ×6; `qe-fig-004` ×3; `qe-fig-005` ×1, +2 more. |
+| Figures      | 5/10  | `qe-fig-003` ×6; `qe-fig-004` ×3; `qe-fig-005` ×1, +1 more. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -38,7 +38,6 @@ _None found._
 
 ### Low severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 1088. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 1017. *Example:* plot() without lw=.
 
 
 ## Strengths

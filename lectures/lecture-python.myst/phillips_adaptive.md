@@ -17,7 +17,7 @@
 | Code         | 9/10  | `qe-code-002` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6.5/10 | `qe-fig-004` ×2; `qe-fig-003` ×1; `qe-fig-005` ×1, +1 more. |
-| References   | 8.5/10 | `qe-ref-001` ×3. |
+| References   | 8.5/10 | `qe-ref-001` ×2. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
@@ -33,7 +33,7 @@ _None found._
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 133, 302, 445. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 308. *Example:* .set_title.
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 2. *Lines:* 114, 295. *Example:* caption of 11 words.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 3. *Lines:* 84, 399. *Example:* {cite} in narrative flow: '{cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 84, 399. *Example:* {cite} in narrative flow: '{cite}`'.
 
 ### Low severity
 - **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 219. *Example:* spelled-out `beta`.
@@ -50,7 +50,7 @@ _None found._
 
 ## Recommended actions
 
-1. `qe-ref-001` — Use correct citation style (3 occurrences).
+1. `qe-ref-001` — Use correct citation style (2 occurrences).
 2. `qe-fig-004` — Caption formatting conventions (2 occurrences).
 3. `qe-fig-003` — No matplotlib embedded titles (1 occurrence).
 4. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).

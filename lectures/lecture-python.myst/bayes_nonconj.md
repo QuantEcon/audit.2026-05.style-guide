@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.8 / 10
+- **Overall score:** 8.9 / 10
 - **Priority:** NONE
 
 ## Score breakdown
@@ -16,7 +16,7 @@
 | Math         | 10/10 | no mechanical violations detected. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6/10  | `qe-fig-005` ×5; `qe-fig-003` ×2; `qe-fig-008` ×3. |
+| Figures      | 6.5/10 | `qe-fig-003` ×2; `qe-fig-005` ×4; `qe-fig-008` ×1. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 9/10  | `qe-link-002` ×1. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -27,16 +27,16 @@
 _None found._
 
 ### High severity
-- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 228, 238, 270, 480, 493. *Example:* code-cell figure without mystnb figure metadata.
+_None found._
 
 ### Medium severity
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 2. *Lines:* 287, 485. *Example:* .set_title.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 245, 247, 482. *Example:* plot() without lw=.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 228, 238, 480, 493. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 1. *Lines:* 55. *Example:* raw link to python-advanced.quantecon.org.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 4. *Lines:* 178, 325, 425, 436. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
-_None found._
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 482. *Example:* plot() without lw=.
 
 
 ## Strengths
@@ -49,8 +49,8 @@ _None found._
 
 ## Recommended actions
 
-1. `qe-fig-005` — Descriptive figure names for cross-referencing (5 occurrences).
-2. `qe-writing-001` — Use one sentence per paragraph (4 occurrences).
-3. `qe-fig-003` — No matplotlib embedded titles (2 occurrences).
+1. `qe-writing-001` — Use one sentence per paragraph (4 occurrences).
+2. `qe-fig-003` — No matplotlib embedded titles (2 occurrences).
+3. `qe-fig-005` — Descriptive figure names for cross-referencing (4 occurrences).
 4. `qe-link-002` — Use doc links for cross-series references (1 occurrence).
-5. `qe-fig-008` — Use lw=2 for line charts (3 occurrences).
+5. `qe-fig-008` — Use lw=2 for line charts (1 occurrence).

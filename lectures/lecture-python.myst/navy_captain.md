@@ -30,7 +30,7 @@ _None found._
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 6. *Lines:* 446, 573, 723, 762, 816, 940. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 20. *Lines:* 193, 326, 400, 437, 450, 456, 692, 738, 740, 766, …. *Example:* plt.title.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 19. *Lines:* 186, 284, 309, 394, 434, 445, 539, 681, 720, 750, …. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 18. *Lines:* 316, 319, 398, 435, 575, 576, 577, 578, 685, 686, …. *Example:* plot() without lw=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 31. *Lines:* 316, 319, 398, 435, 448, 452, 453, 575, 576, 577, …. *Example:* plot() without lw=.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 6. *Lines:* 616, 626, 633. *Example:* \prime transpose.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 4. *Lines:* 250, 251, 340, 698. *Example:* non-blackboard `\Pr`.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 7. *Lines:* 208, 461, 779, 835, 860, 995, 1054. *Example:* H2 Title Case: 'Frequentist Decision Rule' (Decision, Rule).

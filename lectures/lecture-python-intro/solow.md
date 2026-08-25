@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.8 / 10
+- **Overall score:** 8.9 / 10
 - **Priority:** NONE
 
 ## Score breakdown
@@ -16,7 +16,7 @@
 | Math         | 8.5/10 | `qe-math-005` ×2. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6.5/10 | `qe-fig-005` ×5; `qe-fig-008` ×10; `qe-fig-001` ×4. |
+| Figures      | 7.5/10 | `qe-fig-008` ×10; `qe-fig-005` ×1; `qe-fig-001` ×4. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -27,7 +27,6 @@
 _None found._
 
 ### High severity
-- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 136, 233, 333, 484, 605. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 10. *Lines:* 156, 248, 250, 339, 340, 345, 493, 502, 503, 615. *Example:* plot() without lw=.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 6. *Lines:* 70, 94, 103, 275, 296, 316. *Example:* 2 spaces.
 
@@ -38,7 +37,7 @@ _None found._
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 536. *Example:* mid-sentence 'Rule'.
 
 ### Low severity
-_None found._
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 484. *Example:* code-cell figure without mystnb figure metadata.
 
 
 ## Strengths
@@ -51,10 +50,10 @@ _None found._
 
 ## Recommended actions
 
-1. `qe-fig-005` — Descriptive figure names for cross-referencing (5 occurrences).
-2. `qe-math-005` — Use curly brackets for sequences (2 occurrences).
-3. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (1 occurrence).
-4. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
-5. `qe-fig-008` — Use lw=2 for line charts (10 occurrences).
+1. `qe-math-005` — Use curly brackets for sequences (2 occurrences).
+2. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (1 occurrence).
+3. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
+4. `qe-fig-008` — Use lw=2 for line charts (10 occurrences).
+5. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
 6. `qe-writing-008` — Remove excessive whitespace between words (6 occurrences).
 7. `qe-fig-001` — Do not set figure size unless necessary (4 occurrences).

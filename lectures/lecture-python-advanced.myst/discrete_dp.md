@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.6 / 10
+- **Overall score:** 7.5 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -18,7 +18,7 @@
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-005` ×6; `qe-fig-003` ×1; `qe-fig-009` ×2, +2 more. |
 | References   | 9/10  | `qe-ref-001` ×1. |
-| Links        | 7.5/10 | `qe-link-002` ×5. |
+| Links        | 7/10  | `qe-link-002` ×10. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
@@ -28,7 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 6. *Lines:* 552, 566, 750, 862, 882, 916. *Example:* {figure} without :name:.
-- **[qe-link-002]** — Use doc links for cross-series references. *Count:* 5. *Lines:* 90, 193, 209, 715, 911. *Example:* raw link to python-programming.quantecon.org.
+- **[qe-link-002]** — Use doc links for cross-series references. *Count:* 10. *Lines:* 75, 76, 90, 193, 209, 543, 616, 624, 715, 911. *Example:* raw link to python-intro.quantecon.org.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 6. *Lines:* 247, 264, 273, 305, 319, 419. *Example:* apostrophe transpose `s'`.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 1. *Lines:* 202. *Example:* missing braces: `\mathbb E`.
 
@@ -59,7 +59,7 @@ _None found._
 ## Recommended actions
 
 1. `qe-math-002` — Use \top for transpose notation (6 occurrences).
-2. `qe-link-002` — Use doc links for cross-series references (5 occurrences).
+2. `qe-link-002` — Use doc links for cross-series references (10 occurrences).
 3. `qe-fig-005` — Descriptive figure names for cross-referencing (6 occurrences).
 4. `qe-code-002` — Use Unicode symbols for Greek letters in code (2 occurrences).
 5. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (1 occurrence).

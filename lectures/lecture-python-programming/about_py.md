@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `ceec881028`
 - **Categories audited:** writing, code, figures, links  *(JAX out of scope)*
-- **Overall score:** 7.6 / 10
+- **Overall score:** 7.4 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -18,7 +18,7 @@
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7/10  | `qe-fig-005` ×5; `qe-fig-009` ×2. |
 | References   | N/A   | no citations in this lecture. |
-| Links        | 9/10  | `qe-link-002` ×1. |
+| Links        | 8/10  | `qe-link-002` ×2. |
 | Admonitions  | N/A   | no admonitions, exercises or solutions. |
 
 ## Issues
@@ -32,7 +32,7 @@ _None found._
 
 ### Medium severity
 - **[qe-fig-009]** — Figure sizing. *Count:* 2. *Lines:* 411, 417. *Example:* :scale: 75 (outside 80–100%).
-- **[qe-link-002]** — Use doc links for cross-series references. *Count:* 1. *Lines:* 84. *Example:* raw link to jax.quantecon.org.
+- **[qe-link-002]** — Use doc links for cross-series references. *Count:* 2. *Lines:* 84, 440. *Example:* raw link to jax.quantecon.org.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 27. *Example:* 3 sentences in one paragraph.
 
 ### Low severity
@@ -41,7 +41,7 @@ _None found._
 
 ## Strengths
 
-- Code, Links score 9 or above — no material violations measured in those categories.
+- Code score 9 or above — no material violations measured in those categories.
 - No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
 - No `qe-admon-003` violations — Use tick count management for nested directives.
 - No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
@@ -51,6 +51,6 @@ _None found._
 
 1. `qe-writing-006` — Capitalize lecture titles properly (10 occurrences).
 2. `qe-fig-005` — Descriptive figure names for cross-referencing (5 occurrences).
-3. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
-4. `qe-link-002` — Use doc links for cross-series references (1 occurrence).
+3. `qe-link-002` — Use doc links for cross-series references (2 occurrences).
+4. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
 5. `qe-fig-009` — Figure sizing (2 occurrences).

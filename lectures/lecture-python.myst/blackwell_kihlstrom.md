@@ -16,7 +16,7 @@
 | Math         | 3.5/10 | `qe-math-010` (proposed) ×13; `qe-math-004` ×2; `qe-math-008` ×1. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 7/10  | `qe-fig-004` ×2; `qe-fig-008` ×6; `qe-fig-001` ×8. |
+| Figures      | 7.5/10 | `qe-fig-004` ×2; `qe-fig-001` ×8. |
 | References   | 9/10  | `qe-ref-001` ×1. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -28,7 +28,6 @@ _None found._
 
 ### High severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 8. *Lines:* 505, 566, 664, 840, 908, 994, 1074, 1130. *Example:* figsize=.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 6. *Lines:* 936, 997, 1000, 1003, 1013, 1016. *Example:* plot() without lw=.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 13. *Lines:* 100, 377, 389, 538, 586, 739, 861, 1335, 1341, 1359. *Example:* non-blackboard `\Pr`.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 6. *Lines:* 362, 366, 397, 404, 859, 877. *Example:* 3 sentences in one paragraph.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 1. *Lines:* 1174. *Example:* H2 Title Case: 'The Data Processing Inequality and Coarse-Graining' (Data, Processing, Inequality, Coarse-Graining).

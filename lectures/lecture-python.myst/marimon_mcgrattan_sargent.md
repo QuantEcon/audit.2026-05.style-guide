@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.7 / 10
+- **Overall score:** 8.9 / 10
 - **Priority:** NONE
 
 ## Score breakdown
@@ -16,7 +16,7 @@
 | Math         | 10/10 | no mechanical violations detected. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6.5/10 | `qe-fig-003` ×4; `qe-fig-005` ×1; `qe-fig-001` ×2, +1 more. |
+| Figures      | 7.5/10 | `qe-fig-003` ×4; `qe-fig-001` ×2; `qe-fig-008` ×1. |
 | References   | 8.5/10 | `qe-ref-001` ×2. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -36,7 +36,6 @@ _None found._
 - **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 34, 259. *Example:* {cite} in author position: '{cite}`KiyotakiWright1989` studied'.
 
 ### Low severity
-- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 958. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 996. *Example:* plot() without lw=.
 
 
@@ -54,6 +53,5 @@ _None found._
 2. `qe-fig-003` — No matplotlib embedded titles (4 occurrences).
 3. `qe-ref-001` — Use correct citation style (2 occurrences).
 4. `qe-writing-006` — Capitalize lecture titles properly (1 occurrence).
-5. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
-6. `qe-fig-001` — Do not set figure size unless necessary (2 occurrences).
-7. `qe-fig-008` — Use lw=2 for line charts (1 occurrence).
+5. `qe-fig-001` — Do not set figure size unless necessary (2 occurrences).
+6. `qe-fig-008` — Use lw=2 for line charts (1 occurrence).
