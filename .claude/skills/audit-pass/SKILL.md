@@ -65,8 +65,8 @@ done
 The build needs **Python 3.12+** — `quantecon-book-theme==0.15.1` will not resolve on 3.11:
 
 ```bash
-uv venv --python 3.12 /tmp/qe-venv
-uv pip install --python /tmp/qe-venv/bin/python -r requirements.txt
+uv venv --python 3.12 .venv          # .gitignore already covers it
+uv pip install --python .venv/bin/python -r requirements.txt
 ```
 
 To add an **earlier** period to the trend (only needed when back-filling history):
@@ -251,7 +251,7 @@ PY
 ## Step 6 — Build and commit
 
 ```bash
-/tmp/qe-venv/bin/jupyter-book build lectures
+.venv/bin/jupyter-book build lectures
 ```
 
 Must succeed. A few dozen warnings are standing — the audit quotes rule examples (stray
