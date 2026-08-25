@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 4/10  | `qe-writing-005` ×7; `qe-writing-002` ×5; `qe-writing-003` ×2, +2 more. |
-| Math         | 5/10  | `qe-math-002` ×26. |
+| Math         | 5/10  | `qe-math-002` ×25. |
 | Code         | 7/10  | `qe-code-002` ×4; `qe-code-001` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 4.5/10 | `qe-fig-003` ×6; `qe-fig-005` ×6; `qe-fig-008` ×13, +1 more. |
@@ -31,7 +31,7 @@ _None found._
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 6. *Lines:* 1021, 1094, 1151, 1264, 1355, 1417. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 13. *Lines:* 1097, 1099, 1104, 1105, 1108, 1109, 1155, 1156, 1276, 1277, …. *Example:* plot() without lw=.
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 5. *Lines:* 42, 324, 519, 814, 1411. *Example:* raw link to python.quantecon.org.
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 26. *Lines:* 355, 513, 516, 523, 529, 658, 669, 714, 887, 1073. *Example:* apostrophe transpose `y'`.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 25. *Lines:* 355, 513, 516, 523, 529, 658, 669, 714, 887, 1073. *Example:* apostrophe transpose `y'`.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 5. *Lines:* 42, 690, 718, 1100, 1406. *Example:* line 42 drops a preposition - 'our calculations are closely related to ones described [this lecture]'; lines 690-694 announce 'several reasons' and give two; lines 717-719 restate 703-706 without adding anything ('That we distinguish $\check z_t$ from $z_t$ is part and parcel of the Big K, little k device in this instance'); line 1100 has a double space inside a figure legend string, `label='reborn  at t Stackelberg leader'`, so the extra space is rendered into the published figure rather than just sitting in the source; and 'equilbrium' is misspelled twice, at 1406 and 1410, in the heading paragraph of the lecture's concluding comparison.
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 7. *Lines:* 252, 470, 476, 494, 538, 718, 813. *Example:* line 252 uses bold for emphasis three times in one sentence - a component that is unstable if solved **backwards** and **stable** if solved **forwards**. Lines 470, 476, 494 and 538 use '**Subproblem 1**' and '**Subproblem 2**' as bold pseudo-headings, each label appearing twice (once to announce the decomposition, once to head the solution), where real subheadings would let the reader navigate between the statement and the solution. The **Big K, little k** device is bolded at 703, bolded again at 718 in a sentence that adds nothing to 703-706, bolded a third time at 809, and then written a fourth way at 813 as “Big $K$, little $k$” inside curly quotes - one device, four presentations.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 30. *Lines:* 311, 314, 315, 339, 438, 441, 445, 557, 570, 583, …. *Example:* 2 spaces.

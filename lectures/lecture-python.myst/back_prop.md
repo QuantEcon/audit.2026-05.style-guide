@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.4 / 10
+- **Overall score:** 7.7 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-006` ×5; `qe-writing-003` ×2; `qe-writing-002` ×3, +4 more. |
-| Math         | 6/10  | `qe-math-003` ×6; `qe-math-002` ×1. |
+| Math         | 7.5/10 | `qe-math-003` ×6. |
 | Code         | 6.5/10 | `qe-code-001` ×6; `qe-code-003` ×1; `qe-code-004` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 9/10  | `qe-fig-010` ×1. |
@@ -28,7 +28,6 @@ _None found._
 
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 6. *Lines:* 49, 342, 418, 430, 442, 453. *Example:* fifteen code lines exceed 79 characters, several badly: 98 at line 49, 100 at 418, 104 at 452, 108 at 430 (`jnp.block([dx.reshape((-1, 1)) for dx_tuple in grad(loss)(params, x, y) for dx in dx_tuple ])`, which also has a space before the closing bracket, as does 407); the continuation line at 443 is indented to column 10 under a bracket opened at column 11; fifteen lines carry trailing whitespace (357, 359, 364, 373, 379, 381, 386, 453, 455, 457, 458, 460, 507, 508, 519); and the two top-level `def`s at 340 and 345 are separated by one blank line where PEP8 asks for two.
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 1. *Lines:* 246. *Example:* apostrophe transpose `h'`.
 - **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 6. *Lines:* 258, 262, 266, 272, 277, 299. *Example:* array used as matrix.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 5. *Lines:* 72, 153, 211, 312, 538. *Example:* H2 Title Case: 'A Deep (but not Wide) Artificial Neural Network' (Deep, Wide, Artificial, Neural).
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 42. *Lines:* 59, 60, 69, 74, 78, 80, 84, 90, 121, 123, …. *Example:* 2 spaces.

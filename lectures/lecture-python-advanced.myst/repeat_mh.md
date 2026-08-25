@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 6/10  | `qe-writing-004` ×5; `qe-writing-001` ×4. |
-| Math         | 3/10  | `qe-math-002` ×29; `qe-math-010` (proposed) ×5. |
+| Math         | 3/10  | `qe-math-002` ×25; `qe-math-010` (proposed) ×5. |
 | Code         | 9.5/10 | `qe-code-004` ×2. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8.5/10 | `qe-fig-005` ×2. |
@@ -27,7 +27,7 @@
 _None found._
 
 ### High severity
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 29. *Lines:* 198, 205, 207, 215, 228, 229, 236, 239, 252, 671, …. *Example:* apostrophe transpose `W'`.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 25. *Lines:* 198, 205, 207, 215, 228, 229, 236, 239, 252, 671, …. *Example:* apostrophe transpose `W'`.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 5. *Lines:* 559, 597, 1266, 1315, 1821. *Example:* bare expectation `E(`.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 5. *Lines:* 822, 824, 852, 993. *Example:* mid-sentence 'Step'.
 
@@ -51,7 +51,7 @@ _None found._
 
 ## Recommended actions
 
-1. `qe-math-002` — Use \top for transpose notation (29 occurrences).
+1. `qe-math-002` — Use \top for transpose notation (25 occurrences).
 2. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (5 occurrences).
 3. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (5 occurrences).
 4. `qe-writing-001` — Use one sentence per paragraph (4 occurrences).

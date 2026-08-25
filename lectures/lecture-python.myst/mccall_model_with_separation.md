@@ -5,15 +5,15 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.2 / 10
-- **Priority:** LOW
+- **Overall score:** 8.7 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 7/10  | `qe-writing-002` ×2; `qe-writing-003` ×1; `qe-writing-008` ×1, +1 more. |
-| Math         | 5/10  | `qe-math-002` ×5; `qe-math-010` (proposed) ×1. |
+| Math         | 8.5/10 | `qe-math-010` (proposed) ×1. |
 | Code         | 7/10  | `qe-code-001` ×9; `qe-code-003` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8.5/10 | `qe-fig-005` ×4. |
@@ -28,7 +28,6 @@ _None found._
 
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 9. *Lines:* 256, 318, 516, 527, 539, 388, 684, 702, 720. *Example:* `BetaBinomial(n-1, a, b)` at 256 omits the spaces around `-` that the neighbouring lines keep; the closing bracket of the `solve_full_model` signature sits at column 4 (318) - matching neither the opening line nor the 8-space hanging indent of its arguments; three one-line docstrings are written as padded single-quoted strings, `" One update of the scalar h. "` (516) and likewise 527 and 539, although the other five docstrings in the file use triple quotes (284, 296, 319, 376, 571); and four top-level definitions are followed by only one blank line before the next statement (388, 684, 702, 720) where PEP8 asks for two.
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 5. *Lines:* 156, 181, 214, 480, 498. *Example:* apostrophe transpose `w'`.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 1. *Lines:* 88. *Example:* missing braces: `\mathbb E`.
 
 ### Medium severity

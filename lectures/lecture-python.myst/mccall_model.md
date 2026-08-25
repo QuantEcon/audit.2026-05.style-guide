@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 6.7 / 10
+- **Overall score:** 7.3 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-006` ×12; `qe-writing-002` ×4; `qe-writing-001` ×1, +3 more. |
-| Math         | 3/10  | `qe-math-002` ×12; `qe-math-010` (proposed) ×1; `qe-math-001` ×1, +1 more. |
+| Math         | 7/10  | `qe-math-010` (proposed) ×1; `qe-math-001` ×1; `qe-math-008` ×1. |
 | Code         | 7/10  | `qe-code-001` ×22. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-005` ×8; `qe-fig-003` ×2; `qe-fig-008` ×2. |
@@ -29,7 +29,6 @@ _None found._
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 22. *Lines:* 368, 391, 456, 457, 458, 459, 462, 464, 470, 552, …. *Example:* trailing whitespace on seven code lines (391, 462, 464, 470, 557, 559, 571; 464 and 470 are whitespace-only); six annotated parameters written without spaces around `=` - `tol: float=1e-6` and `max_iter: int=500` at 456-457, 552-553 and 710-711 - where PEP8 asks for `tol: float = 1e-6` and where the same file writes `c: float = 25` correctly at 390; four closing brackets parked at column 4 under an 8-space hanging indent (458, 554, 712, 804); `jnp.linspace(w_min, w_max, n+1)` at 368 with no spaces around `+`; `β ** periods` spaced at 1009 where 915 correctly writes `σ**2`; a single-quoted one-line docstring at 459 where the other five docstrings use triple quotes (968, 1017, 1091, 1131, 1167); and two code lines at 84 characters (1130, 1155).
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 8. *Lines:* 373, 427, 495, 581, 858, 931, 1049, 1089. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 12. *Lines:* 170, 228, 293, 644, 647, 648, 654, 655, 661, 662, …. *Example:* apostrophe transpose `w'`.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 1. *Lines:* 104. *Example:* missing braces: `\mathbb E`.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 12. *Lines:* 78, 117, 133, 200, 257, 287, 317, 485, 612, 741, …. *Example:* H2 Title Case: 'The McCall Model' (Model).
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 6. *Lines:* 52, 111, 174, 202, 351. *Example:* 2 spaces.

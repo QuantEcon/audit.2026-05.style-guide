@@ -18,10 +18,10 @@ are LOW or NONE.
 <!-- qe:focus -->
 | Attention | Series | Score | Needs work | Weakest categories |
 |-----------|--------|-------|-----------|--------------------|
-| 🔴 **High** | [lecture-python-advanced.myst](lecture-python-advanced.myst/index.md) | 7.8 | 39 / 68 | Math (5.6), Writing (6.2) |
-| 🔴 **High** | [lecture-dp](lecture-dp/index.md) | 7.8 | 30 / 52 | Writing (5.6), Math (6.1) |
+| 🔴 **High** | [lecture-python-advanced.myst](lecture-python-advanced.myst/index.md) | 7.7 | 39 / 68 | Writing (5.8), Math (5.8) |
+| 🔴 **High** | [lecture-dp](lecture-dp/index.md) | 7.8 | 28 / 52 | Writing (5.6), Figures (6.4) |
 | 🔴 **High** | [lecture-python-programming](lecture-python-programming/index.md) | 8.1 | 19 / 27 | Writing (4.1), Figures (7.3) |
-| 🟠 **Some** | [lecture-python.myst](lecture-python.myst/index.md) | 8.1 | 58 / 145 | Writing (5.9), Figures (6.5) |
+| 🟠 **Some** | [lecture-python.myst](lecture-python.myst/index.md) | 8.1 | 56 / 145 | Writing (5.9), Figures (6.5) |
 | 🟠 **Some** | [lecture-python-intro](lecture-python-intro/index.md) | 8.4 | 12 / 56 | Writing (6.3), Figures (6.5) |
 <!-- /qe:focus -->
 
@@ -46,8 +46,8 @@ Fix one of these *once* and it lifts dozens of lectures. Ordered by reach.
 | **Line widths** | Pass `lw=2` on line plots for consistent weight | **216** | 🔧 |
 | **Plot titles → captions** | Move `ax.set_title(...)` out of the plot into the figure caption | **165** | ✋ |
 | **Heading capitalization** | Section headings → sentence case (first word + proper nouns only) | **146** | 🔧 |
-| **Transpose notation** | Replace `'` and `^T` with `^\top` | **122** | 🔧 |
 | **Expectation notation** *(proposed)* | Use `\mathbb{E}` / `\mathbb{P}` / `\mathbb{V}` with braces | **117** | 🔧 |
+| **Narrative citations** | Use `{cite:t}` where the author name is part of the sentence | **110** | ✋ |
 
 Reach is out of 348 lectures. 🔧 = scriptable sweep · ✋ = needs a human pass.
 <!-- /qe:wins -->
@@ -127,10 +127,10 @@ violation was measured in it*, not that a human declared it perfect.
 ```{warning}
 <!-- qe:review-coverage -->
 **Review coverage is incomplete in this pass, and it moves the scores.** The judgment
-layer has reached **179 of the 348 lectures**; a lecture assessed against more rules
+layer has reached **189 of the 348 lectures**; a lecture assessed against more rules
 scores lower — not because it is worse, but because more of it was looked at. The gap is
-large enough to matter: the 179 reviewed average **7.71** with 60 % HIGH, the 169
-unreviewed **8.35** with 28 % HIGH.
+large enough to matter: the 189 reviewed average **7.71** with 61 % HIGH, the 159
+unreviewed **8.42** with 24 % HIGH.
 <!-- /qe:review-coverage -->
 
 So **the cross-series comparison below is provisional** wherever coverage differs between

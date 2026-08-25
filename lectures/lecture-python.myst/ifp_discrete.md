@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.1 / 10
+- **Overall score:** 8.2 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 5.5/10 | `qe-writing-006` ×2; `qe-writing-002` ×2; `qe-writing-007` ×2. |
-| Math         | 6/10  | `qe-math-001` ×2; `qe-math-002` ×1; `qe-math-005` ×1, +1 more. |
+| Math         | 7/10  | `qe-math-001` ×2; `qe-math-005` ×1; `qe-math-009` ×2. |
 | Code         | 6.5/10 | `qe-code-002` ×2; `qe-code-001` ×3; `qe-code-004` ×10. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8.5/10 | `qe-fig-005` ×1; `qe-fig-008` ×1. |
@@ -28,7 +28,6 @@ _None found._
 
 ### High severity
 - **[qe-code-004]** — Use quantecon Timer context manager. *Count:* 10. *Lines:* 312, 314, 322, 325, 332, 335, 499, 502, 509, 512. *Example:* bare time() reading.
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 1. *Lines:* 130. *Example:* apostrophe transpose `a'`.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 2. *Lines:* 87, 353. *Example:* H2 Title Case: 'Set Up' (Up).
 
 ### Medium severity

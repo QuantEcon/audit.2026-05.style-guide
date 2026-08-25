@@ -5,16 +5,16 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.4 / 10
+- **Overall score:** 6.7 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 6/10  | `qe-writing-001` ×2; `qe-writing-006` ×1; `qe-writing-008` ×35. |
-| Math         | 3/10  | `qe-math-002` ×117; `qe-math-004` ×13; `qe-math-010` (proposed) ×1. |
-| Code         | 9/10  | `qe-code-002` ×1. |
+| Writing      | 3/10  | `qe-writing-005` ×10; `qe-writing-002` ×6; `qe-writing-001` ×2, +4 more. |
+| Math         | 3/10  | `qe-math-002` ×117; `qe-math-004` ×13; `qe-math-010` (proposed) ×1, +1 more. |
+| Code         | 7/10  | `qe-code-001` ×5; `qe-code-002` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6.5/10 | `qe-fig-006` ×2; `qe-fig-005` ×4; `qe-fig-002` ×3, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -27,10 +27,13 @@
 _None found._
 
 ### High severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 5. *Lines:* 964, 971, 986, 997, 1107. *Example:* the continuation rows of the four matrix literals are indented to 12 spaces while their opening bracket sits at column 14 or later, so the rows do not line up with the delimiter they continue - `R = np.array([[0.,   ac,   0.],` then `            [ac, -a_1,  0.5],` (964-966), and the same at 971-973, 974-976 and 977-979; PEP8 asks the continuation to align under the opening bracket. Both function docstrings are separated from their `def` line by a blank line (986-988, 1002-1004), where PEP257 puts the docstring first. 997 writes `value = - x0.T @ P_F @ x0 - d_F` with a space after the unary minus. And 1107 wraps the plot call in a debug print, `print(ax.plot(egrid, curve(egrid), color=c, **plot_args))`, so every pass of the loop dumps a `[<matplotlib.lines.Line2D object at 0x...>]` line into the published output.
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 9. *Lines:* 162, 164, 260, 266, 319, 452, 617, 858, 1154. *Example:* raw link to python-intro.quantecon.org.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 117. *Lines:* 171, 211, 221, 241, 242, 246, 248, 260, 274, 277, …. *Example:* apostrophe transpose `x_t'`.
 - **[qe-math-004]** — Do not use bold face for matrices or vectors. *Count:* 13. *Lines:* 388, 389, 397, 412, 417, 429, 441, 450, 510, 530, …. *Example:* \mathbf.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 1. *Lines:* 877. *Example:* missing braces: `\mathbb E`.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 6. *Lines:* 63, 65, 69, 113, 136, 138. *Example:* the "secret weapon" build-up spends five one-line paragraphs and four display ellipses to say that the method is max-min control: "This may sound like too much to ask for, but $\ldots$." (63), "$\ldots$ a *secret weapon* is available to design robust decision rules." (65), "The secret weapon is max-min control theory." (67), then the device is restarted at 90-92 ("he does not *know* a single transition law $\ldots$." / "$\ldots$ he wants to know *sets* of values") and again at 136-141 ("but for now $\ldots$." / "Here is a hint about the *secret weapons* we'll use"), whose content is the two bullets "We'll use some min problems to construct the lower bounds" and "We'll use some max problems to construct the upper bounds". 69 is a 39-word sentence and 113 a 37-word one. Four sentences are set as unpunctuated parentheses standing alone as paragraphs (57, 134, 226, 539), which reads as marginalia rather than prose.
+- **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 10. *Lines:* 43, 45, 47, 55, 102, 108, 109, 113, 195, 660. *Example:* the convention is inverted throughout: every term the lecture defines is set in italic and the one emphatic word is set in bold. Definitions in italic: *robust* and *robust* means insensitive to misspecification (43, 45), *approximating model* (47), *entropy* (55), *value-entropy correspondence* (102), the two glossary bullets `* *Value* refers to ...` and `* *Entropy* is a non-negative number ...` (108-109), *model uncertainty* (195), *relative entropy* (660), *more robust* defined in its own bullet at 130. The only bold in the body is `for **all** models having entropy less than or equal to ...` (113), which is emphasis. The rule asks for the opposite assignment in both directions, and here the file is consistent - consistently backwards - so the fix is a single sweep.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 1. *Lines:* 467. *Example:* H3 Title Case: "Using Agent 2's problem to construct bounds on value sets" (Agent).
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 35. *Lines:* 41, 51, 63, 65, 90, 92, 138, 145, 191, 199, …. *Example:* 2 spaces.
 
@@ -38,7 +41,10 @@ _None found._
 - **[qe-fig-002]** — Prefer code-generated figures. *Count:* 3. *Lines:* 98, 122, 1120. *Example:* static image .png.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 98, 122, 948, 1120. *Example:* {figure} without :name:.
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 2. *Lines:* 1075, 1076. *Example:* axis label `Value`.
+- **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 4. *Lines:* 286, 315, 471, 486. *Example:* three of the lecture's operators are distinguished from its matrices only by font, inside the same displays. $\mathcal B$ is defined at 313-316 as `\mathcal B(P) := R - \beta^2 A' P B (Q + \beta B' P B)^{-1} B' P A + \beta A' P A`, which carries $\mathcal B$, $B$ and $B'$ in one line, where $B$ is the control matrix fixed at 187; $\mathcal D$ (286) sits beside $D_{KL}$ (665); and $\mathcal P$, the set of densities (675, 684), sits beside $P$ and $\hat P$, the value matrices, in the same equation at 705-710. Line 471 then overloads $R$ - the state cost matrix from 189 - by naming the minimized objective $R_\theta(x_0, F)$, so `-x_t' (R + F' Q F) x_t` and $R_\theta$ appear together at 476. And entropy has three notations at once: the bound $\eta$ (385), the realised quantity `{\rm ent}` (486, 493, 507, 514, 552, 558, 568, 575), and the word in prose.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 74, 289. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 4. *Lines:* 162, 686, 946, 1120. *Example:* 686 says the wrong symbol at the point where it matters most: 684 has just defined $\phi$ as the benchmark distribution $N(0,I)$ and $\psi$ as the density being chosen, and 686 then reads "The distribution $\phi$ is chosen as the least desirable conditional distribution in terms of next period outcomes, while taking into account the penalty term $\theta D_{KL}(\psi, \phi)$" - it is $\psi$ that is chosen, and as written the sentence contradicts the one before it. Second, the same `lqcontrol` lecture is linked under two different domains in one file: `python-intro.quantecon.org/lqcontrol.html` at 162, 260 and 858 against `python.quantecon.org/lqcontrol.html#infinite-horizon` at 164, 319, 452, 617 and 1154, with `python-intro.quantecon.org/linear_algebra.html` at 266 - so a reader following the LQ prerequisite lands in different series depending on which sentence they clicked. Third, the two figures the lecture opens with (98, 122) are static PNGs of output that the code cell at 948-1116 actually produces, 850 lines later, and 946 then introduces that cell as "The code for producing the graph shown above" - the reader is shown the conclusion before the model and cannot vary it. Fourth, the $\theta = 0.002$ figure at 1120 is a PNG that no cell in the lecture generates, and 1124 asks the reader "Can you explain the different shape of the value-entropy correspondence for the robust policy?" about a figure they cannot regenerate, reparameterise, or check.
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 3. *Lines:* 98, 1072, 1129. *Example:* the three figures that carry the lecture's central idea - the value-entropy correspondence - are static PNGs with empty `{figure}` bodies, no caption and no name (98, 122, 1120), so nothing labels which axis is which or which band is which policy; the prose has to do it in words at 108-113 and again at 946 ("with blue being for the robust policy"). The one generated figure (1072-1115) has no legend either, despite drawing two red curves and two shaded bands whose whole meaning is red-versus-blue, and it plots four dataframes without labelling any of them. Second, the Nash structure at 356-645 - agent 1 picks $F$, agent 2 best responds with $K(F,\theta)$, agent 1 best responds with $\Phi(K(F,\theta))$, iterate to the fixed point $\hat F$ - is stated three times in prose (626-636, 640-643) and never drawn, where a two-box cycle would settle it at a glance. Third, the appendix (1129-1195) asks the reader to accept "Although it involves a substantial amount of algebra, it can be shown that the latter is just $\hat P$" (1190-1191) with a `{hint}` admonition as the only support; the numerical check that $\hat P = \mathcal B(\mathcal D(\hat P))$ is two lines of the code already imported.
 
 ### Low severity
 - **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 1051. *Example:* spelled-out `beta`.
@@ -47,18 +53,20 @@ _None found._
 
 ## Strengths
 
-- Code, References, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The lower and upper bounds are given as two four-step recipes with the same shape (510-515 and 571-576), and each step names the equation it consumes - solve {eq}`rb_a2o`, get the entropy from {eq}`rb_pdt22`, plot $R_\theta(x_0,F) - \theta\,{\rm ent}$ against ${\rm ent}$, sweep $\theta$ - so a reader can reproduce either band without reading the code.
+- The deterministic and stochastic problems are made to land on the same objects rather than developed twice: the operator $\mathcal D$ defined at 283-287 to absorb the penalty $\theta w'w$ reappears unchanged at 701-711 as the maximum over densities, {eq}`rb_wcb2` reduces to the same minimiser as {eq}`rb_owb` because the extra terms are constants (745-746), and 777 states the punchline that the mean of the worst-case shock distribution equals the worst-case $w_{t+1}$ of the deterministic setting.
+- The two-person game is set up with each player's information stated explicitly - 373-374 says what agent 2 knows ($u_t = -Fx_t$) and what it chooses (a sequence near zero) - and the best-response chain is then walked in three numbered steps at 632-636, the fixed-point claim split into two separately checkable lines at 640-643, and the first of the two actually proved in the appendix at 1129-1195.
+- The bridge from the algebra to `QuantEcon.py` is drawn method by method at 842-854, each entry naming the equation it implements: `d_operator`/`b_operator` for $\mathcal D$ and $\mathcal B$, `compute_deterministic_entropy` for the left side of {eq}`rb_pdt`, `K_to_F`/`F_to_K` for the two agents' problems linked back to the labels `rb_a1` and `rb_a2` where they were posed, and a note on why there are two versions of `robust_rule`.
+- The monopoly application states every primitive before any code runs - state and control at 881-888, $R$ and $Q$ at 892-902, $A$, $B$, $C$ at 906-927, the seven parameter values on one line at 934 - and the cell at 949-979 reproduces them literally, so the LQ translation can be checked term by term.
+- The code guards the one condition that would silently invalidate everything downstream: 1058-1062 forms $I - \theta^{-1}C'P_bC$, takes its eigenvalues and asserts non-negativity with the message `'θ below breakdown point.'`, which is exactly the breakdown-point restriction the theory needs and the only place a bad $\theta$ would otherwise show up as a plausible-looking plot.
 
 ## Recommended actions
 
-1. `qe-math-002` — Use \top for transpose notation (117 occurrences).
-2. `qe-math-004` — Do not use bold face for matrices or vectors (13 occurrences).
-3. `qe-link-002` — Use doc links for cross-series references (9 occurrences).
-4. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
-5. `qe-fig-006` — Lowercase axis labels (2 occurrences).
-6. `qe-fig-005` — Descriptive figure names for cross-referencing (4 occurrences).
-7. `qe-writing-006` — Capitalize lecture titles properly (1 occurrence).
+1. Fix 686: it says $\phi$ where it means $\psi$, two lines after 684 defines $\phi$ as the benchmark $N(0,I)$ - as written the sentence says the benchmark is chosen to be the least desirable distribution, contradicting 684 and the maximisation in {eq}`rb_wcb1`.
+2. Convert the 117 apostrophe transposes to `\top` (they are genuine transposes throughout - `x_t'`, `u_t'`, `F'`, `C'`, `A'`, `B'`, `w_{t+1}'`, `K(F,\theta)'` - so this is a mechanical substitution) and drop the 13 `\mathbf w` (388-389, 397, 412, 417, 429, 441, 450, 510, 530, 537, 571).
+3. Repoint the four `python-intro.quantecon.org` links (162, 260, 266, 858) at the series that actually publishes `lqcontrol` and `linear_algebra` - the same lecture is linked as `python.quantecon.org/lqcontrol.html#infinite-horizon` at 164, 319, 452, 617 and 1154 - and convert all nine raw URLs to `{doc}` references (qe-link-002).
+4. Generate the three static PNGs (98, 122, 1120) from code: the first two are outputs of the cell at 948-1116 with `θ = 0.02`, and the third is the same cell with `θ = 0.002`, which would also let 1124's question be answered by re-running rather than by inspection - then give all of them `:name:` labels and captions (qe-fig-005, qe-fig-002).
+5. Move the definitions from italic to bold - *robust* (43, 45), *approximating model* (47), *entropy* (55), *value-entropy correspondence* (102), the two glossary bullets at 108-109, *model uncertainty* (195), *relative entropy* (660) - and un-bold the emphatic `**all**` at 113.
+6. Drop the `print(...)` wrapper around `ax.plot` at 1107, add a legend to the figure so the two bands are labelled in the figure rather than in the prose at 946, and lowercase the two axis labels at 1075-1076 (qe-fig-006).
+7. Settle the notation: rename $R_\theta(x_0,F)$ at 471 so it does not collide with the state cost matrix $R$ it appears beside at 476, and pick one symbol for realised entropy instead of `{\rm ent}` alongside the bound $\eta$ (385, 486-575).
+8. Sweep the remaining mechanical items: the 35 double spaces, the H3 at 467 ("Using Agent 2's problem ..."), `\mathbb E` without braces at 877, `lw=2` at 1107, and align the continuation rows of the four matrix literals at 964-979.

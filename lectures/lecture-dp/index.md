@@ -7,7 +7,7 @@ Style audit of the **lecture-dp** series.
 - **Corpus snapshot:** `c30490a2f4`
 - **Lectures audited:** 52
 - **Average overall score:** 7.8 / 10
-- **Average per-category scores:** writing 5.6, math 6.1, code 8.0, figures 6.4, references 9.3, links 9.5, admon 10.0
+- **Average per-category scores:** writing 5.6, math 6.5, code 8.0, figures 6.4, references 9.3, links 9.5, admon 10.0
 - **JAX:** out of scope — the `qe-jax-*` rules target `lecture-jax`.
 - **Judgment-review coverage:** **31 of 52 reviewed** — scores for the unreviewed 21 reflect the 41 measured rules only, so they are not directly comparable with the reviewed ones.
 <!-- /qe:series-meta -->
@@ -38,10 +38,10 @@ it has drifted from its upstream namesake, so it needs fixing here.
 <!-- qe:series-priority -->
 | Priority | Count | % |
 |----------|-------|---|
-| HIGH     | 29    | 55.8% |
-| MEDIUM   | 1     | 1.9% |
+| HIGH     | 28    | 53.8% |
+| MEDIUM   | 0     | 0.0% |
 | LOW      | 12    | 23.1% |
-| NONE     | 10    | 19.2% |
+| NONE     | 12    | 23.1% |
 <!-- /qe:series-priority -->
 
 ## Top systemic issues across the series
@@ -53,8 +53,8 @@ Ranked by how many of the series' lectures each rule reaches.
 2. **`qe-writing-008`** — Remove excessive whitespace between words — **40 / 52** lectures, 1578 occurrences.
 3. **`qe-fig-008`** — Use lw=2 for line charts — **39 / 52** lectures, 252 occurrences.
 4. **`qe-fig-001`** — Do not set figure size unless necessary — **31 / 52** lectures, 102 occurrences.
-5. **`qe-math-002`** — Use \top for transpose notation — **31 / 52** lectures, 509 occurrences.
-6. **`qe-fig-003`** — No matplotlib embedded titles — **30 / 52** lectures, 105 occurrences.
+5. **`qe-fig-003`** — No matplotlib embedded titles — **30 / 52** lectures, 105 occurrences.
+6. **`qe-math-002`** — Use \top for transpose notation — **23 / 52** lectures, 438 occurrences.
 7. **`qe-writing-001`** — Use one sentence per paragraph — **23 / 52** lectures, 44 occurrences.
 8. **`qe-ref-001`** — Use correct citation style — **22 / 52** lectures, 49 occurrences.
 9. **`qe-writing-006`** — Capitalize lecture titles properly — **22 / 52** lectures, 141 occurrences.
@@ -108,49 +108,49 @@ that lecture. Click a lecture for its full report.
 | 1 | [cross_product_trick](cross_product_trick.md) | 4 | 3 | — | — | — | 10 | — | **5.7** | HIGH |
 | 2 | [markov_jump_lq](markov_jump_lq.md) | 5 | 3 | 6 | 5.5 | 8.5 | 9 | — | **6.2** | HIGH |
 | 3 | [cons_news](cons_news.md) | 3 | 4.5 | 7 | 6 | 10 | 7.5 | — | **6.3** | HIGH |
-| 4 | [discrete_dp](discrete_dp.md) | 4 | 4 | 6.5 | 6 | 9 | 7 | 10 | **6.6** | HIGH |
-| 5 | [lqcontrol](lqcontrol.md) | 4 | 3 | 7.5 | 4.5 | 9 | 8 | 10 | **6.6** | HIGH |
-| 6 | [lagrangian_lqdp](lagrangian_lqdp.md) | 3 | 3 | 6.5 | — | 10 | 7.5 | 10 | **6.7** | HIGH |
-| 7 | [mccall_q](mccall_q.md) | 3 | 5 | 7 | 7 | 9 | 10 | — | **6.8** | HIGH |
-| 8 | [dyn_stack](dyn_stack.md) | 4 | 5 | 7 | 4.5 | 10 | 7.5 | 10 | **6.9** | HIGH |
-| 9 | [ifp_advanced](ifp_advanced.md) | 3 | 3 | 6.5 | 7 | 8.5 | 10 | 10 | **6.9** | HIGH |
-| 10 | [inventory_q](inventory_q.md) | 4 | 4 | 7.5 | 6 | 10 | 10 | — | **6.9** | HIGH |
-| 11 | [rs_inventory_q](rs_inventory_q.md) | 5 | 4.5 | 10 | 5 | — | 10 | — | **6.9** | MEDIUM |
-| 12 | [smoothing](smoothing.md) | 6.5 | 3 | 10 | 5 | 10 | 7.5 | — | **7.0** | HIGH |
-| 13 | [calvo](calvo.md) | 3 | 5.5 | 7.5 | 7 | 8.5 | 8 | 10 | **7.1** | HIGH |
-| 14 | [perm_income_cons](perm_income_cons.md) | 4.5 | 4.5 | 9 | 5.5 | 10 | 9 | — | **7.1** | LOW |
-| 15 | [chang_ramsey](chang_ramsey.md) | 3 | 7.5 | 8.5 | 6 | 8.5 | 10 | — | **7.2** | HIGH |
-| 16 | [tax_smoothing_1](tax_smoothing_1.md) | 8.5 | 4.5 | 7.5 | 6 | 7.5 | 9 | — | **7.2** | LOW |
-| 17 | [amss](amss.md) | 3.5 | 3.5 | 8 | 6 | 10 | 10 | 10 | **7.3** | HIGH |
-| 18 | [calvo_machine_learn](calvo_machine_learn.md) | 4 | 3 | 6 | 8 | 10 | 10 | 10 | **7.3** | HIGH |
-| 19 | [lq_inventories](lq_inventories.md) | 4 | 3 | 7 | 7 | 10 | 10 | 10 | **7.3** | HIGH |
-| 20 | [mccall_model](mccall_model.md) | 4 | 3 | 10 | 6 | 10 | 8 | 10 | **7.3** | HIGH |
-| 21 | [tax_smoothing_2](tax_smoothing_2.md) | 9 | 4 | 8.5 | 4 | 8.5 | 10 | — | **7.3** | HIGH |
-| 22 | [ifp_egm_transient_shocks](ifp_egm_transient_shocks.md) | 3.5 | 7 | 7.5 | 5.5 | 8.5 | 10 | 10 | **7.4** | HIGH |
-| 23 | [perm_income](perm_income.md) | 3.5 | 4.5 | 10 | 6 | 8.5 | 10 | 10 | **7.5** | HIGH |
-| 24 | [ifp_egm](ifp_egm.md) | 3.5 | 6.5 | 7.5 | 6.5 | 9 | 10 | 10 | **7.6** | HIGH |
-| 25 | [amss3](amss3.md) | 3.5 | 9 | 8.5 | 5.5 | 7.5 | 10 | 10 | **7.7** | HIGH |
-| 26 | [lqramsey](lqramsey.md) | 6.5 | 3 | 7.5 | 7 | 10 | 10 | 10 | **7.7** | HIGH |
-| 27 | [amss2](amss2.md) | 3.5 | 10 | 8.5 | 6 | 8.5 | 10 | — | **7.8** | HIGH |
-| 28 | [ifp_opi](ifp_opi.md) | 5 | 10 | 6.5 | 6 | — | 9 | 10 | **7.8** | LOW |
-| 29 | [odu](odu.md) | 5 | 10 | 7.5 | 5 | 9 | 8 | 10 | **7.8** | LOW |
-| 30 | [opt_tax_recur](opt_tax_recur.md) | 7 | 4 | 10 | 4.5 | 9 | 10 | 10 | **7.8** | HIGH |
-| 31 | [calvo_abreu](calvo_abreu.md) | 4 | 9 | 7 | 9 | 8.5 | 10 | — | **7.9** | HIGH |
-| 32 | [smoothing_tax](smoothing_tax.md) | 7 | 5 | 10 | 4 | 10 | 9 | 10 | **7.9** | HIGH |
-| 33 | [jv](jv.md) | 3.5 | 9.5 | 7.5 | 6.5 | 9 | 10 | 10 | **8.0** | HIGH |
-| 34 | [mccall_model_with_sep_markov](mccall_model_with_sep_markov.md) | 5 | 10 | 7.5 | 5.5 | — | 10 | 10 | **8.0** | LOW |
-| 35 | [chang_credible](chang_credible.md) | 3 | 7.5 | 8.5 | 9.5 | 10 | 10 | — | **8.1** | HIGH |
-| 36 | [mccall_fitted_vfi](mccall_fitted_vfi.md) | 7 | 8 | 7.5 | 5.5 | 9 | 10 | 10 | **8.1** | LOW |
-| 37 | [mccall_model_with_separation](mccall_model_with_separation.md) | 6.5 | 5 | 7 | 8.5 | 10 | 10 | 10 | **8.1** | LOW |
-| 38 | [os_stochastic](os_stochastic.md) | 4.5 | 7.5 | 9.5 | 7.5 | 10 | 8 | 10 | **8.1** | LOW |
-| 39 | [ifp_discrete](ifp_discrete.md) | 6 | 6 | 7 | 8.5 | 10 | 10 | 10 | **8.2** | LOW |
-| 40 | [os](os.md) | 6 | 5 | 9 | 8 | 10 | 10 | 10 | **8.3** | LOW |
-| 41 | [tax_smoothing_3](tax_smoothing_3.md) | 9 | 9 | 8.5 | 5 | 8.5 | 10 | — | **8.3** | LOW |
-| 42 | [os_time_iter](os_time_iter.md) | 7.5 | 5 | 9.5 | 8 | 9 | 10 | 10 | **8.4** | LOW |
-| 43 | [os_numerical](os_numerical.md) | 6 | 10 | 10 | 5.5 | — | 10 | 10 | **8.6** | NONE |
-| 44 | [career](career.md) | 8 | 9.5 | 7 | 6.5 | 10 | 10 | 10 | **8.7** | NONE |
-| 45 | [mccall_persist_trans](mccall_persist_trans.md) | 9.5 | 6.5 | 7 | 8 | 10 | 10 | 10 | **8.7** | NONE |
-| 46 | [os_egm](os_egm.md) | 7 | 7.5 | 7.5 | 9 | 10 | 10 | 10 | **8.7** | NONE |
+| 4 | [lqcontrol](lqcontrol.md) | 4 | 3 | 7.5 | 4.5 | 9 | 8 | 10 | **6.6** | HIGH |
+| 5 | [lagrangian_lqdp](lagrangian_lqdp.md) | 3 | 3 | 6.5 | — | 10 | 7.5 | 10 | **6.7** | HIGH |
+| 6 | [dyn_stack](dyn_stack.md) | 4 | 5 | 7 | 4.5 | 10 | 7.5 | 10 | **6.9** | HIGH |
+| 7 | [ifp_advanced](ifp_advanced.md) | 3 | 3 | 6.5 | 7 | 8.5 | 10 | 10 | **6.9** | HIGH |
+| 8 | [smoothing](smoothing.md) | 6.5 | 3 | 10 | 5 | 10 | 7.5 | — | **7.0** | HIGH |
+| 9 | [calvo](calvo.md) | 3 | 5.5 | 7.5 | 7 | 8.5 | 8 | 10 | **7.1** | HIGH |
+| 10 | [discrete_dp](discrete_dp.md) | 4 | 7 | 6.5 | 6 | 9 | 7 | 10 | **7.1** | HIGH |
+| 11 | [perm_income_cons](perm_income_cons.md) | 4.5 | 4.5 | 9 | 5.5 | 10 | 9 | — | **7.1** | LOW |
+| 12 | [chang_ramsey](chang_ramsey.md) | 3 | 7.5 | 8.5 | 6 | 8.5 | 10 | — | **7.2** | HIGH |
+| 13 | [inventory_q](inventory_q.md) | 4 | 5.5 | 7.5 | 6 | 10 | 10 | — | **7.2** | HIGH |
+| 14 | [mccall_q](mccall_q.md) | 3 | 7 | 7 | 7 | 9 | 10 | — | **7.2** | HIGH |
+| 15 | [tax_smoothing_1](tax_smoothing_1.md) | 8.5 | 4.5 | 7.5 | 6 | 7.5 | 9 | — | **7.2** | LOW |
+| 16 | [amss](amss.md) | 3.5 | 3.5 | 8 | 6 | 10 | 10 | 10 | **7.3** | HIGH |
+| 17 | [calvo_machine_learn](calvo_machine_learn.md) | 4 | 3 | 6 | 8 | 10 | 10 | 10 | **7.3** | HIGH |
+| 18 | [lq_inventories](lq_inventories.md) | 4 | 3 | 7 | 7 | 10 | 10 | 10 | **7.3** | HIGH |
+| 19 | [rs_inventory_q](rs_inventory_q.md) | 5 | 6.5 | 10 | 5 | — | 10 | — | **7.3** | LOW |
+| 20 | [tax_smoothing_2](tax_smoothing_2.md) | 9 | 4 | 8.5 | 4 | 8.5 | 10 | — | **7.3** | HIGH |
+| 21 | [ifp_egm_transient_shocks](ifp_egm_transient_shocks.md) | 3.5 | 7 | 7.5 | 5.5 | 8.5 | 10 | 10 | **7.4** | HIGH |
+| 22 | [perm_income](perm_income.md) | 3.5 | 4.5 | 10 | 6 | 8.5 | 10 | 10 | **7.5** | HIGH |
+| 23 | [ifp_egm](ifp_egm.md) | 3.5 | 6.5 | 7.5 | 6.5 | 9 | 10 | 10 | **7.6** | HIGH |
+| 24 | [amss3](amss3.md) | 3.5 | 9 | 8.5 | 5.5 | 7.5 | 10 | 10 | **7.7** | HIGH |
+| 25 | [lqramsey](lqramsey.md) | 6.5 | 3 | 7.5 | 7 | 10 | 10 | 10 | **7.7** | HIGH |
+| 26 | [amss2](amss2.md) | 3.5 | 10 | 8.5 | 6 | 8.5 | 10 | — | **7.8** | HIGH |
+| 27 | [ifp_opi](ifp_opi.md) | 5 | 10 | 6.5 | 6 | — | 9 | 10 | **7.8** | LOW |
+| 28 | [odu](odu.md) | 5 | 10 | 7.5 | 5 | 9 | 8 | 10 | **7.8** | LOW |
+| 29 | [calvo_abreu](calvo_abreu.md) | 4 | 9 | 7 | 9 | 8.5 | 10 | — | **7.9** | HIGH |
+| 30 | [mccall_model](mccall_model.md) | 4 | 7 | 10 | 6 | 10 | 8 | 10 | **7.9** | HIGH |
+| 31 | [smoothing_tax](smoothing_tax.md) | 7 | 5 | 10 | 4 | 10 | 9 | 10 | **7.9** | HIGH |
+| 32 | [jv](jv.md) | 3.5 | 9.5 | 7.5 | 6.5 | 9 | 10 | 10 | **8.0** | HIGH |
+| 33 | [mccall_model_with_sep_markov](mccall_model_with_sep_markov.md) | 5 | 10 | 7.5 | 5.5 | — | 10 | 10 | **8.0** | LOW |
+| 34 | [chang_credible](chang_credible.md) | 3 | 7.5 | 8.5 | 9.5 | 10 | 10 | — | **8.1** | HIGH |
+| 35 | [mccall_fitted_vfi](mccall_fitted_vfi.md) | 7 | 8 | 7.5 | 5.5 | 9 | 10 | 10 | **8.1** | LOW |
+| 36 | [opt_tax_recur](opt_tax_recur.md) | 7 | 6 | 10 | 4.5 | 9 | 10 | 10 | **8.1** | LOW |
+| 37 | [os_stochastic](os_stochastic.md) | 4.5 | 7.5 | 9.5 | 7.5 | 10 | 8 | 10 | **8.1** | LOW |
+| 38 | [tax_smoothing_3](tax_smoothing_3.md) | 9 | 9 | 8.5 | 5 | 8.5 | 10 | — | **8.3** | LOW |
+| 39 | [ifp_discrete](ifp_discrete.md) | 6 | 7 | 7 | 8.5 | 10 | 10 | 10 | **8.4** | LOW |
+| 40 | [os_time_iter](os_time_iter.md) | 7.5 | 5 | 9.5 | 8 | 9 | 10 | 10 | **8.4** | LOW |
+| 41 | [mccall_model_with_separation](mccall_model_with_separation.md) | 6.5 | 8.5 | 7 | 8.5 | 10 | 10 | 10 | **8.6** | NONE |
+| 42 | [os_numerical](os_numerical.md) | 6 | 10 | 10 | 5.5 | — | 10 | 10 | **8.6** | NONE |
+| 43 | [career](career.md) | 8 | 9.5 | 7 | 6.5 | 10 | 10 | 10 | **8.7** | NONE |
+| 44 | [mccall_persist_trans](mccall_persist_trans.md) | 9.5 | 6.5 | 7 | 8 | 10 | 10 | 10 | **8.7** | NONE |
+| 45 | [os_egm](os_egm.md) | 7 | 7.5 | 7.5 | 9 | 10 | 10 | 10 | **8.7** | NONE |
+| 46 | [os](os.md) | 6 | 9 | 9 | 8 | 10 | 10 | 10 | **8.9** | NONE |
 | 47 | [un_insure](un_insure.md) | 8 | 10 | 10 | 5.5 | 9 | 10 | 10 | **8.9** | NONE |
 | 48 | [os_egm_jax](os_egm_jax.md) | 10 | 10 | 7.5 | 7 | — | 10 | 10 | **9.1** | NONE |
 | 49 | [short_path](short_path.md) | 10 | 10 | 10 | 8 | — | 10 | 10 | **9.7** | NONE |

@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 7.2 / 10
+- **Overall score:** 7.5 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-006` ×2; `qe-writing-001` ×3; `qe-writing-005` ×4, +4 more. |
-| Math         | 4/10  | `qe-math-010` (proposed) ×3; `qe-math-002` ×3; `qe-math-005` ×3. |
+| Math         | 6/10  | `qe-math-010` (proposed) ×3; `qe-math-005` ×3. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-003` ×4; `qe-fig-005` ×2; `qe-fig-008` ×7, +1 more. |
@@ -28,7 +28,6 @@ _None found._
 
 ### High severity
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 7. *Lines:* 379, 684, 685, 691, 692, 730, 740. *Example:* plot() without lw=.
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 3. *Lines:* 434, 456, 499. *Example:* apostrophe transpose `a'`.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 3. *Lines:* 143, 415, 432. *Example:* missing braces: `\mathbb E`.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 2. *Lines:* 76, 154. *Example:* H2 Title Case: 'The Model' (Model).
 

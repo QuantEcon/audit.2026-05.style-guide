@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 4.5/10 | `qe-writing-001` ×2; `qe-writing-005` ×3; `qe-writing-002` ×3, +4 more. |
-| Math         | 3.5/10 | `qe-math-002` ×22; `qe-math-003` ×5. |
+| Math         | 3.5/10 | `qe-math-002` ×17; `qe-math-003` ×5. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | N/A   | no figures or plotting code. |
@@ -27,7 +27,7 @@
 _None found._
 
 ### High severity
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 22. *Lines:* 77, 113, 119, 129, 408, 409, 429, 430, 470, 982, …. *Example:* \prime transpose.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 17. *Lines:* 77, 113, 119, 129, 429, 430, 982, 983, 989, 1001, …. *Example:* \prime transpose.
 - **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 5. *Lines:* 371, 444, 461, 484, 491. *Example:* matrix environment.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 40. *Lines:* 27, 39, 59, 81, 87, 93, 106, 107, 122, 132, …. *Example:* 2 spaces.
 

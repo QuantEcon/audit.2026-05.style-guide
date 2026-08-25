@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.0 / 10
+- **Overall score:** 8.2 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 5.5/10 | `qe-writing-003` ×2; `qe-writing-002` ×2; `qe-writing-006` ×1, +1 more. |
-| Math         | 6/10  | `qe-math-010` (proposed) ×2; `qe-math-002` ×1. |
+| Math         | 7.5/10 | `qe-math-010` (proposed) ×2. |
 | Code         | 8.5/10 | `qe-code-001` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-006` ×2; `qe-fig-005` ×3; `qe-fig-003` ×1, +2 more. |
@@ -27,7 +27,6 @@
 _None found._
 
 ### High severity
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 1. *Lines:* 320. *Example:* apostrophe transpose `w'`.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 2. *Lines:* 319, 385. *Example:* missing braces: `\mathbb P`.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 1. *Lines:* 71. *Example:* H2 Title Case: 'Set Up' (Up).
 

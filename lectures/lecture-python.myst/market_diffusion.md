@@ -5,15 +5,15 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.8 / 10
-- **Priority:** HIGH
+- **Overall score:** 8.2 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 6.5/10 | `qe-writing-005` ×6; `qe-writing-002` ×1; `qe-writing-007` ×1. |
-| Math         | 4/10  | `qe-math-002` ×5; `qe-math-010` (proposed) ×2; `qe-math-014` (proposed) ×2. |
+| Math         | 7/10  | `qe-math-010` (proposed) ×2; `qe-math-014` (proposed) ×2. |
 | Code         | 6/10  | `qe-code-001` ×22; `qe-code-002` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8/10  | `qe-fig-005` ×1; `qe-fig-004` ×1; `qe-fig-001` ×4. |
@@ -28,7 +28,6 @@ _None found._
 
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 22. *Lines:* 165, 247, 250, 251, 260, 275, 277, 349, 350, 418, …. *Example:* exponentiation is written with spaces on fourteen lines - `n ** 2` (165), `mkt.mu_H ** 2` (247, 277), `mkt.sigma ** 2` (251, 277), `... ) ** 2` (260, 349, 350, 418, 419, 424, 425, 569, 571, 635) - where qe-code-001 asks for `a**b`; two lambdas are bound to names (600, 860) rather than written as `def`s; the title at 527 concatenates `f'single crossing at '`, an f-string with no placeholder, to a second string with `+`; and six code lines run past 79 characters (250, 275, 277, 682, 795, 872 - the longest is 87).
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 5. *Lines:* 304, 309, 324, 950, 952. *Example:* apostrophe transpose `V'`.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 2. *Lines:* 143, 184. *Example:* non-blackboard `\Pr`.
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 6. *Lines:* 64, 116, 202, 294, 381, 491. *Example:* bold is used for emphasis in six places where the lecture's own practice is italic: **excessive** and **insufficient** (64-65, two bolds in one sentence), **unknown** (116), **linear in $n$** (202), **undiscounted** (294), **more** (381) and **established** (491). None of these is a term being defined - the lecture's real definitions are bolded correctly at 215 (**log likelihood ratio**) and 308 (**value of information**) - and italic emphasis is used correctly nine times elsewhere (*owned* 37, *want* 58, *aggregate* 171, *exact* 231, *exactly* 458, *more* 461, *competitors* 720, *identical* 735, *not* 1004). Line 461 even italicises *more* for the same kind of emphasis that 381 bolds.
 

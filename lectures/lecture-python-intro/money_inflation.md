@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.6 / 10
+- **Overall score:** 8.7 / 10
 - **Priority:** NONE
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 7/10  | `qe-writing-008` ×90; `qe-writing-004` ×1; `qe-writing-001` ×1. |
-| Math         | 7/10  | `qe-math-001` ×2; `qe-math-002` ×1. |
+| Math         | 8/10  | `qe-math-001` ×2. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-005` ×3; `qe-fig-004` ×3; `qe-fig-008` ×10, +1 more. |
@@ -28,7 +28,6 @@ _None found._
 
 ### High severity
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 10. *Lines:* 329, 535, 538, 905, 908, 912, 1048, 1121, 1122, 1209. *Example:* plot() without lw=.
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 1. *Lines:* 1036. *Example:* apostrophe transpose `S'`.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 90. *Lines:* 35, 36, 43, 50, 54, 60, 78, 80, 81, 96, …. *Example:* 3 spaces.
 
 ### Medium severity
@@ -56,7 +55,7 @@ _None found._
 1. `qe-math-001` — Prefer UTF-8 unicode for simple parameter mentions, be consistent (2 occurrences).
 2. `qe-fig-005` — Descriptive figure names for cross-referencing (3 occurrences).
 3. `qe-fig-004` — Caption formatting conventions (3 occurrences).
-4. `qe-math-002` — Use \top for transpose notation (1 occurrence).
-5. `qe-writing-008` — Remove excessive whitespace between words (90 occurrences).
-6. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (1 occurrence).
-7. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
+4. `qe-writing-008` — Remove excessive whitespace between words (90 occurrences).
+5. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (1 occurrence).
+6. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
+7. `qe-fig-008` — Use lw=2 for line charts (10 occurrences).

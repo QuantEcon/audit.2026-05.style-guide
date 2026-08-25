@@ -5,15 +5,15 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 6.9 / 10
-- **Priority:** HIGH
+- **Overall score:** 7.4 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 6/10  | `qe-writing-005` ×16; `qe-writing-001` ×1; `qe-writing-008` ×4. |
-| Math         | 4/10  | `qe-math-002` ×6; `qe-math-010` (proposed) ×1; `qe-math-004` ×1, +1 more. |
+| Math         | 7/10  | `qe-math-010` (proposed) ×1; `qe-math-004` ×1; `qe-math-008` ×1. |
 | Code         | 6.5/10 | `qe-code-002` ×2; `qe-code-001` ×3; `qe-code-005` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-005` ×6; `qe-fig-003` ×1; `qe-fig-002` ×2, +1 more. |
@@ -29,7 +29,6 @@ _None found._
 ### High severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 6. *Lines:* 552, 566, 750, 862, 882, 916. *Example:* {figure} without :name:.
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 10. *Lines:* 75, 76, 90, 193, 209, 543, 616, 624, 715, 911. *Example:* raw link to python-intro.quantecon.org.
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 6. *Lines:* 247, 264, 273, 305, 319, 419. *Example:* apostrophe transpose `s'`.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 1. *Lines:* 202. *Example:* missing braces: `\mathbb E`.
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 16. *Lines:* 144, 164, 165, 171, 172, 173, 175, 177, 179, 195, …. *Example:* the lecture's whole formal apparatus is defined in italic rather than bold - *stationary Markov policies* (144), *states* (164), *feasible actions* and *feasible state-action pairs* (165), *reward function* (171), *transition probability function* (172), *discount factor* (173), *action space* (175), *policy* (177), *feasible* (179), *controlled chain* (195), *policy value function* (228), *optimal value function* / *value function* (230), *optimal* (239), *Bellman operator* (258), *Bellman equation* (300) - which is the exact reversal the rule warns about; the file contains one bold span in 1010 lines and it is `**Notes**` at 711, used as a pseudo-heading rather than for a definition or an emphasis.
 

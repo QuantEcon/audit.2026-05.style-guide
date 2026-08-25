@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.4 / 10
+- **Overall score:** 8.0 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-006` ×11; `qe-writing-005` ×4; `qe-writing-003` ×3, +3 more. |
-| Math         | 5/10  | `qe-math-002` ×13; `qe-math-009` ×2. |
+| Math         | 9.5/10 | `qe-math-009` ×2. |
 | Code         | 8.5/10 | `qe-code-001` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-003` ×3; `qe-fig-005` ×1; `qe-fig-004` ×1, +2 more. |
@@ -29,7 +29,6 @@ _None found._
 ### High severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 5. *Lines:* 569, 657, 829, 895, 1087. *Example:* figsize=.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 8. *Lines:* 577, 672, 852, 901, 1093, 1097, 1101, 1102. *Example:* plot() without lw=.
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 13. *Lines:* 278, 280, 293, 295, 347, 356, 357, 977, 984, 989. *Example:* apostrophe transpose `f'`.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 11. *Lines:* 82, 102, 154, 216, 250, 477, 691, 785, 913, 967, …. *Example:* H2 Title Case: 'The Model' (Model).
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 79. *Lines:* 30, 33, 37, 39, 54, 61, 84, 86, 95, 116, …. *Example:* 2 spaces.
 

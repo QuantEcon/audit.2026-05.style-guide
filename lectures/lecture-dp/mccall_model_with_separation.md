@@ -5,15 +5,15 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.1 / 10
-- **Priority:** LOW
+- **Overall score:** 8.6 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 6.5/10 | `qe-writing-003` ×2; `qe-writing-002` ×3; `qe-writing-007` ×2, +1 more. |
-| Math         | 5/10  | `qe-math-002` ×5; `qe-math-010` (proposed) ×1. |
+| Math         | 8.5/10 | `qe-math-010` (proposed) ×1. |
 | Code         | 7/10  | `qe-code-001` ×5; `qe-code-003` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8.5/10 | `qe-fig-005` ×4. |
@@ -28,7 +28,6 @@ _None found._
 
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 5. *Lines:* 256, 318, 516, 527, 539. *Example:* three docstrings are single-line, single-quoted strings padded with spaces - `" One update of the scalar h. "` (516), `" Compute v_e from h using the closed-form expression. "` (527), `" Iterates to convergence on the Bellman equations. "` (539) - where the other six functions in the file use `"""` (284, 296, 319, 376, 571); `dist = BetaBinomial(n-1, a, b)` (256) drops the spaces around `-` that the same file uses in `1 - γ` (246) and `1 - β` (326); and the closing bracket of `solve_full_model` is indented four spaces against a hanging indent of eight (318, E124).
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 5. *Lines:* 156, 181, 214, 480, 498. *Example:* apostrophe transpose `w'`.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 1. *Lines:* 88. *Example:* missing braces: `\mathbb E`.
 
 ### Medium severity

@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-005` ×8; `qe-writing-002` ×5; `qe-writing-004` ×2, +5 more. |
-| Math         | 3/10  | `qe-math-010` (proposed) ×26; `qe-math-006` ×2; `qe-math-002` ×2, +2 more. |
+| Math         | 3/10  | `qe-math-010` (proposed) ×26; `qe-math-006` ×2; `qe-math-011` (proposed) ×1, +1 more. |
 | Code         | 5.5/10 | `qe-code-002` ×13; `qe-code-001` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7.5/10 | `qe-fig-003` ×1; `qe-fig-005` ×1; `qe-fig-008` ×3. |
@@ -29,7 +29,6 @@ _None found._
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 6. *Lines:* 358, 360, 366, 367, 864, 866. *Example:* the rule's two explicit examples are both broken, in opposite directions: 358 and 360 write `alpha + beta*x` and `alpha - beta*x` with no spaces around the multiplication, while 864 and 866 write `(ERf + ξ) ** 2 + λ ** 2 + σf ** 2` with spaces around every `**`, which the rule says to write as `a**b`; 366-367 write `1/Em` and `sigmam/Em` unspaced. The two one-line helpers at 357 and 359 are also separated by no blank line at all (E302) and are named `y` and `z`, which says nothing about what they compute.
 - **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 13. *Lines:* 357, 358, 359, 360, 367, 373, 374. *Example:* spelled-out `alpha`.
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 2. *Lines:* 508. *Example:* \prime transpose.
 - **[qe-math-006]** — Use aligned environment correctly for PDF compatibility. *Count:* 2. *Lines:* 684, 713. *Example:* bare \begin{align*} display block; the corpus convention is $$ … \begin{aligned} … $$.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 26. *Lines:* 118, 144, 266, 307, 394, 414, 470, 477, 633, 640, …. *Example:* bare expectation `E(`.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 5. *Lines:* 22, 111, 224, 421, 575. *Example:* 22-23 opens the lecture with a 45-word sentence that defines three symbols inside its own subordinate clauses; 111 is 42 words ("refers to the fact that interesting restrictions can be deduced by recognizing that ... and then using that fact to rearrange ..."); 224-225 duplicates its own noun phrase - "For a constant relative risk aversion (CRRA) utility function $U(C) = ...$ utility function $U'(C) = C^{-\gamma}$"; 421 is a 41-word sentence with a parenthetical gloss that restates the clause before it; and 575-576 is 33 words and ungrammatical ("Our basic tools are random number generator that we shall use to ...").

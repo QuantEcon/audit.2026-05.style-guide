@@ -245,7 +245,9 @@ def draft_report(series, stem, path, titles):
         reviewed[rule] = {
             "count": int(f["count"]),
             "lines": [int(x) for x in (f.get("lines") or [])][:24],
-            "samples": [f.get("detail", "")],
+            # Reviewers cite other rules inside a finding's prose too, not just in
+            # Strengths and Actions — so the tag has to be normalised here as well.
+            "samples": [tag_proposed(f.get("detail", ""))],
         }
     violations.update(reviewed)
     applies = applicability(doc)

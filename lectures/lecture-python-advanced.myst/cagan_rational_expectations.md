@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 9.5/10 | `qe-writing-008` ×1. |
-| Math         | 3/10  | `qe-math-002` ×6; `qe-math-010` (proposed) ×4; `qe-math-003` ×2. |
+| Math         | 3/10  | `qe-math-002` ×5; `qe-math-010` (proposed) ×4; `qe-math-003` ×2. |
 | Code         | 8.5/10 | `qe-code-002` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5.5/10 | `qe-fig-006` ×2; `qe-fig-004` ×2; `qe-fig-003` ×1, +2 more. |
@@ -27,7 +27,7 @@
 _None found._
 
 ### High severity
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 6. *Lines:* 761, 770, 784, 944, 997. *Example:* apostrophe transpose `a_t'`.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 5. *Lines:* 761, 770, 944, 997. *Example:* apostrophe transpose `a_t'`.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 4. *Lines:* 205, 209, 225, 270. *Example:* bare expectation `E_t(`.
 
 ### Medium severity
@@ -54,7 +54,7 @@ _None found._
 
 ## Recommended actions
 
-1. `qe-math-002` — Use \top for transpose notation (6 occurrences).
+1. `qe-math-002` — Use \top for transpose notation (5 occurrences).
 2. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (4 occurrences).
 3. `qe-math-003` — Use square brackets for matrix notation (2 occurrences).
 4. `qe-ref-001` — Use correct citation style (2 occurrences).

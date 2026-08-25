@@ -33,8 +33,8 @@ notation debt to work through.
 |----------|-------|---|
 | HIGH     | 12    | 21.4% |
 | MEDIUM   | 0     | 0.0% |
-| LOW      | 22    | 39.3% |
-| NONE     | 22    | 39.3% |
+| LOW      | 21    | 37.5% |
+| NONE     | 23    | 41.1% |
 <!-- /qe:series-priority -->
 
 ## Top systemic issues across the series
@@ -130,9 +130,9 @@ that lecture. Click a lecture for its full report.
 | 31 | [monte_carlo](monte_carlo.md) | 8 | 5.5 | 9 | 8 | — | 10 | 10 | **8.4** | LOW |
 | 32 | [about](about.md) | 8 | — | — | — | — | 9 | — | **8.5** | LOW |
 | 33 | [cagan_ree](cagan_ree.md) | 4 | 10 | 8.5 | 7 | 10 | 10 | 10 | **8.5** | HIGH |
-| 34 | [money_inflation_nonlinear](money_inflation_nonlinear.md) | 4.5 | 8.5 | 10 | 6.5 | 10 | 10 | 10 | **8.5** | LOW |
-| 35 | [money_inflation](money_inflation.md) | 7 | 7 | 10 | 6 | 10 | 10 | 10 | **8.6** | NONE |
-| 36 | [unpleasant](unpleasant.md) | 5.5 | 8.5 | 10 | 6 | 10 | 10 | 10 | **8.6** | NONE |
+| 34 | [unpleasant](unpleasant.md) | 5.5 | 8.5 | 10 | 6 | 10 | 10 | 10 | **8.6** | NONE |
+| 35 | [money_inflation](money_inflation.md) | 7 | 8 | 10 | 6 | 10 | 10 | 10 | **8.7** | NONE |
+| 36 | [money_inflation_nonlinear](money_inflation_nonlinear.md) | 4.5 | 10 | 10 | 6.5 | 10 | 10 | 10 | **8.7** | NONE |
 | 37 | [prob_dist](prob_dist.md) | 9.5 | 7.5 | 7.5 | 8.5 | — | 10 | 10 | **8.8** | NONE |
 | 38 | [simple_linear_regression](simple_linear_regression.md) | 7.5 | 9 | 10 | 6.5 | — | 10 | 9.5 | **8.8** | NONE |
 | 39 | [supply_demand_multiple_goods](supply_demand_multiple_goods.md) | 6.5 | 10 | 8.5 | 7.5 | — | 10 | 10 | **8.8** | NONE |

@@ -388,9 +388,10 @@ def check_math_002(doc: Doc):
     prime = re.compile(
         r"(?:[A-Z](?:_\{[^}]*\}|_[A-Za-z0-9])?"          # A, A_t, A_{t+1}
         r"|[A-Za-z](?:_\{[^}]*\}|_[A-Za-z0-9])"          # x_t, u_{t+1}
-        r"|\)|\}|\\top)'(?!\s*\()")
+        r"|\)|\}|\\top)'(?!'|\s*\()")
     # Lowercase vectors juxtaposed with another symbol: c'x, b'y.
-    prime_vec = re.compile(r"(?<![A-Za-z0-9\\])([a-z])'(?=\s*(?:[A-Za-z]|\\[A-Za-z]))")
+    prime_vec = re.compile(r"(?<![A-Za-z0-9\\])([a-z])'(?!')"
+                           r"(?=\s*(?:[A-Za-z]|\\(?!(?:" + NOT_A_PRODUCT + r")\b)[A-Za-z]+))")
     # ``^T`` is ambiguous in this corpus (terminal date, summation limit, data
     # history), so it counts only where the base is a matrix-like symbol AND the
     # superscript is followed by a factor rather than a relation.
@@ -398,7 +399,29 @@ def check_math_002(doc: Doc):
         r"(?:(?<![A-Za-z0-9\\])[A-Z]|" + DECORATED + r")"
         r"\^\{?T\}?"
         r"(?=\s*(?:[A-Za-z(\[]|\\(?!(?:" + NOT_A_PRODUCT + r")\b)[A-Za-z]+))")
-    lprime = re.compile(r"\^\{?\\prime\}?")
+    # Explicit alternation, not ``\{?...\}?``: with an optional brace the engine
+    # backtracks, lets the brace go unconsumed, and the lookahead then sees ``}``
+    # instead of ``(`` — so ``u^{\prime}(c)`` defeated the guard while ``u^\prime(c)``
+    # obeyed it.
+    # ``^\prime`` carried no guard, so every ``u^\prime(c)`` derivative counted as a
+    # transpose. But the guard can only apply to a *function-like* base: in this corpus
+    # a primed lowercase letter followed by an argument is a derivative, while
+    # ``C C^\prime (A^o)^\tau``, ``\mu^\prime_{t+1}`` and ``[0,1,0,0]^\prime`` are
+    # transposes that happen to be followed by a factor. So the base decides.
+    #
+    # The brace is spelled out rather than written ``\{?...\}?``: with an optional brace
+    # the engine backtracks, leaves it unconsumed, and the lookahead sees ``}`` instead
+    # of ``(`` — which let ``u^{\prime}(c)`` through while ``u^\prime(c)`` was caught.
+    PRIME_SUP = r"\^(?:\{\s*\\prime\s*\}|\\prime)"
+    lprime = re.compile(
+        # A command, a capital, or a closing delimiter: a transpose either way.
+        r"(?:\\[A-Za-z]+|[A-Z]|\)|\}|\])(?:_\{[^}]*\}|_[A-Za-z0-9])?"
+        + PRIME_SUP
+        + r"|"
+        # A plain lowercase name: a following argument makes it a derivative.
+        + r"(?<![A-Za-z0-9\\])[a-z](?:_\{[^}]*\}|_[A-Za-z0-9])?"
+        + PRIME_SUP
+        + r"(?!\s*(?:\(|\\left\s*\())")
     for no, src in _math_spans(doc):
         for m in prime.finditer(src):
             hits.append(Hit("qe-math-002", no, f"apostrophe transpose `{m.group(0)}`"))

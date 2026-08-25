@@ -5,15 +5,15 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.3 / 10
-- **Priority:** LOW
+- **Overall score:** 8.9 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 6/10  | `qe-writing-001` ×2; `qe-writing-004` ×1; `qe-writing-005` ×1, +2 more. |
-| Math         | 5/10  | `qe-math-002` ×10; `qe-math-009` ×7. |
+| Math         | 9/10  | `qe-math-009` ×7. |
 | Code         | 9/10  | `qe-code-001` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8/10  | `qe-fig-005` ×2; `qe-fig-008` ×4. |
@@ -27,7 +27,6 @@
 _None found._
 
 ### High severity
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 10. *Lines:* 338, 361, 362, 466, 469, 498, 508. *Example:* \prime transpose.
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 7. *Lines:* 338, 361, 362, 466, 469, 498, 508. *Example:* the derivative is written two ways in one lecture. Seven displays use the verbose `u^{\prime}` / `v^{\prime}` - {eq}`euler-cep` (338), {eq}`euler_pol` (361-362), {eq}`bellman_FOC` (466), the text at 469, {eq}`bellman_envelope` (498) and {eq}`bellman_v_prime` (508) - while the plain `'` is used for exactly the same object at 396, 399, 422, 446, 483, 495 and in both exercise solutions (643, 649, 655). `u'` renders identically, is four characters shorter and is what the rest of the file already uses, so the `\prime` spelling is decoration; picking one would also remove the collision with the transpose convention that qe-math-002 polices.
 
 ### Medium severity

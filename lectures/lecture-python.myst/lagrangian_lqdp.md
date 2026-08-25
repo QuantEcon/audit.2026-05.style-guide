@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-006` ×7; `qe-writing-002` ×5; `qe-writing-004` ×3, +5 more. |
-| Math         | 3/10  | `qe-math-002` ×73; `qe-math-003` ×6; `qe-math-009` ×3. |
+| Math         | 3/10  | `qe-math-002` ×69; `qe-math-003` ×6; `qe-math-009` ×3. |
 | Code         | 6.5/10 | `qe-code-001` ×5; `qe-code-002` ×1; `qe-code-005` ×2. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | N/A   | no figures or plotting code. |
@@ -28,7 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 5. *Lines:* 591, 599, 612, 638, 686. *Example:* 599-601 breaks the `raise ValueError(` block open: the f-string argument is indented four spaces while the `raise` sits at eight, so the continuation and the closing paren are left of the statement that owns them (PEP8 E128); 612 leaves one blank line between the top-level `stable_solution` and `stationary_P` where PEP8 asks for two (E302); 638 binds `n, k = lq.n, lq.k` and uses neither, and 640-641 bind `L`, `N`, `W` and `V` and use none of them (F841 x6 in one 30-line function); 591-595 redefines `tol` and `sort_fun` inside `stable_solution` although both already exist at module scope from 540-544; and 686 writes `H[0, :] = ρ,δ` with no space after the comma (E231). The `stable_solution` docstring is also misleading - the system it draws at 579-580 as `y' = |a b| y` / `x' = |c d| x` is not the block system the function solves.
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 73. *Lines:* 87, 94, 102, 107, 113, 125, 128, 132, 161, 162, …. *Example:* apostrophe transpose `)'`.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 69. *Lines:* 87, 94, 102, 107, 113, 125, 128, 132, 161, 162, …. *Example:* apostrophe transpose `)'`.
 - **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 6. *Lines:* 341, 356, 815, 817, 818, 820. *Example:* matrix environment.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 5. *Lines:* 52, 279, 372, 780, 827. *Example:* 52-53 is a 46-word sentence, and 55 then repeats its content ("describes the joint dynamics of a system of equations describing the states and costates" against "describes the first-order dynamics of state and co-state vectors"), spelling "costates" one way at 53 and "co-state" the other at 55; 372 repeats 367-368 verbatim ("Let $V^{ij}$ denote the $(i,j)$ piece of the partitioned $V^{-1}$ matrix") four lines after the same sentence; 279 is not a sentence at all ("The determinant of a symplectic, then $\textrm{det}(M) = 1$"); 780-781 stacks two adverbs ungrammatically ("it is useful explicitly briefly to describe"); and 827 is 46 words that use the phrase "this lecture" twice to mean two different lectures. The file also carries the typos "positive define" for positive definite (141, 192), "sbe" (835) and "contruct" (683).
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 7. *Lines:* 70, 236, 258, 672, 699, 705, 778. *Example:* H2 Title Case: 'Undiscounted LQ DP Problem' (Problem).

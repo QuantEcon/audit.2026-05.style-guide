@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.2 / 10
+- **Overall score:** 8.4 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 7/10  | `qe-writing-004` ×2; `qe-writing-006` ×1. |
-| Math         | 5/10  | `qe-math-002` ×9; `qe-math-010` (proposed) ×1. |
+| Math         | 6/10  | `qe-math-002` ×2; `qe-math-010` (proposed) ×1. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5.5/10 | `qe-fig-005` ×2; `qe-fig-004` ×3; `qe-fig-003` ×1, +2 more. |
@@ -28,7 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 7. *Lines:* 410, 564, 702, 1018, 1072, 1285, 1348. *Example:* figsize=.
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 9. *Lines:* 186, 197, 284, 288, 291, 306, 311, 314. *Example:* apostrophe transpose `u'`.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 2. *Lines:* 186, 291. *Example:* apostrophe transpose `u'`.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 1. *Lines:* 164. *Example:* non-blackboard `\operatorname{Prob}`.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 1. *Lines:* 1104. *Example:* H3 Title Case: 'From escape dynamics to the *Conquest of American Inflation*' (Conquest, Inflation).
 
@@ -54,7 +54,7 @@ _None found._
 
 ## Recommended actions
 
-1. `qe-math-002` — Use \top for transpose notation (9 occurrences).
+1. `qe-math-002` — Use \top for transpose notation (2 occurrences).
 2. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (2 occurrences).
 3. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
 4. `qe-fig-004` — Caption formatting conventions (3 occurrences).

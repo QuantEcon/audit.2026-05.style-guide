@@ -18,7 +18,7 @@ Verified against the 2026-08 snapshot (`lectures/data/snapshot.json`).
 | `qe-writing-001` | added after | — | Not present at review time; added as a paragraph-block sentence counter with an abbreviation list. |
 | `qe-writing-004` | added after | — | Not present at review time; added, firing only on a curated common-noun list so an unlisted surname cannot be mistaken for a violation. |
 | `qe-math-001` | added after | — | Not present at review time; added. Its first form of false positive — inline maths spanning a line break — is fixed in the lexer. |
-| `qe-math-002` | broken | 22 / 14 | The `^T` branch was ~88 % false: summation limits (`\sum_{t=0}^T`), terminal dates, data histories (`Y^T`), discount factors (`\delta^T`). It now requires a matrix-like base *and* a following factor rather than a relation. The apostrophe branch missed lowercase vectors (`c'x`, `x_t'`), now covered. |
+| `qe-math-002` | broken, and later **still false at scale** | 22 / 14 | The `^T` branch was ~88 % false: summation limits (`\sum_{t=0}^T`), terminal dates, data histories (`Y^T`), discount factors (`\delta^T`). It now requires a matrix-like base *and* a following factor rather than a relation. The apostrophe branch missed lowercase vectors (`c'x`, `x_t'`), now covered. **A later review found three more false-positive classes, all from guards that one branch had and the others did not:** `^\prime` carried no guard at all, so every `u^\prime(c)` derivative counted (49 occurrences); `prime_vec` had no relation guard, so `\sum_{w' \in W}`, `\max_{a' \in \Gamma}` and `\sum_{s' \in S}` counted as transposes (109); and neither apostrophe branch excluded a *double* prime, so second derivatives `H''(p)`, `W''(\hat I)`, `S''(\bar R)` counted (23). Occurrences 2,129 → 1,865, reach 97 → 93; 264 removed, 0 added. |
 | `qe-math-003` | sound | 1 / 12 | One false positive: `\left\{\begin{array}{ll}…\right.` is a case distinction. Now excluded. |
 | `qe-math-004` | needs-fix | 4 / 11 | Indicator functions (`\mathbf{1}\{X_t = x\}`) are not vectors, and the legacy `{\bf …}` spelling was missed. Both fixed; the indicator guard looks at the next source line too. |
 | `qe-math-005` | broken | 1 / 0 | Matched matrix-by-elements notation and missed the real violation, which is written with parentheses (`(k_t)_{t \geq 0}`). Rewritten. |
@@ -103,6 +103,21 @@ the number this audit's credibility rests on.
 
 Each of these is a reason to read the cited lines before trusting a category score, not a
 reason to distrust the corpus totals.
+
+- **`qe-math-002` still counts a primed next-period state.** `v(n_2')`, `n_j' := Y_j - d_j`
+  are continuation states, not transposes, and `tsyrennikov_2013` — which contains no
+  `\top` and no `^T` anywhere — still scores Math 3.0 and HIGH off 50 such hits. The
+  discriminator is the one the other two branches already use: a real transpose is
+  juxtaposed with a *following factor*, while these are followed by `)`, ` >` or ` :=`.
+  Applying that lookahead to the apostrophe branch is the fix, but `NOT_A_PRODUCT`
+  currently contains `begin`, so it would also drop a genuine
+  `\end{bmatrix}' \begin{bmatrix}` transpose (`calvo.md:272`). That reconciliation wants
+  its own verified pass rather than a hurried one, so the false positives stand for now and
+  are named here.
+- **The three `qe-math-002` branches double-count the same site.** `x_t' R x_t` is reported
+  once by the `prime` branch for `x_t'` and again by `prime_vec` for `t'` — 199 such pairs
+  corpus-wide. `check_math_010` solved the same problem by having its branches mask each
+  other after each pass; `check_math_002` should do the same.
 
 ### The build's 309 warnings
 

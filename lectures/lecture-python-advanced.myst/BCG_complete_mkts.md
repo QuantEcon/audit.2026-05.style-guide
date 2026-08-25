@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.0 / 10
+- **Overall score:** 8.3 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 6.5/10 | `qe-writing-001` ×7; `qe-writing-008` ×36. |
-| Math         | 6/10  | `qe-math-002` ×2; `qe-math-011` (proposed) ×2. |
+| Math         | 8/10  | `qe-math-011` (proposed) ×2. |
 | Code         | 9.5/10 | `qe-code-004` ×2. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-003` ×2; `qe-fig-010` ×1; `qe-fig-005` ×1, +2 more. |
@@ -28,7 +28,6 @@ _None found._
 
 ### High severity
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 7. *Lines:* 956, 1093, 1094, 1095, 1103, 1104, 1105. *Example:* plot() without lw=.
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 2. *Lines:* 643, 809. *Example:* apostrophe transpose `u'`.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 7. *Lines:* 324, 563, 613, 705, 851, 854, 1140. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 36. *Lines:* 39, 56, 67, 73, 78, 160, 217, 289, 298, 302, …. *Example:* 2 spaces.
 
@@ -54,10 +53,10 @@ _None found._
 
 ## Recommended actions
 
-1. `qe-math-002` — Use \top for transpose notation (2 occurrences).
-2. `qe-writing-001` — Use one sentence per paragraph (7 occurrences).
-3. `qe-math-011` (proposed) — Distribution names in plain letters, not \mathcal / \mathbb (2 occurrences).
-4. `qe-link-002` — Use doc links for cross-series references (2 occurrences).
-5. `qe-fig-003` — No matplotlib embedded titles (2 occurrences).
-6. `qe-writing-008` — Remove excessive whitespace between words (36 occurrences).
-7. `qe-fig-010` — Plotly figures require latex directive (1 occurrence).
+1. `qe-writing-001` — Use one sentence per paragraph (7 occurrences).
+2. `qe-math-011` (proposed) — Distribution names in plain letters, not \mathcal / \mathbb (2 occurrences).
+3. `qe-link-002` — Use doc links for cross-series references (2 occurrences).
+4. `qe-fig-003` — No matplotlib embedded titles (2 occurrences).
+5. `qe-writing-008` — Remove excessive whitespace between words (36 occurrences).
+6. `qe-fig-010` — Plotly figures require latex directive (1 occurrence).
+7. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
