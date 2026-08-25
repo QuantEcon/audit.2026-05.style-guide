@@ -18,7 +18,7 @@ are LOW or NONE.
 <!-- qe:focus -->
 | Attention | Series | Score | Needs work | Weakest categories |
 |-----------|--------|-------|-----------|--------------------|
-| 🔴 **High** | [lecture-python-advanced.myst](lecture-python-advanced.myst/index.md) | 7.7 | 39 / 68 | Writing (5.8), Math (5.8) |
+| 🔴 **High** | [lecture-python-advanced.myst](lecture-python-advanced.myst/index.md) | 7.6 | 42 / 68 | Writing (5.4), Math (5.7) |
 | 🔴 **High** | [lecture-dp](lecture-dp/index.md) | 7.8 | 28 / 52 | Writing (5.6), Figures (6.4) |
 | 🔴 **High** | [lecture-python-programming](lecture-python-programming/index.md) | 8.1 | 19 / 27 | Writing (4.1), Figures (7.3) |
 | 🟠 **Some** | [lecture-python.myst](lecture-python.myst/index.md) | 8.1 | 56 / 145 | Writing (5.9), Figures (6.5) |
@@ -46,7 +46,7 @@ Fix one of these *once* and it lifts dozens of lectures. Ordered by reach.
 | **Line widths** | Pass `lw=2` on line plots for consistent weight | **216** | 🔧 |
 | **Plot titles → captions** | Move `ax.set_title(...)` out of the plot into the figure caption | **165** | ✋ |
 | **Heading capitalization** | Section headings → sentence case (first word + proper nouns only) | **146** | 🔧 |
-| **Expectation notation** *(proposed)* | Use `\mathbb{E}` / `\mathbb{P}` / `\mathbb{V}` with braces | **117** | 🔧 |
+| **Expectation notation** *(proposed)* | Use `\mathbb{E}` / `\mathbb{P}` / `\mathbb{V}` with braces | **118** | 🔧 |
 | **Narrative citations** | Use `{cite:t}` where the author name is part of the sentence | **110** | ✋ |
 
 Reach is out of 348 lectures. 🔧 = scriptable sweep · ✋ = needs a human pass.
@@ -91,7 +91,7 @@ of the lectures rather than of the method. See the
 [trend chart](charts.md#change-since-the-previous-pass) for every rule.
 
 The corpus grew from 300 to 348 lectures. Of the 35 rules measurable in both snapshots,
-**27 improved as a share of the corpus, 5 held level and 3 got worse.** The four largest
+**28 improved as a share of the corpus, 4 held level and 3 got worse.** The four largest
 improvements and all three regressions:
 
 | Direction | Rule | Share of corpus |
@@ -127,10 +127,10 @@ violation was measured in it*, not that a human declared it perfect.
 ```{warning}
 <!-- qe:review-coverage -->
 **Review coverage is incomplete in this pass, and it moves the scores.** The judgment
-layer has reached **189 of the 348 lectures**; a lecture assessed against more rules
+layer has reached **199 of the 348 lectures**; a lecture assessed against more rules
 scores lower — not because it is worse, but because more of it was looked at. The gap is
-large enough to matter: the 189 reviewed average **7.71** with 61 % HIGH, the 159
-unreviewed **8.42** with 24 % HIGH.
+large enough to matter: the 199 reviewed average **7.68** with 63 % HIGH, the 149
+unreviewed **8.45** with 21 % HIGH.
 <!-- /qe:review-coverage -->
 
 So **the cross-series comparison below is provisional** wherever coverage differs between

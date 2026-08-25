@@ -5,16 +5,16 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.1 / 10
+- **Overall score:** 7.5 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 6/10  | `qe-writing-004` ×5; `qe-writing-001` ×4. |
-| Math         | 3/10  | `qe-math-002` ×25; `qe-math-010` (proposed) ×5. |
-| Code         | 9.5/10 | `qe-code-004` ×2. |
+| Writing      | 4/10  | `qe-writing-004` ×5; `qe-writing-001` ×4; `qe-writing-003` ×2, +2 more. |
+| Math         | 3/10  | `qe-math-002` ×25; `qe-math-010` (proposed) ×5; `qe-math-009` ×2. |
+| Code         | 7/10  | `qe-code-001` ×8; `qe-code-004` ×2. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8.5/10 | `qe-fig-005` ×2. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -27,6 +27,7 @@
 _None found._
 
 ### High severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 8. *Lines:* 377, 475, 835, 1004, 1033, 1057, 1845, 1022. *Example:* the rule asks for PEP8 unless the code gets closer to the mathematics, and 377 does neither: `c**0.5 / 0.5 + (1 - a)**0.5 / 0.5` for $2\sqrt c + 2\sqrt{1-a}$, where `2 * c**0.5` is both shorter and the displayed formula. 835 writes the same term as `2*c**0.5 + β*wp`, dropping the spaces around the multiplications that the rule reserves for `**`. 1021-1022 then defines the utility a third time, as a closure `u_fn` inside `solve_multi_period_economy`, duplicating the module-level `u` at 376-377 so the two can silently drift apart. 1004-1008 gives `A`, `Q`, `C`, `P` and `problem_type` defaults of `None` although all five are required - 1024 immediately calls `problem_type.lower()` and 1026 calls `A.max()`, so a call that omits them raises `AttributeError` rather than the clear message that 1018-1019 gives for a bad `β`. Continuation lines are indented two columns past their opening parenthesis at 475-476, 477-478, 1033-1034 and 1838-1839. 1845 and 1853 pad after a comma to align (`s_W_flat,  label=`), and 1057 writes `t1-t0` without spaces. The `problem_type` dispatch at 437 and 1025 compares against the literals "full information" and "unobserved-actions", so a misspelling at either call site (475-478, 1838) silently selects the other model rather than failing.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 25. *Lines:* 198, 205, 207, 215, 228, 229, 236, 239, 252, 671, …. *Example:* apostrophe transpose `W'`.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 5. *Lines:* 559, 597, 1266, 1315, 1821. *Example:* bare expectation `E(`.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 5. *Lines:* 822, 824, 852, 993. *Example:* mid-sentence 'Step'.
@@ -34,7 +35,11 @@ _None found._
 ### Medium severity
 - **[qe-code-004]** — Use quantecon Timer context manager. *Count:* 2. *Lines:* 1046, 1054. *Example:* bare time() reading.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 1770, 1832. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 2. *Lines:* 205, 1755. *Example:* sums over the same product set are written two ways in the same problem: 205-216 spells the indices out, `\sum_{c \in C}\sum_{w' \in W'}` and `\sum_{a \in A}\sum_{q \in Q}\sum_{c \in C}\sum_{w' \in W'}`, and 228-253 then compresses them to `\sum_{A \times Q \times C \times W'}`, which names no summation variable at all even though the summand $\{u(c,a) + \beta w'\}\Pi^w(a,q,c,w')$ depends on all four - and 319-321 uses a third form, `\sum_C` and `\sum_{Q \times C}`. One convention for the whole lecture would remove the need to re-read each display to see what is being summed over. Separately, multi-letter subscripts are set in maths italic rather than as text: $W_{static}$ (1755, 1758, 1819) and $P_{flat}$ (1808, 1816, 1865) render as products of italic letters, where `W_{\text{static}}` and `P_{\text{flat}}` are both correct and simpler to read.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 4. *Lines:* 128, 146, 247, 1803. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 2. *Lines:* 292, 809. *Example:* the reason for using `highspy` instead of CVXPY is given five times in twenty lines and once more two hundred lines later: 801-802 states the choice, 809-810 says "It lets us keep the same LP model in memory and change only the small parts that differ across grid points", 812-814 says the same in terms of the promise-keeping right-hand side and the objective, 816-817 says re-building CVXPY objects "adds substantial overhead and can leak memory", 819-820 says "we build each LP once and then mutate the objective and one row bound between solves", and 993-996 repeats that last sentence almost verbatim. Two of those six would do. On a smaller scale, 292-296 makes one claim twice: "A one-period economy is the cleanest place to isolate the informational friction." followed by "This isolates the static informational friction before the dynamic promised-utility channel is introduced.".
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 777, 349. *Example:* the constraint labels collide. The static problem numbers its constraints C1 (promise keeping), C2 (output law) and C3 (probabilities) at 316-326 and adds C4 (incentive compatibility) at 336. The two-step algorithm then starts again at C5: step 1 uses C5 for promise keeping, C6 for the output law, C7 for probabilities and C8 for incentive compatibility (746-763) - but step 2, twelve lines later, labels *its* promise-keeping constraint **C5** (777) and *its* probability constraint **C7** (780), so both labels name two different constraints in the same subsection, and step 2 has no C6 at all. Nothing ties either block back to C1-C3, although step 2's C5 is C1's role and its C7 is C3's. Second, the utility function appears in four forms and no two agree: $U(a,c) = 2\sqrt{c} + 2\sqrt{1-a}$ at 349, the same terms in the opposite order at 726 and 748, `c**0.5 / 0.5 + (1 - a)**0.5 / 0.5` in the code at 377 and again at 1022, and `2*c**0.5 + β*wp` at 835 - so a reader checking the code against the display has to recognise that dividing by 0.5 is multiplying by 2, in one of the two places where it is written that way and not the other.
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 2. *Lines:* 124, 716. *Example:* the lecture's motivating example is a picture that is not drawn: 124-172 shows the deterministic incentive-compatible set is non-convex by checking that $(c_H, c_L) = (1,0)$ and $(9,4)$ both satisfy $\sqrt{c_H} - \sqrt{c_L} \geq 1$ while their midpoint $(5,2)$ does not, and asks the reader to verify $\sqrt 5 - \sqrt 2 \approx 0.82 < 1$ arithmetically - where the region, the two points, the chord between them and the midpoint outside the region is five lines of matplotlib and is the whole reason lotteries appear in the rest of the lecture (the example is also `:class: dropdown`, so it is collapsed by default). Second, the two-step algorithm (716-797) subdivides a single period, and the object it turns on is a timing distinction stated only in prose: $w^m$ is "the **intermediate promised utility** after the output is observed but before consumption is allocated" and "includes the utility from current consumption and the discounted next-period promise, but not the current effort utility" (732-737). A one-line timeline - $w \to (a, q) \to w^m \to (c, w') \to$ next period, with which utility term is settled at each arrow - would carry that in a glance, and would also show why C5 in step 1 subtracts the effort term while C5 in step 2 adds the consumption term.
 
 ### Low severity
 _None found._
@@ -42,18 +47,22 @@ _None found._
 
 ## Strengths
 
-- Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
-- Citations distinguish `{cite}` from `{cite:t}` correctly (0 parenthetical, 8 in-text).
+- All thirteen figures are captioned and named (510, 542, 575, 621, 1146, 1204, 1239, 1290, 1335, 1467, 1496, 1563, 1596), and the one the concluding section appeals to is cited by label - "the gain visible in {numref}`fig-rmh-surplus-compare`" (1637-1639) - so the summary points at evidence the reader can jump to.
+- The gaps in the consumption figures are explained instead of left as an artefact: `expected_consumption_static` (496-502) is written to return `nan` where an $(a,q)$ pair has no probability mass, 492-493 says so in advance, and 592-605 then reads the resulting figure - a line is missing where the contract puts zero probability on that action-output pair, $E[c \mid w,a,q]$ is undefined there, lines start and stop as the set of actions used changes with $w$, and the absent curve for $a = 0.6$ means that action is never used on this grid.
+- The non-convexity that motivates the whole lottery formulation is demonstrated rather than asserted: 128-172 fixes two outputs, two actions and a utility function, derives the incentive constraint $\sqrt{c_H} - \sqrt{c_L} \geq 1$, and exhibits two contracts satisfying it whose midpoint does not.
+- Where the mathematical order and the computational order differ, the lecture says so at both points: 786-790 ("Step 2 is solved first computationally, for all $w^m \in W^m$, to obtain $s^m(w^m)$. Step 1 then uses this intermediate surplus function as input") and 822 ("The first subproblem is Step 2").
+- Finite-grid caveats are stated where they could mislead rather than buried: 795-797 notes that the two-step formulation is an approximation in the discretised $W^m$ that converges as $N_m$ grows, and 1666-1672 warns that the endpoints of the promise grid act as traps and that the simulations are "finite-grid illustrations of how history dependence spreads the distribution over time, not as a separate theorem about the limiting distribution".
+- The solver design is justified by what the algorithm actually needs: because only the promise-keeping right-hand side changes across grid points and only the objective changes across iterations (812-814), each LP is built once and mutated (819-820, 993-996), which is exactly what `_build_step2_lp` (831-849) and the update helpers do.
+- The closing section locates the lecture in the series by naming the shared architecture and then the specific counterpart in each place it recurs - the followers' value function in {doc}`dyn_stack`, the marginal utility of wealth $x$ in {doc}`opt_tax_recur`, the private-sector continuation value $\theta$ in {doc}`calvo` and the two Chang lectures, the worker's continuation utility in {doc}`un_insure`, and the value of autarky in {doc}`atkeson_1991` (1699-1743).
+- Both exercises extend the machinery instead of rehearsing it, and both solutions explain the mechanism rather than just showing the plot: the agency-cost function $\delta(w) = s^{FI}(w) - s^{UA}(w)$ with an explanation of why it peaks at intermediate promises (1751-1794), and a flatter output-probability matrix with the likelihood-ratio argument for why surplus and effort both fall (1803-1875).
 
 ## Recommended actions
 
-1. `qe-math-002` — Use \top for transpose notation (25 occurrences).
-2. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (5 occurrences).
-3. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (5 occurrences).
-4. `qe-writing-001` — Use one sentence per paragraph (4 occurrences).
-5. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
-6. `qe-code-004` — Use quantecon Timer context manager (2 occurrences).
+1. Renumber the constraints: step 2 reuses C5 and C7 for different constraints than step 1 does (777, 780) and has no C6, and neither block is tied to the static problem's C1-C4 - one scheme across 316-341 and 746-782 would let the text refer to a constraint without ambiguity.
+2. Write the utility function once and use it everywhere: `2 * c**0.5 + 2 * (1 - a)**0.5`, matching the display at 349, in place of `c**0.5 / 0.5 + ...` at 377, the duplicate closure `u_fn` at 1021-1022, and the inlined `2*c**0.5` at 835 - and settle the term order between 349 and 726.
+3. Cut the `highspy` justification from six statements to two (801-820, 993-996), and drop the duplicated sentence at 295-296.
+4. Add the two missing pictures: the non-convex incentive-compatible set with its two contracts and their midpoint (124-172), and a one-line within-period timeline showing where $w^m$ sits between the output draw and the consumption allocation (732-737).
+5. Give the required arguments of `solve_multi_period_economy` real signatures instead of `None` defaults (1004-1008), since 1024 and 1026 dereference them immediately, and replace the string dispatch at 437 and 1025 with a check that rejects an unrecognised `problem_type`.
+6. Set the multi-letter subscripts as text - `W_{\text{static}}`, `P_{\text{flat}}` (1755, 1758, 1808, 1816, 1819, 1865) - and pick one convention for the product-set sums (205-216 against 228-253 and 319-321).
+7. Convert the five bare expectations to `\mathbb{E}` (559, 597, 1266, 1315, 1821) and replace the `time()` readings at 1046 and 1054 with the `quantecon` Timer.
+8. Sweep the remaining items: `mystnb` captions and names on the two solution figure cells (1770, 1832), the four two-sentence paragraphs (128, 146, 247, 1803), lowercase "Step" mid-sentence (822, 824, 852, 993), the alignment padding at 1845 and 1853, the off-by-two continuations at 475, 477, 1033 and 1838, `t1 - t0` at 1057, and the repeated literal 80 at 1444-1447 and 1469.

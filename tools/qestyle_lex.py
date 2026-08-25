@@ -385,7 +385,11 @@ def _in_exercise(stack) -> bool:
 # A span may not contain a blank line and is length-limited, which keeps an odd
 # stray ``$`` from swallowing half a lecture.
 STREAM_MATH_RE = re.compile(r"(?<![\\$])\$(?!\$)((?:[^$\\\n]|\\.|\n(?!\s*\n)){1,400}?)\$(?!\$)")
-STREAM_CODE_RE = re.compile(r"(`+)((?:[^`]|\n(?!\s*\n))*?)\1")
+# ``[^`\n]``, not ``[^`]``: the first alternative used to match newlines itself, so
+# the ``\n(?!\s*\n)`` guard beside it was dead code and an unbalanced backtick could
+# pair with one hundreds of lines away. One stray `` `shock' `` in five_preferences
+# masked 381 of its 798 narrative lines, leaving 18 inline math spans out of hundreds.
+STREAM_CODE_RE = re.compile(r"(`+)((?:[^`\n]|\n(?!\s*\n))*?)\1")
 
 
 def _resolve_inline(doc: Doc) -> None:

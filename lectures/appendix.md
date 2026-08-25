@@ -28,9 +28,9 @@ they carry no mechanical count.
 
 | Proposed ID | Convention | Lectures | Occurrences |
 |-------------|-----------|---------:|------------:|
-| `qe-math-010` | `\mathbb{P}` / `\mathbb{E}` / `\mathbb{V}` (with braces) for probability, expectation, variance | **117 / 348** | 1,396 |
+| `qe-math-010` | `\mathbb{P}` / `\mathbb{E}` / `\mathbb{V}` (with braces) for probability, expectation, variance | **118 / 348** | 1,397 |
 | `qe-writing-009` | Write "IID", not "i.i.d." / "iid" | 30 | 61 |
-| `qe-math-011` | Plain letters for distribution names (`N`, not `\mathcal{N}`) | 34 | 140 |
+| `qe-math-011` | Plain letters for distribution names (`N`, not `\mathcal{N}`) | 35 | 142 |
 | `qe-math-013` | Reference equations via `` {eq}`label` `` | 6 | 6 |
 | `qe-math-012` | `\cdot` or juxtaposition for multiplication — never `*` | 4 | 6 |
 | `qe-math-014` *(judgment)* | Braces `\{…\}` for events, parentheses `(…)` for sets under `\mathbb{P}` | — | not mechanically checkable |

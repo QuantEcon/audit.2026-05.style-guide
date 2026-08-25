@@ -72,6 +72,17 @@ would have corrupted several rules at once:
    every later directive look nested, and made `in_exercise` far too broad — which
    suppressed real `qe-fig-003` findings and invented `qe-admon-003` ones.
 6. **HTML comments were scanned.** Commented-out prose and maths never reach the page.
+7. **An inline-code span could run across a paragraph break.** `STREAM_CODE_RE` was
+   written `` (`+)((?:[^`]|\n(?!\s*\n))*?)\1 `` — but `` [^`] `` matches a newline
+   itself, so the `\n(?!\s*\n)` guard beside it was dead code and an unbalanced
+   backtick paired with one hundreds of lines away. One stray `` `shock' `` at
+   `five_preferences.md:166` — a backtick closed with a typographic apostrophe — masked
+   **381 of that file's 798 narrative lines**, leaving 18 inline math spans where there
+   are 318. Fixed to `` [^`\n] ``, so a newline is only ever consumed through the
+   guarded alternative and a span still spans one line break but never a blank line.
+   Corpus effect: `qe-writing-008` +79 occurrences, `qe-math-011` +2, `qe-math-001` +1,
+   `qe-math-010` +1 — all in that one file, all real, all previously invisible. Three
+   lectures have odd narrative backtick parity; only this one lost lines to it.
 
 ## Known limitations, accepted deliberately
 
