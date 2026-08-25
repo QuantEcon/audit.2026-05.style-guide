@@ -2,23 +2,24 @@
 
 - **Series:** lecture-dp
 - **File:** `lectures/amss3.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
-- **Overall score:** 8.5 / 10
-- **Priority:** LOW
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `c30490a2f4`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.6 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 9/10  | All H2/H3 headings sentence case. |
-| Math         | 9/10  | Clean math; `aligned` properly used inside `$$`. |
-| Code         | 8/10  | Unicode Greek; pip install at top; PEP8; figsize 2×. |
-| JAX          | out of scope | not a JAX lecture. |
-| Figures      | 6/10  | Three static PNG figures (`amss3_g1.png`, `amss3_g2.png`, `amss3_g3.png`); figsize 2×. |
-| References   | 10/10 | 21 `{cite}` references, all parenthetical; no narrative-author misuse. |
-| Links        | 9/10  | 12 `{doc}` references; no raw cross-series URLs. |
-| Admonitions  | N/A   | No exercises. |
+| Writing      | 8.5/10 | `qe-writing-008` ×69. |
+| Math         | 9/10  | `qe-math-013` (proposed) ×1. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 5.5/10 | `qe-fig-005` ×5; `qe-fig-003` ×3; `qe-fig-008` ×3, +2 more. |
+| References   | 7.5/10 | `qe-ref-001` ×6. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,27 +27,34 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 177, 212, 226, 238, 259. *Example:* {figure} without :name:.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 6. *Lines:* 40, 60, 219, 231, 301, 398. *Example:* {cite} in narrative flow: 'of {cite}`'.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 69. *Lines:* 29, 34, 35, 37, 39, 42, 44, 46, 50, 52, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-fig-002]** — Three static PNG figures used (`amss3_g1.png`, `amss3_g2.png`, `amss3_g3.png`). *Lines:* 212, 226, 259. Prefer code-generated figures where possible.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 200, 241. *Example:* figsize=.
+- **[qe-fig-002]** — Prefer code-generated figures. *Count:* 3. *Lines:* 212, 226, 259. *Example:* static image .png.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 3. *Lines:* 204, 249, 250. *Example:* .set(title=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 203, 244, 246. *Example:* plot() without lw=.
 
 ### Low severity
-- **[qe-math-001]** — `\cr` line separator used inside `aligned` block (lines 105-109); MyST convention is `\\`.
-- **[qe-writing-001]** — A couple of multi-sentence paragraphs.
+- **[qe-math-013 (proposed)]** — Reference equations via {eq}`label`. *Count:* 1. *Lines:* 422. *Example:* manual reference 'equation (42)'.
+
 
 ## Strengths
-- Lecture title in correct Title Case.
-- All H2/H3 headings sentence case.
-- Definitions bolded.
-- Equation labels and `{eq}` references used cleanly.
-- "IID" used correctly.
-- No transpose, no bold vectors, no matrix-bracket, no `\tag`, no `align`-inside-`$$` issues.
-- pip install at top.
-- `{doc}` used for cross-series; no raw URLs.
-- Excellent citation discipline.
-- No matplotlib titles, no spine, no Title-Case axis labels.
+
+- Math, Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Regenerate the 3 static PNG figures from code where possible.
-2. Replace `\cr` with `\\` inside the `aligned` block.
+
+1. `qe-ref-001` — Use correct citation style (6 occurrences).
+2. `qe-fig-005` — Descriptive figure names for cross-referencing (5 occurrences).
+3. `qe-fig-003` — No matplotlib embedded titles (3 occurrences).
+4. `qe-writing-008` — Remove excessive whitespace between words (69 occurrences).
+5. `qe-math-013` (proposed) — Reference equations via {eq}`label` (1 occurrence).
+6. `qe-fig-008` — Use lw=2 for line charts (3 occurrences).
+7. `qe-fig-002` — Prefer code-generated figures (3 occurrences).

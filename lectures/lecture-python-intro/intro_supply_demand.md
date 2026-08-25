@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/intro_supply_demand.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.6 / 10
-- **Priority:** LOW
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `a12d17c0ef`
+- **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.7 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 9/10  | H1 Title Case OK; H2/H3 sentence case; clean one-sentence paragraphs. |
-| Math         | 8/10  | Equations clean; no transpose; uses `\$` for currency in prose. |
-| Code         | 8/10  | Standard Anaconda imports only; `alpha=` is matplotlib kwarg (not user variable). |
-| JAX          | out of scope | — |
-| Figures      | 8/10  | No `figsize=` overrides, no `ax.set_title` violations, axis labels OK; no figures use `{figure}` directive. |
-| References   | N/A   | no `{cite}` citations |
-| Links        | 5/10  | Multiple direct cross-series URLs to `python-programming.quantecon.org/scipy.html` (lines 853, 854, 898, 899) — should be `{doc}` links. |
-| Admonitions  | 9/10  | `{prf:example}` × 2 (qe-admon-004 OK); solutions gated, dropdown, exercise-linked. |
+| Writing      | 7.5/10 | `qe-writing-004` ×2; `qe-writing-008` ×7. |
+| Math         | 10/10 | no mechanical violations detected. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 6.5/10 | `qe-fig-005` ×2; `qe-fig-004` ×2; `qe-fig-008` ×12. |
+| References   | N/A   | no citations in this lecture. |
+| Links        | 8/10  | `qe-link-002` ×4. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,24 +27,32 @@
 _None found._
 
 ### High severity
-- **[qe-link-002]** — Multiple cross-series links use direct URLs instead of `{doc}` references. *Examples:* `lectures/intro_supply_demand.md:853` (`[SciPy](https://python-programming.quantecon.org/scipy.html)`), 854, 898, 899. *Count:* 4 occurrences. **Systemic.**
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 12. *Lines:* 183, 209, 301, 349, 448, 449, 490, 556, 634, 755, …. *Example:* plot() without lw=.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 7. *Lines:* 53, 87, 390, 642, 678, 700, 703. *Example:* 2 spaces.
 
 ### Medium severity
-_None found._
+- **[qe-fig-004]** — Caption formatting conventions. *Count:* 2. *Lines:* 197, 285. *Example:* caption of 7 words.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 747, 832. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-link-002]** — Use doc links for cross-series references. *Count:* 4. *Lines:* 853, 854, 898, 899. *Example:* raw link to python-programming.quantecon.org.
+- **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 2. *Lines:* 414, 899. *Example:* mid-sentence 'Market'.
 
 ### Low severity
-- **W3** — "### A comment on quantity." (line 140) has a trailing period; minor.
-- **W1** — Occasional two-sentence paragraphs.
-- **[qe-fig-005]** — No figures use `{figure}` directive with `:name:`.
+_None found._
+
 
 ## Strengths
-- Section headings sentence case (W3 OK).
-- Bold for definitions (**consumer surplus**).
-- `prf:example` directives used for structure (qe-admon-004 OK).
-- Clear one-sentence paragraph style.
-- No matplotlib title/figsize/spines violations.
-- Solutions all gated, dropdown, linked.
+
+- Math, Code, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Replace direct `python-programming.quantecon.org` URLs (lines 853, 854, 898, 899) with `{doc}\`programming:scipy\`` links per qe-link-002.
-2. Remove trailing period from H3 on line 140.
+
+1. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (2 occurrences).
+2. `qe-link-002` — Use doc links for cross-series references (4 occurrences).
+3. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
+4. `qe-fig-004` — Caption formatting conventions (2 occurrences).
+5. `qe-fig-008` — Use lw=2 for line charts (12 occurrences).
+6. `qe-writing-008` — Remove excessive whitespace between words (7 occurrences).

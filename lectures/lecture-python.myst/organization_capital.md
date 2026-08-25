@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/organization_capital.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 9.4 / 10
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `e25fdf2345`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 9.1 / 10
 - **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 9.5/10 | Uses "i.i.d." or "iid" in text rather than "IID". |
-| Math         | 9.5/10 | Bare `E[...]` or `\Pr(...)` used in place of `\mathbb{E}`/`\mathbb{P}`. |
-| Code         | 9.5/10 | Mixed Greek conventions in code (word=11, uni=19). |
-| JAX          | out of scope | not a JAX lecture |
-| Figures      | 9/10 | `figsize=` set in 10 places — usually unnecessary (defaults from `_config.yml`). |
-| References   | 9/10 | Citation style follows conventions. |
-| Links        | N/A | No external links. |
-| Admonitions  | 10/10 | Exercise/solution structure clean. |
+| Writing      | 7.5/10 | `qe-writing-004` ×3; `qe-writing-009` (proposed) ×1. |
+| Math         | 7.5/10 | `qe-math-010` (proposed) ×4. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 8.5/10 | `qe-fig-001` ×10; `qe-fig-008` ×1. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,29 +27,30 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 10. *Lines:* 208, 280, 362, 390, 483, 560, 604, 691, 769, 862. *Example:* figsize=.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 4. *Lines:* 243, 258. *Example:* bare expectation `E\{`.
 
 ### Medium severity
-- **[qe-fig-001]** — `figsize=` set in 10 places — usually unnecessary (defaults from `_config.yml`).
+- **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 3. *Lines:* 428, 513, 886. *Example:* mid-sentence 'Law'.
 
 ### Low severity
-- **[qe-writing-009 (proposed)]** — Uses "i.i.d." or "iid" in text rather than "IID". *Example:* line 647.
-- **[qe-math-010 (proposed)]** — Bare `E[...]` or `\Pr(...)` used in place of `\mathbb{E}`/`\mathbb{P}`. *Example:* line 258.
-- **[qe-code-002]** — Mixed Greek conventions in code (word=11, uni=19).
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 775. *Example:* plot() without lw=.
+- **[qe-writing-009 (proposed)]** — Write "IID" — not "i.i.d." or "iid". *Count:* 1. *Lines:* 647. *Example:* i.i.d..
+
 
 ## Strengths
-- Headings use sentence case consistently.
-- Transpose notation uses `\top` consistently (no prime/`^T`).
-- No bold vectors/matrices.
-- Normal distribution written as plain `N`.
-- `aligned` (not `align`) used in `$$` math.
-- No `ax.set_title()` in main figures.
-- Axis labels lowercase.
-- No embedded matplotlib titles in main figures.
-- Figures use descriptive `name:` fields for cross-referencing.
+
+- Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- Citations distinguish `{cite}` from `{cite:t}` correctly (0 parenthetical, 9 in-text).
 
 ## Recommended actions
-1. Address `qe-fig-001`: `figsize=` set in 10 places — usually unnecessary (defaults from `_config.yml`).
-2. Address `qe-writing-009 (proposed)`: Uses "i.i.d." or "iid" in text rather than "IID".
-3. Address `qe-math-010 (proposed)`: Bare `E[...]` or `\Pr(...)` used in place of `\mathbb{E}`/`\mathbb{P}`.
-4. Address `qe-code-002`: Mixed Greek conventions in code (word=11, uni=19).
+
+1. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (4 occurrences).
+2. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (3 occurrences).
+3. `qe-fig-001` — Do not set figure size unless necessary (10 occurrences).
+4. `qe-writing-009` (proposed) — Write "IID" — not "i.i.d." or "iid" (1 occurrence).
+5. `qe-fig-008` — Use lw=2 for line charts (1 occurrence).

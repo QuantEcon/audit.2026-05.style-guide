@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/cagan_ree.md`
-- **Audit date:** 2026-05-28
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.0 / 10
-- **Priority:** LOW
+- **Overall score:** 9.1 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 7/10  | H1 Title Case OK; some H4 use Title Case; many multi-sentence paragraphs in Overview. |
-| Math         | 7/10  | bmatrix used; equation labels; clean. |
-| Code         | 8/10  | Unicode Greek (`π`, `μ`, `α`, `λ`) throughout (qe-code-002 OK); standard Anaconda imports only. |
-| JAX          | out of scope | — |
-| Figures      | 6/10  | `figsize=` on lines 341, 532, 590; 4 `ax.set_title` calls inside solution blocks (exception applies); no figure `:name:`. |
-| References   | 8/10  | `{cite}` used; no clear in-text mis-use detected. |
-| Links        | 9/10  | `{doc}` links used for cross-references (7 occurrences). |
-| Admonitions  | 9/10  | Solutions use `:class: dropdown` + exercise labels (qe-admon-002, qe-admon-005 OK); gated form (qe-admon-001 OK). |
+| Writing      | 7/10  | `qe-writing-004` ×2; `qe-writing-001` ×1; `qe-writing-008` ×1. |
+| Math         | 10/10 | no mechanical violations detected. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 6.5/10 | `qe-fig-005` ×6; `qe-fig-008` ×5; `qe-fig-001` ×3. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,28 +27,31 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 6. *Lines:* 340, 529, 676, 732, 792, 850. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 5. *Lines:* 344, 690, 812, 875, 876. *Example:* plot() without lw=.
 
 ### Medium severity
-- **W1** — Several multi-sentence paragraphs throughout Overview (lines 19–26, 27–32, 39–46, 48–56).
-- **W3** — "#### Experiment 1: Foreseen sudden stabilization" (line 301), "#### Experiment 2: an unforeseen sudden stabilization" (454), "#### Experiment 3" (619) — minor mixed casing across H4 headings.
-- **W7** — Italic in mid-sentence: `_expenditures_`, `_tax collections_`, `_printing money_`, `_start_`, `_stop_` (lines 23–24, 44, 46) — should use `*emphasis*` consistently.
-- **[qe-fig-001]** — Repeated `figsize=` overrides on lines 341, 532, 590. *Count:* 3 occurrences.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 342, 535, 593. *Example:* figsize=.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 469. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 2. *Lines:* 465, 469. *Example:* mid-sentence 'Path'.
 
 ### Low severity
-- **W7** — "Ends of Four Big Inflations" title-cased mid-sentence (line 50).
-- **[qe-fig-005]** — No figures have a `:name:` field for cross-referencing.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 1. *Lines:* 292. *Example:* 2 spaces.
+
 
 ## Strengths
-- bmatrix used throughout (M4 OK).
-- Equation labels and `{eq}` references used.
-- Bold for definitions (**perfect foresight**).
-- Unicode Greek in code (qe-code-002 OK).
-- `{doc}` cross-series links used (qe-link-002 OK).
-- All 4 solutions are gated, dropdown, and linked to their exercises.
+
+- Math, Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Break Overview multi-sentence paragraphs.
-2. Make H4 experiment headings sentence case consistently.
-3. Switch `_underscored_` italics to `*asterisks*` for consistency.
-4. Remove `figsize=` overrides on lines 341, 532, 590.
+
+1. `qe-fig-005` — Descriptive figure names for cross-referencing (6 occurrences).
+2. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (2 occurrences).
+3. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
+4. `qe-fig-008` — Use lw=2 for line charts (5 occurrences).
+5. `qe-fig-001` — Do not set figure size unless necessary (3 occurrences).
+6. `qe-writing-008` — Remove excessive whitespace between words (1 occurrence).

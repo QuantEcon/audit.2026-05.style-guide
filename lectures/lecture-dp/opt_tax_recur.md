@@ -2,23 +2,24 @@
 
 - **Series:** lecture-dp
 - **File:** `lectures/opt_tax_recur.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
-- **Overall score:** 7.5 / 10
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `c30490a2f4`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 7.9 / 10
 - **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8/10  | H2/H3 sentence case throughout. |
-| Math         | 6/10  | `{\cal S}` for state space; `\left(\begin{matrix}\right)` matrices. |
-| Code         | 8/10  | Unicode Greek; pip install at top; PEP8; figsize 5×. |
-| JAX          | out of scope | not a JAX lecture. |
-| Figures      | 5/10  | One `ax.set_title('Gross Interest Rate')` Title-Case; one Title-Case xlabel `'Initial Government Debt'`; figsize 5×. |
-| References   | 9/10  | 5 `{cite}` parenthetical; no narrative-author misuse. |
-| Links        | 9/10  | `{doc}` used 5×; no raw cross-series URLs. |
-| Admonitions  | N/A   | No exercises / proofs. |
+| Writing      | 7/10  | `qe-writing-001` ×3; `qe-writing-008` ×106. |
+| Math         | 5/10  | `qe-math-002` ×3; `qe-math-003` ×2; `qe-math-010` (proposed) ×1. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 4.5/10 | `qe-fig-003` ×5; `qe-fig-005` ×5; `qe-fig-006` ×1, +2 more. |
+| References   | 9/10  | `qe-ref-001` ×1. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,33 +27,37 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 5. *Lines:* 1119, 1174, 1245, 1314, 1389. *Example:* figsize=.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 5. *Lines:* 1127, 1175, 1250, 1316, 1395. *Example:* .set(title=.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 1101, 1173, 1233, 1302, 1368. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 3. *Lines:* 810, 820, 826. *Example:* apostrophe transpose `s'`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 1. *Lines:* 1157. *Example:* bare expectation `E_{t}[`.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 106. *Lines:* 35, 38, 40, 46, 47, 48, 49, 51, 55, 65, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-writing-004]** — `{\cal S}` used for state space (lines 78, 812, 818, 829, 840, 850, 926). *Count:* 7+.
-- **[qe-math-003]** — Two matrix blocks use `\left(\begin{matrix} … \end{matrix}\right)` (lines 1053, 1064).
-- **[qe-fig-003]** — `ax.set_title('Gross Interest Rate')` (line 1175) — Title Case.
-- **[qe-fig-006]** — Title-Case `xlabel('Initial Government Debt')` (line 1254).
-- **[qe-fig-001]** — `figsize=` set 5 times.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 1128, 1176, 1394. *Example:* plot() without lw=.
+- **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 2. *Lines:* 1061, 1072. *Example:* matrix environment.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 3. *Lines:* 55, 286, 654. *Example:* 3 sentences in one paragraph.
 
 ### Low severity
-- **[qe-writing-001]** — Several multi-sentence paragraphs.
-- **[qe-writing-009 (proposed)]** — Smart quotes ’ used in narrative.
+- **[qe-fig-006]** — Lowercase axis labels. *Count:* 1. *Lines:* 1254. *Example:* axis label `Initial Government Debt`.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 55. *Example:* {cite} in narrative flow: 'of {cite}`'.
+
 
 ## Strengths
-- Lecture title in correct Title Case.
-- H2/H3 headings sentence case.
-- Definitions bolded ("**government policy**", "**feasible allocation**", "**price system**", "**competitive equilibrium with distorting taxes**", "**Ramsey problem**", "**Ramsey allocation**").
-- Equation labels and `{eq}` references used cleanly.
-- "IID"/Greek-letter conventions consistent.
-- `\mathbb{E}` used; `aligned` properly inside `$$`.
-- No transpose, no bold vectors, no `\tag`, no `align`-inside-`$$` issues.
-- pip install at top; Unicode Greek in code.
-- `{doc}` used for cross-series.
+
+- Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Replace `{\cal S}` with plain `S`.
-2. Replace `\left(\begin{matrix} … \end{matrix}\right)` with `\begin{bmatrix} … \end{bmatrix}`.
-3. Remove the embedded title; lowercase the `'Initial Government Debt'` xlabel.
-4. Reduce unnecessary `figsize=` usage.
-5. Normalise smart-quotes.
+
+1. `qe-math-002` — Use \top for transpose notation (3 occurrences).
+2. `qe-fig-003` — No matplotlib embedded titles (5 occurrences).
+3. `qe-fig-005` — Descriptive figure names for cross-referencing (5 occurrences).
+4. `qe-writing-001` — Use one sentence per paragraph (3 occurrences).
+5. `qe-math-003` — Use square brackets for matrix notation (2 occurrences).
+6. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (1 occurrence).
+7. `qe-writing-008` — Remove excessive whitespace between words (106 occurrences).

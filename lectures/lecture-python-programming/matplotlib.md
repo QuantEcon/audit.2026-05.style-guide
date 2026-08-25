@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/matplotlib.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.0 / 10
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `ceec881028`
+- **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.1 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 7/10  | Heading Title Case is pervasive; otherwise good prose. |
-| Math         | N/A   | Only `y = sin(x)` label decorations. |
-| Code         | 7/10  | Only Anaconda packages; Greek unicode (θ) used in solution; teaches `figsize`, `set_title`, `rcParams` overrides — pedagogically necessary but conflicts with figure rules elsewhere; mixes `from random import uniform` with NumPy. |
-| JAX          | out of scope | — |
-| Figures      | 4/10  | This is a Matplotlib tutorial, so qe-fig-003 (`ax.set_title('Test plot')` at line 137; `plt.suptitle(f'Style: {style_name}', ...)` at line 317), qe-fig-001 (`figsize=(10, 12)` line 183; `figsize=(10, 6)` line 213; `figsize=(10, 3)` line 289; `figure.figsize` set in `rcParams` line 392), and qe-fig-009 are all *demonstrated* on purpose. Even so, the lecture does not explicitly call out that these are anti-patterns elsewhere. |
-| References   | N/A   | No citations. |
-| Links        | 9/10  | Only external doc links; no improper cross-series URLs. |
-| Admonitions  | 8/10  | `{exercise-start}` / `{solution-start}` pair correctly gated; `:class: dropdown`; `{note}` admonition used; one `{image}` inside the exercise body (qe-fig-011 compliant). |
+| Writing      | 5.5/10 | `qe-writing-006` ×9; `qe-writing-004` ×1. |
+| Math         | 10/10 | no mechanical violations detected. |
+| Code         | 9/10  | `qe-code-003` ×1. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 4/10  | `qe-fig-005` ×14; `qe-fig-003` ×3; `qe-fig-007` ×2, +4 more. |
+| References   | N/A   | no citations in this lecture. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,25 +27,36 @@
 _None found._
 
 ### High severity
-- **[qe-writing-006]** — Section headings systematically use Title Case. *Examples:* line 38 `### Matplotlib's Split Personality`, line 50 `## The APIs`, line 55 `### The MATLAB-style API`, line 78 `### The Object-Oriented API`, line 99 `### Tweaks`, line 141 `## More Features`, line 148 `### Multiple Plots on One Axis`, line 172 `### Multiple Subplots`, line 194 `### 3D Plots`, line 226 `### A Customizing Function`, line 265 `### Style Sheets`, line 439 `## Further Reading`, line 447 `## Exercises`. *Count:* 13 occurrences.
-- **[qe-fig-003]** — Embedded titles in matplotlib figures. *Examples:* line 137 `ax.set_title('Test plot')`, line 317 `plt.suptitle(f'Style: {style_name}', fontsize=13)`. *Context:* this is a Matplotlib teaching lecture, so titles are part of the exposition — arguably an instructional exception, but they should be flagged or the demos converted to use figure-directive titles.
-- **[qe-fig-001]** — Multiple explicit `figsize` values (lines 183, 213, 289, 392). Same caveat as above: this lecture explicitly teaches how to use these knobs.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 8. *Lines:* 183, 213, 287, 289, 381, 384, 403, 435. *Example:* figsize=.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 14. *Lines:* 59, 82, 103, 114, 123, 132, 157, 181, 201, 236, …. *Example:* {image} without :name:.
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 9. *Lines:* 38, 78, 141, 148, 172, 194, 226, 265, 439. *Example:* H3 Title Case: "Matplotlib's Split Personality" (Split, Personality).
 
 ### Medium severity
-- **[qe-fig-005]** — No `name:` metadata on any of the code-generated figures.
+- **[qe-code-003]** — Package installation at lecture top. *Count:* 1. *Lines:* 1. *Example:* non-Anaconda import with no install cell: ['cycler'].
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 3. *Lines:* 137, 190, 317. *Example:* .set_title.
+- **[qe-fig-007]** — Keep figure box and spines. *Count:* 2. *Lines:* 243, 245. *Example:* spine removal.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 308, 488. *Example:* plot() without lw=.
+- **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 42. *Example:* mid-sentence 'Programming'.
 
 ### Low severity
-- **[qe-writing-001]** — A few descriptive paragraphs combine clauses (e.g., lines 88–91 enumeration could be condensed).
-- **[qe-code-001]** — `from random import uniform` (line 159) is used alongside numpy code; idiomatic in matplotlib examples but mixes RNG sources.
+- **[qe-fig-002]** — Prefer code-generated figures. *Count:* 1. *Lines:* 465. *Example:* static image .png.
+- **[qe-fig-009]** — Figure sizing. *Count:* 1. *Lines:* 465. *Example:* :scale: 130 (outside 80–100%).
+
 
 ## Strengths
-- Lecture title uses `{index}` role with proper case per qe-writing-006.
-- Clean MyST roles and code-cells.
-- One-sentence paragraphs are the dominant style.
-- The exercise uses `{image}` (not `{figure}`) inside the gated `exercise-start`/`exercise-end` block per qe-fig-011.
-- Greek unicode (θ) used in the exercise solution per qe-code-002.
+
+- Math, Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Convert headings to sentence case ("Matplotlib's split personality", "The APIs", "The MATLAB-style API", "The object-oriented API", "Tweaks", "More features", "Multiple plots on one axis", "Multiple subplots", "3D plots", "A customizing function", "Style sheets", "Further reading").
-2. Either add inline notes that `ax.set_title(...)` and `figsize` are demonstrated-but-discouraged in production lectures, or convert the relevant demos to figure-directive titles where possible.
-3. Add `name:` metadata to a handful of representative figures.
+
+1. `qe-writing-006` — Capitalize lecture titles properly (9 occurrences).
+2. `qe-fig-005` — Descriptive figure names for cross-referencing (14 occurrences).
+3. `qe-fig-003` — No matplotlib embedded titles (3 occurrences).
+4. `qe-fig-007` — Keep figure box and spines (2 occurrences).
+5. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (1 occurrence).
+6. `qe-code-003` — Package installation at lecture top (1 occurrence).
+7. `qe-fig-001` — Do not set figure size unless necessary (8 occurrences).

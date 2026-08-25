@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/cattle_cycles.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 6.4 / 10
-- **Priority:** MEDIUM
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `b83d6da399`
+- **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
+- **Overall score:** 8.3 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8/10  | Sentence-case headings; mostly one-sentence paragraphs. |
-| Math         | 4/10  | Systemic `\begin{array}` for matrices. |
-| Code         | 7/10  | Mixed unicode/spelled Greek (8 spelled vs 4 unicode); install cell with `hide-output`. |
-| JAX          | N/A   | not a JAX lecture |
-| Figures      | 6/10  | 1 `ax.set_title`; 2 `figsize=`; no `:name:` fields. |
-| References   | 8/10  | 6 `{cite}` used; never `{cite:t}` despite narrative author references. |
-| Links        | 8/10  | 1 `{doc}` reference; no raw cross-series URLs. |
-| Admonitions  | N/A   | no exercises, solutions, or proof-family directives. |
+| Writing      | 9.5/10 | `qe-writing-008` ×1. |
+| Math         | 7/10  | `qe-math-003` ×10. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 5/10  | `qe-fig-003` ×5; `qe-fig-005` ×3; `qe-fig-008` ×11, +1 more. |
+| References   | 8.5/10 | `qe-ref-001` ×4. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | N/A   | no admonitions, exercises or solutions. |
 
 ## Issues
 
@@ -26,24 +27,33 @@
 _None found._
 
 ### High severity
-- **[qe-math-003]** — All matrices use `\left[ \begin{array}{...} ... \end{array} \right]` rather than `\begin{bmatrix}`. *Example:* `lectures/cattle_cycles.md:126`-`136`, `:143`-`163`, `:169`-`190`. *Count:* ~12 occurrences.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 5. *Lines:* 337, 358, 364, 391, 395. *Example:* .set_title.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 11. *Lines:* 335, 355, 356, 357, 361, 362, 363, 389, 390, 393, …. *Example:* plot() without lw=.
+- **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 10. *Lines:* 127, 132, 144, 149, 154, 159, 171, 176, 181, 186. *Example:* array used as matrix.
 
 ### Medium severity
-- **[qe-fig-003]** — `ax.set_title` used in 1 cell.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 354, 388. *Example:* figsize=.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 331, 347, 384. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 4. *Lines:* 27, 206, 325. *Example:* {cite} in narrative flow: '{cite}`'.
 
 ### Low severity
-- **[qe-writing-005]** — `**Remark**` (L100) used as a label rather than definition; `**Preferences**`/`**Technology**`/`**Information**` (L112, L121, L165) are labels.
-- **[qe-fig-005]** — Figures lack `:name: fig-...` fields.
-- **[qe-code-002]** — Spelled-out Greek (`alpha`, `beta`, etc.) in code parameters (8 occurrences).
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 1. *Lines:* 38. *Example:* 2 spaces.
+
 
 ## Strengths
-- `\mathbb{E}_0` used correctly for expectation (qe-math-010, proposed) at L93.
-- Sequences in curly brackets `\{c_t, x_t\}`, `\{h_t, m_t\}` (qe-math-005) at L64-65, L90.
-- Title in Title Case (qe-writing-006); subheadings sentence case (qe-writing-006).
-- Install cell at top with `hide-output` (qe-code-003).
+
+- Writing, Code, Links score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Convert every `\begin{array}` to `\begin{bmatrix}` (qe-math-003).
-2. Remove `ax.set_title` call (qe-fig-003).
-3. Add `:name: fig-...` fields to figures (qe-fig-005).
-4. Convert spelled Greek to unicode in code (qe-code-002).
+
+1. `qe-math-003` — Use square brackets for matrix notation (10 occurrences).
+2. `qe-fig-003` — No matplotlib embedded titles (5 occurrences).
+3. `qe-ref-001` — Use correct citation style (4 occurrences).
+4. `qe-fig-005` — Descriptive figure names for cross-referencing (3 occurrences).
+5. `qe-fig-008` — Use lw=2 for line charts (11 occurrences).
+6. `qe-fig-001` — Do not set figure size unless necessary (2 occurrences).
+7. `qe-writing-008` — Remove excessive whitespace between words (1 occurrence).

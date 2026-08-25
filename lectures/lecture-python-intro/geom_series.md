@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/geom_series.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 6.4 / 10
-- **Priority:** MEDIUM
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `a12d17c0ef`
+- **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.0 / 10
+- **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 6/10  | H1 OK; multiple H2 sections use Title Case (W3). |
-| Math         | 7/10  | `aligned` and `split` used; equation labels; no transpose. |
-| Code         | 7/10  | Standard Anaconda imports; `alpha=` matplotlib kwargs only (not user variables). |
-| JAX          | out of scope | — |
-| Figures      | 4/10  | `figsize=` on lines 51, 932, 994, 1113; 7 `ax.set_title` calls inside solution blocks (OK), 1 outside (line 948: "An Increase in {param} on Output" — Title Case in title); 5+ axis labels with uppercase first letter ("Present Value, $p_0$", "Cumulative deposits", "Percentage error (%)"). |
-| References   | N/A   | no `{cite}` citations |
-| Links        | N/A   | no cross-series links |
-| Admonitions  | 9/10  | Solutions gated, dropdown, exercise-linked (qe-admon-001, -002, -005 OK); 1 `{prf:example}`. |
+| Writing      | 5.5/10 | `qe-writing-006` ×3; `qe-writing-001` ×2; `qe-writing-008` ×1. |
+| Math         | 8.5/10 | `qe-math-002` ×1. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 4/10  | `qe-fig-006` ×9; `qe-fig-005` ×4; `qe-fig-004` ×4, +3 more. |
+| References   | N/A   | no citations in this lecture. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,29 +27,36 @@
 _None found._
 
 ### High severity
-- **W3** — Multiple H2 sections in Title Case. *Examples:* "## Example: The Money Multiplier in Fractional Reserve Banking" (line 118), "## Example: The Keynesian Multiplier" (~280), "## Example: Interest Rates and Present Values" (~438). *Count:* 3+ section headings.
-- **[qe-fig-001]** — `figsize=` overrides on lines 51, 932, 994, 1113. *Count:* 4 occurrences.
-- **[qe-fig-006]** — Axis labels with uppercase first letter outside acronyms. *Examples:* "Present Value, $p_0$" (lines 709, 736, 758), "Number of banks $N$", "Marginal propensity to consume $b$", "Cumulative deposits", "Percentage error (%)". *Count:* 5+ occurrences.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 5. *Lines:* 51, 790, 932, 994, 1113. *Example:* style override.
+- **[qe-fig-006]** — Lowercase axis labels. *Count:* 9. *Lines:* 709, 736, 758, 807, 1055, 1056, 1126, 1190, 1191. *Example:* axis label `Present Value, $p_0$`.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 13. *Lines:* 733, 734, 766, 887, 915, 940, 943, 997, 1052, 1115, …. *Example:* plot() without lw=.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 1. *Lines:* 616. *Example:* `^T` transpose in `G^{T}`.
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 3. *Lines:* 118, 268, 438. *Example:* H2 Title Case: 'Example: The Money Multiplier in Fractional Reserve Banking' (Money, Multiplier, Fractional, Reserve).
 
 ### Medium severity
-- **W1** — Several multi-sentence paragraphs throughout.
-- **M12** — `\begin{aligned} \begin{split}...\end{split}\end{aligned}` (line 616) — using `split` inside `aligned` is unusual; should be just `aligned`.
-- **[qe-fig-003]** — `ax.set_title(f'An Increase in {param} on Output')` (line 948) — Title Case title outside exercise context.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 948. *Example:* .set_title.
+- **[qe-fig-004]** — Caption formatting conventions. *Count:* 4. *Lines:* 681, 720, 782, 900. *Example:* caption of 7 words.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 983, 1041, 1103, 1160. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 110, 459. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
-- **W7** — Mid-sentence capitalization inconsistencies.
-- **[qe-fig-005]** — No figures use `{figure}` directive with `:name:`.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 1. *Lines:* 88. *Example:* 2 spaces.
+
 
 ## Strengths
-- H1 Title Case OK.
-- `{math}` labels and `{eq}` refs used.
-- Bold for definitions (**multiplier**, **money multiplier**, etc.).
-- Solutions gated, dropdown, linked.
+
+- Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Convert "## Example: The Money Multiplier..." headings to sentence case.
-2. Simplify the nested `aligned`/`split` math environment.
-3. Remove `figsize=` overrides.
-4. Lowercase axis labels.
-5. Move the `set_title` on line 948 into mystnb metadata.
-6. Split multi-sentence paragraphs.
+
+1. `qe-writing-006` — Capitalize lecture titles properly (3 occurrences).
+2. `qe-fig-006` — Lowercase axis labels (9 occurrences).
+3. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
+4. `qe-fig-005` — Descriptive figure names for cross-referencing (4 occurrences).
+5. `qe-fig-004` — Caption formatting conventions (4 occurrences).
+6. `qe-math-002` — Use \top for transpose notation (1 occurrence).
+7. `qe-fig-003` — No matplotlib embedded titles (1 occurrence).

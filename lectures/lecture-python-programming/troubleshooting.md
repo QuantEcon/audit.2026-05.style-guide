@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/troubleshooting.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.2 / 10
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `ceec881028`
+- **Categories audited:** writing, figures, links  *(JAX out of scope)*
+- **Overall score:** 8.3 / 10
 - **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 7.5/10| Two H2 section headings in Title Case; otherwise clean. |
-| Math         | N/A   | No math content. |
-| Code         | N/A   | No code cells. |
-| JAX          | out of scope | — |
-| Figures      | 8/10  | One `{image}` directive at line 52 — no caption, but used appropriately for a screenshot. |
-| References   | N/A   | No citations. |
-| Links        | 9/10  | Uses `{doc}` for `getting_started` cross-reference correctly; remaining links are external (quantecon.org, github.com) which are appropriate for an issue-reporting page. |
-| Admonitions  | N/A   | No admonitions beyond the standard raw header. |
+| Writing      | 6/10  | `qe-writing-006` ×2; `qe-writing-001` ×1; `qe-writing-008` ×1. |
+| Math         | N/A   | no mathematical content. |
+| Code         | N/A   | no executable code cells. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 9/10  | `qe-fig-005` ×1. |
+| References   | N/A   | no citations in this lecture. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | N/A   | no admonitions, exercises or solutions. |
 
 ## Issues
 
@@ -26,19 +27,27 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 2. *Lines:* 25, 61. *Example:* H2 Title Case: 'Fixing Your Local Environment' (Your, Local, Environment).
 
 ### Medium severity
-- **[qe-writing-006]** — Two H2 section headings use Title Case instead of sentence case. *Examples:* line 25 `## Fixing Your Local Environment`, line 61 `## Reporting an Issue`. *Count:* 2 occurrences.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 65. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
-- **[qe-fig-004]** — The `{image}` directive at line 52 has no caption (just an empty body); for a launch-icon screenshot this is acceptable but could be made explicit.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 52. *Example:* {image} without :name:.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 1. *Lines:* 65. *Example:* 2 spaces.
+
 
 ## Strengths
-- Lecture title "Troubleshooting" is correctly Title Case per qe-writing-006.
-- One-sentence paragraphs throughout per qe-writing-001.
-- Uses `{doc}` link for `getting_started` (qe-link-002 compliant, intra-series).
-- No code or math to violate qe-code-* / qe-math-* rules.
+
+- Figures, Links score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Rename H2s to sentence case: "Fixing your local environment", "Reporting an issue".
+
+1. `qe-writing-006` — Capitalize lecture titles properly (2 occurrences).
+2. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
+3. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
+4. `qe-writing-008` — Remove excessive whitespace between words (1 occurrence).

@@ -2,47 +2,57 @@
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/python_by_example.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.1 / 10
-- **Priority:** LOW
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `ceec881028`
+- **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 7.8 / 10
+- **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 6.5/10| Heading Title Case throughout. |
-| Math         | 7/10  | One qe-math-012 (proposed) violation (`*` for multiplication) inside `$...$`. |
-| Code         | 9/10  | Only Anaconda packages (numpy, matplotlib); Greek unicode (ϵ, α) used per qe-code-002; PEP8 clean; no benchmarking patterns. |
-| JAX          | out of scope | — |
-| Figures      | 7/10  | One static `{figure}` (line 46) is an output preview; code-generated plots are simple `plt.plot` (no `figsize`, no `set_title`); no `name:` on the static figure. |
-| References   | N/A   | No citations. |
-| Links        | 10/10 | Uses `` {doc}`lecture <getting_started>` ``, `` {doc}`NumPy <numpy>` ``, `` {doc}`later on <oop_intro>` `` correctly per qe-link-001. |
-| Admonitions  | 9/10  | Five `{exercise-start}` / `{solution-start}` pairs gated; `:class: dropdown` on all solutions; `:label:` cross-linked per qe-admon-005; `{hint}` and `{note}` admonitions used. |
+| Writing      | 4/10  | `qe-writing-006` ×10; `qe-writing-001` ×1; `qe-writing-008` ×3. |
+| Math         | 9/10  | `qe-math-012` (proposed) ×1. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 6/10  | `qe-fig-005` ×11; `qe-fig-008` ×10; `qe-fig-009` ×1. |
+| References   | N/A   | no citations in this lecture. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 7.5/10 | `qe-admon-003` ×2. |
 
 ## Issues
 
 ### Critical
-_None found._
+- **[qe-admon-003]** — Use tick count management for nested directives. *Count:* 2. *Lines:* 499, 549. *Example:* {exercise-start} fence (3 ticks) is never closed — the directive swallows the rest of the block.
 
 ### High severity
-- **[qe-writing-006]** — Section headings use Title Case rather than sentence case. *Examples:* line 39 `## The Task: Plotting a White Noise Process`, line 56 `## Version 1`, line 74 `### Imports`, line 99 `#### Why So Many Imports?`, line 109 `#### Packages`, line 134 `#### Subpackages`, line 147 `### Importing Names Directly`, line 174 `### Random Draws`, line 192 `## Alternative Implementations`, line 201 `### A Version with a For Loop`, line 229 `### Lists`, line 291 `### The For Loop`, line 335 `### A Comment on Indentation`, line 361 `### While Loops`, line 396 `## Another Application`, line 440 `## Exercises`. *Count:* 15+ occurrences.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 11. *Lines:* 46, 61, 179, 209, 374, 417, 481, 524, 576, 632, …. *Example:* {figure} without :name:.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 10. *Lines:* 67, 182, 217, 382, 426, 491, 534, 586, 646, 663. *Example:* plot() without lw=.
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 10. *Lines:* 39, 99, 147, 174, 195, 204, 294, 338, 364, 399. *Example:* H2 Title Case: 'The Task: Plotting a White Noise Process' (Task, White, Noise, Process).
 
 ### Medium severity
-- **[qe-math-012 (proposed)]** — `*` used as multiplication inside inline math. *Example:* line 690 `$area = \pi * radius^2$`. *Count:* 1 occurrence.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 445. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 3. *Lines:* 124, 397, 445. *Example:* 2 spaces.
 
 ### Low severity
-- **[qe-fig-005]** — The static `{figure}` at line 46 lacks `name:` metadata.
+- **[qe-fig-009]** — Figure sizing. *Count:* 1. *Lines:* 46. *Example:* :scale: 120 (outside 80–100%).
+- **[qe-math-012 (proposed)]** — Multiplication via \cdot or juxtaposition, never *. *Count:* 1. *Lines:* 693. *Example:* * as multiplication.
+
 
 ## Strengths
-- Lecture title "An Introductory Example" follows qe-writing-006.
-- "IID" used correctly per qe-writing-009 (proposed) (line ~689).
-- Bold for definitions per qe-writing-005 ("**package**", "**modules**", "**subpackage**").
-- Sequences notation correct (`$\epsilon_0, \epsilon_1, \ldots$`) per qe-math-005.
-- Greek unicode (ϵ, α) used in code per qe-code-002.
-- Exemplary exercise/solution structure across all 5 pairs per qe-admon-001/qe-admon-002/qe-admon-005.
+
+- Math, Code, Links score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Convert all H2/H3/H4 headings to sentence case ("The task: plotting a white noise process", "Version 1", "Imports", "Why so many imports?", "Packages", "Subpackages", "Importing names directly", "Random draws", "Alternative implementations", "A version with a `for` loop", "Lists", "The `for` loop", "A comment on indentation", "While loops", "Another application").
-2. Replace `\pi * radius^2` with `\pi r^2` (juxtaposition) or `\pi \cdot r^2`.
-3. Add `name:` to the static preview figure.
+
+1. `qe-writing-006` — Capitalize lecture titles properly (10 occurrences).
+2. `qe-fig-005` — Descriptive figure names for cross-referencing (11 occurrences).
+3. `qe-admon-003` — Use tick count management for nested directives (2 occurrences).
+4. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
+5. `qe-fig-008` — Use lw=2 for line charts (10 occurrences).
+6. `qe-math-012` (proposed) — Multiplication via \cdot or juxtaposition, never * (1 occurrence).
+7. `qe-writing-008` — Remove excessive whitespace between words (3 occurrences).

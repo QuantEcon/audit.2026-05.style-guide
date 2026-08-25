@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/writing_good_code.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.9 / 10
-- **Priority:** LOW
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `ceec881028`
+- **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.6 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 7/10  | Heading Title Case throughout H2/H3. |
-| Math         | 7.5/10| Clean math; no `\mathbb E` here (re-check: lecture uses no `\mathbb E` at all). |
-| Code         | 9/10  | Only Anaconda packages (numpy, matplotlib, scipy); Greek unicode (α, β, γ, δ) used heavily per qe-code-002; PEP8 demonstrated as a teaching topic; no benchmarking magics. |
-| JAX          | out of scope | — |
-| Figures      | 5/10  | One `figsize=(8, 16)` in the deliberately-poor-code section (line 80) — intentional bad example; same `figsize=(8, 16)` in the "good" version (line 270) — would be cleaner without; lowercase axis labels per qe-fig-006; no embedded titles; no `name:` on figures. |
-| References   | N/A   | No citations. |
-| Links        | 10/10 | Uses `` {doc}`we've seen in previous lectures <numba>` `` correctly per qe-link-001. |
-| Admonitions  | 9/10  | One `{exercise-start}` / `{solution-start}` pair gated; `:class: dropdown` on solution; `:label: wgc-exercise-1` matched per qe-admon-005. |
+| Writing      | 4.5/10 | `qe-writing-006` ×9; `qe-writing-001` ×3; `qe-writing-008` ×2. |
+| Math         | 10/10 | no mechanical violations detected. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 7/10  | `qe-fig-005` ×5; `qe-fig-008` ×4; `qe-fig-001` ×2. |
+| References   | N/A   | no citations in this lecture. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,23 +27,32 @@
 _None found._
 
 ### High severity
-- **[qe-writing-006]** — Section headings use Title Case rather than sentence case. *Examples:* line 45 `## An Example of Poor Code`, line 142 `## Good Coding Practice`, line 156 `### Don't Use Magic Numbers`, line 176 `### Don't Repeat Yourself`, line 196 `### Minimize Global Variables`, line 226 `### Use Functions or Classes`, line 246 `## Revisiting the Example`, line 291 `## Exercises`. *Count:* 8 occurrences.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 73, 250, 353, 388, 422. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 9. *Lines:* 45, 142, 156, 176, 196, 215, 226, 236, 246. *Example:* H2 Title Case: 'An Example of Poor Code' (Example, Poor, Code).
 
 ### Medium severity
-- **[qe-fig-001]** — Two `figsize=(8, 16)` calls (lines 80 and 270). The first is in the "Example of Poor Code" section so could be argued as part of the demonstration; the second is in the "Revisiting the example" section, which is presented as the *good* version — so this one is inconsistent.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 80, 270. *Example:* figsize=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 4. *Lines:* 91, 108, 125, 263. *Example:* plot() without lw=.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 3. *Lines:* 27, 319, 327. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 2. *Lines:* 148, 207. *Example:* 2 spaces.
 
 ### Low severity
-- **[qe-fig-005]** — Code-generated figures lack `name:` metadata.
+_None found._
+
 
 ## Strengths
-- Lecture title "Writing Good Code" follows qe-writing-006.
-- Equation label `gc_solmod` and `{eq}` reference at line 66 — correct usage per qe-math-013 (proposed).
-- Bold for emphasis sparingly per qe-writing-005 ("**a great deal**", "**automate**", "**not**", "**parameters**").
-- Math display blocks use clean LaTeX; no `align`, no `\tag`, no bold vectors, no `^T`, no `*` for multiplication.
-- Greek unicode (α, β, γ, δ) used pervasively per qe-code-002 — well-aligned with the lecture's own advice.
-- Axis labels lowercase per qe-fig-006.
-- Exercise/solution pair compliant per qe-admon-001/qe-admon-002/qe-admon-005.
+
+- Math, Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Convert section headings to sentence case ("An example of poor code", "Good coding practice", "Don't use magic numbers", "Don't repeat yourself", "Minimize global variables", "Use functions or classes", "Revisiting the example").
-2. Remove the `figsize=(8, 16)` in the "good code" section (line 270); keep or annotate the one in the "poor code" section.
+
+1. `qe-writing-006` — Capitalize lecture titles properly (9 occurrences).
+2. `qe-fig-005` — Descriptive figure names for cross-referencing (5 occurrences).
+3. `qe-writing-001` — Use one sentence per paragraph (3 occurrences).
+4. `qe-writing-008` — Remove excessive whitespace between words (2 occurrences).
+5. `qe-fig-008` — Use lw=2 for line charts (4 occurrences).
+6. `qe-fig-001` — Do not set figure size unless necessary (2 occurrences).

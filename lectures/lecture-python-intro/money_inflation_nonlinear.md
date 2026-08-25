@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/money_inflation_nonlinear.md`
-- **Audit date:** 2026-05-28
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 6.6 / 10
-- **Priority:** MEDIUM
+- **Overall score:** 8.2 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 5/10  | Most H2 section headings use Title Case (W3 violation). |
-| Math         | 6/10  | No transpose; equations clean; minor stylistic issues only. |
-| Code         | 8/10  | Unicode Greek (`α`, `π`) used throughout (qe-code-002 OK); standard Anaconda imports. |
-| JAX          | out of scope | — |
-| Figures      | 7/10  | `figsize=` on line 348 only; no `ax.set_title` violations outside exercises; no figures use `{figure}` directive. |
-| References   | 8/10  | 2 `{cite}` usages; parenthetical, no clear in-text mis-use. |
-| Links        | 9/10  | `{doc}` cross-references used (11 occurrences). |
-| Admonitions  | 9/10  | `{prf:example}` used (qe-admon-004 OK); solutions gated, dropdown, exercise-linked. |
+| Writing      | 4.5/10 | `qe-writing-006` ×6; `qe-writing-008` ×37; `qe-writing-001` ×1. |
+| Math         | 8.5/10 | `qe-math-002` ×1. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 5.5/10 | `qe-fig-005` ×5; `qe-fig-004` ×2; `qe-fig-008` ×10, +1 more. |
+| References   | 9/10  | `qe-ref-001` ×1. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,27 +27,35 @@
 _None found._
 
 ### High severity
-- **W3** — Section headings systematically use Title Case where sentence case is required. *Examples:* "## The Model" (48), "## Limiting Values of Inflation Rate" (78), "## Steady State Laffer curve" (162), "## Initial Price Levels" (206), "## Computing an Equilibrium Sequence" (278), "## Slippery Side of Laffer Curve Dynamics" (339). *Count:* 6+ headings.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 343, 504, 568, 659, 713. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 10. *Lines:* 188, 362, 365, 368, 371, 509, 585, 586, 668, 727. *Example:* plot() without lw=.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 1. *Lines:* 489. *Example:* apostrophe transpose `L'`.
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 6. *Lines:* 48, 78, 162, 206, 278, 339. *Example:* H2 Title Case: 'The Model' (Model).
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 37. *Lines:* 20, 27, 29, 33, 38, 40, 46, 82, 106, 108, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **W1** — Multi-sentence paragraphs in Overview (lines 33–40, 42–46).
+- **[qe-fig-004]** — Caption formatting conventions. *Count:* 2. *Lines:* 166, 394. *Example:* caption of 15 words.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 73. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
-- **W7** — Inconsistent quoting style with double single-quotes (e.g. ''method 2'' line 27) instead of double quotes.
-- **[qe-fig-001]** — `figsize=` on line 348. *Count:* 1 occurrence.
-- **[qe-fig-005]** — No figures use `{figure}` directive with `:name:`.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 1. *Lines:* 348. *Example:* figsize=.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 439. *Example:* {cite} in author position: '{cite}`bruno1990seigniorage` and'.
+
 
 ## Strengths
-- H1 title is correct Title Case.
-- Equation labelling and `{eq}` references are clean.
-- Math notation consistent.
-- Unicode Greek in code (qe-code-002 OK).
-- `{doc}` cross-references used (qe-link-002 OK).
-- `{prf:example}` directive (qe-admon-004 OK).
-- Solutions all gated, dropdown, linked.
+
+- Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Convert all section headings from Title Case to sentence case per qe-writing-006.
-2. Split multi-sentence paragraphs.
-3. Normalize quote style.
-4. Remove `figsize=` on line 348.
+
+1. `qe-writing-006` — Capitalize lecture titles properly (6 occurrences).
+2. `qe-fig-005` — Descriptive figure names for cross-referencing (5 occurrences).
+3. `qe-fig-004` — Caption formatting conventions (2 occurrences).
+4. `qe-math-002` — Use \top for transpose notation (1 occurrence).
+5. `qe-writing-008` — Remove excessive whitespace between words (37 occurrences).
+6. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
+7. `qe-fig-008` — Use lw=2 for line charts (10 occurrences).

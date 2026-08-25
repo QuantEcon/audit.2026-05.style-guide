@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/lagrangian_lqdp.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 8.0 / 10
-- **Priority:** LOW
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `e25fdf2345`
+- **Categories audited:** writing, math, code, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 7.1 / 10
+- **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 7/10 | Many section headings use Title Case rather than sentence case. |
-| Math         | 6/10 | Transpose denoted `'` (prime) and/or `^T` instead of `\top`. |
-| Code         | 9/10 | Mixed Greek conventions in code (word=3, uni=5). |
-| JAX          | out of scope | not a JAX lecture |
-| Figures      | N/A | No figures. |
-| References   | 9/10 | Citation style follows conventions. |
-| Links        | 7/10 | 1 full URL(s) to same series. |
-| Admonitions  | 10/10 | Exercise/solution structure clean. |
+| Writing      | 3.5/10 | `qe-writing-006` ×7; `qe-writing-004` ×3; `qe-writing-008` ×72, +1 more. |
+| Math         | 3/10  | `qe-math-002` ×73; `qe-math-003` ×6. |
+| Code         | 8.5/10 | `qe-code-002` ×1; `qe-code-005` ×2. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | N/A   | no figures or plotting code. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 7.5/10 | `qe-link-002` ×4; `qe-link-001` ×1. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,27 +27,36 @@
 _None found._
 
 ### High severity
-- **[qe-math-002]** — Transpose denoted `'` (prime) and/or `^T` instead of `\top`. *Examples:* line 87 `$V(x)= - x'Px$...`. *Count:* 24 occurrences.
-- **[qe-writing-006]** — Many section headings use Title Case rather than sentence case. *Examples:* line 70, line 236, line 258. *Count:* 7.
-- **[qe-link-002]** — 4 direct URLs to other QuantEcon series — should use `{doc}` intersphinx links. *Examples:* line 61, line 66, line 827.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 73. *Lines:* 87, 94, 102, 107, 113, 125, 128, 132, 161, 162, …. *Example:* apostrophe transpose `)'`.
+- **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 6. *Lines:* 341, 356, 815, 817, 818, 820. *Example:* matrix environment.
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 7. *Lines:* 70, 236, 258, 672, 699, 705, 778. *Example:* H2 Title Case: 'Undiscounted LQ DP Problem' (Problem).
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 72. *Lines:* 38, 46, 52, 53, 73, 79, 87, 128, 177, 186, …. *Example:* 2 spaces.
 
 ### Medium severity
-_None found._
+- **[qe-code-005]** — Use quantecon timeit for benchmarking. *Count:* 2. *Lines:* 662, 667. *Example:* %%timeit.
+- **[qe-link-002]** — Use doc links for cross-series references. *Count:* 4. *Lines:* 61, 66, 827. *Example:* raw link to python-advanced.quantecon.org.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 446. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 3. *Lines:* 676. *Example:* mid-sentence 'Linear'.
 
 ### Low severity
-- **[qe-code-002]** — Mixed Greek conventions in code (word=3, uni=5).
-- **[qe-code-005]** — Jupyter `%timeit`/`%%timeit` magic used (2 occurrences); prefer `qe.timeit()`.
-- **[qe-link-001]** — 1 full URL(s) to same series. *Examples:* line 676.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 476. *Example:* spelled-out `beta`.
+- **[qe-link-001]** — Use markdown style links for lectures in same lecture series. *Count:* 1. *Lines:* 676. *Example:* full URL to own series (python.quantecon.org).
+
 
 ## Strengths
-- Uses "IID" or no IID terminology.
-- No bold vectors/matrices.
-- Normal distribution written as plain `N`.
-- `aligned` (not `align`) used in `$$` math.
+
+- References, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Address `qe-math-002`: Transpose denoted `'` (prime) and/or `^T` instead of `\top`.
-2. Address `qe-writing-006`: Many section headings use Title Case rather than sentence case.
-3. Address `qe-link-002`: 4 direct URLs to other QuantEcon series — should use `{doc}` intersphinx links.
-4. Address `qe-code-002`: Mixed Greek conventions in code (word=3, uni=5).
-5. Address `qe-code-005`: Jupyter `%timeit`/`%%timeit` magic used (2 occurrences); prefer `qe.timeit()`.
+
+1. `qe-math-002` — Use \top for transpose notation (73 occurrences).
+2. `qe-writing-006` — Capitalize lecture titles properly (7 occurrences).
+3. `qe-math-003` — Use square brackets for matrix notation (6 occurrences).
+4. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (3 occurrences).
+5. `qe-link-002` — Use doc links for cross-series references (4 occurrences).
+6. `qe-writing-008` — Remove excessive whitespace between words (72 occurrences).
+7. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).

@@ -2,23 +2,24 @@
 
 - **Series:** lecture-dp
 - **File:** `lectures/mccall_persist_trans.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
-- **Overall score:** 9.1 / 10
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `c30490a2f4`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 9.7 / 10
 - **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 9/10  | Sentence-case headings; short paragraphs. |
-| Math         | 9/10  | `\mathbb E` mostly bare (no braces); otherwise clean. |
-| Code         | 9/10  | Unicode Greek; pip install at top; PEP8; uses `qe.Timer`. |
-| JAX          | out of scope | uses JAX, but JAX rules out of scope. |
-| Figures      | 9/10  | No matplotlib titles; lowercase labels; no figsize. |
-| References   | 10/10 | Single `{cite}` parenthetical. |
-| Links        | 9/10  | `{doc}` used 6×; no raw cross-series URLs. |
-| Admonitions  | 9/10  | One `{exercise}` + `solution-start` with `:class: dropdown`. |
+| Writing      | 10/10 | no mechanical violations detected. |
+| Math         | 10/10 | no mechanical violations detected. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 8/10  | `qe-fig-005` ×4; `qe-fig-008` ×4. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -29,20 +30,22 @@ _None found._
 _None found._
 
 ### Medium severity
-_None found._
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 289, 309, 416, 455. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 4. *Lines:* 293, 318, 418, 457. *Example:* plot() without lw=.
 
 ### Low severity
-- **[qe-math-010 (proposed)]** — Expectation written as `\mathbb E_z` without braces (lines 100, 104, 116, 129, 136); preferred form is `\mathbb{E}_z`.
+_None found._
+
 
 ## Strengths
-- Lecture title correctly Title Case.
-- All H2/H3 headings sentence case.
-- "IID" used correctly.
-- No transpose, no bold vectors, no matrix-bracket issues, no `align`/`\tag` violations.
-- Equation labels and `{eq}` references clean.
-- pip install at top; Unicode Greek; uses `qe.Timer()` (line 283) — qe-code-004 compliant.
-- `{doc}` used for cross-series.
-- Exercise uses `{exercise}` + `solution-start` with dropdown.
+
+- Writing, Math, Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Add braces to `\mathbb{E}` for consistency with style guide.
+
+1. `qe-fig-005` — Descriptive figure names for cross-referencing (4 occurrences).
+2. `qe-fig-008` — Use lw=2 for line charts (4 occurrences).

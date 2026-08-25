@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/numba.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.8 / 10
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `ceec881028`
+- **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.1 / 10
 - **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 7/10  | Title Case in H3/H4 headings throughout. |
-| Math         | 8/10  | Clean math; `\mathbb E` without braces (lines 700, 739) is the only nit. |
-| Code         | 9/10  | `!pip install quantecon` at top with `hide-output`; Greek unicode (α, β, μ, ρ, ν, σ, ξ, η) used throughout; `qe.Timer()` used for 8+ benchmark blocks (qe-code-004); PEP8 clean. |
-| JAX          | out of scope | (Mentions JAX as a future direction.) |
-| Figures      | 8/10  | Two code-generated plots use `ax.set_xlabel('$t$', fontsize=12)` / `ax.set_ylabel('$x_{t}$', fontsize=12)` (lines 115-116, 350-351) — lowercase, math-mode labels per qe-fig-006; one static `{image}` (line 506) is used inside an exercise per qe-fig-011. No embedded titles outside exercise/solution context. |
-| References   | N/A   | No citations. |
-| Links        | 7/10  | Uses `` {doc}`troubleshooting` ``, `` {doc}`need_for_speed` ``, `` {doc}`jax_intro` ``, `` {doc}`scipy` `` cleanly. One bare URL to `intro.quantecon.org` at line 497 should be `` {doc}`intro:intro` ``. |
-| Admonitions  | 8/10  | Three `{exercise-start}` / four `{exercise}` directives; four `{solution-start}` blocks with `:class: dropdown` and matched `:label:`. Note: `{exercise}` (non-gated) is used twice (`speed_ex1` line 439, `numba_ex3` line 613, `numba_ex4` line 688) — but their bodies contain only math and prose (no embedded code cells or nested directives), so this is borderline rather than a clear qe-admon-001 violation. |
+| Writing      | 4.5/10 | `qe-writing-006` ×6; `qe-writing-001` ×2; `qe-writing-008` ×3. |
+| Math         | 7.5/10 | `qe-math-010` (proposed) ×2. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 7.5/10 | `qe-fig-005` ×4; `qe-fig-008` ×2; `qe-fig-002` ×1. |
+| References   | N/A   | no citations in this lecture. |
+| Links        | 9/10  | `qe-link-002` ×1. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,28 +27,34 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 2. *Lines:* 975, 1014. *Example:* missing braces: `\mathbb E`.
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 6. *Lines:* 87, 100, 183, 217, 267, 300. *Example:* H3 Title Case: 'An Example' (Example).
 
 ### Medium severity
-- **[qe-writing-006]** — Section headings use Title Case. *Examples:* line 80 `## Compiling Functions`, line 87 `### An Example`, line 100 `#### Base Version`, line 132 `#### Acceleration via Numba`, line 183 `### How and When it Works`, line 217 `## Sharp Bits`, line 223 `### Typing`, line 267 `### Global Variables`, line 300 `## Multithreaded Loops in Numba`, line 437 `## Exercises`. *Count:* 10+ occurrences.
-- **[qe-link-002]** — One bare URL to a sibling series. *Example:* line 497 `[Introduction to Quantitative Economics with Python](https://intro.quantecon.org/intro.html)` — should use `` {doc}`intro:intro` `` (or with custom title).
-- **[qe-fig-005]** — Two code-generated figures (lines 113, 341) lack `name:` metadata.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 104, 340, 575, 885. *Example:* {image} without :name:.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 349, 899. *Example:* plot() without lw=.
+- **[qe-link-002]** — Use doc links for cross-series references. *Count:* 1. *Lines:* 566. *Example:* raw link to intro.quantecon.org.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 69, 211. *Example:* 3 sentences in one paragraph.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 3. *Lines:* 70, 198, 219. *Example:* 2 spaces.
 
 ### Low severity
-- **[qe-math-010 (proposed)]** — `\mathbb E` without braces in display math (lines 700, 739). Renders identically but inconsistent.
-- **[qe-admon-001]** — Three exercises use bare `{exercise}` rather than gated `{exercise-start}` / `{exercise-end}` syntax (lines 439, 613, 688). Their bodies contain math and prose only, so this is a borderline preference rather than a hard violation.
+- **[qe-fig-002]** — Prefer code-generated figures. *Count:* 1. *Lines:* 575. *Example:* static image .png.
+
 
 ## Strengths
-- Lecture title "Numba" follows qe-writing-006 (single word).
-- Math conventions clean: no `^T`, no bold vectors, no `*` for multiplication, no `\tag`, no `align` inside `$$`.
-- Sequences use `\{...\}` per qe-math-005 (e.g., `$\{\xi_t\}$` line 726).
-- "IID" used correctly per qe-writing-009 (proposed) (line 726).
-- `qe.Timer()` consistently used for benchmarking (qe-code-004 exemplary).
-- Greek unicode (α, β, μ, ρ, ν, σ, ξ, η) used in code throughout per qe-code-002.
-- `{image}` directive used inside `exercise-start`/`exercise-end` for the Markov chain transition graph per qe-fig-011.
+
+- Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Convert H3/H4 headings to sentence case ("An example", "Base version", "Acceleration via Numba", "How and when it works", "Sharp bits", "Typing", "Global variables", "Multithreaded loops in Numba").
-2. Replace the bare `intro.quantecon.org/intro.html` URL on line 497 with `` {doc}`intro:intro` ``.
-3. Tighten `\mathbb E` → `\mathbb{E}` for consistency.
-4. Optionally convert the three bare `{exercise}` blocks to gated syntax for uniformity with the rest of the lecture.
+
+1. `qe-writing-006` — Capitalize lecture titles properly (6 occurrences).
+2. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (2 occurrences).
+3. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
+4. `qe-fig-005` — Descriptive figure names for cross-referencing (4 occurrences).
+5. `qe-link-002` — Use doc links for cross-series references (1 occurrence).
+6. `qe-writing-008` — Remove excessive whitespace between words (3 occurrences).
+7. `qe-fig-008` — Use lw=2 for line charts (2 occurrences).

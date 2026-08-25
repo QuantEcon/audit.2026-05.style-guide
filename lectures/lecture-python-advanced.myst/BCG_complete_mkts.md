@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/BCG_complete_mkts.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 7.1 / 10
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `b83d6da399`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.1 / 10
 - **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8/10  | Sentence-case headings; mostly one-sentence paragraphs. |
-| Math         | 7/10  | `{\mathcal N}` for Normal; otherwise mostly compliant. |
-| Code         | 7/10  | `alpha`, `beta`, `gamma` spelled out instead of unicode; install cell at top. |
-| JAX          | N/A   | not a JAX lecture |
-| Figures      | 7/10  | Two `figsize=` settings without justification; no `:name:` fields. |
-| References   | 8/10  | `{cite}` used consistently; no `{cite:t}` in-text use even where author named. |
-| Links        | 6/10  | Two raw `python.quantecon.org` URLs alongside `{doc}` use. |
-| Admonitions  | N/A   | no exercises, solutions, or proof-family directives. |
+| Writing      | 6.5/10 | `qe-writing-001` ×7; `qe-writing-008` ×36. |
+| Math         | 7.5/10 | `qe-math-002` ×2. |
+| Code         | 9.5/10 | `qe-code-004` ×2. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 5.5/10 | `qe-fig-003` ×2; `qe-fig-005` ×2; `qe-fig-010` ×1, +2 more. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 8/10  | `qe-link-002` ×2. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,28 +27,36 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 2. *Lines:* 643, 809. *Example:* apostrophe transpose `u'`.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 7. *Lines:* 324, 563, 613, 705, 851, 854, 1140. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 36. *Lines:* 39, 56, 67, 73, 78, 160, 217, 289, 298, 302, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-math-011 (proposed)]** — `{\mathcal N}` used as Normal distribution. *Example:* `lectures/BCG_complete_mkts.md:140`, `lectures/BCG_complete_mkts.md:146`. *Count:* 2 occurrences.
-- **[qe-link-002]** — Raw `python.quantecon.org` URLs used for cross-series references; should use `{doc}` with intersphinx prefix. *Example:* `lectures/BCG_complete_mkts.md:56-57` (`cass_koopmans_1`, `rational_expectations`). *Count:* 2 occurrences.
-- **[qe-code-002]** — `alpha`, `beta`, `gamma` spelled out in code instead of unicode (`α`, `β`, `γ`). *Count:* ~4 parameter assignments.
+- **[qe-code-004]** — Use quantecon Timer context manager. *Count:* 2. *Lines:* 1168, 1173. *Example:* %%time.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 955, 1092. *Example:* figsize=.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 2. *Lines:* 1099, 1109. *Example:* .set_title.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 873, 1086. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-010]** — Plotly figures require latex directive. *Count:* 1. *Lines:* 1. *Example:* plotly used with no {only} latex directive.
+- **[qe-link-002]** — Use doc links for cross-series references. *Count:* 2. *Lines:* 56, 57. *Example:* raw link to python.quantecon.org.
 
 ### Low severity
-- **[qe-writing-006]** — Sub-subheadings such as `### Technology:` and `### Preferences:` (L104, L115) have trailing colons.
-- **[qe-fig-001]** — Two `figsize=` settings (L955 `(8,7)`, L1092 `(14,6)`) without clear justification.
-- **[qe-fig-005]** — Figures lack `:name:` fields, blocking `{numref}` cross-referencing.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 956. *Example:* plot() without lw=.
+
 
 ## Strengths
-- Title in Title Case (qe-writing-006).
-- Subheadings sentence case overall (qe-writing-006).
-- `\begin{bmatrix}` used; no `array`/`pmatrix`.
-- One-sentence paragraph rule mostly respected (qe-writing-001).
-- Install cell at top with `hide-output` tag (qe-code-003).
-- The many `'` characters are utility derivatives (`u'(c)`) — not transpose; no qe-math-002 violation.
+
+- Code, References, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Convert `{\mathcal N}` to `N` for the Normal distribution (qe-math-011, proposed).
-2. Replace raw `python.quantecon.org` URLs with `{doc}\`intermediate:cass_koopmans_1\`` style links (qe-link-002).
-3. Switch spelled Greek parameter names to unicode in code cells (qe-code-002).
-4. Add descriptive `:name: fig-...` fields to figures for `{numref}` use (qe-fig-005).
+
+1. `qe-math-002` — Use \top for transpose notation (2 occurrences).
+2. `qe-writing-001` — Use one sentence per paragraph (7 occurrences).
+3. `qe-link-002` — Use doc links for cross-series references (2 occurrences).
+4. `qe-fig-003` — No matplotlib embedded titles (2 occurrences).
+5. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
+6. `qe-writing-008` — Remove excessive whitespace between words (36 occurrences).
+7. `qe-fig-010` — Plotly figures require latex directive (1 occurrence).

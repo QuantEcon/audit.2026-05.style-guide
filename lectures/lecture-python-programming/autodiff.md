@@ -2,8 +2,9 @@
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/autodiff.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `ceec881028`
+- **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 8.7 / 10
 - **Priority:** NONE
 
@@ -11,14 +12,14 @@
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8/10  | Most H3 use sentence case; two H2s revert to Title Case. |
-| Math         | 8/10  | Clean math; no transpose, vectors, or probability content. |
-| Code         | 9/10  | `!pip install jax` at top with `:tags: [hide-output]`; Greek unicode (α, β, σ, ϵ, λ, Δ) used in code; no `time.time()` / `%timeit`. |
-| JAX          | out of scope | JAX-based lecture. |
-| Figures      | 8/10  | All figures are code-generated via matplotlib; no `figsize`, no embedded titles, lowercase axis labels (implicit in `label="$f'$"`); no `name:` for cross-referencing. |
-| References   | N/A   | No citations. |
-| Links        | 10/10 | Uses `` {doc}`our brief preview <jax_intro>` `` (line 23) correctly per qe-link-001/qe-link-002. |
-| Admonitions  | 9/10  | `{exercise-start}`/`{exercise-end}` and `{solution-start}`/`{solution-end}` correctly used; solution has `:class: dropdown`; `:label:` properly cross-linked. |
+| Writing      | 8/10  | `qe-writing-006` ×1; `qe-writing-008` ×1. |
+| Math         | 7.5/10 | `qe-math-002` ×3. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 6.5/10 | `qe-fig-005` ×11; `qe-fig-008` ×14. |
+| References   | N/A   | no citations in this lecture. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,23 +27,30 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 11. *Lines:* 82, 193, 216, 257, 271, 289, 362, 381, 416, 448, …. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 14. *Lines:* 97, 98, 195, 196, 218, 219, 259, 260, 277, 291, …. *Example:* plot() without lw=.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 3. *Lines:* 140, 141. *Example:* apostrophe transpose `)'`.
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 1. *Lines:* 295. *Example:* H2 Title Case: 'Gradient Descent' (Descent).
 
 ### Medium severity
-- **[qe-writing-006]** — Two H2 section headings use Title Case rather than sentence case. *Examples:* line 295 `## Gradient Descent`, line 460 `## Exercises`. *Count:* 2 occurrences.
+_None found._
 
 ### Low severity
-- **[qe-writing-001]** — A handful of paragraphs combine two short sentences with the `+++` cell separator instead of staying as single-sentence units; mostly acceptable.
-- **[qe-fig-005]** — Plots within code cells could benefit from `mystnb` figure metadata with `name:` for downstream cross-referencing; currently no figures are named.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 1. *Lines:* 468. *Example:* 2 spaces.
+
 
 ## Strengths
-- Lecture title "Adventures with Autodiff" follows qe-writing-006.
-- Most section headings already use sentence case (e.g., "What is automatic differentiation?", "Some experiments").
-- Math display blocks use proper `$$` and clean LaTeX; no `align`, no `\tag`.
-- Greek unicode (α, β, σ, ϵ, λ, Δ) consistently used in code per qe-code-002.
-- Single `!pip install` at top with `hide-output` per qe-code-003.
-- Solution correctly uses `:class: dropdown` per qe-admon-002 and `:label:` matching exercise per qe-admon-005.
+
+- Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Rename `## Gradient Descent` to `## Gradient descent` and `## Exercises` consistency check.
-2. Optionally add `name:` metadata to inline figures for cross-referencing.
+
+1. `qe-fig-005` — Descriptive figure names for cross-referencing (11 occurrences).
+2. `qe-math-002` — Use \top for transpose notation (3 occurrences).
+3. `qe-writing-006` — Capitalize lecture titles properly (1 occurrence).
+4. `qe-fig-008` — Use lw=2 for line charts (14 occurrences).
+5. `qe-writing-008` — Remove excessive whitespace between words (1 occurrence).

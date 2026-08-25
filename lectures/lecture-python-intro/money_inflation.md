@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/money_inflation.md`
-- **Audit date:** 2026-05-28
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.4 / 10
+- **Overall score:** 8.4 / 10
 - **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 7/10  | H1 Title Case OK; H2/H3 sentence case; double-space in "Two  computation strategies". |
-| Math         | 8/10  | Sequences `\{p_t\}_{t=0}^\infty` (M6 OK); equation labels; clean. |
-| Code         | 8/10  | Unicode Greek used (qe-code-002 OK); standard Anaconda imports. |
-| JAX          | out of scope | — |
-| Figures      | 6/10  | `figsize=` on lines 328, 525, 889; 3 `ax.set_title(...)` inside solution blocks (OK by exception). |
-| References   | 7/10  | 1 `{cite}` usage (parenthetical, OK). |
-| Links        | 9/10  | `{doc}` cross-references used (8 occurrences). |
-| Admonitions  | 9/10  | `{prf:example}` × 3 used (qe-admon-004 OK); solutions gated, dropdown, exercise-linked. |
+| Writing      | 7/10  | `qe-writing-008` ×90; `qe-writing-004` ×1; `qe-writing-001` ×1. |
+| Math         | 7/10  | `qe-math-001` ×2; `qe-math-002` ×1. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 5.5/10 | `qe-fig-005` ×5; `qe-fig-004` ×3; `qe-fig-008` ×10, +1 more. |
+| References   | 9/10  | `qe-ref-001` ×1. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,28 +27,36 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 509, 884, 1038, 1108, 1203. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 10. *Lines:* 329, 535, 538, 905, 908, 912, 1048, 1121, 1122, 1209. *Example:* plot() without lw=.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 1. *Lines:* 1036. *Example:* apostrophe transpose `S'`.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 90. *Lines:* 35, 36, 43, 50, 54, 60, 78, 80, 81, 96, …. *Example:* 3 spaces.
 
 ### Medium severity
-- **W1** — Several multi-sentence paragraphs in Overview (lines 21–29, 31–43).
-- **[qe-fig-001]** — `figsize=` overrides on lines 328, 525, 889. *Count:* 3 occurrences.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 4. *Lines:* 262, 328, 525, 889. *Example:* style override.
+- **[qe-fig-004]** — Caption formatting conventions. *Count:* 3. *Lines:* 313, 557, 930. *Example:* caption of 32 words.
+- **[qe-math-001]** — Prefer UTF-8 unicode for simple parameter mentions, be consistent. *Count:* 2. *Lines:* 446. *Example:* LaTeX `\gamma` outside math delimiters.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 410. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 1180. *Example:* mid-sentence 'Method'.
 
 ### Low severity
-- **W7** — Word emphasis via inline italics with asterisks: `demand*s*`, `suppl*ies*` (line 73) — creative emphasis.
-- **W7** — Typo "simulataneously" (line 129).
-- **W2** — Extra spaces in H2 "## Two  computation strategies" (line 354).
-- **[qe-fig-005]** — No figures use `{figure}` directive with `:name:`.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 993. *Example:* {cite} in author position: '{cite}`bruno1990seigniorage` and'.
+
 
 ## Strengths
-- Sequences use `\{p_t\}_{t=0}^\infty` (M6 OK).
-- Equation labels and `{eq}` references throughout.
-- Bold for definitions (**inflation tax**, **Laffer curve**, **real balances**, **equilibrium**).
-- `{doc}` cross-references used (qe-link-002 OK).
-- `{prf:example}` directives (qe-admon-004 OK).
-- Solutions all gated, dropdown, linked.
+
+- Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Split multi-sentence Overview paragraphs.
-2. Fix typo "simulataneously" → "simultaneously".
-3. Trim double-spaces in H2.
-4. Remove `figsize=` overrides.
+
+1. `qe-fig-005` — Descriptive figure names for cross-referencing (5 occurrences).
+2. `qe-math-001` — Prefer UTF-8 unicode for simple parameter mentions, be consistent (2 occurrences).
+3. `qe-fig-004` — Caption formatting conventions (3 occurrences).
+4. `qe-math-002` — Use \top for transpose notation (1 occurrence).
+5. `qe-writing-008` — Remove excessive whitespace between words (90 occurrences).
+6. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (1 occurrence).
+7. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).

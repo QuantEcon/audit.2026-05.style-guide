@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/scalar_dynam.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.0 / 10
-- **Priority:** LOW
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `a12d17c0ef`
+- **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.8 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8/10  | H1 Title Case OK; H2/H3 sentence case; one-sentence paragraphs throughout. |
-| Math         | 9/10  | Sequences `\{x_t\}` (M6 OK); `{math}` with labels; clean. |
-| Code         | 8/10  | Standard Anaconda imports; spelled-out `alpha=` matplotlib kwarg only. |
-| JAX          | out of scope | — |
-| Figures      | 7/10  | No `figsize=`/`ax.set_title` violations; 3 spines manipulations (`set_position('zero')` + `set_color('none')`) on lines 341–344. |
-| References   | N/A   | no `{cite}` citations |
-| Links        | 9/10  | `{doc}` cross-references used (2 occurrences). |
-| Admonitions  | 9/10  | 1 solution gated, dropdown, exercise-linked; `{prf:example}` used. |
+| Writing      | 7.5/10 | `qe-writing-001` ×2; `qe-writing-008` ×1. |
+| Math         | 10/10 | no mechanical violations detected. |
+| Code         | 8.5/10 | `qe-code-002` ×4. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 7/10  | `qe-fig-007` ×2; `qe-fig-005` ×1; `qe-fig-008` ×3. |
+| References   | N/A   | no citations in this lecture. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -29,22 +30,29 @@ _None found._
 _None found._
 
 ### Medium severity
-- **[qe-fig-007]** — Spines manipulated via `set_color('none')` + `set_position('zero')` (lines 341–344). *Count:* 3 occurrences within one figure helper.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 4. *Lines:* 425, 426. *Example:* spelled-out `alpha`.
+- **[qe-fig-007]** — Keep figure box and spines. *Count:* 2. *Lines:* 341, 344. *Example:* spine removal.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 377, 386, 410. *Example:* plot() without lw=.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 300, 421. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
-- **W7** — Backtick double quotes `` ``parameters'' `` on line 161 (TeX-style quotes inside double backticks); should be `"parameters"`.
-- **W1** — Some two-sentence paragraphs.
-- **[qe-fig-005]** — No figures use `{figure}` directive with `:name:`.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 330. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 1. *Lines:* 111. *Example:* 2 spaces.
+
 
 ## Strengths
-- Sequences use `\{x_t\}` curly brackets (M6 OK).
-- Equation labels via `{math}` `:label:` (M14 OK).
-- Bold for definitions (**composition**, **dynamic system**, **trajectory**, **state space**, **state variable**).
-- Clean sentence-case section headings.
-- `{doc}` cross-references used (qe-link-002 OK).
-- `{prf:example}` directive (qe-admon-004 OK).
-- Solution gated, dropdown, linked.
+
+- Math, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Replace ``\`\`parameters''`` with `"parameters"`.
-2. Drop spine `set_color('none')` / `set_position('zero')` calls per qe-fig-007.
+
+1. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
+2. `qe-fig-007` — Keep figure box and spines (2 occurrences).
+3. `qe-code-002` — Use Unicode symbols for Greek letters in code (4 occurrences).
+4. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
+5. `qe-fig-008` — Use lw=2 for line charts (3 occurrences).
+6. `qe-writing-008` — Remove excessive whitespace between words (1 occurrence).

@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/uncertainty_traps.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 9.4 / 10
-- **Priority:** NONE
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `e25fdf2345`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.1 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 9/10 | Section headings use Title Case rather than sentence case. |
-| Math         | 10/10 | No math issues. |
-| Code         | 9.5/10 | Mixed Greek conventions in code (word=5, uni=9). |
-| JAX          | out of scope | not a JAX lecture |
-| Figures      | 8/10 | `figsize=` set in 3 places — usually unnecessary. |
-| References   | 9/10 | Citation style follows conventions. |
-| Links        | 10/10 | Link style follows conventions. |
-| Admonitions  | 10/10 | Exercise/solution structure clean. |
+| Writing      | 5.5/10 | `qe-writing-006` ×2; `qe-writing-001` ×4; `qe-writing-008` ×5. |
+| Math         | 6/10  | `qe-math-010` (proposed) ×2; `qe-math-004` ×3. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 6.5/10 | `qe-fig-005` ×6; `qe-fig-002` ×3; `qe-fig-001` ×3, +1 more. |
+| References   | 9/10  | `qe-ref-001` ×1. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,31 +27,36 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 6. *Lines:* 147, 302, 321, 408, 471, 482. *Example:* {figure} without :name:.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 2. *Lines:* 169, 195. *Example:* missing braces: `\mathbb E`.
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 2. *Lines:* 58, 102. *Example:* H2 Title Case: 'The Model' (Model).
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 5. *Lines:* 35, 37, 39, 151, 338. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-writing-006]** — Section headings use Title Case rather than sentence case. *Examples:* line 58 `The Model`, line 102 `Information and Beliefs`. *Count:* 2.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 412, 472, 483. *Example:* figsize=.
+- **[qe-fig-002]** — Prefer code-generated figures. *Count:* 3. *Lines:* 147, 302, 321. *Example:* static image .png.
+- **[qe-math-004]** — Do not use bold face for matrices or vectors. *Count:* 3. *Lines:* 336, 340, 343. *Example:* \mathbf.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 4. *Lines:* 336, 358, 404, 426. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
-- **[qe-code-002]** — Mixed Greek conventions in code (word=5, uni=9).
-- **[qe-fig-001]** — `figsize=` set in 3 places — usually unnecessary.
-- **[qe-fig-003]** — `ax.set_title()` used once outside exercise blocks (line 498).
-- **[qe-fig-005]** — Figures lack descriptive `name:` fields for cross-referencing (5 plot calls, 0 named).
-- **[qe-fig-008]** — `lw=2` missing on most `.plot()` calls (1/5).
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 413. *Example:* plot() without lw=.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 60. *Example:* {cite} in narrative flow: 'in {cite}`'.
+
 
 ## Strengths
-- Uses "IID" or no IID terminology.
-- Transpose notation uses `\top` consistently (no prime/`^T`).
-- No bold vectors/matrices.
-- Normal distribution written as plain `N`.
-- `aligned` (not `align`) used in `$$` math.
-- Solutions use `:class: dropdown` consistently.
-- Axis labels lowercase.
-- Cross-series links use `{doc}` intersphinx form.
+
+- Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Address `qe-writing-006`: Section headings use Title Case rather than sentence case.
-2. Address `qe-code-002`: Mixed Greek conventions in code (word=5, uni=9).
-3. Address `qe-fig-001`: `figsize=` set in 3 places — usually unnecessary.
-4. Address `qe-fig-003`: `ax.set_title()` used once outside exercise blocks (line 498).
-5. Address `qe-fig-005`: Figures lack descriptive `name:` fields for cross-referencing (5 plot calls, 0 named).
+
+1. `qe-writing-006` — Capitalize lecture titles properly (2 occurrences).
+2. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (2 occurrences).
+3. `qe-fig-005` — Descriptive figure names for cross-referencing (6 occurrences).
+4. `qe-writing-001` — Use one sentence per paragraph (4 occurrences).
+5. `qe-math-004` — Do not use bold face for matrices or vectors (3 occurrences).
+6. `qe-ref-001` — Use correct citation style (1 occurrence).
+7. `qe-writing-008` — Remove excessive whitespace between words (5 occurrences).

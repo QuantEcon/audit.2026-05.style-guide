@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/greek_square.md`
-- **Audit date:** 2026-05-28
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 6.7 / 10
-- **Priority:** MEDIUM
+- **Overall score:** 8.5 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8/10  | H1 Title Case OK; H2 sentence case mostly. |
-| Math         | 6/10  | `{\bf R}^2` for reals (M5 violation); `{\mathcal I}` for integers (W8); bmatrix used. |
-| Code         | 8/10  | Unicode Greek (`λ`, `η`) used (qe-code-002 OK); standard Anaconda imports. |
-| JAX          | out of scope | — |
-| Figures      | 5/10  | `figsize=` on lines 531, 690; 2 `ax.set_title(r'$\frac{y_t}{y_{t-1}}$ after Muting $\lambda_1$', ...)` outside exercise context (lines 699, 710) — Title Case "Muting". |
-| References   | 7/10  | `{cite}` used; "Chapter 24 of {cite}\`russell2004history\`" (line 19) is in-text. |
-| Links        | 9/10  | `{doc}` links used (5 occurrences). |
-| Admonitions  | 9/10  | Solution gated, dropdown, exercise-linked (qe-admon-001, -002, -005 OK). |
+| Writing      | 6/10  | `qe-writing-001` ×2; `qe-writing-006` ×1; `qe-writing-008` ×45. |
+| Math         | 8/10  | `qe-math-004` ×4. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 6.5/10 | `qe-fig-003` ×2; `qe-fig-005` ×2; `qe-fig-001` ×2. |
+| References   | 9/10  | `qe-ref-001` ×1. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,30 +27,34 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 1. *Lines:* 184. *Example:* H2 Title Case: 'Algorithm of the Ancient Greeks' (Ancient, Greeks).
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 45. *Lines:* 30, 37, 43, 70, 86, 96, 106, 159, 186, 198, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **M5** — `{\bf R}^2` (lines 317, 321, 323, 329) uses bold for set notation; should be `\mathbb{R}^2` or plain `R^2`. *Count:* 4 occurrences.
-- **W8** — `{\mathcal I}` (lines 188, 190, 192, 194) used for integers; simpler `\mathbb{Z}_{>1}` or `I` would suffice.
-- **[qe-fig-003]** — `axs[0].set_title(...)` / `axs[1].set_title(...)` on lines 699, 710 outside exercise context. *Count:* 2 occurrences.
-- **[qe-ref-001]** — In-text citation should use `{cite:t}`. *Example:* `lectures/greek_square.md:19` ("Chapter 24 of {cite}\`russell2004history\`"). *Count:* 1 occurrence.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 531, 690. *Example:* figsize=.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 2. *Lines:* 699, 710. *Example:* .set_title.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 527, 686. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-math-004]** — Do not use bold face for matrices or vectors. *Count:* 4. *Lines:* 317, 321, 323, 329. *Example:* {\bf.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 23, 86. *Example:* 7 sentences in one paragraph.
 
 ### Low severity
-- **W7** — "Ancient Greeks" capitalized — debatable.
-- **W1** — Some short two-sentence paragraphs.
-- **[qe-fig-001]** — `figsize=` on lines 531, 690. *Count:* 2 occurrences.
-- **[qe-fig-005]** — No figures use `{figure}` directive with `:name:`.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 19. *Example:* {cite} in narrative flow: 'of {cite}`'.
+
 
 ## Strengths
-- Equation labels and references throughout.
-- bmatrix used for matrices.
-- Italic for emphasis (*solves*, *general*, *invariant subspace*, *perfect square*).
-- Unicode Greek used in code.
-- `{doc}` cross-references used.
+
+- Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Replace `{\bf R}^2` with `\mathbb R^2`.
-2. Simplify `{\mathcal I}` notation per W8.
-3. Move `set_title` calls (lines 699, 710) to mystnb metadata.
-4. Convert in-text citation on line 19 to `{cite:t}` form.
-5. Remove `figsize=` overrides.
+
+1. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
+2. `qe-math-004` — Do not use bold face for matrices or vectors (4 occurrences).
+3. `qe-fig-003` — No matplotlib embedded titles (2 occurrences).
+4. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
+5. `qe-writing-006` — Capitalize lecture titles properly (1 occurrence).
+6. `qe-writing-008` — Remove excessive whitespace between words (45 occurrences).
+7. `qe-ref-001` — Use correct citation style (1 occurrence).

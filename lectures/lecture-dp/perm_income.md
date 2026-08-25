@@ -2,23 +2,24 @@
 
 - **Series:** lecture-dp
 - **File:** `lectures/perm_income.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
-- **Overall score:** 6.3 / 10
-- **Priority:** MEDIUM
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `c30490a2f4`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 7.5 / 10
+- **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 6/10  | Many Title Case H2/H3/H4 headings. |
-| Math         | 5/10  | Apostrophe transpose for matrices throughout the math. |
-| Code         | 8/10  | Unicode Greek; no pip install needed; PEP8; figsize used 3×. |
-| JAX          | out of scope | not a JAX lecture. |
-| Figures      | 6/10  | One `ax.set_title(...)` with f-string; Title-Case `'Time'` xlabel; 3 figsize calls. |
-| References   | 5/10  | Three narrative-author `{cite}` patterns (e.g. "Hall {cite}…", "Friedman {cite}…") — should be `{cite:t}`. |
-| Links        | 8/10  | Mostly `{doc}` and clean external URLs; one Wikipedia link to "cointegration" (OK). |
-| Admonitions  | N/A   | No exercises / proofs. |
+| Writing      | 3.5/10 | `qe-writing-006` ×15; `qe-writing-001` ×4; `qe-writing-008` ×29. |
+| Math         | 4.5/10 | `qe-math-002` ×8; `qe-math-010` (proposed) ×3. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 6/10  | `qe-fig-005` ×3; `qe-fig-003` ×1; `qe-fig-006` ×1, +2 more. |
+| References   | 8.5/10 | `qe-ref-001` ×4. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,31 +27,37 @@
 _None found._
 
 ### High severity
-- **[qe-writing-006]** — Systemic Title Case in H2/H3/H4 headings. *Examples:* `## The Savings Problem` (56), `### Preliminaries` (64), `### The Decision Problem` (107), `### Assumptions` (140), `### First-Order Conditions` (186), `### The Optimal Decision Rule` (217), `#### Responding to the State` (274), `#### A State-Space Representation` (331), `#### A Simple Example with IID Income` (421), `## Alternative Representations` (525), `### Hall's Representation` (530), `### Cointegration` (599), `### Cross-Sectional Implications` (635), `### Impulse Response Functions` (683), `### Moving Average Representation` (691), `## Two Classic Examples` (733), `## Further Reading` (945), `## Appendix: The Euler Equation` (957). *Count:* 20+ headings.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 5. *Lines:* 496, 497, 498, 834, 835. *Example:* plot() without lw=.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 8. *Lines:* 158, 394, 406, 417, 623, 669. *Example:* apostrophe transpose `A'`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 3. *Lines:* 663, 896. *Example:* non-blackboard `\mathrm{Var}`.
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 15. *Lines:* 56, 107, 186, 217, 274, 331, 421, 525, 530, 635, …. *Example:* H2 Title Case: 'The Savings Problem' (Savings, Problem).
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 29. *Lines:* 45, 69, 76, 91, 173, 196, 223, 269, 271, 383, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-math-002]** — Apostrophe transpose `'` used in displayed math. *Lines:* 158 (`w_t w_t'`), 394 (`(x_t - \mu_t)'`), 406 (`\tilde A'`, `\tilde C'`), 417 (`\tilde U'`), 669 (`CC'`, `(I-\beta A')`, `U'`). *Count:* 6+ blocks.
-- **[qe-ref-001]** — Narrative-author citations using parenthetical `{cite}` rather than `{cite:t}`. *Count:* 3 occurrences ("Milton Friedman {cite}`Friedman1956`", "Robert Hall cast Friedman's model {cite}`Hall1978`", "Hall {cite}`Hall1978` suggested…", "Engle and Granger {cite}`EngleGranger1987`").
-- **[qe-fig-003]** — One f-string `ax.set_title(f'Impulse response: {title} income shock')` (line 833).
-- **[qe-fig-006]** — Title-Case `xlabel('Time')` on line 501.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 494, 511, 826. *Example:* figsize=.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 833. *Example:* .set_title.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 474, 510, 803. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 4. *Lines:* 45, 858, 898. *Example:* {cite} in author position: '{cite}`Hall1978`  and'.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 4. *Lines:* 173, 222, 997, 1005. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
-- **[qe-writing-001]** — Several multi-sentence paragraphs.
-- **[qe-fig-001]** — `figsize=` set 3 times.
+- **[qe-fig-006]** — Lowercase axis labels. *Count:* 1. *Lines:* 501. *Example:* axis label `Time`.
+
 
 ## Strengths
-- Lecture title in correct Title Case (via `{index}`).
-- Definitions bolded ("**random walk**").
-- `\mathbb{E}`, `\mathbb{E}_t`, `\mathbb{E}_0` used correctly with braces.
-- Matrices use `bmatrix` (M4 compliant).
-- "IID" used correctly throughout.
-- Equation labels and `{eq}` references used cleanly.
-- No `\tag`, no `align`-inside-`$$`, no bold vectors.
-- Unicode Greek; PEP8 code.
+
+- Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Convert all H2/H3/H4 headings to sentence case.
-2. Replace every `'` used as transpose with `^\top`.
-3. Switch narrative `Author {cite}…` to `{cite:t}` form.
-4. Remove the f-string `ax.set_title(...)`.
-5. Lowercase the `'Time'` axis label.
+
+1. `qe-writing-006` — Capitalize lecture titles properly (15 occurrences).
+2. `qe-math-002` — Use \top for transpose notation (8 occurrences).
+3. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (3 occurrences).
+4. `qe-writing-001` — Use one sentence per paragraph (4 occurrences).
+5. `qe-ref-001` — Use correct citation style (4 occurrences).
+6. `qe-fig-005` — Descriptive figure names for cross-referencing (3 occurrences).
+7. `qe-writing-008` — Remove excessive whitespace between words (29 occurrences).

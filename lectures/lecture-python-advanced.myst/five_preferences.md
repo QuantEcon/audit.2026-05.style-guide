@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/five_preferences.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 6.8 / 10
-- **Priority:** MEDIUM
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `b83d6da399`
+- **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
+- **Overall score:** 7.9 / 10
+- **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 7.5/10 | Title in Title Case; sentence-case headings; many bolded keyword definitions. |
-| Math         | 6.5/10 | `{\mathcal N}` and `{\cal N}` for Normal distribution. |
-| Code         | 6/10  | 18 spelled Greek vs 12 unicode; no install cell (scipy/numpy only). |
-| JAX          | N/A   | not a JAX lecture |
-| Figures      | 5/10  | 1 `ax.set_title`; 13 `figsize=`; captions present in some cells. |
-| References   | 8/10  | 16 `{cite}` used; never `{cite:t}` despite some narrative refs. |
-| Links        | 9/10  | No cross-series URL links; self-contained. |
-| Admonitions  | N/A   | no exercises, solutions, or proof-family directives. |
+| Writing      | 6.5/10 | `qe-writing-001` ×7; `qe-writing-008` ×24. |
+| Math         | 10/10 | no mechanical violations detected. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 4/10  | `qe-fig-005` ×13; `qe-fig-003` ×5; `qe-fig-008` ×61, +1 more. |
+| References   | 7/10  | `qe-ref-001` ×18. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | N/A   | no admonitions, exercises or solutions. |
 
 ## Issues
 
@@ -26,29 +27,35 @@
 _None found._
 
 ### High severity
-- **[qe-fig-001]** — `figsize=` set 13 times — systemic. *Count:* 13 occurrences.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 19. *Lines:* 74, 75, 76, 77, 78, 79, 229, 273, 557, 613, …. *Example:* style override.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 5. *Lines:* 291, 312, 628, 644, 1569. *Example:* .set_title.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 13. *Lines:* 221, 265, 554, 610, 761, 802, 1102, 1231, 1342, 1407, …. *Example:* non-descriptive name `figure1`.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 61. *Lines:* 230, 285, 306, 558, 559, 615, 616, 617, 622, 623, …. *Example:* plot() without lw=.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 18. *Lines:* 380, 477, 899, 1369, 1820, 1826, 1829, 1844, 1916. *Example:* {cite} in author position: '{cite}`HansenSargent2001` and'.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 7. *Lines:* 166, 904, 1172, 1254, 1279, 1289, 1833. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 24. *Lines:* 18, 21, 24, 26, 36, 39, 47, 150, 151, 152, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-math-011 (proposed)]** — `{\mathcal N}` / `{\cal N}` used as Normal distribution. *Example:* `lectures/five_preferences.md:693`, `:1897`. *Count:* 2 occurrences.
-- **[qe-writing-005]** — Heavy decorative bolding for terms like `**risk**`, `**uncertainty**`, `**uncertainty aversion**`, `**Knightian uncertainty**`, `**Remark:**` mixes definitional and emphasis use.
-- **[qe-fig-003]** — 1 `ax.set_title` occurrence.
-- **[qe-code-002]** — Mixed spelled/unicode Greek (18 spelled vs 12 unicode).
+_None found._
 
 ### Low severity
-- **[qe-math-004]** — `\mathbf{T}` in plot label at L556.
-- Backtick-and-apostrophe quotation style and single-quoted `'penalty parameter'` (L162, L469) is unusual; prefer markdown italics.
+_None found._
+
 
 ## Strengths
-- Title in Title Case (qe-writing-006).
-- Sentence-case headings (qe-writing-006).
-- `\begin{bmatrix}` used (qe-math-003).
-- Sequences in curly brackets (qe-math-005).
-- Equation labels and `{eq}` references (qe-math-007).
-- Some figures use `mystnb` captions and `name:` fields (qe-fig-005).
+
+- Math, Code, Links score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Replace `{\mathcal N}` / `{\cal N}` with `N` (qe-math-011, proposed).
-2. Reduce decorative bolding; use italics for non-definition emphasis (qe-writing-005).
-3. Remove unnecessary `figsize=` settings (qe-fig-001).
-4. Remove `ax.set_title` call (qe-fig-003).
-5. Standardise on unicode Greek in code (qe-code-002).
+
+1. `qe-ref-001` — Use correct citation style (18 occurrences).
+2. `qe-fig-005` — Descriptive figure names for cross-referencing (13 occurrences).
+3. `qe-writing-001` — Use one sentence per paragraph (7 occurrences).
+4. `qe-fig-003` — No matplotlib embedded titles (5 occurrences).
+5. `qe-fig-008` — Use lw=2 for line charts (61 occurrences).
+6. `qe-writing-008` — Remove excessive whitespace between words (24 occurrences).
+7. `qe-fig-001` — Do not set figure size unless necessary (19 occurrences).

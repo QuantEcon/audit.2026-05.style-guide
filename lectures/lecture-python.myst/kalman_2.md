@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/kalman_2.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 8.6 / 10
-- **Priority:** NONE
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `e25fdf2345`
+- **Categories audited:** writing, math, code, figures, links  *(JAX out of scope)*
+- **Overall score:** 8.3 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8/10 | Section headings use Title Case rather than sentence case. |
-| Math         | 8.5/10 | Bare `E[...]`, `\Pr(...)`, or `\Var(...)` used instead of `\mathbb{E}`, `\mathbb{P}`, `\mathbb{V}`. |
-| Code         | 9.5/10 | Mixed Greek conventions in code (word=3, uni=10). |
-| JAX          | out of scope | not a JAX lecture |
-| Figures      | 7/10 | `figsize=` set in 5 places — usually unnecessary. |
-| References   | N/A | No citations. |
-| Links        | 10/10 | Link style follows conventions. |
-| Admonitions  | N/A | No admonitions. |
+| Writing      | 9/10  | `qe-writing-008` ×16. |
+| Math         | 7.5/10 | `qe-math-002` ×3. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 5/10  | `qe-fig-003` ×5; `qe-fig-004` ×7; `qe-fig-001` ×7, +1 more. |
+| References   | N/A   | no citations in this lecture. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | N/A   | no admonitions, exercises or solutions. |
 
 ## Issues
 
@@ -26,28 +27,32 @@
 _None found._
 
 ### High severity
-- **[qe-math-010 (proposed)]** — Bare `E[...]`, `\Pr(...)`, or `\Var(...)` used instead of `\mathbb{E}`, `\mathbb{P}`, `\mathbb{V}`. *Examples:* lines 258, 260. *Count:* 13 chunks.
-- **[qe-fig-006]** — Axis labels capitalised in 6 places (should be lowercase). *Examples:* line 259, line 267, line 406.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 7. *Lines:* 64, 65, 339, 563, 587, 620, 653. *Example:* style override.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 5. *Lines:* 293, 301, 354, 459, 467. *Example:* .set_title.
+- **[qe-fig-004]** — Caption formatting conventions. *Count:* 7. *Lines:* 281, 324, 426, 554, 580, 613, 645. *Example:* caption of 9 words.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 3. *Lines:* 246, 249, 252. *Example:* apostrophe transpose `G'`.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 16. *Lines:* 33, 35, 36, 99, 103, 111, 123, 200, 222, 223, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-writing-006]** — Section headings use Title Case rather than sentence case. *Examples:* line 211 `An Innovations Representation`, line 276 `Some Computational Experiments`. *Count:* 3.
-- **[qe-fig-003]** — `ax.set_title()` used 2 times outside exercise blocks. *Examples:* line 485, line 498.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 536, 545. *Example:* plot() without lw=.
 
 ### Low severity
-- **[qe-code-002]** — Mixed Greek conventions in code (word=3, uni=10).
-- **[qe-fig-001]** — `figsize=` set in 5 places — usually unnecessary.
+_None found._
+
 
 ## Strengths
-- Uses "IID" or no IID terminology.
-- Transpose notation uses `\top` consistently (no prime/`^T`).
-- No bold vectors/matrices.
-- Normal distribution written as plain `N`.
-- `aligned` (not `align`) used in `$$` math.
-- Cross-series links use `{doc}` intersphinx form.
+
+- Writing, Code, Links score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Address `qe-math-010 (proposed)`: Bare `E[...]`, `\Pr(...)`, or `\Var(...)` used instead of `\mathbb{E}`, `\mathbb{P}`, `\mathbb{V}`.
-2. Address `qe-fig-006`: Axis labels capitalised in 6 places (should be lowercase).
-3. Address `qe-writing-006`: Section headings use Title Case rather than sentence case.
-4. Address `qe-fig-003`: `ax.set_title()` used 2 times outside exercise blocks.
-5. Address `qe-code-002`: Mixed Greek conventions in code (word=3, uni=10).
+
+1. `qe-math-002` — Use \top for transpose notation (3 occurrences).
+2. `qe-fig-003` — No matplotlib embedded titles (5 occurrences).
+3. `qe-fig-004` — Caption formatting conventions (7 occurrences).
+4. `qe-writing-008` — Remove excessive whitespace between words (16 occurrences).
+5. `qe-fig-001` — Do not set figure size unless necessary (7 occurrences).
+6. `qe-fig-008` — Use lw=2 for line charts (2 occurrences).

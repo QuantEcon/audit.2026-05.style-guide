@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/mle.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.7 / 10
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `a12d17c0ef`
+- **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 9.2 / 10
 - **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 9/10  | Title Case H1, sentence-case H2/H3; one-sentence paragraphs. |
-| Math         | 9/10  | Lowercase `f` for density (M10); `IID` written correctly; clean equations. |
-| Code         | 9/10  | Standard Anaconda imports only; unicode Greek (`μ`, `σ`) used (qe-code-002 OK). |
-| JAX          | out of scope | — |
-| Figures      | 8/10  | No `figsize=` / `ax.set_title` violations; no `{figure}` directives. |
-| References   | N/A   | no `{cite}` citations |
-| Links        | N/A   | no cross-series links |
-| Admonitions  | 9/10  | `{prf:example}` used (qe-admon-004 OK); 2 solutions gated, dropdown, exercise-linked. |
+| Writing      | 7.5/10 | `qe-writing-004` ×2; `qe-writing-008` ×1. |
+| Math         | 10/10 | no mechanical violations detected. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 7.5/10 | `qe-fig-005` ×8. |
+| References   | N/A   | no citations in this lecture. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,25 +27,25 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 8. *Lines:* 105, 170, 253, 342, 383, 399, 424, 505. *Example:* code-cell figure without mystnb figure metadata.
 
 ### Medium severity
-_None found._
+- **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 2. *Lines:* 85, 298. *Example:* mid-sentence 'Consumer'.
 
 ### Low severity
-- **W1** — Occasional two-sentence paragraphs (e.g. lines 117–118, 153–154).
-- **[qe-fig-005]** — No figures use `{figure}` directive with `:name:` for cross-referencing.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 1. *Lines:* 88. *Example:* 2 spaces.
+
 
 ## Strengths
-- Correct "IID" usage (line 195).
-- Density `f`, distribution names plain.
-- Equation labels and `{eq}` references.
-- Bold/italic used appropriately.
-- Clean sentence-case section headings.
-- Unicode Greek in code.
-- No matplotlib figure violations.
-- `{prf:example}` directive (qe-admon-004 OK).
-- Solutions all gated, dropdown, linked.
+
+- Math, Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. None critical.
+
+1. `qe-fig-005` — Descriptive figure names for cross-referencing (8 occurrences).
+2. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (2 occurrences).
+3. `qe-writing-008` — Remove excessive whitespace between words (1 occurrence).

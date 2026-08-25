@@ -1,0 +1,33 @@
+{
+  "n_lectures": 348,
+  "n_rules_checked": 41,
+  "per_series": {
+    "lecture-dp": 52,
+    "lecture-python-advanced.myst": 68,
+    "lecture-python-intro": 56,
+    "lecture-python-programming": 27,
+    "lecture-python.myst": 145
+  },
+  "snapshot": {
+    "lecture-dp": {
+      "commit": "c30490a2f48867d155d92c3c94a6cd6bfbda82a5",
+      "date": "2026-08-07"
+    },
+    "lecture-python-advanced.myst": {
+      "commit": "b83d6da3998b4206f3d95869f7f552ed6e6f189c",
+      "date": "2026-08-19"
+    },
+    "lecture-python-intro": {
+      "commit": "a12d17c0ef81c6e469a47f01c431a708b8ccc065",
+      "date": "2026-08-23"
+    },
+    "lecture-python-programming": {
+      "commit": "ceec881028688d7b41a64ce5ed73c7f576fa46a8",
+      "date": "2026-08-21"
+    },
+    "lecture-python.myst": {
+      "commit": "e25fdf2345c1b2b125c0aafcdcb689fc7c3876ab",
+      "date": "2026-08-24"
+    }
+  }
+}

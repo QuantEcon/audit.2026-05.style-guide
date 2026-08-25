@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/estspec.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 7.8 / 10
-- **Priority:** LOW
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `b83d6da399`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.8 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 9/10  | One-sentence paragraphs throughout; sentence-case headings; title in Title Case. |
-| Math         | 8/10  | Clean math; sequences in curly braces. |
-| Code         | 6/10  | 7 spelled Greek; install cell with `hide-output`. |
-| JAX          | N/A   | not a JAX lecture |
-| Figures      | 5/10  | 1 `ax.set_title`; 3 `figsize=`; 3 `{figure}` static images; no `:name:` fields. |
-| References   | 8/10  | 1 `{cite}` used; never `{cite:t}`. |
-| Links        | 9/10  | No cross-series URL links; self-contained. |
-| Admonitions  | 8/10  | 2 gated exercises and 2 solutions with `:class: dropdown`. |
+| Writing      | 7.5/10 | `qe-writing-001` ×2; `qe-writing-008` ×4. |
+| Math         | 10/10 | no mechanical violations detected. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 5/10  | `qe-fig-005` ×7; `qe-fig-006` ×2; `qe-fig-003` ×1, +3 more. |
+| References   | 9/10  | `qe-ref-001` ×1. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,27 +27,35 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 7. *Lines:* 223, 243, 299, 338, 458, 487, 535. *Example:* {figure} without :name:.
 
 ### Medium severity
-- **[qe-fig-002]** — 3 `{figure}` directives reference static PNGs (`periodogram1.png`, `window_smoothing.png`, `ar_smoothed_periodogram.png`); could be code-generated.
-- **[qe-fig-003]** — 1 `ax.set_title` occurrence.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 306, 495, 540. *Example:* figsize=.
+- **[qe-fig-002]** — Prefer code-generated figures. *Count:* 3. *Lines:* 243, 338, 458. *Example:* static image .png.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 308. *Example:* .set_title.
+- **[qe-fig-006]** — Lowercase axis labels. *Count:* 2. *Lines:* 309, 310. *Example:* axis label `Weights`.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 323, 444. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 4. *Lines:* 321, 323, 329, 404. *Example:* 2 spaces.
 
 ### Low severity
-- **[qe-fig-005]** — Figures lack `:name: fig-...` fields.
-- **[qe-fig-001]** — 3 `figsize=` settings.
-- **[qe-code-002]** — Spelled-out Greek (`alpha`, `beta`, etc.) in code parameters (7 occurrences).
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 307. *Example:* plot() without lw=.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 51. *Example:* {cite} in narrative flow: 'see {cite}`'.
+
 
 ## Strengths
-- Title in Title Case (qe-writing-006); subheadings sentence case (qe-writing-006).
-- Sequences in curly brackets `\{X_t\}`, `\{\epsilon_t\}` (qe-math-005).
-- Equation labels with `{math}` `:label:` and `{eq}` references (qe-math-007).
-- No bold for vectors/matrices; no `\tag`; no `align` inside `$$`.
-- Exercises gated (qe-admon-001); solutions use `:class: dropdown` (qe-admon-002).
-- Install cell at top with `hide-output` (qe-code-003).
+
+- Math, Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Code-generate the periodogram figures (qe-fig-002).
-2. Remove `ax.set_title` call (qe-fig-003).
-3. Add `:name: fig-...` fields (qe-fig-005).
-4. Convert spelled Greek to unicode (qe-code-002).
+
+1. `qe-fig-005` — Descriptive figure names for cross-referencing (7 occurrences).
+2. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
+3. `qe-fig-006` — Lowercase axis labels (2 occurrences).
+4. `qe-fig-003` — No matplotlib embedded titles (1 occurrence).
+5. `qe-ref-001` — Use correct citation style (1 occurrence).
+6. `qe-writing-008` — Remove excessive whitespace between words (4 occurrences).
+7. `qe-fig-002` — Prefer code-generated figures (3 occurrences).

@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/cagan_rational_expectations.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 7.7 / 10
-- **Priority:** LOW
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `b83d6da399`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 7.9 / 10
+- **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 9/10  | Title in Title Case (with `?`); sentence-case headings; one-sentence paragraphs. |
-| Math         | 7/10  | Bare `E_t` used 14 times; otherwise clean (uses `\top` for transpose; no `\mathcal{N}`; uses `aligned`). |
-| Code         | 8/10  | Unicode Greek heavily used (11 occurrences vs 18 spelled mostly in legacy code); install cell with `hide-output`. |
-| JAX          | N/A   | not a JAX lecture |
-| Figures      | 8/10  | Modern lecture with mystnb captions and `name: fig-...` fields; 2 `figsize=`; 1 `ax.set_title`. |
-| References   | 9/10  | 13 `{cite}` and 10 `{cite:t}` correctly distinguished. |
-| Links        | 8/10  | 3 `{doc}` (incl. `intro:cagan_ree`); no raw cross-series URLs. |
-| Admonitions  | 8/10  | 3 gated exercises and 3 solutions with `:class: dropdown`. |
+| Writing      | 9.5/10 | `qe-writing-008` ×1. |
+| Math         | 3/10  | `qe-math-002` ×6; `qe-math-010` (proposed) ×4; `qe-math-003` ×2. |
+| Code         | 8.5/10 | `qe-code-002` ×3. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 5.5/10 | `qe-fig-006` ×2; `qe-fig-004` ×2; `qe-fig-003` ×1, +2 more. |
+| References   | 8.5/10 | `qe-ref-001` ×3. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,32 +27,37 @@
 _None found._
 
 ### High severity
-- **[qe-math-010 (proposed)]** — Bare `E_t` used 14 times instead of `\mathbb{E}_t`. *Example:* `lectures/cagan_rational_expectations.md:155`, `:158`, `:167`. *Count:* 14 occurrences.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 6. *Lines:* 761, 770, 784, 944, 997. *Example:* apostrophe transpose `a_t'`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 4. *Lines:* 205, 209, 225, 270. *Example:* bare expectation `E_t(`.
 
 ### Medium severity
-- **[qe-fig-003]** — 1 `ax.set_title` occurrence.
-- **[qe-math-003]** — 2 `\begin{pmatrix}` occurrences should use `\begin{bmatrix}`.
-- **[qe-fig-006]** — `set_xlabel("...")` with capitalised content (e.g. "Mean") — 2 occurrences.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 3. *Lines:* 455, 1432, 1461. *Example:* spelled-out `alpha`.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 1440, 1476. *Example:* figsize=.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 1482. *Example:* .set_title.
+- **[qe-fig-004]** — Caption formatting conventions. *Count:* 2. *Lines:* 451, 1178. *Example:* caption of 7 words.
+- **[qe-fig-006]** — Lowercase axis labels. *Count:* 2. *Lines:* 473, 1683. *Example:* axis label `True $\alpha$`.
+- **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 2. *Lines:* 632, 1037. *Example:* pmatrix environment.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 3. *Lines:* 739, 1030. *Example:* {cite} in author position: '{cite}`sims1972money` proved'.
 
 ### Low severity
-- **[qe-code-002]** — Mixed spelled and unicode Greek in code (18 spelled vs 11 unicode); ratio is shifting toward unicode.
-- **[qe-fig-001]** — 2 `figsize=` settings.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 1669. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 1. *Lines:* 82. *Example:* 2 spaces.
+
 
 ## Strengths
-- Title in Title Case with question mark (qe-writing-006).
-- One-sentence paragraph rule followed (qe-writing-001).
-- Heavy correct use of `{cite:t}` for narrative author refs (qe-ref-001).
-- `{doc}\`intro:cagan_ree\`` and `{doc}\`muth_kalman\`` style intersphinx (qe-link-002).
-- `\top` used for transpose (qe-math-002).
-- Sequences `\{ ... \}` (qe-math-005).
-- Equation labels with `:label:` and `{eq}` references (qe-math-007).
-- Modern figure metadata with `mystnb: figure: caption: ... name: fig-...` (qe-fig-005).
-- Exercises gated; solutions with `:class: dropdown` (qe-admon-001, qe-admon-002).
-- Install cell at top with `hide-output` (qe-code-003).
+
+- Writing, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Convert bare `E_t` to `\mathbb{E}_t` (qe-math-010, proposed).
-2. Remove `ax.set_title` (qe-fig-003).
-3. Convert 2 `\begin{pmatrix}` to `\begin{bmatrix}` (qe-math-003).
-4. Lowercase axis labels (qe-fig-006).
-5. Standardise on unicode Greek in code (qe-code-002).
+
+1. `qe-math-002` — Use \top for transpose notation (6 occurrences).
+2. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (4 occurrences).
+3. `qe-math-003` — Use square brackets for matrix notation (2 occurrences).
+4. `qe-ref-001` — Use correct citation style (3 occurrences).
+5. `qe-fig-006` — Lowercase axis labels (2 occurrences).
+6. `qe-fig-004` — Caption formatting conventions (2 occurrences).
+7. `qe-code-002` — Use Unicode symbols for Greek letters in code (3 occurrences).

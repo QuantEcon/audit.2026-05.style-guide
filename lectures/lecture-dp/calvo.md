@@ -2,23 +2,24 @@
 
 - **Series:** lecture-dp
 - **File:** `lectures/calvo.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
-- **Overall score:** 5.8 / 10
-- **Priority:** HIGH
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `c30490a2f4`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 7.7 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8/10  | H2 sentence case throughout; some long paragraphs. |
-| Math         | 8/10  | `\vec` used for sequences; otherwise clean. |
-| Code         | 5/10  | Duplicate `!pip install` (lines 33 and 82); Unicode Greek; figsize used 5×. |
-| JAX          | out of scope | not a JAX lecture. |
-| Figures      | 5/10  | Two embedded `ax.set_title`/`fig.suptitle`; 5 figsize; 3 lowercase axis labels. |
-| References   | 4/10  | Twelve narrative-author `{cite}` patterns ("Calvo {cite}…", "Chang {cite}…", etc.). |
-| Links        | 5/10  | Four raw markdown links to `python-intro.quantecon.org`. |
-| Admonitions  | N/A   | No exercises / proofs. |
+| Writing      | 6/10  | `qe-writing-004` ×4; `qe-writing-001` ×2; `qe-writing-008` ×242. |
+| Math         | 5.5/10 | `qe-math-002` ×10. |
+| Code         | 9/10  | `qe-code-002` ×1. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 6/10  | `qe-fig-003` ×2; `qe-fig-005` ×4; `qe-fig-001` ×5, +1 more. |
+| References   | 7.5/10 | `qe-ref-001` ×5. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,33 +27,36 @@
 _None found._
 
 ### High severity
-- **[qe-code-003]** — Duplicate `!pip install --upgrade quantecon` cells: at top (line 33) and again at line 82. Pip install should appear once at the top of the lecture.
-- **[qe-ref-001]** — Twelve narrative-author citations using parenthetical `{cite}` rather than `{cite:t}`. *Examples:* "Calvo {cite}`Calvo1978`" (38, 244, 249, 1424), "Cagan {cite}`Cagan`" (63, 107), "Chang {cite}`chang1998credible`" (75, 153, 244, 249), "Sargent and Wallace's {cite}`sargent1973stability`" (107).
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 5. *Lines:* 1051, 1352, 1390, 1414, 1447. *Example:* figsize=.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 10. *Lines:* 272, 485, 489, 501. *Example:* apostrophe transpose `}'`.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 5. *Lines:* 122, 153, 244, 249, 445. *Example:* {cite} in narrative flow: '.  {cite}`'.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 242. *Lines:* 38, 41, 43, 45, 46, 51, 57, 59, 61, 63, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-math-004]** — `\vec \mu`, `\vec \theta`, `\vec v` used extensively (lines 150, 207, 209, 265, 267, 304, 337, 338, 341, 346, 715, 756). *Count:* 23 occurrences.
-- **[qe-fig-003]** — Embedded matplotlib titles: `ax.set_title(fr'$\beta$={clq.β}, $c$={clq.c}')` (line 1263), `fig.suptitle(...)` (line 1463).
-- **[qe-link-002]** — Four raw markdown links to `python-intro.quantecon.org` (lines 67, 193, 288, 765). Should be `{doc}` form.
-- **[qe-fig-001]** — `figsize=` set 5 times.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 2. *Lines:* 1263, 1463. *Example:* .set_title.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 1026, 1119, 1208, 1438. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 1056, 1454. *Example:* plot() without lw=.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 287, 416. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 4. *Lines:* 67, 193, 765, 817. *Example:* mid-sentence 'Control'.
 
 ### Low severity
-- **[qe-writing-001]** — A few multi-sentence paragraphs (lines 38-39, 211-218).
-- **[qe-writing-005]** — Double-backtick quotes (line 227: ` ``bliss level`` `).
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 931. *Example:* spelled-out `beta`.
+
 
 ## Strengths
-- Lecture title in correct Title Case.
-- All H2 headings sentence case.
-- Matrices use `bmatrix` consistently (9 matrix blocks).
-- Definitions bolded ("**time inconsistency**", "**Definition**", "**square summable**", "**Insight**", "**Ramsey plan**").
-- Equation labels and `{eq}` references used cleanly.
-- "IID"/Greek-letter conventions consistent; Unicode Greek (β, μ, σ) in code.
-- No transpose, no `\tag`, no `align`-inside-`$$` issues.
+
+- Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Remove the duplicate `!pip install` cell (line 82). Keep only the top-of-lecture install.
-2. Switch all 12 narrative `Author {cite}…` references to `{cite:t}` form.
-3. Remove `\vec` from sequence symbols.
-4. Drop the embedded matplotlib titles.
-5. Replace 4 raw cross-series markdown URLs with `{doc}` form.
-6. Replace ``\`\`bliss level\`\``` with `**bliss level**`.
-7. Reduce unnecessary `figsize=` usage.
+
+1. `qe-math-002` — Use \top for transpose notation (10 occurrences).
+2. `qe-ref-001` — Use correct citation style (5 occurrences).
+3. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (4 occurrences).
+4. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
+5. `qe-fig-003` — No matplotlib embedded titles (2 occurrences).
+6. `qe-fig-005` — Descriptive figure names for cross-referencing (4 occurrences).
+7. `qe-writing-008` — Remove excessive whitespace between words (242 occurrences).

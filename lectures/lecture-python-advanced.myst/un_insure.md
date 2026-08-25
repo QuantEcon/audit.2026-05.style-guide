@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/un_insure.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 7.9 / 10
-- **Priority:** LOW
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `b83d6da399`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.9 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8.5/10 | Title in Title Case; sentence-case headings; one-sentence paragraphs. |
-| Math         | 7.5/10 | One bare `E` for expectation; otherwise clean. |
-| Code         | 8/10  | Unicode Greek used (4 occurrences); no install cell (scipy/numpy only — OK). |
-| JAX          | N/A   | not a JAX lecture |
-| Figures      | 7/10  | 1 `figsize=`; no `:name:` fields. |
-| References   | 8/10  | 9 `{cite}` used; never `{cite:t}`. |
-| Links        | 9/10  | No cross-series URL links; self-contained. |
-| Admonitions  | N/A   | no exercises, solutions, or proof-family directives. |
+| Writing      | 8/10  | `qe-writing-008` ×107; `qe-writing-004` ×1. |
+| Math         | 10/10 | no mechanical violations detected. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 5.5/10 | `qe-fig-003` ×2; `qe-fig-006` ×3; `qe-fig-005` ×1, +2 more. |
+| References   | 8.5/10 | `qe-ref-001` ×2. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,26 +27,34 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 7. *Lines:* 837, 838, 839, 840, 841, 842, 844. *Example:* style override.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 6. *Lines:* 846, 848, 850, 857, 858, 859. *Example:* plot() without lw=.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 107. *Lines:* 17, 20, 22, 30, 58, 62, 66, 105, 115, 148, …. *Example:* 2 spaces.
 
 ### Medium severity
-_None found._
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 2. *Lines:* 854, 863. *Example:* plt.title.
+- **[qe-fig-006]** — Lowercase axis labels. *Count:* 3. *Lines:* 852, 861, 862. *Example:* axis label `Replacement ratio (c/w)`.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 317. *Example:* {cite} in author position: '{cite}`Shavell_Weiss_79` and'.
+- **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 755. *Example:* mid-sentence 'Algorithm'.
 
 ### Low severity
-- **[qe-math-010 (proposed)]** — Bare `E` for expectation. *Example:* `lectures/un_insure.md:34`. *Count:* 1 occurrence.
-- A stray `%\EQN hugo1` comment at L36 is harmless but should be removed.
-- **[qe-fig-005]** — Figures lack `:name: fig-...` fields.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 835. *Example:* code-cell figure without mystnb figure metadata.
+
 
 ## Strengths
-- Title in Title Case (qe-writing-006).
-- Subheadings sentence case (qe-writing-006).
-- All primes are derivatives (`C'`, `p'`) — no qe-math-002 violation.
-- Sequences in curly brackets (qe-math-005) at L30.
-- One-sentence paragraph rule rigorously respected (qe-writing-001).
-- Equation labels via `$$ ... $$ (label)` (qe-math-007).
-- Unicode Greek used in code (qe-code-002).
+
+- Math, Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Replace bare `E` with `\mathbb{E}` (qe-math-010, proposed).
-2. Remove leftover TeX comment `%\EQN hugo1` (cosmetic).
-3. Add `:name: fig-...` fields (qe-fig-005).
+
+1. `qe-fig-003` — No matplotlib embedded titles (2 occurrences).
+2. `qe-ref-001` — Use correct citation style (2 occurrences).
+3. `qe-fig-006` — Lowercase axis labels (3 occurrences).
+4. `qe-writing-008` — Remove excessive whitespace between words (107 occurrences).
+5. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (1 occurrence).
+6. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
+7. `qe-fig-008` — Use lw=2 for line charts (6 occurrences).

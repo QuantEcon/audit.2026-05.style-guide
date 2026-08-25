@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/exchangeable.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 8.7 / 10
-- **Priority:** NONE
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `e25fdf2345`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.3 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 7/10 | Many section headings use Title Case rather than sentence case. |
-| Math         | 9.5/10 | Bare `E[...]` or `\Pr(...)` used in place of `\mathbb{E}`/`\mathbb{P}`. |
-| Code         | 8.5/10 | Spelled-out Greek (alpha/beta/etc.) used predominantly in code; mixed with unicode forms... |
-| JAX          | out of scope | not a JAX lecture |
-| Figures      | 8/10 | `figsize=` set in 1 place(s). |
-| References   | 9/10 | Citation style follows conventions. |
-| Links        | 9/10 | 1 direct URL to another QuantEcon series — should use `{doc}` link. |
-| Admonitions  | 10/10 | Exercise/solution structure clean. |
+| Writing      | 6/10  | `qe-writing-001` ×2; `qe-writing-006` ×1; `qe-writing-008` ×62. |
+| Math         | 7.5/10 | `qe-math-010` (proposed) ×2. |
+| Code         | 8.5/10 | `qe-code-002` ×4. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 6/10  | `qe-fig-005` ×6; `qe-fig-003` ×1; `qe-fig-008` ×3, +1 more. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,30 +27,36 @@
 _None found._
 
 ### High severity
-- **[qe-writing-006]** — Many section headings use Title Case rather than sentence case. *Examples:* line 81, line 110, line 156. *Count:* 8.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 6. *Lines:* 441, 474, 522, 632, 681, 709. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 2. *Lines:* 700. *Example:* bare expectation `E\left[`.
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 1. *Lines:* 290. *Example:* H2 Title Case: "Bayes' Law" (Law).
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 62. *Lines:* 31, 36, 43, 44, 48, 58, 60, 83, 94, 99, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-code-002]** — Spelled-out Greek (alpha/beta/etc.) used predominantly in code; mixed with unicode forms (word=9, uni=2).
-- **[qe-link-002]** — 1 direct URL to another QuantEcon series — should use `{doc}` link. *Example:* line 551.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 4. *Lines:* 73, 412. *Example:* spelled-out `gamma`.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 446, 479, 534. *Example:* figsize=.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 685. *Example:* .set(xlabel='$t$', title=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 683, 684, 721. *Example:* plot() without lw=.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 640, 659. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
-- **[qe-math-010 (proposed)]** — Bare `E[...]` or `\Pr(...)` used in place of `\mathbb{E}`/`\mathbb{P}`. *Example:* line 697.
-- **[qe-fig-001]** — `figsize=` set in 1 place(s).
-- **[qe-fig-003]** — `ax.set_title()` used once outside exercise blocks (line 654).
-- **[qe-fig-005]** — Figures lack descriptive `name:` fields for cross-referencing (4 plot calls, 0 named).
-- **[qe-fig-008]** — `lw=2` parameter missing from 4 `.plot()` calls.
+_None found._
+
 
 ## Strengths
-- Uses "IID" or no IID terminology.
-- Transpose notation uses `\top` consistently (no prime/`^T`).
-- No bold vectors/matrices.
-- Normal distribution written as plain `N`.
-- `aligned` (not `align`) used in `$$` math.
-- Axis labels lowercase.
+
+- References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Address `qe-writing-006`: Many section headings use Title Case rather than sentence case.
-2. Address `qe-code-002`: Spelled-out Greek (alpha/beta/etc.) used predominantly in code; mixed with unicode forms (word=9, uni=2).
-3. Address `qe-link-002`: 1 direct URL to another QuantEcon series — should use `{doc}` link.
-4. Address `qe-math-010 (proposed)`: Bare `E[...]` or `\Pr(...)` used in place of `\mathbb{E}`/`\mathbb{P}`.
-5. Address `qe-fig-001`: `figsize=` set in 1 place(s).
+
+1. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (2 occurrences).
+2. `qe-fig-005` — Descriptive figure names for cross-referencing (6 occurrences).
+3. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
+4. `qe-code-002` — Use Unicode symbols for Greek letters in code (4 occurrences).
+5. `qe-writing-006` — Capitalize lecture titles properly (1 occurrence).
+6. `qe-writing-008` — Remove excessive whitespace between words (62 occurrences).
+7. `qe-fig-003` — No matplotlib embedded titles (1 occurrence).

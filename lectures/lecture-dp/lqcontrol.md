@@ -2,23 +2,24 @@
 
 - **Series:** lecture-dp
 - **File:** `lectures/lqcontrol.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
-- **Overall score:** 5.6 / 10
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `c30490a2f4`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 6.6 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 5/10  | Title Case H2/H3 headings throughout; some short paragraphs. |
-| Math         | 3/10  | Apostrophe transpose everywhere; matrices use `\left(\begin{array}\right)` not `bmatrix`. |
-| Code         | 7/10  | Unicode Greek; pip-install at top; PEP8 mostly OK; figsize used 5×. |
-| JAX          | out of scope | not a JAX lecture. |
-| Figures      | 5/10  | Title-Case `'Time'` xlabel (4×); `figsize=` 5×; 5 static PNG figures used as solutions. |
-| References   | 7/10  | All citations parenthetical via `{cite}`; no narrative-author cases requiring `{cite:t}`. |
-| Links        | 4/10  | Two raw markdown links to `python-advanced.quantecon.org` instead of `{doc}` form. |
-| Admonitions  | 8/10  | Exercises use labels + `exercise-start`/`solution-start` correctly; `:class: dropdown` on solutions. |
+| Writing      | 4/10  | `qe-writing-006` ×13; `qe-writing-001` ×1; `qe-writing-008` ×12. |
+| Math         | 3/10  | `qe-math-002` ×85; `qe-math-010` (proposed) ×15; `qe-math-003` ×17. |
+| Code         | 7.5/10 | `qe-code-002` ×6. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 4.5/10 | `qe-fig-005` ×10; `qe-fig-006` ×4; `qe-fig-008` ×18, +2 more. |
+| References   | 9/10  | `qe-ref-001` ×1. |
+| Links        | 8/10  | `qe-link-002` ×2. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,35 +27,40 @@
 _None found._
 
 ### High severity
-- **[qe-math-002]** — Apostrophe `'` used as transpose throughout the file (e.g. `x_t' R x_t`, `u_t' Q u_t`, `A' P_T A`, `B' P_T B`). *Lines:* 100, 253, 271, 293, 316, 480, 494-495, 503, 513-514, 524, 536, 600, 809, 940. *Count:* 70+ occurrences.
-- **[qe-math-003]** — Matrices use `\left( \begin{array}{...} ... \end{array} \right)` rather than `bmatrix`. *Lines:* 170, 176, 182, 188, 195, 213, 221, 229, 237, 623, 631, 976, 986, 996, 1006, 1028, 1038. *Count:* 17 array-matrix blocks.
-- **[qe-writing-006]** — Systemic Title Case on H2/H3 headings. *Examples:* `### The Law of Motion` (84), `## Optimality -- Finite Horizon` (298), `### The Objective` (305), `### Time-Varying Parameters` (785), `### Adding a Cross-Product Term` (800), `### Infinite Horizon` (842), `### Certainty Equivalence` (910), `## Further Applications` (920), `### Application 1: Age-Dependent Income Process` (923). *Count:* 12+ headings.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 6. *Lines:* 672, 740, 1318, 1436, 1458, 1586. *Example:* spelled-out `beta`.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 5. *Lines:* 683, 751, 1331, 1480, 1595. *Example:* figsize=.
+- **[qe-fig-002]** — Prefer code-generated figures. *Count:* 5. *Lines:* 1051, 1121, 1197, 1201, 1205. *Example:* static image .png.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 10. *Lines:* 649, 735, 1051, 1121, 1197, 1201, 1205, 1287, 1403, 1555. *Example:* {figure} without :name:.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 18. *Lines:* 691, 693, 695, 697, 698, 759, 761, 763, 765, 766, …. *Example:* plot() without lw=.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 85. *Lines:* 100, 253, 271, 293, 316, 324, 373, 385, 397, 406, …. *Example:* apostrophe transpose `x_t'`.
+- **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 17. *Lines:* 170, 176, 182, 188, 195, 213, 221, 229, 237, 623, …. *Example:* array used as matrix.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 15. *Lines:* 100, 314, 386, 398, 421, 432, 445, 469, 598, 807, …. *Example:* missing braces: `\mathbb E`.
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 13. *Lines:* 84, 298, 305, 577, 781, 785, 800, 842, 910, 920, …. *Example:* H3 Title Case: 'The Law of Motion' (Law, Motion).
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 12. *Lines:* 262, 285, 345, 358, 366, 541, 562, 713, 860, 1055, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-math-010 (proposed)]** — Expectation uses bare `\mathbb E` without braces (line 100). *Count:* 1.
-- **[qe-fig-006]** — Title-Case `xlabel('Time')` on 4 figures. *Lines:* 702, 770, 1348, 1497. Should be lowercase `'time'`.
-- **[qe-fig-001]** — `figsize=` set 5 times. *Lines:* 683, 753, 1330, 1479, 1542. Most plots do not need an explicit `figsize`.
-- **[qe-fig-002]** — 5 static PNG figures referenced (`solution_lqc_ex1.png`, `solution_lqc_ex2.png`, `solution_lqc_ex3_g1.png`, `solution_lqc_ex3_g10.png`, `solution_lqc_ex3_g50.png`). *Lines:* 1051, 1121, 1197, 1201, 1205. Prefer code-generated figures.
-- **[qe-link-002]** — Two raw markdown links to `python-advanced.quantecon.org` (`lu_tricks.html`, `classical_filtering.html`) where `{doc}` with intersphinx is preferred. *Line:* 54. *Count:* 2.
-- **[qe-writing-001]** — Many multi-sentence paragraphs (e.g. 138-140, 156-162).
+- **[qe-fig-006]** — Lowercase axis labels. *Count:* 4. *Lines:* 702, 770, 1348, 1497. *Example:* axis label `Time`.
+- **[qe-link-002]** — Use doc links for cross-series references. *Count:* 2. *Lines:* 54. *Example:* raw link to python-advanced.quantecon.org.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 262. *Example:* 3 sentences in one paragraph.
 
 ### Low severity
-- **[qe-writing-005]** — "**Riccati equations**" (line 53) bolded but never formally introduced as a definition.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 262. *Example:* {cite} in narrative flow: 'See {cite}`'.
+
 
 ## Strengths
-- Lecture title correctly Title Case.
-- Equation labels and `{eq}` cross-references used cleanly throughout.
-- No `\tag`, no `align` inside `$$`, no `i.i.d.`.
-- Greek letters in narrative and code use plain Unicode where relevant.
-- pip install correctly placed at top of lecture.
-- Exercises use proper `exercise-start`/`solution-start` gating with labels.
-- Solutions wrapped in `:class: dropdown`.
+
+- References, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Replace every `'` used as transpose with `^\top` — biggest single fix.
-2. Replace every `\left(\begin{array}{...} ... \end{array}\right)` matrix with `\begin{bmatrix} ... \end{bmatrix}`.
-3. Convert all H2/H3 headings to sentence case.
-4. Lowercase `'Time'` axis labels to `'time'`.
-5. Replace markdown URL links to `python-advanced.quantecon.org` with `{doc}` intersphinx references.
-6. Regenerate the 5 static `solution_lqc_ex*.png` figures from the solution code cells instead of bundling PNGs.
-7. Standardize `\mathbb E` to `\mathbb{E}`.
+
+1. `qe-math-002` — Use \top for transpose notation (85 occurrences).
+2. `qe-writing-006` — Capitalize lecture titles properly (13 occurrences).
+3. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (15 occurrences).
+4. `qe-math-003` — Use square brackets for matrix notation (17 occurrences).
+5. `qe-fig-005` — Descriptive figure names for cross-referencing (10 occurrences).
+6. `qe-code-002` — Use Unicode symbols for Greek letters in code (6 occurrences).
+7. `qe-link-002` — Use doc links for cross-series references (2 occurrences).

@@ -2,23 +2,24 @@
 
 - **Series:** lecture-dp
 - **File:** `lectures/mccall_fitted_vfi.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
-- **Overall score:** 8.3 / 10
-- **Priority:** LOW
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `c30490a2f4`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.8 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 9/10  | Sentence-case headings; mostly one-sentence paragraphs. |
-| Math         | 8/10  | Two `\mathbf v` bold-vector usages; otherwise clean. |
-| Code         | 7/10  | Unicode Greek; pip install at top; PEP8; figsize 5×. |
-| JAX          | out of scope | uses JAX, but JAX rules out of scope. |
-| Figures      | 6/10  | Two `ax.set_title(...)` calls (one f-string); figsize 5×; lowercase labels. |
-| References   | 10/10 | Single `{cite}` parenthetical. |
-| Links        | 9/10  | `{doc}` used 6×; no raw cross-series URLs. |
-| Admonitions  | 9/10  | Two `{exercise}` + `solution-start` with `:label:` and dropdown. |
+| Writing      | 9/10  | `qe-writing-001` ×1. |
+| Math         | 8/10  | `qe-math-004` ×2. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 5.5/10 | `qe-fig-005` ×7; `qe-fig-003` ×4; `qe-fig-001` ×5, +1 more. |
+| References   | 9/10  | `qe-ref-001` ×1. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,28 +27,33 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 5. *Lines:* 408, 451, 563, 772, 861. *Example:* figsize=.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 7. *Lines:* 210, 407, 448, 557, 740, 812, 852. *Example:* code-cell figure without mystnb figure metadata.
 
 ### Medium severity
-- **[qe-math-004]** — `\mathbf v` used to denote a value-function array. *Lines:* 187, 188.
-- **[qe-fig-003]** — Two embedded `ax.set_title(...)` (one f-string). *Lines:* 782, 867.
-- **[qe-fig-001]** — `figsize=` set 5 times.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 4. *Lines:* 571, 581, 597, 782. *Example:* .set_title.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 223, 224, 823. *Example:* plot() without lw=.
+- **[qe-math-004]** — Do not use bold face for matrices or vectors. *Count:* 2. *Lines:* 187, 188. *Example:* \mathbf.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 842. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
-- **[qe-writing-001]** — A couple of multi-sentence paragraphs (e.g. 52-57, 64-67).
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 203. *Example:* {cite} in narrative flow: '   {cite}`'.
+
 
 ## Strengths
-- Lecture title correctly Title Case.
-- All H2/H3 sentence case.
-- "IID" correctly capitalised.
-- Equation labels and `{eq}` references used cleanly.
-- No transpose violations; no `align` issues; no `\tag`.
-- pip install at top; Unicode Greek in code.
-- `{doc}` used for cross-series; no raw URLs.
-- Exercises use `{exercise}` + `solution-start`/`solution-end` with dropdown.
+
+- Writing, Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Drop the bold on `\mathbf v` (use plain `v`).
-2. Remove the two `ax.set_title(...)` calls.
-3. Reduce unnecessary `figsize=` usage.
-4. Tighten the few multi-sentence paragraphs.
+
+1. `qe-fig-005` — Descriptive figure names for cross-referencing (7 occurrences).
+2. `qe-math-004` — Do not use bold face for matrices or vectors (2 occurrences).
+3. `qe-fig-003` — No matplotlib embedded titles (4 occurrences).
+4. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
+5. `qe-ref-001` — Use correct citation style (1 occurrence).
+6. `qe-fig-001` — Do not set figure size unless necessary (5 occurrences).
+7. `qe-fig-008` — Use lw=2 for line charts (3 occurrences).

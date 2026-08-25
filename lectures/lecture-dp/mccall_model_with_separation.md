@@ -2,23 +2,24 @@
 
 - **Series:** lecture-dp
 - **File:** `lectures/mccall_model_with_separation.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
-- **Overall score:** 8.6 / 10
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `c30490a2f4`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.9 / 10
 - **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 9/10  | Sentence-case headings throughout. |
-| Math         | 8/10  | `{\mathbb E}` brace style; no other issues. |
-| Code         | 6/10  | Installs `myst-nb` (unusual — likely a leftover); Unicode Greek; pip at top. |
-| JAX          | out of scope | uses JAX, but JAX rules out of scope. |
-| Figures      | 9/10  | No matplotlib titles; lowercase labels; no figsize. |
-| References   | 10/10 | Single `{cite}` parenthetical. |
-| Links        | 9/10  | `{doc}` used 6×; no raw cross-series URLs. |
-| Admonitions  | 9/10  | One `{exercise}` + `solution-start` with `:label:` and dropdown. |
+| Writing      | 9.5/10 | `qe-writing-008` ×1. |
+| Math         | 5/10  | `qe-math-002` ×5; `qe-math-010` (proposed) ×1. |
+| Code         | 9/10  | `qe-code-003` ×1. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 8.5/10 | `qe-fig-005` ×4. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,27 +27,29 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 5. *Lines:* 156, 181, 214, 480, 498. *Example:* apostrophe transpose `w'`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 1. *Lines:* 88. *Example:* missing braces: `\mathbb E`.
 
 ### Medium severity
-- **[qe-code-003]** — pip install includes `myst-nb` (line 40), which is a build-time dependency, not a runtime lecture requirement. Should be removed.
+- **[qe-code-003]** — Package installation at lecture top. *Count:* 1. *Lines:* 37. *Example:* non-Anaconda import with no install cell: ['myst_nb'].
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 354, 678, 696, 714. *Example:* code-cell figure without mystnb figure metadata.
 
 ### Low severity
-- **[qe-math-010 (proposed)]** — Single expectation appears as `{\mathbb E}` (line 88) — acceptable but slightly nonstandard brace usage; preferred `\mathbb{E}`.
-- **[qe-writing-001]** — A few paragraphs run two sentences (e.g. 220-221, 280, 310-311).
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 1. *Lines:* 308. *Example:* 2 spaces.
+
 
 ## Strengths
-- Lecture title correctly Title Case.
-- All H2/H3 headings sentence case.
-- Equation labels and `{eq}` cross-references used consistently.
-- "IID" correct.
-- No bold vectors, transpose, align, or `\tag` issues.
-- Unicode Greek; pip install at top.
-- `{doc}` used for cross-series.
-- Exercise uses `{exercise}` + `solution-start` with dropdown.
-- No matplotlib titles, no figsize, no spine, no Title-Case axis labels.
+
+- Writing, Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Remove `myst-nb` from the pip install on line 40 (build-time dep, not user-facing).
-2. Normalise `{\mathbb E}` to `\mathbb{E}` on line 88.
-3. Optional: split a handful of two-sentence paragraphs.
+
+1. `qe-math-002` — Use \top for transpose notation (5 occurrences).
+2. `qe-fig-005` — Descriptive figure names for cross-referencing (4 occurrences).
+3. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (1 occurrence).
+4. `qe-code-003` — Package installation at lecture top (1 occurrence).
+5. `qe-writing-008` — Remove excessive whitespace between words (1 occurrence).

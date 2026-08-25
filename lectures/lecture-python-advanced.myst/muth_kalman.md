@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/muth_kalman.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 6.8 / 10
-- **Priority:** MEDIUM
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `b83d6da399`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.8 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8/10  | Sentence-case headings; one-sentence paragraph norm followed in most places. |
-| Math         | 6/10  | `\mathcal N` for normal distribution; bare `E[...]` for expectation. |
-| Code         | 7/10  | No spelled Greek (zero); 2 quantecon imports; install cell with `hide-output`. |
-| JAX          | N/A   | not a JAX lecture |
-| Figures      | 5/10  | 3 `ax.set_title` calls; no `figsize=`; no `:name:` fields. |
-| References   | 7/10  | 4 `{cite}` used; "Muth (1960)" narrative ref should use `{cite:t}`. |
-| Links        | 8/10  | 4 `{doc}` references; no raw cross-series URLs. |
-| Admonitions  | N/A   | no exercises, solutions, or proof-family directives. |
+| Writing      | 8.5/10 | `qe-writing-001` ×1; `qe-writing-008` ×3. |
+| Math         | 7.5/10 | `qe-math-010` (proposed) ×2. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 5.5/10 | `qe-fig-003` ×3; `qe-fig-006` ×3; `qe-fig-005` ×4, +1 more. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,28 +27,34 @@
 _None found._
 
 ### High severity
-- **[qe-fig-003]** — `ax.set_title` used in 3 cells.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 5. *Lines:* 280, 281, 301, 302, 319. *Example:* plot() without lw=.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 2. *Lines:* 144, 145. *Example:* bare expectation `E [`.
 
 ### Medium severity
-- **[qe-math-011 (proposed)]** — `\mathcal N` used as the Normal distribution. *Example:* `lectures/muth_kalman.md:116`. *Count:* 1 occurrence.
-- **[qe-math-010 (proposed)]** — Bare `E[...]` for expectation. *Example:* `lectures/muth_kalman.md:144`-`145`. *Count:* 2 occurrences.
-- **[qe-ref-001]** — "Muth (1960) {cite}" narrative pattern should use `{cite:t}`. *Count:* ~3 occurrences.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 3. *Lines:* 284, 304, 321. *Example:* .set_title.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 278, 299, 317, 339. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-006]** — Lowercase axis labels. *Count:* 3. *Lines:* 283, 305, 322. *Example:* axis label `Time`.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 314. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 3. *Lines:* 72, 155. *Example:* 2 spaces.
 
 ### Low severity
-- **[qe-writing-001]** — Occasional two-sentence paragraphs, e.g. L83-85.
-- **[qe-writing-005]** — `**question**`/`**answer**` (L84-85) and `**moving average**` (L358) are emphasis, not definitions — should be italic.
-- **[qe-fig-005]** — Figures lack `:name: fig-...` fields.
+_None found._
+
 
 ## Strengths
-- Correct use of `\begin{bmatrix}` everywhere (qe-math-003).
-- Sequences in curly brackets `\{y_t\}` (qe-math-005) — see L77, L315.
-- "IID" used correctly (qe-writing-009, proposed) on L104, L119.
-- Title in Title Case; section headings in sentence case (qe-writing-006).
-- Install cell at top with `hide-output` (qe-code-003).
+
+- Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Remove `ax.set_title` calls (qe-fig-003).
-2. Replace `\mathcal N` with `N` for the Normal distribution (qe-math-011, proposed).
-3. Replace bare `E[\cdot]` with `\mathbb{E}[\cdot]` (qe-math-010, proposed).
-4. Use italic, not bold, for non-definition emphasis (qe-writing-005).
-5. Use `{cite:t}` for narrative refs (qe-ref-001).
+
+1. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (2 occurrences).
+2. `qe-fig-003` — No matplotlib embedded titles (3 occurrences).
+3. `qe-fig-006` — Lowercase axis labels (3 occurrences).
+4. `qe-fig-005` — Descriptive figure names for cross-referencing (4 occurrences).
+5. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
+6. `qe-fig-008` — Use lw=2 for line charts (5 occurrences).
+7. `qe-writing-008` — Remove excessive whitespace between words (3 occurrences).

@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/amss.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 7.4 / 10
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `b83d6da399`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.5 / 10
 - **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8.5/10 | Title in Title Case; sentence-case headings; mostly one-sentence paragraphs. |
-| Math         | 6.5/10 | `pmatrix` and `matrix` used for two equations; otherwise clean. |
-| Code         | 8/10  | Mixed unicode/spelled Greek; install cell with `hide-output`. |
-| JAX          | N/A   | not a JAX lecture |
-| Figures      | 7/10  | `figsize=` used 3 times; no `:name:` fields. |
-| References   | 7/10  | `{cite}` used 6 times; one narrative reference ("Lucas and Stokey (1983)") would benefit from `{cite:t}`. |
-| Links        | 8/10  | Heavy `{doc}` use (11 occurrences); no raw cross-series URLs. |
-| Admonitions  | 7/10  | 1 exercise; no associated solution dropdown. |
+| Writing      | 7/10  | `qe-writing-001` ×2; `qe-writing-008` ×67. |
+| Math         | 7/10  | `qe-math-003` ×2; `qe-math-010` (proposed) ×1. |
+| Code         | 9.5/10 | `qe-code-004` ×2. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 6/10  | `qe-fig-003` ×3; `qe-fig-005` ×3; `qe-fig-008` ×3, +1 more. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,25 +27,36 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 1. *Lines:* 451. *Example:* bare expectation `E_{t} \left[`.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 67. *Lines:* 27, 31, 33, 146, 149, 170, 181, 198, 293, 297, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-math-003]** — `\begin{pmatrix}` and `\begin{matrix}` used for two matrices instead of `\begin{bmatrix}`. *Example:* `lectures/amss.md:802`, `:815`. *Count:* 2 occurrences.
-- **[qe-ref-001]** — Narrative author references followed by `{cite}` (e.g. "Lucas and Stokey (1983) {cite}`LucasStokey1983`") should use `{cite:t}`. *Example:* `lectures/amss.md:191`, `:321`. *Count:* 2 occurrences.
+- **[qe-code-004]** — Use quantecon Timer context manager. *Count:* 2. *Lines:* 879, 1012. *Example:* %%time.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 900, 1036, 1079. *Example:* figsize=.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 3. *Lines:* 909, 1040, 1084. *Example:* .set(title=.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 889, 1022, 1071. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 907, 1039, 1083. *Example:* plot() without lw=.
+- **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 2. *Lines:* 802, 815. *Example:* pmatrix environment.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 513, 1092. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
-- **[qe-fig-005]** — Figures lack `:name: fig-...` fields.
-- **[qe-fig-001]** — `figsize=` set 3 times without justification.
+_None found._
+
 
 ## Strengths
-- `\mathbb E_0`, `\mathbb E_t` used consistently (qe-math-010, proposed) at L302, L313, L335, L524, L534, L543, L551.
-- Title in Title Case (qe-writing-006); subheadings sentence case (qe-writing-006).
-- One-sentence paragraph rule respected (qe-writing-001).
-- Sequences in curly brackets (qe-math-005).
-- Heavy use of `{doc}` for cross-series references (qe-link-002).
-- Install cell at top with `hide-output` (qe-code-003).
+
+- Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Replace the two `pmatrix`/`matrix` blocks with `bmatrix` (qe-math-003).
-2. Convert "Author (Year) {cite}`...`" patterns to `{cite:t}` (qe-ref-001).
-3. Add `:name: fig-...` fields to figures (qe-fig-005).
+
+1. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
+2. `qe-math-003` — Use square brackets for matrix notation (2 occurrences).
+3. `qe-fig-003` — No matplotlib embedded titles (3 occurrences).
+4. `qe-fig-005` — Descriptive figure names for cross-referencing (3 occurrences).
+5. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (1 occurrence).
+6. `qe-writing-008` — Remove excessive whitespace between words (67 occurrences).
+7. `qe-fig-008` — Use lw=2 for line charts (3 occurrences).

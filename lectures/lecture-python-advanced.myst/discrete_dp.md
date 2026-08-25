@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/discrete_dp.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 7.0 / 10
-- **Priority:** MEDIUM
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `b83d6da399`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 7.6 / 10
+- **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8.5/10 | Sentence-case headings; mostly one-sentence paragraphs. |
-| Math         | 7.5/10 | One `\mathbf{1}` for ones vector instead of `\mathbb{1}`. |
-| Code         | 5/10  | 3 `%timeit`/`%%timeit` cells (qe-code-005); 14 spelled Greek; install cell with `hide-output`. |
-| JAX          | N/A   | not a JAX lecture |
-| Figures      | 6/10  | 4 `figsize=`; 2 `{figure}` static images; no `:name:` fields. |
-| References   | 8/10  | 7 `{cite}` used; never `{cite:t}`. |
-| Links        | 4/10  | 5 raw cross-series URLs (anaconda, python-programming, python.quantecon.org); no `{doc}`. |
-| Admonitions  | N/A   | no exercises, solutions, or proof-family directives. |
+| Writing      | 8.5/10 | `qe-writing-001` ×1; `qe-writing-008` ×4. |
+| Math         | 4/10  | `qe-math-002` ×6; `qe-math-010` (proposed) ×1; `qe-math-004` ×1, +1 more. |
+| Code         | 8/10  | `qe-code-002` ×2; `qe-code-005` ×3. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 6/10  | `qe-fig-005` ×6; `qe-fig-003` ×1; `qe-fig-009` ×2, +2 more. |
+| References   | 9/10  | `qe-ref-001` ×1. |
+| Links        | 7.5/10 | `qe-link-002` ×5. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,28 +27,41 @@
 _None found._
 
 ### High severity
-- **[qe-link-002]** — Raw cross-series URLs to `python.quantecon.org/finite_markov.html`, `python-programming.quantecon.org/getting_started.html`, etc. *Example:* `lectures/discrete_dp.md:90`, `:193`, `:209`, `:715`, `:911`. *Count:* 5 occurrences.
-- **[qe-code-005]** — 3 `%timeit` magic invocations instead of `qe.timeit`. *Count:* 3 occurrences.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 6. *Lines:* 552, 566, 750, 862, 882, 916. *Example:* {figure} without :name:.
+- **[qe-link-002]** — Use doc links for cross-series references. *Count:* 5. *Lines:* 90, 193, 209, 715, 911. *Example:* raw link to python-programming.quantecon.org.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 6. *Lines:* 247, 264, 273, 305, 319, 419. *Example:* apostrophe transpose `s'`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 1. *Lines:* 202. *Example:* missing braces: `\mathbb E`.
 
 ### Medium severity
-- **[qe-code-002]** — Spelled-out Greek (`alpha`, `beta`, etc.) heavily used in code (14 occurrences).
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 2. *Lines:* 933, 934. *Example:* spelled-out `beta`.
+- **[qe-code-005]** — Use quantecon timeit for benchmarking. *Count:* 3. *Lines:* 844, 845, 846. *Example:* %timeit.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 4. *Lines:* 751, 865, 885, 925. *Example:* figsize=.
+- **[qe-fig-002]** — Prefer code-generated figures. *Count:* 2. *Lines:* 552, 566. *Example:* static image .png.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 904. *Example:* .set_title.
+- **[qe-fig-009]** — Figure sizing. *Count:* 2. *Lines:* 552, 566. *Example:* :scale: 70% (outside 80–100%).
+- **[qe-math-004]** — Do not use bold face for matrices or vectors. *Count:* 1. *Lines:* 1001. *Example:* \mathbf.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 727. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 4. *Lines:* 183, 285, 543, 951. *Example:* 2 spaces.
 
 ### Low severity
-- **[qe-math-008]** — `\mathbf{1}` used for ones vector. *Example:* `lectures/discrete_dp.md:1001`. *Count:* 1 occurrence.
-- **[qe-writing-001]** — A few longer compound paragraphs in algorithm descriptions.
-- **[qe-fig-005]** — Figures lack `:name: fig-...` fields.
-- **[qe-fig-001]** — 4 `figsize=` settings.
+- **[qe-math-008]** — Explain special notation (vectors/matrices). *Count:* 1. *Lines:* 1001. *Example:* ones vector `\mathbf{1}` used 1x with no 'vector of ones' explanation in the prose.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 152. *Example:* {cite} in narrative flow: 'of {cite}`'.
+
 
 ## Strengths
-- Title in Title Case (qe-writing-006).
-- Subheadings sentence case (qe-writing-006).
-- `\mathbb{E}` used for expectation (qe-math-010, proposed).
-- Equation labels and `{eq}` references (qe-math-007).
-- Primes in `s'`, `Q_{\sigma}(s, s')` are next-period notation, not transpose.
-- Install cell at top with `hide-output` (qe-code-003).
+
+- References, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Convert raw cross-series URLs to `{doc}\`intermediate:finite_markov\``, `{doc}\`programming:getting_started\`` etc. (qe-link-002).
-2. Replace `%timeit` magic with `qe.timeit(...)` (qe-code-005).
-3. Replace `\mathbf{1}` with `\mathbb{1}` and explain (qe-math-008).
-4. Convert spelled Greek to unicode in code (qe-code-002).
+
+1. `qe-math-002` — Use \top for transpose notation (6 occurrences).
+2. `qe-link-002` — Use doc links for cross-series references (5 occurrences).
+3. `qe-fig-005` — Descriptive figure names for cross-referencing (6 occurrences).
+4. `qe-code-002` — Use Unicode symbols for Greek letters in code (2 occurrences).
+5. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (1 occurrence).
+6. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
+7. `qe-math-004` — Do not use bold face for matrices or vectors (1 occurrence).

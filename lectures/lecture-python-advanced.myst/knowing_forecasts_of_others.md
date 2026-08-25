@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/knowing_forecasts_of_others.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 5.0 / 10
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `b83d6da399`
+- **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
+- **Overall score:** 7.2 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 6/10  | Title in Title Case; sentence-case headings; multi-sentence paragraphs; "i.i.d." in narrative. |
-| Math         | 3/10  | Systemic `\begin{array}` for matrices; `\mathcal{N}` for Normal; bare `E_t`. |
-| Code         | 6/10  | Spelled-Greek mixed with unicode; plotly import (binary package); install cells with `hide-output`. |
-| JAX          | N/A   | not a JAX lecture |
-| Figures      | 3/10  | Plotly figures used (L919) without `{only} latex` directive (qe-fig-010, High). |
-| References   | 7/10  | 30 `{cite}` used; many narrative author refs would benefit from `{cite:t}`. |
-| Links        | 8/10  | No raw cross-series URLs; self-contained. |
-| Admonitions  | N/A   | no exercises, solutions, or proof-family directives. |
+| Writing      | 4/10  | `qe-writing-001` ×8; `qe-writing-009` (proposed) ×7; `qe-writing-004` ×4, +1 more. |
+| Math         | 3/10  | `qe-math-003` ×26; `qe-math-010` (proposed) ×4; `qe-math-011` (proposed) ×2. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 9/10  | `qe-fig-010` ×1. |
+| References   | 7/10  | `qe-ref-001` ×11. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | N/A   | no admonitions, exercises or solutions. |
 
 ## Issues
 
@@ -26,30 +27,36 @@
 _None found._
 
 ### High severity
-- **[qe-math-003]** — `\begin{array}{...}` used systematically for matrices instead of `\begin{bmatrix}`. *Example:* `lectures/knowing_forecasts_of_others.md:828`, `:830`, `:832`, `:834`, `:836`. *Count:* 26 occurrences.
-- **[qe-fig-010]** — Plotly figures used without `{only} latex` directive for PDF compatibility. *Example:* `lectures/knowing_forecasts_of_others.md:919`. *Count:* 2 plotly imports.
-- **[qe-code-006]** — Plotly-orca is a binary package (`!conda install -y -c plotly plotly plotly-orca`); a binary-install warning admonition would be helpful.
+- **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 26. *Lines:* 828, 830, 832, 834, 836, 848, 855, 862, 869, 876, …. *Example:* array used as matrix.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 4. *Lines:* 477, 543, 563, 733. *Example:* bare expectation `E(`.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 11. *Lines:* 36, 74, 1554, 1559, 1565, 1570, 1610, 1641, 1643, 1646. *Example:* {cite} in author position: '{cite}`townsend` showed'.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 8. *Lines:* 83, 225, 229, 270, 290, 387, 774, 1643. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 144. *Lines:* 35, 36, 41, 44, 46, 60, 62, 66, 71, 74, …. *Example:* 2 spaces.
+- **[qe-writing-009 (proposed)]** — Write "IID" — not "i.i.d." or "iid". *Count:* 7. *Lines:* 163, 176, 479, 536, 1416, 1494, 1528. *Example:* i.i.d..
 
 ### Medium severity
-- **[qe-writing-009 (proposed)]** — "i.i.d." used in text instead of "IID". *Example:* `lectures/knowing_forecasts_of_others.md:163`, `:176`, `:479`, `:536`, `:1416`. *Count:* 7 occurrences.
-- **[qe-math-011 (proposed)]** — `\mathcal{N}` used as Normal distribution. *Count:* 3 occurrences.
-- **[qe-math-010 (proposed)]** — Bare `E_t` for expectation. *Count:* 3 occurrences.
-- **[qe-ref-001]** — 7 narrative-style "in {cite}" patterns; some should be `{cite:t}`.
+- **[qe-fig-010]** — Plotly figures require latex directive. *Count:* 1. *Lines:* 1. *Example:* plotly used with no {only} latex directive.
+- **[qe-math-011 (proposed)]** — Distribution names in plain letters, not \mathcal / \mathbb. *Count:* 2. *Lines:* 904, 1190. *Example:* decorated distribution `\mathcal{N}`.
+- **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 4. *Lines:* 119, 186. *Example:* mid-sentence 'Expectations'.
 
 ### Low severity
-- **[qe-writing-005]** — Bold for keyword definitions used throughout.
+_None found._
+
 
 ## Strengths
-- Title in Title Case (qe-writing-006).
-- Subheadings sentence case (qe-writing-006).
-- Sequences in curly brackets (qe-math-005).
-- Heavy use of `{cite}` for references.
-- Install cells at top with `hide-output` (qe-code-003).
+
+- Code, Figures, Links score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Convert `\begin{array}` blocks to `\begin{bmatrix}` (qe-math-003).
-2. Add `{only} latex` directive after each plotly figure (qe-fig-010).
-3. Add binary-install warning admonition for `plotly-orca` (qe-code-006).
-4. Replace "i.i.d." / "iid" with "IID" (qe-writing-009, proposed).
-5. Replace `\mathcal{N}` with `N` (qe-math-011, proposed).
-6. Replace bare `E_t` with `\mathbb{E}_t` (qe-math-010, proposed).
+
+1. `qe-math-003` — Use square brackets for matrix notation (26 occurrences).
+2. `qe-ref-001` — Use correct citation style (11 occurrences).
+3. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (4 occurrences).
+4. `qe-writing-001` — Use one sentence per paragraph (8 occurrences).
+5. `qe-writing-009` (proposed) — Write "IID" — not "i.i.d." or "iid" (7 occurrences).
+6. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (4 occurrences).
+7. `qe-math-011` (proposed) — Distribution names in plain letters, not \mathcal / \mathbb (2 occurrences).

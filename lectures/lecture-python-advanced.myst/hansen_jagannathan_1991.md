@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/hansen_jagannathan_1991.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 7.6 / 10
-- **Priority:** LOW
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `b83d6da399`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 9.1 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 9/10  | Title in Title Case; sentence-case headings; one-sentence paragraphs. |
-| Math         | 6/10  | 36 bare `E(`/`E[`; `\mathbb{R}` used; `\top` for transpose (13 occurrences). |
-| Code         | 6/10  | Mixed unicode/spelled Greek (13 vs 17); no install cell (uses numpy/scipy/yfinance — yfinance not in Anaconda). |
-| JAX          | N/A   | not a JAX lecture |
-| Figures      | 7/10  | 6 `figsize=`; modern figure metadata with captions and names. |
-| References   | 9/10  | 2 `{cite}` and 1 `{cite:t}`; correctly distinguished. |
-| Links        | 8/10  | 4 `{doc}` references; no raw cross-series URLs. |
-| Admonitions  | 8/10  | 1 gated exercise and 1 solution with `:class: dropdown`; 2 `{prf:...}` directives (correct prefix). |
+| Writing      | 10/10 | no mechanical violations detected. |
+| Math         | 5/10  | `qe-math-010` (proposed) ×39. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 8.5/10 | `qe-fig-001` ×6; `qe-fig-008` ×2. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,29 +27,27 @@
 _None found._
 
 ### High severity
-- **[qe-math-010 (proposed)]** — 36 bare `E(`/`E[` instead of `\mathbb{E}`. *Count:* 36 occurrences.
-- **[qe-code-006]** — `yfinance` is not in Anaconda; no install cell with `hide-output` at top — missing install.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 6. *Lines:* 541, 668, 717, 866, 1053, 1157. *Example:* figsize=.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 39. *Lines:* 56, 99, 107, 121, 139, 169, 260, 278, 282, 285, …. *Example:* bare expectation `E(`.
 
 ### Medium severity
-- **[qe-fig-001]** — 6 `figsize=` settings.
-- **[qe-code-002]** — Mixed unicode/spelled Greek (17 unicode vs 13 spelled).
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 878, 1169. *Example:* plot() without lw=.
 
 ### Low severity
 _None found._
 
+
 ## Strengths
-- Title in Title Case (qe-writing-006).
-- Sentence-case headings (qe-writing-006).
-- One-sentence paragraph rule followed (qe-writing-001).
-- `\top` used for transpose (13 occurrences) (qe-math-002).
-- `\mathbb{R}` correctly used.
-- Modern figure metadata with `caption:` and `name: fig-...` (qe-fig-005).
-- Correct `prf:` prefix on proof directives (qe-admon-004).
-- Exercise gated; solution with `:class: dropdown` (qe-admon-001, qe-admon-002).
-- `{doc}` for cross-series references (qe-link-002).
+
+- Writing, Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- Citations distinguish `{cite}` from `{cite:t}` correctly (1 parenthetical, 1 in-text).
 
 ## Recommended actions
-1. Convert bare `E(`/`E[` to `\mathbb{E}` notation (qe-math-010, proposed).
-2. Add install cell with `!pip install yfinance` and `hide-output` tag (qe-code-003, qe-code-006).
-3. Reduce `figsize=` usage (qe-fig-001).
-4. Standardise on unicode Greek in code (qe-code-002).
+
+1. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (39 occurrences).
+2. `qe-fig-001` — Do not set figure size unless necessary (6 occurrences).
+3. `qe-fig-008` — Use lw=2 for line charts (2 occurrences).

@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/intro.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 9.5 / 10
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `b83d6da399`
+- **Categories audited:** writing, links  *(JAX out of scope)*
+- **Overall score:** 10.0 / 10
 - **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 9.5/10 | Single-sentence intro with TOC; nothing to fault. |
-| Math         | N/A   | no math content |
-| Code         | N/A   | no executable code cells |
-| JAX          | N/A   | not a JAX lecture |
-| Figures      | N/A   | no figures |
-| References   | N/A   | no citations |
-| Links        | N/A   | no links |
-| Admonitions  | N/A   | only a `tableofcontents` directive (boilerplate) |
+| Writing      | 10/10 | no mechanical violations detected. |
+| Math         | N/A   | no mathematical content. |
+| Code         | N/A   | no executable code cells. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | N/A   | no figures or plotting code. |
+| References   | N/A   | no citations in this lecture. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | N/A   | no admonitions, exercises or solutions. |
 
 ## Issues
 
@@ -34,9 +35,15 @@ _None found._
 ### Low severity
 _None found._
 
+
 ## Strengths
-- Title in Title Case (qe-writing-006).
-- Concise one-sentence intro (qe-writing-001, qe-writing-002).
+
+- Writing, Links score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. No action required.
+
+1. No remediation required; keep the current conventions.

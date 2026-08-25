@@ -2,23 +2,24 @@
 
 - **Series:** lecture-dp
 - **File:** `lectures/dyn_stack.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
-- **Overall score:** 6.0 / 10
-- **Priority:** HIGH
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `c30490a2f4`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 7.7 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 7/10  | Mostly sentence-case headings; proper-noun capitalisation correct. |
-| Math         | 4/10  | Apostrophe transpose throughout LQ section; `\vec` used. |
-| Code         | 8/10  | Unicode Greek; pip install at top; PEP8; figsize used 3×. |
-| JAX          | out of scope | not a JAX lecture. |
-| Figures      | 5/10  | Three `ax.set_title(...)` calls and 3 Title-Case axis labels. |
-| References   | 9/10  | Citations parenthetical via `{cite}`; no narrative-author misuse. |
-| Links        | 3/10  | Five raw markdown links to `python.quantecon.org` / `python-intro.quantecon.org` instead of `{doc}`. |
-| Admonitions  | N/A   | No exercises / proofs. |
+| Writing      | 8/10  | `qe-writing-008` ×30; `qe-writing-004` ×1. |
+| Math         | 5/10  | `qe-math-002` ×26. |
+| Code         | 8.5/10 | `qe-code-002` ×4. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 4.5/10 | `qe-fig-003` ×6; `qe-fig-005` ×6; `qe-fig-008` ×13, +1 more. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 8/10  | `qe-link-002` ×2. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,32 +27,36 @@
 _None found._
 
 ### High severity
-- **[qe-math-002]** — Apostrophe `'` used as transpose throughout the LQ derivation (e.g. `y' R y`, `u' Q u`, `B'PB`, `B'PA`, `A'PB`, `\Sigma_t A'`, `CC'`, `F'P F'`). *Lines:* 355 onwards. *Count:* 30+ occurrences.
-- **[qe-link-002]** — Five raw markdown links to other QuantEcon series: `python.quantecon.org/lagrangian_lqdp.html` (line 42), `python-intro.quantecon.org/lqcontrol.html` (lines 324, 519), `python-intro.quantecon.org/rational_expectations.html` (line 814), `python.quantecon.org/markov_perf.html` (line 1411). Should be `{doc}` intersphinx references.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 6. *Lines:* 1031, 1101, 1106, 1110, 1364, 1429. *Example:* .set_title.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 6. *Lines:* 1021, 1094, 1151, 1264, 1355, 1417. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 13. *Lines:* 1097, 1099, 1104, 1105, 1108, 1109, 1155, 1156, 1276, 1277, …. *Example:* plot() without lw=.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 26. *Lines:* 355, 513, 516, 523, 529, 658, 669, 714, 887, 1073. *Example:* apostrophe transpose `y'`.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 30. *Lines:* 311, 314, 315, 339, 438, 441, 445, 557, 570, 583, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-math-004]** — `\vec a`, `\vec y`, `\vec u`, `\vec q` used 24 times.
-- **[qe-fig-003]** — Three `ax.set_title(...)` calls. *Lines:* 1031, 1364, 1429.
-- **[qe-fig-006]** — Three Title-Case axis labels: `set_xlabel('Time')` etc.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 4. *Lines:* 987, 1144, 1340, 1398. *Example:* spelled-out `beta`.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 1027, 1095, 1361. *Example:* figsize=.
+- **[qe-link-002]** — Use doc links for cross-series references. *Count:* 2. *Lines:* 42, 1411. *Example:* raw link to python.quantecon.org.
+- **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 323. *Example:* mid-sentence 'Programming'.
 
 ### Low severity
-- **[qe-fig-001]** — `figsize=` set 3 times.
-- **[qe-writing-001]** — Several multi-sentence paragraphs.
+_None found._
+
 
 ## Strengths
-- Lecture title in correct Title Case.
-- H2/H3 headings mostly sentence case with proper-noun capitalisation (Stackelberg, Markov, Bellman).
-- Matrices use `bmatrix` consistently (42 matrix blocks).
-- Equation labels and `{eq}` references used cleanly.
-- "IID"/Greek-letter conventions consistent.
-- `aligned` used inside `$$`.
-- pip install at top; Unicode Greek.
-- No `\tag`, no bold vectors (apart from `\vec`), no `align`-inside-`$$` issues.
+
+- References, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Replace every `'` used as transpose with `^\top` (highest priority).
-2. Drop `\vec` arrows on sequence symbols.
-3. Remove the 3 `ax.set_title(...)` calls.
-4. Convert raw markdown URLs to `{doc}` intersphinx references for 5 cross-series links.
-5. Lowercase Title-Case axis labels.
-6. Tighten multi-sentence paragraphs.
+
+1. `qe-math-002` — Use \top for transpose notation (26 occurrences).
+2. `qe-fig-003` — No matplotlib embedded titles (6 occurrences).
+3. `qe-fig-005` — Descriptive figure names for cross-referencing (6 occurrences).
+4. `qe-link-002` — Use doc links for cross-series references (2 occurrences).
+5. `qe-code-002` — Use Unicode symbols for Greek letters in code (4 occurrences).
+6. `qe-writing-008` — Remove excessive whitespace between words (30 occurrences).
+7. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (1 occurrence).

@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/tax_smooth.md`
-- **Audit date:** 2026-05-28
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.4 / 10
-- **Priority:** LOW
+- **Overall score:** 8.9 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 7/10  | H1 OK; most H2/H3 sentence case; "### Feasible Tax Variations" (line 482) Title Case. |
-| Math         | 8/10  | bmatrix; sequences `\{G_t\}_{t=0}^S` (M6 OK); equation labels and refs. |
-| Code         | 9/10  | Unicode Greek (`β`, `R`) used (qe-code-002 OK); standard Anaconda imports. |
-| JAX          | out of scope | — |
-| Figures      | 6/10  | `figsize=` on lines 319, 373, 746; 3 `ax.set_title(...)` inside solution blocks (OK by exception); one axis label "Optimal flat tax $T_0$" (line 859) starts with uppercase. |
-| References   | 7/10  | 2 `{cite}` usages; 1 is in-text ("called the ... in {cite}\`Barro1979\`") — should be `{cite:t}`. |
-| Links        | 9/10  | `{doc}` cross-references used (5 occurrences). |
-| Admonitions  | 9/10  | Solutions gated, dropdown, exercise-linked (qe-admon-001, -002, -005 OK). |
+| Writing      | 6/10  | `qe-writing-001` ×2; `qe-writing-006` ×1; `qe-writing-008` ×21. |
+| Math         | 10/10 | no mechanical violations detected. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 6/10  | `qe-fig-005` ×7; `qe-fig-006` ×1; `qe-fig-008` ×9, +1 more. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,31 +27,33 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 7. *Lines:* 315, 361, 567, 627, 645, 739, 844. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 9. *Lines:* 590, 594, 630, 637, 648, 655, 752, 753, 857. *Example:* plot() without lw=.
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 1. *Lines:* 482. *Example:* H3 Title Case: 'Feasible Tax Variations' (Tax, Variations).
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 21. *Lines:* 19, 22, 27, 33, 50, 54, 58, 62, 69, 77, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **W3** — "### Feasible Tax Variations" (line 482) uses Title Case; should be sentence case.
-- **[qe-fig-001]** — `figsize=` overrides on lines 319, 373, 746. *Count:* 3 occurrences.
-- **[qe-ref-001]** — In-text citation should use `{cite:t}`. *Example:* `lectures/tax_smooth.md:123` ("called the 'present value of revenue-raising costs' in {cite}\`Barro1979\`"). *Count:* 1 occurrence.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 319, 373, 746. *Example:* figsize=.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 605, 673. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
-- **W1** — Some short two-sentence paragraphs.
-- **W7** — Mid-sentence Title Case in "Barro tax-smoothing model" — debatable proper-noun usage.
-- **[qe-fig-006]** — Axis label "Optimal flat tax $T_0$" (line 859) starts with uppercase.
-- **[qe-fig-005]** — No figures use `{figure}` directive with `:name:`.
+- **[qe-fig-006]** — Lowercase axis labels. *Count:* 1. *Lines:* 859. *Example:* axis label `Optimal flat tax $T_0$`.
+
 
 ## Strengths
-- bmatrix throughout (M4 OK).
-- Sequences use `\{G_t\}_{t=0}^S` (M6 OK).
-- Equation labels via `{math}` `:label:` form (M14 OK).
-- Bold for definitions (**boundary conditions**, **terminal condition**, **smoother**).
-- IID not relevant.
-- Unicode Greek in code.
-- `{doc}` cross-references used (qe-link-002 OK).
-- Solutions all gated, dropdown, linked.
+
+- Math, Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Convert "### Feasible Tax Variations" → "### Feasible tax variations".
-2. Convert in-text `{cite}` on line 123 to `{cite:t}`.
-3. Remove `figsize=` overrides.
-4. Lowercase axis label "Optimal flat tax".
+
+1. `qe-fig-005` — Descriptive figure names for cross-referencing (7 occurrences).
+2. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
+3. `qe-writing-006` — Capitalize lecture titles properly (1 occurrence).
+4. `qe-writing-008` — Remove excessive whitespace between words (21 occurrences).
+5. `qe-fig-006` — Lowercase axis labels (1 occurrence).
+6. `qe-fig-008` — Use lw=2 for line charts (9 occurrences).
+7. `qe-fig-001` — Do not set figure size unless necessary (3 occurrences).

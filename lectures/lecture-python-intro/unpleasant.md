@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/unpleasant.md`
-- **Audit date:** 2026-05-28
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 6.6 / 10
-- **Priority:** MEDIUM
+- **Overall score:** 8.6 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 6/10  | Several H2 use Title Case (W3); some multi-sentence paragraphs. |
-| Math         | 7/10  | Uses `{\mathcal S}` for a map (W8 — could use `S`); otherwise clean `aligned`, labels. |
-| Code         | 8/10  | Unicode Greek (`α`, `β`, `π`) used (qe-code-002 OK); standard Anaconda imports. |
-| JAX          | out of scope | — |
-| Figures      | 6/10  | `figsize=` on lines 475, 564; 1 `ax.set_title(titles[i])` (line 482) outside exercise context; 3 set_title inside solution blocks (OK by exception). |
-| References   | 8/10  | 4 `{cite}` usages, parenthetical, no clear in-text mis-use. |
-| Links        | 9/10  | `{doc}` cross-references used (6 occurrences). |
-| Admonitions  | 9/10  | `{prf:remark}`, `{prf:algorithm}` directives used (qe-admon-004 OK); solutions gated, dropdown, exercise-linked. |
+| Writing      | 5.5/10 | `qe-writing-006` ×2; `qe-writing-008` ×31; `qe-writing-001` ×1. |
+| Math         | 8.5/10 | `qe-math-002` ×1. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 6/10  | `qe-fig-005` ×4; `qe-fig-003` ×1; `qe-fig-004` ×1, +2 more. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,32 +27,35 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 5. *Lines:* 415, 481, 566, 571, 692. *Example:* plot() without lw=.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 1. *Lines:* 271. *Example:* `^T` transpose in `R^T`.
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 2. *Lines:* 78, 303. *Example:* H2 Title Case: 'Monetary-Fiscal Policy' (Policy).
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 31. *Lines:* 21, 24, 26, 28, 39, 41, 91, 115, 123, 153, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **W3** — "## Monetary-Fiscal Policy" (line 78), "## Example Calculations" (line 303) use Title Case; should be sentence case.
-- **W1** — Several multi-sentence paragraphs (lines 26–30, 33–35, 78–80, 308–311).
-- **W8** — `{\mathcal S}` (lines 289, 292, 297) used for a mapping where simpler `S` would do.
-- **[qe-fig-001]** — `figsize=` on lines 475, 564. *Count:* 2 occurrences.
-- **[qe-fig-003]** — `ax.set_title(titles[i])` (line 482) outside exercise context. *Count:* 1 occurrence.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 475, 564. *Example:* figsize=.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 482. *Example:* .set_title.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 414, 472, 542, 624. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 525. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
-- **W2** — H1 has trailing whitespace.
-- **W7** — Inconsistent capitalization in subsections (e.g. "Before time $T$").
-- **[qe-fig-005]** — No figures use `{figure}` directive with `:name:`.
+- **[qe-fig-004]** — Caption formatting conventions. *Count:* 1. *Lines:* 489. *Example:* Title Case caption (Arithmetic).
+
 
 ## Strengths
-- Equation labels and `{eq}` references used throughout.
-- `aligned` used inside `$$` correctly (M12).
-- `prf:remark` / `prf:algorithm` directives used for structure (qe-admon-004 OK).
-- Bold for definitions (**fiscal policy**, **monetary policy**, **open market operation**).
-- Unicode Greek in code.
-- `{doc}` cross-references used (qe-link-002 OK).
-- Solutions all gated, dropdown, linked.
+
+- Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Convert "Monetary-Fiscal Policy" and "Example Calculations" to sentence case.
-2. Consider replacing `{\mathcal S}` with `S` per W8.
-3. Move `set_title` on line 482 to mystnb/figure metadata.
-4. Remove `figsize=` overrides.
-5. Split multi-sentence paragraphs.
+
+1. `qe-writing-006` — Capitalize lecture titles properly (2 occurrences).
+2. `qe-fig-005` — Descriptive figure names for cross-referencing (4 occurrences).
+3. `qe-math-002` — Use \top for transpose notation (1 occurrence).
+4. `qe-writing-008` — Remove excessive whitespace between words (31 occurrences).
+5. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
+6. `qe-fig-003` — No matplotlib embedded titles (1 occurrence).
+7. `qe-fig-004` — Caption formatting conventions (1 occurrence).

@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/names.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.6 / 10
-- **Priority:** LOW
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `ceec881028`
+- **Categories audited:** writing, code, figures, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.6 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 6.5/10| Heading Title Case is pervasive. |
-| Math         | N/A   | No math expressions. |
-| Code         | 9/10  | Only Anaconda packages; no Greek identifiers needed; PEP8 clean; no benchmarking magics. |
-| JAX          | out of scope | — |
-| Figures      | 6/10  | Nine static `{figure}` directives (lines 453, 459, 469, 477, 524, 529, 536, 560, 564) for namespace-diagram screenshots. None have `name:`, captions are brief sentences placed outside the directive. |
-| References   | N/A   | No citations. |
-| Links        | 9/10  | External links only; no improper cross-series URLs. |
-| Admonitions  | N/A   | No exercises or admonitions in the body. |
+| Writing      | 6/10  | `qe-writing-006` ×8; `qe-writing-008` ×1. |
+| Math         | N/A   | no mathematical content. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 7/10  | `qe-fig-005` ×9; `qe-fig-002` ×9. |
+| References   | N/A   | no citations in this lecture. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,21 +27,28 @@
 _None found._
 
 ### High severity
-- **[qe-writing-006]** — Section headings use Title Case rather than sentence case. *Examples:* line 35 `## Variable Names in Python`, line 97 `## Namespaces`, line 180 `## Viewing Namespaces`, line 212 `## Interactive Sessions`, line 266 `## The Global Namespace`, line 295 `## Local Namespaces`, line 327 `## The \`__builtins__\` Namespace`, line 367 `## Name Resolution`, line 482 `### Mutable Versus Immutable Parameters`. *Count:* 9 occurrences.
+- **[qe-fig-002]** — Prefer code-generated figures. *Count:* 9. *Lines:* 453, 459, 469, 477, 524, 529, 536, 560, 564. *Example:* static image .png.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 9. *Lines:* 453, 459, 469, 477, 524, 529, 536, 560, 564. *Example:* {figure} without :name:.
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 8. *Lines:* 35, 180, 212, 266, 295, 327, 367, 482. *Example:* H2 Title Case: 'Variable Names in Python' (Names).
 
 ### Medium severity
-- **[qe-fig-005]** — None of the nine `{figure}` directives have a `name:` field, preventing `{numref}` cross-referencing.
+_None found._
 
 ### Low severity
-- **[qe-writing-001]** — A few multi-sentence paragraphs (e.g., lines 28–32 span two ideas across two paragraphs but fine).
-- **[qe-fig-002]** — Several diagrams could plausibly be redrawn programmatically (e.g., box-and-arrow namespace diagrams), but the current static images are acceptable given the diagrammatic nature.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 1. *Lines:* 383. *Example:* 2 spaces.
+
 
 ## Strengths
-- Lecture title "Names and Namespaces" follows qe-writing-006.
-- Bold (`**name**`, `**binds**`, `**rebound**`) used for key concept definitions per qe-writing-005.
-- One-sentence paragraphs dominate.
-- No code-style violations.
+
+- Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Convert section headings to sentence case ("Variable names in Python", "Namespaces", "Viewing namespaces", "Interactive sessions", "The global namespace", "Local namespaces", "The `__builtins__` namespace", "Name resolution", "Mutable versus immutable parameters").
-2. Add `name:` metadata to each `{figure}` for cross-referencing.
+
+1. `qe-writing-006` — Capitalize lecture titles properly (8 occurrences).
+2. `qe-fig-005` — Descriptive figure names for cross-referencing (9 occurrences).
+3. `qe-fig-002` — Prefer code-generated figures (9 occurrences).
+4. `qe-writing-008` — Remove excessive whitespace between words (1 occurrence).

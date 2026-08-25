@@ -2,8 +2,9 @@
 
 - **Series:** lecture-dp
 - **File:** `lectures/intro.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `c30490a2f4`
+- **Categories audited:** writing, links  *(JAX out of scope)*
 - **Overall score:** 10.0 / 10
 - **Priority:** NONE
 
@@ -11,14 +12,14 @@
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 10/10 | Title in Title Case; single short paragraph. |
-| Math         | N/A   | No math content. |
-| Code         | N/A   | No code content. |
-| JAX          | out of scope | — |
-| Figures      | N/A   | No figures. |
-| References   | N/A   | No citations. |
-| Links        | N/A   | No links. |
-| Admonitions  | N/A   | Only `tableofcontents` directive. |
+| Writing      | 10/10 | no mechanical violations detected. |
+| Math         | N/A   | no mathematical content. |
+| Code         | N/A   | no executable code cells. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | N/A   | no figures or plotting code. |
+| References   | N/A   | no citations in this lecture. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | N/A   | no admonitions, exercises or solutions. |
 
 ## Issues
 
@@ -34,9 +35,15 @@ _None found._
 ### Low severity
 _None found._
 
+
 ## Strengths
-- Concise landing page that adheres to one-sentence-paragraph rule.
-- Lecture title correctly Title Case.
+
+- Writing, Links score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. No action needed.
+
+1. No remediation required; keep the current conventions.

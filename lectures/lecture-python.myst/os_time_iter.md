@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/os_time_iter.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 9.4 / 10
-- **Priority:** NONE
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `e25fdf2345`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.4 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8/10 | Section headings use Title Case rather than sentence case. |
-| Math         | 10/10 | No math issues. |
-| Code         | 9.5/10 | Mixed Greek conventions in code (word=6, uni=14). |
-| JAX          | out of scope | not a JAX lecture |
-| Figures      | 9.5/10 | Figures lack descriptive `name:` fields for cross-referencing (6 plot calls, 0 named). |
-| References   | 9/10 | Citation style follows conventions. |
-| Links        | 10/10 | Link style follows conventions. |
-| Admonitions  | 10/10 | Exercise/solution structure clean. |
+| Writing      | 7.5/10 | `qe-writing-006` ×4. |
+| Math         | 5/10  | `qe-math-002` ×8; `qe-math-001` ×2. |
+| Code         | 9.5/10 | `qe-code-004` ×1. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 8/10  | `qe-fig-005` ×3; `qe-fig-008` ×4. |
+| References   | 8.5/10 | `qe-ref-001` ×2. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,29 +27,33 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 8. *Lines:* 109, 144, 145, 153, 154, 190, 210, 354. *Example:* apostrophe transpose `u'`.
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 4. *Lines:* 68, 161, 215, 237. *Example:* H2 Title Case: 'The Euler Equation' (Equation).
 
 ### Medium severity
-- **[qe-writing-006]** — Section headings use Title Case rather than sentence case. *Examples:* line 68 `The Euler Equation`, line 161 `The Coleman-Reffett Operator`. *Count:* 4.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 407, 488, 561. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 4. *Lines:* 423, 427, 431, 497. *Example:* plot() without lw=.
+- **[qe-math-001]** — Prefer UTF-8 unicode for simple parameter mentions, be consistent. *Count:* 2. *Lines:* 380, 405. *Example:* unicode `σ` inside a math environment.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 194. *Example:* {cite} in author position: '{cite}`Coleman1990` and'.
 
 ### Low severity
-- **[qe-code-002]** — Mixed Greek conventions in code (word=6, uni=14).
-- **[qe-fig-005]** — Figures lack descriptive `name:` fields for cross-referencing (6 plot calls, 0 named).
+- **[qe-code-004]** — Use quantecon Timer context manager. *Count:* 1. *Lines:* 562. *Example:* %%time.
+
 
 ## Strengths
-- Uses "IID" or no IID terminology.
-- Transpose notation uses `\top` consistently (no prime/`^T`).
-- No bold vectors/matrices.
-- Normal distribution written as plain `N`.
-- `aligned` (not `align`) used in `$$` math.
-- Figures use default sizing.
-- Solutions use `:class: dropdown` consistently.
-- No `ax.set_title()` in main figures.
-- Axis labels lowercase.
-- No embedded matplotlib titles in main figures.
-- Cross-series links use `{doc}` intersphinx form.
+
+- Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Address `qe-writing-006`: Section headings use Title Case rather than sentence case.
-2. Address `qe-code-002`: Mixed Greek conventions in code (word=6, uni=14).
-3. Address `qe-fig-005`: Figures lack descriptive `name:` fields for cross-referencing (6 plot calls, 0 named).
+
+1. `qe-math-002` — Use \top for transpose notation (8 occurrences).
+2. `qe-writing-006` — Capitalize lecture titles properly (4 occurrences).
+3. `qe-math-001` — Prefer UTF-8 unicode for simple parameter mentions, be consistent (2 occurrences).
+4. `qe-ref-001` — Use correct citation style (2 occurrences).
+5. `qe-fig-005` — Descriptive figure names for cross-referencing (3 occurrences).
+6. `qe-fig-008` — Use lw=2 for line charts (4 occurrences).
+7. `qe-code-004` — Use quantecon Timer context manager (1 occurrence).

@@ -2,23 +2,24 @@
 
 - **Series:** lecture-dp
 - **File:** `lectures/calvo_abreu.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
-- **Overall score:** 7.7 / 10
-- **Priority:** HIGH
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `c30490a2f4`
+- **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
+- **Overall score:** 8.6 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8/10  | H2/H3 sentence case throughout; some long paragraphs. |
-| Math         | 8/10  | `\vec` used for sequences; otherwise clean. |
-| Code         | 8/10  | Unicode Greek; pip install at top (line 278) — but late in file; figsize 1×. |
-| JAX          | out of scope | not a JAX lecture. |
-| Figures      | 9/10  | No matplotlib titles; no spine; figsize 1×; no Title-Case labels. |
-| References   | 4/10  | Seven narrative-author `{cite}` patterns. |
-| Links        | 9/10  | Five `{doc}` references; no raw cross-series URLs. |
-| Admonitions  | N/A   | No exercises / proofs. |
+| Writing      | 8/10  | `qe-writing-008` ×94; `qe-writing-001` ×1. |
+| Math         | 9/10  | `qe-math-004` ×1. |
+| Code         | 8/10  | `qe-code-003` ×1; `qe-code-002` ×1. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 8/10  | `qe-fig-005` ×1; `qe-fig-008` ×2; `qe-fig-001` ×1. |
+| References   | 8.5/10 | `qe-ref-001` ×3. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | N/A   | no admonitions, exercises or solutions. |
 
 ## Issues
 
@@ -26,26 +27,35 @@
 _None found._
 
 ### High severity
-- **[qe-ref-001]** — Seven narrative-author citations using parenthetical `{cite}` rather than `{cite:t}`. *Examples:* "Guillermo Calvo {cite}`Calvo1978`" (35), "Cagan {cite}`Cagan`" (49), "Calvo {cite}`Calvo1978`" (49), "Chang {cite}`chang1998credible`" (49, 117), "Abreu {cite}`Abreu`" (51), "Stokey {cite}`stokey1989reputation`" (51), "Stokey {cite}`Stokey1991`" (154).
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 94. *Lines:* 33, 35, 37, 39, 40, 45, 47, 49, 51, 53, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-math-004]** — `\vec \mu`, `\vec \theta` used 22 times in narrative. *Lines:* 35, 37, 115, 116, etc.
-- **[qe-code-003]** — `!pip install --upgrade quantecon` placed mid-lecture (line 278) rather than at top.
+- **[qe-code-003]** — Package installation at lecture top. *Count:* 1. *Lines:* 275. *Example:* install cell at line 275 of 688 (not near the top).
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 573, 579. *Example:* plot() without lw=.
+- **[qe-math-004]** — Do not use bold face for matrices or vectors. *Count:* 1. *Lines:* 196. *Example:* {\bf.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 3. *Lines:* 39, 357. *Example:* {cite} in author position: '{cite}`Calvo1978` showed'.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 203. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
-- **[qe-writing-001]** — Several multi-sentence paragraphs (e.g. 35-42, 46-52).
-- **[qe-math-005]** — Sequence written with parentheses elsewhere mostly OK; one `(c_t)_{t=0}` style.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 422. *Example:* spelled-out `beta`.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 1. *Lines:* 571. *Example:* figsize=.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 536. *Example:* code-cell figure without mystnb figure metadata.
+
 
 ## Strengths
-- Lecture title in correct Title Case.
-- All H2/H3 headings sentence case ("Model components", "Another timing protocol", "Government decisions", "Temptation to deviate from plan", "Sustainable or credible plan", "Abreu's self-enforcing plan", "Abreu's carrot-stick plan").
-- Definitions bolded ("**time inconsistency**", "**Stackelberg**", "**Ramsey planner**", "**credible government policy**", "**sustainable plan**").
-- Equation labels and `{eq}` references used cleanly.
-- No transpose, no bold vectors (apart from `\vec`), no matrix-bracket, no `\tag`, no `align`-inside-`$$` issues.
-- `{doc}` used for cross-series references; no raw URLs.
+
+- Math, Links score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Switch narrative `Author {cite}…` to `{cite:t}` form (7 occurrences).
-2. Remove `\vec` arrows from sequence symbols.
-3. Move `!pip install` to the very top of the lecture.
-4. Tighten multi-sentence paragraphs.
+
+1. `qe-ref-001` — Use correct citation style (3 occurrences).
+2. `qe-writing-008` — Remove excessive whitespace between words (94 occurrences).
+3. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
+4. `qe-math-004` — Do not use bold face for matrices or vectors (1 occurrence).
+5. `qe-code-003` — Package installation at lecture top (1 occurrence).
+6. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
+7. `qe-code-002` — Use Unicode symbols for Greek letters in code (1 occurrence).

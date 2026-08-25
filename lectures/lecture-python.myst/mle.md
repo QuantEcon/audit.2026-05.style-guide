@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/mle.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions (JAX out of scope)
-- **Overall score:** 8.9 / 10
-- **Priority:** NONE
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `e25fdf2345`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 7.9 / 10
+- **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 10/10 | No writing issues. |
-| Math         | 6/10 | Vectors/matrices typeset with `\mathbf` or `\boldsymbol` (style guide says no bold for vectors). |
-| Code         | 9.5/10 | Mixed Greek conventions in code (word=11, uni=11). |
-| JAX          | out of scope | JAX lecture — JAX rules not audited per scope. |
-| Figures      | 8.5/10 | `figsize=` set in 7 places — usually unnecessary. |
-| References   | 9/10 | Citation style follows conventions. |
-| Links        | 9/10 | 1 full URL(s) to same series. |
-| Admonitions  | 10/10 | Exercise/solution structure clean. |
+| Writing      | 7/10  | `qe-writing-004` ×2; `qe-writing-001` ×1. |
+| Math         | 3/10  | `qe-math-002` ×19; `qe-math-004` ×106. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 5.5/10 | `qe-fig-005` ×7; `qe-fig-006` ×4; `qe-fig-001` ×7, +1 more. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,32 +27,35 @@
 _None found._
 
 ### High severity
-- **[qe-math-004]** — Vectors/matrices typeset with `\mathbf` or `\boldsymbol` (style guide says no bold for vectors). *Examples:* line 187, line 194. *Count:* 106 occurrences across 57 lines.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 7. *Lines:* 130, 180, 232, 301, 418, 628, 827. *Example:* figsize=.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 7. *Lines:* 127, 175, 217, 291, 415, 624, 800. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 19. *Lines:* 207, 465, 871, 900, 901, 918, 919, 926, 927, 929, …. *Example:* apostrophe transpose `i'`.
+- **[qe-math-004]** — Do not use bold face for matrices or vectors. *Count:* 106. *Lines:* 195, 202, 207, 212, 215, 257, 264, 267, 276, 278, …. *Example:* \mathbf.
 
 ### Medium severity
-_None found._
+- **[qe-fig-006]** — Lowercase axis labels. *Count:* 4. *Lines:* 184, 185, 829, 830. *Example:* axis label `Number of billionaires in 2008`.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 136, 239, 635. *Example:* plot() without lw=.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 740. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 2. *Lines:* 844. *Example:* mid-sentence 'Likelihood'.
 
 ### Low severity
-- **[qe-code-002]** — Mixed Greek conventions in code (word=11, uni=11).
-- **[qe-fig-001]** — `figsize=` set in 7 places — usually unnecessary.
-- **[qe-fig-005]** — Figures lack descriptive `name:` fields for cross-referencing (4 plot calls, 0 named).
-- **[qe-fig-008]** — `lw=2` parameter missing from 4 `.plot()` calls.
-- **[qe-link-001]** — 1 full URL(s) to same series. *Examples:* line 152.
+_None found._
+
 
 ## Strengths
-- Headings use sentence case consistently.
-- Uses "IID" or no IID terminology.
-- Transpose notation uses `\top` consistently (no prime/`^T`).
-- Normal distribution written as plain `N`.
-- `aligned` (not `align`) used in `$$` math.
-- Solutions use `:class: dropdown` consistently.
-- No `ax.set_title()` in main figures.
-- Axis labels lowercase.
-- No embedded matplotlib titles in main figures.
+
+- Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Address `qe-math-004`: Vectors/matrices typeset with `\mathbf` or `\boldsymbol` (style guide says no bold for vectors).
-2. Address `qe-code-002`: Mixed Greek conventions in code (word=11, uni=11).
-3. Address `qe-fig-001`: `figsize=` set in 7 places — usually unnecessary.
-4. Address `qe-fig-005`: Figures lack descriptive `name:` fields for cross-referencing (4 plot calls, 0 named).
-5. Address `qe-fig-008`: `lw=2` parameter missing from 4 `.plot()` calls.
+
+1. `qe-math-002` — Use \top for transpose notation (19 occurrences).
+2. `qe-math-004` — Do not use bold face for matrices or vectors (106 occurrences).
+3. `qe-fig-005` — Descriptive figure names for cross-referencing (7 occurrences).
+4. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (2 occurrences).
+5. `qe-fig-006` — Lowercase axis labels (4 occurrences).
+6. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
+7. `qe-fig-001` — Do not set figure size unless necessary (7 occurrences).

@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/lqramsey.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 6.6 / 10
-- **Priority:** MEDIUM
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `b83d6da399`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.4 / 10
+- **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8/10  | Title in Title Case; sentence-case headings; mostly one-sentence paragraphs. |
-| Math         | 5/10  | Mixed `E_t` and `\mathbb{E}_t`; primes used as transpose. |
-| Code         | 7/10  | Mixed unicode/spelled Greek; install cell with `hide-output`. |
-| JAX          | N/A   | not a JAX lecture |
-| Figures      | 7/10  | 2 `figsize=`; 3 `{only} latex` directives for PDF compat. |
-| References   | 8/10  | 4 `{cite}` used; never `{cite:t}`. |
-| Links        | 8/10  | No raw cross-series URLs. |
-| Admonitions  | 7/10  | 1 gated exercise and 1 solution with `:class: dropdown`. |
+| Writing      | 9/10  | `qe-writing-008` ×7. |
+| Math         | 3/10  | `qe-math-010` (proposed) ×11; `qe-math-002` ×8. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 6.5/10 | `qe-fig-006` ×3; `qe-fig-008` ×12; `qe-fig-005` ×1, +1 more. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,26 +27,33 @@
 _None found._
 
 ### High severity
-- **[qe-math-010 (proposed)]** — Bare `E_t` mixed with `\mathbb{E}_t`. *Example:* `lectures/lqramsey.md:497`, `:505`, `:547`, `:555`, `:562`, `:568`. *Count:* 10 occurrences (vs 14 correct).
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 12. *Lines:* 787, 788, 789, 794, 795, 796, 801, 806, 807, 808, …. *Example:* plot() without lw=.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 8. *Lines:* 401, 404, 408, 410, 411, 430. *Example:* apostrophe transpose `x_t'`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 11. *Lines:* 117, 128, 206, 262, 275, 331, 336, 359, 365, 401, …. *Example:* missing braces: `\mathbb E`.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 7. *Lines:* 53, 59, 382, 541, 572, 860. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-math-002]** — Prime `'` used as transpose. *Example:* `Q = H + \beta A' Q A`, `v = \text{trace}(C' Q C) \beta / (1 - \beta)`. *Count:* ~7 occurrences.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 775, 824. *Example:* figsize=.
+- **[qe-fig-006]** — Lowercase axis labels. *Count:* 3. *Lines:* 780, 835, 842. *Example:* axis label `Time`.
 
 ### Low severity
-- **[qe-writing-001]** — Some longer paragraphs in the model description sections.
-- **[qe-fig-005]** — Figures lack `:name: fig-...` fields.
-- **[qe-code-002]** — Mixed unicode/spelled Greek in code.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 587. *Example:* code-cell figure without mystnb figure metadata.
+
 
 ## Strengths
-- Title in Title Case (qe-writing-006).
-- Subheadings sentence case (qe-writing-006).
-- `\begin{bmatrix}` used (qe-math-003).
-- Equation labels and `{eq}` references (qe-math-007).
-- Exercise gated; solution has `:class: dropdown` (qe-admon-001, qe-admon-002).
-- Use of `{only} latex` for PDF compatibility (qe-fig-010).
-- Install cell at top with `hide-output` (qe-code-003).
+
+- Writing, Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Standardise on `\mathbb{E}_t` throughout (qe-math-010, proposed).
-2. Replace prime `'` with `^\top` for transpose (qe-math-002).
-3. Add `:name: fig-...` fields to figures (qe-fig-005).
+
+1. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (11 occurrences).
+2. `qe-math-002` — Use \top for transpose notation (8 occurrences).
+3. `qe-fig-006` — Lowercase axis labels (3 occurrences).
+4. `qe-fig-008` — Use lw=2 for line charts (12 occurrences).
+5. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
+6. `qe-writing-008` — Remove excessive whitespace between words (7 occurrences).
+7. `qe-fig-001` — Do not set figure size unless necessary (2 occurrences).

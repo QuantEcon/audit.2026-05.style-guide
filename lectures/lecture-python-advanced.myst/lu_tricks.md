@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/lu_tricks.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 6.4 / 10
-- **Priority:** MEDIUM
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `b83d6da399`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.6 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 7.5/10 | Title in Title Case; sentence-case headings; mostly one-sentence paragraphs. |
-| Math         | 4.5/10 | `\begin{matrix}` used instead of `\begin{bmatrix}`. |
-| Code         | 7/10  | Mixed unicode/spelled Greek (8 vs 3); no install cell (numpy only). |
-| JAX          | N/A   | not a JAX lecture |
-| Figures      | 7/10  | 1 `figsize=`; no `:name:` fields. |
-| References   | 7/10  | 5 `{cite}` used; 4 narrative refs would benefit from `{cite:t}`. |
-| Links        | 8/10  | 2 `{doc}` references; no raw cross-series URLs. |
-| Admonitions  | 7/10  | 4 gated exercises but no associated solutions. |
+| Writing      | 5/10  | `qe-writing-004` ×6; `qe-writing-001` ×4; `qe-writing-008` ×10. |
+| Math         | 7/10  | `qe-math-003` ×10. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 8/10  | `qe-fig-003` ×1; `qe-fig-005` ×1; `qe-fig-001` ×1. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,26 +27,33 @@
 _None found._
 
 ### High severity
-- **[qe-math-003]** — `\begin{matrix}` used for matrices instead of `\begin{bmatrix}`. *Example:* `lectures/lu_tricks.md:295`, `:305`, `:311`, `:392`, `:403`. *Count:* 10 occurrences.
+- **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 10. *Lines:* 295, 305, 311, 392, 403, 412, 423, 457, 462, 467. *Example:* matrix environment.
+- **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 6. *Lines:* 25, 34. *Example:* mid-sentence 'Dynamic'.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 10. *Lines:* 34, 41, 94, 220, 333, 385, 432, 439, 1065. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-ref-001]** — Multiple narrative author refs ("Whittle (1963)", "Sargent (1979)", etc.) should use `{cite:t}`. *Count:* ~4 occurrences.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 942. *Example:* .set(title=.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 4. *Lines:* 25, 1028, 1045, 1065. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
-- **[qe-writing-006]** — Title "Classical Control with Linear Algebra" uses lowercase "with" — but sister lecture `classical_filtering.md` uses "With". Pick one convention.
-- **[qe-fig-005]** — Figures lack `:name: fig-...` fields.
-- **[qe-code-002]** — Mixed unicode/spelled Greek in code.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 1. *Lines:* 937. *Example:* figsize=.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 920. *Example:* code-cell figure without mystnb figure metadata.
+
 
 ## Strengths
-- Title in Title Case (qe-writing-006).
-- "IID" used correctly in narrative (qe-writing-009, proposed) at L30.
-- Subheadings sentence case (qe-writing-006).
-- One-sentence paragraph rule respected (qe-writing-001).
-- Exercises gated (qe-admon-001).
-- `{doc}` used for cross-series references (qe-link-002).
+
+- Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Convert `\begin{matrix}` blocks to `\begin{bmatrix}` (qe-math-003).
-2. Reconcile capitalisation of "With/with" in titles with `classical_filtering.md` (qe-writing-006).
-3. Use `{cite:t}` for narrative refs (qe-ref-001).
-4. Add associated solutions for exercises (qe-admon-005).
+
+1. `qe-math-003` — Use square brackets for matrix notation (10 occurrences).
+2. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (6 occurrences).
+3. `qe-writing-001` — Use one sentence per paragraph (4 occurrences).
+4. `qe-fig-003` — No matplotlib embedded titles (1 occurrence).
+5. `qe-writing-008` — Remove excessive whitespace between words (10 occurrences).
+6. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
+7. `qe-fig-001` — Do not set figure size unless necessary (1 occurrence).

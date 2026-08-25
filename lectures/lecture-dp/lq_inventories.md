@@ -2,23 +2,24 @@
 
 - **Series:** lecture-dp
 - **File:** `lectures/lq_inventories.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
-- **Overall score:** 7.4 / 10
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `c30490a2f4`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 7.8 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 6/10  | Two Title-Case H2 headings; some long paragraphs. |
-| Math         | 4/10  | Apostrophe transpose; array-environment matrices alongside `bmatrix`; `\cr` separators. |
-| Code         | 8/10  | Unicode Greek; pip install at top; PEP8 generally fine; figsize used once. |
-| JAX          | out of scope | not a JAX lecture. |
-| Figures      | 8/10  | No matplotlib titles; lowercase axis labels; minimal figsize. |
-| References   | 9/10  | Single `{cite}` used parenthetically — appropriate. |
-| Links        | 9/10  | Two `{doc}` references; no problematic raw URLs. |
-| Admonitions  | 8/10  | Exercises use `:label:` and dropdown solutions. |
+| Writing      | 5.5/10 | `qe-writing-006` ×2; `qe-writing-001` ×4; `qe-writing-008` ×4. |
+| Math         | 3/10  | `qe-math-002` ×15; `qe-math-003` ×17. |
+| Code         | 9/10  | `qe-code-002` ×1. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 7/10  | `qe-fig-003` ×4; `qe-fig-005` ×1; `qe-fig-001` ×1. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,30 +27,35 @@
 _None found._
 
 ### High severity
-- **[qe-math-002]** — Apostrophe `'` (and `^\prime`) used as transpose throughout the LQ derivation. *Lines:* 131, 137, 148-149, 151, 153. *Count:* 12+ occurrences.
-- **[qe-math-003]** — Mixed `bmatrix` and `\left[\begin{array}{cc} … \end{array}\right]` matrix delimiters. *Lines:* 114-117, 150-171. *Count:* 11 array-matrix blocks.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 15. *Lines:* 131, 137, 148, 149, 151, 153, 661, 720. *Example:* apostrophe transpose `x_t'`.
+- **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 17. *Lines:* 114, 150, 151, 154, 157, 158, 161, 164, 165, 168, …. *Example:* array used as matrix.
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 2. *Lines:* 417, 448. *Example:* H2 Title Case: 'Inventories Not Useful' (Not, Useful).
 
 ### Medium severity
-- **[qe-writing-006]** — Two H2 headings in Title Case: `## Inventories Not Useful` (417), `## Inventories Useful but are Hardwired to be Zero Always` (448).
-- **[qe-math-001]** — `aligned` blocks use `\cr` row separator instead of `\\`. *Lines:* 101, 107, 113-120, 144-149.
-- **[qe-math-010 (proposed)]** — Bare `E_0` used for expectation in display equation (line 195). Should be `\mathbb{E}_0`.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 4. *Lines:* 310, 316, 330, 338. *Example:* .set_title.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 4. *Lines:* 489, 716, 722, 769. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 4. *Lines:* 56, 62, 432, 507. *Example:* 2 spaces.
 
 ### Low severity
-- **[qe-writing-001]** — Several multi-sentence paragraphs.
-- **[qe-writing-009 (proposed)]** — Smart quotes ’ used in narrative (lines 50, 58, 82, 89-91, 129-132).
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 278. *Example:* spelled-out `beta`.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 1. *Lines:* 304. *Example:* figsize=.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 211. *Example:* code-cell figure without mystnb figure metadata.
+
 
 ## Strengths
-- Lecture title in correct Title Case.
-- Most H2 headings sentence case ("Overview", "Example 1-6", "Exercises").
-- Definitions bolded ("**state**", "**control**").
-- "IID"/Greek-letter conventions consistent.
-- pip install at top.
-- Exercises use labels + `solution-start`/`solution-end` with dropdown solutions.
-- No `\tag`, no bold vectors, no matplotlib title / spine / Title-Case-label issues.
+
+- Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Replace every `'` and `^\prime` used as transpose with `^\top`.
-2. Replace `\left[\begin{array}{cc} … \end{array}\right]` with `\begin{bmatrix} … \end{bmatrix}` consistently.
-3. Convert H2 headings to sentence case.
-4. Replace `\cr` with `\\` inside `aligned`.
-5. Replace bare `E_0` with `\mathbb{E}_0`.
+
+1. `qe-math-002` — Use \top for transpose notation (15 occurrences).
+2. `qe-math-003` — Use square brackets for matrix notation (17 occurrences).
+3. `qe-writing-006` — Capitalize lecture titles properly (2 occurrences).
+4. `qe-writing-001` — Use one sentence per paragraph (4 occurrences).
+5. `qe-fig-003` — No matplotlib embedded titles (4 occurrences).
+6. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
+7. `qe-code-002` — Use Unicode symbols for Greek letters in code (1 occurrence).

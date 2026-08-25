@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/lake_model.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.3 / 10
-- **Priority:** LOW
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `a12d17c0ef`
+- **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.9 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8/10  | H1 Title Case; H2 mostly sentence case; "## The Lake model" minor concern. |
-| Math         | 9/10  | `\top` for transpose; `\mathbb{1}` for ones vector (M3 compliant); bmatrix. |
-| Code         | 8/10  | Unicode Greek (`α`, `b`, etc.) used (qe-code-002 OK); standard Anaconda imports. |
-| JAX          | out of scope | — |
-| Figures      | 5/10  | `figsize=` on lines 171, 315, 470, 552; 3 `ax.set_title('Unemployment'/'Employment'/'Labor force')` outside exercise context (175, 178, 181) — short Title-Case labels; 1 `{figure}` directive (line 42) with `:name: lake_model_graphviz` — qe-fig-005 OK; 2 spines manipulations. |
-| References   | N/A   | no `{cite}` citations |
-| Links        | N/A   | no cross-series links |
-| Admonitions  | 8/10  | 1 solution gated, dropdown, exercise-linked; 2 exercises. |
+| Writing      | 8.5/10 | `qe-writing-006` ×1. |
+| Math         | 10/10 | no mechanical violations detected. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 5/10  | `qe-fig-003` ×4; `qe-fig-007` ×2; `qe-fig-005` ×4, +3 more. |
+| References   | N/A   | no citations in this lecture. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,26 +27,33 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 1. *Lines:* 25. *Example:* H2 Title Case: 'The Lake model' (Lake).
 
 ### Medium severity
-- **[qe-fig-001]** — `figsize=` overrides on lines 171, 315, 470, 552. *Count:* 4 occurrences.
-- **[qe-fig-003]** — `ax.set_title('Unemployment')`, etc. outside exercise context. *Examples:* lines 175, 178, 181. *Count:* 3 occurrences.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 4. *Lines:* 171, 315, 470, 552. *Example:* figsize=.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 4. *Lines:* 175, 178, 181, 482. *Example:* .set_title.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 160, 290, 456, 551. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-007]** — Keep figure box and spines. *Count:* 2. *Lines:* 322, 324. *Example:* spine removal.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 343, 351, 556. *Example:* plot() without lw=.
 
 ### Low severity
-- **W3** — "## The Lake model" (line 25) — "Lake model" is debatable; if treated as proper-noun-like model name, fine; otherwise sentence case would prefer "## The lake model".
-- **W1** — Some short two-sentence paragraphs.
-- **[qe-fig-007]** — 2 `spines[*].set_color(...)` / `set_position(...)` calls (similar to qe-fig-007).
+- **[qe-fig-002]** — Prefer code-generated figures. *Count:* 1. *Lines:* 41. *Example:* static image .png.
+
 
 ## Strengths
-- M3 compliant: uses `\mathbb{1}` with explicit explanation ("let $\mathbb{1}=[1,1]^\top$ be a vector of ones").
-- Transpose `^\top` consistent (M2 OK).
-- bmatrix throughout (M4 OK).
-- Section headings generally sentence case.
-- 1 `{figure}` directive with `:name: lake_model_graphviz` (qe-fig-005 partially compliant).
-- Solutions all gated, dropdown, linked.
+
+- Math, Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Move `ax.set_title` content (Unemployment/Employment/Labor force) into mystnb metadata or `{figure}` captions.
-2. Remove `figsize=` overrides.
-3. Drop spine manipulations.
+
+1. `qe-fig-003` — No matplotlib embedded titles (4 occurrences).
+2. `qe-fig-007` — Keep figure box and spines (2 occurrences).
+3. `qe-fig-005` — Descriptive figure names for cross-referencing (4 occurrences).
+4. `qe-writing-006` — Capitalize lecture titles properly (1 occurrence).
+5. `qe-fig-008` — Use lw=2 for line charts (3 occurrences).
+6. `qe-fig-001` — Do not set figure size unless necessary (4 occurrences).
+7. `qe-fig-002` — Prefer code-generated figures (1 occurrence).

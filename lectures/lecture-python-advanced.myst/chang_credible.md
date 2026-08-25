@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/chang_credible.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 8.2 / 10
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `b83d6da399`
+- **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
+- **Overall score:** 8.5 / 10
 - **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 9/10  | Title in Title Case; sentence-case headings; mostly one-sentence paragraphs. |
-| Math         | 8/10  | Clean — primes are derivatives or next-period, not transpose. |
-| Code         | 7/10  | Mixed unicode/spelled Greek (5 spelled vs 2 unicode); install cell with `hide-output`. |
-| JAX          | N/A   | not a JAX lecture |
-| Figures      | 8/10  | 1 `figsize=`; no `:name:` fields. |
-| References   | 8/10  | 6 `{cite}` used; two narrative refs would benefit from `{cite:t}`. |
-| Links        | 9/10  | 11 `{doc}` references; no raw cross-series URLs. |
-| Admonitions  | N/A   | no exercises, solutions, or proof-family directives. |
+| Writing      | 5/10  | `qe-writing-001` ×5; `qe-writing-004` ×2; `qe-writing-008` ×21. |
+| Math         | 7.5/10 | `qe-math-002` ×2. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 8.5/10 | `qe-fig-005` ×1; `qe-fig-001` ×1. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | N/A   | no admonitions, exercises or solutions. |
 
 ## Issues
 
@@ -26,24 +27,31 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 2. *Lines:* 568. *Example:* apostrophe transpose `Z'`.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 5. *Lines:* 459, 612, 725, 792, 797. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 21. *Lines:* 38, 41, 43, 60, 69, 91, 93, 103, 134, 215, …. *Example:* 2 spaces.
 
 ### Medium severity
-_None found._
+- **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 2. *Lines:* 726, 765. *Example:* mid-sentence 'Step'.
 
 ### Low severity
-- **[qe-fig-005]** — Figures lack `:name: fig-...` fields.
-- **[qe-code-002]** — Mixed unicode/spelled Greek in code.
-- **[qe-ref-001]** — Two narrative author references could use `{cite:t}`.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 1. *Lines:* 833. *Example:* figsize=.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 828. *Example:* code-cell figure without mystnb figure metadata.
+
 
 ## Strengths
-- Primes in this file are derivatives (`u'`, `f'`, `v'`) and next-period state notation (`\theta'`, `w'`), not transpose — no qe-math-002 violation.
-- Title in Title Case (qe-writing-006); sentence-case headings (qe-writing-006).
-- `\begin{bmatrix}` used where matrices appear; no `array` violations (qe-math-003).
-- One-sentence paragraph rule respected (qe-writing-001).
-- Heavy `{doc}` use for cross-series references (qe-link-002).
-- Install cell at top with `hide-output` (qe-code-003).
+
+- Code, References, Links score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Add `:name: fig-...` fields to figures (qe-fig-005).
-2. Convert spelled Greek to unicode in code (qe-code-002).
+
+1. `qe-math-002` — Use \top for transpose notation (2 occurrences).
+2. `qe-writing-001` — Use one sentence per paragraph (5 occurrences).
+3. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (2 occurrences).
+4. `qe-writing-008` — Remove excessive whitespace between words (21 occurrences).
+5. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
+6. `qe-fig-001` — Do not set figure size unless necessary (1 occurrence).

@@ -2,23 +2,24 @@
 
 - **Series:** lecture-dp
 - **File:** `lectures/markov_jump_lq.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
-- **Overall score:** 6.3 / 10
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `c30490a2f4`
+- **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
+- **Overall score:** 6.9 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 7/10  | Mostly sentence-case headings. |
-| Math         | 3/10  | Apostrophe transpose throughout; `\cal N`; bare `E`; `i.i.d.`. |
-| Code         | 8/10  | Unicode Greek; pip install at top; PEP8 generally OK; no figsize. |
-| JAX          | out of scope | not a JAX lecture. |
-| Figures      | 4/10  | Six `ax.set_title(...)` calls — embedded matplotlib titles violate qe-fig-003. |
-| References   | 9/10  | Citations parenthetical via `{cite}`; no narrative-author misuse. |
-| Links        | 7/10  | One raw markdown link to `python.quantecon.org`; `{doc}` used in 3 places. |
-| Admonitions  | N/A   | No exercises / proofs. |
+| Writing      | 8.5/10 | `qe-writing-009` (proposed) ×1; `qe-writing-008` ×5. |
+| Math         | 3/10  | `qe-math-002` ×45; `qe-math-010` (proposed) ×1; `qe-math-011` (proposed) ×1. |
+| Code         | 7.5/10 | `qe-code-002` ×8. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 5/10  | `qe-fig-003` ×6; `qe-fig-005` ×5; `qe-fig-008` ×12. |
+| References   | 7.5/10 | `qe-ref-001` ×5. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | N/A   | no admonitions, exercises or solutions. |
 
 ## Issues
 
@@ -26,32 +27,36 @@
 _None found._
 
 ### High severity
-- **[qe-math-002]** — Apostrophe `'` used as transpose throughout the Riccati derivation. *Lines:* 81, 94, 108, 114-115, 122, 128, 169, 191, 197, 200, 206-208, 217, 219-220, 225, 231-232. *Count:* 25+ occurrences.
-- **[qe-fig-003]** — Six embedded matplotlib titles via `ax.set_title(...)`. *Lines:* 488, 550, 619, 660, 682, 716. Captions should be in MyST `{figure}` blocks, not embedded.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 8. *Lines:* 409, 509, 519, 536, 578, 602, 647, 703. *Example:* spelled-out `beta`.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 6. *Lines:* 488, 550, 619, 660, 682, 716. *Example:* .set_title.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 434, 478, 542, 608, 626. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 12. *Lines:* 443, 444, 448, 451, 485, 545, 546, 655, 656, 672, …. *Example:* plot() without lw=.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 45. *Lines:* 81, 94, 108, 114, 115, 122, 128, 169, 191, 197, …. *Example:* apostrophe transpose `x_t'`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 1. *Lines:* 288. *Example:* non-blackboard `\Pr`.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 5. *Lines:* 39, 41, 43. *Example:* {cite} in author position: '{cite}`do1999solutions` and'.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 5. *Lines:* 57, 59, 64, 99, 294. *Example:* 3 spaces.
 
 ### Medium severity
-- **[qe-math-011 (proposed)]** — Multivariate normal written as `{\cal N}(0,I)` (line 180). Style is plain `N(0, I)`.
-- **[qe-writing-009 (proposed)]** — `i.i.d.` used in narrative (line 179). Should be `IID`.
-- **[qe-math-010 (proposed)]** — Bare `E` used for expectation in display equations (lines 94, 163, 207). Style is `\mathbb{E}`.
-- **[qe-link-002]** — Raw markdown link to `python.quantecon.org/markov_perf.html` (line 1411); should be `{doc}` form.
-- **[qe-writing-009 (proposed)]** — Smart quotes ’ in narrative (lines 156, 157).
+- **[qe-math-011 (proposed)]** — Distribution names in plain letters, not \mathcal / \mathbb. *Count:* 1. *Lines:* 180. *Example:* decorated distribution `{\cal N}`.
 
 ### Low severity
-- **[qe-writing-001]** — Several multi-sentence paragraphs.
+- **[qe-writing-009 (proposed)]** — Write "IID" — not "i.i.d." or "iid". *Count:* 1. *Lines:* 179. *Example:* i.i.d..
+
 
 ## Strengths
-- Lecture title in correct Title Case.
-- H2 headings sentence case ("Overview", "Review of useful LQ dynamic programming formulas", "Linked Riccati equations for Markov LQ dynamic programming", "Applications", "Example 1", "Example 2", "More examples").
-- Matrices use `bmatrix` (13 matrix blocks).
-- Definitions bolded.
-- Equation labels and `{eq}` references used cleanly.
-- pip install at top; Unicode Greek in code.
-- No `\tag`, no `align`-inside-`$$` issues; no figsize, no Title-Case axis labels.
+
+- Links score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Replace every `'` used as transpose with `^\top` (highest priority).
-2. Remove the six `ax.set_title(...)` calls; if a label is needed, use a `{figure}` block with caption.
-3. Replace `{\cal N}` with plain `N`.
-4. Replace `i.i.d.` with `IID`.
-5. Replace bare `E` with `\mathbb{E}`.
-6. Convert markdown URL to `python.quantecon.org/markov_perf.html` into a `{doc}` reference.
+
+1. `qe-math-002` — Use \top for transpose notation (45 occurrences).
+2. `qe-fig-003` — No matplotlib embedded titles (6 occurrences).
+3. `qe-ref-001` — Use correct citation style (5 occurrences).
+4. `qe-fig-005` — Descriptive figure names for cross-referencing (5 occurrences).
+5. `qe-code-002` — Use Unicode symbols for Greek letters in code (8 occurrences).
+6. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (1 occurrence).
+7. `qe-math-011` (proposed) — Distribution names in plain letters, not \mathcal / \mathbb (1 occurrence).

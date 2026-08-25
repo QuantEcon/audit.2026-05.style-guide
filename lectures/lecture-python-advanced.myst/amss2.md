@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/amss2.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 7.2 / 10
-- **Priority:** LOW
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `b83d6da399`
+- **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
+- **Overall score:** 8.8 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8.5/10 | Sentence-case headings; mostly one-sentence paragraphs. |
-| Math         | 6.5/10 | Mixed `E_t` and `\mathbb E_t` (former rare). |
-| Code         | 7/10  | Spelled Greek (`alpha`, `beta`); install cell with `hide-output`. |
-| JAX          | N/A   | not a JAX lecture |
-| Figures      | 7/10  | 2 `figsize=` settings; no `:name:` fields. |
-| References   | 7/10  | 13 `{cite}`; several narrative author refs would benefit from `{cite:t}` (e.g. "Lucas-Stokey (1983)" sections). |
-| Links        | 8/10  | Heavy `{doc}` use; no raw cross-series URLs. |
-| Admonitions  | N/A   | no exercises, solutions, or proof-family directives. |
+| Writing      | 8.5/10 | `qe-writing-008` ×79. |
+| Math         | 10/10 | no mechanical violations detected. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 6/10  | `qe-fig-003` ×2; `qe-fig-005` ×2; `qe-fig-008` ×2, +1 more. |
+| References   | 8.5/10 | `qe-ref-001` ×2. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | N/A   | no admonitions, exercises or solutions. |
 
 ## Issues
 
@@ -26,25 +27,32 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 79. *Lines:* 26, 27, 30, 32, 33, 38, 41, 42, 45, 49, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-math-010 (proposed)]** — A few bare `E_t` instead of `\mathbb{E}_t`. *Example:* `lectures/amss2.md:557`, `:609`, `:619`. *Count:* 3 occurrences.
-- **[qe-ref-001]** — Narrative-style author references not using `{cite:t}` (e.g. "Lucas-Stokey (1983)" at L131). *Count:* ~4 occurrences with "in"/"of" preceding `{cite}`.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 462, 516. *Example:* figsize=.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 2. *Lines:* 466, 520. *Example:* .set(title=.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 432, 507. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 465, 519. *Example:* plot() without lw=.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 95, 562. *Example:* {cite} in narrative flow: 'in {cite}`'.
 
 ### Low severity
-- **[qe-code-002]** — Spelled-out Greek (`alpha`, `beta`) in code parameters.
-- **[qe-fig-005]** — Figures lack `:name: fig-...` fields.
+_None found._
+
 
 ## Strengths
-- Title in Title Case (qe-writing-006); subheadings sentence case (qe-writing-006).
-- `\begin{bmatrix}` used consistently (qe-math-003).
-- Sequences in curly brackets (qe-math-005).
-- One-sentence paragraph rule respected (qe-writing-001).
-- Cross-series references via `{doc}` (qe-link-002).
-- Install cell at top with `hide-output` (qe-code-003).
+
+- Math, Code, Links score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Replace remaining bare `E_t` with `\mathbb{E}_t` (qe-math-010, proposed).
-2. Convert "Author (Year) {cite}`...`" patterns to `{cite:t}` (qe-ref-001).
-3. Use unicode Greek in code (qe-code-002).
+
+1. `qe-fig-003` — No matplotlib embedded titles (2 occurrences).
+2. `qe-ref-001` — Use correct citation style (2 occurrences).
+3. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
+4. `qe-writing-008` — Remove excessive whitespace between words (79 occurrences).
+5. `qe-fig-008` — Use lw=2 for line charts (2 occurrences).
+6. `qe-fig-001` — Do not set figure size unless necessary (2 occurrences).

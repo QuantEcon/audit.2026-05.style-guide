@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/pv.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.4 / 10
-- **Priority:** LOW
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `a12d17c0ef`
+- **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 9.0 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 9/10  | Title Case H1, sentence-case H2; one-sentence paragraphs throughout. |
-| Math         | 9/10  | bmatrix; sequences with `\{...\}`; labels via `(label)`. |
-| Code         | 8/10  | Unicode Greek (`δ`) used in code (qe-code-002 OK); standard Anaconda imports. |
-| JAX          | out of scope | — |
-| Figures      | 7/10  | No `figsize=` violations; 2 `ax.set_title(...)` inside solution blocks (OK by exception); no `{figure}` directives. |
-| References   | N/A   | no `{cite}` citations |
-| Links        | 9/10  | `{doc}` cross-references used (5 occurrences). |
-| Admonitions  | 9/10  | 7 solutions all gated, dropdown, exercise-linked (qe-admon-001, -002, -005 OK); 11 exercise/solution pairs total. |
+| Writing      | 7/10  | `qe-writing-008` ×39; `qe-writing-004` ×1; `qe-writing-001` ×1. |
+| Math         | 10/10 | no mechanical violations detected. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 7/10  | `qe-fig-005` ×6; `qe-fig-008` ×6. |
+| References   | N/A   | no citations in this lecture. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,23 +27,30 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 6. *Lines:* 234, 278, 297, 328, 618, 673. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 6. *Lines:* 243, 283, 306, 343, 637, 693. *Example:* plot() without lw=.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 39. *Lines:* 18, 33, 37, 39, 42, 55, 59, 73, 75, 77, …. *Example:* 2 spaces.
 
 ### Medium severity
-_None found._
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 524. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 540. *Example:* mid-sentence 'Equation'.
 
 ### Low severity
-- **W1** — A few short two-sentence paragraphs (e.g. lines 28–31).
-- **[qe-fig-005]** — No figures use `{figure}` directive with `:name:`.
+_None found._
+
 
 ## Strengths
-- Sequences use `\{p_t\}_{t=0}^T` (M6 compliant).
-- bmatrix throughout.
-- Equation labels and `{eq}` / `[](label)` cross-references used.
-- Bold for definitions like "**present value model**", "**difference equation**".
-- `{doc}` cross-references used (qe-link-002 OK).
-- Solutions all gated, dropdown, linked.
-- Strong exercise/solution structure (7 paired).
+
+- Math, Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. None critical.
+
+1. `qe-fig-005` — Descriptive figure names for cross-referencing (6 occurrences).
+2. `qe-writing-008` — Remove excessive whitespace between words (39 occurrences).
+3. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (1 occurrence).
+4. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
+5. `qe-fig-008` — Use lw=2 for line charts (6 occurrences).

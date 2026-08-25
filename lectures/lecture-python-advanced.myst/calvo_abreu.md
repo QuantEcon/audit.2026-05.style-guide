@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/calvo_abreu.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 8.4 / 10
-- **Priority:** LOW
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `b83d6da399`
+- **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
+- **Overall score:** 8.6 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 9/10  | Title in Title Case; sentence-case headings; one-sentence paragraphs throughout. |
-| Math         | 9/10  | Clean — no transpose primes, no `\mathcal{N}`, no `array`. |
-| Code         | 7/10  | Mixed unicode/spelled Greek; install cell with `hide-output`. |
-| JAX          | N/A   | not a JAX lecture |
-| Figures      | 8/10  | 1 `figsize=`; no `:name:` fields. |
-| References   | 8/10  | 12 `{cite}` used; never `{cite:t}`. |
-| Links        | 8/10  | 5 `{doc}` references; no raw cross-series URLs. |
-| Admonitions  | N/A   | no exercises, solutions, or proof-family directives. |
+| Writing      | 8/10  | `qe-writing-008` ×94; `qe-writing-001` ×1. |
+| Math         | 9/10  | `qe-math-004` ×1. |
+| Code         | 8/10  | `qe-code-003` ×1; `qe-code-002` ×1. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 8/10  | `qe-fig-005` ×1; `qe-fig-008` ×2; `qe-fig-001` ×1. |
+| References   | 8.5/10 | `qe-ref-001` ×3. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | N/A   | no admonitions, exercises or solutions. |
 
 ## Issues
 
@@ -26,25 +27,35 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 94. *Lines:* 33, 35, 37, 39, 40, 45, 47, 49, 51, 53, …. *Example:* 2 spaces.
 
 ### Medium severity
-_None found._
+- **[qe-code-003]** — Package installation at lecture top. *Count:* 1. *Lines:* 275. *Example:* install cell at line 275 of 688 (not near the top).
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 573, 579. *Example:* plot() without lw=.
+- **[qe-math-004]** — Do not use bold face for matrices or vectors. *Count:* 1. *Lines:* 196. *Example:* {\bf.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 3. *Lines:* 39, 357. *Example:* {cite} in author position: '{cite}`Calvo1978` showed'.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 203. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
-- **[qe-writing-005]** — `**credible government policy**`, `**sustainable plan**`, `**time inconsistency**`, `**Ramsey planner**` used as keywords — borderline definitional.
-- **[qe-code-002]** — Mixed unicode/spelled Greek in code.
-- **[qe-fig-005]** — Figures lack `:name: fig-...` fields.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 422. *Example:* spelled-out `beta`.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 1. *Lines:* 571. *Example:* figsize=.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 536. *Example:* code-cell figure without mystnb figure metadata.
+
 
 ## Strengths
-- Title in Title Case (qe-writing-006).
-- All subheadings sentence case (qe-writing-006).
-- Sequences in curly brackets `\{\mu_t\}_{t=0}^\infty`, `\{\theta_t\}_{t=0}^\infty` (qe-math-005) at L35, L37.
-- Clean math notation throughout.
-- One-sentence paragraph rule consistently followed (qe-writing-001).
-- `{doc}` used for cross-series references (qe-link-002).
-- Install cell at top with `hide-output` (qe-code-003).
+
+- Math, Links score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. No major changes required.
-2. Add `:name: fig-...` fields to figures (qe-fig-005).
+
+1. `qe-ref-001` — Use correct citation style (3 occurrences).
+2. `qe-writing-008` — Remove excessive whitespace between words (94 occurrences).
+3. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
+4. `qe-math-004` — Do not use bold face for matrices or vectors (1 occurrence).
+5. `qe-code-003` — Package installation at lecture top (1 occurrence).
+6. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
+7. `qe-code-002` — Use Unicode symbols for Greek letters in code (1 occurrence).

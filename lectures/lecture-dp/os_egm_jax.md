@@ -2,23 +2,24 @@
 
 - **Series:** lecture-dp
 - **File:** `lectures/os_egm_jax.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
-- **Overall score:** 8.3 / 10
-- **Priority:** LOW
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `c30490a2f4`
+- **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 9.0 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 9/10  | Short clean H2 headings; sentence-case where present. |
-| Math         | 9/10  | Minimal math; nothing violated. |
-| Code         | 9/10  | Unicode Greek; no pip install needed (JAX assumed installed); uses `qe.Timer`. |
-| JAX          | out of scope | uses JAX, but JAX rules out of scope. |
-| Figures      | 5/10  | One `ax.set_title('Optimal policies: CRRA utility approaching log case')`; one Title-Case `set_xlabel('State x')` + `set_ylabel('Consumption σ(x)')`. |
-| References   | N/A   | No `{cite}` directives. |
-| Links        | 9/10  | `{doc}` used 3×; no raw cross-series URLs. |
-| Admonitions  | 9/10  | One `{exercise}` + `solution-start` with `:class: dropdown`. |
+| Writing      | 10/10 | no mechanical violations detected. |
+| Math         | 10/10 | no mechanical violations detected. |
+| Code         | 7.5/10 | `qe-code-002` ×2; `qe-code-003` ×1. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 6.5/10 | `qe-fig-006` ×2; `qe-fig-005` ×2; `qe-fig-008` ×2. |
+| References   | N/A   | no citations in this lecture. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -29,20 +30,28 @@ _None found._
 _None found._
 
 ### Medium severity
-- **[qe-fig-003]** — `ax.set_title('Optimal policies: CRRA utility approaching log case')` (line 391).
-- **[qe-fig-006]** — Title-Case axis labels `set_xlabel('State x')` and `set_ylabel('Consumption σ(x)')` (lines 388, 389).
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 2. *Lines:* 151, 153. *Example:* spelled-out `mu`.
+- **[qe-code-003]** — Package installation at lecture top. *Count:* 1. *Lines:* 1. *Example:* non-Anaconda import with no install cell: ['jax', 'quantecon'].
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 217, 377. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-006]** — Lowercase axis labels. *Count:* 2. *Lines:* 388, 389. *Example:* axis label `State x`.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 223, 386. *Example:* plot() without lw=.
 
 ### Low severity
 _None found._
 
+
 ## Strengths
-- Lecture title in correct Title Case (via `{index}`).
-- All H2 headings sentence case ("Overview", "Implementation", "Exercises").
-- Mostly code-focused — minimal math, but what is there is clean.
-- No transpose, no bold vectors, no matrix-bracket, no `\tag`, no `align` issues.
-- Unicode Greek in code; uses `qe.Timer()` (line 240).
-- Exercise uses `{exercise}` + `solution-start` with dropdown.
+
+- Writing, Math, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Remove the `ax.set_title(...)` call.
-2. Lowercase the two axis labels (`'state x'`, `'consumption σ(x)'`).
+
+1. `qe-fig-006` — Lowercase axis labels (2 occurrences).
+2. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
+3. `qe-code-002` — Use Unicode symbols for Greek letters in code (2 occurrences).
+4. `qe-code-003` — Package installation at lecture top (1 occurrence).
+5. `qe-fig-008` — Use lw=2 for line charts (2 occurrences).

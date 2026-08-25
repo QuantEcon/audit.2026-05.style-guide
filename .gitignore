@@ -1,0 +1,6 @@
+# Jupyter Book build output
+lectures/_build/
+# Python
+__pycache__/
+*.pyc
+.venv/

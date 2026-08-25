@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/orth_proj.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 6.4 / 10
-- **Priority:** MEDIUM
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `b83d6da399`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.0 / 10
+- **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8/10  | Title in Title Case; sentence-case headings; clean one-sentence paragraphs. |
-| Math         | 3/10  | Systemic primes as transpose; `\begin{array}` blocks for matrices. |
-| Code         | 8/10  | 4 spelled Greek; no install cell (numpy only — OK). |
-| JAX          | N/A   | not a JAX lecture |
-| Figures      | 6/10  | 6 `{figure}` directives reference static PNGs; no `:name:` fields. |
-| References   | 9/10  | 1 `{cite}` used. |
-| Links        | 9/10  | No cross-series URL links; self-contained. |
-| Admonitions  | 9/10  | 3 gated exercises and 3 solutions with `:class: dropdown`; 18 `{prf:...}` directives — exemplary proof-family use. |
+| Writing      | 6/10  | `qe-writing-004` ×2; `qe-writing-001` ×3; `qe-writing-008` ×16. |
+| Math         | 3/10  | `qe-math-002` ×52; `qe-math-003` ×6. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 7/10  | `qe-fig-005` ×6; `qe-fig-002` ×6; `qe-fig-009` ×1. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,26 +27,34 @@
 _None found._
 
 ### High severity
-- **[qe-math-002]** — Prime `'` used systematically as transpose. *Example:* `P = X (X' X)^{-1} X' y`, `U' U = I`, `(R' R)^{-1} R'`. *Count:* ~47 occurrences.
-- **[qe-math-003]** — `\begin{array}{c}` (and `{cccc}`) used for matrices instead of `\begin{bmatrix}`. *Example:* `lectures/orth_proj.md:535`, `:545`, `:560`, `:569`, `:777`. *Count:* 6 occurrences.
+- **[qe-fig-002]** — Prefer code-generated figures. *Count:* 6. *Lines:* 73, 79, 85, 154, 195, 249. *Example:* static image .png.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 6. *Lines:* 73, 79, 85, 154, 195, 249. *Example:* {figure} without :name:.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 52. *Lines:* 351, 356, 364, 366, 375, 383, 385, 402, 417, 420, …. *Example:* apostrophe transpose `X'`.
+- **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 6. *Lines:* 535, 545, 560, 569, 777, 791. *Example:* array used as matrix.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 16. *Lines:* 71, 77, 111, 130, 186, 311, 333, 348, 394, 437, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-fig-002]** — 6 `{figure}` directives reference static schematic PNGs.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 3. *Lines:* 348, 740, 883. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 2. *Lines:* 55, 104. *Example:* mid-sentence 'Theory'.
 
 ### Low severity
-- **[qe-math-010 (proposed)]** — Two `\mathbb{E}` occurrences (per scan).
-- **[qe-fig-005]** — Figures lack `:name: fig-...` fields.
-- **[qe-code-002]** — 4 spelled Greek in code.
+- **[qe-fig-009]** — Figure sizing. *Count:* 1. *Lines:* 195. *Example:* :scale: 65% (outside 80–100%).
+
 
 ## Strengths
-- Title in Title Case (qe-writing-006).
-- Subheadings sentence case (qe-writing-006).
-- Sentence-case definitions in bold (e.g. `**orthogonal**`, `**orthogonal complement**`) follow qe-writing-005.
-- One-sentence paragraph rule respected (qe-writing-001).
-- Heavy correct `prf:` directive use (qe-admon-004) — 18 occurrences.
-- Exercises gated; solutions use `:class: dropdown` (qe-admon-001, qe-admon-002).
+
+- Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Replace prime `'` with `^\top` for transpose throughout (qe-math-002).
-2. Convert `\begin{array}` blocks to `\begin{bmatrix}` (qe-math-003).
-3. Add `:name: fig-...` fields (qe-fig-005).
+
+1. `qe-math-002` — Use \top for transpose notation (52 occurrences).
+2. `qe-math-003` — Use square brackets for matrix notation (6 occurrences).
+3. `qe-fig-005` — Descriptive figure names for cross-referencing (6 occurrences).
+4. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (2 occurrences).
+5. `qe-writing-001` — Use one sentence per paragraph (3 occurrences).
+6. `qe-writing-008` — Remove excessive whitespace between words (16 occurrences).
+7. `qe-fig-002` — Prefer code-generated figures (6 occurrences).

@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/equalizing_difference.md`
-- **Audit date:** 2026-05-28
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.7 / 10
+- **Overall score:** 8.3 / 10
 - **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8/10  | H1/H2/H3 conventions OK; some longer paragraphs. |
-| Math         | 8/10  | Clean math; no transpose needed; equation labels via `(label)`. |
-| Code         | 9/10  | Unicode Greek (`γ`, `R`, etc.) used throughout (qe-code-002 OK); standard Anaconda imports. |
-| JAX          | out of scope | — |
-| Figures      | 7/10  | All 3 `ax.set_title` calls inside solution blocks (exception applies); one axis label "Career length $T$" with leading uppercase (line 572); no figure `:name:`. |
-| References   | 7/10  | `{cite}` used; "Chapter 4 of Jennifer Burns {cite}\`Burns_2023\`" (line 25) is in-text and should be `{cite:t}`. |
-| Links        | N/A   | no cross-series links |
-| Admonitions  | 9/10  | Solutions use `:class: dropdown` + exercise labels; gated form throughout (qe-admon-001, -002, -005 OK). |
+| Writing      | 8.5/10 | `qe-writing-008` ×42. |
+| Math         | 8/10  | `qe-math-001` ×2. |
+| Code         | 7.5/10 | `qe-code-002` ×9. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 5.5/10 | `qe-fig-006` ×5; `qe-fig-005` ×7; `qe-fig-008` ×8. |
+| References   | 8.5/10 | `qe-ref-001` ×2. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,27 +27,34 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 9. *Lines:* 54, 384, 391, 398, 424, 439, 456, 471, 486. *Example:* spelled-out `Lambda`.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 7. *Lines:* 233, 249, 268, 345, 512, 562, 648. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-006]** — Lowercase axis labels. *Count:* 5. *Lines:* 522, 572, 573, 656, 657. *Example:* axis label `College wage premium $\phi$`.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 8. *Lines:* 238, 254, 273, 350, 519, 569, 570, 654. *Example:* plot() without lw=.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 42. *Lines:* 22, 25, 27, 30, 32, 34, 38, 42, 69, 75, …. *Example:* 3 spaces.
 
 ### Medium severity
-- **W1** — Several multi-sentence paragraphs (e.g. lines 22–25, 30–35).
-- **[qe-ref-001]** — In-text citation should use `{cite:t}`. *Example:* `lectures/equalizing_difference.md:25` ("Chapter 4 of Jennifer Burns {cite}\`Burns_2023\`"). *Count:* 1 occurrence (with additional adjacent `{cite}` that may also need review).
+- **[qe-math-001]** — Prefer UTF-8 unicode for simple parameter mentions, be consistent. *Count:* 2. *Lines:* 447, 462. *Example:* unicode `γ` inside a math environment.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 25. *Example:* {cite} in author position: '{cite}`kuznets1939incomes` and'.
 
 ### Low severity
-- **W7** — Inconsistent quotes: uses both `''equalizing difference''` (line 32) and `"equalizing"` (line 139).
-- **W4** — "**equalizing difference**" bold for definition (good); "**free college** special case" minor.
-- **[qe-fig-006]** — Axis label "Career length $T$" (line 572) starts with uppercase; should be "career length $T$".
-- **[qe-fig-005]** — No figures use `{figure}` directive with `:name:`.
+_None found._
+
 
 ## Strengths
-- Headings comply with W2/W3.
-- Clean equation labels and `{eq}` references.
-- Bold used for definitions.
-- Unicode Greek in code (qe-code-002 OK).
-- All 4 solutions gated, dropdown, linked.
+
+- Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Break compound paragraphs in Overview into one-sentence units.
-2. Normalize quote style (replace `''...''` with `"..."`).
-3. Convert "Chapter 4 of Jennifer Burns {cite}" → `{cite:t}` form (line 25).
-4. Lowercase axis label "Career length" → "career length".
+
+1. `qe-fig-006` — Lowercase axis labels (5 occurrences).
+2. `qe-fig-005` — Descriptive figure names for cross-referencing (7 occurrences).
+3. `qe-code-002` — Use Unicode symbols for Greek letters in code (9 occurrences).
+4. `qe-math-001` — Prefer UTF-8 unicode for simple parameter mentions, be consistent (2 occurrences).
+5. `qe-ref-001` — Use correct citation style (2 occurrences).
+6. `qe-writing-008` — Remove excessive whitespace between words (42 occurrences).
+7. `qe-fig-008` — Use lw=2 for line charts (8 occurrences).

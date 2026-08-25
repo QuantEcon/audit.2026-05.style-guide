@@ -2,23 +2,24 @@
 
 - **Series:** lecture-dp
 - **File:** `lectures/amss2.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
-- **Overall score:** 7.8 / 10
-- **Priority:** LOW
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `c30490a2f4`
+- **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
+- **Overall score:** 8.8 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 9/10  | H2/H3 sentence case throughout. |
-| Math         | 8/10  | Mostly clean; `aligned` blocks well used. |
-| Code         | 8/10  | Unicode Greek; pip install at top; PEP8; figsize 2×. |
-| JAX          | out of scope | not a JAX lecture. |
-| Figures      | 9/10  | No embedded titles; lowercase labels; figsize 2×. |
-| References   | 5/10  | Five narrative-author `{cite}` patterns (e.g. "Lucas-Stokey {cite}…", "AMSS {cite}…"). |
-| Links        | 8/10  | `{doc}` used 8×; no raw cross-series URLs. |
-| Admonitions  | N/A   | No exercises. |
+| Writing      | 8.5/10 | `qe-writing-008` ×79. |
+| Math         | 10/10 | no mechanical violations detected. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 6/10  | `qe-fig-003` ×2; `qe-fig-005` ×2; `qe-fig-008` ×2, +1 more. |
+| References   | 8.5/10 | `qe-ref-001` ×2. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | N/A   | no admonitions, exercises or solutions. |
 
 ## Issues
 
@@ -26,28 +27,32 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 79. *Lines:* 26, 27, 30, 32, 33, 38, 41, 42, 45, 49, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-ref-001]** — Five narrative-author `{cite}` patterns ("Lucas-Stokey {cite}`LucasStokey1983`" 5×, "AMSS {cite}`aiyagari2002optimal`"). Should be `{cite:t}`.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 462, 516. *Example:* figsize=.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 2. *Lines:* 466, 520. *Example:* .set(title=.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 432, 507. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 465, 519. *Example:* plot() without lw=.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 95, 562. *Example:* {cite} in narrative flow: 'in {cite}`'.
 
 ### Low severity
-- **[qe-writing-001]** — A few multi-sentence paragraphs (lines 34-41, 57-79).
-- **[qe-writing-009 (proposed)]** — Smart quotes ’ used occasionally.
+_None found._
+
 
 ## Strengths
-- Lecture title in correct Title Case.
-- All H2/H3 headings sentence case.
-- Definitions bolded ("**measurability constraints**", "**weak**").
-- Equation labels and `{eq}` references used cleanly.
-- "IID"/Greek-letter conventions consistent.
-- `aligned` used inside `$$`.
-- No transpose, no bold vectors, no matrix-bracket, no `\tag`, no `align`-inside-`$$` issues.
-- pip install at top; Unicode Greek in code.
-- `{doc}` used for cross-series.
-- No matplotlib titles, no spine, no Title-Case axis labels.
+
+- Math, Code, Links score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Switch the 5 narrative `Author {cite}…` references to `{cite:t}` form.
-2. Optional minor: tighten a few multi-sentence paragraphs.
-3. Optional: normalise smart-quotes.
+
+1. `qe-fig-003` — No matplotlib embedded titles (2 occurrences).
+2. `qe-ref-001` — Use correct citation style (2 occurrences).
+3. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
+4. `qe-writing-008` — Remove excessive whitespace between words (79 occurrences).
+5. `qe-fig-008` — Use lw=2 for line charts (2 occurrences).
+6. `qe-fig-001` — Do not set figure size unless necessary (2 occurrences).

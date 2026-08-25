@@ -2,23 +2,24 @@
 
 - **Series:** lecture-dp
 - **File:** `lectures/short_path.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
-- **Overall score:** 8.3 / 10
-- **Priority:** LOW
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `c30490a2f4`
+- **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 9.7 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 9/10  | Clean structure, sentence-case H2s, mostly one-sentence paragraphs. |
-| Math         | 9/10  | Math is minimal but compliant. |
-| Code         | 9/10  | No pip install needed; PEP8; no figsize. |
-| JAX          | out of scope | not a JAX lecture. |
-| Figures      | 5/10  | Four static PNG figures (`graph.png`, `graph2.png`, `graph3.png`, `graph4.png`). |
-| References   | N/A   | No `{cite}` directives. |
-| Links        | 9/10  | No raw cross-series URLs; uses Wikipedia external links. |
-| Admonitions  | 9/10  | One `{exercise-start}` + `{solution-start}` with `:label:` and dropdown; one `{note}`. |
+| Writing      | 10/10 | no mechanical violations detected. |
+| Math         | 10/10 | no mechanical violations detected. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 8/10  | `qe-fig-005` ×4; `qe-fig-002` ×4. |
+| References   | N/A   | no citations in this lecture. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -29,20 +30,22 @@ _None found._
 _None found._
 
 ### Medium severity
-- **[qe-fig-002]** — Four static PNG figures (`graph.png`, `graph2.png`, `graph3.png`, `graph4.png`). *Lines:* 57, 78, 84, 96. These are graph visualizations that could in principle be code-generated (e.g. with `networkx` or graphviz) but here they are intentionally hand-drawn illustrations. Accept as low-priority.
+- **[qe-fig-002]** — Prefer code-generated figures. *Count:* 4. *Lines:* 57, 78, 84, 96. *Example:* static image .png.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 57, 78, 84, 96. *Example:* {figure} without :name:.
 
 ### Low severity
-- **[qe-writing-001]** — A few paragraphs run two sentences (e.g. 122-123, 145-148).
-- **[qe-writing-005]** — "**dynamic programming**" (line 41) bolded as if defined, but used here as emphasis.
+_None found._
+
 
 ## Strengths
-- Title in correct Title Case.
-- All H2/H3 headings sentence case.
-- Equation labels use `{math} :label:` form correctly with `{eq}` references.
-- Simple notation ($J$, $Q$, $F_v$) consistent with qe-writing-004.
-- No transpose, no bold vectors, no `\tag`, no `align` issues.
-- Exercise uses `exercise-start`/`exercise-end` + `solution-start`/`solution-end` with `:class: dropdown`.
+
+- Writing, Math, Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Consider tightening a couple of two-sentence paragraphs to single sentences.
-2. Switch the bolded "dynamic programming" to italics when used as emphasis rather than definition.
+
+1. `qe-fig-005` — Descriptive figure names for cross-referencing (4 occurrences).
+2. `qe-fig-002` — Prefer code-generated figures (4 occurrences).

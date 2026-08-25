@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/black_litterman.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 5.0 / 10
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `b83d6da399`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 7.1 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 7/10  | Title in Title Case; sentence-case headings; some long compound paragraphs. |
-| Math         | 2/10  | Heavy `\mathcal{N}` use; primes as transpose; bold zero vector. |
-| Code         | 5/10  | 16 spelled-Greek assignments; no install cell (uses numpy/scipy only — OK). |
-| JAX          | N/A   | not a JAX lecture |
-| Figures      | 4/10  | `ax.set_title` used 3 times; 7 `figsize=`; 4 `set_xlabel` with capitalised labels (e.g. "Mean"). |
-| References   | 8/10  | 6 `{cite}` used; never `{cite:t}` despite narrative author usage. |
-| Links        | 6/10  | Two raw `python-advanced.quantecon.org` URLs. |
-| Admonitions  | N/A   | no exercises, solutions, or proof-family directives. |
+| Writing      | 5/10  | `qe-writing-001` ×10; `qe-writing-004` ×3; `qe-writing-008` ×7. |
+| Math         | 3/10  | `qe-math-002` ×36; `qe-math-010` (proposed) ×14; `qe-math-004` ×24, +1 more. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 3.5/10 | `qe-fig-003` ×5; `qe-fig-006` ×7; `qe-fig-005` ×7, +2 more. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 8.5/10 | `qe-link-001` ×2. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,31 +27,40 @@
 _None found._
 
 ### High severity
-- **[qe-math-011 (proposed)]** — `\mathcal{N}` used systematically as Normal distribution. *Example:* `lectures/black_litterman.md:518`. *Count:* 16 occurrences.
-- **[qe-math-002]** — Prime `'` used as transpose. *Example:* `w'(\vec r - r_f 1)`, `C' w`, ~28 inline-math primes used as transpose. *Count:* ~28 occurrences.
-- **[qe-fig-003]** — `ax.set_title` used 3 times to embed titles in matplotlib. *Count:* 3 occurrences.
-- **[qe-fig-006]** — `set_xlabel("Mean")` and similar Title-Case axis labels. *Count:* 4 occurrences.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 7. *Lines:* 203, 320, 413, 661, 715, 1261, 1397. *Example:* figsize=.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 5. *Lines:* 204, 321, 427, 1268, 1401. *Example:* .set_title.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 7. *Lines:* 172, 303, 408, 649, 703, 1249, 1369. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-006]** — Lowercase axis labels. *Count:* 7. *Lines:* 212, 326, 673, 674, 728, 729, 1403. *Example:* axis label `Assets`.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 6. *Lines:* 205, 206, 322, 323, 670, 725. *Example:* plot() without lw=.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 36. *Lines:* 121, 130, 244, 252, 527, 555, 556, 583, 592, 748, …. *Example:* apostrophe transpose `w'`.
+- **[qe-math-004]** — Do not use bold face for matrices or vectors. *Count:* 24. *Lines:* 97, 104, 110, 121, 153, 261, 280, 292, 341, 357, …. *Example:* {\bf.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 14. *Lines:* 759, 760, 762, 778, 821, 1025, 1035, 1111, 1117, 1124, …. *Example:* missing braces: `\mathbb E`.
+- **[qe-math-011 (proposed)]** — Distribution names in plain letters, not \mathcal / \mathbb. *Count:* 6. *Lines:* 455, 463, 512, 518, 1161, 1215. *Example:* decorated distribution `\mathcal{N}`.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 10. *Lines:* 133, 569, 754, 847, 905, 954, 1127, 1275, 1333, 1414. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 7. *Lines:* 38, 42, 66, 116, 837. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-math-004]** — Bold used for vectors/matrices. *Example:* `lectures/black_litterman.md:518`, `:592`, `:812`, `:831`. *Count:* 4 occurrences.
-- **[qe-link-002]** — Raw `python-advanced.quantecon.org` URLs for sibling-series references. *Example:* `lectures/black_litterman.md:30`, `:38`. *Count:* 2 occurrences.
-- **[qe-code-002]** — Spelled Greek (`alpha`, `beta`, `gamma`, `delta`) heavily used in code (16 assignments).
-- **[qe-fig-001]** — 7 `figsize=` settings without justification.
+- **[qe-link-001]** — Use markdown style links for lectures in same lecture series. *Count:* 2. *Lines:* 30, 38. *Example:* full URL to own series (python-advanced.quantecon.org).
+- **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 3. *Lines:* 30. *Example:* mid-sentence 'Asset'.
 
 ### Low severity
-- **[qe-writing-005]** — `**Black-Litterman**`, `**robust portfolio choice**` bold-as-emphasis use is borderline definitional.
-- **[qe-fig-005]** — Figures lack `:name: fig-...` fields.
+_None found._
+
 
 ## Strengths
-- `\mathbb{E}` used (mixed with bare) (qe-math-010, proposed).
-- Title in Title Case (qe-writing-006).
-- Subheadings sentence case (qe-writing-006).
-- Consistent `{cite}` usage for references.
+
+- Code, References, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Replace `\mathcal{N}` with `N` for the Normal distribution (qe-math-011, proposed).
-2. Replace prime `'` with `^\top` for transpose throughout (qe-math-002).
-3. Remove `ax.set_title` calls; move titles to mystnb figure metadata (qe-fig-003).
-4. Lowercase axis labels (qe-fig-006).
-5. Remove `\mathbf{0}` for zero vector — use plain `0` (qe-math-004).
-6. Convert raw `python-advanced.quantecon.org` URLs to markdown links to same-series docs (qe-link-001).
+
+1. `qe-math-002` — Use \top for transpose notation (36 occurrences).
+2. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (14 occurrences).
+3. `qe-writing-001` — Use one sentence per paragraph (10 occurrences).
+4. `qe-math-004` — Do not use bold face for matrices or vectors (24 occurrences).
+5. `qe-math-011` (proposed) — Distribution names in plain letters, not \mathcal / \mathbb (6 occurrences).
+6. `qe-fig-003` — No matplotlib embedded titles (5 occurrences).
+7. `qe-fig-006` — Lowercase axis labels (7 occurrences).

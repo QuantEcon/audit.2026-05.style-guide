@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/rosen_schooling_model.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 7.4 / 10
-- **Priority:** LOW
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `b83d6da399`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.9 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8.5/10 | Clean sentence-case subheadings; mostly one-sentence paragraphs. |
-| Math         | 7.5/10 | Mostly clean; "k+1 x 1" dimensions written in prose without math. |
-| Code         | 8/10  | Unicode Greek used (6 occurrences, no spelled); install cell with `hide-output`. |
-| JAX          | N/A   | not a JAX lecture |
-| Figures      | 7/10  | 2 `figsize=`; no `:name:` fields. |
-| References   | 8/10  | 4 `{cite}` used; never `{cite:t}`. |
-| Links        | 8/10  | 1 `{doc}` reference; no raw cross-series URLs. |
-| Admonitions  | N/A   | no exercises, solutions, or proof-family directives. |
+| Writing      | 7.5/10 | `qe-writing-001` ×2; `qe-writing-008` ×3. |
+| Math         | 10/10 | no mechanical violations detected. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 6/10  | `qe-fig-003` ×4; `qe-fig-005` ×4; `qe-fig-008` ×14, +1 more. |
+| References   | 9/10  | `qe-ref-001` ×1. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,24 +27,33 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 14. *Lines:* 294, 295, 299, 300, 312, 313, 314, 318, 319, 320, …. *Example:* plot() without lw=.
 
 ### Medium severity
-_None found._
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 4. *Lines:* 293, 311, 425, 519. *Example:* figsize=.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 4. *Lines:* 297, 302, 316, 322. *Example:* .set_title.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 292, 310, 390, 485. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 383, 447. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 3. *Lines:* 29, 136, 332. *Example:* 2 spaces.
 
 ### Low severity
-- **[qe-math-001]** — Plain-text "k+1 x 1 matrix" and "k_1 x k+1 matrix" (L110-111) mix narrative with bare LaTeX symbols; should be rendered inside `$...$`.
-- **[qe-writing-006]** — Sub-subheadings such as "### Preferences", "### Technology", "### Information" — fine; no violation.
-- **[qe-fig-005]** — Figures lack `:name: fig-...` fields.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 27. *Example:* {cite} in narrative flow: '{cite}`'.
+
 
 ## Strengths
-- `\begin{bmatrix}` used consistently (qe-math-003).
-- `\mathbb{E}` used for expectation (qe-math-010, proposed) at L75.
-- Title in Title Case (qe-writing-006); sentence-case headings (qe-writing-006).
-- One-sentence paragraph rule largely respected (qe-writing-001).
-- Unicode Greek used in code (qe-code-002).
-- Install cell at top with `hide-output` (qe-code-003).
+
+- Math, Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Wrap dimensional expressions like "k+1 x 1" in math mode: `$(k+1) \times 1$` (qe-math-001).
-2. Add `:name: fig-...` fields (qe-fig-005).
+
+1. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
+2. `qe-fig-003` — No matplotlib embedded titles (4 occurrences).
+3. `qe-fig-005` — Descriptive figure names for cross-referencing (4 occurrences).
+4. `qe-fig-008` — Use lw=2 for line charts (14 occurrences).
+5. `qe-ref-001` — Use correct citation style (1 occurrence).
+6. `qe-writing-008` — Remove excessive whitespace between words (3 occurrences).
+7. `qe-fig-001` — Do not set figure size unless necessary (4 occurrences).

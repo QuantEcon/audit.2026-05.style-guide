@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/prob_dist.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.1 / 10
-- **Priority:** LOW
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `a12d17c0ef`
+- **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.8 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 9/10  | H1 Title Case OK; H2/H3/H4 sentence case; clean one-sentence paragraphs. |
-| Math         | 9/10  | `\mathbb P`, `\mathbb E`, `\mathbb V` (M7 OK); `\mathbb 1` for indicator (M3-compatible); density `p` lowercase (M10 OK). |
-| Code         | 8/10  | `!pip install yfinance` at top with `hide-output` (qe-code-003 OK); unicode Greek (`μ`, `σ`) used in code (qe-code-002 OK). |
-| JAX          | out of scope | — |
-| Figures      | 5/10  | Axis label "S" capitalised on many plots (lines 128, 141, 244, 323, etc.) — `S` is a symbol so debatable; "PMF"/"CDF" uppercase OK as acronyms; no `ax.set_title`/`figsize=` violations. |
-| References   | N/A   | no `{cite}` citations |
-| Links        | N/A   | no cross-series links |
-| Admonitions  | 9/10  | 1 solution gated, dropdown, exercise-linked. |
+| Writing      | 9.5/10 | `qe-writing-008` ×1. |
+| Math         | 7.5/10 | `qe-math-010` (proposed) ×3. |
+| Code         | 7.5/10 | `qe-code-002` ×8. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 8/10  | `qe-fig-008` ×14; `qe-fig-005` ×1. |
+| References   | N/A   | no citations in this lecture. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,24 +27,30 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 8. *Lines:* 911, 912, 934, 935, 983, 984, 1006, 1007. *Example:* spelled-out `beta`.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 14. *Lines:* 306, 434, 528, 571, 692, 713, 780, 799, 848, 867, …. *Example:* plot() without lw=.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 3. *Lines:* 152, 591, 615. *Example:* missing braces: `\mathbb P`.
 
 ### Medium severity
-- **M3** — Uses `\mathbb 1` for indicator instead of `\mathbb{1}` (same symbol, slightly inconsistent style); generally OK.
-- **[qe-fig-006]** — Axis label `'S'` appears many times (lines 128, 141, 244, 323, etc.); `S` is a math symbol that's OK if rendered, but as plain string it reads as title-case. Consider `r'$S$'`. *Count:* 10+ occurrences.
+_None found._
 
 ### Low severity
-- **W1** — Some short two-sentence paragraphs.
-- **[qe-fig-005]** — No figures use `{figure}` directive with `:name:`.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 473. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 1. *Lines:* 269. *Example:* 2 spaces.
+
 
 ## Strengths
-- `\mathbb P`, `\mathbb E`, `\mathbb V` consistently used (M7 fully compliant).
-- `\mathbb 1` indicator function explained (M3 compliant).
-- Density `p` lowercase, CDF `F` uppercase (M10 OK).
-- Section headings sentence case.
-- Bold for definitions (**probability mass function**, **mean**, **variance**, **cumulative distribution function**, etc.).
-- `yfinance` install at top with `hide-output` (qe-code-003 OK).
-- Unicode Greek in code.
+
+- Writing, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Render axis-label symbols as math: `set_xlabel(r'$S$')` instead of `'S'`.
+
+1. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (3 occurrences).
+2. `qe-code-002` — Use Unicode symbols for Greek letters in code (8 occurrences).
+3. `qe-fig-008` — Use lw=2 for line charts (14 occurrences).
+4. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
+5. `qe-writing-008` — Remove excessive whitespace between words (1 occurrence).

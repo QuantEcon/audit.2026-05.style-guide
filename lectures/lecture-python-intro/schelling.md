@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/schelling.md`
-- **Audit date:** 2026-05-28
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.7 / 10
-- **Priority:** LOW
+- **Overall score:** 9.4 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8/10  | H1 Title Case OK; "### Set-Up" is Title Case where sentence case expected. |
-| Math         | N/A   | no math content beyond simple coordinate references |
-| Code         | 8/10  | Standard Anaconda imports only. |
-| JAX          | out of scope | — |
-| Figures      | 6/10  | 1 `ax.set_title(f'Cycle {cycle_num-1}')` on line 250 outside exercise context; 1 `ax.set_title` inside solution block (OK). |
-| References   | 8/10  | 1 `{cite}` (parenthetical, OK). |
-| Links        | 6/10  | Cross-series direct URL on line 154 (`python-programming.quantecon.org/python_oop.html`). |
-| Admonitions  | 9/10  | `{prf:example}` used (qe-admon-004 OK); 1 solution gated, dropdown, exercise-linked. |
+| Writing      | 9.5/10 | `qe-writing-008` ×1. |
+| Math         | 10/10 | no mechanical violations detected. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 7/10  | `qe-fig-005` ×2; `qe-fig-003` ×1; `qe-fig-008` ×3. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 9/10  | `qe-link-002` ×1. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -29,23 +30,27 @@ _None found._
 _None found._
 
 ### Medium severity
-- **W3** — "### Set-Up" (line 79) uses Title Case; should be "### Set-up" or "### Setup".
-- **[qe-fig-003]** — `ax.set_title(f'Cycle {cycle_num-1}')` on line 250 outside exercise context. *Count:* 1 occurrence.
-- **[qe-link-002]** — Cross-series link uses direct URL. *Example:* `lectures/schelling.md:154` (`[objects](https://python-programming.quantecon.org/python_oop.html)`). Should be `{doc}\`programming:python_oop\``.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 250. *Example:* .set_title.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 229, 372. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 246, 248, 427. *Example:* plot() without lw=.
+- **[qe-link-002]** — Use doc links for cross-series references. *Count:* 1. *Lines:* 154. *Example:* raw link to python-programming.quantecon.org.
 
 ### Low severity
-- **W1** — Several two-sentence paragraphs (e.g. lines 33–35, 47–48).
-- **[qe-fig-005]** — No figures use `{figure}` directive with `:name:`.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 1. *Lines:* 91. *Example:* 2 spaces.
+
 
 ## Strengths
-- H1 Title Case OK; most H2/H3 sentence case.
-- Clear prose, one-sentence paragraph style mostly maintained.
-- Bold for definitions ("**unit square**").
-- `{prf:example}` directive (qe-admon-004 OK).
-- Solution gated, dropdown, linked.
+
+- Writing, Math, Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Change "Set-Up" → "Set-up" per W3.
-2. Move `set_title` on line 250 to mystnb/figure metadata.
-3. Replace direct URL on line 154 with `{doc}\`programming:python_oop\``.
-4. Split a few multi-sentence paragraphs.
+
+1. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
+2. `qe-link-002` — Use doc links for cross-series references (1 occurrence).
+3. `qe-fig-003` — No matplotlib embedded titles (1 occurrence).
+4. `qe-fig-008` — Use lw=2 for line charts (3 occurrences).
+5. `qe-writing-008` — Remove excessive whitespace between words (1 occurrence).

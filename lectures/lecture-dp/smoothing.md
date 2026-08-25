@@ -2,23 +2,24 @@
 
 - **Series:** lecture-dp
 - **File:** `lectures/smoothing.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
-- **Overall score:** 5.5 / 10
-- **Priority:** HIGH
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `c30490a2f4`
+- **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
+- **Overall score:** 7.8 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8/10  | H2/H3 mostly sentence case. |
-| Math         | 3/10  | Apostrophe transpose throughout LQ section; `\cal N` distribution; bare `E_t`. |
-| Code         | 8/10  | Unicode Greek; pip install at top; PEP8; figsize used 2×. |
-| JAX          | out of scope | not a JAX lecture. |
-| Figures      | 6/10  | Title-Case `'Periods'` xlabel (4×); 2 figsize calls. |
-| References   | 4/10  | Four narrative-author `{cite}` patterns (e.g. "Lucas and Stokey {cite}…") — should be `{cite:t}`. |
-| Links        | 4/10  | Six raw markdown links to `python-intro.quantecon.org` / `python.quantecon.org`. |
-| Admonitions  | N/A   | No exercises / proofs. |
+| Writing      | 6.5/10 | `qe-writing-001` ×2; `qe-writing-008` ×52; `qe-writing-004` ×1. |
+| Math         | 4.5/10 | `qe-math-010` (proposed) ×4; `qe-math-002` ×3; `qe-math-011` (proposed) ×1. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 5.5/10 | `qe-fig-003` ×4; `qe-fig-006` ×4; `qe-fig-005` ×2, +1 more. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | N/A   | no admonitions, exercises or solutions. |
 
 ## Issues
 
@@ -26,33 +27,37 @@
 _None found._
 
 ### High severity
-- **[qe-math-002]** — Apostrophe `'` used as transpose throughout the LQ derivation. *Lines:* 151, 177, 190, 196, and dozens through the LQ section. *Count:* 50+ occurrences.
-- **[qe-link-002]** — Six raw markdown links to `python-intro.quantecon.org` / `python.quantecon.org` cross-series URLs; should be `{doc}` intersphinx references.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 3. *Lines:* 151, 177, 190. *Example:* apostrophe transpose `C'`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 4. *Lines:* 378, 381, 398, 493. *Example:* missing braces: `\mathbb P`.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 52. *Lines:* 26, 40, 42, 44, 54, 65, 68, 93, 99, 103, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-math-011 (proposed)]** — Multivariate normal written as `{\cal N}(0,I)` (line 140); style is plain `N(0, I)`.
-- **[qe-math-010 (proposed)]** — Bare `E_t b_{t+1}` (lines 190, 196) and `\mathbb E_t` without braces (lines 177, 184); style is `\mathbb{E}_t`.
-- **[qe-ref-001]** — Narrative-author citations using parenthetical `{cite}`. *Count:* 4 occurrences (e.g. "Lucas and Stokey {cite}`LucasStokey1983`", "Barro {cite}`Barro1979`", "Hall {cite}`Hall1978`").
-- **[qe-fig-006]** — Title-Case `xlabel('Periods')` 4 times. *Lines:* 333, 342, 924, 933.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 326, 916. *Example:* figsize=.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 4. *Lines:* 329, 337, 918, 926. *Example:* .set_title.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 271, 907. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-006]** — Lowercase axis labels. *Count:* 4. *Lines:* 333, 342, 924, 933. *Example:* axis label `Periods`.
+- **[qe-math-011 (proposed)]** — Distribution names in plain letters, not \mathcal / \mathbb. *Count:* 1. *Lines:* 140. *Example:* decorated distribution `{\cal N}`.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 461, 519. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 87. *Example:* mid-sentence 'Savings'.
 
 ### Low severity
-- **[qe-writing-001]** — A few multi-sentence paragraphs.
-- **[qe-fig-001]** — `figsize=` set 2 times.
+_None found._
+
 
 ## Strengths
-- Lecture title in correct Title Case.
-- Most H2/H3 headings sentence case ("Background", "Linear state space version of complete markets model", "Interpretation of graph", "Incomplete markets version", "Finite state Markov income process").
-- Matrices use `bmatrix`.
-- "IID" used correctly.
-- `\mathbb{P}` and `\mathbb{E}` partially used.
-- Equation labels and `{eq}` references used cleanly.
-- pip install at top; Unicode Greek in code.
-- No matplotlib titles, no spine issues.
+
+- Code, References, Links score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Replace every `'` used as transpose with `^\top` (highest priority).
-2. Change `{\cal N}` to plain `N`.
-3. Standardise `\mathbb E_t` → `\mathbb{E}_t` and bare `E_t` → `\mathbb{E}_t`.
-4. Switch narrative `Author {cite}…` to `{cite:t}` form.
-5. Convert 6 raw markdown URLs to `{doc}` form.
-6. Lowercase `'Periods'` axis labels.
+
+1. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (4 occurrences).
+2. `qe-math-002` — Use \top for transpose notation (3 occurrences).
+3. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
+4. `qe-fig-003` — No matplotlib embedded titles (4 occurrences).
+5. `qe-fig-006` — Lowercase axis labels (4 occurrences).
+6. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
+7. `qe-writing-008` — Remove excessive whitespace between words (52 occurrences).

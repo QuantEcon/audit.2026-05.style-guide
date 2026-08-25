@@ -2,23 +2,24 @@
 
 - **Series:** lecture-dp
 - **File:** `lectures/lagrangian_lqdp.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
-- **Overall score:** 6.0 / 10
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `c30490a2f4`
+- **Categories audited:** writing, math, code, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 7.1 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 6/10  | Several Title-Case H2 headings. |
-| Math         | 3/10  | Apostrophe + `^\prime` transpose throughout; `pmatrix` and `\cr`. |
-| Code         | 6/10  | Two `%%timeit` magics; pip install at top; Unicode Greek; otherwise PEP8. |
-| JAX          | out of scope | not a JAX lecture. |
-| Figures      | 9/10  | No matplotlib titles; no spine issues; no figsize calls. Clean. |
-| References   | 8/10  | Single `{cite}` — no narrative-author misuse to flag. |
-| Links        | 4/10  | Four raw markdown links to `python-advanced.quantecon.org` / `python.quantecon.org` instead of `{doc}`. |
-| Admonitions  | N/A   | No exercises / proofs / notes. |
+| Writing      | 3.5/10 | `qe-writing-006` ×7; `qe-writing-004` ×3; `qe-writing-008` ×72, +1 more. |
+| Math         | 3/10  | `qe-math-002` ×73; `qe-math-003` ×6. |
+| Code         | 8.5/10 | `qe-code-002` ×1; `qe-code-005` ×2. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | N/A   | no figures or plotting code. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 7.5/10 | `qe-link-002` ×5. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,32 +27,35 @@
 _None found._
 
 ### High severity
-- **[qe-math-002]** — Apostrophe `'` and `^\prime` used as transpose throughout. *Lines:* 76, 87, 94, 103, 107, 113, 125, 132, 161-162, 173, 181, 216-217. *Count:* 60+ occurrences.
-- **[qe-writing-006]** — Multiple Title Case H2/H3 headings: `## Undiscounted LQ DP Problem` (70), `## State-Costate Dynamics` (236), `## Reciprocal Pairs Property` (258), `## Other Applications` (669), `## Discounted Problems` (696), `### Transforming States and Controls to Eliminate Discounting` (702), `### Lagrangian for Discounted Problem` (780).
+- **[qe-link-002]** — Use doc links for cross-series references. *Count:* 5. *Lines:* 61, 66, 676, 827. *Example:* raw link to python-advanced.quantecon.org.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 73. *Lines:* 87, 94, 102, 107, 113, 125, 128, 132, 161, 162, …. *Example:* apostrophe transpose `)'`.
+- **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 6. *Lines:* 341, 356, 815, 817, 818, 820. *Example:* matrix environment.
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 7. *Lines:* 70, 236, 258, 672, 699, 705, 778. *Example:* H2 Title Case: 'Undiscounted LQ DP Problem' (Problem).
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 72. *Lines:* 38, 46, 52, 53, 73, 79, 87, 128, 177, 186, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-math-003]** — `pmatrix` used instead of `bmatrix`. *Count:* 6 `pmatrix` blocks.
-- **[qe-math-001]** — `\cr` row separator used inside `aligned` blocks instead of `\\`. *Lines:* 172-175, 208-211, 216-217, 223-225, etc.
-- **[qe-link-002]** — Four raw markdown links to other QuantEcon series instead of `{doc}` intersphinx form: `python-advanced.quantecon.org/lu_tricks.html`, `python-advanced.quantecon.org/classical_filtering.html`, `python-advanced.quantecon.org/dyn_stack.html` (×2), `python.quantecon.org/re_with_feedback.html`. *Lines:* 61, 66, 676, 827.
-- **[qe-code-005]** — Uses `%%timeit` IPython magics for benchmarking. *Lines:* 662, 667. Style guide prefers `quantecon.timeit`.
+- **[qe-code-005]** — Use quantecon timeit for benchmarking. *Count:* 2. *Lines:* 662, 667. *Example:* %%timeit.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 446. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 3. *Lines:* 676. *Example:* mid-sentence 'Linear'.
 
 ### Low severity
-- **[qe-writing-001]** — Several multi-sentence paragraphs.
-- **[qe-writing-009 (proposed)]** — Smart quotes ’ used in narrative.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 476. *Example:* spelled-out `beta`.
+
 
 ## Strengths
-- Lecture title in correct Title Case.
-- Definitions bolded ("**invariant subspace**", "**symplectic**", "**reciprocal pairs**", "**states**", "**costates**", "**algebraic matrix Riccati**").
-- Many equation labels and `{eq}` references used cleanly (24 labels).
-- `aligned` properly inside `$$` (mostly qe-math-006 compliant).
-- No `\tag`, no bold vectors, no `align`-inside-`$$` issues.
-- pip install at top.
-- No matplotlib titles, no figsize, no axis-label or spine issues.
+
+- References, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Replace every `'` and `^\prime` used as transpose with `^\top`.
-2. Replace `pmatrix` with `bmatrix`.
-3. Convert H2/H3 headings to sentence case.
-4. Replace `\cr` with `\\` inside `aligned`.
-5. Convert raw `python-advanced.quantecon.org` / `python.quantecon.org` markdown links to `{doc}` intersphinx references.
-6. Replace `%%timeit` with `quantecon.timeit` context.
+
+1. `qe-math-002` — Use \top for transpose notation (73 occurrences).
+2. `qe-writing-006` — Capitalize lecture titles properly (7 occurrences).
+3. `qe-math-003` — Use square brackets for matrix notation (6 occurrences).
+4. `qe-link-002` — Use doc links for cross-series references (5 occurrences).
+5. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (3 occurrences).
+6. `qe-writing-008` — Remove excessive whitespace between words (72 occurrences).
+7. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).

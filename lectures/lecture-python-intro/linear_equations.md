@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/linear_equations.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.4 / 10
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `a12d17c0ef`
+- **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.1 / 10
 - **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8/10  | H1 Title Case OK; H2/H3 sentence case; some short paragraphs. |
-| Math         | 7/10  | bmatrix used; `^T` for transpose on line 1274 (M2 violation); equations clean otherwise. |
-| Code         | 8/10  | Standard Anaconda imports only; spelled-out `alpha=` only as matplotlib kwarg (acceptable). |
-| JAX          | out of scope | — |
-| Figures      | 7/10  | No `figsize=` overrides, no `ax.set_title` violations; 6 spines manipulations (set_color/set_position pattern around figure code). |
-| References   | N/A   | no `{cite}` citations |
-| Links        | 4/10  | 5 direct URLs to `python-programming.quantecon.org/numpy.html` and `python.quantecon.org/linear_algebra.html` (lines 352, 660, 666, 955, 1388) — should be `{doc}` links. |
-| Admonitions  | 9/10  | `{prf:example}` × 7 used (qe-admon-004 OK); 2 solutions gated, dropdown, exercise-linked. |
+| Writing      | 9/10  | `qe-writing-001` ×1. |
+| Math         | 6.5/10 | `qe-math-002` ×2; `qe-math-003` ×1. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 5.5/10 | `qe-fig-007` ×6; `qe-fig-005` ×5; `qe-fig-008` ×4. |
+| References   | N/A   | no citations in this lecture. |
+| Links        | 7.5/10 | `qe-link-002` ×5. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,26 +27,34 @@
 _None found._
 
 ### High severity
-- **[qe-link-002]** — Multiple cross-series links use direct URLs instead of `{doc}` references. *Examples:* `lectures/linear_equations.md:352` (`[NumPy arrays](https://python-programming.quantecon.org/numpy.html#numpy-arrays)`), 660, 666, 955, 1388. *Count:* 5 occurrences. **Systemic.**
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 155, 242, 315, 912, 1365. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-007]** — Keep figure box and spines. *Count:* 6. *Lines:* 161, 163, 248, 250, 321, 323. *Example:* spine removal.
+- **[qe-link-002]** — Use doc links for cross-series references. *Count:* 5. *Lines:* 352, 660, 666, 955, 1388. *Example:* raw link to python-programming.quantecon.org.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 2. *Lines:* 1273. *Example:* `^T` transpose in `A^T`.
 
 ### Medium severity
-- **M2** — Uses `^T` for transpose on line 1274 (`\hat{x} = (A^T A)^{-1} A^T b`) — should be `^\top`. *Count:* 1 equation (2 instances within).
-- **[qe-fig-007]** — Spines manipulated via `set_color('none')` + `set_position('zero')` to hide the box. *Count:* 6 occurrences across vector/coord figures.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 4. *Lines:* 915, 916, 1372, 1373. *Example:* plot() without lw=.
+- **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 1. *Lines:* 817. *Example:* matrix environment.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 1157. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
-- **W1** — Some short two-sentence paragraphs.
-- **W3** — "## {index}`Vectors <single: Vectors>`" mixes index directive with heading (line 130).
-- **[qe-fig-005]** — No figures use `{figure}` directive with `:name:`.
+_None found._
+
 
 ## Strengths
-- bmatrix used throughout for matrices (M4 OK).
-- Equation labels via `{math}` `:label:` (M14 OK).
-- Bold for definitions (**vector**, **least squares solution**, etc.).
-- Section headings mostly sentence case.
-- `{prf:example}` used 7 times (qe-admon-004 OK).
-- Solutions all gated, dropdown, linked.
+
+- Writing, Code, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Replace direct cross-series URLs (lines 352, 660, 666, 955, 1388) with `{doc}\`programming:numpy\`` / `{doc}\`intermediate:linear_algebra\`` form.
-2. Replace `^T` with `^\top` on line 1274.
-3. Drop the spine `set_color('none')` calls per qe-fig-007 (keep default box).
+
+1. `qe-math-002` — Use \top for transpose notation (2 occurrences).
+2. `qe-link-002` — Use doc links for cross-series references (5 occurrences).
+3. `qe-fig-007` — Keep figure box and spines (6 occurrences).
+4. `qe-fig-005` — Descriptive figure names for cross-referencing (5 occurrences).
+5. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
+6. `qe-math-003` — Use square brackets for matrix notation (1 occurrence).
+7. `qe-fig-008` — Use lw=2 for line charts (4 occurrences).

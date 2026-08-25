@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/chang_ramsey.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 8.0 / 10
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `b83d6da399`
+- **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
+- **Overall score:** 7.9 / 10
 - **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 9/10  | Title in Title Case; sentence-case headings; mostly one-sentence paragraphs. |
-| Math         | 8/10  | Clean — primes are derivatives / next-period, not transpose. |
-| Code         | 6/10  | Heavy spelled Greek (17 occurrences); install cell with `hide-output`. |
-| JAX          | N/A   | not a JAX lecture |
-| Figures      | 6/10  | 2 `ax.set_title` calls; 5 `figsize=`; no `:name:` fields. |
-| References   | 8/10  | 10 `{cite}` used; never `{cite:t}`. |
-| Links        | 9/10  | 14 `{doc}` references; no raw cross-series URLs. |
-| Admonitions  | N/A   | no exercises, solutions, or proof-family directives. |
+| Writing      | 6/10  | `qe-writing-004` ×2; `qe-writing-001` ×2; `qe-writing-008` ×26. |
+| Math         | 7.5/10 | `qe-math-002` ×2. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 5.5/10 | `qe-fig-005` ×5; `qe-fig-003` ×3; `qe-fig-008` ×5, +1 more. |
+| References   | 8.5/10 | `qe-ref-001` ×2. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | N/A   | no admonitions, exercises or solutions. |
 
 ## Issues
 
@@ -26,26 +27,36 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 5. *Lines:* 941, 1054, 1071, 1101, 1124. *Example:* figsize=.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 933, 1053, 1068, 1100, 1121. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 5. *Lines:* 1057, 1079, 1104, 1105, 1131. *Example:* plot() without lw=.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 2. *Lines:* 759. *Example:* apostrophe transpose `Z'`.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 26. *Lines:* 36, 44, 46, 109, 125, 137, 214, 232, 249, 270, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-fig-003]** — `ax.set_title` used in 2 cells.
-- **[qe-code-002]** — Spelled-out Greek (`alpha`, `beta`, `delta`, etc.) in code parameters (17 occurrences).
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 3. *Lines:* 1072, 1106, 1125. *Example:* .suptitle.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 44, 581. *Example:* {cite} in narrative flow: '  {cite}`'.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 831, 851. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 2. *Lines:* 852, 887. *Example:* mid-sentence 'Step'.
 
 ### Low severity
-- **[qe-writing-005]** — `**competitive equilibria**`, `**Ramsey plan**`, `**dynamic programming squared**` bold-as-keyword use is borderline definitional.
-- **[qe-fig-005]** — Figures lack `:name: fig-...` fields.
-- **[qe-fig-001]** — 5 `figsize=` settings.
+_None found._
+
 
 ## Strengths
-- Primes in this file are derivatives (`u'`, `v'`, `f'`) and next-period notation (`\theta'`) — not transpose.
-- Title in Title Case (qe-writing-006); sentence-case headings (qe-writing-006).
-- `\begin{bmatrix}` used where matrices appear (qe-math-003).
-- One-sentence paragraph rule respected (qe-writing-001).
-- Heavy `{doc}` use for cross-series references (qe-link-002).
-- Install cell at top with `hide-output` (qe-code-003).
+
+- Code, Links score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Remove `ax.set_title` calls (qe-fig-003).
-2. Convert spelled Greek to unicode in code (qe-code-002).
-3. Add `:name: fig-...` fields to figures (qe-fig-005).
+
+1. `qe-math-002` — Use \top for transpose notation (2 occurrences).
+2. `qe-fig-005` — Descriptive figure names for cross-referencing (5 occurrences).
+3. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (2 occurrences).
+4. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
+5. `qe-fig-003` — No matplotlib embedded titles (3 occurrences).
+6. `qe-ref-001` — Use correct citation style (2 occurrences).
+7. `qe-writing-008` — Remove excessive whitespace between words (26 occurrences).

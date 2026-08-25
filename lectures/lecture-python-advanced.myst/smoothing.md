@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/smoothing.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 6.6 / 10
-- **Priority:** MEDIUM
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `b83d6da399`
+- **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
+- **Overall score:** 7.8 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8/10  | Title in Title Case; sentence-case headings; one-sentence paragraphs. |
-| Math         | 6/10  | Mixed `E_t` and `\mathbb E_t`; primes used as transpose. |
-| Code         | 7/10  | Mixed unicode/spelled Greek (4 spelled vs 3 unicode); install cell with `hide-output`. |
-| JAX          | N/A   | not a JAX lecture |
-| Figures      | 7/10  | 2 `figsize=`; no `:name:` fields. |
-| References   | 8/10  | 4 `{cite}` used; never `{cite:t}`. |
-| Links        | 8/10  | 2 `{doc}` references; no raw cross-series URLs. |
-| Admonitions  | N/A   | no exercises, solutions, or proof-family directives. |
+| Writing      | 6.5/10 | `qe-writing-001` ×2; `qe-writing-008` ×52; `qe-writing-004` ×1. |
+| Math         | 4.5/10 | `qe-math-010` (proposed) ×4; `qe-math-002` ×3; `qe-math-011` (proposed) ×1. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 5.5/10 | `qe-fig-003` ×4; `qe-fig-006` ×4; `qe-fig-005` ×2, +1 more. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | N/A   | no admonitions, exercises or solutions. |
 
 ## Issues
 
@@ -26,29 +27,37 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 3. *Lines:* 151, 177, 190. *Example:* apostrophe transpose `C'`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 4. *Lines:* 378, 381, 398, 493. *Example:* missing braces: `\mathbb P`.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 52. *Lines:* 26, 40, 42, 44, 54, 65, 68, 93, 99, 103, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-math-002]** — Prime `'` used as transpose in several formulas. *Example:* `lectures/smoothing.md:190`. *Count:* ~10 occurrences (mixed with derivative `u'`).
-- **[qe-math-010 (proposed)]** — Bare `E_t` mixed with `\mathbb E_t`. *Example:* `lectures/smoothing.md:190`, `:196`, `:199`. *Count:* ~3 occurrences (vs ~12 correct).
-- **[qe-math-011 (proposed)]** — `\mathcal N` for Normal distribution. *Count:* 1 occurrence.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 326, 916. *Example:* figsize=.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 4. *Lines:* 329, 337, 918, 926. *Example:* .set_title.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 271, 907. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-006]** — Lowercase axis labels. *Count:* 4. *Lines:* 333, 342, 924, 933. *Example:* axis label `Periods`.
+- **[qe-math-011 (proposed)]** — Distribution names in plain letters, not \mathcal / \mathbb. *Count:* 1. *Lines:* 140. *Example:* decorated distribution `{\cal N}`.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 461, 519. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 87. *Example:* mid-sentence 'Savings'.
 
 ### Low severity
-- **[qe-writing-005]** — `**complete markets**`, `**incomplete markets**` borderline definitional bold.
-- **[qe-fig-005]** — Figures lack `:name: fig-...` fields.
-- **[qe-code-002]** — Mixed unicode/spelled Greek in code.
+_None found._
+
 
 ## Strengths
-- Title in Title Case (qe-writing-006).
-- Subheadings sentence case (qe-writing-006).
-- `\begin{bmatrix}` used (qe-math-003).
-- Sequences in curly brackets (qe-math-005).
-- One-sentence paragraph rule respected (qe-writing-001).
-- `{doc}` for cross-series references (qe-link-002).
-- Install cell at top with `hide-output` (qe-code-003).
+
+- Code, References, Links score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Standardise on `\mathbb{E}_t` (qe-math-010, proposed).
-2. Replace prime `'` with `^\top` for transpose where it denotes transpose (qe-math-002).
-3. Replace `\mathcal N` with `N` (qe-math-011, proposed).
-4. Add `:name: fig-...` fields (qe-fig-005).
+
+1. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (4 occurrences).
+2. `qe-math-002` — Use \top for transpose notation (3 occurrences).
+3. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
+4. `qe-fig-003` — No matplotlib embedded titles (4 occurrences).
+5. `qe-fig-006` — Lowercase axis labels (4 occurrences).
+6. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
+7. `qe-writing-008` — Remove excessive whitespace between words (52 occurrences).

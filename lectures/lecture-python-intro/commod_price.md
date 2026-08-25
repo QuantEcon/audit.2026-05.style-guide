@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/commod_price.md`
-- **Audit date:** 2026-05-28
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.7 / 10
+- **Overall score:** 9.5 / 10
 - **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 9/10  | H1 Title Case, H2/H3 sentence case, one-sentence paragraphs throughout. |
-| Math         | 8/10  | Uses `\mathbb{E}` and `\mathbb R_+` correctly; minor formatting issue with `\mathbb{E}_t \, p_{t+1}`. |
-| Code         | 9/10  | `!pip install yfinance` at top with `hide-output` (qe-code-003 OK); standard imports otherwise; `alpha=` only as matplotlib kwarg. |
-| JAX          | out of scope | — |
-| Figures      | 9/10  | No `ax.set_title`/`figsize` overrides; clean matplotlib usage; no figures use `{figure}` directive (just `plt.show()`). |
-| References   | 8/10  | All 6 `{cite}` usages appear to be end-of-sentence parenthetical-style — no clear in-text misuse. |
-| Links        | N/A   | no cross-series links |
-| Admonitions  | N/A   | no exercises / solutions |
+| Writing      | 10/10 | no mechanical violations detected. |
+| Math         | 10/10 | no mechanical violations detected. |
+| Code         | 8.5/10 | `qe-code-002` ×2. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 8/10  | `qe-fig-005` ×3; `qe-fig-008` ×2. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -29,20 +30,24 @@ _None found._
 _None found._
 
 ### Medium severity
-_None found._
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 2. *Lines:* 53, 360. *Example:* spelled-out `beta`.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 66, 352, 410. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 71, 429. *Example:* plot() without lw=.
 
 ### Low severity
-- **W7** — "no-arbitrage" appears in quotes inline (line 169) — minor stylistic; "ansatz" parenthetical at line 222 fine.
-- **[qe-fig-005]** — No figures have a `:name:` for cross-referencing.
+_None found._
+
 
 ## Strengths
-- Clean one-sentence paragraphs throughout.
-- Correct use of `\mathbb{E}`, `\mathbb R_+`.
-- Sequence `\{ Z_t \}_{t \geq 1}` is correct M6 form.
-- "IID" written correctly in text (line 136).
-- All section headings comply with W3.
-- `!pip install yfinance` placed at top with `:tags: [hide-output]` (qe-code-003 OK).
-- No matplotlib title / figsize / spines violations.
+
+- Writing, Math, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. None critical; consider tightening some math operator spacing.
+
+1. `qe-fig-005` — Descriptive figure names for cross-referencing (3 occurrences).
+2. `qe-code-002` — Use Unicode symbols for Greek letters in code (2 occurrences).
+3. `qe-fig-008` — Use lw=2 for line charts (2 occurrences).

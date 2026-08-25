@@ -1,0 +1,31 @@
+{
+  "series": "lecture-python-intro",
+  "lecture": "intro_supply_demand",
+  "judgment": [
+    {"rule": "qe-writing-002", "count": 6, "lines": [36, 136, 144, 402, 853, 898],
+     "detail": "four sentences of 33-47 words (36, 136 at 47 words, 144 at 43, 402) and two copies of a sentence that has lost its main verb: \"Our [SciPy] lecture has a section on [Optimization] is a useful resource to find out more\" (853-855, repeated verbatim at 898-900)"},
+    {"rule": "qe-writing-003", "count": 2, "lines": [260, 461],
+     "detail": "the `prf:example` block at 260-283 is not an example: it opens with a \\$10/\\$20 illustration but then carries the general definition of the inverse supply curve (272-274), the formula for total producer surplus (267-270) and a forward reference to a figure that lives outside the block (\"We show an example below\", 276; \"The shaded area is...\", 282, with the figure at 285); and the lecture has two sections called \"Consumer surplus\" (H2 at 63, H3 at 461) and two called \"Producer surplus\" (H2 at 227, H3 at 528), so the table of contents gives the reader no way to tell the discrete/continuous treatment from the affine-model treatment"},
+    {"rule": "qe-writing-007", "count": 1, "lines": [247],
+     "detail": "the discrete producer figure plots willingness to sell only, while its consumer counterpart at 118-120 overlays the surplus in orange on top of the black paid-portion; producer surplus $\\max\\{p - v_i, 0\\}$ is defined at 258 and never shown for the discrete case, and the figure does not even mark the price line"},
+    {"rule": "qe-code-001", "count": 6, "lines": [114, 243, 407, 408, 409, 410],
+     "detail": "inline comments separated from the code by a single space where PEP8 asks for two - `consumers = range(1, 11) # consumers 1,..., 10` (114), the same at 243, and the four field comments in the `Market` namedtuple declaration (407-410)"}
+  ],
+  "strengths": [
+    "The discrete-then-continuous pairing is genuinely well built: each concept gets a bar chart of ten agents and then the matching shaded-area figure, and every one of those figures has a caption and a `name`",
+    "The two surplus definitions carry equation labels (`eq:cstm_spls` at 472, `eq:pdcr_spls` at 538) and both are cited by `{eq}` when the integral is evaluated (521, 588); the welfare/equilibrium punchline is made by pointing `{eq}`eq:equilib_q`` back at `{eq}`eq:old1`` (678)",
+    "Parameters are held in a `namedtuple` with a `create_market` factory (407-418), so the four exercises can redefine `inverse_demand`/`inverse_supply` without touching the parameter set",
+    "Differentials are written `\\mathrm{d} x` rather than italic `dx` in the main exposition (471, 537, 646), which is the correct upright form",
+    "The `{seealso}` and `{note}` admonitions carry the digressions - the multiple-goods forward pointer at 23, the meaning of \"affine\" at 380 - keeping the main line of argument clean"
+  ],
+  "actions": [
+    "Repair the two broken `{seealso}` sentences at 853-855 and 898-900 (\"has a section on X is a useful resource\") and break the four 33-47 word sentences at 36, 136, 144 and 402",
+    "Move the general material out of the `prf:example` at 260-283 - the inverse supply curve definition and the total-surplus formula belong in the body, with only the \\$10/\\$20 illustration left inside",
+    "Rename the duplicated section headings so the H3 pair at 461 and 528 is distinguishable from the H2 pair at 63 and 227 (for example \"Consumer surplus in the affine model\")",
+    "Convert the four raw `python-programming.quantecon.org` URLs (853, 854, 898, 899) to `{doc}` cross-series references",
+    "Set `lw=2` on the twelve curve plots and add `mystnb: figure: caption/name` metadata to the two exercise figures at 747 and 832 so they can be captioned like the rest",
+    "Show producer surplus on the discrete producer figure (247) the way the consumer figure does at 118-120, and add the price line",
+    "Make the differentials consistent - lines 603, 777 and 796 write `dx` while the surrounding equations write `\\mathrm{d} x` - lower-case 'Market' at 414 and 899, drop the trailing period from the heading at 140, and separate the inline comments listed above by two spaces"
+  ],
+  "scanner_doubts": []
+}

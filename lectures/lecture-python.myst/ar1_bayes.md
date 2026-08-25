@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/ar1_bayes.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions (JAX out of scope)
-- **Overall score:** 9.4 / 10
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `e25fdf2345`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 9.1 / 10
 - **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8.5/10 | Section headings use Title Case rather than sentence case. |
-| Math         | 10/10 | No math issues. |
-| Code         | 8.5/10 | Greek letters spelled out in code; spec prefers unicode (α, β). |
-| JAX          | out of scope | JAX lecture — JAX rules not audited per scope. |
-| Figures      | 9.5/10 | `figsize=` set in 3 places — usually unnecessary. |
-| References   | 9/10 | Citation style follows conventions. |
-| Links        | 10/10 | Link style follows conventions. |
-| Admonitions  | 10/10 | Exercise/solution structure clean. |
+| Writing      | 10/10 | no mechanical violations detected. |
+| Math         | 10/10 | no mechanical violations detected. |
+| Code         | 7.5/10 | `qe-code-002` ×8. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 8/10  | `qe-fig-005` ×4; `qe-fig-001` ×1. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 8/10  | `qe-link-002` ×2. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,26 +27,28 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 8. *Lines:* 244, 250, 327, 334, 337. *Example:* spelled-out `sigma`.
 
 ### Medium severity
-- **[qe-writing-006]** — Section headings use Title Case rather than sentence case. *Examples:* line 181 `PyMC Implementation`, line 295 `Numpyro Implementation`. *Count:* 2.
-- **[qe-code-002]** — Greek letters spelled out in code; spec prefers unicode (α, β). *Count:* 21.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 220, 383, 432, 557. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-link-002]** — Use doc links for cross-series references. *Count:* 2. *Lines:* 39, 47. *Example:* raw link to intro.quantecon.org.
 
 ### Low severity
-- **[qe-writing-009 (proposed)]** — Uses "i.i.d." or "iid" in text rather than "IID". *Example:* line 72.
-- **[qe-fig-001]** — `figsize=` set in 3 places — usually unnecessary.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 1. *Lines:* 441. *Example:* figsize=.
+
 
 ## Strengths
-- Transpose notation uses `\top` consistently (no prime/`^T`).
-- No bold vectors/matrices.
-- Normal distribution written as plain `N`.
-- `aligned` (not `align`) used in `$$` math.
-- No `ax.set_title()` in main figures.
-- Axis labels lowercase.
+
+- Writing, Math, References, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- Citations distinguish `{cite}` from `{cite:t}` correctly (1 parenthetical, 1 in-text).
 
 ## Recommended actions
-1. Address `qe-writing-006`: Section headings use Title Case rather than sentence case.
-2. Address `qe-code-002`: Greek letters spelled out in code; spec prefers unicode (α, β).
-3. Address `qe-writing-009 (proposed)`: Uses "i.i.d." or "iid" in text rather than "IID".
-4. Address `qe-fig-001`: `figsize=` set in 3 places — usually unnecessary.
+
+1. `qe-code-002` — Use Unicode symbols for Greek letters in code (8 occurrences).
+2. `qe-link-002` — Use doc links for cross-series references (2 occurrences).
+3. `qe-fig-005` — Descriptive figure names for cross-referencing (4 occurrences).
+4. `qe-fig-001` — Do not set figure size unless necessary (1 occurrence).

@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/measurement_models.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 9.4 / 10
-- **Priority:** NONE
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `e25fdf2345`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.0 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 10/10 | No writing issues. |
-| Math         | 8.5/10 | Bare `E[...]` or `\Pr(...)` used instead of `\mathbb{E}`, `\mathbb{P}`. |
-| Code         | 8.5/10 | Spelled-out Greek (alpha/beta/etc.) used predominantly in code; mixed with unicode forms... |
-| JAX          | out of scope | not a JAX lecture |
-| Figures      | 10/10 | `figsize=` set in 2 place(s). |
-| References   | 9/10 | Citation style follows conventions. |
-| Links        | 10/10 | Link style follows conventions. |
-| Admonitions  | 10/10 | Exercise/solution structure clean. |
+| Writing      | 4.5/10 | `qe-writing-004` ×12; `qe-writing-001` ×2; `qe-writing-008` ×20. |
+| Math         | 5.5/10 | `qe-math-010` (proposed) ×9; `qe-math-011` (proposed) ×1. |
+| Code         | 7.5/10 | `qe-code-002` ×8. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 8.5/10 | `qe-fig-005` ×1; `qe-fig-001` ×2. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,28 +27,35 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 8. *Lines:* 725, 728, 730, 733, 742, 1110, 1113, 1115. *Example:* spelled-out `psi`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 9. *Lines:* 628, 629, 630, 631, 640, 954, 1025, 1026, 1027. *Example:* bare expectation `E[`.
+- **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 12. *Lines:* 1053, 1059, 1142, 1149, 1151, 1184, 1197, 1218, 1398, 1443, …. *Example:* mid-sentence 'Model'.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 20. *Lines:* 63, 64, 69, 75, 134, 137, 159, 164, 277, 326, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-math-010 (proposed)]** — Bare `E[...]` or `\Pr(...)` used instead of `\mathbb{E}`, `\mathbb{P}`. *Examples:* line 954. *Count:* 6.
-- **[qe-code-002]** — Spelled-out Greek (alpha/beta/etc.) used predominantly in code; mixed with unicode forms (word=11, uni=7).
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 1286, 1419. *Example:* figsize=.
+- **[qe-math-011 (proposed)]** — Distribution names in plain letters, not \mathcal / \mathbb. *Count:* 1. *Lines:* 328. *Example:* decorated distribution `\mathcal{N}`.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 45, 276. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
-- **[qe-math-011 (proposed)]** — Normal distribution as `\mathcal{N}` rather than `N`. *Example:* line 328.
-- **[qe-fig-001]** — `figsize=` set in 2 place(s).
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 1283. *Example:* code-cell figure without mystnb figure metadata.
+
 
 ## Strengths
-- Headings use sentence case consistently.
-- Uses "IID" or no IID terminology.
-- Transpose notation uses `\top` consistently (no prime/`^T`).
-- No bold vectors/matrices.
-- `aligned` (not `align`) used in `$$` math.
-- No `ax.set_title()` in main figures.
-- Axis labels lowercase.
-- Figures use descriptive `name:` fields for cross-referencing.
+
+- References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- Citations distinguish `{cite}` from `{cite:t}` correctly (0 parenthetical, 13 in-text).
 
 ## Recommended actions
-1. Address `qe-math-010 (proposed)`: Bare `E[...]` or `\Pr(...)` used instead of `\mathbb{E}`, `\mathbb{P}`.
-2. Address `qe-code-002`: Spelled-out Greek (alpha/beta/etc.) used predominantly in code; mixed with unicode forms (word=11, uni=7).
-3. Address `qe-math-011 (proposed)`: Normal distribution as `\mathcal{N}` rather than `N`.
-4. Address `qe-fig-001`: `figsize=` set in 2 place(s).
+
+1. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (9 occurrences).
+2. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (12 occurrences).
+3. `qe-code-002` — Use Unicode symbols for Greek letters in code (8 occurrences).
+4. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
+5. `qe-math-011` (proposed) — Distribution names in plain letters, not \mathcal / \mathbb (1 occurrence).
+6. `qe-writing-008` — Remove excessive whitespace between words (20 occurrences).
+7. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).

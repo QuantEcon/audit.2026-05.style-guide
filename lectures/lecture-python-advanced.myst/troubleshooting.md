@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/troubleshooting.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 7.8 / 10
-- **Priority:** LOW
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `b83d6da399`
+- **Categories audited:** writing, figures, links  *(JAX out of scope)*
+- **Overall score:** 8.8 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8.5/10 | Mostly compliant; a few short multi-sentence paragraphs and a chatty phrasing. |
-| Math         | N/A   | no math content |
-| Code         | N/A   | no executable code cells |
-| JAX          | N/A   | not a JAX lecture |
-| Figures      | 8/10  | One static `{image}` directive of the launch button; appropriate use. |
-| References   | N/A   | no citations |
-| Links        | 7/10  | One raw `python-programming.quantecon.org` URL should use `{doc}`. |
-| Admonitions  | N/A   | only `raw` and `image` directives |
+| Writing      | 8.5/10 | `qe-writing-001` ×1; `qe-writing-008` ×1. |
+| Math         | N/A   | no mathematical content. |
+| Code         | N/A   | no executable code cells. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 9/10  | `qe-fig-005` ×1. |
+| References   | N/A   | no citations in this lecture. |
+| Links        | 9/10  | `qe-link-002` ×1. |
+| Admonitions  | N/A   | no admonitions, exercises or solutions. |
 
 ## Issues
 
@@ -29,16 +30,25 @@ _None found._
 _None found._
 
 ### Medium severity
-- **[qe-link-002]** — Raw `python-programming.quantecon.org/getting_started.html` URL should use `{doc}\`programming:getting_started\``. *Example:* `lectures/troubleshooting.md:32`. *Count:* 1 occurrence.
+- **[qe-link-002]** — Use doc links for cross-series references. *Count:* 1. *Lines:* 32. *Example:* raw link to python-programming.quantecon.org.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 65. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
-- **[qe-writing-001]** — Several short paragraphs run two sentences instead of being split. *Example:* `lectures/troubleshooting.md:34`. *Count:* ~3 occurrences.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 52. *Example:* {image} without :name:.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 1. *Lines:* 65. *Example:* 2 spaces.
+
 
 ## Strengths
-- Title in Title Case (qe-writing-006).
-- Sentence-case section headings (qe-writing-006).
-- Concise reader-friendly tone (qe-writing-002).
+
+- Figures, Links score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Replace the raw `python-programming.quantecon.org` URL with `{doc}\`programming:getting_started\`` (qe-link-002).
-2. Split the few two-sentence paragraphs into one-sentence units (qe-writing-001).
+
+1. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
+2. `qe-link-002` — Use doc links for cross-series references (1 occurrence).
+3. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
+4. `qe-writing-008` — Remove excessive whitespace between words (1 occurrence).

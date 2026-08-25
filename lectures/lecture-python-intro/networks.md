@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/networks.md`
-- **Audit date:** 2026-05-28
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.0 / 10
-- **Priority:** MEDIUM
+- **Overall score:** 7.8 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8/10  | H1 OK; H2/H3 mostly sentence case; "### Example: Aircraft Exports" / "### Example: A Markov Chain" Title Case (H3). |
-| Math         | 5/10  | Uses `\begin{pmatrix}` (M4 violation) throughout for matrices; `\mathbf{1}` used (M3 violation); `\top` for transpose correct. |
-| Code         | 8/10  | `!pip install quantecon` at top with `hide-output` (qe-code-003 OK); standard Anaconda otherwise. |
-| JAX          | out of scope | — |
-| Figures      | 7/10  | `figsize=` on lines 117, 430; 3 `{figure}` directives all with `:name:` (qe-fig-005 OK); no `ax.set_title` violations. |
-| References   | 7/10  | 10 `{cite}` usages; 2 are in-text ("found in {cite}", "by {cite}\`newman2018networks\`") — should be `{cite:t}`. |
-| Links        | N/A   | no cross-series links |
-| Admonitions  | 9/10  | `{prf:theorem}`, `{prf:example}` used (qe-admon-004 OK); solutions gated, dropdown, exercise-linked. |
+| Writing      | 6/10  | `qe-writing-006` ×2; `qe-writing-004` ×1; `qe-writing-008` ×3. |
+| Math         | 6.5/10 | `qe-math-004` ×3; `qe-math-003` ×3. |
+| Code         | 9/10  | `qe-code-003` ×1. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 5.5/10 | `qe-fig-005` ×5; `qe-fig-004` ×3; `qe-fig-002` ×5, +1 more. |
+| References   | 7.5/10 | `qe-ref-001` ×5. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,30 +27,38 @@
 _None found._
 
 ### High severity
-- **M4** — Matrices use `\begin{pmatrix}` instead of `\begin{bmatrix}` throughout. *Examples:* lines 549, 605, 617. *Count:* 3+ matrix displays.
+- **[qe-fig-002]** — Prefer code-generated figures. *Count:* 5. *Lines:* 171, 238, 248, 507, 714. *Example:* static image .png.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 312, 575, 631, 840, 1229. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 5. *Lines:* 695, 1146, 1150, 1151. *Example:* {cite} in narrative flow: '{cite}`'.
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 2. *Lines:* 85, 160. *Example:* H3 Title Case: 'Example: Aircraft Exports' (Exports).
 
 ### Medium severity
-- **M3** — Uses `\mathbf 1` (lines 1034, 1037) and `\mathbf{1}` (line 1049) for ones vector instead of `\mathbb{1}`. *Count:* 3 occurrences.
-- **W3** — "### Example: Aircraft Exports" (line 85), "### Example: A Markov Chain" (160) use Title Case.
-- **[qe-ref-001]** — In-text citations should use `{cite:t}`. *Examples:* `lectures/networks.md:688` ("found in {cite}\`sargent2022economic\`"), 1149 ("by {cite}\`newman2018networks\`, {cite}\`menczer2020first\`..."). *Count:* 2 sentences.
+- **[qe-code-003]** — Package installation at lecture top. *Count:* 1. *Lines:* 16. *Example:* non-Anaconda import with no install cell: ['quantecon_book_networks'].
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 118, 431. *Example:* figsize=.
+- **[qe-fig-004]** — Caption formatting conventions. *Count:* 3. *Lines:* 89, 401, 786. *Example:* Title Case caption (Aircraft, Network).
+- **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 3. *Lines:* 549, 605, 618. *Example:* pmatrix environment.
+- **[qe-math-004]** — Do not use bold face for matrices or vectors. *Count:* 3. *Lines:* 1034, 1037, 1049. *Example:* \mathbf.
+- **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 87. *Example:* mid-sentence 'Data'.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 3. *Lines:* 262, 660, 931. *Example:* 2 spaces.
 
 ### Low severity
-- **W1** — A few short two-sentence paragraphs.
-- **[qe-fig-001]** — `figsize=` on lines 117, 430. *Count:* 2 occurrences.
+_None found._
+
 
 ## Strengths
-- Transpose `^\top` used (M2 OK).
-- Section headings mostly sentence case.
-- Bold for definitions (**nodes**, **vertices**, **edges**, **links**).
-- Equation labels and references used.
-- 3 `{figure}` directives all with `:name:` for cross-referencing (qe-fig-005 OK).
-- `{prf:theorem}`, `{prf:example}` directives (qe-admon-004 OK).
-- `quantecon` install at top with `hide-output` (qe-code-003 OK).
-- Solutions all gated, dropdown, linked.
+
+- Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Convert all `\begin{pmatrix}` to `\begin{bmatrix}` per M4.
-2. Replace `\mathbf 1`/`\mathbf{1}` with `\mathbb{1}` per M3.
-3. Convert example H3 headings to sentence case.
-4. Convert in-text `{cite}` on lines 688, 1149 to `{cite:t}`.
-5. Remove `figsize=` overrides.
+
+1. `qe-writing-006` — Capitalize lecture titles properly (2 occurrences).
+2. `qe-ref-001` — Use correct citation style (5 occurrences).
+3. `qe-fig-005` — Descriptive figure names for cross-referencing (5 occurrences).
+4. `qe-math-004` — Do not use bold face for matrices or vectors (3 occurrences).
+5. `qe-math-003` — Use square brackets for matrix notation (3 occurrences).
+6. `qe-fig-004` — Caption formatting conventions (3 occurrences).
+7. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (1 occurrence).

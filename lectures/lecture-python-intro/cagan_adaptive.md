@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/cagan_adaptive.md`
-- **Audit date:** 2026-05-28
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.6 / 10
-- **Priority:** LOW
+- **Overall score:** 9.0 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8/10  | Title and section headings comply; some multi-sentence paragraphs. |
-| Math         | 8/10  | bmatrix used; `aligned` inside `$$`; labels and refs clean. |
-| Code         | 8/10  | Unicode Greek (`π`, `μ`, `λ`, `α`) used throughout (qe-code-002 OK); no `quantecon` import so no pip-install needed. |
-| JAX          | out of scope | — |
-| Figures      | 6/10  | `figsize=` on lines 345, 482, 563, 705; one `ax.set_title` outside exercise context (line 359); no figure `:name:` fields. |
-| References   | 7/10  | `{cite}` used; "proposed by {cite}\`Friedman1956\`" (line 82) should be `{cite:t}`. |
-| Links        | N/A   | no cross-series links |
-| Admonitions  | 9/10  | Solutions use `:class: dropdown` and reference exercise labels (qe-admon-002, qe-admon-005 OK); gated `solution-start`/`solution-end` for executable code (qe-admon-001 OK). |
+| Writing      | 8.5/10 | `qe-writing-008` ×32. |
+| Math         | 10/10 | no mechanical violations detected. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 6/10  | `qe-fig-005` ×5; `qe-fig-003` ×1; `qe-fig-008` ×6, +1 more. |
+| References   | 8.5/10 | `qe-ref-001` ×2. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,28 +27,32 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 338, 476, 544, 645, 697. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 6. *Lines:* 487, 564, 571, 651, 654, 714. *Example:* plot() without lw=.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 32. *Lines:* 21, 25, 39, 41, 48, 49, 51, 52, 57, 64, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **W1** — Several multi-sentence paragraphs (e.g. lines 23–25, 25, 130–131).
-- **[qe-fig-001]** — Repeated `figsize=` overrides on lines 345, 482, 563, 705. *Count:* 4 occurrences.
-- **[qe-ref-001]** — In-text citation should use `{cite:t}`. *Example:* `lectures/cagan_adaptive.md:82` ("proposed by {cite}\`Friedman1956\` and {cite}\`Cagan\`"). *Count:* 1 sentence with 2 citations.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 4. *Lines:* 345, 482, 563, 705. *Example:* figsize=.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 359. *Example:* .set_title.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 82. *Example:* {cite} in author position: '{cite}`Friedman1956` and'.
 
 ### Low severity
-- **W7** — Repeated double-quoting style with single quotes (e.g. ''method 2''); check consistency.
-- **[qe-fig-003]** — `ax[i].set_title(subplot_title[i])` on line 359 outside any exercise/solution context. *Count:* 1 occurrence.
-- **[qe-fig-005]** — No figures have a `:name:` field for cross-referencing.
+_None found._
+
 
 ## Strengths
-- Section headings comply with W3 (sentence case).
-- Equation labels and `{eq}` references throughout.
-- Matrices use bmatrix (M4 OK).
-- `aligned` inside `$$` (M12 OK).
-- Unicode Greek used in code (qe-code-002 OK).
-- All 4 solutions use `:class: dropdown` and link to their exercise labels (qe-admon-002, qe-admon-005 OK).
+
+- Math, Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Convert "proposed by {cite}\`Friedman1956\`" → `{cite:t}` form on line 82.
-2. Remove `figsize=` overrides; rely on `_config.yml` defaults.
-3. Move title from `ax[i].set_title` (line 359) to the `mystnb` figure metadata or a `{figure}` directive.
-4. Break up the multi-sentence paragraphs in the Overview.
+
+1. `qe-fig-005` — Descriptive figure names for cross-referencing (5 occurrences).
+2. `qe-ref-001` — Use correct citation style (2 occurrences).
+3. `qe-writing-008` — Remove excessive whitespace between words (32 occurrences).
+4. `qe-fig-003` — No matplotlib embedded titles (1 occurrence).
+5. `qe-fig-008` — Use lw=2 for line charts (6 occurrences).
+6. `qe-fig-001` — Do not set figure size unless necessary (4 occurrences).

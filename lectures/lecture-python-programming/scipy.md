@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/scipy.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.0 / 10
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `ceec881028`
+- **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.1 / 10
 - **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 6.5/10| Heavily Title Case section headings. |
-| Math         | 7.5/10| Clean overall; `\mathbb E` without braces (lines 461, 560) is the only nit. |
-| Code         | 9/10  | `!pip install --upgrade quantecon` at top with `hide-output`; Greek unicode (μ, σ, β) used throughout per qe-code-002; `qe.Timer(unit="milliseconds")` used for benchmarking (qe-code-004); PEP8 clean. |
-| JAX          | out of scope | — |
-| Figures      | 8/10  | One code-generated plot uses `ax.set_xlabel('$x$', fontsize=12)` / `set_ylabel('$f(x)$', fontsize=12)` (lines 221-222) — math-mode labels per qe-fig-006; no embedded titles; no `figsize`. |
-| References   | N/A   | No citations. |
-| Links        | 9/10  | External docs links only; no improper cross-series URLs. |
-| Admonitions  | 8/10  | Three `{exercise-start}` and three `{exercise}` (sp_ex02, sp_ex03, sp_ex1) — non-gated bodies are prose-only. Four `{solution-start}` use `:class: dropdown` and `:label:` per qe-admon-005. |
+| Writing      | 4.5/10 | `qe-writing-006` ×8; `qe-writing-001` ×2; `qe-writing-008` ×4. |
+| Math         | 7.5/10 | `qe-math-010` (proposed) ×2. |
+| Code         | 8.5/10 | `qe-code-002` ×4. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 8/10  | `qe-fig-005` ×4; `qe-fig-008` ×2. |
+| References   | N/A   | no citations in this lecture. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,26 +27,34 @@
 _None found._
 
 ### High severity
-- **[qe-writing-006]** — Section headings use Title Case rather than sentence case. *Examples:* line 63 `## SciPy versus NumPy`, line 94 `## Statistics`, line 105 `### Random Variables and Distributions`, line 167 `### Alternative Syntax`, line 183 `### Other Goodies in scipy.stats`, line 200 `## Roots and Fixed Points`, line 231 `### Bisection`, line 288 `### The Newton-Raphson Method`, line 315 `### Hybrid Methods`, line 350 `### Multivariate Root-Finding`, line 359 `### Fixed Points`, line 377 `## Optimization`, line 401 `### Multivariate Optimization`, line 412 `## Integration`, line 442 `## Linear Algebra`, line 455 `## Exercises`. *Count:* 16 occurrences.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 2. *Lines:* 461, 560. *Example:* missing braces: `\mathbb E`.
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 8. *Lines:* 105, 167, 183, 200, 315, 350, 359, 401. *Example:* H3 Title Case: 'Random Variables and Distributions' (Variables, Distributions).
 
 ### Medium severity
-- **[qe-fig-005]** — The single code-generated figure (line 218-225) lacks `name:` metadata.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 4. *Lines:* 131, 134, 174, 179. *Example:* spelled-out `beta`.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 130, 173, 214, 511. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 219, 524. *Example:* plot() without lw=.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 457, 482. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 4. *Lines:* 434, 458, 482. *Example:* 2 spaces.
 
 ### Low severity
-- **[qe-math-010 (proposed)]** — `\mathbb E` without braces in display math at lines 461, 560.
-- **[qe-admon-001]** — Three exercises use bare `{exercise}` rather than gated syntax; bodies are prose-only.
+_None found._
+
 
 ## Strengths
-- Lecture title "SciPy" follows qe-writing-006.
-- Equation labels (`betadist2`, `root_f`) and `{eq}` references used per qe-math-013 (proposed).
-- Bold for definitions per qe-writing-005 ("**root** or **zero**").
-- Sequences/sets use proper bracketing; lowercase `f` for density per qe-math-015 (proposed).
-- No bold vectors, no `^T`, no `*` for multiplication, no `\tag`, no `align` inside `$$`.
-- `qe.Timer(unit="milliseconds")` used for benchmarking per qe-code-004.
-- Greek unicode (μ, σ, β) used in code per qe-code-002.
-- `!pip install --upgrade quantecon` at top with `hide-output` per qe-code-003.
+
+- Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Convert section headings to sentence case ("SciPy versus NumPy", "Statistics", "Random variables and distributions", "Alternative syntax", "Other goodies in `scipy.stats`", "Roots and fixed points", "Bisection", "The Newton-Raphson method", "Hybrid methods", "Multivariate root-finding", "Fixed points", "Optimization", "Multivariate optimization", "Integration", "Linear algebra").
-2. Normalize `\mathbb E` → `\mathbb{E}`.
-3. Optionally promote bare `{exercise}` blocks to gated `{exercise-start}` / `{exercise-end}` for uniformity.
+
+1. `qe-writing-006` — Capitalize lecture titles properly (8 occurrences).
+2. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (2 occurrences).
+3. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
+4. `qe-fig-005` — Descriptive figure names for cross-referencing (4 occurrences).
+5. `qe-code-002` — Use Unicode symbols for Greek letters in code (4 occurrences).
+6. `qe-writing-008` — Remove excessive whitespace between words (4 occurrences).
+7. `qe-fig-008` — Use lw=2 for line charts (2 occurrences).

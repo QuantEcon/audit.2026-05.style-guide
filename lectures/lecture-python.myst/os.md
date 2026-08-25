@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/os.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 9.5 / 10
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `e25fdf2345`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.6 / 10
 - **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 9/10 | Section headings use Title Case rather than sentence case. |
-| Math         | 10/10 | No math issues. |
-| Code         | 9.5/10 | Mixed Greek conventions in code (word=1, uni=1). |
-| JAX          | out of scope | not a JAX lecture |
-| Figures      | 9/10 | Figures lack descriptive `name:` fields for cross-referencing (4 plot calls, 0 named). |
-| References   | 9/10 | Citation style follows conventions. |
-| Links        | 10/10 | Link style follows conventions. |
-| Admonitions  | 10/10 | Exercise/solution structure clean. |
+| Writing      | 7/10  | `qe-writing-001` ×2; `qe-writing-004` ×1. |
+| Math         | 5.5/10 | `qe-math-002` ×10. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 8/10  | `qe-fig-005` ×2; `qe-fig-008` ×4. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,31 +27,30 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 10. *Lines:* 338, 361, 362, 466, 469, 498, 508. *Example:* \prime transpose.
 
 ### Medium severity
-- **[qe-writing-006]** — Section headings use Title Case rather than sentence case. *Examples:* line 159 `The Bellman equation`, line 317 `The Euler equation`. *Count:* 2.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 245, 305. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 4. *Lines:* 251, 307, 308, 309. *Example:* plot() without lw=.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 456, 652. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 501. *Example:* mid-sentence 'Theorem'.
 
 ### Low severity
-- **[qe-code-002]** — Mixed Greek conventions in code (word=1, uni=1).
-- **[qe-fig-005]** — Figures lack descriptive `name:` fields for cross-referencing (4 plot calls, 0 named).
-- **[qe-fig-008]** — `lw=2` parameter missing from 4 `.plot()` calls.
+_None found._
+
 
 ## Strengths
-- Uses "IID" or no IID terminology.
-- Transpose notation uses `\top` consistently (no prime/`^T`).
-- No bold vectors/matrices.
-- Normal distribution written as plain `N`.
-- `aligned` (not `align`) used in `$$` math.
-- Figures use default sizing.
-- Solutions use `:class: dropdown` consistently.
-- No `ax.set_title()` in main figures.
-- Axis labels lowercase.
-- No embedded matplotlib titles in main figures.
-- Cross-series links use `{doc}` intersphinx form.
+
+- Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Address `qe-writing-006`: Section headings use Title Case rather than sentence case.
-2. Address `qe-code-002`: Mixed Greek conventions in code (word=1, uni=1).
-3. Address `qe-fig-005`: Figures lack descriptive `name:` fields for cross-referencing (4 plot calls, 0 named).
-4. Address `qe-fig-008`: `lw=2` parameter missing from 4 `.plot()` calls.
+
+1. `qe-math-002` — Use \top for transpose notation (10 occurrences).
+2. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
+3. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
+4. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (1 occurrence).
+5. `qe-fig-008` — Use lw=2 for line charts (4 occurrences).

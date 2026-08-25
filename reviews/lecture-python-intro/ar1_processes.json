@@ -1,0 +1,32 @@
+{
+  "series": "lecture-python-intro",
+  "lecture": "ar1_processes",
+  "judgment": [
+    {"rule": "qe-code-001", "count": 3, "lines": [46, 186, 540],
+     "detail": "line 46 `#set default figure size` has no space after the hash; line 186 `ax.legend(bbox_to_anchor=[1.05,1],loc=2,borderaxespad=1)` omits the space after every comma; line 540 `parameter_pairs= (2, 2), ...` has a space after `=` but not before"},
+    {"rule": "qe-writing-005", "count": 1, "lines": [288],
+     "detail": "line 288 is a definition sentence - 'A stationary distribution is a distribution that is a \"fixed point\" of the update rule' - with the defined term left unbolded, four lines before the same lecture correctly bolds **stationary** at line 292"},
+    {"rule": "qe-writing-003", "count": 1, "lines": [447],
+     "detail": "exercise ar1p_ex2 (lines 447-490) asks the reader to build a kernel density estimator and test it on three beta distributions; nothing connects it to AR(1) processes, and its real purpose - supplying the KDE class that exercise ar1p_ex3 needs at line 628 - is never stated"},
+    {"rule": "qe-writing-007", "count": 1, "lines": [310],
+     "detail": "the Ergodicity section (lines 310-359) asserts that time-series averages converge to expectations under the stationary distribution and never plots it, although the neighbouring stability claims each get a figure (lines 171, 209, 228, 263)"}
+  ],
+  "strengths": [
+    "Every labelled display equation is actually used: can_ar1, ar1_ma, dyn_tm, mu_sig_star and ar1_ergo are each cited later with {eq}, so no label is dead weight",
+    "The stability argument is built visually in four steps - the ten-period density sequence at line 171, the forty-period sequence at line 209, the same sequence from a different initial condition at line 228, then the analytical limit psi-star overlaid on it at line 263",
+    "Side remarks are parked in parenthetical one-line paragraphs (lines 74-75, 150, 203, 303-304) rather than being spliced into the main argument",
+    "All three exercises use gated {exercise} / {solution-start} ... {solution-end} syntax with `:class: dropdown`, so solutions are hidden by default"
+  ],
+  "actions": [
+    "Rename the spelled-out Greek variables in the first half of the lecture - `mu`, `mu_star`, `std_star` at lines 166, 180-184, 211-217, 267-268 - to the Unicode forms already used in the second half at lines 604-635 (`mu`, `psi`); the lecture currently spells the same quantity two different ways (qe-code-002, 12 occurrences)",
+    "Fix the dropped terms in the backward-iteration display: line 97 should read `a^3 X_{t-3} + a^2 b + a^2 c W_{t-2} + a b + a c W_{t-1} + b + c W_t` - the `a b` and `a c W_{t-1}` terms produced by the previous substitution are missing",
+    "Add mystnb figure metadata (`mystnb: figure: name/caption`) to the seven plotting cells at lines 171, 209, 228, 263, 407, 523 and 623 so the figures are nameable and cross-referenceable (qe-fig-005, 7 occurrences)",
+    "Set `lw=2` on the nine `ax.plot` calls at lines 182, 215, 436, 437, 530, 531, 633, 634 and 635 (qe-fig-008, 9 occurrences)",
+    "Bold the defined term at line 288 and give the Ergodicity section (line 310) a figure showing a running time average converging to mu-star, so the one unillustrated claim in the lecture is illustrated like the rest",
+    "Fix the PEP8 spacing at lines 46, 186 and 540, and make the plot labels at lines 633-635 raw strings (`label=r\"$\\psi_t$\"`) - as written the backslash is an invalid escape sequence",
+    "Sweep the remaining single-instance mechanical items: brace `\\mathbb E` at line 372 (qe-math-010, proposed), `iid` to `IID` at line 561 (qe-writing-009, proposed), the mid-narrative `{cite}` at line 335 (qe-ref-001), the double space at line 369 (qe-writing-008), the figsize override at line 46 (qe-fig-001), and split the two-sentence paragraphs at lines 465, 488 and 568 (qe-writing-001)"
+  ],
+  "scanner_doubts": [
+    "qe-code-002 in ar1_processes.md lists lines 537 and 542, but the identifier there is `beta` from `from scipy.stats import beta` (line 537) and its call `plot_kde(beta(alpha, beta))` (line 542) - an imported SciPy distribution name, not an author-chosen variable, so the spelled-out-Greek rule cannot apply. Two of the 12 hits look like false positives."
+  ]
+}

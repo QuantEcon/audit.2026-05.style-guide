@@ -1,160 +1,368 @@
 # Full findings & remediation plan
 
-The complete cross-series breakdown behind the [front-page triage](intro.md). Start with the front page to decide *where* to focus; come here for the full numbers, the complete systemic-issue list, the full HIGH-priority lecture list, and the step-by-step remediation plan.
+The complete cross-series breakdown behind the [front-page triage](intro.md). Start with
+the front page to decide *where* to focus; come here for the full numbers, every recurring
+rule, every HIGH-priority lecture, and the ordered remediation plan.
+
+Every table on this page is generated from
+[`lectures/data/*.csv`](https://github.com/QuantEcon/audit.2026-05.style-guide/tree/main/lectures/data)
+by `tools/qestyle_report.py`, so it cannot disagree with the per-lecture reports.
+
+---
+
+## What was audited
+
+One commit per series, pinned at audit time. Re-running the pipeline against these commits
+reproduces every number on this page exactly.
+
+<!-- qe:snapshot -->
+| Series | Lectures | Snapshot commit | Snapshot date |
+|--------|---------:|-----------------|---------------|
+| `lecture-python-intro` | 56 | `a12d17c0ef` | 2026-08-23 |
+| `lecture-python-programming` | 27 | `ceec881028` | 2026-08-21 |
+| `lecture-python.myst` | 145 | `e25fdf2345` | 2026-08-24 |
+| `lecture-python-advanced.myst` | 68 | `b83d6da399` | 2026-08-19 |
+| `lecture-dp` | 52 | `c30490a2f4` | 2026-08-07 |
+<!-- /qe:snapshot -->
 
 ---
 
 ## Full scoreboard
 
-Average score per category, per series (0–10). **Bold cells** mark each series' weakest category.
+Average score per category, per series (0–10). **Bold** marks each series' weakest
+category.
 
+<!-- qe:full-scoreboard -->
 | # | Series | Lectures | Writing | Math | Code | Figures | References | Links | Admon | **Overall** | HIGH | MEDIUM | LOW | NONE |
-|---|--------|----------|---------|------|------|---------|------------|-------|-------|-------------|------|--------|-----|------|
-| 1 | [lecture-python-advanced.myst](lecture-python-advanced.myst/index.md) | 62 | 8.2 | **5.6** | 7.0 | 6.5 | 7.9 | 7.5 | 7.8 | **7.0** | 6 | 27 | 25 | 4 |
-| 2 | [lecture-dp](lecture-dp/index.md) | 50 | 7.5 | 6.7 | 7.3 | **6.9** | 7.8 | 7.7 | 8.7 | **7.5** | 17 | 5 | 21 | 7 |
-| 3 | [lecture-python-intro](lecture-python-intro/index.md) | 51 | 8.0 | 7.8 | 8.1 | **6.4** | 7.0 | 7.9 | 9.0 | **7.6** | 1 | 9 | 36 | 5 |
-| 4 | [lecture-python-programming](lecture-python-programming/index.md) | 26 | 7.2 | 7.3 | 8.5 | **6.5** | N/A | 9.1 | 8.7 | **8.0** | 3 | 0 | 19 | 4 |
-| 5 | [lecture-python.myst](lecture-python.myst/index.md) | 110 | **8.0** | 9.0 | 9.2 | 8.7 | 9.0 | 9.7 | 10.0 | **9.0** | 2 | 0 | 13 | 95 |
-|   | **TOTAL / weighted avg** | **299** | **7.9** | **7.6** | **8.2** | **7.4** | **8.3** | **8.5** | **9.0** | **8.0** | **29** | **41** | **114** | **115** |
+|---|--------|----------|---|---|---|---|---|---|---|-------------|------|--------|-----|------|
+| 1 | [lecture-python-advanced.myst](lecture-python-advanced.myst/index.md) | 68 | 7.3 | **5.9** | 9.3 | 6.2 | 9.0 | 9.6 | 10.0 | **8.1** | 29 | 0 | 21 | 18 |
+| 2 | [lecture-dp](lecture-dp/index.md) | 52 | 7.0 | 6.4 | 9.0 | **6.2** | 9.2 | 9.7 | 10.0 | **8.2** | 15 | 1 | 18 | 18 |
+| 3 | [lecture-python.myst](lecture-python.myst/index.md) | 145 | 6.9 | 7.1 | 9.2 | **6.3** | 9.4 | 9.8 | 10.0 | **8.3** | 41 | 1 | 42 | 61 |
+| 4 | [lecture-python-programming](lecture-python-programming/index.md) | 27 | **5.7** | 9.1 | 9.8 | 7.2 | N/A | 9.9 | 9.9 | **8.6** | 6 | 0 | 10 | 11 |
+| 5 | [lecture-python-intro](lecture-python-intro/index.md) | 56 | 7.5 | 8.7 | 9.3 | **6.3** | 9.0 | 9.7 | 9.9 | **8.7** | 7 | 0 | 16 | 33 |
+|   | **TOTAL / corpus average** | **348** | **7.0** | **7.1** | **9.2** | **6.3** | **9.2** | **9.7** | **10.0** | **8.3** | **98** | **2** | **107** | **141** |
+<!-- /qe:full-scoreboard -->
 
-See the [charts](charts.md) for a visual version (heatmap, priority distribution, category averages).
-
----
-
-## All systemic patterns
-
-Every recurring issue, ranked by total lecture-count across the corpus. The front page covers the top six; this is the complete list. Rules tagged **(proposed)** are documented in the style guide but not yet in the `action-style-guide` registry.
-
-### 1. `qe-writing-006` — Title Case in section headings (~170 / 299)
-- `lecture-python.myst`: 87 / 110 (79 %) · `lecture-python-programming`: 24 / 26 (92 %) · `lecture-dp`: 21 / 50 · `lecture-python-intro`: 19 / 51
-
-### 2. `qe-code-002` — Greek letters spelled out (`alpha`, `beta`) instead of unicode (~150 / 299)
-- `lecture-python.myst`: 94 / 110 (mostly mixed within-lecture) · `lecture-python-advanced.myst`: 35 / 62 · `lecture-python-programming` is the exemplar (100 % compliant)
-
-### 3. `qe-fig-001` — Unnecessary `figsize=` overrides (~125 / 299)
-- `lecture-python.myst`: 75 / 110 · `lecture-python-intro`: 26 / 51 · `lecture-dp`: 24 / 50 · `lecture-python-programming`: 9 / 26
-
-### 4. `qe-fig-005` — Figures lack a descriptive `:name:` for `numref` cross-referencing (~120 / 299)
-- `lecture-python-advanced.myst`: 45 / 62 · `lecture-python-intro`: 36 / 51 · `lecture-python-programming`: 20 / 26 · `lecture-python.myst` exemplar (91 / 110 correct)
-
-### 5. `qe-fig-003` — Embedded matplotlib titles (`ax.set_title`, `fig.suptitle`) (~90 / 299)
-- `lecture-python.myst`: 44 / 110 (`navy_captain` ×13, `likelihood_ratio_process` ×8) · `lecture-dp`: 17 / 50 (`markov_jump_lq` ×6) · `lecture-python-intro`: 11 / 51 · `lecture-python-programming`: 5 / 26
-
-### 6. `qe-link-002` — Raw markdown links to other QuantEcon series (~60 / 299)
-- `lecture-python-advanced.myst`: 17 / 62 · `lecture-python.myst`: 17 / 110 · `lecture-dp`: 14 / 50 (`discrete_dp` ×10) · `lecture-python-intro`: 9 / 51 · `lecture-python-programming`: 3 / 26
-
-### 7. `qe-math-010` (proposed) — `\mathbb{P/E/V}` with braces for probability, expectation, variance (~60 / 299)
-
-### 8. `qe-math-002` — `\top` for transpose (~46 / 299)
-
-### 9. `qe-ref-001` — Author-name narrative citations using `{cite}` instead of `{cite:t}` (~37 / 299, plus zero usage in 2 entire series)
-- `lecture-dp` and `lecture-python-intro` have **zero `{cite:t}` usage** despite 22 and 15 lectures with citations that should use the in-text form
-
-### 10. `qe-fig-006` — Title Case axis labels (~50 / 299)
-- Should be lowercase. `two_computation` (`.myst`) has 46 instances; `tax_smoothing_2` (`dp`) has 9.
-
-### 11. `qe-math-011` (proposed) — `\mathcal{N}` for the normal distribution (~30 / 299)
-
-### 12. `qe-writing-009` (proposed) — `i.i.d.` / `iid` instead of `IID` (~30 / 299)
-
-### 13. `qe-fig-007` — Removed matplotlib spines (~30 / 299)
-- `french_rev` (`intro`) is an extreme outlier with 30 calls.
-
-### 14. `qe-code-003` — Pip install not at top of lecture / missing `hide-output` (~15 / 299)
-- `lecture-dp` has 5 lectures that install packages mid-lecture.
-
-### 15. `qe-code-004` — `time.time()` benchmarking instead of `qe.Timer` (~15 / 299)
-- Heavy in `lecture-dp`'s `ifp_egm` and `ifp_egm_transient_shocks` (6 each).
+See the [charts](charts.md) for the visual version.
 
 ---
 
-## All HIGH-priority lectures (29)
+## Every recurring rule
 
-HIGH = overall ≤ 5.0 **or** a single category ≤ 4.
+All rules with at least one violation in the corpus, ranked by how many lectures they
+reach. Rules tagged **(proposed)** are documented in the style guide but not yet in the
+`action-style-guide` registry.
 
-### Overall ≤ 5.0 — deep math/writing issues
+<!-- qe:systemic -->
+### 1. `qe-fig-005` — Descriptive figure names for cross-referencing (293 / 348 lectures, 1262 occurrences)
+- `lecture-python.myst` 116 / 145 · `lecture-python-advanced.myst` 59 / 68 · `lecture-python-intro` 49 / 56 · `lecture-dp` 47 / 52 · `lecture-python-programming` 22 / 27
 
-| Series | Lecture | Writing | Math | Overall | Dominant issues |
-|--------|---------|---------|------|---------|-----------------|
-| dp | lqcontrol | 5 | 3 | **4.0** | transpose (`qe-math-002`), 17 array matrices (`qe-math-003`), Title Case headings (`qe-writing-006`) |
-| advanced | hs_recursive_models | 6 | 2 | **4.0** | transpose, bold vectors (`qe-math-004`), expectation (`qe-math-010`), distribution naming (`qe-math-011`) |
-| dp | lagrangian_lqdp | 6 | 3 | **4.5** | transpose, array matrices |
-| dp | cross_product_trick | 6 | 3 | **4.5** | transpose, array matrices, + Critical `{eq}` ref |
-| dp | perm_income_cons | 5 | 4 | **4.5** | Title Case headings, transpose, expectation |
-| advanced | black_litterman | 7 | 2 | **4.5** | transpose (heavy), expectation, distribution naming |
-| advanced | classical_filtering | 7 | 2 | **4.5** | transpose, expectation |
-| advanced | knowing_forecasts_of_others | 6 | 3 | **4.5** | transpose, expectation, distribution naming |
-| advanced | robustness | 7 | 2 | **4.5** | transpose (heavy), bold vectors, distribution naming |
-| intro | supply_demand_foundations_v2 | 4 | 5 | **4.5** | no top-level H1, Title Case headings, mixed transpose |
-| dp | lq_inventories | 6 | 4 | **5.0** | transpose, 11 array matrices |
-| dp | markov_jump_lq | 7 | 3 | **5.0** | transpose, distribution naming, embedded titles (`qe-fig-003` ×6) |
-| dp | calvo_machine_learn | 7 | 3 | **5.0** | transpose, array matrices, bold vectors, `{cite}` misuse ×8, binary pkg |
-| advanced | calvo_machine_learn | 8 | 2 | **5.0** | transpose, array matrices, bold vectors |
+### 2. `qe-fig-008` — Use lw=2 for line charts (239 / 348 lectures, 1363 occurrences)
+- `lecture-python.myst` 97 / 145 · `lecture-python-advanced.myst` 46 / 68 · `lecture-python-intro` 42 / 56 · `lecture-dp` 40 / 52 · `lecture-python-programming` 14 / 27
 
-Writing/Math shown; full per-category scores are in each lecture's report (sidebar).
+### 3. `qe-writing-008` — Remove excessive whitespace between words (237 / 348 lectures, 7044 occurrences)
+- `lecture-python.myst` 89 / 145 · `lecture-python-advanced.myst` 53 / 68 · `lecture-dp` 40 / 52 · `lecture-python-intro` 39 / 56 · `lecture-python-programming` 16 / 27
 
-### HIGH due to a single category floor ≤ 4
+### 4. `qe-fig-001` — Do not set figure size unless necessary (224 / 348 lectures, 892 occurrences)
+- `lecture-python.myst` 107 / 145 · `lecture-python-advanced.myst` 47 / 68 · `lecture-dp` 31 / 52 · `lecture-python-intro` 30 / 56 · `lecture-python-programming` 9 / 27
 
-Otherwise-sound lectures dragged into HIGH by one weak category:
+### 5. `qe-writing-001` — Use one sentence per paragraph (173 / 348 lectures, 442 occurrences)
+- `lecture-python.myst` 63 / 145 · `lecture-python-advanced.myst` 42 / 68 · `lecture-python-intro` 30 / 56 · `lecture-dp` 23 / 52 · `lecture-python-programming` 15 / 27
 
-- **`lecture-dp`** (10): `calvo` (Ref 4, Fig 5 — `{cite:t}` ×12, embedded titles, raw URLs), `calvo_abreu` (Ref 4 — `{cite}` ×7), `cons_news` (Link 3 — 7 raw links + 4 `plt.title()`), `discrete_dp` (Link 3 — 10 raw links + `%timeit`), `dyn_stack` (Link 3, Math 4), `ifp_egm` (Code 4 — 6× `time.time()`), `ifp_egm_transient_shocks` (Code 4), `smoothing` (Math floor), `smoothing_tax` (Ref 3, Fig 4), `tax_smoothing_1` (Ref 4 — `{cite}` + mid-lecture pip install)
-- **`lecture-python.myst`** (2): `cross_product_trick`, `misspecified_recovery`
-- **`lecture-python-programming`** (3): `matplotlib`, `pandas_panel`, `workspace` — all Fig 4 (embedded titles / pedagogical `figsize=`)
-- **`lecture-python-advanced.myst`** (6): the 6 in the table above
-- **`lecture-python-intro`** (1): `supply_demand_foundations_v2` (in the table above)
+### 6. `qe-fig-003` — No matplotlib embedded titles (165 / 348 lectures, 630 occurrences)
+- `lecture-python.myst` 79 / 145 · `lecture-python-advanced.myst` 36 / 68 · `lecture-dp` 30 / 52 · `lecture-python-intro` 15 / 56 · `lecture-python-programming` 5 / 27
 
-**Note:** `cross_product_trick` and `calvo_machine_learn` appear in both `lecture-dp` and (in different forms) `lecture-python.myst` / `lecture-python-advanced.myst` — likely shared source files mirrored across series, so a single fix may resolve multiple entries.
+### 7. `qe-writing-006` — Capitalize lecture titles properly (146 / 348 lectures, 781 occurrences)
+- `lecture-python.myst` 77 / 145 · `lecture-python-programming` 23 / 27 · `lecture-dp` 22 / 52 · `lecture-python-intro` 15 / 56 · `lecture-python-advanced.myst` 9 / 68
+
+### 8. `qe-math-002` — Use \top for transpose notation (122 / 348 lectures, 2129 occurrences)
+- `lecture-python.myst` 49 / 145 · `lecture-python-advanced.myst` 35 / 68 · `lecture-dp` 31 / 52 · `lecture-python-intro` 6 / 56 · `lecture-python-programming` 1 / 27
+
+### 9. `qe-ref-001` — Use correct citation style (121 / 348 lectures, 418 occurrences)
+- `lecture-python.myst` 41 / 145 · `lecture-python-advanced.myst` 39 / 68 · `lecture-dp` 22 / 52 · `lecture-python-intro` 19 / 56
+
+### 10. `qe-code-002` — Use Unicode symbols for Greek letters in code (106 / 348 lectures, 579 occurrences)
+- `lecture-python.myst` 51 / 145 · `lecture-python-advanced.myst` 22 / 68 · `lecture-dp` 21 / 52 · `lecture-python-intro` 11 / 56 · `lecture-python-programming` 1 / 27
+
+### 11. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (105 / 348 lectures, 1167 occurrences)
+- `lecture-python.myst` 50 / 145 · `lecture-python-advanced.myst` 28 / 68 · `lecture-dp` 16 / 52 · `lecture-python-intro` 8 / 56 · `lecture-python-programming` 3 / 27
+
+### 12. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (105 / 348 lectures, 339 occurrences)
+- `lecture-python.myst` 43 / 145 · `lecture-python-advanced.myst` 24 / 68 · `lecture-python-intro` 18 / 56 · `lecture-dp` 14 / 52 · `lecture-python-programming` 6 / 27
+
+### 13. `qe-fig-004` — Caption formatting conventions (65 / 348 lectures, 185 occurrences)
+- `lecture-python.myst` 38 / 145 · `lecture-python-intro` 17 / 56 · `lecture-python-advanced.myst` 10 / 68
+
+### 14. `qe-fig-006` — Lowercase axis labels (60 / 348 lectures, 298 occurrences)
+- `lecture-python.myst` 21 / 145 · `lecture-python-advanced.myst` 15 / 68 · `lecture-dp` 12 / 52 · `lecture-python-intro` 11 / 56 · `lecture-python-programming` 1 / 27
+
+### 15. `qe-link-002` — Use doc links for cross-series references (50 / 348 lectures, 105 occurrences)
+- `lecture-python.myst` 18 / 145 · `lecture-python-advanced.myst` 12 / 68 · `lecture-python-intro` 9 / 56 · `lecture-dp` 8 / 52 · `lecture-python-programming` 3 / 27
+
+### 16. `qe-math-003` — Use square brackets for matrix notation (46 / 348 lectures, 363 occurrences)
+- `lecture-python.myst` 21 / 145 · `lecture-python-advanced.myst` 15 / 68 · `lecture-dp` 6 / 52 · `lecture-python-intro` 4 / 56
+
+### 17. `qe-fig-002` — Prefer code-generated figures (38 / 348 lectures, 104 occurrences)
+- `lecture-python-advanced.myst` 12 / 68 · `lecture-python.myst` 10 / 145 · `lecture-python-intro` 6 / 56 · `lecture-dp` 5 / 52 · `lecture-python-programming` 5 / 27
+
+### 18. `qe-math-004` — Do not use bold face for matrices or vectors (33 / 348 lectures, 584 occurrences)
+- `lecture-python.myst` 18 / 145 · `lecture-python-advanced.myst` 6 / 68 · `lecture-dp` 5 / 52 · `lecture-python-intro` 4 / 56
+
+### 19. `qe-code-003` — Package installation at lecture top (32 / 348 lectures, 39 occurrences)
+- `lecture-python.myst` 12 / 145 · `lecture-dp` 7 / 52 · `lecture-python-advanced.myst` 6 / 68 · `lecture-python-intro` 4 / 56 · `lecture-python-programming` 3 / 27
+
+### 20. `qe-code-004` — Use quantecon Timer context manager (31 / 348 lectures, 144 occurrences)
+- `lecture-python.myst` 15 / 145 · `lecture-dp` 8 / 52 · `lecture-python-advanced.myst` 4 / 68 · `lecture-python-intro` 3 / 56 · `lecture-python-programming` 1 / 27
+
+### 21. `qe-writing-009` (proposed) — Write "IID" — not "i.i.d." or "iid" (30 / 348 lectures, 61 occurrences)
+- `lecture-python.myst` 15 / 145 · `lecture-python-advanced.myst` 10 / 68 · `lecture-dp` 4 / 52 · `lecture-python-intro` 1 / 56
+
+### 22. `qe-math-011` (proposed) — Distribution names in plain letters, not \mathcal / \mathbb (24 / 348 lectures, 86 occurrences)
+- `lecture-python-advanced.myst` 12 / 68 · `lecture-python.myst` 7 / 145 · `lecture-dp` 5 / 52
+
+### 23. `qe-math-001` — Prefer UTF-8 unicode for simple parameter mentions, be consistent (15 / 348 lectures, 29 occurrences)
+- `lecture-python.myst` 9 / 145 · `lecture-dp` 3 / 52 · `lecture-python-intro` 2 / 56 · `lecture-python-programming` 1 / 27
+
+### 24. `qe-link-001` — Use markdown style links for lectures in same lecture series (14 / 348 lectures, 23 occurrences)
+- `lecture-python.myst` 9 / 145 · `lecture-python-advanced.myst` 3 / 68 · `lecture-python-intro` 2 / 56
+
+### 25. `qe-fig-007` — Keep figure box and spines (13 / 348 lectures, 96 occurrences)
+- `lecture-python-intro` 6 / 56 · `lecture-python.myst` 4 / 145 · `lecture-python-advanced.myst` 2 / 68 · `lecture-python-programming` 1 / 27
+
+### 26. `qe-fig-009` — Figure sizing (9 / 348 lectures, 13 occurrences)
+- `lecture-python-programming` 5 / 27 · `lecture-python-advanced.myst` 3 / 68 · `lecture-dp` 1 / 52
+
+### 27. `qe-math-008` — Explain special notation (vectors/matrices) (7 / 348 lectures, 7 occurrences)
+- `lecture-python.myst` 3 / 145 · `lecture-dp` 2 / 52 · `lecture-python-advanced.myst` 1 / 68 · `lecture-python-intro` 1 / 56
+
+### 28. `qe-math-005` — Use curly brackets for sequences (7 / 348 lectures, 14 occurrences)
+- `lecture-python.myst` 3 / 145 · `lecture-dp` 2 / 52 · `lecture-python-advanced.myst` 1 / 68 · `lecture-python-intro` 1 / 56
+
+### 29. `qe-code-005` — Use quantecon timeit for benchmarking (7 / 348 lectures, 13 occurrences)
+- `lecture-dp` 3 / 52 · `lecture-python.myst` 3 / 145 · `lecture-python-advanced.myst` 1 / 68
+
+### 30. `qe-math-013` (proposed) — Reference equations via {eq}`label` (6 / 348 lectures, 6 occurrences)
+- `lecture-dp` 3 / 52 · `lecture-python-advanced.myst` 2 / 68 · `lecture-python.myst` 1 / 145
+
+### 31. `qe-math-006` — Use aligned environment correctly for PDF compatibility (5 / 348 lectures, 14 occurrences)
+- `lecture-python.myst` 3 / 145 · `lecture-dp` 1 / 52 · `lecture-python-advanced.myst` 1 / 68
+
+### 32. `qe-math-012` (proposed) — Multiplication via \cdot or juxtaposition, never * (4 / 348 lectures, 6 occurrences)
+- `lecture-python-intro` 2 / 56 · `lecture-python-programming` 1 / 27 · `lecture-python.myst` 1 / 145
+
+### 33. `qe-admon-001` — Use gated syntax for executable code in exercises (4 / 348 lectures, 4 occurrences)
+- `lecture-python-intro` 3 / 56 · `lecture-python.myst` 1 / 145
+
+### 34. `qe-fig-010` — Plotly figures require latex directive (4 / 348 lectures, 4 occurrences)
+- `lecture-python-advanced.myst` 3 / 68 · `lecture-python.myst` 1 / 145
+
+### 35. `qe-math-007` — Use automatic equation numbering, not manual tags (2 / 348 lectures, 2 occurrences)
+- `lecture-dp` 1 / 52 · `lecture-python.myst` 1 / 145
+
+### 36. `qe-admon-002` — Use dropdown class for solutions (1 / 348 lectures, 1 occurrences)
+- `lecture-python-intro` 1 / 56
+
+### 37. `qe-admon-003` — Use tick count management for nested directives (1 / 348 lectures, 2 occurrences)
+- `lecture-python-programming` 1 / 27
+<!-- /qe:systemic -->
 
 ---
 
-## Step-by-step remediation plan
+## All HIGH-priority lectures
 
-Ordered by impact / effort. The front-page "biggest wins" are Pass 1 + the top of Pass 2.
+HIGH = overall ≤ 5.0 **or** any single in-scope category ≤ 4 (spec §4). In this pass every
+HIGH lecture was triggered by the category floor; none has an overall at or below 5.0. The
+**Floor** column is the weakest category's score — the thing to fix.
 
-### Pass 1 — Mechanical sweeps (cheap, very high impact)
-
-1. **Section-heading case (`qe-writing-006`)** — lowercase H2/H3/H4 first words except proper nouns / acronyms. ~170 lectures.
-2. **Greek letters in code (`qe-code-002`)** — replace `alpha=`, `beta=`, etc. with `α`, `β` in code cells. ~150 lectures.
-3. **Strip unnecessary `figsize=` (`qe-fig-001`)** — let `_config.yml` defaults apply. ~125 lectures.
-4. **`IID` normalization (`qe-writing-009`, proposed)** — global replace `i.i.d.` / `iid` → `IID`. ~30 lectures.
-5. **Distribution naming (`qe-math-011`, proposed)** — `\mathcal{N}` → `N`. ~30 lectures.
-6. **Missing `\mathbb{}` braces (`qe-math-010`, proposed)** — add braces wherever `\mathbb E` / `\mathbb P` appear without them.
-
-### Pass 2 — Targeted file edits (moderate effort)
-
-7. **Critical build-risk fixes** — `divergence_measures.md:134` (`align` → `aligned`) and `cross_product_trick.md:133` (broken `{eq}` ref). Do these immediately.
-8. **Add `:name:` fields to figures (`qe-fig-005`)** — required for `{numref}` cross-references. ~120 lectures.
-9. **Sweep raw cross-series URLs (`qe-link-002`)** — replace `python.quantecon.org/...` links with `{doc}\`programming:...\`` / `{doc}\`intermediate:...\``. ~60 lectures.
-10. **Transpose convention (`qe-math-002`)** — sweep prime / `^T` → `^\top` in the LQ-family cluster (`lqcontrol`, `lagrangian_lqdp`, `perm_income_cons`, `cross_product_trick`, `markov_perf`, `robustness`, `classical_filtering`, `black_litterman`, `smoothing`, `tax_smoothing_*`). Preserve derivative-prime (`u'`, `v'`) and next-period notation (`x'`).
-11. **`{cite}` → `{cite:t}` for author-name citations (`qe-ref-001`)** — series-wide pass on `lecture-dp` and `lecture-python-intro`, which have **zero** `{cite:t}` usage today. ~37 lectures.
-
-### Pass 3 — Bigger refactors (focus on the HIGH-priority list)
-
-12. **Strip embedded matplotlib titles (`qe-fig-003`)** — move captions to MyST `{figure}` blocks. ~90 lectures.
-13. **Matrix environments (`qe-math-003`)** — convert `array`/`pmatrix`/`matrix` to `bmatrix` in `lqcontrol`, `lq_inventories`, `lagrangian_lqdp`, DLE-class lectures.
-14. **Vector decoration (`qe-math-004`)** — strip `\mathbf` / `\boldsymbol` / `\vec` from vectors in `hs_recursive_models`, `robustness`, `calvo*` lectures, `dyn_stack`.
-15. **Restructure `supply_demand_foundations_v2.md`** — give it a single Title Case H1 at the top, fix typos.
-
-### Pass 4 — Editorial (high effort, smaller per-lecture impact)
-
-16. **One-sentence paragraphs (`qe-writing-001`)** — manual editing pass on Overview sections (script-assisted but human-driven).
+<!-- qe:high-list -->
+| Series | Lecture | Writing | Math | Code | Figures | References | Links | Admon | Overall | Floor |
+|--------|---------|---|---|---|---|---|---|---|---------|-------|
+| advanced | [hs_recursive_models](lecture-python-advanced.myst/hs_recursive_models.md) | 3.0 | 3.0 | — | — | 8.5 | 10.0 | — | **6.1** | 3.0 |
+| python.myst | [navy_captain](lecture-python.myst/navy_captain.md) | 4.5 | 4.5 | 8.5 | 3.0 | — | 10.0 | — | **6.1** | 3.0 |
+| dp | [cross_product_trick](lecture-dp/cross_product_trick.md) | 6.0 | 3.0 | — | — | — | 10.0 | — | **6.3** | 3.0 |
+| python.myst | [cross_product_trick](lecture-python.myst/cross_product_trick.md) | 6.0 | 3.0 | — | — | — | 10.0 | — | **6.3** | 3.0 |
+| dp | [lqcontrol](lecture-dp/lqcontrol.md) | 4.0 | 3.0 | 7.5 | 4.5 | 9.0 | 8.0 | 10.0 | **6.6** | 3.0 |
+| advanced | [entropy](lecture-python-advanced.myst/entropy.md) | 5.5 | 4.0 | — | 8.5 | 7.5 | 8.5 | — | **6.8** | 4.0 |
+| advanced | [match_transport](lecture-python-advanced.myst/match_transport.md) | 7.0 | 7.5 | 7.5 | 3.0 | 7.5 | 8.0 | — | **6.8** | 3.0 |
+| python.myst | [prob_matrix](lecture-python.myst/prob_matrix.md) | 5.0 | 3.0 | 7.5 | 5.0 | — | 10.0 | 10.0 | **6.8** | 3.0 |
+| dp | [markov_jump_lq](lecture-dp/markov_jump_lq.md) | 8.5 | 3.0 | 7.5 | 5.0 | 7.5 | 10.0 | — | **6.9** | 3.0 |
+| advanced | [asset_pricing_lph](lecture-python-advanced.myst/asset_pricing_lph.md) | 5.5 | 3.0 | 7.0 | 7.5 | 7.5 | 7.5 | 10.0 | **6.9** | 3.0 |
+| advanced | [markov_jump_lq](lecture-python-advanced.myst/markov_jump_lq.md) | 8.5 | 3.0 | 7.5 | 5.0 | 7.5 | 10.0 | — | **6.9** | 3.0 |
+| python.myst | [var_dmd](lecture-python.myst/var_dmd.md) | 3.0 | 5.0 | — | — | 7.5 | 9.0 | 10.0 | **6.9** | 3.0 |
+| python.myst | [likelihood_ratio_process](lecture-python.myst/likelihood_ratio_process.md) | 4.5 | 3.5 | 7.5 | 3.5 | 10.0 | 10.0 | 10.0 | **7.0** | 3.5 |
+| dp | [lagrangian_lqdp](lecture-dp/lagrangian_lqdp.md) | 3.5 | 3.0 | 8.5 | — | 10.0 | 7.5 | 10.0 | **7.1** | 3.0 |
+| advanced | [black_litterman](lecture-python-advanced.myst/black_litterman.md) | 5.0 | 3.0 | 10.0 | 3.5 | 10.0 | 8.5 | 10.0 | **7.1** | 3.0 |
+| python.myst | [lagrangian_lqdp](lecture-python.myst/lagrangian_lqdp.md) | 3.5 | 3.0 | 8.5 | — | 10.0 | 7.5 | 10.0 | **7.1** | 3.0 |
+| python.myst | [linear_algebra](lecture-python.myst/linear_algebra.md) | 3.0 | 5.0 | 10.0 | 5.0 | 10.0 | 6.5 | 10.0 | **7.1** | 3.0 |
+| python.myst | [qr_decomp](lecture-python.myst/qr_decomp.md) | 5.5 | 3.0 | 10.0 | — | — | 10.0 | — | **7.1** | 3.0 |
+| python.myst | [wald_friedman_2](lecture-python.myst/wald_friedman_2.md) | 3.0 | 6.5 | 8.5 | 4.5 | 9.0 | 8.5 | 10.0 | **7.1** | 3.0 |
+| dp | [ifp_advanced](lecture-dp/ifp_advanced.md) | 4.5 | 3.0 | 7.5 | 7.0 | 8.5 | 10.0 | 10.0 | **7.2** | 3.0 |
+| advanced | [knowing_forecasts_of_others](lecture-python-advanced.myst/knowing_forecasts_of_others.md) | 4.0 | 3.0 | 10.0 | 9.0 | 7.0 | 10.0 | — | **7.2** | 3.0 |
+| python.myst | [linear_models](lecture-python.myst/linear_models.md) | 3.0 | 5.0 | 10.0 | 7.0 | — | 8.0 | 10.0 | **7.2** | 3.0 |
+| python.myst | [two_auctions](lecture-python.myst/two_auctions.md) | 6.0 | 5.5 | 10.0 | 3.0 | 10.0 | 9.0 | — | **7.2** | 3.0 |
+| dp | [tax_smoothing_2](lecture-dp/tax_smoothing_2.md) | 9.0 | 4.0 | 8.5 | 4.0 | 8.5 | 10.0 | — | **7.3** | 4.0 |
+| advanced | [tax_smoothing_2](lecture-python-advanced.myst/tax_smoothing_2.md) | 9.0 | 4.0 | 8.5 | 4.0 | 8.5 | 10.0 | — | **7.3** | 4.0 |
+| python.myst | [multivariate_normal](lecture-python.myst/multivariate_normal.md) | 5.5 | 3.0 | 10.0 | 5.5 | — | 10.0 | 10.0 | **7.3** | 3.0 |
+| python.myst | [two_computation](lecture-python.myst/two_computation.md) | 9.0 | 3.0 | 9.0 | 3.0 | 10.0 | 10.0 | — | **7.3** | 3.0 |
+| python.myst | [von_neumann_model](lecture-python.myst/von_neumann_model.md) | 3.0 | 5.5 | 7.0 | 7.0 | 8.5 | 10.0 | 10.0 | **7.3** | 3.0 |
+| dp | [mccall_model](lecture-dp/mccall_model.md) | 4.0 | 3.0 | 10.0 | 6.0 | 10.0 | 9.0 | 10.0 | **7.4** | 3.0 |
+| advanced | [robustness](lecture-python-advanced.myst/robustness.md) | 6.0 | 3.0 | 9.0 | 6.5 | 10.0 | 7.5 | 10.0 | **7.4** | 3.0 |
+| advanced | [subjective_beliefs_business_cycles](lecture-python-advanced.myst/subjective_beliefs_business_cycles.md) | 4.5 | 3.0 | 9.0 | 6.5 | 9.0 | 10.0 | 10.0 | **7.4** | 3.0 |
+| intro | [inflation_history](lecture-python-intro/inflation_history.md) | 3.0 | 10.0 | 6.0 | 4.5 | 8.5 | 10.0 | 10.0 | **7.4** | 3.0 |
+| python.myst | [finite_markov](lecture-python.myst/finite_markov.md) | 3.0 | 3.5 | 9.5 | 6.5 | 10.0 | 9.0 | 10.0 | **7.4** | 3.0 |
+| python.myst | [ifp_advanced](lecture-python.myst/ifp_advanced.md) | 4.5 | 3.0 | 8.5 | 7.0 | 8.5 | 10.0 | 10.0 | **7.4** | 3.0 |
+| python.myst | [markov_asset](lecture-python.myst/markov_asset.md) | 4.0 | 4.5 | 10.0 | 6.5 | 8.5 | 8.0 | 10.0 | **7.4** | 4.0 |
+| python.myst | [mccall_model](lecture-python.myst/mccall_model.md) | 4.0 | 3.0 | 10.0 | 6.0 | 10.0 | 9.0 | 10.0 | **7.4** | 3.0 |
+| dp | [mccall_q](lecture-dp/mccall_q.md) | 4.0 | 5.5 | 10.0 | 6.5 | 9.0 | 10.0 | — | **7.5** | 4.0 |
+| dp | [perm_income](lecture-dp/perm_income.md) | 3.5 | 4.5 | 10.0 | 6.0 | 8.5 | 10.0 | 10.0 | **7.5** | 3.5 |
+| advanced | [risk_aversion_or_mistaken_beliefs](lecture-python-advanced.myst/risk_aversion_or_mistaken_beliefs.md) | 6.5 | 3.0 | 10.0 | 3.0 | 10.0 | 10.0 | 10.0 | **7.5** | 3.0 |
+| python.myst | [perm_income](lecture-python.myst/perm_income.md) | 3.5 | 4.5 | 10.0 | 6.0 | 8.5 | 10.0 | 10.0 | **7.5** | 3.5 |
+| dp | [discrete_dp](lecture-dp/discrete_dp.md) | 8.5 | 4.0 | 8.0 | 6.0 | 9.0 | 7.5 | 10.0 | **7.6** | 4.0 |
+| dp | [inventory_q](lecture-dp/inventory_q.md) | 5.5 | 4.0 | 10.0 | 6.0 | 10.0 | 10.0 | — | **7.6** | 4.0 |
+| advanced | [additive_functionals](lecture-python-advanced.myst/additive_functionals.md) | 9.0 | 4.0 | 10.0 | 3.5 | 8.5 | 8.0 | 10.0 | **7.6** | 3.5 |
+| advanced | [discrete_dp](lecture-python-advanced.myst/discrete_dp.md) | 8.5 | 4.0 | 8.0 | 6.0 | 9.0 | 7.5 | 10.0 | **7.6** | 4.0 |
+| advanced | [dovis_accounting_mf](lecture-python-advanced.myst/dovis_accounting_mf.md) | 6.0 | 3.0 | 10.0 | 4.5 | 10.0 | 10.0 | 10.0 | **7.6** | 3.0 |
+| advanced | [tsyrennikov_2013](lecture-python-advanced.myst/tsyrennikov_2013.md) | 6.5 | 3.0 | 9.0 | 5.0 | 10.0 | 10.0 | 10.0 | **7.6** | 3.0 |
+| python.myst | [inventory_q](lecture-python.myst/inventory_q.md) | 5.5 | 4.0 | 10.0 | 6.0 | 10.0 | 10.0 | — | **7.6** | 4.0 |
+| python.myst | [misspecified_recovery](lecture-python.myst/misspecified_recovery.md) | 6.0 | 3.0 | 7.5 | 6.5 | 10.0 | 10.0 | 10.0 | **7.6** | 3.0 |
+| python.myst | [prob_meaning](lecture-python.myst/prob_meaning.md) | 3.5 | 7.5 | 10.0 | 4.5 | — | 10.0 | 10.0 | **7.6** | 3.5 |
+| python.myst | [sargent_surico](lecture-python.myst/sargent_surico.md) | 8.0 | 5.5 | 6.0 | 4.0 | 10.0 | 10.0 | 10.0 | **7.6** | 4.0 |
+| advanced | [rob_markov_perf](lecture-python-advanced.myst/rob_markov_perf.md) | 8.0 | 4.0 | 7.5 | 8.0 | 8.5 | 10.0 | — | **7.7** | 4.0 |
+| intro | [french_rev](lecture-python-intro/french_rev.md) | 3.5 | 10.0 | 10.0 | 3.0 | 7.5 | 10.0 | 10.0 | **7.7** | 3.0 |
+| python.myst | [ge_arrow](lecture-python.myst/ge_arrow.md) | 3.0 | 3.0 | 10.0 | 8.0 | 10.0 | 10.0 | 10.0 | **7.7** | 3.0 |
+| dp | [lq_inventories](lecture-dp/lq_inventories.md) | 5.5 | 3.0 | 9.0 | 7.0 | 10.0 | 10.0 | 10.0 | **7.8** | 3.0 |
+| intro | [inequality](lecture-python-intro/inequality.md) | 4.0 | 9.0 | 6.5 | 5.0 | 10.0 | 10.0 | 10.0 | **7.8** | 4.0 |
+| intro | [markov_chains_I](lecture-python-intro/markov_chains_I.md) | 8.0 | 3.0 | 9.5 | 7.5 | 8.5 | 9.0 | 9.0 | **7.8** | 3.0 |
+| programming | [python_by_example](lecture-python-programming/python_by_example.md) | 4.0 | 9.0 | 10.0 | 6.0 | — | 10.0 | 7.5 | **7.8** | 4.0 |
+| python.myst | [affine_risk_prices](lecture-python.myst/affine_risk_prices.md) | 7.0 | 4.0 | 10.0 | 5.0 | 8.5 | 10.0 | 10.0 | **7.8** | 4.0 |
+| python.myst | [lln_clt](lecture-python.myst/lln_clt.md) | 7.0 | 3.0 | 7.5 | 7.0 | 10.0 | 10.0 | 10.0 | **7.8** | 3.0 |
+| python.myst | [lq_inventories](lecture-python.myst/lq_inventories.md) | 5.5 | 3.0 | 9.0 | 7.0 | 10.0 | 10.0 | 10.0 | **7.8** | 3.0 |
+| python.myst | [opt_transport](lecture-python.myst/opt_transport.md) | 4.5 | 3.0 | 9.0 | 8.0 | 10.0 | 10.0 | 10.0 | **7.8** | 3.0 |
+| advanced | [cagan_rational_expectations](lecture-python-advanced.myst/cagan_rational_expectations.md) | 9.5 | 3.0 | 8.5 | 5.5 | 8.5 | 10.0 | 10.0 | **7.9** | 3.0 |
+| advanced | [classical_filtering](lecture-python-advanced.myst/classical_filtering.md) | 6.5 | 3.5 | 10.0 | — | 7.5 | 10.0 | 10.0 | **7.9** | 3.5 |
+| advanced | [five_preferences](lecture-python-advanced.myst/five_preferences.md) | 6.5 | 10.0 | 10.0 | 4.0 | 7.0 | 10.0 | — | **7.9** | 4.0 |
+| python.myst | [blackwell_kihlstrom](lecture-python.myst/blackwell_kihlstrom.md) | 5.5 | 3.5 | 10.0 | 7.0 | 9.0 | 10.0 | 10.0 | **7.9** | 3.5 |
+| python.myst | [cass_fiscal](lecture-python.myst/cass_fiscal.md) | 3.5 | 9.0 | 9.0 | 4.0 | 10.0 | 10.0 | 10.0 | **7.9** | 3.5 |
+| python.myst | [likelihood_ratio_process_2](lecture-python.myst/likelihood_ratio_process_2.md) | 5.5 | 10.0 | 8.5 | 4.0 | 7.5 | 10.0 | 10.0 | **7.9** | 4.0 |
+| python.myst | [mle](lecture-python.myst/mle.md) | 7.0 | 3.0 | 10.0 | 5.5 | 10.0 | 10.0 | 10.0 | **7.9** | 3.0 |
+| python.myst | [ross_recovery](lecture-python.myst/ross_recovery.md) | 6.5 | 4.0 | 8.5 | 6.0 | 10.0 | 10.0 | 10.0 | **7.9** | 4.0 |
+| advanced | [gorman_heterogeneous_households](lecture-python-advanced.myst/gorman_heterogeneous_households.md) | 4.0 | 8.5 | 8.5 | 5.0 | 10.0 | 10.0 | 10.0 | **8.0** | 4.0 |
+| advanced | [orth_proj](lecture-python-advanced.myst/orth_proj.md) | 6.0 | 3.0 | 10.0 | 7.0 | 10.0 | 10.0 | 10.0 | **8.0** | 3.0 |
+| intro | [geom_series](lecture-python-intro/geom_series.md) | 5.5 | 8.5 | 10.0 | 4.0 | — | 10.0 | 10.0 | **8.0** | 4.0 |
+| programming | [numpy](lecture-python-programming/numpy.md) | 3.5 | 8.5 | 9.0 | 7.0 | — | 10.0 | 10.0 | **8.0** | 3.5 |
+| python.myst | [information_market_equilibrium](lecture-python.myst/information_market_equilibrium.md) | 7.0 | 3.5 | 8.5 | 7.0 | 10.0 | 10.0 | 10.0 | **8.0** | 3.5 |
+| python.myst | [pricing_information](lecture-python.myst/pricing_information.md) | 10.0 | 3.0 | 7.0 | 6.0 | 10.0 | 10.0 | 10.0 | **8.0** | 3.0 |
+| dp | [calvo_machine_learn](lecture-dp/calvo_machine_learn.md) | 8.0 | 3.5 | 7.0 | 8.0 | 10.0 | 10.0 | 10.0 | **8.1** | 3.5 |
+| advanced | [arellano](lecture-python-advanced.myst/arellano.md) | 9.0 | 3.5 | 8.5 | 7.0 | 9.0 | 10.0 | 10.0 | **8.1** | 3.5 |
+| advanced | [calvo_machine_learn](lecture-python-advanced.myst/calvo_machine_learn.md) | 8.0 | 3.5 | 7.0 | 8.0 | 10.0 | 10.0 | 10.0 | **8.1** | 3.5 |
+| advanced | [doubts_or_variability](lecture-python-advanced.myst/doubts_or_variability.md) | 7.0 | 3.0 | 10.0 | 8.0 | 8.5 | 10.0 | 10.0 | **8.1** | 3.0 |
+| advanced | [hansen_richard_1987](lecture-python-advanced.myst/hansen_richard_1987.md) | 3.5 | 5.0 | 8.5 | 9.5 | 10.0 | 10.0 | 10.0 | **8.1** | 3.5 |
+| advanced | [repeat_mh](lecture-python-advanced.myst/repeat_mh.md) | 6.0 | 3.0 | 9.5 | 8.5 | 10.0 | 10.0 | 10.0 | **8.1** | 3.0 |
+| programming | [matplotlib](lecture-python-programming/matplotlib.md) | 5.5 | 10.0 | 9.0 | 4.0 | — | 10.0 | 10.0 | **8.1** | 4.0 |
+| python.myst | [phillips_drifts_volatilities](lecture-python.myst/phillips_drifts_volatilities.md) | 6.0 | 10.0 | 8.0 | 4.0 | 9.0 | 10.0 | 10.0 | **8.1** | 4.0 |
+| intro | [eigen_I](lecture-python-intro/eigen_I.md) | 6.0 | 10.0 | 10.0 | 3.0 | — | 10.0 | 10.0 | **8.2** | 3.0 |
+| intro | [lln_clt](lecture-python-intro/lln_clt.md) | 10.0 | 4.0 | 10.0 | 7.0 | — | 9.0 | 9.0 | **8.2** | 4.0 |
+| python.myst | [ak_aiyagari](lecture-python.myst/ak_aiyagari.md) | 8.5 | 10.0 | 8.5 | 4.0 | 8.5 | 10.0 | — | **8.2** | 4.0 |
+| python.myst | [hansen_singleton_1983](lecture-python.myst/hansen_singleton_1983.md) | 8.0 | 3.0 | 8.5 | 9.5 | 10.0 | 10.0 | — | **8.2** | 3.0 |
+| python.myst | [re_with_feedback](lecture-python.myst/re_with_feedback.md) | 3.5 | 9.0 | 10.0 | 6.0 | 9.0 | 10.0 | 10.0 | **8.2** | 3.5 |
+| python.myst | [svd_intro](lecture-python.myst/svd_intro.md) | 3.0 | 10.0 | 10.0 | 6.0 | — | 10.0 | 10.0 | **8.2** | 3.0 |
+| dp | [lqramsey](lecture-dp/lqramsey.md) | 9.0 | 3.0 | 10.0 | 6.5 | 10.0 | 10.0 | 10.0 | **8.4** | 3.0 |
+| advanced | [info_projection](lecture-python-advanced.myst/info_projection.md) | 8.0 | 3.5 | 10.0 | 8.0 | 9.0 | 10.0 | 10.0 | **8.4** | 3.5 |
+| advanced | [lqramsey](lecture-python-advanced.myst/lqramsey.md) | 9.0 | 3.0 | 10.0 | 6.5 | 10.0 | 10.0 | 10.0 | **8.4** | 3.0 |
+| programming | [need_for_speed](lecture-python-programming/need_for_speed.md) | 4.0 | — | 10.0 | 8.0 | — | 10.0 | 10.0 | **8.4** | 4.0 |
+| dp | [smoothing_tax](lecture-dp/smoothing_tax.md) | 7.0 | 8.5 | 10.0 | 4.0 | 10.0 | 10.0 | 10.0 | **8.5** | 4.0 |
+| advanced | [smoothing_tax](lecture-python-advanced.myst/smoothing_tax.md) | 7.0 | 8.5 | 10.0 | 4.0 | 10.0 | 10.0 | 10.0 | **8.5** | 4.0 |
+| programming | [python_oop](lecture-python-programming/python_oop.md) | 4.0 | 10.0 | 10.0 | 7.5 | — | 10.0 | 10.0 | **8.6** | 4.0 |
+| programming | [python_essentials](lecture-python-programming/python_essentials.md) | 3.5 | 10.0 | 10.0 | — | — | 10.0 | 10.0 | **8.7** | 3.5 |
+| python.myst | [house_auction](lecture-python.myst/house_auction.md) | 3.0 | 10.0 | 10.0 | — | 10.0 | 10.0 | 10.0 | **8.8** | 3.0 |
+<!-- /qe:high-list -->
 
 ---
 
-## How to read the per-lecture reports
+## Remediation plan
 
-Every lecture has its own report (sidebar, grouped by series), following the [template in the spec](spec.md):
+Ordered by return on effort. The first block is mechanical and can be scripted; the second
+needs a reading pass; the third is small and structural.
 
-- 8-row score breakdown (Writing, Math, Code, JAX out of scope, Figures, References, Links, Admonitions)
-- Issues bucketed by severity (Critical / High / Medium / Low) with `qe-*` rule IDs
-- Strengths
-- Recommended actions
+### 1. Scriptable sweeps — do these first
+
+1. **Figure names** (`qe-fig-005`) — add `mystnb.figure.name` metadata to every
+   figure-producing code cell and `:name:` to every `{figure}`/`{image}` directive. Reaches
+   the largest share of the corpus of any single rule and unlocks `{numref}`
+   cross-referencing.
+2. **Greek letters in code** (`qe-code-002`) — `alpha` → `α` and friends, in code cells
+   only. `lecture-python-programming` is already fully compliant and is the model.
+3. **Line widths** (`qe-fig-008`) — add `lw=2` to line plots.
+4. **Figure sizes** (`qe-fig-001`) — drop `figsize=` overrides and let the series
+   `_config.yml` defaults apply; keep only where a plot genuinely needs a different aspect.
+5. **Excess whitespace** (`qe-writing-008`) — collapse runs of spaces between words. The
+   single largest raw count in the corpus, and entirely safe to automate.
+6. **Heading capitalisation** (`qe-writing-006`) — H2 and below to sentence case. Needs a
+   proper-noun allowlist; `tools/qestyle_rules.py` already carries one curated from this
+   corpus.
+7. **Transpose and expectation notation** (`qe-math-002`, `qe-math-010` *(proposed)*) —
+   `'` and `^T` → `^\top`; bare `E[·]` → `\mathbb{E}[·]`. Concentrated in the older LQ and
+   filtering lectures of `lecture-python-advanced.myst` and `lecture-dp`, so it is best
+   done as one careful pass over that cluster rather than corpus-wide.
+8. **Cross-series links** (`qe-link-002`) — raw `*.quantecon.org` URLs → `{doc}` with the
+   intersphinx prefix.
+
+### 2. Needs a reading pass
+
+9. **Plot titles → captions** (`qe-fig-003`) — `ax.set_title(...)` moved into the figure
+   caption. Mechanical to find, but each caption has to be written. Titles inside
+   `exercise`/`solution` regions are exempt and are already excluded from the counts.
+10. **Caption conventions** (`qe-fig-004`) — sentence case, six words or fewer. The only
+    rule that got materially worse since the previous pass.
+11. **Narrative citations** (`qe-ref-001`) — `{cite}` → `{cite:t}` where the author name is
+    part of the sentence. Needs judgment on each site.
+12. **One sentence per paragraph** (`qe-writing-001`) — splitting a paragraph changes its
+    rhythm, so this is an editorial pass, not a sweep.
+
+### 3. Structural — small and worth doing now
+
+13. The four findings on the [front page](intro.md#fix-immediately): two unclosed
+    `{exercise-start}` fences, two malformed `` {eq}` ` `` references, and a raw
+    `\label{}` inside `$$`.
+14. **Duplicated lectures.** `lecture-dp` syncs several lectures verbatim from
+    `lecture-python.myst` (`cross_product_trick`, `ifp_advanced`, `inventory_q`,
+    `rs_inventory_q` and others). Their findings appear twice in this report because both
+    copies are audited. Fix upstream and both clear.
 
 ---
 
-## Notes on calibration
+## Corrections to the previous pass
 
-- Scoring was deliberately strict: a 9–10 score required essentially no deviations.
-- Categories not applicable to a given lecture are scored `N/A` and excluded from the overall (e.g. `lecture-python-programming` is N/A on References because no lecture in that series uses `{cite}`).
-- **JAX is out of scope** — not the same as N/A. JAX rules apply to JAX-specific lectures concentrated in `lecture-jax`, which was not audited here.
-- 7 of the rules cited are **(proposed)** — documented in the QuantEcon style guide but not yet in the `action-style-guide` rule registry. They are tracked in [issue #18](https://github.com/QuantEcon/action-style-guide/issues/18).
+This pass re-measured the corpus with a program rather than by reading, which surfaced
+several defects in the previous report. They are listed here rather than quietly dropped,
+because they say something about how a pass should be run.
+
+| What the previous pass said | What re-measurement found |
+|-----------------------------|---------------------------|
+| `divergence_measures.md:134` has `\begin{align}` inside `$$`, breaking the PDF build | There is no `align` inside `$$` anywhere in the corpus. That line is a bare top-level `\begin{align}`, which MyST handles — a convention outlier, not a build break. |
+| 299 lectures audited | 299 reports were written, but one of them (`supply_demand_foundations_v2`) describes a lecture that exists in no repository's history, and two real `lecture-dp` lectures (`inventory_q`, `rs_inventory_q`) were never audited. Net real coverage was 298 of 300. |
+| Per-lecture overall scores | 94 of 299 headers did not equal the mean of their own in-scope categories, which is how spec §4 defines the overall score. Discrepancies ran up to 1.2 points. |
+| Per-lecture priority buckets | 35 of 299 did not follow spec §4 from their own scores — mostly lectures with a category at 4 that were filed MEDIUM rather than HIGH. |
+| `lecture-python.myst` is "in great shape — 86% of lectures are clean" | The same series was reported as having `qe-writing-006` in 87 of 110 lectures and `qe-code-002` in 94 of 110. Both cannot hold under the §4 rubric. Measured consistently, `lecture-python.myst` sits mid-field, not top. |
+| `qe-admon-*` clean across `lecture-python-programming` | `python_by_example.md` has two unclosed `{exercise-start}` fences (`qe-admon-003`, a build-risk rule). |
+
+None of these are surprising for a pass done by reading 299 files. They are the reason the
+mechanical layer now exists, and the reason `tools/qestyle_check.py` runs as a gate: every
+row above corresponds to a check that now fails loudly.
+
+---
+
+## Coverage and its limits
+
+- **41 of 49 rules are measured by program**; the 8 judgment-only rules (spec §9) are
+  reviewed by reading. A category scoring 10 means no mechanical violation was measured,
+  not that every rule in it was verified by a human.
+- **Three checks are heuristic** and say so where they fire: `qe-writing-004` and
+  `qe-writing-006` depend on curated proper-noun and common-noun lists, and `qe-math-002`
+  has to distinguish a transpose apostrophe from a derivative and a `^T` transpose from a
+  terminal date. They will need extending as the corpus grows.
+- **JAX is out of scope**, not `N/A` — the 7 `qe-jax-*` rules target `lecture-jax`, which
+  is not part of this corpus.
+- **Counts are absolute, not per-line.** A 2,000-line lecture and a 200-line lecture with
+  the same number of violations of a rule score the same for it, which follows the spec's
+  severity definitions (§5) rather than any notion of density.

@@ -1,0 +1,57 @@
+rule,title,proposed
+qe-admon-001,Use gated syntax for executable code in exercises,0
+qe-admon-002,Use dropdown class for solutions,0
+qe-admon-003,Use tick count management for nested directives,0
+qe-admon-004,Use prf prefix for proof directives,0
+qe-admon-005,Link solutions to exercises,0
+qe-code-001,Follow PEP8 unless closer to mathematical notation,0
+qe-code-002,Use Unicode symbols for Greek letters in code,0
+qe-code-003,Package installation at lecture top,0
+qe-code-004,Use quantecon Timer context manager,0
+qe-code-005,Use quantecon timeit for benchmarking,0
+qe-code-006,Binary packages require installation notes,0
+qe-fig-001,Do not set figure size unless necessary,0
+qe-fig-002,Prefer code-generated figures,0
+qe-fig-003,No matplotlib embedded titles,0
+qe-fig-004,Caption formatting conventions,0
+qe-fig-005,Descriptive figure names for cross-referencing,0
+qe-fig-006,Lowercase axis labels,0
+qe-fig-007,Keep figure box and spines,0
+qe-fig-008,Use lw=2 for line charts,0
+qe-fig-009,Figure sizing,0
+qe-fig-010,Plotly figures require latex directive,0
+qe-fig-011,Use image directive when nested in other directives,0
+qe-jax-001,Use functional programming patterns,0
+qe-jax-002,Use NamedTuple for model parameters,0
+qe-jax-003,Use generate_path for sequence generation,0
+qe-jax-004,Use functional update patterns,0
+qe-jax-005,Use jax.lax for control flow,0
+qe-jax-006,Explicit PRNG key management,0
+qe-jax-007,Use consistent function naming for updates,0
+qe-link-001,Use markdown style links for lectures in same lecture series,0
+qe-link-002,Use doc links for cross-series references,0
+qe-math-001,"Prefer UTF-8 unicode for simple parameter mentions, be consistent",0
+qe-math-002,Use \top for transpose notation,0
+qe-math-003,Use square brackets for matrix notation,0
+qe-math-004,Do not use bold face for matrices or vectors,0
+qe-math-005,Use curly brackets for sequences,0
+qe-math-006,Use aligned environment correctly for PDF compatibility,0
+qe-math-007,"Use automatic equation numbering, not manual tags",0
+qe-math-008,Explain special notation (vectors/matrices),0
+qe-math-009,Choose simplicity in mathematical notation,0
+qe-math-010,"Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces",1
+qe-math-011,"Distribution names in plain letters, not \mathcal / \mathbb",1
+qe-math-012,"Multiplication via \cdot or juxtaposition, never *",1
+qe-math-013,Reference equations via {eq}`label`,1
+qe-math-014,"Braces \{…\} for events, parentheses (…) for sets",1
+qe-math-015,"Lowercase for densities/PMFs, uppercase for CDFs",1
+qe-ref-001,Use correct citation style,0
+qe-writing-001,Use one sentence per paragraph,0
+qe-writing-002,"Keep writing clear, concise, and valuable",0
+qe-writing-003,Maintain logical flow,0
+qe-writing-004,Avoid unnecessary capitalization in narrative text,0
+qe-writing-005,"Use bold for definitions, italic for emphasis",0
+qe-writing-006,Capitalize lecture titles properly,0
+qe-writing-007,Use visual elements to enhance understanding,0
+qe-writing-008,Remove excessive whitespace between words,0
+qe-writing-009,"Write ""IID"" — not ""i.i.d."" or ""iid""",1

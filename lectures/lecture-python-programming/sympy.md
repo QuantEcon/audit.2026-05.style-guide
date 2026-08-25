@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/sympy.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.2 / 10
-- **Priority:** LOW
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `ceec881028`
+- **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.9 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 7/10  | Some H2 in sentence case; H3 mostly sentence case; H2 stragglers remain. |
-| Math         | 6/10  | Bare `E(X)` used as expectation violates qe-math-010 (proposed). |
-| Code         | 8/10  | Only Anaconda packages (sympy, numpy, matplotlib); Greek unicode (λ) used as a SymPy `Symbol` per qe-code-002; `from sympy import *` is a star-import — pedagogically common in SymPy intros but technically discouraged by PEP8 (qe-code-001 nit). |
-| JAX          | out of scope | — |
-| Figures      | N/A   | No matplotlib figures (SymPy's own `plot()` is used but produces inline output, no figure metadata). |
-| References   | N/A   | No citations. |
-| Links        | 7/10  | Two bare URLs to sibling series. *Examples:* line 200 `[trigonometry and complex numbers](https://python.quantecon.org/complex_and_trig.html)`, line 313 `[geometric series](https://intro.quantecon.org/geom_series.html...)`, line 664 `[Maximum likelihood estimation (MLE)](https://python.quantecon.org/mle.html)` — should be `{doc}` links with intersphinx prefix per qe-link-002. |
-| Admonitions  | 8/10  | Two `{exercise-start}` and two `{exercise}` (line 612, 661) gated/non-gated mix; two `{solution-start}` with `:class: dropdown` and `:label:` per qe-admon-005. |
+| Writing      | 7.5/10 | `qe-writing-006` ×3. |
+| Math         | 8/10  | `qe-math-001` ×4. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 10/10 | no mechanical violations detected. |
+| References   | N/A   | no citations in this lecture. |
+| Links        | 8/10  | `qe-link-002` ×3. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,27 +27,26 @@
 _None found._
 
 ### High severity
-- **[qe-link-002]** — Three bare URLs to sibling lecture series. *Examples:* line 200 (`python.quantecon.org/complex_and_trig.html`), line 313 (`intro.quantecon.org/geom_series.html`), line 664 (`python.quantecon.org/mle.html`) — should use `` {doc}`intermediate:complex_and_trig` ``, `` {doc}`intro:geom_series` ``, `` {doc}`intermediate:mle` ``. *Count:* 3 occurrences.
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 3. *Lines:* 45, 371, 515. *Example:* H2 Title Case: 'Getting Started' (Started).
 
 ### Medium severity
-- **[qe-writing-006]** — A few H2 headings use Title Case. *Examples:* line 45 `## Getting Started`, line 371 `## Symbolic Calculus`, line 470 `## Plotting`, line 515 `## Application: Two-person Exchange Economy`, line 610 `## Exercises`. *Count:* 5 occurrences.
-- **[qe-math-010 (proposed)]** — Bare `E(X)` used for expectation rather than `\mathbb{E}[X]`. *Example:* line 349 `E(X) = \sum_{x=0}^{\infty} x f(x)`. *Count:* 1 occurrence in display math (plus `E(X)` echoed at line 368 in code — but that is a SymPy `E` *symbol*, which is intentionally what `from sympy.stats import E` provides).
+- **[qe-link-002]** — Use doc links for cross-series references. *Count:* 3. *Lines:* 200, 313, 664. *Example:* raw link to python.quantecon.org.
+- **[qe-math-001]** — Prefer UTF-8 unicode for simple parameter mentions, be consistent. *Count:* 4. *Lines:* 671, 678. *Example:* unicode `θ` inside a math environment.
 
 ### Low severity
-- **[qe-writing-004]** — Mixed casing inside `## Application: Two-person Exchange Economy` (line 515).
-- **[qe-code-001]** — `from sympy import *` (line 50) is a star-import; common in SymPy tutorials but discouraged by PEP8.
-- **[qe-admon-001]** — Two exercises use bare `{exercise}` rather than gated syntax (lines 612, 661); bodies are prose-only.
+_None found._
+
 
 ## Strengths
-- Lecture title "SymPy" follows qe-writing-006.
-- Many H2 headings already use sentence case ("Symbolic algebra"); H3 mostly sentence case.
-- Lowercase `f` for densities/PMFs per qe-math-015 (proposed) (lines 323, 412).
-- Sequences correctly use `\{...\}` (e.g., `\{\xi_t\}`) per qe-math-005.
-- Greek unicode (λ) used as a SymPy `Symbol` per qe-code-002.
-- Exercise/solution pairs use `:class: dropdown` and `:label:` per qe-admon-002/qe-admon-005.
+
+- Code, Figures, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Convert the three bare quantecon.org URLs (lines 200, 313, 664) to `{doc}` cross-series links.
-2. Convert remaining Title Case H2 headings to sentence case ("Getting started", "Symbolic calculus", "Application: two-person exchange economy").
-3. Replace narrative `E(X) = \sum ...` with `\mathbb{E}[X] = \sum ...` (the SymPy code `E(X)` may remain since it's the SymPy function name).
-4. Optionally replace `from sympy import *` with explicit named imports.
+
+1. `qe-writing-006` — Capitalize lecture titles properly (3 occurrences).
+2. `qe-math-001` — Prefer UTF-8 unicode for simple parameter mentions, be consistent (4 occurrences).
+3. `qe-link-002` — Use doc links for cross-series references (3 occurrences).

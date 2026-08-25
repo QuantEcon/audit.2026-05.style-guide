@@ -2,23 +2,24 @@
 
 - **Series:** lecture-dp
 - **File:** `lectures/perm_income_cons.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
-- **Overall score:** 5.5 / 10
-- **Priority:** HIGH
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `c30490a2f4`
+- **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
+- **Overall score:** 7.1 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 5/10  | Title Case in many H2/H3/H4 headings. |
-| Math         | 4/10  | Apostrophe transpose throughout LQ section; bare `E_0`/`E_t`. |
-| Code         | 7/10  | Unicode Greek; pip install at top; PEP8; figsize used 3×. |
-| JAX          | out of scope | not a JAX lecture. |
-| Figures      | 8/10  | No matplotlib titles; no Title-Case labels; 3 figsize calls. |
-| References   | 5/10  | `Hall {cite}`Hall1978`` and similar narrative-author cases (2×) — should be `{cite:t}`. |
-| Links        | 4/10  | One raw markdown link to `python-intro.quantecon.org/perm_income.html` instead of `{doc}`. |
-| Admonitions  | N/A   | No exercises. |
+| Writing      | 4.5/10 | `qe-writing-006` ×12; `qe-writing-008` ×19. |
+| Math         | 4.5/10 | `qe-math-002` ×8; `qe-math-010` (proposed) ×2. |
+| Code         | 9/10  | `qe-code-002` ×1. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 5.5/10 | `qe-fig-005` ×6; `qe-fig-003` ×3; `qe-fig-008` ×2, +1 more. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 9/10  | `qe-link-002` ×1. |
+| Admonitions  | N/A   | no admonitions, exercises or solutions. |
 
 ## Issues
 
@@ -26,31 +27,36 @@
 _None found._
 
 ### High severity
-- **[qe-math-002]** — Apostrophe `'` used as transpose throughout the LQ derivation. *Lines:* 228, 240, 244, 247, 249, 251, 280, and matrix sections through to 720. *Count:* 25+ occurrences.
-- **[qe-writing-006]** — Systemic Title Case H2/H3/H4 headings. *Examples:* `### Digression on a Useful Isomorphism` (137), `### A Specification of the Nonfinancial Income Process` (165), `## The LQ Approach` (201), `### The LQ Problem` (221), `### Mapping into the LQ Framework` (253), `### The Exogenous Nonfinancial Income Process` (328), `### Comparison with the Difference Equation Approach` (407), `## Two Example Economies` (472), `### First Set of Initial Conditions` (494), `### Population and Sample Panels` (508), `### A "Borrowers and Lenders" Closed Economy` (721). *Count:* 12+ headings.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 6. *Lines:* 625, 635, 716, 759, 769, 788. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 8. *Lines:* 244, 247, 249, 298. *Example:* apostrophe transpose `x'`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 2. *Lines:* 227, 240. *Example:* missing braces: `\mathbb E`.
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 12. *Lines:* 137, 165, 201, 221, 253, 328, 407, 472, 494, 508, …. *Example:* H3 Title Case: 'Digression on a Useful Isomorphism' (Useful, Isomorphism).
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 19. *Lines:* 53, 55, 89, 149, 156, 157, 174, 203, 219, 296, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-math-010 (proposed)]** — Expectation written as plain `E_0`, `E_t` rather than `\mathbb{E}` (lines 94, 115). *Count:* 2.
-- **[qe-ref-001]** — Author-name narrative citations using parenthetical `{cite}` instead of textual `{cite:t}`. *Count:* 2 occurrences ("Hall {cite}…", "Robert Hall {cite}…" patterns).
-- **[qe-link-002]** — Raw markdown link to `python-intro.quantecon.org/perm_income.html` (line) where `{doc}` is preferred.
-- **[qe-fig-001]** — `figsize=` set 3 times.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 559, 601, 707. *Example:* figsize=.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 3. *Lines:* 568, 609, 711. *Example:* .set(title=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 708, 709. *Example:* plot() without lw=.
+- **[qe-link-002]** — Use doc links for cross-series references. *Count:* 1. *Lines:* 163. *Example:* raw link to python-advanced.quantecon.org.
 
 ### Low severity
-- **[qe-writing-001]** — A few multi-sentence paragraphs.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 396. *Example:* spelled-out `beta`.
+
 
 ## Strengths
-- Lecture title in correct Title Case (via `{index}`).
-- Matrices use `bmatrix` (lines 180-200, 259-269).
-- "IID" used correctly (line 240).
-- Equation labels and `{eq}` references used cleanly.
-- pip install correctly at top.
-- Unicode Greek in code cells.
-- No matplotlib titles, no Title-Case axis labels.
-- No `\tag`, no `align`-inside-`$$`, no bold vectors.
+
+- Code, References, Links score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Replace every `'` used as transpose with `^\top` (or restructure the matrix-math).
-2. Replace bare `E_0`/`E_t` with `\mathbb{E}_0`/`\mathbb{E}_t`.
-3. Convert all H2/H3/H4 headings to sentence case.
-4. Switch narrative `Author {cite}…` to `{cite:t}` form.
-5. Convert raw `python-intro.quantecon.org` markdown link to `{doc}` form.
+
+1. `qe-writing-006` — Capitalize lecture titles properly (12 occurrences).
+2. `qe-math-002` — Use \top for transpose notation (8 occurrences).
+3. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (2 occurrences).
+4. `qe-fig-005` — Descriptive figure names for cross-referencing (6 occurrences).
+5. `qe-fig-003` — No matplotlib embedded titles (3 occurrences).
+6. `qe-link-002` — Use doc links for cross-series references (1 occurrence).
+7. `qe-writing-008` — Remove excessive whitespace between words (19 occurrences).

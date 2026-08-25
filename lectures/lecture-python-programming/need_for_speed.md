@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/need_for_speed.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.1 / 10
-- **Priority:** LOW
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `ceec881028`
+- **Categories audited:** writing, code, figures, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.4 / 10
+- **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 7.5/10| Mixed case in headings — many already sentence case; ~10 Title Case stragglers. |
-| Math         | N/A   | No math content. |
-| Code         | 9/10  | `!pip install quantecon` at top with `hide-output`; uses `qe.Timer()` (qe-code-004) for both demos; PEP8 clean; no Greek identifiers needed. |
-| JAX          | out of scope | — |
-| Figures      | 6/10  | Three static `{figure}` directives (lines 313, 458, 492) for diagrams/screenshots; no `name:` fields, no captions inside the directive. |
-| References   | N/A   | No citations. |
-| Links        | 9/10  | External docs only; no improper cross-series URLs. |
-| Admonitions  | 9/10  | Two `{note}` admonitions used; no exercises or nested directives. |
+| Writing      | 4/10  | `qe-writing-006` ×10; `qe-writing-001` ×2. |
+| Math         | N/A   | no mathematical content. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 8/10  | `qe-fig-005` ×3; `qe-fig-009` ×2. |
+| References   | N/A   | no citations in this lecture. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,23 +27,28 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 10. *Lines:* 70, 103, 130, 136, 217, 223, 236, 441, 450, 481. *Example:* H2 Title Case: 'Major Scientific Libraries' (Scientific, Libraries).
 
 ### Medium severity
-- **[qe-writing-006]** — Several H2/H3 headings still use Title Case. *Examples:* line 70 `## Major Scientific Libraries`, line 103 `### Python's Scientific Ecosystem`, line 130 `## Why is Pure Python Slow?`, line 136 `### Type Checking`, line 217 `### Data Access`, line 250 `### Summary`, line 270 `## Accelerating Python`, line 387 `## Parallelization`, line 409 `### Parallelization on CPUs`, line 441 `#### Which Should We Use?`, line 450 `### Hardware Accelerators`, line 481 `### Accessing GPU Resources`. *Count:* ~10 occurrences.
-- **[qe-fig-005]** — Three `{figure}` directives lack `name:` metadata (lines 313, 458, 492).
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 313, 458, 492. *Example:* {figure} without :name:.
+- **[qe-fig-009]** — Figure sizing. *Count:* 2. *Lines:* 458, 492. *Example:* :scale: 40 (outside 80–100%).
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 424, 466. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
-- **[qe-writing-005]** — Some emphatic phrases use **bold** for terms that are not formal definitions ("**Python is small**", "**Python is slow**" on lines ~82, ~90); overlaps with the definition convention.
+_None found._
+
 
 ## Strengths
-- Lecture title "Python for Scientific Computing" follows qe-writing-006.
-- Several headings already correctly use sentence case ("Why do we need them?", "Dynamic typing", "Static types").
-- Crisp one-sentence paragraphs throughout.
-- Uses `qe.Timer()` for both demos (qe-code-004 exemplary).
-- `!pip install quantecon` at top with `hide-output` (qe-code-003 compliant).
-- `{note}` admonitions used cleanly.
+
+- Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Convert Title Case headings to sentence case ("Major scientific libraries", "Python's scientific ecosystem", "Why is pure Python slow?", "Type checking", "Data access", "Accelerating Python", "Parallelization", "Parallelization on CPUs", "Which should we use?", "Hardware accelerators", "Accessing GPU resources").
-2. Add `name:` metadata to the three figure directives.
+
+1. `qe-writing-006` — Capitalize lecture titles properly (10 occurrences).
+2. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
+3. `qe-fig-005` — Descriptive figure names for cross-referencing (3 occurrences).
+4. `qe-fig-009` — Figure sizing (2 occurrences).

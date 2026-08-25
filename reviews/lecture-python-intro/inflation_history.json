@@ -1,0 +1,33 @@
+{
+  "series": "lecture-python-intro",
+  "lecture": "inflation_history",
+  "judgment": [
+    {"rule": "qe-writing-002", "count": 7, "lines": [76, 162, 164, 207, 401, 666, 932],
+     "detail": "seven sentences of 34-57 words, each carrying two or more ideas: 76 (39w, definition of hard currency plus the mechanics of coin valuation), 162 (35w), 164 (39w, announces a figure, names the historical turning point and cites the source in one breath), 207 (42w), 401 (34w), 666 (57w, four countries' stabilisation ratios in a single sentence - a table would carry this better), 932 (37w)"},
+    {"rule": "qe-writing-003", "count": 2, "lines": [164, 454],
+     "detail": "164-174 announces {numref}`lrpl_lg`, then describes what it shows (166), then interrupts with a note about logarithms (168) and an unrelated sentence about 1914 (172) before the figure finally appears at 174; and line 452 promises \"We'll see similar patterns in the next three episodes that we'll study now\", but the Hungary, Poland and Germany sections (454-630) contain six figures and not one sentence of interpretation - the reader gets no commentary again until 632"},
+    {"rule": "qe-writing-005", "count": 1, "lines": [153],
+     "detail": "\"issuing **limited supplies** of paper currency\" - bold used for emphasis inside a bullet, where the rule reserves bold for definitions and italic for emphasis; contrast line 49, where **inflation** is correctly bolded as a definition"},
+    {"rule": "qe-code-001", "count": 8, "lines": [238, 271, 280, 284, 721, 724, 728, 789],
+     "detail": "`if type(entry) == str` instead of `isinstance(entry, str)` (238); backslash line-continuations where the enclosing parentheses already allow implicit continuation (271, 280, 284); and alignment padding that PEP8 rules out - extra spaces after the dict colons at 721 and 789 and two spaces before `=` at 724 and 728"}
+  ],
+  "strengths": [
+    "The two plotting helpers `pe_plot` and `pr_plot` (297-351) are defined once and reused across all four country sections, so the eight country figures are guaranteed to share axes, log scaling and date formatting",
+    "Every figure that has a caption also has a `name`, and the prose actually cites them with `{numref}` (126, 166, 197, 446)",
+    "Data provenance is unusually careful: each country section names the source table and page from {cite}`sargent2013rational`, and the note at 501 documents exactly how the three Polish price series were spliced",
+    "`{note}` and `{tip}` admonitions are used well to park side material (the warehouse-certificate aside at 78, the treasury-bill aside at 660, the PPP pointer at 640) instead of interrupting the narrative",
+    "The three exercises added at 678-937 are genuine quantitative follow-ups on the lecture's own claims, each with a gated dropdown solution that re-uses the lecture's dataframes"
+  ],
+  "actions": [
+    "Fix the left/right mix-up at line 401: `pe_plot` puts the price level on the left axis (`ax`, ylabel at 323) and the exchange rate on the right (`ax1 = ax.twinx()`, ylabel at 324), which is the reverse of what the prose tells the reader to look at",
+    "Fix the formula at line 403: the prose defines the plotted series as $(p_{t-1} + p_t + p_{t+1})/3$, but `pr_plot` (334-338) computes a three-period rolling mean of $\\Delta \\log p_t$; write the moving average of the log-difference",
+    "Lower-case the nine axis labels ('Index  1913 = 100', 'Year', 'Price level', 'Exchange rate', 'Inflation rate', and the four in the exercise solutions) and shorten the nine over-long figure captions",
+    "Add `mystnb: figure: caption/name` metadata to the four un-named figures (538, 701, 786, 871) - the Poland price/exchange-rate figure at 538 is the only one of the eight country figures that cannot be cross-referenced",
+    "Convert the four narrative-position citations to `{cite:t}` (69, 646, 668, 672) - \"Chapter 3 of {cite:t}`sargent2002big`\" rather than `{cite}`",
+    "Break the seven over-long sentences listed above, split the five multi-sentence paragraphs (79, 227, 502, 661, 765) and strip the six runs of double spaces",
+    "Add a paragraph of interpretation to each of the Hungary, Poland and Germany sections, in the manner of the Austria discussion at 446-450, and italicise the emphasis at 153"
+  ],
+  "scanner_doubts": [
+    "inflation_history.md:502 - qe-writing-004 is reported with count 2, both on this one line, and the example word is 'Price'. The capitalised words on 502 are quoted spreadsheet column names (\"Wholesale Price Index: On paper currency basis\", \"Wholesale Price Index: On zloty basis\") and the package name \"Pandas\"; the column names are proper names of the source series, so at most one of the two hits is a real violation"
+  ]
+}

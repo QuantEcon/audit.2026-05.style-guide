@@ -2,23 +2,24 @@
 
 - **Series:** lecture-dp
 - **File:** `lectures/mccall_model_with_sep_markov.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
-- **Overall score:** 8.2 / 10
-- **Priority:** LOW
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `c30490a2f4`
+- **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.9 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8/10  | Sentence-case headings; one "iid" slip. |
-| Math         | 9/10  | `\mathbb{1}` used correctly for indicator; clean math. |
-| Code         | 7/10  | Unicode Greek; pip install at top; PEP8; figsize 5×. |
-| JAX          | out of scope | uses JAX, but JAX rules out of scope. |
-| Figures      | 7/10  | One `ax.set_title(...)` with f-string; figsize 5×; lowercase labels. |
-| References   | N/A   | No `{cite}` directives. |
-| Links        | 9/10  | `{doc}` used 3×; no raw cross-series URLs. |
-| Admonitions  | 9/10  | Exercise + solution-start with dropdown. |
+| Writing      | 8/10  | `qe-writing-001` ×1; `qe-writing-009` (proposed) ×1. |
+| Math         | 10/10 | no mechanical violations detected. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 5.5/10 | `qe-fig-005` ×6; `qe-fig-003` ×4; `qe-fig-001` ×5, +1 more. |
+| References   | N/A   | no citations in this lecture. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,28 +27,31 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 5. *Lines:* 340, 487, 515, 642, 870. *Example:* figsize=.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 6. *Lines:* 339, 486, 505, 633, 840, 951. *Example:* code-cell figure without mystnb figure metadata.
 
 ### Medium severity
-- **[qe-writing-009 (proposed)]** — "iid" used in narrative on line 713. Should be "IID".
-- **[qe-fig-003]** — One f-string `ax.set_title(f'Cross-sectional distribution at t={t_snapshot}, ...')` (line 880).
-- **[qe-fig-001]** — `figsize=` set 5 times.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 4. *Lines:* 650, 660, 676, 880. *Example:* .set_title.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 516, 960. *Example:* plot() without lw=.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 937. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
-- **[qe-writing-001]** — A few multi-sentence paragraphs (e.g. 43-47, 700-706, 720-726).
+- **[qe-writing-009 (proposed)]** — Write "IID" — not "i.i.d." or "iid". *Count:* 1. *Lines:* 713. *Example:* iid.
+
 
 ## Strengths
-- Lecture title correctly Title Case.
-- All H2/H3 headings sentence case.
-- `\mathbb{1}` used for the indicator (line 734).
-- No transpose violations; no bold vectors; equation labels and references clean.
-- "IID" correctly capitalised elsewhere (e.g. line 41, line 100).
-- pip install at top; Unicode Greek in code.
-- `{doc}` used for cross-series.
-- Exercise uses `{exercise}` + `solution-start` with `:class: dropdown`.
+
+- Math, Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Change "iid" → "IID" on line 713.
-2. Remove the f-string `ax.set_title(...)` call.
-3. Reduce unnecessary `figsize=` usage.
-4. Tighten the few multi-sentence paragraphs.
+
+1. `qe-fig-005` — Descriptive figure names for cross-referencing (6 occurrences).
+2. `qe-fig-003` — No matplotlib embedded titles (4 occurrences).
+3. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
+4. `qe-writing-009` (proposed) — Write "IID" — not "i.i.d." or "iid" (1 occurrence).
+5. `qe-fig-001` — Do not set figure size unless necessary (5 occurrences).
+6. `qe-fig-008` — Use lw=2 for line charts (2 occurrences).

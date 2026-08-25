@@ -2,23 +2,24 @@
 
 - **Series:** lecture-dp
 - **File:** `lectures/odu.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
-- **Overall score:** 6.7 / 10
-- **Priority:** MEDIUM
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `c30490a2f4`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 7.7 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 6/10  | Many Title Case H3 headings; right curly quotes. |
-| Math         | 7/10  | `\mathbf{1}` indicator; `\operatorname{Beta}` instead of `\mathrm{Beta}`. |
-| Code         | 5/10  | Installs `interpolation` (binary, non-Anaconda) without notes; Unicode Greek; figsize 7×. |
-| JAX          | out of scope | not a JAX lecture. |
-| Figures      | 6/10  | One `ax.set_title('Unemployment rate')`; one Title-Case xlabel `'Time'`; figsize 7×. |
-| References   | 9/10  | 5 `{cite}` parenthetical; no narrative-author misuse. |
-| Links        | 6/10  | Four raw markdown links to `python.quantecon.org` / `python-intro.quantecon.org`. |
-| Admonitions  | 8/10  | Exercises labelled + dropdown solutions. |
+| Writing      | 5/10  | `qe-writing-006` ×7; `qe-writing-004` ×1; `qe-writing-008` ×23. |
+| Math         | 10/10 | no mechanical violations detected. |
+| Code         | 7.5/10 | `qe-code-002` ×8. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 5/10  | `qe-fig-005` ×6; `qe-fig-003` ×3; `qe-fig-006` ×1, +2 more. |
+| References   | 8.5/10 | `qe-ref-001` ×2. |
+| Links        | 8/10  | `qe-link-002` ×4. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,35 +27,37 @@
 _None found._
 
 ### High severity
-- **[qe-writing-006]** — Many Title Case H2/H3 headings. *Examples:* `### Model Features` (70), `### The Basic McCall Model` (82), `### Offer Distribution Unknown` (116), `### Parameterization` (211), `### Looking Forward` (242), `## Take 1: Solution by VFI` (269), `## Take 2: A More Efficient Method` (484), `## Another Functional Equation` (499), `## Solving the RWFE` (551), `## Appendix A` (769), `## Appendix B` (855), `## Examples` (1062). *Count:* 10+ headings.
-- **[qe-code-006]** — `!pip install interpolation` (line 33) — binary/scientific-Python package not in Anaconda, no installation notes provided.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 8. *Lines:* 63, 67, 225, 884, 1022, 1023. *Example:* spelled-out `gamma`.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 7. *Lines:* 233, 451, 466, 754, 846, 981, 1041. *Example:* figsize=.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 6. *Lines:* 222, 448, 462, 750, 782, 950. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 7. *Lines:* 70, 82, 116, 242, 484, 499, 1064. *Example:* H3 Title Case: 'Model Features' (Features).
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 23. *Lines:* 42, 102, 129, 131, 139, 149, 260, 863, 944, 945, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-math-008]** — `\mathbf{1}` used as indicator function (line 113). Should be `\mathbb{1}` and explained.
-- **[qe-math-011 (proposed)]** — `\operatorname{Beta}` (lines 216, 217) used for the distribution; style guide recommends `\mathrm{Beta}`.
-- **[qe-fig-001]** — `figsize=` set 7 times — high.
-- **[qe-fig-003]** — `ax.set_title('Unemployment rate')` on line 850.
-- **[qe-fig-006]** — Title-Case `xlabel('Time')` on line 849.
-- **[qe-link-002]** — Four raw markdown links to `python.quantecon.org` / `python-intro.quantecon.org` instead of `{doc}` form.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 3. *Lines:* 850, 1047, 1054. *Example:* .set_title.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 756, 847. *Example:* plot() without lw=.
+- **[qe-link-002]** — Use doc links for cross-series references. *Count:* 4. *Lines:* 38, 41, 861, 1071. *Example:* raw link to python.quantecon.org.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 79. *Example:* {cite} in author position: '{cite}`McCall1970` and'.
+- **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 705. *Example:* mid-sentence 'Distribution'.
 
 ### Low severity
-- **[qe-writing-009 (proposed)]** — Right curly apostrophes ’ used in narrative instead of straight `'` (lines 27, 38, 41, 78, 118).
+- **[qe-fig-006]** — Lowercase axis labels. *Count:* 1. *Lines:* 849. *Example:* axis label `Time`.
+
 
 ## Strengths
-- Lecture title correctly Title Case.
-- `\mathbb{P}` used for probability with `\{ \}` for events (lines 167-175).
-- `\mathbb{E}` used (line 97).
-- "IID" used correctly.
-- Equation labels and `{eq}` references used cleanly.
-- No transpose violations, no matrix-bracket issues, no `\tag`, no `align` issues.
-- Unicode Greek in code (`σ`, `π`, `β`).
-- Exercises use labels + dropdown solutions.
+
+- Math, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Convert all Title Case H2/H3 headings to sentence case.
-2. Replace `\mathbf{1}\{ … \}` with `\mathbb{1}\{ … \}` and introduce the notation.
-3. Replace `\operatorname{Beta}` with `\mathrm{Beta}`.
-4. Add a note about the `interpolation` package installation requirements, or move installation to a `pip install` cell in a way consistent with other lectures.
-5. Remove the `ax.set_title(...)` call; lowercase the `'Time'` xlabel.
-6. Convert 4 raw cross-series markdown URLs to `{doc}` form.
-7. Normalise smart-quotes back to straight `'`.
+
+1. `qe-writing-006` — Capitalize lecture titles properly (7 occurrences).
+2. `qe-fig-005` — Descriptive figure names for cross-referencing (6 occurrences).
+3. `qe-code-002` — Use Unicode symbols for Greek letters in code (8 occurrences).
+4. `qe-link-002` — Use doc links for cross-series references (4 occurrences).
+5. `qe-fig-003` — No matplotlib embedded titles (3 occurrences).
+6. `qe-ref-001` — Use correct citation style (2 occurrences).
+7. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (1 occurrence).

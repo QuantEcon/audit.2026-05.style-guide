@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/python_essentials.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.4 / 10
-- **Priority:** LOW
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `ceec881028`
+- **Categories audited:** writing, math, code, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.7 / 10
+- **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 6.5/10| Pervasive Title Case in section headings. |
-| Math         | N/A   | Only trivial inline content. |
-| Code         | 9/10  | Only Anaconda packages (numpy); Greek unicode (ϵ) used in list comprehension exercise per qe-code-002; PEP8 clean; no benchmarking magics; demonstrates PEP8 explicitly in section "Python style guidelines: PEP8". |
-| JAX          | out of scope | — |
-| Figures      | N/A   | No figures. |
-| References   | N/A   | No citations. |
-| Links        | 9/10  | External docs links only; no improper cross-series URLs. |
-| Admonitions  | 9/10  | Six `{exercise-start}` and one `{exercise}` (pyess_ex4 line 940, pyess_ex5 line 995) — both non-gated `{exercise}` bodies contain only prose/math, no code, so borderline. Six `{solution-start}` blocks all use `:class: dropdown` and matching `:label:` per qe-admon-005. |
+| Writing      | 3.5/10 | `qe-writing-006` ×14; `qe-writing-001` ×2; `qe-writing-004` ×1. |
+| Math         | 10/10 | no mechanical violations detected. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | N/A   | no figures or plotting code. |
+| References   | N/A   | no citations in this lecture. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,23 +27,26 @@
 _None found._
 
 ### High severity
-- **[qe-writing-006]** — Section headings use Title Case rather than sentence case. *Examples:* line 31 `## Data Types`, line 58 `### Primitive Data Types`, line 61 `#### Boolean Values`, line 111 `#### Numeric Types`, line 127 `### Containers`, line 284 `## Input and Output`, line 408 `### Paths`, line 424 `## Iterating`, line 435 `### Looping over Different Objects`, line 485 `### Looping without Indices`, line 538 `### List Comprehensions`, line 567 `## Comparisons and Logical Operators`, line 569 `### Comparisons`, line 631 `### Combining Expressions`, line 682 `## Coding Style and Documentation`, line 687 `### Python Style Guidelines: PEP8`, line 709 `### Docstrings`, line 767 `## Exercises`. *Count:* 18 occurrences.
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 14. *Lines:* 31, 58, 61, 111, 188, 234, 284, 435, 485, 538, …. *Example:* H2 Title Case: 'Data Types' (Types).
 
 ### Medium severity
-_None found._
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 353, 403. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 47. *Example:* mid-sentence 'Point'.
 
 ### Low severity
-- **[qe-writing-001]** — Some multi-sentence paragraphs (e.g., line 76).
-- **[qe-writing-004]** — "Floating Point Unit (FPU)" on line 47 is capitalized — acceptable as a proper-noun acronym expansion but worth noting.
-- **[qe-admon-001]** — `pyess_ex4` and `pyess_ex5` use bare `{exercise}` rather than gated `{exercise-start}` / `{exercise-end}`; bodies are prose-only.
+_None found._
+
 
 ## Strengths
-- Lecture title "Python Essentials" follows qe-writing-006.
-- Bold for definitions used consistently per qe-writing-005 ("**Boolean values**", "**Boolean arithmetic**", "**Complex numbers**", "**immutable**", "**mutable**", "**tuples**").
-- One-sentence paragraphs dominant.
-- Six exercise/solution pairs with `:class: dropdown` and matching `:label:` per qe-admon-002/qe-admon-005.
-- No qe-code-* violations.
+
+- Math, Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Convert all H2/H3/H4 headings to sentence case ("Data types", "Primitive data types", "Boolean values", "Numeric types", "Containers", "Input and output", "Paths", "Iterating", "Looping over different objects", "Looping without indices", "List comprehensions", "Comparisons and logical operators", "Comparisons", "Combining expressions", "Coding style and documentation", "Python style guidelines: PEP8", "Docstrings").
-2. Optionally promote `pyess_ex4` and `pyess_ex5` to gated `{exercise-start}` / `{exercise-end}` form for uniformity.
+
+1. `qe-writing-006` — Capitalize lecture titles properly (14 occurrences).
+2. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
+3. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (1 occurrence).

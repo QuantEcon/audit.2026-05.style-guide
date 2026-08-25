@@ -1,0 +1,32 @@
+{
+  "series": "lecture-python-intro",
+  "lecture": "input_output",
+  "judgment": [
+    {"rule": "qe-code-001", "count": 9, "lines": [89, 152, 155, 168, 285, 298, 304, 471, 593],
+     "detail": "missing space after a comma in `colorise_weights(centrality,beta=False)` (89, 593), `[(2,'c')]` (155), `nx.draw_networkx_edges(G,pos=pos, ...)` (168) and `[0,0]` (471); `nodes= (1, 2, 'c')` with a space on only one side of `=` (152); a continuation line under-indented by one column relative to the opening bracket (285); and single-space-before-hash inline comments where PEP8 asks for two (298, 304)"},
+    {"rule": "qe-writing-007", "count": 2, "lines": [366, 506],
+     "detail": "the production possibility frontier is the section's whole subject and ends in the concrete line $10d_1 + 500d_2 = x_0$ (366) that is never plotted, even though the lecture already draws the feasible set for the primal constraints at 197; and the demand-shock decomposition $\\Delta x = \\Delta d + A\\Delta d + A^2\\Delta d + \\cdots$ (506) describes successive rounds of propagation through the very network drawn in {numref}`us_15sectors`, with no figure showing the rounds decaying"},
+    {"rule": "qe-writing-005", "count": 1, "lines": [185],
+     "detail": "\"*Feasible allocations must satisfy*\" is a lead-in to an equation set in italic, not an emphasised word; the parallel lead-in at 230 (\"More generally, constraints on production are\") is correctly plain"}
+  ],
+  "strengths": [
+    "Every equation that later gets referenced carries a label and is cited by `{eq}` - `eq:inout_1` (237) at 243 and 404, `eq:inout_2` (247) at 253 and 487, `eq:inout_ex` (280) at 342, `eq:inout_frontier` (327) at 337, `eq:inout_price` (396) at 404",
+    "All matrices and vectors use `bmatrix`; there is not a single `array` environment or apostrophe transpose in the file - transposes are written `^\\top` throughout",
+    "The lecture explicitly tells the reader what its notation means where it could be ambiguous: line 577 states that $\\mathbb{1}$ denotes a vector of ones",
+    "Defined terms are consistently bolded at the point of definition - Leontief function (136), Hawkins-Simon conditions (253), production possibility frontier (337), conjugate pair (405), primal/dual (413, 426), output multiplier (558)",
+    "The network figure `us_15sectors` is built once and then re-used as the reference point for three later sections via `{numref}` (523, 537, 584), which ties the graph-theory material back to the same data"
+  ],
+  "actions": [
+    "Resolve the notation collision in the demand-shock section: $x_0$ and $d_0, d_1$ at 499-501 denote a pre-shock output vector and two demand vectors, but $x_0$ is the exogenous labor input everywhere else in the lecture (125, 191, 320, 326, 366, 623) and $d_1, x_1$ are the first components of $d$ and $x$ (189, 366, 691) - rename the shock-era objects",
+    "Add `mystnb: figure: caption/name` metadata to the five un-named figures (147, 197, 453, 539, 586); as it stands only the opening network graph can be cross-referenced, and the two bar charts are referred to as \"the above figure\" (552) and \"the following figure\" (583)",
+    "Plot the production possibility frontier (366) and, in the demand-shock section, the decaying rounds of $A^k \\Delta d$ - both sections currently describe a picture in prose",
+    "Convert the two author-position citations to `{cite:t}`: \"{cite:t}`DoSSo` argue\" (373) and \"{cite:t}`DoSSo` Chapter 9 discusses\" (608)",
+    "Set `lw=2` on the seven constraint lines (206, 207, 208, 222, 462, 463, 477), lower-case the axis label at 595, and drop the `figsize=` at 87 unless the tall aspect ratio is deliberate",
+    "Replace the spelled-out `beta=False` keyword arguments (89, 593) and remaining Latin Greek names (543) with Unicode where they stand for Greek symbols, and clean up the nine PEP8 spacing items listed above",
+    "Fix the stray capital $X$ at 253 (the solution of {eq}`eq:inout_2` is $x$, not $X$), settle on \"Leontief inverse\" in lower case (249 and 487 currently write \"Leontief Inverse\"), and strip the 12 runs of double spaces"
+  ],
+  "scanner_doubts": [
+    "input_output.md - qe-ref-001 is reported with count 3 but only two line numbers (373, 608), and those are the only two author-position `{cite}` uses in the file; the third occurrence is unaccounted for",
+    "input_output.md:249,487 - qe-writing-004 is reported as clean (no violations), but \"Leontief Inverse\" is capitalised mid-sentence at 249 and 487 while line 301 writes \"Leontief inverse\"; this looks like a missed detection rather than a correct zero"
+  ]
+}

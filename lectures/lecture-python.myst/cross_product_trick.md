@@ -2,47 +2,56 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/cross_product_trick.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 7.2 / 10
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `e25fdf2345`
+- **Categories audited:** writing, math, links  *(JAX out of scope)*
+- **Overall score:** 6.3 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 6/10 | Section headings use Title Case rather than sentence case. |
-| Math         | 3/10 | Broken `{eq}` reference (mismatched braces). |
-| Code         | 10/10 | Clean code conventions. |
-| JAX          | out of scope | not a JAX lecture |
-| Figures      | N/A | No figures. |
-| References   | N/A | No citations. |
-| Links        | 10/10 | Link style follows conventions. |
-| Admonitions  | N/A | No admonitions. |
+| Writing      | 6/10  | `qe-writing-006` ×2; `qe-writing-008` ×24; `qe-writing-009` (proposed) ×1. |
+| Math         | 3/10  | `qe-math-002` ×52; `qe-math-006` ×5; `qe-math-013` (proposed) ×1. |
+| Code         | N/A   | no executable code cells. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | N/A   | no figures or plotting code. |
+| References   | N/A   | no citations in this lecture. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | N/A   | no admonitions, exercises or solutions. |
 
 ## Issues
 
 ### Critical
-- **[qe-math-013 (proposed)]** — Broken `{eq}` reference (mismatched braces). *Example:* line 133 `{eq}`eq:Kalman102}`.
+_None found._
 
 ### High severity
-- **[qe-math-002]** — Transpose denoted `'` (prime) instead of `\top` throughout. *Examples:* line 48 `x_t' R x_t`, line 63 `B'PB`, line 67 `A'PA`, lines 82–88 inside `\begin{align*}`, lines 119–143 (Kalman filter formulas). *Count:* 30+ occurrences.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 52. *Lines:* 48, 63, 68, 84, 85, 86, 119, 120, 127, 128, …. *Example:* apostrophe transpose `x_t'`.
+- **[qe-math-006]** — Use aligned environment correctly for PDF compatibility. *Count:* 5. *Lines:* 82, 104, 118, 126, 140. *Example:* bare \begin{align*} display block; the corpus convention is $$ … \begin{aligned} … $$.
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 2. *Lines:* 33, 92. *Example:* H2 Title Case: 'Undiscounted Dynamic Programming Problem' (Dynamic, Programming, Problem).
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 24. *Lines:* 20, 22, 27, 28, 41, 65, 75, 80, 94, 95, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-writing-006]** — Section headings use Title Case rather than sentence case. *Examples:* line 33 `## Undiscounted Dynamic Programming Problem`, line 92 `## Kalman Filter`. *Count:* 2 occurrences.
+_None found._
 
 ### Low severity
-- **[qe-writing-009 (proposed)]** — Uses "i.i.d." rather than "IID". *Example:* line 110 `is an i.i.d. $p \times 1$ random vector`.
-- **[qe-writing-001]** — Several multi-sentence paragraphs (e.g. lines 80, 94–95) that could be split into single-sentence units.
+- **[qe-math-013 (proposed)]** — Reference equations via {eq}`label`. *Count:* 1. *Lines:* 133. *Example:* malformed {eq} reference `{eq}`eq:Kalman102}`.
+- **[qe-writing-009 (proposed)]** — Write "IID" — not "i.i.d." or "iid". *Count:* 1. *Lines:* 110. *Example:* i.i.d..
+
 
 ## Strengths
-- Title H1 uses Title Case correctly.
-- Uses `aligned`/`align*` MyST math (not `align` inside `$$`).
-- No bold vectors or `\mathcal{N}` issues.
+
+- Links score 9 or above — no material violations measured in those categories.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Address `qe-math-013 (proposed)`: Broken `{eq}` reference (mismatched braces).
-2. Address `qe-math-002`: Transpose denoted `'` (prime) instead of `\top` throughout.
-3. Address `qe-writing-006`: Section headings use Title Case rather than sentence case.
-4. Address `qe-writing-009 (proposed)`: Uses "i.i.d." rather than "IID".
-5. Address `qe-writing-001`: Several multi-sentence paragraphs (e.g. lines 80, 94–95) that could be split into single-sentence units.
+
+1. `qe-math-002` — Use \top for transpose notation (52 occurrences).
+2. `qe-math-006` — Use aligned environment correctly for PDF compatibility (5 occurrences).
+3. `qe-writing-006` — Capitalize lecture titles properly (2 occurrences).
+4. `qe-writing-008` — Remove excessive whitespace between words (24 occurrences).
+5. `qe-writing-009` (proposed) — Write "IID" — not "i.i.d." or "iid" (1 occurrence).
+6. `qe-math-013` (proposed) — Reference equations via {eq}`label` (1 occurrence).

@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/lp_intro.md`
-- **Audit date:** 2026-05-28
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.7 / 10
-- **Priority:** LOW
+- **Overall score:** 8.7 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 9/10  | H1 Title Case OK; H2/H3 sentence case; one-sentence paragraphs. |
-| Math         | 8/10  | Equations use `aligned`; uses `\mbox` (older LaTeX style); minor `^\top` consistency. |
-| Code         | 8/10  | `!pip install ortools` at top with `hide-output` (qe-code-003 OK); standard Anaconda imports. |
-| JAX          | out of scope | — |
-| Figures      | 8/10  | No `figsize=` / `ax.set_title` violations; no `{figure}` directives. |
-| References   | 6/10  | 2 `{cite}` usages, **both in-text** ("created by {cite}", "posed and solved by {cite}") — should be `{cite:t}`. |
-| Links        | 9/10  | `{doc}` link present (1 occurrence). |
-| Admonitions  | 9/10  | Solutions gated, dropdown, exercise-linked (qe-admon-001, -002, -005 OK). |
+| Writing      | 6/10  | `qe-writing-004` ×3; `qe-writing-001` ×4; `qe-writing-008` ×36. |
+| Math         | 6.5/10 | `qe-math-002` ×9. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 8.5/10 | `qe-fig-005` ×1; `qe-fig-008` ×3. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,22 +27,31 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 9. *Lines:* 287, 305, 380, 562, 564, 598, 637. *Example:* apostrophe transpose `c'`.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 36. *Lines:* 27, 31, 70, 80, 160, 166, 168, 170, 172, 176, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-ref-001]** — Both in-text citations should use `{cite:t}`. *Examples:* `lectures/lp_intro.md:64` ("created by {cite}\`bertsimas_tsitsiklis1997\`"), 197 ("posed and solved by {cite}\`hu_guo2018\`"). *Count:* 2 occurrences.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 118, 119, 132. *Example:* plot() without lw=.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 4. *Lines:* 193, 200, 208, 419. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 3. *Lines:* 240, 405, 513. *Example:* mid-sentence 'Example'.
 
 ### Low severity
-- **W1** — A few short two-sentence paragraphs (e.g. lines 175, 182).
-- **W7** — Uses `\mbox{subject to}` (line 91); modern usage prefers `\text{subject to}`.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 109. *Example:* code-cell figure without mystnb figure metadata.
+
 
 ## Strengths
-- Section headings sentence case (W3 OK).
-- Bold for definitions (**Linear programming**, **primal**, **dual**).
-- Italic for emphasis (*maximization*, *minimization*).
-- `!pip install ortools` at top with `hide-output` (qe-code-003 OK).
-- Solutions all gated, dropdown, linked.
+
+- Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Convert in-text `{cite}` on lines 64, 197 to `{cite:t}` form.
-2. Replace `\mbox` with `\text` per modern LaTeX.
+
+1. `qe-math-002` — Use \top for transpose notation (9 occurrences).
+2. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (3 occurrences).
+3. `qe-writing-001` — Use one sentence per paragraph (4 occurrences).
+4. `qe-writing-008` — Remove excessive whitespace between words (36 occurrences).
+5. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
+6. `qe-fig-008` — Use lw=2 for line charts (3 occurrences).

@@ -1,0 +1,29 @@
+{
+  "series": "lecture-python-intro",
+  "lecture": "heavy_tails",
+  "judgment": [
+    {"rule": "qe-code-001", "count": 7, "lines": [551, 552, 571, 572, 679, 760, 765],
+     "detail": "PEP8 spacing/naming slips in otherwise clean code: a space after the unary minus in `np.exp(- alpha * x)` and `x**(- alpha)` (551-552, 571-572), whitespace before the closing paren from a dangling comma in `sm.qqplot(data, line='45', ax=ax, )` (679), a lambda bound to a name instead of a `def` in `pdf = lambda x: np.interp(...)` (760), and a missing space after the operator in `y_vals[i] = 1- j` (765)"},
+    {"rule": "qe-writing-003", "count": 1, "lines": [1062],
+     "detail": "\"we saw above that if every $X_i$ is Cauchy, then so is $Y_n$\" points backwards, but the stability of the Cauchy under averaging is not established anywhere above - it is derived only in exercise `ht_ex_cauchy` at line 1410ff, 350 lines later"},
+    {"rule": "qe-writing-005", "count": 2, "lines": [710, 1118],
+     "detail": "emphasis re-applied to terms already defined: **Pareto tail** and **tail index** are bolded at 707 and bolded again three lines later at 710 in a sentence that restates 707; **light-tailed** is bolded at 1116 and again at 1118"}
+  ],
+  "strengths": [
+    "Every labelled equation is actually cited: `pareto` (428) at 1272 and 1308, `plrt` (699) at 1176, `lln_cch` (1415) at 1445 - no orphan labels and no manual \"equation (3)\" references",
+    "Probability events are written with braces throughout - `\\mathbb P\\{X > x\\}`, `\\mathbb P\\{\\bar X_n \\to \\mu\\}` - so the proposed qe-math-014 convention is already satisfied even though \\mathbb P is missing its braces",
+    "Density/CDF case discipline is consistent: lowercase $f$ for the density (67, 1094), uppercase $F$ for the CDF and $G$, $\\hat G$ for the counter-CDF (488, 593)",
+    "All four exercises use the gated `exercise` / `solution-start` / `solution-end` form with `:class: dropdown`, and `{numref}` is used to point back at a generated figure (1202)",
+    "Writes \"IID\" in the correct form at line 956 rather than \"i.i.d.\""
+  ],
+  "actions": [
+    "Add braces to every blackboard operator - `\\mathbb P` -> `\\mathbb{P}`, `\\mathbb E` -> `\\mathbb{E}`, `\\mathbb R` -> `\\mathbb{R}`, `\\mathbb 1` -> `\\mathbb{1}` - 23 occurrences and the single largest fix in this lecture (qe-math-010, proposed)",
+    "Replace spelled-out Greek names in code with Unicode letters (`alpha` -> `α` and similar), 23 occurrences; the exercise solutions at 1337-1368 already do this, so make the earlier cells match them",
+    "Set `lw=2` on the 13 line plots that currently take the matplotlib default, and drop the 8 hand-set `figsize=` arguments unless a specific aspect ratio is needed",
+    "Move the four `ax.set_title(...)` calls (365, 372, 680, 789) out of the code and into mystnb figure captions, and add `mystnb: figure: caption/name` metadata to the two Q-Q plot cells at 665 and 673 so they can be cross-referenced",
+    "Fix the PEP8 spacing noted above: `np.exp(-alpha * x)`, `x**(-alpha)`, drop the dangling comma at 679, turn the lambda at 760 into a `def`, and space the operator at 765",
+    "Replace the hard-coded `https://intro.quantecon.org/heavy_tails.html#...` self-link at 649 with a `{ref}` to the in-page label, and lower-case the Title Case figure captions at 193, 225, 562, 871",
+    "Repair the forward reference at 1062 - either state the Cauchy-stability result where it is first used or point at the exercise with `{ref}` - and delete the redundant re-bolded sentence at 710"
+  ],
+  "scanner_doubts": []
+}

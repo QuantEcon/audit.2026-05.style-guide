@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/os_egm_jax.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions (JAX out of scope)
-- **Overall score:** 9.6 / 10
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `e25fdf2345`
+- **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 9.2 / 10
 - **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 10/10 | No writing issues. |
-| Math         | 10/10 | No math issues. |
-| Code         | 9.5/10 | Mixed Greek conventions in code (word=8, uni=10). |
-| JAX          | out of scope | JAX lecture — JAX rules not audited per scope. |
-| Figures      | 8/10 | `ax.set_title()` used once outside exercise blocks (line 391). |
-| References   | N/A | No citations. |
-| Links        | 10/10 | Link style follows conventions. |
-| Admonitions  | 10/10 | Exercise/solution structure clean. |
+| Writing      | 10/10 | no mechanical violations detected. |
+| Math         | 10/10 | no mechanical violations detected. |
+| Code         | 8.5/10 | `qe-code-002` ×2. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 6.5/10 | `qe-fig-006` ×2; `qe-fig-005` ×2; `qe-fig-008` ×2. |
+| References   | N/A   | no citations in this lecture. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -29,25 +30,26 @@ _None found._
 _None found._
 
 ### Medium severity
-- **[qe-fig-006]** — Axis labels capitalised in 2 places. *Examples:* line 388, line 389.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 2. *Lines:* 158, 160. *Example:* spelled-out `mu`.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 224, 384. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-006]** — Lowercase axis labels. *Count:* 2. *Lines:* 395, 396. *Example:* axis label `State x`.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 230, 393. *Example:* plot() without lw=.
 
 ### Low severity
-- **[qe-code-002]** — Mixed Greek conventions in code (word=8, uni=10).
-- **[qe-fig-003]** — `ax.set_title()` used once outside exercise blocks (line 391).
-- **[qe-fig-005]** — Figures lack descriptive `name:` fields for cross-referencing (4 plot calls, 0 named).
+_None found._
+
 
 ## Strengths
-- Headings use sentence case consistently.
-- Uses "IID" or no IID terminology.
-- Transpose notation uses `\top` consistently (no prime/`^T`).
-- No bold vectors/matrices.
-- Normal distribution written as plain `N`.
-- `aligned` (not `align`) used in `$$` math.
-- Figures use default sizing.
-- Solutions use `:class: dropdown` consistently.
+
+- Writing, Math, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Address `qe-fig-006`: Axis labels capitalised in 2 places.
-2. Address `qe-code-002`: Mixed Greek conventions in code (word=8, uni=10).
-3. Address `qe-fig-003`: `ax.set_title()` used once outside exercise blocks (line 391).
-4. Address `qe-fig-005`: Figures lack descriptive `name:` fields for cross-referencing (4 plot calls, 0 named).
+
+1. `qe-fig-006` — Lowercase axis labels (2 occurrences).
+2. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
+3. `qe-code-002` — Use Unicode symbols for Greek letters in code (2 occurrences).
+4. `qe-fig-008` — Use lw=2 for line charts (2 occurrences).

@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/french_rev.md`
-- **Audit date:** 2026-05-28
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 6.0 / 10
-- **Priority:** MEDIUM
+- **Overall score:** 7.7 / 10
+- **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 6/10  | Many H2 sections in Title Case (W3); long multi-sentence bullets in Overview. |
-| Math         | N/A   | minimal math notation |
-| Code         | 7/10  | Standard Anaconda imports; spelled-out `alpha=` only as matplotlib kwarg (acceptable). |
-| JAX          | out of scope | — |
-| Figures      | 4/10  | Heavy `plt.gca().spines['top'/'right'].set_visible(False)` pattern (30 spine calls); 3 `ax.set_title` in solution blocks (OK by exception); `figsize=` on 1035, 1190; many axis labels with uppercase first letter (Date, Monthly inflation, Real balances). |
-| References   | 5/10  | 20 `{cite}` usages; ~4+ are clearly in-text and should be `{cite:t}` (e.g. "described by", "assembled by", "appear in", "adopted by"). |
-| Links        | 9/10  | `{doc}` links used (9 occurrences). |
-| Admonitions  | 9/10  | Solutions gated, dropdown, exercise-linked (qe-admon-001, -002, -005 OK). |
+| Writing      | 3.5/10 | `qe-writing-006` ×5; `qe-writing-001` ×2; `qe-writing-008` ×89, +1 more. |
+| Math         | 10/10 | no mechanical violations detected. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 3/10  | `qe-fig-007` ×30; `qe-fig-004` ×19; `qe-fig-006` ×6, +3 more. |
+| References   | 7.5/10 | `qe-ref-001` ×6. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,31 +27,38 @@
 _None found._
 
 ### High severity
-- **W3** — Several H2 section headings use Title Case. *Examples:* "## Data Sources" (57), "## Government Expenditures and Taxes Collected" (78), "## Hyperinflation Ends" (973), "## Underlying Theories" (984). *Count:* 4+ headings.
-- **[qe-fig-007]** — `plt.gca().spines['top'/'right'].set_visible(False)` pattern repeated throughout. *Examples:* lines 117–118, 162, etc. *Count:* 30 spine-removal calls across multiple figures.
-- **[qe-ref-001]** — Multiple in-text citations using `{cite}` instead of `{cite:t}`. *Examples:* line 19 ("described by {cite}\`sargent_velde1995\`"), 59 ("assembled by {cite}\`sargent_velde1995\`"), 84 ("appear in {cite}\`sargent_velde1995\`"), 626 ("adopted by {cite}\`Cagan\`"). *Count:* 4+ occurrences.
+- **[qe-fig-004]** — Caption formatting conventions. *Count:* 19. *Lines:* 95, 144, 221, 273, 425, 461, 507, 570, 639, 733, …. *Example:* Title Case caption (Spending).
+- **[qe-fig-006]** — Lowercase axis labels. *Count:* 6. *Lines:* 124, 1049, 1050, 1134, 1214, 1215. *Example:* axis label `Millions of livres`.
+- **[qe-fig-007]** — Keep figure box and spines. *Count:* 30. *Lines:* 119, 120, 164, 165, 249, 250, 295, 296, 440, 441, …. *Example:* spine removal.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 34. *Lines:* 160, 240, 244, 285, 520, 585, 586, 654, 745, 749, …. *Example:* plot() without lw=.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 6. *Lines:* 39, 313, 340, 405, 981. *Example:* {cite} in author position: '{cite}`smith2010wealth` and'.
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 5. *Lines:* 57, 80, 342, 979, 990. *Example:* H2 Title Case: 'Data Sources' (Sources).
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 89. *Lines:* 19, 22, 24, 30, 32, 34, 36, 43, 45, 47, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **W1** — Very long bullet items in Overview that contain multiple sentences (lines 28–53).
-- **W7** — Random Title Case mid-prose: "The Twelve Members" (line 53), "Committee of Public Safety", "Napoleon Bonaparte" — some proper-noun OK; "Wealth of Nations" italicized OK.
-- **W2** — H1 has trailing space.
-- **[qe-fig-006]** — Multiple axis labels begin with uppercase. *Examples:* "Date" (line 1045), "Monthly inflation (log change)" (1046), "Monthly inflation rate $\\pi_t$" (1130), "Real balances (millions of livres)". *Count:* 5+ occurrences.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 70, 1039, 1194. *Example:* style override.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 1033, 1125, 1193. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 142, 615. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 366. *Example:* mid-sentence 'Wealth'.
 
 ### Low severity
-- **W7** — Typo "adminstered" (line 53), "wary" (line 30) probably "war".
-- **[qe-fig-001]** — `figsize=` on lines 1035, 1190. *Count:* 2 occurrences.
-- **[qe-fig-005]** — No figures use `{figure}` with `:name:`.
+_None found._
+
 
 ## Strengths
-- H1 Title Case OK.
-- Bold for definitions / key terms (**tax-smoothing**, **unpleasant monetarist arithmetic**, **assignats**, **gold**/**silver standard**, etc.).
-- `{doc}` cross-references used (qe-link-002 OK).
-- Solutions all gated, dropdown, linked.
+
+- Math, Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Convert all Title Case H2 headings to sentence case per qe-writing-006.
-2. Remove the 30 `plt.gca().spines[...].set_visible(False)` calls per qe-fig-007.
-3. Convert in-text `{cite}` usages to `{cite:t}` (lines 19, 59, 84, 626).
-4. Lowercase axis labels (Date, Monthly inflation, Real balances).
-5. Break long multi-sentence bullets into shorter ones.
-6. Fix typos.
+
+1. `qe-writing-006` — Capitalize lecture titles properly (5 occurrences).
+2. `qe-fig-007` — Keep figure box and spines (30 occurrences).
+3. `qe-fig-004` — Caption formatting conventions (19 occurrences).
+4. `qe-ref-001` — Use correct citation style (6 occurrences).
+5. `qe-fig-006` — Lowercase axis labels (6 occurrences).
+6. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
+7. `qe-fig-005` — Descriptive figure names for cross-referencing (3 occurrences).

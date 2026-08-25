@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/debugging.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.1 / 10
-- **Priority:** LOW
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `ceec881028`
+- **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.8 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 6.5/10| Pervasive Title Case in section headings. |
-| Math         | N/A   | No math content. |
-| Code         | 8/10  | PEP8-compliant Python demos; only Anaconda packages (numpy, matplotlib); no Greek identifiers needed; debugger `%debug` magic discussed but not used as benchmarking magic (qe-code-005 N/A). |
-| JAX          | out of scope | — |
-| Figures      | 9/10  | No matplotlib figures generated; demos use `print()` output only; figure metadata not applicable. |
-| References   | N/A   | No citations. |
-| Links        | 9/10  | Only external links to docs; no cross-series quantecon URLs to convert. |
-| Admonitions  | 8/10  | One `{exercise-start}`/`{exercise-end}` and `{solution-start}` pair correctly gated; solution uses `:class: dropdown`; `:label:` correctly matches exercise (`debug_ex1`). |
+| Writing      | 5/10  | `qe-writing-006` ×6; `qe-writing-001` ×1; `qe-writing-008` ×1. |
+| Math         | 10/10 | no mechanical violations detected. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 7.5/10 | `qe-fig-005` ×3; `qe-fig-008` ×5. |
+| References   | N/A   | no citations in this lecture. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,20 +27,29 @@
 _None found._
 
 ### High severity
-- **[qe-writing-006]** — Most H2/H3 section headings are Title Case rather than sentence case. *Examples:* line 46 `## Debugging`, line 65 `### The \`debug\` Magic`, line 183 `### Setting a Break Point`, line 247 `### Other Useful Magics`, line 260 `## Handling Errors`, line 293 `### Errors in Python`, line 356 `### Assertions`, line 390 `### Handling Errors During Runtime`, line 490 `## Exercises`, plus H4 `#### Catching Exceptions`. *Count:* 10+ occurrences.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 5. *Lines:* 76, 117, 196, 217, 234. *Example:* plot() without lw=.
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 6. *Lines:* 65, 183, 247, 260, 390, 402. *Example:* H3 Title Case: 'The `debug` Magic' (Magic).
 
 ### Medium severity
-_None found._
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 69, 110, 189. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 27. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
-- **[qe-writing-001]** — A small number of multi-sentence paragraphs (e.g., the introduction around lines 286–288 uses a multi-bullet "Why?" explanation; mostly fine).
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 1. *Lines:* 209. *Example:* 2 spaces.
+
 
 ## Strengths
-- Lecture title "Debugging and Handling Errors" follows qe-writing-006.
-- Bullet rationales (the "Why?" pattern) are short and readable.
-- Inline backticks for code identifiers are used consistently.
-- No use of `time.time()`, `tic`/`toc`, or `%timeit` magics.
-- Exercise/solution pair correctly gated and labelled per qe-admon-001/qe-admon-005.
+
+- Math, Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Convert section headings to sentence case ("Debugging", "The debug magic", "Setting a break point", "Other useful magics", "Handling errors", "Errors in Python", "Handling errors during runtime").
+
+1. `qe-writing-006` — Capitalize lecture titles properly (6 occurrences).
+2. `qe-fig-005` — Descriptive figure names for cross-referencing (3 occurrences).
+3. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
+4. `qe-fig-008` — Use lw=2 for line charts (5 occurrences).
+5. `qe-writing-008` — Remove excessive whitespace between words (1 occurrence).

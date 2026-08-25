@@ -1,0 +1,69 @@
+{
+  "series": "lecture-python-intro",
+  "lecture": "inequality",
+  "judgment": [
+    {
+      "rule": "qe-code-001",
+      "count": 16,
+      "lines": [
+        285,
+        555,
+        575,
+        673,
+        700,
+        725,
+        760,
+        768,
+        936,
+        982,
+        1013,
+        1014,
+        1031,
+        1110,
+        1119,
+        1121
+      ],
+      "detail": "PEP8 spacing is loose throughout the data-handling cells: whitespace before a closing paren (285), missing space after a comma in `('YR','')`, `['USA','GBR', ...]`, `range(min_year,max_year,5)`, `[0,1],[0,1]`, `reshape((k,1))` (555, 575, 673, 700, 725, 760, 982, 1110), spaces around `=` in the plotly keyword arguments (768-773), `\u03c3 ** 2` where the rule explicitly prefers `\u03c3**2` and where line 490 already writes it that way (936), lambdas bound to names instead of `def` (1013), missing space after an operator in `return 1- t(1 - p)` (1014), a backslash line-continuation inside parentheses with a 3-space hanging indent (1031-1032), `gini_coefficients =[]` (1119) and a 5-space indent (1121)"
+    },
+    {
+      "rule": "qe-writing-005",
+      "count": 3,
+      "lines": [
+        100,
+        343,
+        795
+      ],
+      "detail": "the lecture contains no bold and no italic at all, so the three terms it exists to define - the Lorenz curve (100, formalised at 107), the Gini coefficient (343, formalised at 353) and top shares (795, formalised at 804) - are introduced in plain text; the `prf:definition` blocks hold only the formula, not the term"
+    },
+    {
+      "rule": "qe-writing-002",
+      "count": 2,
+      "lines": [
+        152,
+        210
+      ],
+      "detail": "149-154 says the same thing twice - \"First let us construct a `lorenz_curve` function that we can use in our simulations below\" followed by \"It is useful to construct a function that translates an array of income or wealth data into the cumulative share of individuals (or households) and the cumulative share of income (or wealth)\" (32 words, restating the docstring at 158-163); 210-212 is a 35-word sentence carrying both the interpretation of the axes and the reading of the dashed lines"
+    }
+  ],
+  "strengths": [
+    "Definitions are placed in `prf:definition` blocks with labels (`define-lorenz`, `define-gini`, `top-shares`) and the equation label `topshares` is genuinely cited later, in exercise 2 at line 997",
+    "Nearly every generated figure carries `mystnb: figure: caption/name` metadata and is referenced with `{numref}` in the prose that follows (368, 400, 567, 602)",
+    "The plotly figure at 766 is paired with an `{only} latex` fallback at 779 that points LaTeX readers at the web version - a genuinely thoughtful accessibility touch",
+    "Greek variables in code use Unicode (`\u03c3_vals`, `\u03bc`) in the simulation cells, matching the mathematical notation in the surrounding prose",
+    "All three exercises use gated `exercise` / `solution-start` / `solution-end` with `:class: dropdown`, and exercise 3 cross-references the in-lecture code block by label (`code:gini-coefficient`)"
+  ],
+  "actions": [
+    "Add `mystnb: figure: caption/name` metadata to the five figures that only have an `image: alt:` key (766, 945, 960, 975, 1023) so they can be captioned and cross-referenced like the rest",
+    "Move the three embedded matplotlib titles out of the code (504 via the `title=` argument of `plot_inequality_measures`, 985, 1037) and into figure captions",
+    "Bold each term at its point of definition - the Lorenz curve, the Gini coefficient, top shares - and reserve italic for emphasis; the lecture currently uses neither",
+    "Run the code cells through a PEP8 formatter to fix the 16 spacing items listed above, and replace the remaining spelled-out Greek names at 230, 231, 383, 413, 414 with Unicode letters",
+    "Give the two identically-captioned Norway figures (666, 692) distinct captions - the second one is the forward-filled version - and shorten them to under eight words",
+    "Lower-case the H3 at 715 to `### Gini coefficient and GDP per capita (over time)`",
+    "Split the two-sentence paragraphs at 578 and 1124, cut the redundant lead-in at 152, and escape the currency signs at 31, 33 and 35 (`\\$100,000,000`, `\\$100`) - as written the unescaped `$` pairs open a math span that swallows the bullet list"
+  ],
+  "scanner_doubts": [
+    "inequality.md:246 - qe-writing-004 flags mid-sentence 'Consumer', but the word sits inside the proper noun \"[Survey of Consumer Finances](...)\", which is correctly capitalised; this looks like a false positive and the count of 3 is probably 2",
+    "inequality.md - qe-fig-004 is reported with count 4 but only two line numbers (666, 692), and only two captions exist that could be at fault; either the count double-charges each caption or two line numbers are missing",
+    "inequality.md:31 - qe-math-012 (proposed) reports `*` used as multiplication, but the `*` at 31 is a markdown bullet marker; it only looks like math because the unescaped currency signs at 31, 33 and 35 open an accidental `$...$` span across the list. Something is genuinely wrong at that line, but it is an escaping defect, not a multiplication-operator one"
+  ]
+}

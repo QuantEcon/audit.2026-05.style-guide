@@ -2,23 +2,24 @@
 
 - **Series:** lecture-dp
 - **File:** `lectures/jv.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
-- **Overall score:** 8.3 / 10
-- **Priority:** LOW
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `c30490a2f4`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.8 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 6/10  | Multiple Title Case H3 headings. |
-| Math         | 8/10  | Clean Bellman; `\text{Beta}` instead of `\mathrm{Beta}`; `\mathbb{P}` used. |
-| Code         | 8/10  | Unicode Greek; no pip install (uses base packages only); figsize 3×. |
-| JAX          | out of scope | not a JAX lecture. |
-| Figures      | 8/10  | No embedded titles; mostly clean; figsize 3×. |
-| References   | 10/10 | One `{cite}` parenthetical; no narrative-author misuse. |
-| Links        | 9/10  | No raw cross-series URLs. |
-| Admonitions  | 9/10  | Two `{exercise}`/`exercise-start` + `solution-start` with `:label:` and dropdown. |
+| Writing      | 6/10  | `qe-writing-006` ×3; `qe-writing-001` ×1; `qe-writing-008` ×3. |
+| Math         | 10/10 | no mechanical violations detected. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 6.5/10 | `qe-fig-005` ×3; `qe-fig-003` ×1; `qe-fig-008` ×4, +1 more. |
+| References   | 9/10  | `qe-ref-001` ×1. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,24 +27,34 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 3. *Lines:* 45, 130, 359. *Example:* H3 Title Case: 'Model Features' (Features).
 
 ### Medium severity
-- **[qe-writing-006]** — Title Case H3 headings. *Examples:* `### Model Features` (45), `### Parameterization` (106), `### Back-of-the-Envelope Calculations` (130), `## Solving for Policies` (359). *Count:* 4 headings.
-- **[qe-math-011 (proposed)]** — Distribution written as `\text{Beta}(2, 2)` (lines 118, 127); style guide prefers `\mathrm{Beta}`.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 380, 461, 534. *Example:* figsize=.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 384. *Example:* .set(title=.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 376, 444, 526. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 4. *Lines:* 383, 468, 474, 536. *Example:* plot() without lw=.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 168. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 3. *Lines:* 58, 69, 168. *Example:* 2 spaces.
 
 ### Low severity
-- **[qe-writing-001]** — A few multi-sentence paragraphs (e.g. 134-140, 163-170).
-- **[qe-fig-001]** — `figsize=` set 3 times.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 34. *Example:* {cite} in narrative flow: 'and {cite}`'.
+
 
 ## Strengths
-- Lecture title in correct Title Case (via `{index}` directive).
-- `\mathbb{E}` and `\mathbb{P}` used (lines 150-151).
-- "IID" used correctly.
-- No transpose, no bold vectors, no matrix-bracket, no `\tag`, no `align` issues.
-- Equation labels with `{eq}` references used cleanly.
-- Exercises use `{exercise}` and `exercise-start`/`exercise-end` plus `solution-start`/`solution-end` with `:class: dropdown`.
+
+- Math, Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Convert H3s to sentence case: "Model features", "Back-of-the-envelope calculations", "Solving for policies".
-2. Replace `\text{Beta}` with `\mathrm{Beta}`.
+
+1. `qe-writing-006` — Capitalize lecture titles properly (3 occurrences).
+2. `qe-fig-005` — Descriptive figure names for cross-referencing (3 occurrences).
+3. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
+4. `qe-fig-003` — No matplotlib embedded titles (1 occurrence).
+5. `qe-ref-001` — Use correct citation style (1 occurrence).
+6. `qe-writing-008` — Remove excessive whitespace between words (3 occurrences).
+7. `qe-fig-008` — Use lw=2 for line charts (4 occurrences).

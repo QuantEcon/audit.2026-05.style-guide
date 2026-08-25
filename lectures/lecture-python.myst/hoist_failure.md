@@ -2,8 +2,9 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/hoist_failure.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `e25fdf2345`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 9.0 / 10
 - **Priority:** NONE
 
@@ -11,14 +12,14 @@
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8/10 | Many section headings use Title Case rather than sentence case. |
-| Math         | 9.5/10 | Multiplication with `*` rather than `\cdot` or juxtaposition. |
-| Code         | 9.5/10 | `!pip install` cell missing `tags: [hide-output]` (line 53). |
-| JAX          | out of scope | not a JAX lecture |
-| Figures      | 9/10 | Figures lack descriptive `name:` fields for cross-referencing (6 plot calls, 0 named). |
-| References   | 9/10 | Citation style follows conventions. |
-| Links        | 8/10 | 1 full URL(s) to same series. |
-| Admonitions  | 10/10 | Exercise/solution structure clean. |
+| Writing      | 7.5/10 | `qe-writing-006` ×1; `qe-writing-008` ×25. |
+| Math         | 7.5/10 | `qe-math-010` (proposed) ×2. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 8/10  | `qe-fig-004` ×2; `qe-fig-001` ×4. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,32 +27,31 @@
 _None found._
 
 ### High severity
-- **[qe-writing-006]** — Many section headings use Title Case rather than sentence case. *Examples:* line 132, line 209, line 319. *Count:* 6.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 2. *Lines:* 168, 174. *Example:* non-blackboard `\Pr`.
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 1. *Lines:* 356. *Example:* H3 Title Case: 'The Fast Fourier Transform' (Fast, Transform).
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 25. *Lines:* 41, 381, 489, 544, 545, 549, 552, 554, 560, 567, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-link-002]** — 2 direct URLs to other QuantEcon series — should use `{doc}` intersphinx links. *Examples:* line 37.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 4. *Lines:* 325, 430, 449, 684. *Example:* figsize=.
+- **[qe-fig-004]** — Caption formatting conventions. *Count:* 2. *Lines:* 235, 250. *Example:* caption of 7 words.
 
 ### Low severity
-- **[qe-math-012 (proposed)]** — Multiplication with `*` rather than `\cdot` or juxtaposition. *Example:* line 144.
-- **[qe-code-003]** — `!pip install` cell missing `tags: [hide-output]` (line 53).
-- **[qe-fig-005]** — Figures lack descriptive `name:` fields for cross-referencing (6 plot calls, 0 named).
-- **[qe-fig-008]** — `lw=2` parameter missing from 6 `.plot()` calls.
-- **[qe-link-001]** — 1 full URL(s) to same series. *Examples:* line 36.
+_None found._
+
 
 ## Strengths
-- Uses "IID" or no IID terminology.
-- Transpose notation uses `\top` consistently (no prime/`^T`).
-- No bold vectors/matrices.
-- Normal distribution written as plain `N`.
-- `aligned` (not `align`) used in `$$` math.
-- Figures use default sizing.
-- No `ax.set_title()` in main figures.
-- Axis labels lowercase.
-- No embedded matplotlib titles in main figures.
+
+- Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- Citations distinguish `{cite}` from `{cite:t}` correctly (1 parenthetical, 11 in-text).
 
 ## Recommended actions
-1. Address `qe-writing-006`: Many section headings use Title Case rather than sentence case.
-2. Address `qe-link-002`: 2 direct URLs to other QuantEcon series — should use `{doc}` intersphinx links.
-3. Address `qe-math-012 (proposed)`: Multiplication with `*` rather than `\cdot` or juxtaposition.
-4. Address `qe-code-003`: `!pip install` cell missing `tags: [hide-output]` (line 53).
-5. Address `qe-fig-005`: Figures lack descriptive `name:` fields for cross-referencing (6 plot calls, 0 named).
+
+1. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (2 occurrences).
+2. `qe-fig-004` — Caption formatting conventions (2 occurrences).
+3. `qe-writing-006` — Capitalize lecture titles properly (1 occurrence).
+4. `qe-writing-008` — Remove excessive whitespace between words (25 occurrences).
+5. `qe-fig-001` — Do not set figure size unless necessary (4 occurrences).

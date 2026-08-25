@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/status.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.8 / 10
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `ceec881028`
+- **Categories audited:** writing, code, links  *(JAX out of scope)*
+- **Overall score:** 9.7 / 10
 - **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8.5/10| Title Case title; minor capitalization preference on "python"/"linux". |
-| Math         | N/A   | Build-statistics page; no math. |
-| Code         | 9/10  | Simple `!python --version`, `!conda list` (with `hide-output`), `!nvidia-smi`, single JAX import; appropriate for a status page. |
-| JAX          | out of scope | (Imports `jax` only to probe backend.) |
-| Figures      | N/A   | No figures. |
-| References   | N/A   | No citations. |
-| Links        | N/A   | No external links. |
-| Admonitions  | N/A   | No admonitions. |
+| Writing      | 10/10 | no mechanical violations detected. |
+| Math         | N/A   | no mathematical content. |
+| Code         | 9/10  | `qe-code-003` ×1. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | N/A   | no figures or plotting code. |
+| References   | N/A   | no citations in this lecture. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | N/A   | no admonitions, exercises or solutions. |
 
 ## Issues
 
@@ -29,15 +30,20 @@ _None found._
 _None found._
 
 ### Medium severity
-_None found._
+- **[qe-code-003]** — Package installation at lecture top. *Count:* 1. *Lines:* 1. *Example:* non-Anaconda import with no install cell: ['jax'].
 
 ### Low severity
-- **[qe-writing-004]** — "python", "github actions", "linux" left lowercase in narrative on lines 21–23.
+_None found._
+
 
 ## Strengths
-- Lecture title "Execution Statistics" is Title Case per qe-writing-006.
-- `:tags: [hide-output]` correctly applied to the verbose `!conda list` cell per qe-code-003 spirit.
-- Body is auto-generated build info — minimal style surface.
+
+- Writing, Code, Links score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Optional: capitalize "Python", "GitHub Actions", "Linux" consistently.
+
+1. `qe-code-003` — Package installation at lecture top (1 occurrence).

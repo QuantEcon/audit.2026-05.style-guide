@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/long_run_growth.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.0 / 10
-- **Priority:** LOW
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `a12d17c0ef`
+- **Categories audited:** writing, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.6 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8/10  | H1 Title Case OK; H2/H3 OK (proper nouns retained); some multi-sentence paragraphs. |
-| Math         | N/A   | virtually no math content |
-| Code         | 8/10  | Standard Anaconda imports only; `alpha=` matplotlib kwarg only. |
-| JAX          | out of scope | — |
-| Figures      | 6/10  | `figsize=` on lines 275, 359, 420; 1 `{figure}` directive without `:name:`; no `ax.set_title` violations. |
-| References   | 4/10  | 4 `{cite}` usages, **all in-text** (e.g. "Adam Tooze's account... see chapter 1 of {cite}", "Chapter 1 of {cite}", "figure from chapter 1 of {cite}") — all should be `{cite:t}`. |
-| Links        | 9/10  | `{doc}` cross-references used (2 occurrences). |
-| Admonitions  | N/A   | no exercises / solutions |
+| Writing      | 7.5/10 | `qe-writing-001` ×2; `qe-writing-008` ×7. |
+| Math         | N/A   | no mathematical content. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 5.5/10 | `qe-fig-004` ×5; `qe-fig-005` ×2; `qe-fig-008` ×4, +2 more. |
+| References   | 8.5/10 | `qe-ref-001` ×2. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,23 +27,34 @@
 _None found._
 
 ### High severity
-- **[qe-ref-001]** — All 4 in-text `{cite}` usages should be `{cite:t}`. *Examples:* line 29 ("see chapter 1 of {cite}\`Tooze_2014\`"), 40 ("Chapter 1 of {cite}\`Tooze_2014\`"), 504 ("figure from chapter 1 of {cite}\`Tooze_2014\`"). *Count:* 4 occurrences. **Systemic for this lecture.**
+- **[qe-fig-004]** — Caption formatting conventions. *Count:* 5. *Lines:* 162, 190, 264, 351, 412. *Example:* Title Case caption (Capita).
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 7. *Lines:* 38, 40, 47, 50, 506, 539, 566. *Example:* 2 spaces.
 
 ### Medium severity
-- **W1** — Several multi-sentence paragraphs (lines 29–31, 40–43, 46–48).
-- **[qe-fig-001]** — `figsize=` overrides on lines 275, 359, 420. *Count:* 3 occurrences.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 275, 359, 420. *Example:* figsize=.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 34, 525. *Example:* {figure} without :name:.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 4. *Lines:* 199, 204, 236, 243. *Example:* plot() without lw=.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 40, 504. *Example:* {cite} in narrative flow: 'of {cite}`'.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 38, 181. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
-- **W7** — Capitalized phrases mid-text like "American century" / "Industrial Revolution" — proper-noun-like; debatable but acceptable.
-- **[qe-fig-005]** — One `{figure}` directive present but no `:name:` field for cross-referencing.
+- **[qe-fig-002]** — Prefer code-generated figures. *Count:* 1. *Lines:* 34. *Example:* static image .png.
+
 
 ## Strengths
-- Section headings comply with W3 (proper nouns capitalized: United Kingdom, US, UK, China).
-- Clean prose; one-sentence paragraphs in most sections.
-- `{doc}` cross-references used (qe-link-002 OK).
+
+- Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Convert all 4 in-text `{cite}` usages to `{cite:t}`.
-2. Remove `figsize=` overrides.
-3. Add `:name:` to the `{figure}` directive.
-4. Split multi-sentence paragraphs in Overview.
+
+1. `qe-fig-004` — Caption formatting conventions (5 occurrences).
+2. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
+3. `qe-ref-001` — Use correct citation style (2 occurrences).
+4. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
+5. `qe-writing-008` — Remove excessive whitespace between words (7 occurrences).
+6. `qe-fig-008` — Use lw=2 for line charts (4 occurrences).
+7. `qe-fig-001` — Do not set figure size unless necessary (3 occurrences).

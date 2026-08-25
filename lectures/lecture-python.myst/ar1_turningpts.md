@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/ar1_turningpts.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 8.1 / 10
-- **Priority:** LOW
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `e25fdf2345`
+- **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
+- **Overall score:** 8.8 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 6.5/10 | Many section headings use Title Case rather than sentence case. |
-| Math         | 8/10 | Transpose denoted `'` (prime) or `^T` instead of `\top`. |
-| Code         | 8.5/10 | Greek letters spelled out in code; spec prefers unicode (α, β). |
-| JAX          | out of scope | not a JAX lecture |
-| Figures      | 8.5/10 | `figsize=` set in 5 places — usually unnecessary. |
-| References   | 9/10 | Citation style follows conventions. |
-| Links        | N/A | No external links. |
-| Admonitions  | N/A | No admonitions. |
+| Writing      | 4.5/10 | `qe-writing-006` ×7; `qe-writing-001` ×3; `qe-writing-008` ×2. |
+| Math         | 10/10 | no mechanical violations detected. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 8/10  | `qe-fig-005` ×1; `qe-fig-008` ×2; `qe-fig-001` ×4. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | N/A   | no admonitions, exercises or solutions. |
 
 ## Issues
 
@@ -26,27 +27,31 @@
 _None found._
 
 ### High severity
-- **[qe-writing-006]** — Many section headings use Title Case rather than sentence case. *Examples:* line 60, line 188, line 283. *Count:* 7.
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 7. *Lines:* 74, 357, 435, 452, 517, 619, 685. *Example:* H2 Title Case: 'A Univariate First-Order Autoregressive Process' (Univariate, First-Order, Autoregressive, Process).
 
 ### Medium severity
-- **[qe-math-002]** — Transpose denoted `'` (prime) or `^T` instead of `\top`. *Examples:* line 297 (`^T`). *Count:* 3 occurrences.
-- **[qe-code-002]** — Greek letters spelled out in code; spec prefers unicode (α, β). *Count:* 29.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 4. *Lines:* 70, 674, 749, 769. *Example:* style override.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 317, 326. *Example:* plot() without lw=.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 3. *Lines:* 119, 182, 515. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 2. *Lines:* 104, 121. *Example:* 2 spaces.
 
 ### Low severity
-- **[qe-writing-009 (proposed)]** — Uses "i.i.d." or "iid" in text rather than "IID". *Example:* line 69.
-- **[qe-fig-001]** — `figsize=` set in 5 places — usually unnecessary.
-- **[qe-fig-003]** — `ax.set_title()` used once outside exercise blocks (line 153).
-- **[qe-fig-008]** — `lw=2` parameter missing from 3 `.plot()` calls.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 51. *Example:* code-cell figure without mystnb figure metadata.
+
 
 ## Strengths
-- No bold vectors/matrices.
-- Normal distribution written as plain `N`.
-- `aligned` (not `align`) used in `$$` math.
-- Axis labels lowercase.
+
+- Math, Code, References, Links score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Address `qe-writing-006`: Many section headings use Title Case rather than sentence case.
-2. Address `qe-math-002`: Transpose denoted `'` (prime) or `^T` instead of `\top`.
-3. Address `qe-code-002`: Greek letters spelled out in code; spec prefers unicode (α, β).
-4. Address `qe-writing-009 (proposed)`: Uses "i.i.d." or "iid" in text rather than "IID".
-5. Address `qe-fig-001`: `figsize=` set in 5 places — usually unnecessary.
+
+1. `qe-writing-006` — Capitalize lecture titles properly (7 occurrences).
+2. `qe-writing-001` — Use one sentence per paragraph (3 occurrences).
+3. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
+4. `qe-writing-008` — Remove excessive whitespace between words (2 occurrences).
+5. `qe-fig-008` — Use lw=2 for line charts (2 occurrences).
+6. `qe-fig-001` — Do not set figure size unless necessary (4 occurrences).

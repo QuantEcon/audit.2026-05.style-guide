@@ -2,8 +2,9 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/mccall_persist_trans.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions (JAX out of scope)
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `e25fdf2345`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 9.7 / 10
 - **Priority:** NONE
 
@@ -11,14 +12,14 @@
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 10/10 | No writing issues. |
-| Math         | 10/10 | No math issues. |
-| Code         | 10/10 | Unicode Greek used consistently. |
-| JAX          | out of scope | JAX lecture — JAX rules not audited per scope. |
-| Figures      | 9/10 | Figures lack descriptive `name:` fields for cross-referencing (4 plot calls, 0 named). |
-| References   | 9/10 | Citation style follows conventions. |
-| Links        | 10/10 | Link style follows conventions. |
-| Admonitions  | 10/10 | Exercise/solution structure clean. |
+| Writing      | 10/10 | no mechanical violations detected. |
+| Math         | 10/10 | no mechanical violations detected. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 8/10  | `qe-fig-005` ×4; `qe-fig-008` ×4. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -29,27 +30,22 @@ _None found._
 _None found._
 
 ### Medium severity
-_None found._
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 289, 309, 416, 455. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 4. *Lines:* 293, 318, 418, 457. *Example:* plot() without lw=.
 
 ### Low severity
-- **[qe-fig-005]** — Figures lack descriptive `name:` fields for cross-referencing (4 plot calls, 0 named).
-- **[qe-fig-008]** — `lw=2` parameter missing from 4 `.plot()` calls.
+_None found._
+
 
 ## Strengths
-- Headings use sentence case consistently.
-- Uses "IID" or no IID terminology.
-- Transpose notation uses `\top` consistently (no prime/`^T`).
-- No bold vectors/matrices.
-- Normal distribution written as plain `N`.
-- `aligned` (not `align`) used in `$$` math.
-- Figures use default sizing.
-- Solutions use `:class: dropdown` consistently.
-- Code uses Unicode Greek letters throughout.
-- No `ax.set_title()` in main figures.
-- Axis labels lowercase.
-- No embedded matplotlib titles in main figures.
-- Cross-series links use `{doc}` intersphinx form.
+
+- Writing, Math, Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Address `qe-fig-005`: Figures lack descriptive `name:` fields for cross-referencing (4 plot calls, 0 named).
-2. Address `qe-fig-008`: `lw=2` parameter missing from 4 `.plot()` calls.
+
+1. `qe-fig-005` — Descriptive figure names for cross-referencing (4 occurrences).
+2. `qe-fig-008` — Use lw=2 for line charts (4 occurrences).

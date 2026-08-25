@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/linear_models.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 8.4 / 10
-- **Priority:** LOW
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `e25fdf2345`
+- **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 7.2 / 10
+- **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 5/10 | Section/subsection headings use Title Case rather than sentence case. |
-| Math         | 10/10 | No math issues. |
-| Code         | 8.5/10 | Spelled-out Greek (alpha/beta/etc.) used predominantly in code; mixed with unicode forms... |
-| JAX          | out of scope | not a JAX lecture |
-| Figures      | 9/10 | `figsize=` set in 1 place(s). |
-| References   | N/A | No citations. |
-| Links        | 8/10 | 1 full URL(s) to same series. |
-| Admonitions  | 10/10 | Exercise/solution structure clean. |
+| Writing      | 3/10  | `qe-writing-006` ×25; `qe-writing-001` ×2; `qe-writing-008` ×30. |
+| Math         | 5/10  | `qe-math-002` ×43. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 7/10  | `qe-fig-005` ×5; `qe-fig-008` ×2; `qe-fig-001` ×1. |
+| References   | N/A   | no citations in this lecture. |
+| Links        | 8/10  | `qe-link-002` ×1; `qe-link-001` ×1. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,31 +27,35 @@
 _None found._
 
 ### High severity
-- **[qe-writing-006]** — Section/subsection headings use Title Case rather than sentence case. *Examples:* line 77, line 119, line 147. *Count:* 25 headings affected.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 190, 656, 728, 782, 910. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 43. *Lines:* 239, 404, 431, 444, 488, 535, 543, 575, 609, 635, …. *Example:* apostrophe transpose `A'`.
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 25. *Lines:* 77, 119, 147, 224, 293, 374, 446, 508, 516, 560, …. *Example:* H2 Title Case: 'The Linear State Space Model' (Linear, State, Space, Model).
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 30. *Lines:* 87, 88, 465, 469, 488, 551, 552, 589, 613, 614, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-code-002]** — Spelled-out Greek (alpha/beta/etc.) used predominantly in code; mixed with unicode forms (word=14, uni=2).
-- **[qe-link-002]** — 1 direct URL to another QuantEcon series — should use `{doc}` link. *Example:* line 1343.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 689, 946. *Example:* plot() without lw=.
+- **[qe-link-002]** — Use doc links for cross-series references. *Count:* 1. *Lines:* 1343. *Example:* raw link to python-programming.quantecon.org.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 444, 1409. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
-- **[qe-fig-001]** — `figsize=` set in 1 place(s).
-- **[qe-fig-005]** — Figures lack descriptive `name:` fields for cross-referencing (9 plot calls, 0 named).
-- **[qe-link-001]** — 1 full URL(s) to same series. *Examples:* line 1046.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 1. *Lines:* 668. *Example:* figsize=.
+- **[qe-link-001]** — Use markdown style links for lectures in same lecture series. *Count:* 1. *Lines:* 1046. *Example:* full URL to own series (python.quantecon.org).
+
 
 ## Strengths
-- Uses "IID" or no IID terminology.
-- Transpose notation uses `\top` consistently (no prime/`^T`).
-- No bold vectors/matrices.
-- Normal distribution written as plain `N`.
-- `aligned` (not `align`) used in `$$` math.
-- Solutions use `:class: dropdown` consistently.
-- No `ax.set_title()` in main figures.
-- Axis labels lowercase.
-- No embedded matplotlib titles in main figures.
+
+- Code, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Address `qe-writing-006`: Section/subsection headings use Title Case rather than sentence case.
-2. Address `qe-code-002`: Spelled-out Greek (alpha/beta/etc.) used predominantly in code; mixed with unicode forms (word=14, uni=2).
-3. Address `qe-link-002`: 1 direct URL to another QuantEcon series — should use `{doc}` link.
-4. Address `qe-fig-001`: `figsize=` set in 1 place(s).
-5. Address `qe-fig-005`: Figures lack descriptive `name:` fields for cross-referencing (9 plot calls, 0 named).
+
+1. `qe-writing-006` — Capitalize lecture titles properly (25 occurrences).
+2. `qe-math-002` — Use \top for transpose notation (43 occurrences).
+3. `qe-fig-005` — Descriptive figure names for cross-referencing (5 occurrences).
+4. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
+5. `qe-writing-008` — Remove excessive whitespace between words (30 occurrences).
+6. `qe-link-002` — Use doc links for cross-series references (1 occurrence).
+7. `qe-link-001` — Use markdown style links for lectures in same lecture series (1 occurrence).

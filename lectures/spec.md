@@ -181,11 +181,12 @@ Each issue listed in a report is tagged:
 Each lecture audit must be a markdown file with **this exact structure**. Keep it compact — total length ~40–80 lines depending on category coverage.
 
 ```markdown
-# Style Audit — <lecture filename without extension>
+# <lecture filename without extension>
 
 - **Series:** <series name>
 - **File:** `lectures/<filename>.md`
 - **Audit date:** YYYY-MM-DD
+- **Corpus snapshot:** `<10-char commit of the series at audit time>`
 - **Categories audited:** writing, math, code, jax, figures, references, links, admonitions  *(or a subset)*
 - **Overall score:** X.X / 10
 - **Priority:** HIGH | MEDIUM | LOW | NONE
@@ -241,9 +242,10 @@ Each lecture audit must be a markdown file with **this exact structure**. Keep i
 Each series folder gets a `README.md` with this structure:
 
 ```markdown
-# Style Audit — <series-name>
+# Summary
 
 - **Audit date:** YYYY-MM-DD
+- **Corpus snapshot:** `<10-char commit>`
 - **Lectures audited:** N
 - **Categories audited:** …
 - **Average overall score:** X.X / 10
@@ -278,33 +280,124 @@ If only a subset of categories were audited, drop the unused columns rather than
 
 ---
 
-## 8. Subagent operating instructions
+## 8. How a pass is produced
+
+A pass has three layers. Keeping them separate is what makes two passes
+comparable: the first two layers are code, so re-running them on the same
+snapshot gives byte-identical output, and only the third involves judgment.
+
+### 8.1 Evidence layer — measured, not judged
+
+`tools/qestyle_scan.py` runs every mechanically-detectable rule (§9) over a
+**pinned corpus snapshot** — one commit per series, recorded in
+`lectures/data/snapshot.json` and in each report header. It emits per-lecture,
+per-rule counts with line numbers. It measures only; it never scores.
+
+Pinning the snapshot matters. In the previous pass the corpus moved underneath
+the audit: two `lecture-dp` lectures were added on the audit date and went
+unaudited, and one report described a lecture (`supply_demand_foundations_v2`)
+that does not exist in any of the five repositories' history. Neither failure is
+possible when the inputs are a commit and a program.
+
+### 8.2 Scoring layer — arithmetic
+
+`tools/qestyle_draft.py` turns evidence into a draft report: severity per §5,
+category scores from the weighted violation load, and the overall score and
+priority bucket per §4. `tools/qestyle_score.py --fix` then recomputes the
+header from each report's own score table, so a report cannot contradict itself.
+Run `--check` to assert this holds; it failed on 94 of 299 reports in the
+previous pass, with a further 35 carrying a priority the rule does not give.
+
+Category scores are a declining function of violation load: each violated rule
+contributes its audit weight (§2) times a saturating repetition factor, capped
+per weight class so that a lecture whose only deviations are low-weight cannot
+be scored alongside one that ignores a very-high-weight rule throughout.
+
+### 8.3 Review layer — judgment
+
+Reviewers take the drafts and the lecture sources and add what code cannot
+measure: the six in-scope registry rules and two proposed rules that are
+genuine judgment calls (§9), plus the per-lecture **Strengths** and
+**Recommended actions**. Reviewer instructions:
 
 1. Read this spec first. Do not re-interpret rules.
-2. For each lecture, read enough to make a calibrated judgment. For files >1500 lines, read head + a middle slice + tail.
-3. Produce one per-lecture report per file, then the series README at the end.
-4. Be **consistent**: the same violation gets the same rule ID, same severity bucket, same wording across all your reports.
-5. Do **not** modify any lecture files.
-6. Final response: a short summary listing average per-category scores, the top 3 systemic issues with their rule IDs, and the 5 worst-scoring lectures.
+2. Treat the drafted mechanical counts as authoritative. If one looks wrong,
+   report it as a scanner defect — do not quietly edit the number, or the
+   report stops matching the CSVs.
+3. Score the judgment-only rules by reading the lecture. For files over 1500
+   lines, read the head, a middle slice and the tail.
+4. Adjust a drafted category score only for a judgment reason, and say what it
+   was in the category's one-line note.
+5. Be consistent: the same deviation gets the same rule ID, severity and
+   wording across every report you write.
+6. Do **not** modify any lecture file.
 
-When auditing only a subset of categories, score those and mark the rest as out-of-scope in the report metadata — distinct from `N/A`, which means "not applicable to this lecture".
+## 9. Deterministic coverage — measured
+
+`action-style-guide` roadmap Phase 4.3 planned deterministic checkers for "~13"
+rules; [issue #19](https://github.com/QuantEcon/action-style-guide/issues/19)
+argued from this corpus that 22 were reachable. Implementing them settled the
+question: **41 of the 49 rules are mechanically checkable** — 36 of the 42
+in-scope registry rules, plus 5 of the 7 proposed rules. The implementations
+live in `tools/qestyle_rules.py`, one function per rule.
+
+### Mechanised (41)
+
+| Category | Checked | Rules |
+|----------|--------:|-------|
+| Writing | 4 / 8 | `qe-writing-001`, `qe-writing-004`, `qe-writing-006`, `qe-writing-008` |
+| Math | 8 / 9 | `qe-math-001`–`qe-math-008` |
+| Code | 5 / 6 | `qe-code-002`–`qe-code-006` |
+| Figures | 11 / 11 | `qe-fig-001`–`qe-fig-011` |
+| References | 1 / 1 | `qe-ref-001` |
+| Links | 2 / 2 | `qe-link-001`, `qe-link-002` |
+| Admonitions | 5 / 5 | `qe-admon-001`–`qe-admon-005` |
+| Proposed | 5 / 7 | `qe-writing-009`, `qe-math-010`–`qe-math-013` |
+
+Several needed a real MyST lexer rather than a regex over the raw file — a
+transpose apostrophe must not be counted in prose, a `{math}` directive body is
+mathematics and not code, display math can be closed at the end of a content
+line or wrapped in a blockquote, and a gated `{exercise-start}` is a marker
+rather than a container. `tools/qestyle_lex.py` handles that structure.
+
+Three of the checks are heuristic and say so where they fire: `qe-writing-004`
+and `qe-writing-006` consult curated proper-noun and common-noun lists;
+`qe-math-002` counts an apostrophe as transpose only on a matrix-like base and
+counts `^T` only where the superscript is followed by a factor rather than a
+relation, because `Y^T` is a data history in several lectures.
+
+### Judgment-only (8) — the review layer's job
+
+`qe-writing-002` (clear, concise, valuable), `qe-writing-003` (logical flow),
+`qe-writing-005` (bold for definitions, italic for emphasis), `qe-writing-007`
+(visual elements), `qe-math-009` (prefer simpler notation), `qe-code-001` (PEP8
+unless closer to mathematical notation), plus proposed `qe-math-014` (braces for
+events) and `qe-math-015` (case for densities vs CDFs).
+
+### JAX (7) — out of scope
+
+`qe-jax-001`–`qe-jax-007` target `lecture-jax`, which is not part of this
+corpus. Reports mark the JAX category **out of scope**, which is distinct from
+`N/A` ("not applicable to this lecture").
 
 ---
 
-## 9. Deterministic-check candidates
+## 10. Reproducing a pass
 
-These rules could move from LLM evaluation to regex / AST checking, eliminating per-call latency, cost, and hallucination risk. This list is derived from the per-rule analysis in §2 and aligns with **Phase 4.3** of the [action-style-guide roadmap](https://github.com/QuantEcon/action-style-guide/blob/main/docs/developer/roadmap.md).
+```bash
+# 1. evidence, from a pinned snapshot
+python3 tools/qestyle_scan.py --corpus ../quantecon --out lectures/data \
+    --period YYYY-MM --append-history lectures/data/rule_reach_history.csv
 
-### Fully deterministic (regex / direct AST)
+# 2. draft every per-lecture report
+python3 tools/qestyle_draft.py --corpus ../quantecon --out lectures --date YYYY-MM-DD
 
-`qe-writing-008`, `qe-math-002`, `qe-math-003`, `qe-math-004`, `qe-math-006`, `qe-math-007`, `qe-code-004`, `qe-code-005`, `qe-fig-003`, `qe-fig-006`, `qe-fig-007`, `qe-fig-008`, `qe-fig-009`, `qe-fig-010`, `qe-link-002`, `qe-admon-003`, `qe-admon-004`, `qe-admon-005`, plus proposed **qe-writing-009**, **qe-math-010**, **qe-math-011**, **qe-math-012**.
+# 3. review pass (judgment rules, strengths, actions)  -- see 8.3
 
-That is **22 rules** — substantially more than the "~13" estimated in IMPROVEMENTS.md §2.C. Worth validating against the 299-lecture corpus.
+# 4. derive scores, then the aggregate documents
+python3 tools/qestyle_score.py --root lectures --fix --csv lectures/data/scores.csv
+python3 tools/qestyle_report.py --summarise --history YYYY-MM --splice
+```
 
-### Partial (regex + curated allowlist)
-
-`qe-writing-001`, `qe-writing-004`, `qe-writing-006`, `qe-math-001`, `qe-math-005`, `qe-math-008`, `qe-code-002`, `qe-code-003`, `qe-code-006`, `qe-jax-002`, `qe-jax-004`, `qe-jax-006`, `qe-fig-004`, `qe-fig-005`, `qe-fig-011`, `qe-link-001`, `qe-admon-001`, `qe-admon-002`, plus proposed **qe-math-013**.
-
-### LLM-only (genuine judgment)
-
-`qe-writing-002`, `qe-writing-003`, `qe-writing-005`, `qe-writing-007`, `qe-math-009`, `qe-code-001`, `qe-jax-001`, `qe-jax-003`, `qe-jax-005`, `qe-jax-007`, `qe-fig-001`, `qe-fig-002`, `qe-ref-001`, plus proposed **qe-math-014**, **qe-math-015**.
+`UPDATE.md` is the full runbook, including the TOC regeneration and the
+consistency checks to run before pushing.

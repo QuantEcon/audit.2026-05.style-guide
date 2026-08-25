@@ -2,53 +2,61 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/divergence_measures.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 9.0 / 10
-- **Priority:** NONE
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `e25fdf2345`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.3 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 9.5/10 | Uses "i.i.d." or "iid" in text rather than "IID". |
-| Math         | 8/10 | `\begin{align}` used inside `$$` math (breaks PDF builds; use `aligned`). |
-| Code         | 8.5/10 | Greek letters spelled out in code; spec prefers unicode (α, β). |
-| JAX          | out of scope | not a JAX lecture |
-| Figures      | 8/10 | `figsize=` set in 4 places — usually unnecessary. |
-| References   | 9/10 | Citation style follows conventions. |
-| Links        | 10/10 | Link style follows conventions. |
-| Admonitions  | 10/10 | Exercise/solution structure clean. |
+| Writing      | 7/10  | `qe-writing-006` ×1; `qe-writing-008` ×26; `qe-writing-009` (proposed) ×1. |
+| Math         | 6.5/10 | `qe-math-010` (proposed) ×1; `qe-math-006` ×1; `qe-math-005` ×1. |
+| Code         | 8.5/10 | `qe-code-002` ×4. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 6/10  | `qe-fig-003` ×3; `qe-fig-005` ×4; `qe-fig-008` ×2, +1 more. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
 ### Critical
-- **[qe-math-006]** — `\begin{align}` used inside `$$` math (breaks PDF builds; use `aligned`). *Example:* line 134. *Count:* 1 occurrences.
-
-### High severity
 _None found._
 
+### High severity
+- **[qe-math-006]** — Use aligned environment correctly for PDF compatibility. *Count:* 1. *Lines:* 134. *Example:* bare \begin{align} display block; the corpus convention is $$ … \begin{aligned} … $$.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 1. *Lines:* 219. *Example:* bare expectation `E_{f}\left[`.
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 1. *Lines:* 148. *Example:* H2 Title Case: 'Two Beta distributions: running example' (Beta).
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 26. *Lines:* 32, 34, 36, 38, 40, 42, 68, 70, 71, 77, …. *Example:* 3 spaces.
+
 ### Medium severity
-- **[qe-code-002]** — Greek letters spelled out in code; spec prefers unicode (α, β). *Count:* 6.
-- **[qe-fig-006]** — Axis labels capitalised in 4 places. *Examples:* line 441, line 442, line 446.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 4. *Lines:* 56, 173. *Example:* spelled-out `gamma`.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 4. *Lines:* 185, 274, 438, 473. *Example:* figsize=.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 3. *Lines:* 443, 448, 499. *Example:* .set_title.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 166, 268, 433, 467. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 492, 494. *Example:* plot() without lw=.
 
 ### Low severity
-- **[qe-writing-009 (proposed)]** — Uses "i.i.d." or "iid" in text rather than "IID". *Example:* line 336.
-- **[qe-fig-001]** — `figsize=` set in 4 places — usually unnecessary.
-- **[qe-fig-005]** — Figures lack descriptive `name:` fields for cross-referencing (5 plot calls, 0 named).
+- **[qe-math-005]** — Use curly brackets for sequences. *Count:* 1. *Lines:* 310. *Example:* parenthesised sequence.
+- **[qe-writing-009 (proposed)]** — Write "IID" — not "i.i.d." or "iid". *Count:* 1. *Lines:* 336. *Example:* iid.
+
 
 ## Strengths
-- Headings use sentence case consistently.
-- Transpose notation uses `\top` consistently (no prime/`^T`).
-- No bold vectors/matrices.
-- Normal distribution written as plain `N`.
-- No `ax.set_title()` in main figures.
-- No embedded matplotlib titles in main figures.
-- Cross-series links use `{doc}` intersphinx form.
+
+- References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Address `qe-math-006`: `\begin{align}` used inside `$$` math (breaks PDF builds; use `aligned`).
-2. Address `qe-code-002`: Greek letters spelled out in code; spec prefers unicode (α, β).
-3. Address `qe-fig-006`: Axis labels capitalised in 4 places.
-4. Address `qe-writing-009 (proposed)`: Uses "i.i.d." or "iid" in text rather than "IID".
-5. Address `qe-fig-001`: `figsize=` set in 4 places — usually unnecessary.
+
+1. `qe-fig-003` — No matplotlib embedded titles (3 occurrences).
+2. `qe-fig-005` — Descriptive figure names for cross-referencing (4 occurrences).
+3. `qe-code-002` — Use Unicode symbols for Greek letters in code (4 occurrences).
+4. `qe-writing-006` — Capitalize lecture titles properly (1 occurrence).
+5. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (1 occurrence).
+6. `qe-math-006` — Use aligned environment correctly for PDF compatibility (1 occurrence).
+7. `qe-writing-008` — Remove excessive whitespace between words (26 occurrences).

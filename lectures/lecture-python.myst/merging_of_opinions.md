@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/merging_of_opinions.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 9.0 / 10
-- **Priority:** NONE
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `e25fdf2345`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.3 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8/10 | Section headings use Title Case rather than sentence case. |
-| Math         | 9/10 | Normal distribution as `\mathcal{N}` rather than `N`. |
-| Code         | 8.5/10 | Greek letters spelled out in code; spec prefers unicode (α, β). |
-| JAX          | out of scope | not a JAX lecture |
-| Figures      | 8.5/10 | `figsize=` set in 8 places — usually unnecessary. |
-| References   | 9/10 | Citation style follows conventions. |
-| Links        | 10/10 | Link style follows conventions. |
-| Admonitions  | 10/10 | Exercise/solution structure clean. |
+| Writing      | 6/10  | `qe-writing-001` ×2; `qe-writing-006` ×1; `qe-writing-004` ×1, +1 more. |
+| Math         | 8/10  | `qe-math-011` (proposed) ×4. |
+| Code         | 8.5/10 | `qe-code-002` ×2. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 7/10  | `qe-fig-003` ×4; `qe-fig-008` ×6; `qe-fig-001` ×8. |
+| References   | 8.5/10 | `qe-ref-001` ×2. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,29 +27,37 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 8. *Lines:* 578, 675, 742, 828, 985, 1012, 1041, 1239. *Example:* figsize=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 6. *Lines:* 829, 832, 835, 986, 1013, 1042. *Example:* plot() without lw=.
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 1. *Lines:* 353. *Example:* H2 Title Case: 'The Beta–Bernoulli model' (Beta).
 
 ### Medium severity
-- **[qe-math-011 (proposed)]** — Normal distribution as `\mathcal{N}` rather than `N`. *Examples:* lines 884, 947. *Count:* 2.
-- **[qe-writing-006]** — Section headings use Title Case rather than sentence case. *Examples:* line 271 `The Blackwell–Dubins theorem`, line 353 `The Beta–Bernoulli model`. *Count:* 3.
-- **[qe-code-002]** — Greek letters spelled out in code; spec prefers unicode (α, β). *Count:* 10.
-- **[qe-fig-003]** — `ax.set_title()` used 4 times outside exercise blocks. *Examples:* line 588, line 599, line 607.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 2. *Lines:* 60, 568. *Example:* spelled-out `beta`.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 4. *Lines:* 588, 599, 607, 624. *Example:* .set_title.
+- **[qe-math-011 (proposed)]** — Distribution names in plain letters, not \mathcal / \mathbb. *Count:* 4. *Lines:* 884, 947. *Example:* decorated distribution `\mathcal{N}`.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 1307. *Example:* {cite} in author position: '{cite}`DiaconisFreedman1986` study'.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 290, 312. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 314. *Example:* mid-sentence 'Step'.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 2. *Lines:* 229, 1277. *Example:* 2 spaces.
 
 ### Low severity
-- **[qe-fig-001]** — `figsize=` set in 8 places — usually unnecessary.
+_None found._
+
 
 ## Strengths
-- Uses "IID" or no IID terminology.
-- Transpose notation uses `\top` consistently (no prime/`^T`).
-- No bold vectors/matrices.
-- `aligned` (not `align`) used in `$$` math.
-- Solutions use `:class: dropdown` consistently.
-- Axis labels lowercase.
-- Figures use descriptive `name:` fields for cross-referencing.
+
+- Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Address `qe-math-011 (proposed)`: Normal distribution as `\mathcal{N}` rather than `N`.
-2. Address `qe-writing-006`: Section headings use Title Case rather than sentence case.
-3. Address `qe-code-002`: Greek letters spelled out in code; spec prefers unicode (α, β).
-4. Address `qe-fig-003`: `ax.set_title()` used 4 times outside exercise blocks.
-5. Address `qe-fig-001`: `figsize=` set in 8 places — usually unnecessary.
+
+1. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
+2. `qe-math-011` (proposed) — Distribution names in plain letters, not \mathcal / \mathbb (4 occurrences).
+3. `qe-fig-003` — No matplotlib embedded titles (4 occurrences).
+4. `qe-ref-001` — Use correct citation style (2 occurrences).
+5. `qe-code-002` — Use Unicode symbols for Greek letters in code (2 occurrences).
+6. `qe-writing-006` — Capitalize lecture titles properly (1 occurrence).
+7. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (1 occurrence).

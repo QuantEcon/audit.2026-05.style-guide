@@ -7,12 +7,14 @@ parts:
       - file: details
       - file: spec
       - file: appendix
-  - caption: "lecture-python-intro (51 lectures)"
+  - caption: "lecture-python-intro (56 lectures)"
     chapters:
       - file: lecture-python-intro/index
         sections:
           - file: lecture-python-intro/about
           - file: lecture-python-intro/ar1_processes
+          - file: lecture-python-intro/bayes_intro
+          - file: lecture-python-intro/bivariate_dist
           - file: lecture-python-intro/business_cycle
           - file: lecture-python-intro/cagan_adaptive
           - file: lecture-python-intro/cagan_ree
@@ -23,6 +25,7 @@ parts:
           - file: lecture-python-intro/eigen_I
           - file: lecture-python-intro/eigen_II
           - file: lecture-python-intro/equalizing_difference
+          - file: lecture-python-intro/fitting_distributions
           - file: lecture-python-intro/french_rev
           - file: lecture-python-intro/geom_series
           - file: lecture-python-intro/greek_square
@@ -41,10 +44,13 @@ parts:
           - file: lecture-python-intro/markov_chains_I
           - file: lecture-python-intro/markov_chains_II
           - file: lecture-python-intro/mle
+          - file: lecture-python-intro/mobility
           - file: lecture-python-intro/money_inflation
           - file: lecture-python-intro/money_inflation_nonlinear
           - file: lecture-python-intro/monte_carlo
+          - file: lecture-python-intro/msy_fishery
           - file: lecture-python-intro/networks
+          - file: lecture-python-intro/observed_distributions
           - file: lecture-python-intro/olg
           - file: lecture-python-intro/prob_dist
           - file: lecture-python-intro/pv
@@ -54,7 +60,6 @@ parts:
           - file: lecture-python-intro/simple_linear_regression
           - file: lecture-python-intro/solow
           - file: lecture-python-intro/status
-          - file: lecture-python-intro/supply_demand_foundations_v2
           - file: lecture-python-intro/supply_demand_heterogeneity
           - file: lecture-python-intro/supply_demand_multiple_goods
           - file: lecture-python-intro/tax_smooth
@@ -62,7 +67,7 @@ parts:
           - file: lecture-python-intro/troubleshooting
           - file: lecture-python-intro/unpleasant
           - file: lecture-python-intro/zreferences
-  - caption: "lecture-python-programming (26 lectures)"
+  - caption: "lecture-python-programming (27 lectures)"
     chapters:
       - file: lecture-python-programming/index
         sections:
@@ -82,6 +87,7 @@ parts:
           - file: lecture-python-programming/oop_intro
           - file: lecture-python-programming/pandas
           - file: lecture-python-programming/pandas_panel
+          - file: lecture-python-programming/polars
           - file: lecture-python-programming/python_advanced_features
           - file: lecture-python-programming/python_by_example
           - file: lecture-python-programming/python_essentials
@@ -92,12 +98,13 @@ parts:
           - file: lecture-python-programming/troubleshooting
           - file: lecture-python-programming/workspace
           - file: lecture-python-programming/writing_good_code
-  - caption: "lecture-python.myst (110 lectures)"
+  - caption: "lecture-python.myst (145 lectures)"
     chapters:
       - file: lecture-python.myst/index
         sections:
           - file: lecture-python.myst/affine_risk_prices
           - file: lecture-python.myst/aiyagari
+          - file: lecture-python.myst/aiyagari_egm
           - file: lecture-python.myst/ak2
           - file: lecture-python.myst/ak_aiyagari
           - file: lecture-python.myst/ar1_bayes
@@ -105,6 +112,7 @@ parts:
           - file: lecture-python.myst/back_prop
           - file: lecture-python.myst/bayes_nonconj
           - file: lecture-python.myst/blackwell_kihlstrom
+          - file: lecture-python.myst/bounded_rationality
           - file: lecture-python.myst/career
           - file: lecture-python.myst/cass_fiscal
           - file: lecture-python.myst/cass_fiscal_2
@@ -115,9 +123,11 @@ parts:
           - file: lecture-python.myst/divergence_measures
           - file: lecture-python.myst/eig_circulant
           - file: lecture-python.myst/endogenous_lake
+          - file: lecture-python.myst/exchange_rate_learning
           - file: lecture-python.myst/exchangeable
           - file: lecture-python.myst/finite_markov
           - file: lecture-python.myst/ge_arrow
+          - file: lecture-python.myst/genetic_classifier
           - file: lecture-python.myst/hansen_singleton_1982
           - file: lecture-python.myst/hansen_singleton_1983
           - file: lecture-python.myst/harrison_kreps
@@ -136,9 +146,11 @@ parts:
           - file: lecture-python.myst/jv
           - file: lecture-python.myst/kalman
           - file: lecture-python.myst/kalman_2
+          - file: lecture-python.myst/kalman_filter_var
           - file: lecture-python.myst/kesten_processes
           - file: lecture-python.myst/lagrangian_lqdp
           - file: lecture-python.myst/lake_model
+          - file: lecture-python.myst/learning_approximation
           - file: lecture-python.myst/likelihood_bayes
           - file: lecture-python.myst/likelihood_ratio_process
           - file: lecture-python.myst/likelihood_ratio_process_2
@@ -146,8 +158,16 @@ parts:
           - file: lecture-python.myst/linear_algebra
           - file: lecture-python.myst/linear_models
           - file: lecture-python.myst/lln_clt
+          - file: lecture-python.myst/long_run_risk_operator
+          - file: lecture-python.myst/lq_bewley_complete_markets
           - file: lecture-python.myst/lq_inventories
+          - file: lecture-python.myst/lq_permanent_income
+          - file: lecture-python.myst/lq_robust_bewley
+          - file: lecture-python.myst/lq_robust_smoothing
           - file: lecture-python.myst/lqcontrol
+          - file: lecture-python.myst/ls_learning
+          - file: lecture-python.myst/marimon_mcgrattan_sargent
+          - file: lecture-python.myst/market_diffusion
           - file: lecture-python.myst/markov_asset
           - file: lecture-python.myst/markov_perf
           - file: lecture-python.myst/mccall_fitted_vfi
@@ -156,6 +176,7 @@ parts:
           - file: lecture-python.myst/mccall_model_with_separation
           - file: lecture-python.myst/mccall_persist_trans
           - file: lecture-python.myst/mccall_q
+          - file: lecture-python.myst/mccall_risk
           - file: lecture-python.myst/measurement_models
           - file: lecture-python.myst/merging_of_opinions
           - file: lecture-python.myst/misspecified_recovery
@@ -167,6 +188,7 @@ parts:
           - file: lecture-python.myst/navy_captain
           - file: lecture-python.myst/newton_method
           - file: lecture-python.myst/odu
+          - file: lecture-python.myst/olg_adaptive_money
           - file: lecture-python.myst/ols
           - file: lecture-python.myst/opt_transport
           - file: lecture-python.myst/organization_capital
@@ -179,15 +201,31 @@ parts:
           - file: lecture-python.myst/pandas_panel
           - file: lecture-python.myst/perm_income
           - file: lecture-python.myst/perm_income_cons
+          - file: lecture-python.myst/phillips_adaptive
+          - file: lecture-python.myst/phillips_credibility
+          - file: lecture-python.myst/phillips_credible_policies
+          - file: lecture-python.myst/phillips_drifts_volatilities
+          - file: lecture-python.myst/phillips_escaping_nash
+          - file: lecture-python.myst/phillips_learning
+          - file: lecture-python.myst/phillips_lost_conquest
+          - file: lecture-python.myst/phillips_misspecified
+          - file: lecture-python.myst/phillips_priors
+          - file: lecture-python.myst/phillips_self_confirming
+          - file: lecture-python.myst/phillips_two_stories
+          - file: lecture-python.myst/pricing_information
           - file: lecture-python.myst/prob_matrix
           - file: lecture-python.myst/prob_meaning
+          - file: lecture-python.myst/prospects_bounded_rationality
           - file: lecture-python.myst/qr_decomp
           - file: lecture-python.myst/rand_resp
           - file: lecture-python.myst/rational_expectations
+          - file: lecture-python.myst/rational_learning_re
           - file: lecture-python.myst/re_with_feedback
+          - file: lecture-python.myst/robust_permanent_income
           - file: lecture-python.myst/ross_recovery
           - file: lecture-python.myst/rs_inventory_q
           - file: lecture-python.myst/samuelson
+          - file: lecture-python.myst/sargent_surico
           - file: lecture-python.myst/sir_model
           - file: lecture-python.myst/stats_examples
           - file: lecture-python.myst/status
@@ -199,14 +237,17 @@ parts:
           - file: lecture-python.myst/two_auctions
           - file: lecture-python.myst/two_computation
           - file: lecture-python.myst/uncertainty_traps
+          - file: lecture-python.myst/unemployment_linear
+          - file: lecture-python.myst/unemployment_shocks
           - file: lecture-python.myst/util_rand_resp
           - file: lecture-python.myst/var_dmd
+          - file: lecture-python.myst/var_subsets
           - file: lecture-python.myst/von_neumann_model
           - file: lecture-python.myst/wald_friedman
           - file: lecture-python.myst/wald_friedman_2
           - file: lecture-python.myst/wealth_dynamics
           - file: lecture-python.myst/zreferences
-  - caption: "lecture-python-advanced.myst (62 lectures)"
+  - caption: "lecture-python-advanced.myst (68 lectures)"
     chapters:
       - file: lecture-python-advanced.myst/index
         sections:
@@ -219,6 +260,7 @@ parts:
           - file: lecture-python-advanced.myst/arellano
           - file: lecture-python-advanced.myst/arma
           - file: lecture-python-advanced.myst/asset_pricing_lph
+          - file: lecture-python-advanced.myst/atkeson_1991
           - file: lecture-python-advanced.myst/black_litterman
           - file: lecture-python-advanced.myst/cagan_rational_expectations
           - file: lecture-python-advanced.myst/calvo
@@ -254,10 +296,12 @@ parts:
           - file: lecture-python-advanced.myst/markov_jump_lq
           - file: lecture-python-advanced.myst/match_transport
           - file: lecture-python-advanced.myst/matsuyama
+          - file: lecture-python-advanced.myst/mcmc
           - file: lecture-python-advanced.myst/muth_kalman
           - file: lecture-python-advanced.myst/opt_tax_recur
           - file: lecture-python-advanced.myst/orth_proj
           - file: lecture-python-advanced.myst/permanent_income_dles
+          - file: lecture-python-advanced.myst/repeat_mh
           - file: lecture-python-advanced.myst/risk_aversion_or_mistaken_beliefs
           - file: lecture-python-advanced.myst/rob_markov_perf
           - file: lecture-python-advanced.myst/robustness
@@ -266,13 +310,16 @@ parts:
           - file: lecture-python-advanced.myst/smoothing_tax
           - file: lecture-python-advanced.myst/stationary_densities
           - file: lecture-python-advanced.myst/status
+          - file: lecture-python-advanced.myst/subjective_beliefs_business_cycles
+          - file: lecture-python-advanced.myst/supply_demand_var
           - file: lecture-python-advanced.myst/tax_smoothing_1
           - file: lecture-python-advanced.myst/tax_smoothing_2
           - file: lecture-python-advanced.myst/tax_smoothing_3
           - file: lecture-python-advanced.myst/troubleshooting
+          - file: lecture-python-advanced.myst/tsyrennikov_2013
           - file: lecture-python-advanced.myst/un_insure
           - file: lecture-python-advanced.myst/zreferences
-  - caption: "lecture-dp (50 lectures)"
+  - caption: "lecture-dp (52 lectures)"
     chapters:
       - file: lecture-dp/index
         sections:
@@ -295,6 +342,7 @@ parts:
           - file: lecture-dp/ifp_egm_transient_shocks
           - file: lecture-dp/ifp_opi
           - file: lecture-dp/intro
+          - file: lecture-dp/inventory_q
           - file: lecture-dp/jv
           - file: lecture-dp/lagrangian_lqdp
           - file: lecture-dp/lq_inventories
@@ -317,6 +365,7 @@ parts:
           - file: lecture-dp/os_time_iter
           - file: lecture-dp/perm_income
           - file: lecture-dp/perm_income_cons
+          - file: lecture-dp/rs_inventory_q
           - file: lecture-dp/short_path
           - file: lecture-dp/smoothing
           - file: lecture-dp/smoothing_tax

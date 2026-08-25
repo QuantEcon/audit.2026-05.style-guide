@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/complex_and_trig.md`
-- **Audit date:** 2026-05-28
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 6.7 / 10
-- **Priority:** MEDIUM
+- **Overall score:** 8.6 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 6/10  | Multiple Title Case H2/H3 violations; "## Note: we choose the solution near 0" is mid-content heading. |
-| Math         | 7/10  | Generally clean; uses `aligned`; equations not labeled; no transpose needed. |
-| Code         | 8/10  | Unicode Greek (`π`, `ω`, `θ`) used in code (qe-code-002 OK); minor `lambda` Python keyword usage (not a violation). |
-| JAX          | out of scope | — |
-| Figures      | 5/10  | `figsize=` on 3 lines (98, 133, 333); `ax.set_title("Trigonometry of complex numbers", ...)` on line 143 outside exercise context; spines `set_visible(False)` violations. |
-| References   | 6/10  | "Samuelson (1939) {cite}\`Samuelson1939\`" (line 34) is manual year + citation — should be `{cite:t}\`Samuelson1939\`` only. |
-| Links        | N/A   | no cross-series links |
-| Admonitions  | 8/10  | Solutions use `:class: dropdown` + exercise labels; gated form (qe-admon-001 OK); `{prf:theorem}` used for de Moivre's theorem (qe-admon-004 OK). |
+| Writing      | 4.5/10 | `qe-writing-006` ×6; `qe-writing-001` ×2; `qe-writing-008` ×2. |
+| Math         | 10/10 | no mechanical violations detected. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 5.5/10 | `qe-fig-007` ×3; `qe-fig-005` ×2; `qe-fig-003` ×1, +2 more. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,30 +27,35 @@
 _None found._
 
 ### High severity
-- **W3** — Systematic Title Case in subsection headings. *Examples:* "### Complex Numbers" (44), "### An Example" (104), "## De Moivre's Theorem" (160), "## Applications of de Moivre's Theorem" (178), "### Example 1/2/3" (180, 205, 231), "### Trigonometric Identities" (358), "### Trigonometric Integrals" (421), "### Exercises" (486). *Count:* 8+ headings.
-- **[qe-fig-007]** — Spines hidden with `ax.spines['top'/'right'].set_visible(False)` — see lines around the figure on line 143; 3 spine-removal calls.
-- **[qe-ref-001]** — Manual "Author (Year)" + `{cite}` pattern. *Example:* `lectures/complex_and_trig.md:34` ("Samuelson (1939) {cite}\`Samuelson1939\`"). *Count:* 1 occurrence.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 5. *Lines:* 138, 139, 140, 141, 337. *Example:* plot() without lw=.
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 6. *Lines:* 44, 106, 161, 179, 358, 421. *Example:* H3 Title Case: 'Complex Numbers' (Numbers).
 
 ### Medium severity
-- **W3** — "## Note: we choose the solution near 0" (line 306) used as section heading where it appears to be a code comment.
-- **W7** — "de Moivre's theorem" capitalized inconsistently: "## De Moivre's Theorem" vs "de Moivre's theorem states that:" (line 162).
-- **[qe-fig-001]** — `figsize=` overrides on lines 98, 133, 333. *Count:* 3 occurrences.
-- **[qe-fig-003]** — `ax.set_title("Trigonometry of complex numbers", ...)` on line 143 outside any exercise/solution context.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 100, 135, 335. *Example:* style override.
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 145. *Example:* .set_title.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 122, 326. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-007]** — Keep figure box and spines. *Count:* 3. *Lines:* 341, 342, 343. *Example:* spine removal.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 406, 563. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 2. *Lines:* 234, 256. *Example:* 2 spaces.
 
 ### Low severity
-- **W1** — Some longer paragraphs (lines 33–36, 38–41).
-- **[qe-fig-005]** — No figures have a `:name:` field.
+_None found._
+
 
 ## Strengths
-- H1 title in Title Case (W2 OK).
-- `aligned` inside `$$` (M12 OK).
-- Bold for definitions ("**real part**", "**imaginary part**", "**modulus**").
-- Unicode Greek in code (qe-code-002 OK).
-- `{prf:theorem}` for de Moivre (qe-admon-004 OK).
+
+- Math, Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Convert all H2/H3 headings to sentence case per qe-writing-006.
-2. Convert "Samuelson (1939) {cite}" → `{cite:t}` form.
-3. Remove `ax.spines[...].set_visible(False)` calls per qe-fig-007.
-4. Remove `ax.set_title` outside exercise context (line 143).
-5. Remove `figsize=` overrides on lines 98, 133, 333.
+
+1. `qe-writing-006` — Capitalize lecture titles properly (6 occurrences).
+2. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
+3. `qe-fig-007` — Keep figure box and spines (3 occurrences).
+4. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
+5. `qe-fig-003` — No matplotlib embedded titles (1 occurrence).
+6. `qe-fig-008` — Use lw=2 for line charts (5 occurrences).
+7. `qe-writing-008` — Remove excessive whitespace between words (2 occurrences).

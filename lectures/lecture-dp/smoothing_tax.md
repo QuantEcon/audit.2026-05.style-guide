@@ -2,23 +2,24 @@
 
 - **Series:** lecture-dp
 - **File:** `lectures/smoothing_tax.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
-- **Overall score:** 6.6 / 10
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `c30490a2f4`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 8.5 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8/10  | H2/H3 mostly sentence case. |
-| Math         | 7/10  | `\mathbb E_t` bare; one bare `E` (line 910). |
-| Code         | 8/10  | Unicode Greek; pip install at top; PEP8; figsize 2×. |
-| JAX          | out of scope | not a JAX lecture. |
-| Figures      | 4/10  | Three `plt.title(...)` / `ax.set_title(...)` calls; 5 Title-Case `'Periods'`/`'Cumulative return'` xlabels/ylabels. |
-| References   | 3/10  | Eight narrative-author `{cite}` patterns ("Barro {cite}…", "Hall {cite}…", "Lucas and Stokey {cite}…"). |
-| Links        | 8/10  | `{doc}` used 10×; one raw `python.quantecon.org` link. |
-| Admonitions  | 8/10  | Two `{exercise}` directives. |
+| Writing      | 7/10  | `qe-writing-008` ×60; `qe-writing-004` ×1; `qe-writing-001` ×1. |
+| Math         | 8.5/10 | `qe-math-002` ×1. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 4/10  | `qe-fig-003` ×7; `qe-fig-006` ×9; `qe-fig-005` ×3, +2 more. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,31 +27,36 @@
 _None found._
 
 ### High severity
-- **[qe-ref-001]** — Eight narrative-author citations using parenthetical `{cite}` rather than `{cite:t}`. *Examples:* "Lucas and Stokey {cite}`LucasStokey1983`", "Barro {cite}`Barro1979`", "Hall {cite}`Hall1978`", "Albert Gallatin (1807) {cite}`Gallatin`".
+- **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 7. *Lines:* 250, 257, 284, 292, 585, 593, 604. *Example:* .set_title.
+- **[qe-fig-006]** — Lowercase axis labels. *Count:* 9. *Lines:* 255, 263, 289, 298, 590, 600, 607, 608, 613. *Example:* axis label `Periods`.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 8. *Lines:* 586, 587, 588, 594, 595, 596, 597, 605. *Example:* plot() without lw=.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 1. *Lines:* 364. *Example:* `^T` transpose in `R^T`.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 60. *Lines:* 26, 40, 42, 44, 46, 49, 68, 72, 75, 76, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-math-010 (proposed)]** — `\mathbb E_t` written without braces (lines 877, 884, 892, 898); bare `E` on line 910.
-- **[qe-fig-003]** — Three matplotlib title calls. *Lines:* 585 (`plt.title('Tax collection paths')`), 593 (`plt.title('Government debt paths')`), 604 (`ax.set_title('Cumulative return path (complete markets)')`).
-- **[qe-fig-006]** — Five Title-Case axis labels (`'Periods'` ×4, `'Cumulative return'`, `'Government expenditures'`). *Lines:* 255, 263, 289, 298, 607, 608, 613.
-- **[qe-link-002]** — One raw markdown link to `python.quantecon.org` (in narrative).
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 248, 282. *Example:* figsize=.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 239, 281, 548. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 847. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 80. *Example:* mid-sentence 'Savings'.
 
 ### Low severity
-- **[qe-writing-001]** — A few multi-sentence paragraphs.
-- **[qe-fig-001]** — `figsize=` set 2 times.
+_None found._
+
 
 ## Strengths
-- Lecture title in correct Title Case.
-- H2/H3 headings mostly sentence case.
-- Matrices use `bmatrix`.
-- "IID" used correctly.
-- Definitions bolded ("**complete markets**", "**incomplete markets**", "**Convention**", "**Returns**").
-- Equation labels and `{eq}` references used cleanly.
-- No transpose, no bold vectors, no matrix-bracket, no `\tag`, no `align`-inside-`$$` issues.
-- pip install at top; Unicode Greek; `{doc}` used.
+
+- Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Switch the 8 narrative `Author {cite}…` references to `{cite:t}` form.
-2. Standardise `\mathbb E_t` → `\mathbb{E}_t`; replace bare `E` on line 910 with `\mathbb{E}`.
-3. Remove the 3 matplotlib title calls.
-4. Lowercase Title-Case axis labels.
-5. Convert raw `python.quantecon.org` markdown link to `{doc}` form.
+
+1. `qe-fig-003` — No matplotlib embedded titles (7 occurrences).
+2. `qe-fig-006` — Lowercase axis labels (9 occurrences).
+3. `qe-fig-005` — Descriptive figure names for cross-referencing (3 occurrences).
+4. `qe-math-002` — Use \top for transpose notation (1 occurrence).
+5. `qe-writing-008` — Remove excessive whitespace between words (60 occurrences).
+6. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (1 occurrence).
+7. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).

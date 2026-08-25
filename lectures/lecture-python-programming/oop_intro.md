@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/oop_intro.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.5 / 10
-- **Priority:** LOW
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `ceec881028`
+- **Categories audited:** writing, code, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 9.2 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 7/10  | A handful of Title Case H3/H2 stragglers; otherwise solid. |
-| Math         | N/A   | No math content. |
-| Code         | 8/10  | `!pip install rich` at top with `hide-output` (qe-code-003 compliant — `rich` is not in default Anaconda); PEP8 clean; no Greek identifiers needed. |
-| JAX          | out of scope | — |
-| Figures      | N/A   | No figures. |
-| References   | N/A   | No citations. |
-| Links        | 10/10 | Uses `` {doc}`later <python_oop>` `` correctly per qe-link-001. |
-| Admonitions  | 9/10  | `{exercise-start}` / `{solution-start}` correctly gated; `:class: dropdown` on solution and hint; `:label:` correctly matched per qe-admon-005. |
+| Writing      | 7/10  | `qe-writing-006` ×3; `qe-writing-008` ×1. |
+| Math         | N/A   | no mathematical content. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | N/A   | no figures or plotting code. |
+| References   | N/A   | no citations in this lecture. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,20 +27,24 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 3. *Lines:* 168, 261, 283. *Example:* H3 Title Case: 'Object Content: Data and Attributes' (Content, Attributes).
 
 ### Medium severity
-- **[qe-writing-006]** — Several H2/H3 headings use Title Case rather than sentence case. *Examples:* line 84 `### Type`, line 145 `### Identity`, line 168 `### Object Content: Data and Attributes`, line 204 `### Methods`, line 261 `## Inspection Using Rich`, line 283 `## A Little Mystery`, line 333 `## Summary`, line 349 `## Exercises`. *Count:* 8 occurrences.
+_None found._
 
 ### Low severity
-- **[qe-writing-001]** — Mostly one-sentence paragraphs; a few multi-sentence paragraphs (e.g., lines 50–56).
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 1. *Lines:* 342. *Example:* 2 spaces.
+
 
 ## Strengths
-- Lecture title "OOP I: Objects and Methods" follows qe-writing-006.
-- Bold for definitions used (e.g., **methods**) per qe-writing-005.
-- Italic used for emphasis (`*is*`, `*everything is an object*`).
-- `!pip install rich` correctly placed at top with `hide-output` per qe-code-003 (rich is not in default Anaconda).
-- Exercise/solution pair fully compliant with qe-admon-001/qe-admon-002/qe-admon-005.
+
+- Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Convert headings to sentence case ("Type", "Identity", "Object content: data and attributes", "Methods", "Inspection using Rich", "A little mystery", "Summary").
+
+1. `qe-writing-006` — Capitalize lecture titles properly (3 occurrences).
+2. `qe-writing-008` — Remove excessive whitespace between words (1 occurrence).

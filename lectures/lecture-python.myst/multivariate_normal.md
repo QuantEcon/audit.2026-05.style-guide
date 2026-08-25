@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/multivariate_normal.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
-- **Overall score:** 8.8 / 10
-- **Priority:** NONE
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `e25fdf2345`
+- **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
+- **Overall score:** 7.3 / 10
+- **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8/10 | Uses "i.i.d." or "iid" in text rather than "IID". |
-| Math         | 5.5/10 | Vectors/matrices typeset with `\mathbf` or `\boldsymbol` (style guide says no bold for vectors). |
-| Code         | 9.5/10 | Mixed Greek conventions in code (word=19, uni=26). |
-| JAX          | out of scope | not a JAX lecture |
-| Figures      | 9.5/10 | `figsize=` set in 2 place(s). |
-| References   | N/A | No citations. |
-| Links        | 10/10 | Link style follows conventions. |
-| Admonitions  | 10/10 | Exercise/solution structure clean. |
+| Writing      | 5.5/10 | `qe-writing-001` ×2; `qe-writing-009` (proposed) ×3; `qe-writing-004` ×1, +1 more. |
+| Math         | 3/10  | `qe-math-010` (proposed) ×31; `qe-math-002` ×27; `qe-math-003` ×38, +1 more. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 5.5/10 | `qe-fig-005` ×8; `qe-fig-007` ×4; `qe-fig-008` ×14, +1 more. |
+| References   | N/A   | no citations in this lecture. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,31 +27,39 @@
 _None found._
 
 ### High severity
-- **[qe-math-004]** — Vectors/matrices typeset with `\mathbf` or `\boldsymbol` (style guide says no bold for vectors). *Examples:* line 606, line 650. *Count:* 11 occurrences across 9 lines.
-- **[qe-math-010 (proposed)]** — Bare `E[...]`, `\Pr(...)`, or `\Var(...)` used instead of `\mathbb{E}`, `\mathbb{P}`, `\mathbb{V}`. *Examples:* lines 2266, 2269. *Count:* 20 chunks.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 8. *Lines:* 778, 1684, 2232, 2377, 2526, 2594, 2677, 2769. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 14. *Lines:* 395, 396, 783, 784, 785, 1685, 1686, 1687, 1688, 2539, …. *Example:* plot() without lw=.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 27. *Lines:* 1733, 1734, 1743, 1745, 1758, 1786, 1789, 1795, 1801, 1813, …. *Example:* apostrophe transpose `G'`.
+- **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 38. *Lines:* 121, 130, 133, 274, 277, 539, 607, 620, 626, 632, …. *Example:* array used as matrix.
+- **[qe-math-004]** — Do not use bold face for matrices or vectors. *Count:* 5. *Lines:* 606, 650, 1504, 1505. *Example:* \boldsymbol.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 31. *Lines:* 84, 896, 1308, 1351, 1485, 1661, 1758, 1786, 2121, 2266, …. *Example:* bare expectation `E\left[`.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 7. *Lines:* 599, 701, 940, 1758, 1860, 1885, 1886. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-math-008]** — Ones vector typeset with `\mathbf{1}` rather than `\mathbb{1}`. *Examples:* line 650. *Count:* 6 occurrences.
-- **[qe-writing-009 (proposed)]** — Uses "i.i.d." or "iid" in text rather than "IID". *Examples:* lines 602, 1830. *Count:* 3 occurrences.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 384, 2810. *Example:* figsize=.
+- **[qe-fig-007]** — Keep figure box and spines. *Count:* 4. *Lines:* 387, 388, 389, 390. *Example:* spine removal.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 2822, 2830. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 2145. *Example:* mid-sentence 'Components'.
+- **[qe-writing-009 (proposed)]** — Write "IID" — not "i.i.d." or "iid". *Count:* 3. *Lines:* 602, 1830, 1832. *Example:* i.i.d..
 
 ### Low severity
-- **[qe-writing-006]** — One section heading uses Title Case. *Example:* line 1389 `Constructing a Wold representation`.
-- **[qe-code-002]** — Mixed Greek conventions in code (word=19, uni=26).
-- **[qe-fig-001]** — `figsize=` set in 2 place(s).
-- **[qe-fig-008]** — `lw=2` missing on most `.plot()` calls (1/15).
+_None found._
+
 
 ## Strengths
-- Transpose notation uses `\top` consistently (no prime/`^T`).
-- Normal distribution written as plain `N`.
-- `aligned` (not `align`) used in `$$` math.
-- Solutions use `:class: dropdown` consistently.
-- No `ax.set_title()` in main figures.
-- Axis labels lowercase.
-- No embedded matplotlib titles in main figures.
+
+- Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Address `qe-math-004`: Vectors/matrices typeset with `\mathbf` or `\boldsymbol` (style guide says no bold for vectors).
-2. Address `qe-math-010 (proposed)`: Bare `E[...]`, `\Pr(...)`, or `\Var(...)` used instead of `\mathbb{E}`, `\mathbb{P}`, `\mathbb{V}`.
-3. Address `qe-math-008`: Ones vector typeset with `\mathbf{1}` rather than `\mathbb{1}`.
-4. Address `qe-writing-009 (proposed)`: Uses "i.i.d." or "iid" in text rather than "IID".
-5. Address `qe-writing-006`: One section heading uses Title Case.
+
+1. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (31 occurrences).
+2. `qe-math-002` — Use \top for transpose notation (27 occurrences).
+3. `qe-math-003` — Use square brackets for matrix notation (38 occurrences).
+4. `qe-math-004` — Do not use bold face for matrices or vectors (5 occurrences).
+5. `qe-fig-005` — Descriptive figure names for cross-referencing (8 occurrences).
+6. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
+7. `qe-writing-009` (proposed) — Write "IID" — not "i.i.d." or "iid" (3 occurrences).

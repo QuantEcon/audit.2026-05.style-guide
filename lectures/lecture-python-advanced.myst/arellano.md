@@ -2,23 +2,24 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/arellano.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, figures, references, links, admonitions
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `b83d6da399`
+- **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 8.1 / 10
-- **Priority:** LOW
+- **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 9/10  | Sentence-case headings; clean one-sentence paragraphs throughout. |
-| Math         | 9/10  | Clean LaTeX; primes are next-period notation, not transpose. |
-| Code         | 8/10  | Unicode Greek used in many places (`β`, `α`); `numba` `@jit`/`jitclass` used; install cell with `hide-output`. |
-| JAX          | N/A   | not a JAX lecture |
-| Figures      | 6/10  | `ax.set_title` used twice (L722, L746) — Title Case caption embedded; 4 `figsize=`; 4 `{figure}` static images. |
-| References   | 8/10  | 4 `{cite}` used; no `{cite:t}` despite occasional narrative author references. |
-| Links        | 9/10  | No cross-series links — self-contained. |
-| Admonitions  | 8/10  | 1 exercise with gated start, 1 solution with `:class: dropdown`. |
+| Writing      | 9/10  | `qe-writing-008` ×7. |
+| Math         | 3.5/10 | `qe-math-002` ×31; `qe-math-010` (proposed) ×1. |
+| Code         | 8.5/10 | `qe-code-002` ×2. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 7/10  | `qe-fig-005` ×8; `qe-fig-002` ×4; `qe-fig-001` ×4. |
+| References   | 9/10  | `qe-ref-001` ×1. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | 10/10 | no mechanical violations detected. |
 
 ## Issues
 
@@ -26,27 +27,34 @@
 _None found._
 
 ### High severity
-- **[qe-fig-003]** — `ax.set_title("Bond price schedule ...")` and `ax.set_title("Value Functions")` embed titles in matplotlib. *Example:* `lectures/arellano.md:722`, `:746`. *Count:* 2 occurrences (one in Title Case).
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 8. *Lines:* 631, 652, 661, 672, 711, 742, 757, 777. *Example:* {figure} without :name:.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 31. *Lines:* 126, 128, 129, 131, 132, 133, 134, 145, 224, 250, …. *Example:* apostrophe transpose `B'`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 1. *Lines:* 101. *Example:* missing braces: `\mathbb E`.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 7. *Lines:* 32, 128, 133, 184, 301, 636. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-fig-002]** — 4 `{figure}` directives reference static PNGs which could be code-generated.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 2. *Lines:* 416, 417. *Example:* spelled-out `delta`.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 4. *Lines:* 721, 745, 766, 799. *Example:* figsize=.
+- **[qe-fig-002]** — Prefer code-generated figures. *Count:* 4. *Lines:* 631, 652, 661, 672. *Example:* static image .png.
 
 ### Low severity
-- **[qe-math-008]** — `\mathbb 1` (L274) used for the indicator function — convention is `\mathbb{1}`; should briefly explain the symbol per qe-math-008 guidance.
-- **[qe-fig-005]** — Figures lack `:name: fig-...` fields.
-- **[qe-fig-006]** — Embedded `ax.set_title("Value Functions")` uses Title Case (also covered by qe-fig-003).
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 317. *Example:* {cite} in narrative flow: 'to {cite}`'.
+
 
 ## Strengths
-- `\mathbb E` used for expectation (qe-math-010, proposed) at L101.
-- Primes `'` are used as next-period notation; convention explicitly stated at L148.
-- Title in Title Case (qe-writing-006); subheadings sentence case (qe-writing-006).
-- Equation labels and `{eq}` references (qe-math-007).
-- One-sentence paragraph rule rigorously followed (qe-writing-001).
-- Exercise gated (qe-admon-001); solution has `:class: dropdown` (qe-admon-002).
-- Unicode Greek widely used in code (qe-code-002).
+
+- Writing, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Remove `ax.set_title()` calls; move titles into `mystnb` figure metadata (qe-fig-003).
-2. Replace static `{figure}` references with code-generated equivalents where feasible (qe-fig-002).
-3. Add a brief gloss for `\mathbb 1` indicator (qe-math-008).
-4. Add `:name: fig-...` fields to figures (qe-fig-005).
+
+1. `qe-math-002` — Use \top for transpose notation (31 occurrences).
+2. `qe-fig-005` — Descriptive figure names for cross-referencing (8 occurrences).
+3. `qe-code-002` — Use Unicode symbols for Greek letters in code (2 occurrences).
+4. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (1 occurrence).
+5. `qe-ref-001` — Use correct citation style (1 occurrence).
+6. `qe-writing-008` — Remove excessive whitespace between words (7 occurrences).
+7. `qe-fig-002` — Prefer code-generated figures (4 occurrences).

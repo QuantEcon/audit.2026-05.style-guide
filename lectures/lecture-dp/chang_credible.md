@@ -2,23 +2,24 @@
 
 - **Series:** lecture-dp
 - **File:** `lectures/chang_credible.md`
-- **Audit date:** 2026-05-28
-- **Categories audited:** writing, math, code, jax, figures, references, links, admonitions
-- **Overall score:** 7.0 / 10
-- **Priority:** MEDIUM
+- **Audit date:** 2026-08-25
+- **Corpus snapshot:** `c30490a2f4`
+- **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
+- **Overall score:** 8.5 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8/10  | All H2/H3 headings sentence case. |
-| Math         | 7/10  | `\vec` used heavily; otherwise clean. |
-| Code         | 5/10  | Installs `polytope` (binary, non-Anaconda) without notes; pip at top; Unicode Greek; figsize 1×. |
-| JAX          | out of scope | not a JAX lecture. |
-| Figures      | 9/10  | No matplotlib titles; lowercase labels; 1 figsize. |
-| References   | 5/10  | Three narrative-author `{cite}` patterns. |
-| Links        | 8/10  | `{doc}` used; no raw cross-series URLs. |
-| Admonitions  | N/A   | No exercises / proofs. |
+| Writing      | 5/10  | `qe-writing-001` ×5; `qe-writing-004` ×2; `qe-writing-008` ×21. |
+| Math         | 7.5/10 | `qe-math-002` ×2. |
+| Code         | 10/10 | no mechanical violations detected. |
+| JAX          | out of scope | JAX rules target `lecture-jax`. |
+| Figures      | 8.5/10 | `qe-fig-005` ×1; `qe-fig-001` ×1. |
+| References   | 10/10 | no mechanical violations detected. |
+| Links        | 10/10 | no mechanical violations detected. |
+| Admonitions  | N/A   | no admonitions, exercises or solutions. |
 
 ## Issues
 
@@ -26,30 +27,31 @@
 _None found._
 
 ### High severity
-- **[qe-code-006]** — `!pip install polytope` (line 29) — `polytope` is a binary scientific-Python package, no installation notes provided.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 2. *Lines:* 568. *Example:* apostrophe transpose `Z'`.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 5. *Lines:* 459, 612, 725, 792, 797. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 21. *Lines:* 38, 41, 43, 60, 69, 91, 93, 103, 134, 215, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-math-004]** — `\vec z`, `\vec h`, `\vec M`, `\vec q`, `\vec m`, `\vec x`, `\vec c`, `\vec y` used extensively (lines 108-131, 139-145, etc.). *Count:* 30+ occurrences.
-- **[qe-ref-001]** — Three narrative-author `{cite}` patterns (e.g. "Chang {cite}`chang1998credible`"). Should be `{cite:t}`.
+- **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 2. *Lines:* 726, 765. *Example:* mid-sentence 'Step'.
 
 ### Low severity
-- **[qe-writing-001]** — Several multi-sentence paragraphs (e.g. 34-44, 53-58).
-- **[qe-writing-009 (proposed)]** — Smart quotes ’ used occasionally.
+- **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 1. *Lines:* 833. *Example:* figsize=.
+- **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 828. *Example:* code-cell figure without mystnb figure metadata.
+
 
 ## Strengths
-- Lecture title in correct Title Case.
-- All H2/H3 headings sentence case.
-- Definitions/italics consistent (*sustainable plan*, *credible public policy*, *Ramsey planner*, *value of money*).
-- Equation labels and `{eq}` references used cleanly.
-- "IID"/Greek-letter conventions consistent.
-- pip install at top; Unicode Greek in code.
-- `{doc}` used for cross-series.
-- No transpose, no matrix-bracket, no `\tag`, no `align`-inside-`$$` issues.
-- No matplotlib titles, no spine issues, no Title-Case axis labels.
+
+- Code, References, Links score 9 or above — no material violations measured in those categories.
+- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
+- No `qe-admon-003` violations — Use tick count management for nested directives.
+- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
+- No `qe-admon-004` violations — Use prf prefix for proof directives.
 
 ## Recommended actions
-1. Add a note about `polytope` package binary install (not in Anaconda).
-2. Remove `\vec` arrows on sequence symbols.
-3. Switch narrative `Author {cite}…` to `{cite:t}` form.
-4. Tighten compound paragraphs.
-5. Normalise smart-quotes.
+
+1. `qe-math-002` — Use \top for transpose notation (2 occurrences).
+2. `qe-writing-001` — Use one sentence per paragraph (5 occurrences).
+3. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (2 occurrences).
+4. `qe-writing-008` — Remove excessive whitespace between words (21 occurrences).
+5. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
+6. `qe-fig-001` — Do not set figure size unless necessary (1 occurrence).
