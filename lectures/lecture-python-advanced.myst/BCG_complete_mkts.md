@@ -5,16 +5,16 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.3 / 10
-- **Priority:** LOW
+- **Overall score:** 7.4 / 10
+- **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 6.5/10 | `qe-writing-001` ×7; `qe-writing-008` ×36. |
-| Math         | 8/10  | `qe-math-011` (proposed) ×2. |
-| Code         | 9.5/10 | `qe-code-004` ×2. |
+| Writing      | 3/10  | `qe-writing-001` ×7; `qe-writing-003` ×5; `qe-writing-002` ×5, +3 more. |
+| Math         | 7.5/10 | `qe-math-011` (proposed) ×2; `qe-math-009` ×2. |
+| Code         | 7/10  | `qe-code-001` ×8; `qe-code-004` ×2. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-003` ×2; `qe-fig-010` ×1; `qe-fig-005` ×1, +2 more. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -27,8 +27,11 @@
 _None found._
 
 ### High severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 8. *Lines:* 879, 910, 948, 955, 1024, 1027, 1040, 1093. *Example:* (1) 1093, 1094, 1103 and 1104 write `label=r'Agent 1\'s endowment'` - a backslash-escaped apostrophe inside a *raw* string, so the backslash survives and the rendered legend reads `Agent 1\'s endowment`. (2) Every keyword default in the constructor is spaced (`𝜒1 = 0`, `w10 = 1`, `nb_points_integ = 10`, 879-891), where PEP8 asks for no spaces around `=` in a default. (3) The rule names `a**b` explicitly and the file takes both sides: `(c**(1-𝜓))` at 907 and `(𝜒1**2)` at 923 are correct, while 910 `A * (k ** 𝛼)`, 1047 `** (-𝜓)` and 1053 `k ** (𝛼 - 1) / ((w0 - k) ** (-𝜓))` space the operator. (4) 948 `kfoc_list = [];` ends in a stray semicolon. (5) Space after comma is missing throughout the plotting and grid code - 955 `figsize=(8,7)`, 969 `def q(self,𝜖,k)`, 1009 `q(𝜖,k)`, 1089 `np.linspace(-1,1,1000)`, 1092 `(1,2,figsize=(14,6))`, 1095 `mdl1.Y(epsgrid,1)`, 1098 `r'$\epsilon$',fontsize=12`, 1146-1147, 1190 `dict(x=1,y=1,z=1)`. (6) 1040 declares `njit(lambda 𝜖, 𝜒1, : ...)` with a dangling comma before the colon. (7) 1027 and 1032 are the same statement twice, `𝜓 = model.𝜓`. (8) 1024-1025 puts two blank lines between methods inside the class body where PEP8 asks for one, and 1045 gives the required argument `k` a meaningless default of `1e-4`.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 7. *Lines:* 956, 1093, 1094, 1095, 1103, 1104, 1105. *Example:* plot() without lw=.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 7. *Lines:* 324, 563, 613, 705, 851, 854, 1140. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 5. *Lines:* 338, 344, 625, 705, 772. *Example:* 338-339 stops mid-clause: "an individual firm chooses its own (infinitesmimal) part $k(\zeta)$ of $K$ taking prices as" - the bullet ends there, with "given" missing. 705-707 has no verb at all: "**Remark:** Multiple arrangements of endowments $[w_0^1, w_0^2, w_1^1(\epsilon), w_1^2(\epsilon), \theta_0^1, \theta_0^2]$ associated with the same distribution of wealth $\eta$." 772 drops a preposition in the first clause of the theorem statement itself: "The value of a firm is independent the mix of equity and bonds that it uses". 625-628 is 37 words whose subject and verb disagree ("the following steps that, as we'll see, relies heavily on"). And 344-346 spends 34 words restating what 331-340 has just said - "a powerful device for making a host of competitive agents take as given equilibrium prices that are determined by the independent decisions of hosts of agents who behave just like they do" - the same sentence that appears at 155-158 of the incomplete-markets lecture.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 5. *Lines:* 102, 643, 855, 1063, 1088. *Example:* the Arrow-securities pricing kernel is written three different ways and the code computes a fourth. 533 ({eq}`qgeqn`) gives $q(\epsilon) = \beta (u'(c_1^i(\epsilon))/u'(c_0^i)) g(\epsilon)$; 643 ({eq}`arrowprices`, the guess the whole verification rests on) gives $\beta \left( u'(w_1(\epsilon)+AK^\alpha e^\epsilon) / u'(w_0-K) \right)^{-\gamma}$ - the $g(\epsilon)$ has vanished and a $-\gamma$ exponent has been applied to a ratio that is already built from $u' = c^{-\gamma}$; 809 repeats it with neither the exponent nor $g$; and the code at 977 computes `𝛽 * ((w1(𝜖) + np.exp(𝜖)*fk) / (w0 - k))**(-𝜓)`, i.e. $\beta (C_1/C_0)^{-\psi}$, which matches 533 and none of the two displays in between. Second, the CRRA parameter is $\gamma$ throughout the algebra (129, 141, 214, 223, 643) and $\psi$ in the documented parameter list at 855 ("$\psi$: CRRA risk parameter") and in the code as `𝜓` (885, 899, 907), with no line saying they are the same object. Third, 99-102 promises "Soon we'll explain how aggregate endowments are divided between type $i=1$ and type $i=2$ consumers" and then says "We don't need to do that in order to describe a social planning problem", but the very next display at 110 is already written in the divided form $w_0^1 + w_0^2$. Also 1063 tells the reader to use `BCG_complete markets` - a space where the class defined at 875 has an underscore - and the comment at 1088 says "Realizations of innovation from -3 to 3" over `np.linspace(-1,1,1000)`.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 36. *Lines:* 39, 56, 67, 73, 78, 160, 217, 289, 298, 302, …. *Example:* 2 spaces.
 
 ### Medium severity
@@ -37,7 +40,10 @@ _None found._
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 2. *Lines:* 1099, 1109. *Example:* .set_title.
 - **[qe-fig-010]** — Plotly figures require latex directive. *Count:* 1. *Lines:* 1. *Example:* plotly used with no {only} latex directive.
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 2. *Lines:* 56, 57. *Example:* raw link to python.quantecon.org.
+- **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 2. *Lines:* 92, 471. *Example:* 92-97 sets an `aligned` display that contains no equation - two symbols and a phrase, `w_0 &` on one row and `w_1(\epsilon) & \textrm{ in state }\epsilon` on the next, with nothing on either side of the alignment point - where the sentence "aggregate endowments are $w_0$ in period 0 and $w_1(\epsilon)$ in state $\epsilon$ of period 1" says it. And {eq}`debtlimit` at 471 defines $\bar a^i(\epsilon;\theta^i)$ as a quantity that is never used unnegated: 471 states it as $-\bar a^i(\epsilon;\theta^i) = \dots$, 474 calls $-\bar a^i(\epsilon;\theta^i)$ the maximum feasible repayment, and 477 refers to $-\bar a^i(\epsilon;\theta^i)$ again, so the minus sign is written three times to recover the object actually being discussed - naming the repayment limit directly would remove it.
 - **[qe-math-011 (proposed)]** — Distribution names in plain letters, not \mathcal / \mathbb. *Count:* 2. *Lines:* 140, 146. *Example:* decorated distribution `{\mathcal N}`.
+- **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 4. *Lines:* 425, 581, 591, 627. *Example:* no italic appears anywhere in the file, so bold carries emphasis as well as definition. The definitions are bolded correctly - **price taker** (333), **collateral** (482), **arbitrage** (573) - but 581 and 591 bold **negative** and **positive** purely for stress in two parallel sentences, where the rule assigns that job to italic. Emphasis is also being carried by inline code on ordinary English: `Big K, little k` (53, 250, 302, 627), `Big C, little c` (628), `Big K, Big C` (339) and, most oddly, `earnings` at 425 - none of these is an identifier, and the reader has to distinguish them from the genuine code spans `BCG_complete_markets` (790), `opt_k`, `q`, `V`, `opt_c` (796-818) and `nb_points_integ` (862) in the same document.
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 3. *Lines:* 721, 954, 1186. *Example:* the figure the lecture already contains is never drawn: `opt_k` takes a `plot=False` flag and 954-960 plots the capital first-order condition against the grid with the zero line marked - exactly the picture that shows the root the section is about - and every call site uses the default (1004, 1121, 1122), so the code ships a figure that no reader sees. Second, the Modigliani-Miller section (713-786) is the lecture's punchline and is entirely algebraic: the payoff kink $d^e = \max\{e^\epsilon Ak^\alpha - b, 0\}$, $d^b = \min\{e^\epsilon Ak^\alpha/b, 1\}$ at 721-722 and the default threshold $\epsilon^* = \log(b/Ak^\alpha)$ at 729 would take two lines against $\epsilon$ with $\epsilon^*$ marked, and the invariance claim at 761 ($\tilde V + p(k,b)b$ constant in $b$) is never computed by the class at all even though every ingredient is in it - one plot of firm value against $b$ would make the theorem visible rather than asserted. Third, the one 3-D result (1186-1197) is a plotly surface baked to PNG at a fixed camera (`scene_camera=dict(eye=dict(x=2, y=-2, z=1.5))`), and the question it is asked to answer - how $k$ varies with $\chi_1$ and $\chi_2$ - is a monotonicity claim that two 2-D slices would settle unambiguously.
 
 ### Low severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 1086. *Example:* code-cell figure without mystnb figure metadata.
@@ -45,18 +51,21 @@ _None found._
 
 ## Strengths
 
-- Code, References, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The lecture states its own job in the first paragraph and delivers on each item: 42-54 lists four reasons for a complete-markets benchmark - comparison, a starting guess for the incomplete-markets iteration, classic indeterminacy results, and Big K/little k - and 278-289, 613-621 and 713-786 close the second, third and fourth of those in turn.
+- The no-arbitrage argument at 560-598 is made by exhibiting both violations rather than asserting the conclusion: 577-582 shows that $\tilde V$ too high lets the consumer take $\theta^i$ arbitrarily negative, 586-592 that $\tilde V$ too low lets it be taken arbitrarily positive, and 594-598 closes with finiteness of resources.
+- The verification that the planner's $K$ is a competitive equilibrium is done in the right order and each step is checked rather than claimed: 637-644 makes the pricing guess, 648-665 shows the firm's first-order condition {eq}`kK` collapses onto the planner's {eq}`focke` at $k=K$, 667-688 then shows the consumers' conditions hold at the same prices, and 690-703 exhibits the allocation that satisfies them.
+- 278-289 anticipates the reader's question about $\eta$ before it can be asked, in three short sentences: $\eta$ is absent from {eq}`focke`, it does not enter $C_0$ or $C_1(\epsilon)$, and its only role is splitting total consumption - which is what makes the later portfolio-indeterminacy result at 613-621 land.
+- The Modigliani-Miller derivation at 744-765 is one page and self-contained: it prices equity and bonds separately at 752-754 by splitting the integral at $\epsilon^*$, then adds them at 761 to recover exactly the all-equity expression of 433, so the theorem falls out of the algebra instead of being cited.
+- The exercise at 705-711 is well aimed - it asks why many endowment arrangements give the same $\eta$, and the `{hint}` points at the portfolio-indeterminacy finding of 613-621 rather than at the answer.
+- 780-786 says explicitly which assumption is load-bearing and where it is about to be dropped ("Please note the role of the assumption of complete markets ... That will pull the rug from underneath the Modigliani-Miller theorem"), which is what makes this lecture readable as the prolegomenon it claims to be at 35.
 
 ## Recommended actions
 
-1. `qe-writing-001` — Use one sentence per paragraph (7 occurrences).
-2. `qe-math-011` (proposed) — Distribution names in plain letters, not \mathcal / \mathbb (2 occurrences).
-3. `qe-link-002` — Use doc links for cross-series references (2 occurrences).
-4. `qe-fig-003` — No matplotlib embedded titles (2 occurrences).
-5. `qe-writing-008` — Remove excessive whitespace between words (36 occurrences).
-6. `qe-fig-010` — Plotly figures require latex directive (1 occurrence).
-7. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
+1. Settle the pricing kernel: {eq}`arrowprices` at 643 applies a $-\gamma$ exponent to a ratio of $u'$s and drops the $g(\epsilon)$ that {eq}`qgeqn` at 533 carries, and the doc display at 809 drops both - write all three in the one form the code at 977 implements, $\beta (C_1(\epsilon)/C_0)^{-\gamma} g(\epsilon)$ or its $u'$ equivalent.
+2. Reconcile $\gamma$ (129, 141, 214, 223, 643) with the $\psi$ of the parameter list at 855 and the `𝜓` of the code (885, 899, 907) - one symbol, stated once.
+3. Fix the two escaped apostrophes in raw strings at 1093, 1094, 1103 and 1104 (`r'Agent 1\'s endowment'` renders the backslash), and close the truncated bullet at 338 ("taking prices as") and the verbless Remark at 705.
+4. Repair the unbalanced parentheses in the display at 188 - `\frac{u'(c_1^1(\epsilon))}{u'(c_0^1))}` and `\frac{u'(c_1^2(\epsilon))}{u'(c_0^2))}` each carry one `)` too many - and the stray `p` in "portolios" (683).
+5. Call `opt_k(plot=True)` once (1121) so the first-order-condition figure the class already draws at 954-960 appears, and add a plot of $\tilde V + p(k,b)b$ against $b$ to make the Modigliani-Miller invariance of 761 visible.
+6. Run the code cells through PEP8: remove the spaces around `=` in the constructor defaults (879-891), write `**` unspaced at 910, 1047 and 1053 to match 907 and 923, add the missing spaces after commas (955, 969, 1009, 1089, 1092, 1095, 1098, 1146, 1190), drop the stray semicolon at 948, the dangling comma at 1040, and the duplicated `𝜓 = model.𝜓` at 1032.
+7. Fix the spelling and naming slips: "Clemente" for Clementi (39, correct at 36), "asuming" (146), "infinesimal" (335), "infinitesmimal" (337), "equilbrium" (630), "representive" (480), "indeterminant" (778), "independent the mix" (772), and `BCG_complete markets` for `BCG_complete_markets` (1063).
+8. Sweep the measured items: the 36 double spaces, the seven paragraphs holding two sentences (324, 563, 613, 705, 851, 854, 1140), `lw=2` on the seven plot calls (956, 1093-1095, 1103-1105), move the two `set_title` calls (1099, 1109) into `mystnb` captions along with a `name` for the figure cell at 1086, drop `figsize` at 955 and 1092, replace the two `%%time` magics (1168, 1173) with the `quantecon` `Timer`, and convert the two raw `python.quantecon.org` URLs at 56-57 per qe-link-002.

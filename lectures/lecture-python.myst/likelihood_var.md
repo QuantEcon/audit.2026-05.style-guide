@@ -5,15 +5,15 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, links  *(JAX out of scope)*
-- **Overall score:** 7.5 / 10
-- **Priority:** LOW
+- **Overall score:** 7.3 / 10
+- **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 8/10  | `qe-writing-004` ×1; `qe-writing-008` ×5. |
-| Math         | 4.5/10 | `qe-math-002` ×4; `qe-math-011` (proposed) ×2; `qe-math-004` ×3. |
+| Math         | 3.5/10 | `qe-math-002` ×5; `qe-math-011` (proposed) ×2; `qe-math-004` ×3. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5/10  | `qe-fig-003` ×6; `qe-fig-005` ×6; `qe-fig-001` ×2. |
@@ -29,7 +29,7 @@ _None found._
 ### High severity
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 6. *Lines:* 338, 407, 414, 482, 778, 785. *Example:* .set_title.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 6. *Lines:* 323, 399, 421, 448, 710, 767. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 4. *Lines:* 167, 172, 191. *Example:* apostrophe transpose `C'`.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 5. *Lines:* 167, 172, 191. *Example:* apostrophe transpose `C'`.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 5. *Lines:* 48, 53, 419. *Example:* 2 spaces.
 
 ### Medium severity
@@ -52,7 +52,7 @@ _None found._
 
 ## Recommended actions
 
-1. `qe-math-002` — Use \top for transpose notation (4 occurrences).
+1. `qe-math-002` — Use \top for transpose notation (5 occurrences).
 2. `qe-fig-003` — No matplotlib embedded titles (6 occurrences).
 3. `qe-fig-005` — Descriptive figure names for cross-referencing (6 occurrences).
 4. `qe-math-011` (proposed) — Distribution names in plain letters, not \mathcal / \mathbb (2 occurrences).

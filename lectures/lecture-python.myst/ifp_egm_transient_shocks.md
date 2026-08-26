@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.6 / 10
+- **Overall score:** 7.9 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 4/10  | `qe-writing-006` ×8; `qe-writing-002` ×3; `qe-writing-003` ×1, +2 more. |
-| Math         | 7.5/10 | `qe-math-002` ×3. |
+| Math         | 10/10 | no mechanical violations detected. |
 | Code         | 7.5/10 | `qe-code-001` ×4; `qe-code-004` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5.5/10 | `qe-fig-005` ×7; `qe-fig-003` ×3; `qe-fig-008` ×10, +1 more. |
@@ -30,7 +30,6 @@ _None found._
 - **[qe-code-004]** — Use quantecon Timer context manager. *Count:* 6. *Lines:* 590, 592, 595, 598, 601, 604. *Example:* time.time(.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 7. *Lines:* 365, 616, 631, 795, 933, 982, 1048. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 10. *Lines:* 368, 369, 618, 619, 656, 658, 937, 944, 994, 1068. *Example:* plot() without lw=.
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 3. *Lines:* 115, 116, 122. *Example:* apostrophe transpose `u'`.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 8. *Lines:* 59, 174, 189, 377, 384, 814, 821, 894. *Example:* H2 Title Case: 'The Household Problem' (Household, Problem).
 
 ### Medium severity

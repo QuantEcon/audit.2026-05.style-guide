@@ -5,16 +5,16 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.4 / 10
-- **Priority:** LOW
+- **Overall score:** 7.8 / 10
+- **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 5/10  | `qe-writing-004` ×6; `qe-writing-001` ×4; `qe-writing-008` ×10. |
-| Math         | 7/10  | `qe-math-003` ×10. |
-| Code         | 10/10 | no mechanical violations detected. |
+| Writing      | 3/10  | `qe-writing-004` ×6; `qe-writing-005` ×5; `qe-writing-003` ×5, +4 more. |
+| Math         | 6.5/10 | `qe-math-003` ×10; `qe-math-009` ×4. |
+| Code         | 8.5/10 | `qe-code-001` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8.5/10 | `qe-fig-003` ×1; `qe-fig-001` ×1. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -28,13 +28,19 @@ _None found._
 
 ### High severity
 - **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 10. *Lines:* 295, 305, 311, 392, 403, 412, 423, 457, 462, 467. *Example:* matrix environment.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 5. *Lines:* 34, 220, 336, 490, 760. *Example:* 34 is a 43-word sentence carrying two inline URLs and an em-dash aside ("The classical approach does not use the two closely related methods -- dynamic programming and Kalman filtering -- that we describe in other lectures, namely, [...] and [...]"), and 36 then continues it with a plural pronoun that has no plural antecedent: "Instead, they use either". 220-221 names the order of the difference equation wrongly - "forms a $2 \times m$ order linear *difference equation*", where $2m$-th order is meant - in the sentence that first tells the reader what {eq}`onefour` is. 336 has "the sub-diagonal elements equal $\beta$ time the super-diagonal elements". 490-492 loses two symbols from a display (a doubled `+`, and `\phi_{m-2}` with no $y_{m-2}$). And 760 sends the reader to the wrong equation - "gives a finite value of {eq}`oneeleven`" where 766, six lines later, correctly says {eq}`oneone`.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 5. *Lines:* 468, 492, 518, 693, 891. *Example:* the `m > 1` section (434-545) is the least finished part of the lecture and four of its statements do not parse arithmetically. 468 gives the lagged state vector as $y_{N-m+1}, y_{N-m-2}, \ldots, y_{N-2m}$ - the first entry is already inside the left-hand vector's range $y_N \ldots y_{N-m}$ (458) and the second skips an index, where $y_{N-m-1}, y_{N-m-2}, \ldots, y_{N-2m}$ is what the equation needs. 490 has a doubled operator, `\phi_{m-1} y_m + + \ldots`, and 492 has a coefficient with no variable attached, `\phi_{m-1} y_{m-1} + \phi_{m-2} + \ldots + \phi_0 y_0`. 518-519 then says "$L^{-1}_{t,s}$ is the element in the $(t,s)$ position of $L$" - inverse on the left, no inverse on the right - while the display it annotates (512-513) uses $L_{\cdot,\cdot}$ with no inverse at all, and 537-538 writes $U^{-1}_{t,t-j} \to c_j$ where {eq}`onefivetwo` puts $U$, not $U^{-1}$, on the feedback side. Separately, the label at 693 is `:label: JUNK`, a placeholder that is cited twice in the published text (699, 707); 760 says a naive policy "gives a finite value of {eq}`oneeleven`" where {eq}`oneeleven` is the factorisation $c(z) = c_0(1-\lambda_1 z)\ldots$ and the objective is {eq}`oneone`, which 766 gets right; and the Implementation section (885-892) is a heading, one sentence and a `:load:` cell, so `LQFilter(d, h, y_m)` at 931 is the first and only mention of the class, its constructor signature, or `optimal_y`.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 6. *Lines:* 25, 34. *Example:* mid-sentence 'Dynamic'.
+- **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 5. *Lines:* 28, 149, 220, 521, 572. *Example:* the two conventions are used the wrong way round on both sides. Bold carries emphasis in the opening bullets - "the objective function is **quadratic** in **states** and **controls**" (28) and "the one-step transition function is **linear**" (29), four bolded words none of which is being defined - while italic carries definitions throughout the body: *Euler equations* (149) and *terminal conditions* (152), which are introduced there and used for the rest of the lecture, *difference equation* (220) and *characteristic equation* (572). The two genuine bold definitions (**lag operator** 66, **feedback-feedforward** 353) are then undercut by 521-522, which re-introduces the same term in quotation marks ("the \"feedback\" part of the optimal control law ... the right-hand side is the \"feedforward\" part"), giving one term two markups 168 lines apart; the italics that are genuinely emphasis (*past*, *current*, *future* at 355) are correct and are the only ones.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 10. *Lines:* 34, 41, 94, 220, 333, 385, 432, 439, 1065. *Example:* 2 spaces.
 
 ### Medium severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 4. *Lines:* 926, 932, 938, 942. *Example:* 938 builds `p_args = {'lw' : 2, 'alpha' : 0.6}` with a space before each colon, which PEP8 forbids, and then never uses it - 940 and 941 spell `ms=4, lw=2, alpha=0.6` out inline instead, so the dict is dead code carrying the only PEP8 spacing error in the cell. 932 unpacks four names from `testlq.optimal_y(a_seq)` and uses one: `y_hist`, `L` and `U` are all discarded (and see the qe-writing-007 finding - `L` and `U` are the objects 543-545 is about). 942-945 closes `ax.set(...)` with a bare `)` on its own line at a 10-space indent that appears nowhere else in the file. And 926-927 puts a blank line between the `def plot_simulation(...)` signature and its first statement, where the function has no docstring to justify it; the parameter `m=1` in that signature is used only to reshape `y_m` at 929 and cannot actually be changed, because `d` at 928 is hard-wired to one lag.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 942. *Example:* .set(title=.
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 4. *Lines:* 25, 34, 103. *Example:* raw link to python-intro.quantecon.org.
+- **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 4. *Lines:* 84, 129, 485, 744. *Example:* the fraction is written both ways for the same job: plain-TeX `{1 \over 2}` and its relatives at 84, 610, 616-617, 625-626, 695, 702, 704, 831, 1018, 1042 and 1061, against `\frac` at 794 - and text inside math takes three commands, `\hbox` (589-590, 653-654, 762, 793-795, 862), `\textrm` (477-478) and `\text` (117, 703). 485 and 488 hard-code a horizontal skip as `\hskip.75in` inside an `aligned` block, an absolute measurement that will not scale with the rendered font. 129 and 899 write the scalar lag polynomial with an identity matrix, $d(L) := \sqrt{2\gamma}(I - L)$ and $\gamma(I - L)y_t$, where $1 - L$ is both simpler and the only correct reading, since $d(L)$ has scalar coefficients $d_0, \ldots, d_m$ by 71-74. And $\phi$ is used for two unrelated things: the polynomial and its coefficients $\phi(L)$, $\phi_j$ (283-286, 296-301, 450, 483-493), and then at 744-745 a bare scalar, "$\{a_t\}$ is of exponential order less than $\phi^{-1}$ where $\phi = \max\{\beta\lambda_i\}$".
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 4. *Lines:* 25, 1028, 1045, 1065. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 3. *Lines:* 294, 580, 932. *Example:* the lecture computes the objects its central claim is about and throws them away. 543-545 says "by creating the matrix $W$ for large $N$ and factoring it into the $LU$ form, good approximations to $c(L)$ and $c(\beta L^{-1})^{-1}$ can be obtained" - and 932 unpacks `y_hist, L, U, y = testlq.optimal_y(a_seq)` and then uses only `y`, so the two matrices whose columns are supposed to converge to $c_j$ (537-539) are never printed, plotted or compared with the polynomial they should approximate. Second, the structure of $W$, $L$ and $U$ is carried entirely by three large symbolic matrices with `\ldots` and `\ddots` (294-316, 391-428) spread over two displays that a single `$$` cannot hold (the second breaks across 407 and 409); a spy plot of a numerically built $W$ for, say, $N = 8$, or one worked small instance, would show the "almost Toeplitz" claim of 329-336 in one look. Third, the whole selection argument turns on where roots sit relative to a circle of radius $\sqrt\beta$ - the $\beta$-reciprocal pairing at 580-592, $|z_j| > \sqrt\beta$ for $j \leq m$ and $< \sqrt\beta$ for $j > m$, and the conclusion at 665-668 - and this is described in thirteen lines of inequalities where a plot of the $2m$ roots against that circle is the natural object. Finally, the three simulations at 950, 956 and 962 are three separate figures of the same two series, so the smoothing claim at 912-914 has to be assembled across them rather than read off one set of axes.
 
 ### Low severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 1. *Lines:* 937. *Example:* figsize=.
@@ -42,18 +48,25 @@ _None found._
 
 ## Strengths
 
-- Code, References, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The lecture opens by saying what it is not doing: 32-41 names dynamic programming and Kalman filtering, links the two lectures that use them, lists the two classical alternatives, and states which one this lecture takes - and 43 then names the single tool, LU decomposition, that the whole argument runs on.
+- The plan set out in three sentences at 45-49 is followed exactly: finite horizon first (133-545), infinite horizon as its limit (547-768), and the connection to least-squares prediction deferred to the companion lecture named at 32 and 41.
+- The one thing a reader would get wrong is flagged before the limit is taken, at 139-140 - the limits as $N \to \infty$ of the finite-$N$ necessary and sufficient conditions are not sufficient for {eq}`oneone` - and 553-570 makes good on the warning by producing the side condition {eq}`onesix` and saying what the paths that violate it do.
+- The abstract criterion is anchored in a concrete model twice, with the mapping written out both times: 98-131 gives $a_t := \alpha_0 + d_t - c$, $h := 2\alpha_1$ and $d(L) := \sqrt{2\gamma}(I-L)$ for the monopolist with adjustment costs, and 894-918 returns to the same example numerically.
+- The two ways $W$ fails to be Toeplitz are enumerated at 333-336 rather than left to the reader's eye, and 381-386 then says exactly which bands of $L$ and $U$ are nonzero as a consequence - which is what makes the sparse forms displayed at 391-428 checkable.
+- The $\gamma = 0$ case is solved in words before any code runs, so the first figure has a prediction to be tested against: 902-910 argues the intertemporal term drops out, the agent picks $y_t = a_t/h$, and with $h = 1$ simply tracks $\{a_t\}$ - and 940 duly plots `a_seq / h` on the same axes as `y`.
+- The discounted theory is reduced to the undiscounted theory rather than redone: 806-836 gives the change of variables $\tilde a_t = \beta^{t/2}a_t$, $\tilde y_t = \beta^{t/2}y_t$ and shows the criterion is equivalent, and {eq}`onetwentythree` gives the inverse map back, so 770-804 covers both cases.
+- The four exercises escalate deliberately (967-1070): the transformation proof, a three-period problem with the `{note}` at 1027-1029 warning that $h = 0$ changes the solution, the pure-$d(L)$ infinite-horizon case whose Euler solution is explosive, and then the $h = 10^{-7}$ perturbation that shows {eq}`onesix` selecting the other root.
 
 ## Recommended actions
 
-1. `qe-math-003` — Use square brackets for matrix notation (10 occurrences).
-2. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (6 occurrences).
-3. `qe-writing-001` — Use one sentence per paragraph (4 occurrences).
-4. `qe-link-002` — Use doc links for cross-series references (4 occurrences).
-5. `qe-fig-003` — No matplotlib embedded titles (1 occurrence).
-6. `qe-writing-008` — Remove excessive whitespace between words (10 occurrences).
-7. `qe-fig-001` — Do not set figure size unless necessary (1 occurrence).
+1. Rename the equation label `JUNK` at 693 - it is referenced twice in the published text, at 699 and 707.
+2. Repair the four broken statements in the $m > 1$ section: the state vector at 468 ($y_{N-m+1}$ and $y_{N-m-2}$ where $y_{N-m-1}, y_{N-m-2}$ belong), the doubled `+` at 490, the orphaned `\phi_{m-2}` at 492, and the $L^{-1}$ / $L$ mismatch between 512-513 and 518-519 (with $U^{-1}$ at 537 against $U$ in {eq}`onefivetwo`).
+3. Correct the reference at 760 from {eq}`oneeleven` to {eq}`oneone`, and the order of the difference equation at 220 from "$2 \times m$ order" to $2m$-th order.
+4. Use the `L` and `U` that 932 already returns: print or plot the columns against the coefficients of $c(L)$ and $c(\beta L^{-1})^{-1}$, which is exactly the claim 537-545 makes and never checks.
+5. Draw the three $\gamma$ simulations (950, 956, 962) on one set of axes against $a_t$, so the monotone smoothing asserted at 912-914 is a single comparison.
+6. Bold the four definitions - *Euler equations* (149), *terminal conditions* (152), *difference equation* (220), *characteristic equation* (572) - un-bold the four emphasis words at 28-29, and use the bold **feedback-feedforward** of 353 at 521-522 instead of quotation marks.
+7. Settle the TeX: `\frac` rather than `\over` (84, 610, 616-617, 625-626, 695, 702, 704, 831, 1018, 1042, 1061), one of `\text`/`\textrm`/`\hbox` rather than all three, `\quad` in place of the hard-coded `\hskip.75in` at 485 and 488, and $1 - L$ rather than $I - L$ at 129 and 899.
+8. Check the sign in the exercise-4 objective at 1061: as written the criterion rewards $(.0000001) y_t^2$, where {eq}`oneone` carries $-\frac{1}{2} h y_t^2$ and the point of the exercise (1065) is that a small positive $h$ makes {eq}`onesix` bite.
+9. Tidy the one visible code cell: delete the unused `p_args` at 938 (which also carries the cell's only PEP8 spacing error, spaces before the dict colons), stop unpacking `y_hist`, `L` and `U` at 932 if they are not used, close `ax.set(...)` on the last argument line rather than at 945, and drop the unusable `m` parameter at 926.
+10. Sweep the measured items: the ten `\begin{matrix}` environments (295, 305, 311, 392, 403, 412, 423, 457, 462, 467) recast as `bmatrix` per qe-math-003, the four raw `python-intro.quantecon.org` URLs (25, 34, 103) per qe-link-002, the four two-sentence paragraphs (25, 1028, 1045, 1065), the ten double spaces, the `set(title=)` at 942 moved into a `mystnb` caption with a `name`, and `figsize` at 937.
+11. Give the Implementation section (885-892) a paragraph describing `LQFilter`'s constructor and `optimal_y` before the `:load:` cell, since 931-932 is the first place either name appears.

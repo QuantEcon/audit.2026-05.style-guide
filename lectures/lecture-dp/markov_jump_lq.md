@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 5/10  | `qe-writing-005` ×3; `qe-writing-003` ×3; `qe-writing-002` ×4, +3 more. |
-| Math         | 3/10  | `qe-math-002` ×45; `qe-math-010` (proposed) ×2; `qe-math-011` (proposed) ×1. |
+| Math         | 3/10  | `qe-math-002` ×47; `qe-math-010` (proposed) ×2; `qe-math-011` (proposed) ×1. |
 | Code         | 6/10  | `qe-code-002` ×8; `qe-code-001` ×7. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5.5/10 | `qe-fig-003` ×6; `qe-fig-005` ×2; `qe-fig-008` ×12. |
@@ -31,7 +31,7 @@ _None found._
 - **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 8. *Lines:* 409, 509, 519, 536, 578, 602, 647, 703. *Example:* spelled-out `beta`.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 6. *Lines:* 488, 550, 619, 660, 682, 716. *Example:* .set_title.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 12. *Lines:* 443, 444, 448, 451, 485, 545, 546, 655, 656, 672, …. *Example:* plot() without lw=.
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 45. *Lines:* 81, 94, 108, 114, 115, 122, 128, 169, 191, 197, …. *Example:* apostrophe transpose `x_t'`.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 47. *Lines:* 81, 94, 108, 114, 115, 122, 128, 169, 191, 197, …. *Example:* apostrophe transpose `x_t'`.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 2. *Lines:* 153, 288. *Example:* non-blackboard `{\rm Prob}`.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 5. *Lines:* 57, 59, 64, 99, 294. *Example:* 3 spaces.
 

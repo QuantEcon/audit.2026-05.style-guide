@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-003` ×10; `qe-writing-001` ×6; `qe-writing-005` ×6, +4 more. |
-| Math         | 3/10  | `qe-math-002` ×14; `qe-math-011` (proposed) ×13; `qe-math-010` (proposed) ×2, +2 more. |
+| Math         | 3/10  | `qe-math-002` ×15; `qe-math-011` (proposed) ×13; `qe-math-010` (proposed) ×2, +2 more. |
 | Code         | N/A   | no executable code cells. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8.5/10 | `qe-fig-005` ×1; `qe-fig-002` ×4. |
@@ -27,7 +27,7 @@
 _None found._
 
 ### High severity
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 14. *Lines:* 269, 279, 288, 296, 304, 311, 330, 441, 456, 458, …. *Example:* apostrophe transpose `w'`.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 15. *Lines:* 269, 279, 288, 296, 297, 304, 311, 330, 441, 456, …. *Example:* apostrophe transpose `w'`.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 2. *Lines:* 44, 92. *Example:* non-blackboard `\textrm{Prob}`.
 - **[qe-math-011 (proposed)]** — Distribution names in plain letters, not \mathcal / \mathbb. *Count:* 13. *Lines:* 256, 323, 515, 530, 531, 539, 540. *Example:* decorated distribution `{\cal N}`.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 6. *Lines:* 125, 315, 377, 523, 530, 539. *Example:* 2 sentences in one paragraph.

@@ -5,16 +5,16 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.4 / 10
-- **Priority:** HIGH
+- **Overall score:** 7.9 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8/10  | `qe-writing-001` ×2. |
-| Math         | 3.5/10 | `qe-math-010` (proposed) ×17; `qe-math-002` ×2. |
-| Code         | 10/10 | no mechanical violations detected. |
+| Writing      | 4.5/10 | `qe-writing-001` ×2; `qe-writing-005` ×4; `qe-writing-003` ×4, +2 more. |
+| Math         | 5/10  | `qe-math-010` (proposed) ×17; `qe-math-009` ×4. |
+| Code         | 8.5/10 | `qe-code-001` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8/10  | `qe-fig-005` ×2; `qe-fig-001` ×2. |
 | References   | 9/10  | `qe-ref-001` ×1. |
@@ -27,13 +27,18 @@
 _None found._
 
 ### High severity
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 2. *Lines:* 126, 135. *Example:* apostrophe transpose `u_t'`.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 17. *Lines:* 98, 108, 179, 184, 187, 194, 220, 274, 959, 966, …. *Example:* bare expectation `E[`.
 
 ### Medium severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 4. *Lines:* 509, 539, 665, 920. *Example:* the module has five one-purpose functions in cells of their own (244, 334, 376, 410, 451) and then buries two more inside plotting cells - `projection_impulse_response` at 665-676 sits above the `plt.subplots` call that consumes it, and `filter_error` at 733-739 sits in the middle of the figure cell between the grid setup and the loop - so the same file uses two conventions for the same thing. 539 declares `def spectral_density_m(c0, c1, ω, eps=0.0)` with an `eps` parameter no caller ever passes (549, 749) and whose only effect is `ω + eps`. 920-922 unpacks `y0, y1, h0, h1, h2` when the loop body uses only `y0` and `y1`. And 509 puts two spaces inside a string literal, `r'$h_2$  (= $-b$)'`, which is also the only one of the three labels carrying a gloss.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 508, 743. *Example:* figsize=.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 569, 860. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 4. *Lines:* 126, 200, 564, 801. *Example:* $A$ and $B$ each carry two unrelated meanings. 200 sets $A = \phi(1-\lambda)+1$ and $B = \phi(1-\lambda)$ as covariogram shorthand, used through 206-232; 654 then sets $A = r(0) - r(1)b$ and $B = r(1)$ for the numerator coefficients of $\Theta(z)$ - and the code carries both meanings under the same two names in two functions, `A`/`B` at 251-252 and `A`/`B` at 381-382, so a reader stepping between `structural_to_ma1` and `wiener_kolmogorov_projection` meets the same letters twice. The stability parameter accumulates five names for one quantity: $\delta$ (132), $y_1$ (430, "he interpreted ... $y_1 = \delta$"), $\hat\delta$ (597, 620), $\delta_{\text{true}}$ (564, 853) and `δ_true` in the code. 126 and 135 decorate the disturbance with a prime, $u_t'$, where 90-98 decorates the same object with a star, $u_t^*$ - and the prime is the one mark that also means transpose and derivative, so the two variants are both inconsistent and the more ambiguous choice. And the covariance generating function is $c(z)$ at 287, 299 and 305, $c(e^{-i\omega})$ at 705, and $C(e^{-i\omega})$ at 801 - where the same display writes the uppercase $C$ on the left and lowercase $c(-1), c(0), c(1)$ on the right.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 360, 1021. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 2. *Lines:* 532, 567. *Example:* two of the four figure captions are the only place a caption speaks to the reader and both are wrong: 532 reads "Spectrum or money creation rate" (for "of") and 616 reads "Jacobs estimates" without the possessive that every other mention of Jacobs in the file carries (37, 118, 138, 424, 593). And the two sentences that introduce figures - 567 ("The figure below contrasts the true $\delta$ with Jacobs' population value $y_1 = 1$") and 858 ("...relative to the true value $\delta_{\text{true}}$") - both end without a full stop, in a file whose 200-odd other sentences are punctuated.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 4. *Lines:* 56, 323, 461, 597. *Example:* the lecture's headline numerical check confirms nothing. 461 says "We sweep over a grid of admissible structural parameters and confirm that $y_1 = 1$ in every case", and 465-481 runs 270 parameter pairs and prints "Range of y1 across all combinations" and "Max deviation from 1" - but `jacobs_population_params` sets `y1 = 1.0` unconditionally at 455 (and again at 851), so the loop measures the spread of a literal. Nothing in the file derives $y_1 = 1$ numerically; 440-444 asserts it from the divergence-rate argument, and the sweep is presented as independent confirmation of it. Second, the only table in the lecture (597-604) has `$k$ (Jacobs)` as its first column and $k$ is never defined anywhere - 430 and the exercise at 895 together imply $\alpha(1-\lambda)$, but the reader has to reverse-engineer it. Third, 323-325 interrupts the spectral factorisation: 296-308 factors $c(z)$, 327-331 resumes with "Matching coefficients gives $b_0 b_1 = c(1)$", and wedged between them are two paragraphs stating the $\hat\delta \to 1$ conclusion that 436-448 then states properly in its own section. Fourth, 56 opens "This delivers the *population regression* that OLS converges to" where "This" refers to the Wiener-Kolmogorov formula named at 40 - two `{note}` blocks and twelve lines earlier.
+- **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 4. *Lines:* 56, 95, 149, 316. *Example:* the Overview bolds its definitions correctly - **Cagan's estimator**, **Jacobs' estimator**, **Sargent's critique** (36-38), **information projection** (40), **stability parameter** (129) - and then the body switches to italic and quotation marks for the same job. *population regression* (56) is the term the lecture is named after and is introduced there; *consistent* (95) is defined by the orthogonality condition in the same sentence; *ignore all negative powers of $z$* (316) is the definition of the $[\cdot]_+$ operator that {eq}`eq:theta_formula` depends on; and the "real bills" regime (149) is introduced in quotes. The italics that are genuinely emphasis are used correctly (*fails* 112, *invert* 120, *against* 147, *true* 830), which is what makes the four definitional italics read as the same signal.
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 3. *Lines:* 621, 714, 761. *Example:* the bar chart at 619-637 spends half its ink on a constant: `pop_value = [1.0] * len(countries)` (621) is drawn as six identical tomato bars at 629, next to an `axhline(1.0)` at 631 that already marks the same value across the whole axis, so the second series is redundant with the reference line in its own figure - one series of $\hat\delta$ against that line would carry the comparison, and the six numbers are in any case already tabulated at 597-604. Second, the inset in the approximation-criterion figure is positioned at `[0.55, -0.05, 0.50, 0.50]` (761), a negative vertical offset that pushes it below the axes and over the x-axis label set at 755, and the comment at 760 records the workaround rather than fixing it ("right-bottom, slightly outside"). Third, 714-718 reads both panels of that figure in prose *before* the cell that draws them and 779 then reads them again after - the second reading adds nothing the first did not say, and neither is a caption, so the interpretation that should sit under the figure is duplicated around it.
 
 ### Low severity
 - **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 595. *Example:* {cite} in narrative flow: 'from {cite}`'.
@@ -41,17 +46,26 @@ _None found._
 
 ## Strengths
 
-- Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The Overview does the whole job in five lines: 34-38 names the three estimators, says what each one regresses on, and states the exact condition under which each is consistent - Cagan's orthogonality condition, Jacobs' money exogeneity, and Sargent's demonstration that the second fails - and every later section maps onto one of the three.
+- Derivation and implementation alternate step for step, with the function always immediately after the algebra it encodes: `structural_to_ma1` (243-262) after the covariogram and cross-covariogram formulas of 205-241, `spectral_factor` (333-352) after the factorisation of 296-331, `wiener_kolmogorov_projection` (375-385) after {eq}`eq:theta_formula`, and `compute_h_coefficients` (409-420) after the $h$ formulas at 403-407.
+- The $[\cdot]_+$ annihilation operator is not left as folklore: 354-365 expands $1/(1 + bz^{-1}) = \sum_j (-b)^j z^{-j}$, says which term drops out, and exhibits the result, so the step from the general formula at 313 to the closed form at 370 is closed rather than asserted.
+- Both functions raise on their own preconditions with messages naming the violated condition rather than returning nonsense: `structural_to_ma1` rejects $\lambda + \alpha(1-\lambda) = 0$ at 247-248 (the same boundary 488 and 591 discuss), and `spectral_factor` rejects $c(0) \leq 0$ at 336-337 and a negative discriminant at 344-345.
+- 348 picks the fundamental factorisation explicitly, `b = min(roots, key=abs)`, implementing the $|b| < 1$ requirement stated at 308 instead of relying on the order `np.roots` happens to return.
+- The central claim is checked from two independent directions: 569-587 contrasts the population $y_1 = 1$ against the closed-form true $\delta$ over the admissible range of $\alpha$ for three $\lambda$s, and 593-638 checks it against Jacobs' six country estimates - and 608 names the one country that does not fit rather than passing over it.
+- The two background digressions are put in `{note}` blocks outside the argument (42-54) and point at other lectures - `intermediate:divergence_measures`, `intermediate:likelihood_bayes`, `intermediate:linear_models` - rather than restating Kullback-Leibler theory in a hyperinflation lecture.
+- Exercise 4 (950-979) lays out the derivation of {eq}`eq:approx_criterion` as four numbered steps and the solution (985-1021) answers them under the same four bold headings, ending on exactly the equation the exercise named.
+- Four of the six figure cells carry `mystnb` `caption` and `name` metadata (491-496, 529-534, 613-618, 659-664, 721-726) and every plotted line sets `lw=2` (512, 552, 576, 752-753, 870), so most of the figure conventions are already met.
 
 ## Recommended actions
 
-1. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (17 occurrences).
-2. `qe-math-002` — Use \top for transpose notation (2 occurrences).
-3. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
-4. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
-5. `qe-ref-001` — Use correct citation style (1 occurrence).
-6. `qe-fig-001` — Do not set figure size unless necessary (2 occurrences).
+1. Stop presenting 461-481 as confirmation: `y1 = 1.0` is hard-coded at 455, so the 270-point sweep and the "Max deviation from 1" print at 481 report a literal. Either solve {eq}`eq:approx_criterion` numerically for $(y_0, y_1)$ and let the sweep find $y_1 \to 1$, or say that $y_1 = 1$ is imposed from the argument at 436-448.
+2. Define $k$, the first column of the table at 597 - the only undefined symbol in the lecture, and the one the reader is asked to compare with $\hat\delta$.
+3. Give the second meanings of $A$ and $B$ different letters: 200 uses them for the covariogram shorthand and 654 for the numerator coefficients of $\Theta(z)$, and the code carries both under the same names at 251-252 and 381-382.
+4. Move 323-325 into the section at 422-448 where the same conclusion is stated properly - as written it interrupts the factorisation between 305-308 and 327-331 - and give 56 an explicit subject in place of "This", whose referent is twelve lines and two admonitions back.
+5. Fix the two captions - "Spectrum or money creation rate" (532) and "Jacobs estimates" (616) - and add `mystnb` `caption`/`name` to the two figure cells that have none (569, 860).
+6. Redraw 619-637 as one bar series against the existing `axhline(1.0)`: the six `pop_value` bars (621, 629) duplicate that line, and reposition the inset at 761 so it sits inside the axes rather than over the x-label.
+7. Bold the four terms that are being defined where they are defined: *population regression* (56), *consistent* (95), the $[\cdot]_+$ operator (316) and "real bills" (149).
+8. Cut the build cost of the exercise-3 solution: 915-918 makes 80 x 80 x 81 = 518,400 pure-Python calls to `jacobs_population_params`, each of which re-does a spectral factorisation; vectorising the innermost $\sigma_{\varepsilon\eta}$ loop or coarsening the grid gives the same answer.
+9. Tidy the code: drop the unused `eps` parameter at 539 and the unused `h0, h1, h2` unpacking at 920, remove the double space inside the label at 509, and move `projection_impulse_response` (665-676) and `filter_error` (733-739) into cells of their own like the other five functions.
+10. Sweep the measured items: the 17 bare `E[` expectations written as `\mathbb{E}` per qe-math-010 (proposed), the two `figsize` overrides at 508 and 743, the two two-sentence paragraphs at 360-361 and 1021, and `{cite:t}` at 595.
+11. Consider renaming $u_t'$ (126, 135) so the disturbance is not marked with the symbol the style guide reserves for transposes - the companion object is already $u_t^*$ (90, 95, 98).

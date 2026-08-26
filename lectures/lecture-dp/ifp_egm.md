@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.6 / 10
+- **Overall score:** 7.9 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 3.5/10 | `qe-writing-006` ×9; `qe-writing-003` ×2; `qe-writing-002` ×4, +2 more. |
-| Math         | 6.5/10 | `qe-math-002` ×3; `qe-math-009` ×7. |
+| Math         | 9/10  | `qe-math-009` ×7. |
 | Code         | 7.5/10 | `qe-code-001` ×3; `qe-code-004` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6.5/10 | `qe-fig-005` ×5; `qe-fig-003` ×1; `qe-fig-008` ×8. |
@@ -30,7 +30,6 @@ _None found._
 - **[qe-code-004]** — Use quantecon Timer context manager. *Count:* 6. *Lines:* 669, 671, 674, 677, 680, 683. *Example:* time.time(.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 476, 695, 710, 789, 906. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 8. *Lines:* 479, 480, 697, 698, 731, 733, 797, 798. *Example:* plot() without lw=.
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 3. *Lines:* 260, 261, 267. *Example:* apostrophe transpose `u'`.
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 7. *Lines:* 120, 145, 167, 211, 222, 322, 387. *Example:* `\mathsf Z` and `\mathsf S` used decoratively for the exogenous state support and the state space: 120, 145 (both symbols), 167, 211, 222, 322 and 387. Plain $Z$ and $S$ would carry the same meaning; neither sans-serif symbol reaches the code, where the same objects are `z_grid` and the `(a, z)` pair, and the lecture already writes $\mathbb{R}_+$, $\Pi$ and $\sigma$ without any face decoration.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 9. *Lines:* 73, 165, 207, 251, 325, 340, 488, 495, 767. *Example:* H2 Title Case: 'The Household Problem' (Household, Problem).
 

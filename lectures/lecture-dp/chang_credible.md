@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 8.1 / 10
+- **Overall score:** 8.5 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-001` ×5; `qe-writing-005` ×9; `qe-writing-002` ×5, +4 more. |
-| Math         | 7.5/10 | `qe-math-002` ×2. |
+| Math         | 10/10 | no mechanical violations detected. |
 | Code         | 8.5/10 | `qe-code-001` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 9.5/10 | `qe-fig-001` ×1. |
@@ -27,7 +27,6 @@
 _None found._
 
 ### High severity
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 2. *Lines:* 568. *Example:* apostrophe transpose `Z'`.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 5. *Lines:* 459, 612, 725, 792, 797. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 5. *Lines:* 76, 423, 429, 566, 582. *Example:* line 76 ends a bullet with the placeholder 'but $\ldots$.'; line 423 has a stray word - 'For a credible government plan, we the two-dimensional state vector $(w_t, \theta_t)$ encodes history dependence'; line 429 ends the definition of a sustainable plan with a full stop where a colon belongs ('are said to constitute a *sustainable plan* (SP) if.'); line 566 reads '**Proposition:**.'; line 582 says 'by iterating on {eq}`chang501`, which we repeat here for convenience' and then reprints the whole five-equation system at 584-592, thirteen lines after the labelled original at 368-378.
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 9. *Lines:* 328, 336, 349, 561, 566, 693, 695, 725, 771. *Example:* every bold in this file is a structural label and every defined term is in italic - the rule inverted twice over. Bold is used for '**Definition:**' (328, 336), '**A credible government policy with a recursive representation**' (349), '**Proposition:**' (561, 566) and '**Step 1**' through '**Step 4**' (693, 695, 725, 771), all of which want headings or `{prf:}` directives. Meanwhile the terms the lecture actually defines are italicised: *credible public policy* / *sustainable plan* (66), *gradual deflation* (103), *value of money* (170), *government policy* / *price system* / *allocation* (330-332), *competitive equilibrium* (339), *credible* (385), *sustainable plan* again (429). So a reader scanning for definitions finds section labels instead.

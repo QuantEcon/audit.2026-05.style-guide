@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-006` ×9; `qe-writing-001` ×2; `qe-writing-003` ×2, +3 more. |
-| Math         | 3/10  | `qe-math-010` (proposed) ×10; `qe-math-002` ×6; `qe-math-004` ×3, +2 more. |
+| Math         | 3/10  | `qe-math-010` (proposed) ×10; `qe-math-004` ×3; `qe-math-007` ×1, +1 more. |
 | Code         | 7/10  | `qe-code-002` ×2; `qe-code-001` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7/10  | `qe-fig-005` ×3; `qe-fig-003` ×1; `qe-fig-001` ×3. |
@@ -27,7 +27,6 @@
 _None found._
 
 ### High severity
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 6. *Lines:* 179, 182, 213, 234, 235, 294. *Example:* apostrophe transpose `u'`.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 10. *Lines:* 85, 121, 141, 150, 152, 157, 181, 212, 292. *Example:* missing braces: `\mathbb E`.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 9. *Lines:* 73, 77, 193, 198, 226, 251, 265, 668, 675. *Example:* H2 Title Case: 'The Model' (Model).
 

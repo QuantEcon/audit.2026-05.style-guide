@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 4/10  | `qe-writing-005` ×9; `qe-writing-002` ×8; `qe-writing-001` ×4, +2 more. |
-| Math         | 3/10  | `qe-math-010` (proposed) ×128; `qe-math-011` (proposed) ×24; `qe-math-004` ×6, +2 more. |
+| Math         | 3/10  | `qe-math-010` (proposed) ×128; `qe-math-011` (proposed) ×24; `qe-math-004` ×6, +1 more. |
 | Code         | 8.5/10 | `qe-code-001` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8.5/10 | `qe-fig-004` ×1; `qe-fig-001` ×9. |
@@ -28,7 +28,6 @@ _None found._
 
 ### High severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 9. *Lines:* 363, 1182, 1276, 1346, 1453, 1785, 1899, 1951, 2107. *Example:* figsize=.
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 1. *Lines:* 2537. *Example:* apostrophe transpose `W'`.
 - **[qe-math-004]** — Do not use bold face for matrices or vectors. *Count:* 6. *Lines:* 265, 270, 2193, 2195, 2206. *Example:* \mathbf.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 128. *Lines:* 173, 191, 219, 225, 227, 235, 242, 249, 257, 265, …. *Example:* bare expectation `E_t(`.
 - **[qe-math-011 (proposed)]** — Distribution names in plain letters, not \mathcal / \mathbb. *Count:* 24. *Lines:* 441, 459, 918, 975, 977, 2282, 2590, 2606, 2633, 2647, …. *Example:* decorated distribution `\mathcal{N}`.

@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.5 / 10
+- **Overall score:** 7.9 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 4/10  | `qe-writing-004` ×5; `qe-writing-001` ×4; `qe-writing-003` ×2, +2 more. |
-| Math         | 3/10  | `qe-math-002` ×25; `qe-math-010` (proposed) ×5; `qe-math-009` ×2. |
+| Math         | 6/10  | `qe-math-010` (proposed) ×5; `qe-math-009` ×2. |
 | Code         | 7/10  | `qe-code-001` ×8; `qe-code-004` ×2. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8.5/10 | `qe-fig-005` ×2. |
@@ -28,7 +28,6 @@ _None found._
 
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 8. *Lines:* 377, 475, 835, 1004, 1033, 1057, 1845, 1022. *Example:* the rule asks for PEP8 unless the code gets closer to the mathematics, and 377 does neither: `c**0.5 / 0.5 + (1 - a)**0.5 / 0.5` for $2\sqrt c + 2\sqrt{1-a}$, where `2 * c**0.5` is both shorter and the displayed formula. 835 writes the same term as `2*c**0.5 + β*wp`, dropping the spaces around the multiplications that the rule reserves for `**`. 1021-1022 then defines the utility a third time, as a closure `u_fn` inside `solve_multi_period_economy`, duplicating the module-level `u` at 376-377 so the two can silently drift apart. 1004-1008 gives `A`, `Q`, `C`, `P` and `problem_type` defaults of `None` although all five are required - 1024 immediately calls `problem_type.lower()` and 1026 calls `A.max()`, so a call that omits them raises `AttributeError` rather than the clear message that 1018-1019 gives for a bad `β`. Continuation lines are indented two columns past their opening parenthesis at 475-476, 477-478, 1033-1034 and 1838-1839. 1845 and 1853 pad after a comma to align (`s_W_flat,  label=`), and 1057 writes `t1-t0` without spaces. The `problem_type` dispatch at 437 and 1025 compares against the literals "full information" and "unobserved-actions", so a misspelling at either call site (475-478, 1838) silently selects the other model rather than failing.
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 25. *Lines:* 198, 205, 207, 215, 228, 229, 236, 239, 252, 671, …. *Example:* apostrophe transpose `W'`.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 5. *Lines:* 559, 597, 1266, 1315, 1821. *Example:* bare expectation `E(`.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 5. *Lines:* 822, 824, 852, 993. *Example:* mid-sentence 'Step'.
 

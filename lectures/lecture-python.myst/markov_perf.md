@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 4/10  | `qe-writing-006` ×8; `qe-writing-003` ×3; `qe-writing-008` ×12, +1 more. |
-| Math         | 5/10  | `qe-math-002` ×35. |
+| Math         | 5/10  | `qe-math-002` ×37. |
 | Code         | 6.5/10 | `qe-code-002` ×5; `qe-code-001` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-005` ×6; `qe-fig-003` ×1; `qe-fig-002` ×3, +1 more. |
@@ -29,7 +29,7 @@ _None found._
 ### High severity
 - **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 5. *Lines:* 453, 455, 562, 614. *Example:* spelled-out `beta`.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 6. *Lines:* 480, 509, 629, 730, 740, 839. *Example:* {figure} without :name:.
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 35. *Lines:* 202, 203, 204, 205, 206, 248, 249, 250, 265, 266, …. *Example:* apostrophe transpose `x_t'`.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 37. *Lines:* 202, 203, 204, 205, 206, 248, 249, 250, 265, 266, …. *Example:* apostrophe transpose `x_t'`.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 8. *Lines:* 91, 177, 188, 229, 326, 332, 351, 427. *Example:* H3 Title Case: 'Example: A Duopoly Model' (Duopoly, Model).
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 12. *Lines:* 80, 148, 149, 175, 220, 328, 330, 353, 392. *Example:* 2 spaces.
 

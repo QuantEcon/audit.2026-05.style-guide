@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 7.2 / 10
+- **Overall score:** 7.7 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-005` ×12; `qe-writing-004` ×2; `qe-writing-001` ×2, +4 more. |
-| Math         | 7.5/10 | `qe-math-002` ×2. |
+| Math         | 10/10 | no mechanical violations detected. |
 | Code         | 8.5/10 | `qe-code-001` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-003` ×3; `qe-fig-005` ×2; `qe-fig-008` ×5, +1 more. |
@@ -29,7 +29,6 @@ _None found._
 ### High severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 5. *Lines:* 941, 1054, 1071, 1101, 1124. *Example:* figsize=.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 5. *Lines:* 1057, 1079, 1104, 1105, 1131. *Example:* plot() without lw=.
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 2. *Lines:* 759. *Example:* apostrophe transpose `Z'`.
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 12. *Lines:* 378, 386, 460, 473, 514, 535, 605, 643, 668, 676, …. *Example:* bold is used exclusively as a structural label and never for a definition: '**Definition:**' at 378, 386, 460, 514, 643, 668 and 676, '**Proposition:**' at 473, 535, 605, 752 and 757, and '**Step 1**' / '**Step 2**' / '**Step 3**' at 849, 851 and 894. Every term the lecture actually defines is italicised instead - *value of money* (164), *government strategy* (626), *admissible* (643), *outer hyperplane approximation algorithm* (837). Seven definitions and five propositions written as bold run-in labels also means there is nothing for `qe-admon-004` to check, which is why the whole Admonitions category is N/A for this file.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 26. *Lines:* 36, 44, 46, 109, 125, 137, 214, 232, 249, 270, …. *Example:* 2 spaces.
 

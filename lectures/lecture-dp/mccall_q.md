@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 7.2 / 10
+- **Overall score:** 7.3 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-006` ×5; `qe-writing-002` ×5; `qe-writing-005` ×3, +5 more. |
-| Math         | 7/10  | `qe-math-002` ×2; `qe-math-009` ×4. |
+| Math         | 8/10  | `qe-math-002` ×1; `qe-math-009` ×4. |
 | Code         | 7/10  | `qe-code-001` ×17. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7/10  | `qe-fig-005` ×4; `qe-fig-008` ×7; `qe-fig-001` ×5. |
@@ -30,7 +30,7 @@ _None found._
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 17. *Lines:* 186, 192, 193, 214, 494, 532, 534, 538, 540, 560, …. *Example:* binary operators and comparisons are written without surrounding spaces throughout the file, against the same file's own practice elsewhere (`v_next - v` at 190, `c + β * (v @ q)` at 174): `flag=0` / `flag=1` (186, 193), `))<=eps` (192), `params=[` (494), `accept==0` (532), `β*np.max(...)` (534, 538, 540), `random()<=eps` (560), `lr*TD` (572), `qtable_new-qtable))<=δ` (574), `n%(N/10)==0` (591), `valfunc-valfunc_VFI` (602), `n%(max_epochs/10)==0` (679), `(len(w_new),2)` with no space after the comma (670). Line 214 is the substantive one: `for i in range(n)` is nested inside `for i in range(num_plots)` (211) and clobbers the outer index - it works today only because the label `f"iterate {i}"` is consumed at 212 before the inner loop runs. Line 660-663 also re-runs the two lines already executed at 656-657 verbatim.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 5. *Lines:* 136, 225, 627, 648, 673. *Example:* figsize=.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 7. *Lines:* 137, 212, 628, 629, 649, 674, 685. *Example:* plot() without lw=.
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 2. *Lines:* 301, 304. *Example:* \prime transpose.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 1. *Lines:* 304. *Example:* \prime transpose.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 5. *Lines:* 42, 245, 264, 298, 459. *Example:* lines 42-51 spend five separate paragraphs establishing that what Q-learning learns is a Q-table, including 'But it is something that is closely affiliated with it' (47) and 'Sometimes a Q-function or Q-table is called a quality-function or quality-table' (51), before the definition arrives. Four sentences are broken as written: 'A **quality function** $Q$ map state-action pairs into optimal values. / They are tightly linked...' (245-247, singular subject, plural pronoun, missing verb agreement); 'equals the maximum value of that a previously unemployed worker' (264); 'This fact provides us with an / an alternative' (298-299, doubled word across the line break); 'Either draw a new state $w'$ if required or else take existing wage if and update the Q-table again' (459). Four words are misspelled: 'illegitmate' (329), 'previos' (477), 'prematurally' (734), 'algorthm' (749).
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 5. *Lines:* 85, 242, 316, 707, 747. *Example:* H2 Title Case: 'Review of McCall Model' (Model).
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 83. *Lines:* 28, 33, 36, 38, 44, 51, 56, 58, 64, 66, …. *Example:* 2 spaces.

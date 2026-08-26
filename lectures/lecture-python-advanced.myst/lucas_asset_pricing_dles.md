@@ -5,16 +5,16 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 8.4 / 10
-- **Priority:** LOW
+- **Overall score:** 7.2 / 10
+- **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 9.5/10 | `qe-writing-008` ×1. |
-| Math         | 5.5/10 | `qe-math-002` ×2; `qe-math-003` ×6. |
-| Code         | 10/10 | no mechanical violations detected. |
+| Writing      | 5.5/10 | `qe-writing-005` ×2; `qe-writing-003` ×4; `qe-writing-002` ×3, +2 more. |
+| Math         | 4/10  | `qe-math-002` ×6; `qe-math-003` ×6; `qe-math-009` ×3. |
+| Code         | 8.5/10 | `qe-code-001` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7/10  | `qe-fig-005` ×5; `qe-fig-008` ×9. |
 | References   | 8.5/10 | `qe-ref-001` ×2. |
@@ -29,11 +29,17 @@ _None found._
 ### High severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 209, 219, 238, 267, 284. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 9. *Lines:* 211, 221, 222, 240, 241, 269, 270, 286, 287. *Example:* plot() without lw=.
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 2. *Lines:* 141. *Example:* apostrophe transpose `x_t'`.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 6. *Lines:* 141, 147, 151, 157. *Example:* apostrophe transpose `x_t'`.
 - **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 6. *Lines:* 89, 99, 104, 113, 121, 129. *Example:* array used as matrix.
 
 ### Medium severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 3. *Lines:* 166, 175, 180. *Example:* 166-167 breaks the file's own convention twice in two lines: `gam = 0` is ASCII in a cell where every other parameter carries its unicode symbol (`ϕ_c`, `ϕ_g`, `ϕ_1`, `δ_k`, `θ_k`, `β`, `π_h`, `δ_h`, `θ_h`), and the name `γ` is then given to the technology *matrix* $\Gamma$ rather than to the scalar $\gamma$ that `gam` holds - so the subscripted-looking pair `gam`/`γ` are a scalar and a matrix. 175-186 downcases $U_d$, $A_{22}$, $C_2$ and $U_b$ to `ud`, `a22`, `c2`, `ub` where the rule explicitly permits capitals for matrices (the column padding at 177-179 is deliberate matrix alignment and is fine). And 180-181 builds `c2` as `np.array([[0, 1, 0], [0, 0, 1]]).T`, the transpose of the 3x2 matrix actually displayed at 104-108, so the literal in the code does not look like the matrix in the lecture.
+- **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 3. *Lines:* 63, 141, 147. *Example:* the transpose is written three ways in twenty lines: a bare apostrophe in $x_t'$ (141) and after a delimiter in $[\,\cdot\,]'$ (132), a braced superscript in $C^{'}$ and $U_a^{'}$ (151, 157), and a superscript letter-plus-apostrophe in $A^{o'}$ (147, 151) - five appearances, three notations, all of which the style guide would have as `\top`. 141 also writes `\bar e _1` with a space before the subscript, which renders the subscript detached from the symbol it belongs to, and the symbol itself is never defined. And 63 hangs the conditioning information set outside every delimiter, $-\frac{1}{2}\mathbb{E}\sum_{t=0}^\infty \beta^t[(c_t-b_t)^2 + l_t^2]|J_0$, so the bar reads as applying to the whole expression rather than as conditioning the expectation; $\mathbb{E}_0$ says it in one symbol, and $l_t$ in that same display is the only appearance of $l_t$ in the file - the relation $g_t \cdot g_t = l_t^2$ that connects it to the technology at 85 is stated in the sibling lecture and omitted here.
 - **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 27, 137. *Example:* {cite} in narrative flow: '{cite}`'.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 3. *Lines:* 26, 43, 137. *Example:* 26-27 opens with the suite's standard 34-word triple-nested sentence ("one of a suite of lectures that use the quantecon DLE class to instantiate models within the {cite}`HS2013` class of models described in detail in {doc}`...`"). 43-44 then uses the word "class" three times in nineteen words with two different meanings - a mathematical class of environments and a Python class - "We assume basic knowledge of the class of economic environments that fall within the domain of the DLE class". And 137 drops out of math mode for a symbol the rest of the file always sets in math: "the time t value of a permanent claim to a stream $y_s = U_ax_s$".
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 4. *Lines:* 74, 128, 137, 228. *Example:* the asset-pricing section (135-161) is the point of the lecture and every matrix in it is undefined here: $A^o$ (147, 151), $M_c$ (141, 157) and $U_a$ (138) appear with no definition, and $\bar e_1$ gets only a gloss saying what its presence "indicates" (160-161) rather than what it is - so the four displays cannot be read without HS2013 open, and nothing connects $U_a$ to the `Pay=np.array([econ1.Sd[0, :]])` of 204 that supplies it in code. Second, two of the three technology equations are inert and the lecture does not say so: with `gam = 0` at 166 the capital term $\gamma k_{t-1}$ vanishes and with `ϕ_i = np.array([[0], [-ϕ_1]])` at 171 investment costs no consumption, so $k_t = \delta_k k_{t-1} + i_t$ (81) and $g_t = \phi_1 i_t$ (85) never touch $c_t = d_{1t}$ (77) - and $\gamma$'s value is never stated in the algebra at all, appearing only as `gam` in the code. Third, $x_0$ is displayed at 128-133 as a five-element vector inside the **Information** block whose state $z_t$ is three-dimensional (99-109), with the two extra entries ($h_{-1} = 5$, $k_{-1} = 150$) never identified. Fourth, 231-232 says "Above we have also calculated the correlation coefficient between these two returns" of a cell (228) that prints a 2x2 matrix, and 279's claim that "the correlation between these two gross rates is now more negative" asks the reader to compare two unlabelled 2x2 matrices printed 48 lines apart.
+- **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 2. *Lines:* 198, 216. *Example:* the one term the lecture introduces is quoted rather than bolded, all three times it appears: the "Lucas tree" at 216-217, 249 and 253. And `Pay` - a Python keyword argument, passed as `Pay=...` at 204 and 264 - is put in prose quotation marks at 198 and 200 where inline code is what marks an identifier; the lecture uses backticks for nothing at all, so the reader has no way to tell that "Pay" is something they will type. The two italics in the file are emphasis and are correct (*net* at 235 and 281).
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 3. *Lines:* 209, 238, 267. *Example:* all five figures are a bare `plt.plot` with a legend: no title, no axis labels, no caption, no `name`, and no `fig, ax`. That would matter less if the lecture's claims were not comparisons between figures. 279 ("now more negative") compares the correlation behind the figure at 267 with the one behind 219, and 292-294 ("has been accentuated relative to the first instance of our economy") compares the term structure at 284 with the one at 238 - in both cases across independently autoscaled y-axes 46 to 48 lines apart, so "accentuated" is exactly the kind of claim two separate autoscaled plots cannot support. Putting each pair on shared axes, or the $\rho = 0.8$ and $\rho = 0.4$ paths on one set of axes, would settle both. Third, 249-251 asks for a comparison the figures make impossible in a different way: "net rates of return are low when the price of the tree is high, and vice versa" relates the series in the figure at 238 to the one at 209, two cells and thirty lines apart, when a twin-axis plot or a scatter would show the relation itself. The caption text is already written - the `### Fig 7.12.1 from p.147 of HS2013` comments at 210, 220, 239, 268 and 285 are what the reader of the built page never sees.
 
 ### Low severity
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 1. *Lines:* 38. *Example:* 2 spaces.
@@ -41,17 +47,22 @@ _None found._
 
 ## Strengths
 
-- Writing, Code, Links score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- Every figure names the exact figure and page of HS2013 it reproduces - `Fig 7.12.1 from p.147` (210), `Left panel of Fig 7.12.2 from p.148` (220), `Right panel of Fig 7.12.2` (239), and the two panels of `Fig 7.12.3` (268, 285) - so the entire numerical section is checkable against the book rather than taken on trust.
+- The experiment is a single parameter change and the code makes it one: 253-255 says the endowment AR coefficient is reduced to 0.4, and 258-263 changes only the (2,2) entry of `a22`, reusing `c2`, `ub`, `ud`, `tech1` and `pref1` untouched - so nothing else can be responsible for the difference in the figures.
+- The `Pay` matrix is introduced by what it prices rather than by its shape: 200-201 says the particular choice "means that we are pricing a perpetual claim on the endowment process $d_{1t}$", which is precisely what `econ1.Sd[0, :]` selects at 204.
+- The pricing formulas are given in the order a reader needs them (140-158): the price $a_t$ first, then the two objects it is assembled from, $\mu_a$ and $\sigma_a$, then the single matrix $Z_a$ that both of those need.
+- Every figure is followed immediately by the one or two sentences it exists to support - 246-247 on the term structure sloping up when rates are low, 249-251 on returns being low when the tree price is high, 279 on the correlation, 292-294 on the accentuated slope - so no plot is left for the reader to interpret unaided.
+- 216-228 backs a visual claim with a number in the next cell: the gross return on the tree and on the risk-free bond are plotted together and their correlation is then computed, so the "as well as" of 216-217 becomes a quantity rather than an impression.
+- The lecture states its scope and delegates the rest: 43-47 says what background it assumes and names the lecture that supplies it, which is what lets a 294-line file get from Lucas's economy to a term structure without re-deriving the DLE environment.
 
 ## Recommended actions
 
-1. `qe-math-002` — Use \top for transpose notation (2 occurrences).
-2. `qe-math-003` — Use square brackets for matrix notation (6 occurrences).
-3. `qe-fig-005` — Descriptive figure names for cross-referencing (5 occurrences).
-4. `qe-ref-001` — Use correct citation style (2 occurrences).
-5. `qe-fig-008` — Use lw=2 for line charts (9 occurrences).
-6. `qe-writing-008` — Remove excessive whitespace between words (1 occurrence).
+1. Define $A^o$, $M_c$ and $\bar e_1$ (or link the exact displays in `hs_recursive_models`), and say that the $U_a$ of 138 is what `Pay=np.array([econ1.Sd[0, :]])` supplies at 204 - as written the four displays at 140-158 name the lecture's subject in terms of four undefined matrices.
+2. Put each pair of comparison figures on shared axes: 279 and 292-294 both make comparative claims across separately autoscaled plots 46-48 lines apart, and 249-251 relates the term-structure series to the tree-price series drawn in a different cell.
+3. Say that $k_t$ and $i_t$ are inert in this parameterisation - `gam = 0` (166) removes capital from production and `ϕ_i = [[0], [-ϕ_1]]` (171) removes investment from the resource constraint - and state $\gamma$'s value in the algebra at 74-93 rather than only as `gam` in code.
+4. Print the off-diagonal element instead of the full matrix at 228 and 276, or print both correlations together, so the "more negative" claim at 279 is a comparison the reader can see rather than reconstruct from two 2x2 outputs.
+5. Identify the five entries of $x_0$ at 128-133 ($h_{-1} = 5$, $k_{-1} = 150$, then the three-element $z_0$), since the level of every price path in the lecture depends on them.
+6. Rename `gam`/`γ` at 166-167 so the scalar $\gamma$ and the matrix $\Gamma$ are distinguishable, restore capitals on `ud`, `a22`, `c2`, `ub` (175-186), and build `c2` at 180 as the 3x2 matrix that 104-108 actually displays instead of transposing a 2x3 literal.
+7. Bold "Lucas tree" where it is introduced (216) instead of quoting it three times, and set `Pay` in inline code at 198 and 200 - it is an argument the reader will type.
+8. Sweep the measured items: the six `\left[ {\begin{array}...} \right]` displays (89, 99, 104, 113, 121, 129) recast as `bmatrix` per qe-math-003, all five transposes written with `\top` (132, 141, 147, 151, 157), `mystnb` `caption`/`name` on the five figure cells (209, 219, 238, 267, 284) carrying the HS2013 references currently hidden in the `###` comments, `lw=2` on the nine plot calls, `{cite:t}` at 27 and 137, and the double space at 38.
+9. Write $\mathbb{E}_0$ in the objective at 63 rather than hanging `|J_0` outside the bracket, fix `\bar e _1` at 141, and either relate $l_t$ to the $g_t$ of 85 or drop it from the objective.

@@ -5,15 +5,15 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.4 / 10
-- **Priority:** HIGH
+- **Overall score:** 8.1 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 5.5/10 | `qe-writing-005` ×2; `qe-writing-003` ×2; `qe-writing-002` ×2, +2 more. |
-| Math         | 3.5/10 | `qe-math-002` ×31; `qe-math-010` (proposed) ×1. |
+| Math         | 8.5/10 | `qe-math-010` (proposed) ×1. |
 | Code         | 6.5/10 | `qe-code-001` ×8; `qe-code-002` ×2. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7/10  | `qe-fig-005` ×8; `qe-fig-002` ×4; `qe-fig-001` ×4. |
@@ -29,7 +29,6 @@ _None found._
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 8. *Lines:* 343, 346, 359, 394, 417, 492, 535, 573. *Example:* line 346 writes `B_grid_size= 251` - a space after `=` but not before, in a keyword default that should have neither; 359 leaves a dangling comma in `self.β, self.γ, self.r, = β, γ, r`; 394 writes `c**(1-γ)/(1-γ)` with no spaces around `-` or `/` while 417 three lines later writes `(1 - delta ) / (1 + r)` - which itself has a stray space before the closing paren (E202); 493's continuation is indented 44 columns against an opening paren at 48 (E128); 535 is 88 characters (E501); 573 writes `T+1` unspaced; and the class docstring at 343 is a single-quoted string padded with spaces rather than a `"""` docstring.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 8. *Lines:* 631, 652, 661, 672, 711, 742, 757, 777. *Example:* {figure} without :name:.
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 31. *Lines:* 126, 128, 129, 131, 132, 133, 134, 145, 224, 250, …. *Example:* apostrophe transpose `B'`.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 1. *Lines:* 101. *Example:* missing braces: `\mathbb E`.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 7. *Lines:* 32, 128, 133, 184, 301, 636. *Example:* 2 spaces.
 

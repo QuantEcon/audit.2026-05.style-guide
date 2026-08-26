@@ -13,11 +13,12 @@ All four are open on `action-style-guide`. The files here are the bodies as post
 | [#20](https://github.com/QuantEcon/action-style-guide/issues/20) | Discussion: bulk audit / cross-series synthesis mode — where should it live? | [`issues/03-bulk-audit-mode.md`](issues/03-bulk-audit-mode.md) | Design question |
 | [#21](https://github.com/QuantEcon/action-style-guide/issues/21) | Offer: labelled lecture corpus with per-rule violation counts as test fixtures | [`issues/04-corpus-offer.md`](issues/04-corpus-offer.md) | Resource offer |
 | *(not yet posted)* | Proposal: rule-definition format changes so the registry determines its own counts | [`issues/05-rule-format-for-checkability.md`](issues/05-rule-format-for-checkability.md) | Concrete proposal |
+| *(not yet posted)* | Question: what `qe-ref-001` means by a narrative citation — 299 author-name sites are undetermined under the current text | [`issues/06-ref-001-author-name-citations.md`](issues/06-ref-001-author-name-citations.md) | Rule-definition question |
 
 ### Not yet posted
 
-`issues/05-rule-format-for-checkability.md` came out of the 2026-08 pass and has **no issue
-number yet** — it needs filing against whichever repo ends up owning the rule registry
+`issues/05-rule-format-for-checkability.md` and `issues/06-ref-001-author-name-citations.md`
+both came out of the 2026-08 pass and have **no issue number yet** — it needs filing against whichever repo ends up owning the rule registry
 (`action-style-guide` today, the consolidated `QuantEcon/style-guide` under the current
 program direction). It is the one contribution here that is about the *format* of the rule
 definitions rather than their content: 144 under-specification gaps across 42 of the

@@ -115,20 +115,47 @@ the number this audit's credibility rests on.
 Each of these is a reason to read the cited lines before trusting a category score, not a
 reason to distrust the corpus totals.
 
-- **`qe-math-002` still counts a primed next-period state.** `v(n_2')`, `n_j' := Y_j - d_j`
-  are continuation states, not transposes, and `tsyrennikov_2013` — which contains no
-  `\top` and no `^T` anywhere — still scores Math 3.0 and HIGH off 50 such hits. The
-  discriminator is the one the other two branches already use: a real transpose is
-  juxtaposed with a *following factor*, while these are followed by `)`, ` >` or ` :=`.
-  Applying that lookahead to the apostrophe branch is the fix, but `NOT_A_PRODUCT`
-  currently contains `begin`, so it would also drop a genuine
-  `\end{bmatrix}' \begin{bmatrix}` transpose (`calvo.md:272`). That reconciliation wants
-  its own verified pass rather than a hurried one, so the false positives stand for now and
-  are named here.
-- **The three `qe-math-002` branches double-count the same site.** `x_t' R x_t` is reported
-  once by the `prime` branch for `x_t'` and again by `prime_vec` for `t'` — 199 such pairs
-  corpus-wide. `check_math_010` solved the same problem by having its branches mask each
-  other after each pass; `check_math_002` should do the same.
+- **`qe-math-002`: the primed next-period state is now handled per lecture.** The
+  apostrophe is genuinely ambiguous in this corpus — a transpose in the LQ lectures, a
+  continuation state in the dynamic-programming ones, and `arellano.md:147` says so
+  outright: "a prime denotes a next period value". No pattern can separate them at the
+  occurrence level, so the check now decides per *file*. Three forms cannot be anything
+  but a transpose: a prime on a closing delimiter (`(A+B)'`, `\end{bmatrix}'`), a prime
+  juxtaposed with the factor that follows it (`x_t' R x_t`), and a prime on the repeat of
+  the symbol before it (`CC'`, `U_t U_t'`). A lecture writing any of them uses the
+  apostrophe as a transpose, so the rest of its apostrophes count; a lecture writing none
+  of them does not, and none of its apostrophes count. Removed 242 occurrences across 13
+  lectures — `atkeson_1991` 71 (Math 5.0 → 9.5, HIGH → LOW), `tsyrennikov_2013` 50,
+  `arellano` 31, `repeat_mh` 25 — with 0 added and all eight canary transposes intact.
+- **The three `qe-math-002` branches still double-count the same site.** `x_t' R x_t` is
+  reported once by the `prime` branch for `x_t'` and again by `prime_vec` for `t'`.
+  `check_math_010` solved the same problem by having its branches mask each other after
+  each pass; `check_math_002` should do the same.
+
+### Two fixes that were verified, then rejected
+
+Both came from reviewer doubts, both reproduced exactly, and both were rejected because
+they fail the both-directions test. Recording them so they are not re-proposed, and so a
+narrower version has somewhere to start.
+
+- **`qe-writing-004` on markdown link labels and quoted titles.** 60 of its 64 removals are
+  correct — a label reproducing a lecture or book title is not the author's capitalisation.
+  But 4 occurrences on 3 lines are genuine: `[Envelope Theorem](…/Envelope_theorem)` in
+  `os.md:501`, `[Pareto Distribution]` in `mle.md:298`, `[Gershgorin Circle Theorem]` in
+  `eigen_II.md:457`. In each the linked article's own title is lowercase — Wikipedia slugs
+  preserve case, and the same set contains genuinely Title-Case slugs like
+  `Golden_Rule_savings_rate` — and the corpus writes the same term lowercase elsewhere
+  ("envelope theorem" 10×, including `os_time_iter.md:113` linking the *same URL* with a
+  lowercase label). That is the rule's own *inconsistent capitalisation* bullet. A patch
+  that exempts link labels must first distinguish a reproduced title from an author's own
+  words, and the URL slug is the available signal.
+- **`qe-writing-004` on "Example N" as a section reference.** The mechanics were clean —
+  71 removed, 0 added, no offset or backtracking trap — but the premise is wrong. The
+  claim is that `<capitalised common noun> <number>` names a labelled item and is never
+  the rule's business. The corpus disagrees: `var_dmd.md` writes "Representation 3"
+  capitalised 8 times and "representation 3" lowercase 8 times for the *same three
+  headings*, three lines apart. That is precisely the inconsistency the rule exists to
+  find, so the 71 removals include real findings.
 
 ### The build's 309 warnings
 

@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-001` ×10; `qe-writing-005` ×14; `qe-writing-003` ×10, +4 more. |
-| Math         | 3/10  | `qe-math-002` ×36; `qe-math-010` (proposed) ×14; `qe-math-011` (proposed) ×16, +2 more. |
+| Math         | 3/10  | `qe-math-002` ×38; `qe-math-010` (proposed) ×14; `qe-math-011` (proposed) ×16, +2 more. |
 | Code         | 7/10  | `qe-code-001` ×10. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 4/10  | `qe-fig-003` ×5; `qe-fig-006` ×7; `qe-fig-005` ×4, +2 more. |
@@ -32,7 +32,7 @@ _None found._
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 5. *Lines:* 204, 321, 427, 1268, 1401. *Example:* .set_title.
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 7. *Lines:* 212, 326, 673, 674, 728, 729, 1403. *Example:* axis label `Assets`.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 12. *Lines:* 205, 206, 322, 323, 414, 416, 418, 428, 429, 430, …. *Example:* plot() without lw=.
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 36. *Lines:* 121, 130, 244, 252, 527, 555, 556, 583, 592, 748, …. *Example:* apostrophe transpose `w'`.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 38. *Lines:* 121, 130, 244, 252, 527, 555, 556, 583, 584, 592, …. *Example:* apostrophe transpose `w'`.
 - **[qe-math-004]** — Do not use bold face for matrices or vectors. *Count:* 24. *Lines:* 97, 104, 110, 121, 153, 261, 280, 292, 341, 357, …. *Example:* {\bf.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 14. *Lines:* 759, 760, 762, 778, 821, 1025, 1035, 1111, 1117, 1124, …. *Example:* missing braces: `\mathbb E`.
 - **[qe-math-011 (proposed)]** — Distribution names in plain letters, not \mathcal / \mathbb. *Count:* 16. *Lines:* 104, 113, 121, 341, 357, 455, 463, 495, 501, 512, …. *Example:* decorated distribution `{\mathcal N}`.

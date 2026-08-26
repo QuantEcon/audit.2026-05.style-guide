@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 9/10  | `qe-writing-008` ×19. |
-| Math         | 4/10  | `qe-math-002` ×57; `qe-math-011` (proposed) ×1. |
+| Math         | 4/10  | `qe-math-002` ×59; `qe-math-011` (proposed) ×1. |
 | Code         | 8.5/10 | `qe-code-002` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 4/10  | `qe-fig-003` ×9; `qe-fig-006` ×9; `qe-fig-005` ×4, +2 more. |
@@ -30,7 +30,7 @@ _None found._
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 9. *Lines:* 476, 479, 523, 526, 821, 824, 827, 830, 841. *Example:* .set_title.
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 9. *Lines:* 477, 480, 524, 527, 822, 825, 828, 831, 842. *Example:* axis label `Time`.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 9. *Lines:* 475, 478, 522, 525, 820, 823, 826, 829, 840. *Example:* plot() without lw=.
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 57. *Lines:* 268, 274, 280, 287, 617, 625, 631, 637, 664, 671. *Example:* apostrophe transpose `x_t'`.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 59. *Lines:* 268, 274, 280, 287, 617, 625, 631, 637, 649, 656, …. *Example:* apostrophe transpose `x_t'`.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 19. *Lines:* 29, 32, 41, 44, 66, 292, 321, 488, 490, 491, …. *Example:* 2 spaces.
 
 ### Medium severity
@@ -54,7 +54,7 @@ _None found._
 
 ## Recommended actions
 
-1. `qe-math-002` — Use \top for transpose notation (57 occurrences).
+1. `qe-math-002` — Use \top for transpose notation (59 occurrences).
 2. `qe-fig-003` — No matplotlib embedded titles (9 occurrences).
 3. `qe-fig-006` — Lowercase axis labels (9 occurrences).
 4. `qe-ref-001` — Use correct citation style (3 occurrences).

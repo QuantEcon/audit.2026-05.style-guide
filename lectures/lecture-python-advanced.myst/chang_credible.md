@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 8.1 / 10
+- **Overall score:** 8.5 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-001` ×5; `qe-writing-005` ×8; `qe-writing-004` ×2, +4 more. |
-| Math         | 7.5/10 | `qe-math-002` ×2. |
+| Math         | 10/10 | no mechanical violations detected. |
 | Code         | 8.5/10 | `qe-code-001` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 9.5/10 | `qe-fig-001` ×1. |
@@ -27,7 +27,6 @@
 _None found._
 
 ### High severity
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 2. *Lines:* 568. *Example:* apostrophe transpose `Z'`.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 5. *Lines:* 459, 612, 725, 792, 797. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 8. *Lines:* 170, 328, 330, 339, 385, 429, 561, 679. *Example:* the two uses are exactly inverted throughout this lecture. Every term is defined in *italic* where the rule asks for bold - *value of money* (170), *government policy* / *price system* / *allocation* (330-332), *competitive equilibrium* (339), *credible* (385), *sustainable plan* (429), *outer hyperplane approximation algorithm* (679), and earlier *Ramsey planner* (43), *sustainable plan* (53), *credible public policy* (54), *sustainable* (78-79) - while bold is used for the block labels that should be `{prf:definition}` / `{prf:proposition}` directives instead: **Definition:** (328, 336), **A credible government policy with a recursive representation** (349), **Proposition:** (561, 566), **Step 1**-**Step 4** (693, 695, 725, 771).
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 21. *Lines:* 38, 41, 43, 60, 69, 91, 93, 103, 134, 215, …. *Example:* 2 spaces.

@@ -378,6 +378,21 @@ NOT_A_PRODUCT = (
 # A decorated group whose closing brace can carry a transpose: \hat{X}^\top etc.
 DECORATED = r"\\(?:hat|tilde|bar|vec|widehat|widetilde|mathbf|boldsymbol|check|dot)\{[^{}]*\}"
 
+# ``\begin{...}``, ``\left`` and the ``\big`` family open a group, so a factor really does
+# follow them — ``\end{bmatrix}' \begin{bmatrix}`` is a transpose. Their closing
+# counterparts do not, and are named explicitly.
+NOT_A_PRODUCT_PRIME = "|".join(
+    [t for t in NOT_A_PRODUCT.split("|")
+     if t not in {"begin", "left", "big", "Big", "bigg", "Bigg"}]
+    + ["bigr", "Bigr", "biggr", "Biggr", "bigm", "Bigm"])
+# A prime on a closing delimiter: ``(A+B)'``, ``\end{bmatrix}'``, ``[0,1,0,0]'``.
+DELIM_PRIME = re.compile(r"(?:\)|\}|\])'(?!')")
+# A prime on the repeat of the symbol just before it: ``CC'``, ``U_t U_t'``.
+REPEATED_PRIME = re.compile(r"(?<![A-Za-z0-9\\])([A-Za-z])(?:_\{[^}]*\}|_[A-Za-z0-9])?"
+                            r"\s*\1(?:_\{[^}]*\}|_[A-Za-z0-9])?'(?!')")
+# The factor a transpose is juxtaposed with: ``x_t' R x_t``, ``B'\lambda``.
+FOLLOWING_FACTOR = re.compile(r"\s*(?:[A-Za-z\[]|\\(?!(?:" + NOT_A_PRODUCT_PRIME + r")\b)[A-Za-z]+)")
+
 
 def check_math_002(doc: Doc):
     """Transpose must be ``\\top``, not ``\'``, ``^T`` or ``\\prime``."""
@@ -388,7 +403,16 @@ def check_math_002(doc: Doc):
     prime = re.compile(
         r"(?:[A-Z](?:_\{[^}]*\}|_[A-Za-z0-9])?"          # A, A_t, A_{t+1}
         r"|[A-Za-z](?:_\{[^}]*\}|_[A-Za-z0-9])"          # x_t, u_{t+1}
-        r"|\)|\}|\\top)'(?!'|\s*\()")
+        r"|\}|\\top)'(?!'|\s*\()")
+    # A closing parenthesis is a transpose whatever follows it: ``(A - B)'(C - D)`` is a
+    # quadratic form, not a derivative, so the argument guard does not apply to it. This
+    # is the same "the base decides" split ``lprime`` uses.
+    prime_paren = re.compile(r"\)'(?!')")
+    # The one exception: a parenthesised *function name* — ``(v^*)'(x)``, ``(p^*)'(s)`` —
+    # is a derivative, so those keep the argument guard. Six sites corpus-wide.
+    fn_paren = re.compile(r"\(\s*\\?[A-Za-z][A-Za-z0-9]*"
+                          r"(?:\^\{?\*\}?|_\{[^}]*\}|_[A-Za-z0-9])*\s*(\)')"
+                          r"(?=\s*(?:\(|\\left\s*\())")
     # Lowercase vectors juxtaposed with another symbol: c'x, b'y.
     prime_vec = re.compile(r"(?<![A-Za-z0-9\\])([a-z])'(?!')"
                            r"(?=\s*(?:[A-Za-z]|\\(?!(?:" + NOT_A_PRODUCT + r")\b)[A-Za-z]+))")
@@ -422,15 +446,56 @@ def check_math_002(doc: Doc):
         + r"(?<![A-Za-z0-9\\])[a-z](?:_\{[^}]*\}|_[A-Za-z0-9])?"
         + PRIME_SUP
         + r"(?!\s*(?:\(|\\left\s*\())")
-    for no, src in _math_spans(doc):
-        for m in prime.finditer(src):
-            hits.append(Hit("qe-math-002", no, f"apostrophe transpose `{m.group(0)}`"))
-        for m in prime_vec.finditer(src):
-            hits.append(Hit("qe-math-002", no, f"apostrophe transpose `{m.group(0)}`"))
+    # ``\prime`` spelled as a bare apostrophe *inside* the superscript group: ``C^{'}``,
+    # ``U_a^{'}``, ``(A^{o'})``. No branch above reaches these — the character before the
+    # ``'`` is ``{`` or a bare superscript letter, and DECORATED covers only \hat/\bar
+    # commands. Unguarded the shape is 86 % false here (``A^{'}`` is an event complement in
+    # util_rand_resp, ``P^{n'}`` indexes a second agent), so it carries the same guards the
+    # other branches use: juxtaposition with a following factor, and for a lowercase base a
+    # following ``(`` is an argument. ``^{''}`` never matches, so second derivatives stay out.
+    SUP_PRIME = r"\^\{[A-Za-z0-9]{0,2}'\}"
+    SUB = r"(?:_\{[^{}]*\}|_[A-Za-z0-9])?"
+    FACTOR = r"(?=\s*(?:[A-Za-z(\[]|\\(?!(?:" + NOT_A_PRODUCT + r")\b)[A-Za-z]+))"
+    FACTOR_NOARG = r"(?=\s*(?:[A-Za-z\[]|\\(?!(?:" + NOT_A_PRODUCT + r")\b)[A-Za-z]+))"
+    sup_prime = re.compile(
+        r"(?:\\[A-Za-z]+|(?<![A-Za-z0-9\\])[A-Z]|\)|\}|\])" + SUB + SUP_PRIME + FACTOR
+        + r"|"
+        + r"(?<![A-Za-z0-9\\])[a-z]" + SUB + SUP_PRIME + FACTOR_NOARG
+        + r"|"
+        + r"(?:\\[A-Za-z]+|(?<![A-Za-z0-9\\])[A-Z])" + SUB + SUP_PRIME + r"(?=\)\s*\^)")
+    # A bare apostrophe is ambiguous in this corpus: a transpose in the LQ lectures, a
+    # *next-period state* in the dynamic-programming ones — ``arellano`` says so outright
+    # at line 147, "a prime denotes a next period value". Three forms cannot be anything
+    # but a transpose:
+    #   * a prime on a closing delimiter — ``(A+B)'``, ``\end{bmatrix}'``, ``[0,1]'``;
+    #   * a prime juxtaposed with the factor that follows it — ``x_t' R x_t``;
+    #   * a prime on the repeat of the symbol before it — ``CC'``, ``U_t U_t'``.
+    # A lecture writing any of them uses the apostrophe as a transpose, so the rest of its
+    # apostrophes count too. A lecture writing none of them uses it for a continuation
+    # state, and none of its apostrophes are transposes. The patterns themselves are not
+    # narrowed; only the two bare-apostrophe branches are gated.
+    spans = list(_math_spans(doc))
+    evident = any(
+        DELIM_PRIME.search(src) or REPEATED_PRIME.search(src)
+        or any(FOLLOWING_FACTOR.match(src, m.end()) for m in prime.finditer(src))
+        for _, src in spans)
+    for no, src in spans:
+        if evident:
+            for m in prime.finditer(src):
+                hits.append(Hit("qe-math-002", no, f"apostrophe transpose `{m.group(0)}`"))
+            for m in prime_vec.finditer(src):
+                hits.append(Hit("qe-math-002", no, f"apostrophe transpose `{m.group(0)}`"))
+            deriv = {m.start(1) for m in fn_paren.finditer(src)}
+            for m in prime_paren.finditer(src):
+                if m.start() in deriv:
+                    continue
+                hits.append(Hit("qe-math-002", no, f"apostrophe transpose `{m.group(0)}`"))
         for m in supT.finditer(src):
             hits.append(Hit("qe-math-002", no, f"`^T` transpose in `{m.group(0)}`"))
         for m in lprime.finditer(src):
             hits.append(Hit("qe-math-002", no, r"\prime transpose"))
+        for m in sup_prime.finditer(src):
+            hits.append(Hit("qe-math-002", no, f"apostrophe transpose `{m.group(0)}`"))
     return hits
 
 
