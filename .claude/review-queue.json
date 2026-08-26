@@ -1,18 +1,4 @@
 {
- "lecture-python-advanced.myst": [
-  "muth_kalman",
-  "estspec",
-  "matsuyama",
-  "troubleshooting",
-  "mcmc",
-  "rosen_schooling_model",
-  "un_insure",
-  "hansen_jagannathan_1991",
-  "supply_demand_var",
-  "lucas_model",
-  "status",
-  "zreferences"
- ],
  "lecture-python.myst": [
   "navy_captain",
   "prob_matrix",
@@ -38,11 +24,11 @@
   "svd_intro",
   "var_subsets",
   "likelihood_ratio_process_2",
-  "lqcontrol",
   "mle",
   "odu",
   "phillips_lost_conquest",
   "wald_friedman",
+  "lqcontrol",
   "pandas_panel",
   "troubleshooting",
   "measurement_models",
@@ -60,11 +46,11 @@
   "phillips_two_stories",
   "pricing_information",
   "re_with_feedback",
-  "rational_expectations",
   "mccall_q",
   "mccall_risk",
   "os_numerical",
   "phillips_learning",
+  "rational_expectations",
   "sir_model",
   "wealth_dynamics",
   "ls_learning",
@@ -142,6 +128,10 @@
   "os_egm",
   "os_egm_jax",
   "short_path",
+  "status",
+  "zreferences"
+ ],
+ "lecture-python-advanced.myst": [
   "status",
   "zreferences"
  ],
