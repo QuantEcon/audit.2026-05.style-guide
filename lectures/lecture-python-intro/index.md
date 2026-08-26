@@ -7,7 +7,7 @@ Style audit of the **lecture-python-intro** series.
 - **Corpus snapshot:** `a12d17c0ef`
 - **Lectures audited:** 56
 - **Average overall score:** 8.1 / 10
-- **Average per-category scores:** writing 5.2, math 8.6, code 7.3, figures 6.6, references 9.3, links 9.7, admon 10.0
+- **Average per-category scores:** writing 5.2, math 8.6, code 7.3, figures 6.5, references 9.3, links 9.7, admon 10.0
 - **JAX:** out of scope — the `qe-jax-*` rules target `lecture-jax`.
 - **Judgment-review coverage:** all lectures reviewed.
 <!-- /qe:series-meta -->
@@ -44,7 +44,7 @@ Ranked by how many of the series' lectures each rule reaches.
 <!-- qe:series-systemic -->
 1. **`qe-fig-005`** — Descriptive figure names for cross-referencing — **46 / 56** lectures, 174 occurrences.
 2. **`qe-writing-008`** — Remove excessive whitespace between words — **39 / 56** lectures, 709 occurrences.
-3. **`qe-fig-008`** — Use lw=2 for line charts — **34 / 56** lectures, 210 occurrences.
+3. **`qe-fig-008`** — Use lw=2 for line charts — **35 / 56** lectures, 217 occurrences.
 4. **`qe-fig-001`** — Do not set figure size unless necessary — **30 / 56** lectures, 91 occurrences.
 5. **`qe-writing-001`** — Use one sentence per paragraph — **30 / 56** lectures, 54 occurrences.
 6. **`qe-writing-004`** — Avoid unnecessary capitalization in narrative text — **18 / 56** lectures, 40 occurrences.
@@ -109,13 +109,13 @@ that lecture. Click a lecture for its full report.
 | 9 | [time_series_with_matrices](time_series_with_matrices.md) | 3 | 6 | 7.5 | 7 | 10 | 8 | 10 | **7.4** | HIGH |
 | 10 | [business_cycle](business_cycle.md) | 6 | — | 7 | 7 | — | 10 | — | **7.5** | LOW |
 | 11 | [bivariate_dist](bivariate_dist.md) | 6.5 | 5.5 | 6 | 5 | 10 | 10 | 10 | **7.6** | LOW |
-| 12 | [greek_square](greek_square.md) | 4 | 7.5 | 7 | 6.5 | 9 | 10 | 10 | **7.7** | HIGH |
-| 13 | [monte_carlo](monte_carlo.md) | 5.5 | 5 | 7.5 | 8 | — | 10 | 10 | **7.7** | LOW |
-| 14 | [inequality](inequality.md) | 4 | 9 | 6.5 | 5 | 10 | 10 | 10 | **7.8** | HIGH |
-| 15 | [intro_supply_demand](intro_supply_demand.md) | 4.5 | 10 | 7.5 | 6.5 | — | 8 | 10 | **7.8** | LOW |
-| 16 | [lln_clt](lln_clt.md) | 8 | 4.5 | 7.5 | 8 | — | 9 | 10 | **7.8** | LOW |
-| 17 | [long_run_growth](long_run_growth.md) | 5 | — | 7.5 | 6 | 8.5 | 10 | 10 | **7.8** | LOW |
-| 18 | [mobility](mobility.md) | 4.5 | 7 | 8.5 | 7.5 | 7 | 10 | 10 | **7.8** | LOW |
+| 12 | [mobility](mobility.md) | 4.5 | 6 | 8.5 | 7.5 | 7 | 10 | 10 | **7.6** | LOW |
+| 13 | [greek_square](greek_square.md) | 4 | 7.5 | 7 | 6.5 | 9 | 10 | 10 | **7.7** | HIGH |
+| 14 | [monte_carlo](monte_carlo.md) | 5.5 | 5 | 7.5 | 8 | — | 10 | 10 | **7.7** | LOW |
+| 15 | [inequality](inequality.md) | 4 | 9 | 6.5 | 5 | 10 | 10 | 10 | **7.8** | HIGH |
+| 16 | [intro_supply_demand](intro_supply_demand.md) | 4.5 | 10 | 7.5 | 6.5 | — | 8 | 10 | **7.8** | LOW |
+| 17 | [lln_clt](lln_clt.md) | 8 | 4.5 | 7.5 | 8 | — | 9 | 10 | **7.8** | LOW |
+| 18 | [long_run_growth](long_run_growth.md) | 5 | — | 7.5 | 6 | 8.5 | 10 | 10 | **7.8** | LOW |
 | 19 | [simple_linear_regression](simple_linear_regression.md) | 4.5 | 8.5 | 7.5 | 6.5 | — | 10 | 9.5 | **7.8** | LOW |
 | 20 | [solow](solow.md) | 4 | 8 | 7 | 8 | — | 10 | 10 | **7.8** | HIGH |
 | 21 | [tax_smooth](tax_smooth.md) | 3 | 9.5 | 6 | 6 | 10 | 10 | 10 | **7.8** | HIGH |
@@ -126,10 +126,10 @@ that lecture. Click a lecture for its full report.
 | 26 | [lake_model](lake_model.md) | 4.5 | 10 | 7.5 | 5.5 | — | 10 | 10 | **7.9** | LOW |
 | 27 | [money_inflation_nonlinear](money_inflation_nonlinear.md) | 3 | 9.5 | 6.5 | 6.5 | 10 | 10 | 10 | **7.9** | HIGH |
 | 28 | [olg](olg.md) | 4.5 | 9.5 | 7 | 6.5 | 10 | 8 | 10 | **7.9** | LOW |
-| 29 | [unpleasant](unpleasant.md) | 3.5 | 8 | 7.5 | 6 | 10 | 10 | 10 | **7.9** | HIGH |
-| 30 | [lp_intro](lp_intro.md) | 3.5 | 6.5 | 7.5 | 8.5 | 10 | 10 | 10 | **8.0** | HIGH |
-| 31 | [msy_fishery](msy_fishery.md) | 3.5 | 10 | 6 | 6.5 | 10 | 10 | 10 | **8.0** | HIGH |
-| 32 | [prob_dist](prob_dist.md) | 5 | 7 | 7 | 9 | — | 10 | 10 | **8.0** | LOW |
+| 29 | [prob_dist](prob_dist.md) | 5 | 7 | 7 | 8.5 | — | 10 | 10 | **7.9** | LOW |
+| 30 | [unpleasant](unpleasant.md) | 3.5 | 8 | 7.5 | 6 | 10 | 10 | 10 | **7.9** | HIGH |
+| 31 | [lp_intro](lp_intro.md) | 3.5 | 6.5 | 7.5 | 8.5 | 10 | 10 | 10 | **8.0** | HIGH |
+| 32 | [msy_fishery](msy_fishery.md) | 3.5 | 10 | 6 | 6.5 | 10 | 10 | 10 | **8.0** | HIGH |
 | 33 | [supply_demand_multiple_goods](supply_demand_multiple_goods.md) | 4.5 | 9.5 | 6.5 | 7.5 | — | 10 | 10 | **8.0** | LOW |
 | 34 | [cons_smooth](cons_smooth.md) | 4.5 | 10 | 7.5 | 6 | 9 | 10 | 10 | **8.1** | LOW |
 | 35 | [cagan_adaptive](cagan_adaptive.md) | 5 | 10 | 7 | 6.5 | 9 | 10 | 10 | **8.2** | LOW |

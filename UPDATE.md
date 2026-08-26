@@ -94,7 +94,8 @@ python3 tools/qestyle_scan.py --corpus $CORPUS --out lectures/data \
 
 This pins one commit per series into `lectures/data/snapshot.json`, writes
 per-lecture per-rule counts to `violations.csv`, corpus and per-series reach to
-`rule_reach.csv` / `series_rule_reach.csv`, rule titles to `rule_titles.csv`, and
+`rule_reach.csv` / `series_rule_reach.csv`, rule titles to `rule_titles.csv`, the
+spread of explicit `plot()` line widths to `fig_line_widths.csv`, and
 appends this pass to `rule_reach_history.csv`. `--evidence` dumps per-lecture JSON
 (counts, line numbers, sample matches) for the review layer to read.
 
@@ -207,6 +208,7 @@ so `matplotlib`/`numpy` must stay in `requirements.txt`.
 | **Report ↔ CSV agreement** | A per-lecture report citing a count that `violations.csv` does not have — i.e. a reviewer edited a mechanical number. |
 | **Conventions** | Legacy `W#`/`M#` or `qe-*-A#` rule IDs; a proposed rule cited without its **(proposed)** tag; a `# Style Audit —` title prefix; a `Spec version` line; two-pass or "carry-forward" narrative. |
 | **Snapshot** | Reports whose pinned snapshot does not match `snapshot.json`. |
+| **Line-width claims** | The figures behind the `qe-fig-008` rule-scope question, in `appendix.md` and in `contributions/issues/07-…`, held to `fig_line_widths.csv`. `qe-fig-008` only asks whether a width is set, so the spread of values is separate evidence — and it moves whenever the check's exemptions move. A first hand-typed pass had five of these numbers wrong and this check caught all five. |
 | **Narrative claims** | A hand-written figure the data has since moved: the `intro.md` trend row (`A% → B%`), any counts table whose header names *Lectures* and *Occurrences*, and the trend sentence's own tallies (*N rules measurable in both snapshots*, *N improved*, *N held level*, *N got worse*). The report↔CSV check does not reach any of these, and a rule fix moves reach without touching the prose quoting it — which happened twice in the 2026-08 pass before the sentence tallies were covered. |
 
 Run it after any agent pass. It exits non-zero on any failure.
@@ -280,6 +282,7 @@ audit.2026-05.style-guide/
     │   ├── rule_reach.csv        corpus-wide reach per rule
     │   ├── series_rule_reach.csv per-series reach per rule
     │   ├── rule_titles.csv       rule id → title
+    │   ├── fig_line_widths.csv   every explicit plot() lw=, by value and by class
     │   ├── scores.csv            per-lecture category scores, overall, priority
     │   ├── series_summary.csv    per-series averages + priority counts
     │   ├── history.csv           per-period series scores

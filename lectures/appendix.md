@@ -29,7 +29,7 @@ they carry no mechanical count.
 
 | Proposed ID | Convention | Lectures | Occurrences |
 |-------------|-----------|---------:|------------:|
-| `qe-math-010` | `\mathbb{P}` / `\mathbb{E}` / `\mathbb{V}` (with braces) for probability, expectation, variance | **118 / 348** | 1,414 |
+| `qe-math-010` | `\mathbb{P}` / `\mathbb{E}` / `\mathbb{V}` (with braces) for probability, expectation, variance | **124 / 348** | 1,489 |
 | `qe-writing-009` | Write "IID", not "i.i.d." / "iid" | 30 | 61 |
 | `qe-math-011` | Plain letters for distribution names (`N`, not `\mathcal{N}`) | 34 | 134 |
 | `qe-math-013` | Reference equations via `` {eq}`label` `` | 6 | 6 |

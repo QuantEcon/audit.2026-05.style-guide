@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-001` ×10; `qe-writing-005` ×14; `qe-writing-003` ×10, +4 more. |
-| Math         | 3/10  | `qe-math-002` ×38; `qe-math-010` (proposed) ×14; `qe-math-011` (proposed) ×16, +2 more. |
+| Math         | 3/10  | `qe-math-002` ×38; `qe-math-010` (proposed) ×18; `qe-math-011` (proposed) ×16, +2 more. |
 | Code         | 7/10  | `qe-code-001` ×10. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 4/10  | `qe-fig-003` ×5; `qe-fig-006` ×7; `qe-fig-005` ×4, +2 more. |
@@ -33,7 +33,7 @@ _None found._
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 7. *Lines:* 212, 326, 673, 674, 728, 729, 1403. *Example:* axis label `Assets`.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 38. *Lines:* 121, 130, 244, 252, 527, 555, 556, 583, 584, 592, …. *Example:* apostrophe transpose `w'`.
 - **[qe-math-004]** — Do not use bold face for matrices or vectors. *Count:* 24. *Lines:* 97, 104, 110, 121, 153, 261, 280, 292, 341, 357, …. *Example:* {\bf.
-- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 14. *Lines:* 759, 760, 762, 778, 821, 1025, 1035, 1111, 1117, 1124, …. *Example:* missing braces: `\mathbb E`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 18. *Lines:* 759, 760, 762, 778, 821, 1025, 1035, 1111, 1117, 1124, …. *Example:* missing braces: `\mathbb E`.
 - **[qe-math-011 (proposed)]** — Distribution names in plain letters, not \mathcal / \mathbb. *Count:* 16. *Lines:* 104, 113, 121, 341, 357, 455, 463, 495, 501, 512, …. *Example:* decorated distribution `{\mathcal N}`.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 10. *Lines:* 133, 569, 754, 847, 905, 954, 1127, 1275, 1333, 1414. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 5. *Lines:* 49, 218, 981, 1205, 1326. *Example:* 48-52 carries two errors in one sentence - "means are more difficult to estimate that covariances" and "Black and Litterman, on the one hand, an robust control theorists, on the other" - and 218 opens a paragraph with "Black and Litterman's responded to this situation". 978-985 runs two statements together with no break: "Here the penalty parameter $\theta \in [\underline \theta, +\infty]$ is a robustness parameter when it is $+\infty$, there is no scope for the minimizing agent to distort the distribution". Three inline maths are glued to the following word so the prose runs into the symbol: `$\{X_i\}$is ergodic` (1103), `$\mu$is the unconditional mean` (1200), and `$\mathcal T(h) \equiv \{nh : n \in \mathbb Z \}$with$h>0$` (1205), which also loses the spaces around "with"; 153 has `vector$(\vec r - r_f {\bf 1})$`. And the same display is repeated verbatim eleven lines apart at 1326-1328 and 1337-1339. "Euclidiean" at 505.

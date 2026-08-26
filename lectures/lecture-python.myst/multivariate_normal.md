@@ -16,7 +16,7 @@
 | Math         | 3/10  | `qe-math-010` (proposed) ×31; `qe-math-002` ×27; `qe-math-003` ×38, +3 more. |
 | Code         | 7.5/10 | `qe-code-001` ×8. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 5.5/10 | `qe-fig-005` ×8; `qe-fig-007` ×2; `qe-fig-008` ×14, +1 more. |
+| Figures      | 5.5/10 | `qe-fig-005` ×8; `qe-fig-007` ×2; `qe-fig-008` ×15, +1 more. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -29,7 +29,7 @@ _None found._
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 8. *Lines:* 111, 292, 346, 369, 393, 1301, 2714, 2811. *Example:* exponentiation is written with spaces around the operator at 111, 114, 1220, 1222, 1225, 1564, 1624, 2079, 2780 and 2792 (`np.linalg.det(Σ) ** (-1/2)`, `σu ** 2`, `a ** np.arange(...)`) - the rule names `a**b` explicitly - while 2496 writes `ρ**2` correctly, so the file is inconsistent with itself. 346, 347, 353 and 354 put a space between the name and the call, `print ("a1 = ", a1)` (E211), where 406-416 write the same calls correctly. Eight inline comments have a single space before the `#` instead of two (292, 436, 449, 476, 524, 720, 1065, 1328). E231 misses after commas at 296 (`multi_normal.βs[0],multi_normal.βs[1]`), 369 (`np.linspace(-4,4,100)`), 384 (`figsize=(12,12)`) and 2445 (`Σ11_hat[0,0]`); 285 puts a space *before* one, `[.5 ,1.]` (E203); 393-396 put spaces around keyword `=` (`loc = 'top'`, `label = "$z_1$ on $z_2$"`, E251) and 378 has a double space before `=`. 1301 is `print(" E [ X | Y] = ", )` - a trailing comma with no argument, printing a label followed by nothing. 2714, 2716-2717, 2785-2786 and 2802 align `=` and `]` with runs of spaces (`Σt     = Σ_hat_seq[t]`, `[[Σt,          Σt  @ G_ex.T          ],`, E221/E202); 2811-2816 and 2621-2626 indent continuations to a flat 8 spaces rather than under the opening bracket (E128) and leave trailing whitespace on 2621, 2623, 2625, 2811, 2813 and 2815; and 1099 and 2454 run past 79 characters. Finally 1525-1527, 1545-1557 and 1568 spell alpha with U+1D6FC MATHEMATICAL ITALIC SMALL ALPHA (`𝛼0`, `𝛼1`, `𝛼2`) and 2187-2196 and 2287 spell lambda with U+1D706 (`𝜆_tilde`), while 2783-2788 in the same file uses ordinary U+03BB (`λ_fa`) - two visually near-identical characters for one Greek letter, surviving only because Python NFKC-normalises identifiers.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 8. *Lines:* 778, 1684, 2232, 2377, 2526, 2594, 2677, 2769. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 14. *Lines:* 395, 396, 783, 784, 785, 1685, 1686, 1687, 1688, 2539, …. *Example:* plot() without lw=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 15. *Lines:* 395, 396, 783, 784, 785, 1685, 1686, 1687, 1688, 2539, …. *Example:* plot() without lw=.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 27. *Lines:* 1733, 1734, 1743, 1745, 1758, 1786, 1789, 1795, 1801, 1813, …. *Example:* apostrophe transpose `G'`.
 - **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 38. *Lines:* 121, 130, 133, 274, 277, 539, 607, 620, 626, 632, …. *Example:* array used as matrix.
 - **[qe-math-004]** — Do not use bold face for matrices or vectors. *Count:* 5. *Lines:* 606, 650, 1504, 1505. *Example:* \boldsymbol.

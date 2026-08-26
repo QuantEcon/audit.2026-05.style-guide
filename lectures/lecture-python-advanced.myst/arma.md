@@ -16,7 +16,7 @@
 | Math         | 7.5/10 | `qe-math-010` (proposed) ×3. |
 | Code         | 8.5/10 | `qe-code-001` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6.5/10 | `qe-fig-005` ×4; `qe-fig-003` ×1; `qe-fig-008` ×6, +1 more. |
+| Figures      | 6.5/10 | `qe-fig-005` ×4; `qe-fig-003` ×1; `qe-fig-008` ×7, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 8/10  | `qe-link-002` ×2. |
 | Admonitions  | N/A   | no admonitions, exercises or solutions. |
@@ -28,7 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 5. *Lines:* 236, 474, 523, 563, 757. *Example:* figsize=.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 6. *Lines:* 243, 528, 535, 568, 575, 746. *Example:* plot() without lw=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 7. *Lines:* 243, 528, 535, 568, 575, 728, 746. *Example:* plot() without lw=.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 3. *Lines:* 118, 119, 133. *Example:* missing braces: `\mathbb E`.
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 8. *Lines:* 107, 116, 121, 131, 138, 287, 321, 341. *Example:* the two uses are inverted lecture-wide. Every term is defined in italic where the rule asks for bold: *stationary* (107), *covariance stationary* (116), *autocovariance function* (121), *white noise process* (131), *general linear processes* (143), *linear filter* (157), *autoregressive moving average process* (273), *lag operator* (285), *impulse response function* (331), *spectral density* (341), *real part* / *imaginary part* (351), *modulus* (353), *imaginary unit* (359), *inverse Fourier transform* (600), *Fourier coefficients* (642). The three uses of bold, meanwhile, are emphasis - **building blocks** (138) and **always assume** (321) - or a block label, `**Def.**` at 287, which wants a `{prf:definition}` directive.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 19. *Lines:* 105, 159, 291, 292, 313, 369, 380, 389, 402, 415, …. *Example:* 2 spaces.

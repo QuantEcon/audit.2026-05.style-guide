@@ -668,9 +668,44 @@ A role's target is a *label*: `[^`\n\s$]{1,80}`. Bounding it that way makes the 
 match impossible, and requiring at least two characters in the generic role name keeps
 `$x_{it}$` out of reach as well. The regression is in the test suite as the real string.
 
-**Build warnings: 6 → 2.** The two that remain are `cross_product_trick`'s malformed
-`` {eq}`eq:Kalman102} `` in both series' copies — a corpus defect the report quotes and
-already reports upstream.
+**Build warnings: 6 → 0.** Bounding the target also caught the last two, `cross_product_trick`'s malformed `` {eq}`eq:Kalman102} `` in both series' copies: the stray `}` is not whitespace, so the label pattern matches it and the whole thing is rendered literally. That corpus defect is still real and still reported upstream — the report simply no longer asks Sphinx to resolve it.
+
+### Three doubts that closed out `lecture-python.myst`, and three rejected alternatives
+
+The batch that finished the largest series filed three, each with a before/after and each with
+the *wider* version already measured and rejected. That is the shape a useful doubt has.
+
+**`qe-math-010` matched the operator spellings case-sensitively**, so `\operatorname{cov}`,
+`{\rm var}`, `\text{cov}` and `\mathrm{corr}` were all invisible, and `Cor` never saw
+`\mathrm{Corr}`. **1414 → 1489, reach 118 → 124**: 75 added across 11 lectures, 0 removed.
+Several sit on the same line as the correct form — `phillips_self_confirming` 180 writes
+`\frac{\operatorname{cov}(U_t, y_t)}{\mathbb{V}[U_t]}` — which is the clearest evidence
+there is. **`E` stays case-sensitive**, tested and rejected: `[Ee]` adds exactly two hits, both
+`\mathrm{e}` for Euler's number in `solow`.
+
+**`qe-fig-008` only ever looked at `.plot(`.** `semilogx`, `semilogy`, `loglog` and `step` draw
+line charts too, and the module's own `PLOT_CALL` already counts them as figure-producing, so
+the rule was inconsistent with its own neighbour. **1184 → 1194**, 10 added across 7 lectures,
+0 removed — `arma`'s spectral density, `heavy_tails`'s two log-log tails, three `prob_dist`
+CDF steps. **`axhline`/`axvline` tested and rejected at +172**: a reference line is
+deliberately thin, which is the same judgment the marker-only exemption makes.
+
+**`qe-ref-001` lost the participial lead to its own clause-end exemption.**
+`Following {cite}`Lucas1978`, we suppose that …` opens with a participial phrase whose object
+*is* the citation, so the author's name has to read as part of the sentence — and the comma
+closing the phrase was cancelling the finding. **282 → 291**, 9 added across 8 lectures, 0
+removed, every one of the form `Following {cite}`X`,`. The general version — dropping the
+exemption for any governing preposition — was measured at **+165 across 86 files** and
+rejected: most of those are source references like "on page 35 of `` {cite}`sargent2002big` ``",
+which is exactly what `contributions/issues/06-ref-001-author-name-citations.md` refers
+upstream rather than deciding. The participle is the case both readings of the rule agree on.
+
+Two more from the same batch, both correctly *not* implemented. Adding `xarray` to `ANACONDA`
+would clear the corpus's single `qe-code-003` hit (32 → 31) and cost the rule its whole
+service, since `xarray` reaches that lecture only as a transitive dependency of `arviz` — the
+one-word lecture-side fix is better. And `qe-math-010` cannot see LaTeX operators inside
+matplotlib label strings (`rational_learning_re` writes a bare `$E_t$` in four of them), which
+is a scope decision about what surface the maths rules cover, not a defect.
 
 ### The build's warnings: 478 down to 23
 

@@ -772,7 +772,12 @@ def check_math_010(doc: Doc):
                r"\s*(?:\\left)?" + THIN + r"\s*(?:\[|\\\{|\())")
     bare_E = re.compile(r"(?<![\\A-Za-z0-9_{])E" + applied)
     # (c) Roman or calligraphic spellings of the same operators.
-    ROMAN = r"(?:Var|Cov|Pr|Prob|E|Cor)"
+    # Case-insensitive for every operator *except* ``E``. The corpus spells them
+    # ``\operatorname{cov}``, ``{\rm var}`` and ``\mathrm{corr}`` as freely as it spells
+    # them capitalised, and a case-sensitive list could see none of those. ``E`` has to stay
+    # case-sensitive: ``\mathrm{e}`` is Euler's number, which ``solow`` writes twice.
+    ROMAN_CI = r"(?:Prob|Corr|Var|Cov|Cor|Pr)"
+    ROMAN = r"(?:(?i:" + ROMAN_CI + r")|E)"
     other = re.compile(r"\\(Pr|Var|Cov|Prob)\b"
                        r"|\\(?:text|textrm|mathrm|operatorname)\s*\{\s*" + ROMAN + r"\s*\}"
                        r"|\{\s*\\rm\s+" + ROMAN + r"\s*\}")
@@ -1482,7 +1487,12 @@ def check_fig_007(doc: Doc):
 # carries ``lw`` into the call.
 LW_BUNDLE = re.compile(r"^[ \t]*([A-Za-z_]\w*)[ \t]*=[ \t]*(?:\{[^}]*|dict\([^)]*)"
                        r"['\"]?(?:lw|linewidth)['\"]?[ \t]*[:=]", re.M)
-PLOT_CALL_RE = re.compile(r"\b(?:ax\d?|axes?\[[^\]]*\]|axs?\[[^\]]*\]|plt|ax)\.plot\s*\(")
+# ``semilogx``, ``semilogy``, ``loglog`` and ``step`` draw line charts too — the module's
+# own ``PLOT_CALL`` already counts them as figure-producing, so ``qe-fig-008`` looking
+# only at ``.plot(`` left those charts unchecked. ``axhline``/``axvline`` stay out: a
+# reference line is deliberately thin, and admitting them adds 172 occurrences that the
+# rule does not mean.
+PLOT_CALL_RE = re.compile(r"\b(?:ax\d?|axes?\[[^\]]*\]|axs?\[[^\]]*\]|plt|ax)\.(?:plot|semilogx|semilogy|loglog|step)\s*\(")
 
 
 def _plot_calls(doc: Doc):
@@ -1725,9 +1735,17 @@ def check_ref_001(doc: Doc):
         for m in NARRATIVE_TRAIL.finditer(s):
             flagged[m.start()] = f"{{cite}} in author position: {m.group(0)[:48].rstrip(chr(96))!r}"
         for m in NARRATIVE_LEAD.finditer(s):
-            # A parenthetical citation at the end of a clause is correct.
+            # A parenthetical citation at the end of a clause is correct — unless the cue
+            # word *governs* it. ``Following {cite}`Lucas1978`, we suppose that …`` opens
+            # with a participial phrase whose object is the citation, so the author's name
+            # has to read as part of the sentence however the rule is settled; the comma
+            # that closes the phrase was cancelling the finding. Kept to the participle:
+            # dropping the exemption for every governing preposition adds 165 occurrences
+            # across 86 files, most of them source references like "on page 35 of
+            # {cite}`sargent2002big`", which the rule's own text does not decide.
             after = s[m.end():]
-            if re.match(r"[^`]*`\s*[.,;:)]", after):
+            governing = re.match(r"\s*following\s", m.group(0), re.IGNORECASE)
+            if not governing and re.match(r"[^`]*`\s*[.,;:)]", after):
                 continue
             # "include {cite}`a` and {cite}`b`." is a list, not an author position;
             # neither is "see {cite}`x`". The cue word can be the lead word the match

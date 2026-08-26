@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 4/10  | `qe-writing-005` ×9; `qe-writing-002` ×8; `qe-writing-001` ×4, +2 more. |
-| Math         | 3/10  | `qe-math-010` (proposed) ×128; `qe-math-011` (proposed) ×24; `qe-math-004` ×6, +1 more. |
+| Math         | 3/10  | `qe-math-010` (proposed) ×141; `qe-math-011` (proposed) ×24; `qe-math-004` ×6, +1 more. |
 | Code         | 8.5/10 | `qe-code-001` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 9/10  | `qe-fig-001` ×9. |
@@ -29,7 +29,7 @@ _None found._
 ### High severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 9. *Lines:* 363, 1182, 1276, 1346, 1453, 1785, 1899, 1951, 2107. *Example:* figsize=.
 - **[qe-math-004]** — Do not use bold face for matrices or vectors. *Count:* 6. *Lines:* 265, 270, 2193, 2195, 2206. *Example:* \mathbf.
-- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 128. *Lines:* 173, 191, 219, 225, 227, 235, 242, 249, 257, 265, …. *Example:* bare expectation `E_t(`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 141. *Lines:* 173, 191, 219, 225, 227, 230, 235, 238, 242, 249, …. *Example:* bare expectation `E_t(`.
 - **[qe-math-011 (proposed)]** — Distribution names in plain letters, not \mathcal / \mathbb. *Count:* 24. *Lines:* 441, 459, 918, 975, 977, 2282, 2590, 2606, 2633, 2647, …. *Example:* decorated distribution `\mathcal{N}`.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 8. *Lines:* 51, 85, 89, 93, 110, 508, 1013, 1924. *Example:* eight sentences run past 34 words, and the long ones stack up in the Overview where the reader has least context: 51-52 (37), 85 (34), 89 (39), 93 (39) and 110 (36) are five of the first twenty prose lines; 508-509 is 38 words listing three citations inside a subordinate clause; 1013 is 43 words that name three value functions in one breath; 1924 is 36.
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 9. *Lines:* 438, 452, 512, 518, 525, 532, 593, 619, 706. *Example:* nine terms are introduced in italic where the rule asks for bold: the two consumption specifications *geometric-random-walk* (438) and *geometric-trend-stationary* (452), the four agent types at 512, 518, 525 and 532 (each italic label heading its own defining bullet list), the *type I recursion* (593), the *risk-sensitive recursion* (619) and the *multiplier* preference ordering at 706 - the last one is definitional in the same sentence ("is defined by") and the same word is correctly bolded at 506, which shows the file knows the convention.

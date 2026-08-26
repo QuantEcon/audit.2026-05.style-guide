@@ -16,7 +16,7 @@
 | Math         | 10/10 | no mechanical violations detected. |
 | Code         | 7.5/10 | `qe-code-001` ×5. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 7/10  | `qe-fig-004` ×4; `qe-fig-005` ×1; `qe-fig-008` ×3. |
+| Figures      | 7/10  | `qe-fig-004` ×4; `qe-fig-005` ×1; `qe-fig-008` ×4. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -33,7 +33,7 @@ _None found._
 
 ### Medium severity
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 4. *Lines:* 457, 557, 715, 741. *Example:* Title Case caption (Amazon).
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 536, 823, 854. *Example:* plot() without lw=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 4. *Lines:* 496, 536, 823, 854. *Example:* plot() without lw=.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 229. *Example:* 4 sentences in one paragraph.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 3. *Lines:* 438, 790, 830. *Example:* 790 restates the heading directly above it: "## Connection to probability distributions" then "Let's discuss the connection between observed distributions and probability distributions." 438 ("So we will have one observation for each month") follows 436, which has just defined the monthly return as the percent change over each month, so the conclusion is already in the premise. 830 hedges into vacuity - "The match between the histogram and the density is not bad but also not very good" - where the lecture has spent its first section building exactly the numbers that would settle it: `scipy.stats.skew(x_amazon)` and `scipy.stats.kurtosis(x_amazon)` are one line each and would let the sentence say how bad and why, which 832 then gestures at instead.
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 2. *Lines:* 82, 620. *Example:* the Sample moments section (82-248) computes skewness and kurtosis for three data sets and shows not one figure. The reader is told that the house prices have "a long right tail --- a small number of houses sell for far more than the typical price" (164-165), that logging makes the skewness "almost exactly zero" (180), and that the age-at-death skewness is "large and *negative*" with "a long tail running down towards zero" (210-213), and the corresponding histograms do not appear until 357, 375 and 393 - 200 lines later, in a section whose stated purpose (316-318) is to show shape. The `{note}` at 215-224 even forward-references figures the reader has not reached ("We will see it below as a spike at the right-hand end of the histograms"). One small histogram beside each triple of numbers would close the gap. Second, the box-plot anatomy is described entirely in prose - the box spans the quartiles, its width is the interquartile range, the line inside is the median, the whiskers reach 1.5 interquartile ranges, points beyond are plotted individually (623-628) - and the figure that follows at 636-650 has five boxes and no annotation, so a reader meeting a box plot for the first time has to map five sentences onto an unlabelled picture.

@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-26
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.7 / 10
+- **Overall score:** 7.2 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 3.5/10 | `qe-writing-005` ×13; `qe-writing-002` ×5; `qe-writing-003` ×2, +2 more. |
-| Math         | 9/10  | `qe-math-013` (proposed) ×1. |
+| Math         | 5.5/10 | `qe-math-010` (proposed) ×5; `qe-math-013` (proposed) ×1. |
 | Code         | 8.5/10 | `qe-code-001` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5.5/10 | `qe-fig-005` ×5; `qe-fig-003` ×3; `qe-fig-008` ×3, +2 more. |
@@ -28,6 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 177, 212, 226, 238, 259. *Example:* {figure} without :name:.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 5. *Lines:* 337, 481, 483, 487, 494. *Example:* non-blackboard `{\rm var}`.
 - **[qe-ref-001]** — Use correct citation style. *Count:* 5. *Lines:* 40, 60, 231, 301, 398. *Example:* `` {cite} `` in narrative flow: 'of `` {cite} ``'.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 5. *Lines:* 54, 379, 521, 545, 659. *Example:* line 54 reads 'comes as close as possible to providing full spanning in a precise a sense defined by BEGS'; line 379 opens 'Therefor,' for 'Therefore'; line 521 says the formula 'supports full fiscal insurance via fluctuating interest parameters' where 'interest rates' is meant; line 545's comment reads '# Initial guess of τ (to displays calcs along the way)'. Line 659 states 'Note that 0.2 is the initial value for $\tau$ in the root-finding algorithm' immediately after line 652 passes `.1` - and the same routine is called with `.5` at 667, `0.05` at 699 and `.5` at 679, each time under a comment saying the result is 'Very sensitive to initial value', so the one number the reader is told is the one number that is wrong.
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 13. *Lines:* 54, 60, 97, 232, 299, 379, 383, 389, 390, 394, …. *Example:* bold carrying emphasis: **as close as possible** (54), **three** (97), **before** (232), **effective** twice at 299 where the terms being defined are 'effective government deficit' and 'effective government debt' - so the bold lands on the adjective and not the term, **in advance** (379), **confirms** (383), **first** / **then** (389, 390), **without** (394), **minus** / **plus** (423), **surplus** (454), **constant** (519). Line 60 uses '**Warning:**' as a bold label inside a `{note}`, where the admonition's own title would do. The real definitional bolds - **fiscal risks** (311), **fiscal-risk minimization problem** (384), **effective return** / **effective government deficit** (443-444) - are the minority.

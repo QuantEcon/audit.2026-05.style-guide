@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 7.8 / 10
+- **Overall score:** 7.7 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -17,7 +17,7 @@
 | Code         | 8.5/10 | `qe-code-001` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8/10  | `qe-fig-005` ×1; `qe-fig-001` ×4; `qe-fig-008` ×1. |
-| References   | 10/10 | no mechanical violations detected. |
+| References   | 9/10  | `qe-ref-001` ×1. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | N/A   | no admonitions, exercises or solutions. |
 
@@ -43,6 +43,7 @@ _None found._
 ### Low severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 51. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 317. *Example:* plot() without lw=.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 431. *Example:* `` {cite} `` in narrative flow: 'Following `` {cite} ``'.
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 1. *Lines:* 374. *Example:* the whole of "Predictive Distributions of Path Properties" (357-433) defines five path statistics - $Z_t$, $W_t$, $M_t$, $T_t$, $P_t$ - purely as chains of inequalities between consecutive $Y$ values, i.e. purely as *shapes* of a sample path, and there is no figure; a single simulated path with a recession, a severe recession and a positive and a negative turn marked on it would make all five definitions readable at a glance, and the lecture already has the machinery to draw it.
 
 

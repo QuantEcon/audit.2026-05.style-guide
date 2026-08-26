@@ -13,11 +13,11 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-006` ×18; `qe-writing-005` ×2; `qe-writing-003` ×2, +4 more. |
-| Math         | 4.5/10 | `qe-math-010` (proposed) ×19; `qe-math-002` ×1. |
+| Math         | 4.5/10 | `qe-math-010` (proposed) ×23; `qe-math-002` ×1. |
 | Code         | 7.5/10 | `qe-code-001` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6.5/10 | `qe-fig-005` ×6; `qe-fig-003` ×1; `qe-fig-008` ×3. |
-| References   | 9/10  | `qe-ref-001` ×1. |
+| References   | 8.5/10 | `qe-ref-001` ×2. |
 | Links        | 8/10  | `qe-link-002` ×2. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
@@ -30,7 +30,7 @@ _None found._
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 6. *Lines:* 320, 411, 730, 842, 1095, 1099. *Example:* `M = P * ap.g(y)**(- γ)` puts a space between the unary minus and its operand at 730, 842 and 1095, where the parallel line at 601 writes `**(1 - γ)` cleanly; line 320 has one space before an inline comment where PEP8 asks for two; line 411 has two spaces after the comma in the `assert`; and 1099-1100 leave two blank lines inside a function body, which PEP8 reserves for top-level separation.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 6. *Lines:* 313, 403, 617, 863, 1027, 1113. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 1. *Lines:* 377. *Example:* apostrophe transpose `)'`.
-- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 19. *Lines:* 110, 115, 117, 133, 155, 163, 170, 188, 292, 346, …. *Example:* missing braces: `\mathbb E`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 23. *Lines:* 110, 115, 117, 133, 150, 155, 163, 169, 170, 188, …. *Example:* missing braces: `\mathbb E`.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 18. *Lines:* 94, 119, 148, 177, 193, 206, 237, 270, 333, 433, …. *Example:* H3 Title Case: 'Risk-Neutral Pricing' (Risk-Neutral, Pricing).
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 32. *Lines:* 56, 136, 140, 166, 168, 171, 202, 204, 341, 385, …. *Example:* 2 spaces.
 
@@ -38,13 +38,13 @@ _None found._
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 629. *Example:* .set_title.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 1029, 1030, 1117. *Example:* plot() without lw=.
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 2. *Lines:* 175, 472. *Example:* raw link to python-advanced.quantecon.org.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 127, 478. *Example:* `` {cite} `` in author position: '`` {cite}`HansenRichard1987` `` showed'.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 1079. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 2. *Lines:* 117, 142. *Example:* line 117 restates line 115 almost word for word - 'Here ${\mathbb E}_t [y]$ denotes the best forecast of $y$, conditioned on information available at time $t$' followed by 'More precisely, ${\mathbb E}_t [y]$ is the mathematical expectation of $y$ conditional on information available at time $t$' - so the second sentence adds the word 'mathematical' and nothing else; and line 142 is a 38-word sentence stacked three relative clauses deep ('assets that tend to have good payoffs ... are valued more highly than other assets whose payoffs don't behave that way') in the sentence that first explains what the stochastic discount factor is for.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 168, 913. *Example:* two internal cross-references point at the wrong object. All three bullets at 168-170 begin 'In equation `` {eq}`rnapex` ``', but only the first belongs there: `` {eq}`rnapex` `` contains no covariance term (bullet two) and no ${\mathbb E}_t m_{t+1}$ (bullet three) - both are features of `` {eq}`lteeqs102` ``, the equation the paragraph at 166 has just introduced, so the bullets that are supposed to explain the generalization all cite the special case. And line 913 states $m_1 = \beta M$, contradicting line 904's $m_1 = \beta M {\mathbb 1}$ nine lines earlier; since 911 defines $m_j$ as an $n \times 1$ vector, the $\mathbb 1$ is not optional.
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 2. *Lines:* 751, 920. *Example:* line 751 bolds **infinite horizon** as emphasis nine lines before 760 supplies the actual definition, 'This is termed an infinite-horizon **call option** with **strike price** $p_S$' - so the bold appears first on the non-defining use; and line 920 re-bolds **ex-dividend assets** in the exercise although the term was defined at 89. The lecture italicises emphasis correctly elsewhere (*derivative* 64, *tree* / *fruit* / *shares* 454-455, *exercises* / *not to exercise* 758, *before* 766).
 
 ### Low severity
-- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 127. *Example:* `` {cite} `` in author position: '`` {cite}`HansenRichard1987` `` showed'.
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 1. *Lines:* 887. *Example:* '### Risk-Free Rates' (887-913) closes the substantive part of the lecture with the entire term structure of risk-free rates - the one-period rate across states, then the recursion $m_{j+1} = M m_j$ for every maturity - and computes nothing and plots nothing. Every ingredient is already in hand: `M` is built three times in the code (730, 842, 1095) and `AssetPriceModel` supplies $\beta$, $\gamma$ and the chain, so a yield curve by maturity, one line per Markov state, is a few lines of code. It is also the only section in the lecture with neither a figure nor a code cell, in a lecture with six figures.
 
 

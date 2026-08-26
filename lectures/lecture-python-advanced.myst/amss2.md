@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-26
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 7.6 / 10
+- **Overall score:** 6.8 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 3.5/10 | `qe-writing-005` ×10; `qe-writing-002` ×5; `qe-writing-003` ×3, +2 more. |
-| Math         | 10/10 | no mechanical violations detected. |
+| Math         | 5.5/10 | `qe-math-010` (proposed) ×10. |
 | Code         | 7.5/10 | `qe-code-001` ×9. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-003` ×2; `qe-fig-005` ×2; `qe-fig-008` ×2, +1 more. |
@@ -28,6 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 9. *Lines:* 359, 374, 400, 408, 518, 689, 691, 693, 738. *Example:* five lambdas are bound to names where PEP8 asks for `def` - `eq` (359), `τ` (689), `R_s` (691), `X_s` (693) - and 359 and 691 additionally use a backslash continuation *inside* parentheses that already continue the expression; 408 puts a double space before the `+` in `u.Uc(c0, 1)  + u.Un(...)` and continues with two more backslashes; 374 writes `np.eye((2))` with a redundant inner paren; 400 writes `u.G[s-1]` and 738 `1/den2` unspaced while the surrounding lines space every operator; 518 binds the loop variable `id`, shadowing the builtin.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 10. *Lines:* 598, 619, 632, 633, 635, 646, 647, 660. *Example:* non-blackboard `{\rm var}`.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 5. *Lines:* 27, 44, 66, 70, 111. *Example:* lines 32-33, 41-42 and 44-45 state one claim three times in a row, the third opening "Another way to say this is that" - so the paragraph pays for the same idea three times; 27 is a 40-word sentence with a double `whether ... or whether` construction; 66 is a 30-word bullet that uses "gross" four times, including the compound "gross-of-gross-interest-payments"; 70 is a 33-word bullet that ends "restricted to exchange only risk-free debt  debt"; 111-112 is a 44-word bullet holding a parenthetical aside, a starting condition and a comparison.
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 10. *Lines:* 58, 59, 61, 73, 111, 113, 128, 302, 474, 486. *Example:* bold carries plain emphasis rather than definition in ten places: **constant over time** (58), **to** (59), **particular** / **loans** / **never** (61), **assets** (73), **weak** (111), **assets** / **constant** (113), **identical** (128 and 474), **same** (302 and 486). The rule assigns italic to all of these; the lecture does bold its genuine terms correctly (**measurability constraints** at 44, **fiscal risk** at 572), so the two uses are running together.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 79. *Lines:* 26, 27, 30, 32, 33, 38, 41, 42, 45, 49, …. *Example:* 2 spaces.

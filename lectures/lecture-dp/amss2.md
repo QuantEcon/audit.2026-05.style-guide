@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-26
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 7.8 / 10
+- **Overall score:** 7.0 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 3.5/10 | `qe-writing-005` ×11; `qe-writing-002` ×6; `qe-writing-003` ×2, +2 more. |
-| Math         | 10/10 | no mechanical violations detected. |
+| Math         | 5.5/10 | `qe-math-010` (proposed) ×10. |
 | Code         | 8.5/10 | `qe-code-001` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-003` ×2; `qe-fig-005` ×2; `qe-fig-008` ×2, +1 more. |
@@ -27,6 +27,7 @@
 _None found._
 
 ### High severity
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 10. *Lines:* 598, 619, 632, 633, 635, 646, 647, 660. *Example:* non-blackboard `{\rm var}`.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 6. *Lines:* 53, 66, 70, 337, 501, 639. *Example:* three bullets trail off into a literal ellipsis rather than finishing - 'bind for many periods, but $\ldots$.' (53), 'eventually, they stop binding evermore, so that $\ldots$' (54), 'is constant across time and states, but $\ldots$.' (64) - which reads as an unfinished draft in published prose. Line 66 is ungrammatical and carries an unparseable compound: 'fluctuations in the interest rate make gross earnings on government debt fully insure the gross-of-gross-interest-payments government budget'. Line 70 ends 'restricted to exchange only risk-free debt debt'. Line 337 says 'Put steps 2 through 6 in a function minimizer' inside Step 6 itself - it means steps 2 through 5. Line 501 says the par value 'converges to about $1.07$' where lines 499-500 have just established $\bar b \approx -1.07$ and $\bar b < 0$, so the sign is dropped at the one place a reader would quote. Line 639 reads 'let $x(s), s = 1,2$ be an arbitrary random variables'.
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 11. *Lines:* 36, 58, 59, 61, 73, 111, 113, 128, 302, 474, …. *Example:* bold used for stress rather than definition: **measurable** (36), **constant over time** (58), the single word **to** (59), **particular** / **loans** / **never** all in one bullet (61), **assets** (73), **weak** (111), **assets** / **constant** (113), **identical** (128 and again 474), **same** (302 and again 486). Italic is what these want. The file's genuine definitional bolds - **implementability constraints** (41), **measurability constraints** (44), **par value** / **market value** (63, 65), **fiscal risk** (572) - are outnumbered roughly two to one by the emphasis ones.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 79. *Lines:* 26, 27, 30, 32, 33, 38, 41, 42, 45, 49, …. *Example:* 2 spaces.

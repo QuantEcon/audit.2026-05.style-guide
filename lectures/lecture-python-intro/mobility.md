@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-26
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.8 / 10
+- **Overall score:** 7.6 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 4.5/10 | `qe-writing-004` ×2; `qe-writing-005` ×3; `qe-writing-003` ×3, +2 more. |
-| Math         | 7/10  | `qe-math-010` (proposed) ×4; `qe-math-009` ×2. |
+| Math         | 6/10  | `qe-math-010` (proposed) ×8; `qe-math-009` ×2. |
 | Code         | 8.5/10 | `qe-code-001` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7.5/10 | `qe-fig-003` ×1; `qe-fig-005` ×1; `qe-fig-004` ×1, +1 more. |
@@ -27,7 +27,7 @@
 _None found._
 
 ### High severity
-- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 4. *Lines:* 92, 899, 904, 905. *Example:* missing braces: `\mathbb P`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 8. *Lines:* 92, 880, 899, 904, 905, 912, 920. *Example:* missing braces: `\mathbb P`.
 - **[qe-ref-001]** — Use correct citation style. *Count:* 19. *Lines:* 248, 286, 298, 360, 504, 590, 597, 771, 804, 984, …. *Example:* `` {cite} `` in narrative flow: 'of `` {cite} ``'.
 
 ### Medium severity

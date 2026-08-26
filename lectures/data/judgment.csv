@@ -844,7 +844,7 @@ lecture-python.myst,phillips_adaptive,qe-writing-003,4
 lecture-python.myst,phillips_adaptive,qe-writing-002,4
 lecture-python.myst,phillips_adaptive,qe-writing-005,3
 lecture-python.myst,phillips_adaptive,qe-writing-007,3
-lecture-python.myst,phillips_adaptive,qe-math-009,2
+lecture-python.myst,phillips_adaptive,qe-math-009,3
 lecture-python.myst,phillips_adaptive,qe-code-001,3
 lecture-python.myst,phillips_credibility,qe-writing-005,2
 lecture-python.myst,phillips_credibility,qe-writing-003,3
@@ -1611,6 +1611,9 @@ lecture-dp,rs_inventory_q,qe-writing-007,3
 lecture-dp,rs_inventory_q,qe-writing-003,2
 lecture-dp,rs_inventory_q,qe-code-001,4
 lecture-dp,rs_inventory_q,qe-math-009,1
+lecture-dp,short_path,qe-writing-003,1
+lecture-dp,short_path,qe-writing-002,4
+lecture-dp,short_path,qe-code-001,4
 lecture-dp,smoothing,qe-writing-003,4
 lecture-dp,smoothing,qe-writing-005,6
 lecture-dp,smoothing,qe-writing-002,5
@@ -1634,3 +1637,7 @@ lecture-dp,tax_smoothing_2,qe-writing-002,4
 lecture-dp,tax_smoothing_2,qe-writing-007,3
 lecture-dp,tax_smoothing_2,qe-code-001,5
 lecture-dp,tax_smoothing_2,qe-math-009,3
+lecture-dp,tax_smoothing_3,qe-writing-003,2
+lecture-dp,tax_smoothing_3,qe-writing-007,2
+lecture-dp,tax_smoothing_3,qe-writing-002,2
+lecture-dp,tax_smoothing_3,qe-math-009,1

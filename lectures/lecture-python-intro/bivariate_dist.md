@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 6.5/10 | `qe-writing-002` ×11; `qe-writing-003` ×1. |
-| Math         | 5.5/10 | `qe-math-010` (proposed) ×15. |
+| Math         | 5.5/10 | `qe-math-010` (proposed) ×18. |
 | Code         | 6/10  | `qe-code-002` ×6; `qe-code-003` ×1; `qe-code-001` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5/10  | `qe-fig-003` ×8; `qe-fig-006` ×2; `qe-fig-005` ×1, +2 more. |
@@ -30,7 +30,7 @@ _None found._
 - **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 6. *Lines:* 488, 491, 493, 495. *Example:* spelled-out `sigma`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 5. *Lines:* 172, 271, 311, 352, 490. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 8. *Lines:* 174, 177, 275, 313, 317, 355, 359, 497. *Example:* .set_title.
-- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 15. *Lines:* 93, 195, 198, 377, 380, 384, 399, 464, 467, 470, …. *Example:* missing braces: `\mathbb P`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 18. *Lines:* 93, 195, 198, 377, 380, 384, 399, 408, 464, 467, …. *Example:* missing braces: `\mathbb P`.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 11. *Lines:* 157, 161, 294, 296, 366, 382, 614, 616, 628, 630, …. *Example:* eleven single-sentence paragraphs run 35-44 words. The recurring mechanism is an em-dash clause bolted onto an already complete sentence: line 296 (44 words) states that neither marginal depends on rho, explains what correlation describes, then adds '--- the same lesson the discrete example taught us above'; lines 157, 161, 294, 366, 614, 616, 630 and 647 all follow the same three-clause shape. Each would read better as two paragraphs.
 
 ### Medium severity

@@ -30,7 +30,7 @@ _None found._
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 7. *Lines:* 551, 552, 571, 572, 679, 760, 765. *Example:* PEP8 spacing/naming slips in otherwise clean code: a space after the unary minus in `np.exp(- alpha * x)` and `x**(- alpha)` (551-552, 571-572), whitespace before the closing paren from a dangling comma in `sm.qqplot(data, line='45', ax=ax, )` (679), a lambda bound to a name instead of a `def` in `pdf = lambda x: np.interp(...)` (760), and a missing space after the operator in `y_vals[i] = 1- j` (765).
 - **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 5. *Lines:* 551, 552, 571, 572, 1226. *Example:* spelled-out `alpha`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 8. *Lines:* 354, 627, 675, 829, 857, 886, 934, 1224. *Example:* figsize=.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 5. *Lines:* 95, 551, 552, 779, 1000. *Example:* plot() without lw=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 7. *Lines:* 95, 551, 552, 571, 572, 779, 1000. *Example:* plot() without lw=.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 23. *Lines:* 431, 491, 528, 529, 530, 694, 702, 958, 964, 967, …. *Example:* missing braces: `\mathbb P`.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 6. *Lines:* 161, 1021, 1036, 1037, 1293. *Example:* 2 spaces.
 

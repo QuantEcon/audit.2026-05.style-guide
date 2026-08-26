@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.5 / 10
+- **Overall score:** 8.1 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 5.5/10 | `qe-writing-005` ×3; `qe-writing-003` ×4; `qe-writing-002` ×3, +1 more. |
-| Math         | 9.5/10 | `qe-math-009` ×2. |
+| Math         | 7/10  | `qe-math-010` (proposed) ×3; `qe-math-009` ×2. |
 | Code         | 8.5/10 | `qe-code-001` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-005` ×2; `qe-fig-004` ×4; `qe-fig-001` ×6, +1 more. |
@@ -28,6 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 6. *Lines:* 242, 419, 463, 496, 545, 583. *Example:* figsize=.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 3. *Lines:* 166, 172, 180. *Example:* non-blackboard `\operatorname{cov}`.
 
 ### Medium severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 3. *Lines:* 200, 313, 465. *Example:* the class names the intercept one underscore away from the slope, and then renames it outside the class. 199-202 has `γ1 = -θ` for $\gamma_1$ and `γ_1 = (γ1**2 + 1) * U_star` for $\gamma_{-1}$ - two names differing by a single underscore that denote *opposite* subscripts - and 218-219 unpacks them as `γ1_C, γ0_C` and `γ1_K, γ0_K`, so the intercept has three names within twenty lines: $\gamma_{-1}$ in the maths, `γ_1` inside the class, `γ0_*` outside it. The same pair appears again at 208-210. 313 unpacks three values and uses one, `P, F, d = lq.stationary_values()`, exactly as `phillips_adaptive.md:220` does - pyflakes cannot see unused names bound by tuple unpacking, so this is invisible to flake8. 465 is the file's one long line at 81 characters. Everything else is clean: flake8 (`--select=E1,E2,E5,E7,W2,W3,W6,F,C4 --max-line-length=79`) reports nothing further, Greek identifiers are used throughout, and `**` is written tight.

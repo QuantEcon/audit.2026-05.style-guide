@@ -26,7 +26,7 @@ exemptions move.
 
 | | calls |
 |---|---:|
-| `lw=2` | 977 |
+| `lw=2` | 1,011 |
 | some other value | 264 |
 
 The 264 spread across **84 lectures** and twenty-one distinct values — `lw=1` ×66, `1.5` ×48,

@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-26
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.5 / 10
+- **Overall score:** 7.1 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 3.5/10 | `qe-writing-005` ×10; `qe-writing-002` ×5; `qe-writing-003` ×3, +2 more. |
-| Math         | 8.5/10 | `qe-math-013` (proposed) ×1; `qe-math-009` ×1. |
+| Math         | 5.5/10 | `qe-math-010` (proposed) ×5; `qe-math-013` (proposed) ×1; `qe-math-009` ×1. |
 | Code         | 7.5/10 | `qe-code-001` ×7. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5.5/10 | `qe-fig-005` ×5; `qe-fig-003` ×3; `qe-fig-008` ×3, +2 more. |
@@ -29,6 +29,7 @@ _None found._
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 7. *Lines:* 187, 202, 243, 246, 587, 688, 694. *Example:* line 188's continuation is indented 39 spaces against an opening paren at column 38, so the argument list is one column out of alignment (E128); 202 and 243 bind the loop variable `id`, shadowing the builtin; 246, 250 and 252 write `axes[i+2]` without spaces around the operator while the rest of the file spaces its operators; 587-589 and 688-690 use backslash line continuations *inside* parentheses where the parentheses already continue the expression, and add a double space before each backslash and after each `+`; 694 writes `B_star/div` unspaced two lines after `u.β * (...)` spaced normally.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 177, 212, 226, 238, 259. *Example:* {figure} without :name:.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 5. *Lines:* 337, 481, 483, 487, 494. *Example:* non-blackboard `{\rm var}`.
 - **[qe-ref-001]** — Use correct citation style. *Count:* 5. *Lines:* 40, 60, 231, 301, 398. *Example:* `` {cite} `` in narrative flow: 'of `` {cite} ``'.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 5. *Lines:* 49, 229, 234, 263, 528. *Example:* 229-232 is a single 75-word semicolon chain describing three vertical lines on one histogram; 263-265 is a 46-word sentence ("conceal the weak but inexorable force that the Ramsey planner puts into both series driving them toward ergodic marginal distributions that are far from these early observations") and ends with no full stop; 49-50 spends 45 words and says "the ergodic distribution of the par value of government debt" twice; 234-236 is a 40-word sentence whose subject arrives after three subordinate clauses; and 528-530 is a broken paragraph - it opens lowercase on "so while" and line 529 begins with a stray `:` that MyST will read as a definition-list term.
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 10. *Lines:* 54, 60, 97, 232, 379, 389, 394, 423, 454, 519. *Example:* bold is used for plain emphasis throughout, where the rule assigns italic: **as close as possible** (54), **three** (97), **before** (232), **in advance** (379), **first** / **then** (389-390), **without** (394), **minus** / **plus** (423), **surplus** (454), **constant** (519). Line 60 additionally puts a bold "**Warning:**" label inside a `{note}` directive that should simply be a `{warning}`. The genuine definitions are bolded correctly (299 effective deficit/debt, 311 fiscal risks, 443 effective return), so the two uses are not being kept apart.

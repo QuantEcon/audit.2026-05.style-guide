@@ -30,7 +30,7 @@ _None found._
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 6. *Lines:* 51, 700, 761, 790, 909, 949. *Example:* `#set default figure size` at 51 has no space after the hash; the `funcs = [` list at 699-702 indents its continuation lines to 8 columns instead of the bracket, and strands the explanatory comment after the closing bracket at 702; `T=np.arange(0, T_max+1)` at 761 omits the spaces around `=` that line 693 has; `plt.figure(figsize = [16, 5])` at 790 adds spaces around a keyword `=`, as does `ax.legend(loc ="lower right")` at 949; `fig,ax = plt.subplots()` at 909 drops the space after the comma.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 5. *Lines:* 51, 790, 932, 994, 1113. *Example:* style override.
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 9. *Lines:* 709, 736, 758, 807, 1055, 1056, 1126, 1190, 1191. *Example:* axis label `Present Value, $p_0$`.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 13. *Lines:* 733, 734, 766, 887, 915, 940, 943, 997, 1052, 1115, …. *Example:* plot() without lw=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 14. *Lines:* 733, 734, 766, 887, 915, 940, 943, 997, 1007, 1052, …. *Example:* plot() without lw=.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 1. *Lines:* 616. *Example:* `^T` transpose in `G^{T}`.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 3. *Lines:* 118, 268, 438. *Example:* H2 Title Case: 'Example: The Money Multiplier in Fractional Reserve Banking' (Money, Multiplier, Fractional, Reserve).
 

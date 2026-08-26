@@ -20,7 +20,7 @@ lecture-python-intro,bivariate_dist,qe-fig-003,8,0,0
 lecture-python-intro,bivariate_dist,qe-fig-005,1,0,0
 lecture-python-intro,bivariate_dist,qe-fig-006,2,0,0
 lecture-python-intro,bivariate_dist,qe-fig-008,2,0,0
-lecture-python-intro,bivariate_dist,qe-math-010,15,1,0
+lecture-python-intro,bivariate_dist,qe-math-010,18,1,0
 lecture-python-intro,business_cycle,qe-fig-001,1,0,0
 lecture-python-intro,business_cycle,qe-fig-004,2,0,0
 lecture-python-intro,business_cycle,qe-fig-006,1,0,0
@@ -96,7 +96,7 @@ lecture-python-intro,geom_series,qe-fig-003,1,0,0
 lecture-python-intro,geom_series,qe-fig-004,4,0,0
 lecture-python-intro,geom_series,qe-fig-005,4,0,0
 lecture-python-intro,geom_series,qe-fig-006,9,0,0
-lecture-python-intro,geom_series,qe-fig-008,13,0,0
+lecture-python-intro,geom_series,qe-fig-008,14,0,0
 lecture-python-intro,geom_series,qe-math-002,1,0,0
 lecture-python-intro,geom_series,qe-writing-001,2,0,0
 lecture-python-intro,geom_series,qe-writing-006,3,0,0
@@ -114,7 +114,7 @@ lecture-python-intro,heavy_tails,qe-fig-001,8,0,0
 lecture-python-intro,heavy_tails,qe-fig-003,4,0,0
 lecture-python-intro,heavy_tails,qe-fig-004,3,0,0
 lecture-python-intro,heavy_tails,qe-fig-005,4,0,0
-lecture-python-intro,heavy_tails,qe-fig-008,5,0,0
+lecture-python-intro,heavy_tails,qe-fig-008,7,0,0
 lecture-python-intro,heavy_tails,qe-link-001,1,0,0
 lecture-python-intro,heavy_tails,qe-math-010,23,1,0
 lecture-python-intro,heavy_tails,qe-writing-001,4,0,0
@@ -211,7 +211,7 @@ lecture-python-intro,mobility,qe-fig-001,1,0,0
 lecture-python-intro,mobility,qe-fig-003,1,0,0
 lecture-python-intro,mobility,qe-fig-004,1,0,0
 lecture-python-intro,mobility,qe-fig-005,1,0,0
-lecture-python-intro,mobility,qe-math-010,4,1,0
+lecture-python-intro,mobility,qe-math-010,8,1,0
 lecture-python-intro,mobility,qe-ref-001,19,0,0
 lecture-python-intro,mobility,qe-writing-004,2,0,0
 lecture-python-intro,money_inflation,qe-fig-001,4,0,0
@@ -253,7 +253,7 @@ lecture-python-intro,networks,qe-writing-006,2,0,0
 lecture-python-intro,networks,qe-writing-008,3,0,0
 lecture-python-intro,observed_distributions,qe-fig-004,4,0,0
 lecture-python-intro,observed_distributions,qe-fig-005,1,0,0
-lecture-python-intro,observed_distributions,qe-fig-008,3,0,0
+lecture-python-intro,observed_distributions,qe-fig-008,4,0,0
 lecture-python-intro,observed_distributions,qe-writing-001,1,0,0
 lecture-python-intro,observed_distributions,qe-writing-008,1,0,0
 lecture-python-intro,olg,qe-fig-001,2,0,0
@@ -263,6 +263,7 @@ lecture-python-intro,olg,qe-link-001,1,0,0
 lecture-python-intro,olg,qe-link-002,1,0,0
 lecture-python-intro,olg,qe-writing-008,3,0,0
 lecture-python-intro,prob_dist,qe-fig-005,1,0,0
+lecture-python-intro,prob_dist,qe-fig-008,3,0,0
 lecture-python-intro,prob_dist,qe-math-010,3,1,0
 lecture-python-intro,prob_dist,qe-writing-008,1,0,0
 lecture-python-intro,pv,qe-fig-005,6,0,0
@@ -507,6 +508,7 @@ lecture-python.myst,ar1_turningpts,qe-fig-001,4,0,0
 lecture-python.myst,ar1_turningpts,qe-fig-005,1,0,0
 lecture-python.myst,ar1_turningpts,qe-fig-008,1,0,0
 lecture-python.myst,ar1_turningpts,qe-math-011,2,1,0
+lecture-python.myst,ar1_turningpts,qe-ref-001,1,0,0
 lecture-python.myst,ar1_turningpts,qe-writing-001,3,0,0
 lecture-python.myst,ar1_turningpts,qe-writing-006,7,0,0
 lecture-python.myst,ar1_turningpts,qe-writing-008,2,0,0
@@ -910,8 +912,8 @@ lecture-python.myst,markov_asset,qe-fig-005,6,0,0
 lecture-python.myst,markov_asset,qe-fig-008,3,0,0
 lecture-python.myst,markov_asset,qe-link-002,2,0,0
 lecture-python.myst,markov_asset,qe-math-002,1,0,0
-lecture-python.myst,markov_asset,qe-math-010,19,1,0
-lecture-python.myst,markov_asset,qe-ref-001,1,0,0
+lecture-python.myst,markov_asset,qe-math-010,23,1,0
+lecture-python.myst,markov_asset,qe-ref-001,2,0,0
 lecture-python.myst,markov_asset,qe-writing-001,1,0,0
 lecture-python.myst,markov_asset,qe-writing-006,18,0,0
 lecture-python.myst,markov_asset,qe-writing-008,32,0,0
@@ -1016,7 +1018,7 @@ lecture-python.myst,multi_hyper,qe-writing-008,13,0,0
 lecture-python.myst,multivariate_normal,qe-fig-001,2,0,0
 lecture-python.myst,multivariate_normal,qe-fig-005,8,0,0
 lecture-python.myst,multivariate_normal,qe-fig-007,2,0,0
-lecture-python.myst,multivariate_normal,qe-fig-008,14,0,0
+lecture-python.myst,multivariate_normal,qe-fig-008,15,0,0
 lecture-python.myst,multivariate_normal,qe-math-002,27,0,0
 lecture-python.myst,multivariate_normal,qe-math-003,38,0,0
 lecture-python.myst,multivariate_normal,qe-math-004,5,0,0
@@ -1149,7 +1151,7 @@ lecture-python.myst,phillips_credibility,qe-fig-001,4,0,0
 lecture-python.myst,phillips_credibility,qe-fig-004,3,0,0
 lecture-python.myst,phillips_credibility,qe-fig-005,1,0,0
 lecture-python.myst,phillips_credibility,qe-fig-008,1,0,0
-lecture-python.myst,phillips_credibility,qe-ref-001,3,0,0
+lecture-python.myst,phillips_credibility,qe-ref-001,4,0,0
 lecture-python.myst,phillips_credibility,qe-writing-004,1,0,0
 lecture-python.myst,phillips_credible_policies,qe-fig-001,3,0,0
 lecture-python.myst,phillips_credible_policies,qe-fig-003,4,0,0
@@ -1167,7 +1169,7 @@ lecture-python.myst,phillips_escaping_nash,qe-fig-001,5,0,0
 lecture-python.myst,phillips_escaping_nash,qe-fig-003,7,0,0
 lecture-python.myst,phillips_escaping_nash,qe-fig-004,5,0,0
 lecture-python.myst,phillips_escaping_nash,qe-fig-008,6,0,0
-lecture-python.myst,phillips_escaping_nash,qe-ref-001,4,0,0
+lecture-python.myst,phillips_escaping_nash,qe-ref-001,5,0,0
 lecture-python.myst,phillips_escaping_nash,qe-writing-004,1,0,0
 lecture-python.myst,phillips_learning,qe-fig-001,6,0,0
 lecture-python.myst,phillips_learning,qe-fig-003,1,0,0
@@ -1190,22 +1192,24 @@ lecture-python.myst,phillips_misspecified,qe-fig-001,4,0,0
 lecture-python.myst,phillips_misspecified,qe-fig-004,2,0,0
 lecture-python.myst,phillips_misspecified,qe-fig-005,2,0,0
 lecture-python.myst,phillips_misspecified,qe-fig-008,1,0,0
-lecture-python.myst,phillips_misspecified,qe-ref-001,2,0,0
+lecture-python.myst,phillips_misspecified,qe-ref-001,3,0,0
 lecture-python.myst,phillips_priors,qe-fig-001,5,0,0
 lecture-python.myst,phillips_priors,qe-fig-003,3,0,0
 lecture-python.myst,phillips_priors,qe-fig-004,4,0,0
 lecture-python.myst,phillips_priors,qe-fig-005,1,0,0
 lecture-python.myst,phillips_priors,qe-fig-008,4,0,0
-lecture-python.myst,phillips_priors,qe-ref-001,10,0,0
+lecture-python.myst,phillips_priors,qe-math-010,2,1,0
+lecture-python.myst,phillips_priors,qe-ref-001,12,0,0
 lecture-python.myst,phillips_priors,qe-writing-004,1,0,0
 lecture-python.myst,phillips_self_confirming,qe-fig-001,6,0,0
 lecture-python.myst,phillips_self_confirming,qe-fig-004,4,0,0
 lecture-python.myst,phillips_self_confirming,qe-fig-005,2,0,0
 lecture-python.myst,phillips_self_confirming,qe-fig-008,3,0,0
+lecture-python.myst,phillips_self_confirming,qe-math-010,3,1,0
 lecture-python.myst,phillips_two_stories,qe-fig-001,7,0,0
 lecture-python.myst,phillips_two_stories,qe-fig-003,8,0,0
 lecture-python.myst,phillips_two_stories,qe-fig-004,6,0,0
-lecture-python.myst,phillips_two_stories,qe-ref-001,4,0,0
+lecture-python.myst,phillips_two_stories,qe-ref-001,5,0,0
 lecture-python.myst,phillips_two_stories,qe-writing-004,9,0,0
 lecture-python.myst,phillips_two_stories,qe-writing-006,2,0,0
 lecture-python.myst,pricing_information,qe-code-002,82,0,0
@@ -1297,7 +1301,7 @@ lecture-python.myst,samuelson,qe-fig-007,1,0,0
 lecture-python.myst,samuelson,qe-fig-008,8,0,0
 lecture-python.myst,samuelson,qe-link-001,1,0,0
 lecture-python.myst,samuelson,qe-link-002,1,0,0
-lecture-python.myst,samuelson,qe-ref-001,1,0,0
+lecture-python.myst,samuelson,qe-ref-001,2,0,0
 lecture-python.myst,samuelson,qe-writing-008,2,0,0
 lecture-python.myst,sargent_surico,qe-code-002,143,0,0
 lecture-python.myst,sargent_surico,qe-code-004,8,0,0
@@ -1485,6 +1489,7 @@ lecture-python-advanced.myst,amss2,qe-fig-001,2,0,0
 lecture-python-advanced.myst,amss2,qe-fig-003,2,0,0
 lecture-python-advanced.myst,amss2,qe-fig-005,2,0,0
 lecture-python-advanced.myst,amss2,qe-fig-008,2,0,0
+lecture-python-advanced.myst,amss2,qe-math-010,10,1,0
 lecture-python-advanced.myst,amss2,qe-ref-001,2,0,0
 lecture-python-advanced.myst,amss2,qe-writing-008,79,0,0
 lecture-python-advanced.myst,amss3,qe-fig-001,2,0,0
@@ -1492,6 +1497,7 @@ lecture-python-advanced.myst,amss3,qe-fig-002,3,0,0
 lecture-python-advanced.myst,amss3,qe-fig-003,3,0,0
 lecture-python-advanced.myst,amss3,qe-fig-005,5,0,0
 lecture-python-advanced.myst,amss3,qe-fig-008,3,0,0
+lecture-python-advanced.myst,amss3,qe-math-010,5,1,0
 lecture-python-advanced.myst,amss3,qe-math-013,1,1,0
 lecture-python-advanced.myst,amss3,qe-ref-001,5,0,0
 lecture-python-advanced.myst,amss3,qe-writing-008,69,0,0
@@ -1505,7 +1511,7 @@ lecture-python-advanced.myst,arellano,qe-writing-008,7,0,0
 lecture-python-advanced.myst,arma,qe-fig-001,5,0,0
 lecture-python-advanced.myst,arma,qe-fig-003,1,0,0
 lecture-python-advanced.myst,arma,qe-fig-005,4,0,0
-lecture-python-advanced.myst,arma,qe-fig-008,6,0,0
+lecture-python-advanced.myst,arma,qe-fig-008,7,0,0
 lecture-python-advanced.myst,arma,qe-link-002,2,0,0
 lecture-python-advanced.myst,arma,qe-math-010,3,1,0
 lecture-python-advanced.myst,arma,qe-writing-001,1,0,0
@@ -1517,7 +1523,7 @@ lecture-python-advanced.myst,asset_pricing_lph,qe-fig-008,2,0,0
 lecture-python-advanced.myst,asset_pricing_lph,qe-link-001,3,0,0
 lecture-python-advanced.myst,asset_pricing_lph,qe-link-002,1,0,0
 lecture-python-advanced.myst,asset_pricing_lph,qe-math-006,2,0,1
-lecture-python-advanced.myst,asset_pricing_lph,qe-math-010,26,1,0
+lecture-python-advanced.myst,asset_pricing_lph,qe-math-010,37,1,0
 lecture-python-advanced.myst,asset_pricing_lph,qe-math-011,1,1,0
 lecture-python-advanced.myst,asset_pricing_lph,qe-ref-001,4,0,0
 lecture-python-advanced.myst,asset_pricing_lph,qe-writing-001,2,0,0
@@ -1538,7 +1544,7 @@ lecture-python-advanced.myst,black_litterman,qe-fig-008,2,0,0
 lecture-python-advanced.myst,black_litterman,qe-link-001,2,0,0
 lecture-python-advanced.myst,black_litterman,qe-math-002,38,0,0
 lecture-python-advanced.myst,black_litterman,qe-math-004,24,0,0
-lecture-python-advanced.myst,black_litterman,qe-math-010,14,1,0
+lecture-python-advanced.myst,black_litterman,qe-math-010,18,1,0
 lecture-python-advanced.myst,black_litterman,qe-math-011,16,1,0
 lecture-python-advanced.myst,black_litterman,qe-writing-001,10,0,0
 lecture-python-advanced.myst,black_litterman,qe-writing-004,3,0,0
@@ -1551,7 +1557,7 @@ lecture-python-advanced.myst,cagan_rational_expectations,qe-fig-005,1,0,0
 lecture-python-advanced.myst,cagan_rational_expectations,qe-fig-006,2,0,0
 lecture-python-advanced.myst,cagan_rational_expectations,qe-math-002,5,0,0
 lecture-python-advanced.myst,cagan_rational_expectations,qe-math-003,2,0,0
-lecture-python-advanced.myst,cagan_rational_expectations,qe-math-010,4,1,0
+lecture-python-advanced.myst,cagan_rational_expectations,qe-math-010,5,1,0
 lecture-python-advanced.myst,cagan_rational_expectations,qe-ref-001,2,0,0
 lecture-python-advanced.myst,cagan_rational_expectations,qe-writing-008,1,0,0
 lecture-python-advanced.myst,calvo,qe-fig-001,5,0,0
@@ -1636,7 +1642,7 @@ lecture-python-advanced.myst,discrete_dp,qe-writing-001,1,0,0
 lecture-python-advanced.myst,discrete_dp,qe-writing-008,4,0,0
 lecture-python-advanced.myst,doubts_or_variability,qe-fig-001,9,0,0
 lecture-python-advanced.myst,doubts_or_variability,qe-math-004,6,0,0
-lecture-python-advanced.myst,doubts_or_variability,qe-math-010,128,1,0
+lecture-python-advanced.myst,doubts_or_variability,qe-math-010,141,1,0
 lecture-python-advanced.myst,doubts_or_variability,qe-math-011,24,1,0
 lecture-python-advanced.myst,doubts_or_variability,qe-ref-001,1,0,0
 lecture-python-advanced.myst,doubts_or_variability,qe-writing-001,4,0,0
@@ -1792,7 +1798,7 @@ lecture-python-advanced.myst,match_transport,qe-fig-004,4,0,0
 lecture-python-advanced.myst,match_transport,qe-fig-005,2,0,0
 lecture-python-advanced.myst,match_transport,qe-fig-006,9,0,0
 lecture-python-advanced.myst,match_transport,qe-fig-007,11,0,0
-lecture-python-advanced.myst,match_transport,qe-fig-008,5,0,0
+lecture-python-advanced.myst,match_transport,qe-fig-008,6,0,0
 lecture-python-advanced.myst,match_transport,qe-link-002,4,0,0
 lecture-python-advanced.myst,match_transport,qe-ref-001,4,0,0
 lecture-python-advanced.myst,match_transport,qe-writing-001,4,0,0
@@ -1993,6 +1999,7 @@ lecture-dp,amss2,qe-fig-001,2,0,0
 lecture-dp,amss2,qe-fig-003,2,0,0
 lecture-dp,amss2,qe-fig-005,2,0,0
 lecture-dp,amss2,qe-fig-008,2,0,0
+lecture-dp,amss2,qe-math-010,10,1,0
 lecture-dp,amss2,qe-ref-001,2,0,0
 lecture-dp,amss2,qe-writing-008,79,0,0
 lecture-dp,amss3,qe-fig-001,2,0,0
@@ -2000,6 +2007,7 @@ lecture-dp,amss3,qe-fig-002,3,0,0
 lecture-dp,amss3,qe-fig-003,3,0,0
 lecture-dp,amss3,qe-fig-005,5,0,0
 lecture-dp,amss3,qe-fig-008,3,0,0
+lecture-dp,amss3,qe-math-010,5,1,0
 lecture-dp,amss3,qe-math-013,1,1,0
 lecture-dp,amss3,qe-ref-001,5,0,0
 lecture-dp,amss3,qe-writing-008,69,0,0

@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 7.6 / 10
+- **Overall score:** 7.5 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -17,7 +17,7 @@
 | Code         | 7.5/10 | `qe-code-001` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5/10  | `qe-fig-005` ×7; `qe-fig-003` ×3; `qe-fig-007` ×1, +2 more. |
-| References   | 9/10  | `qe-ref-001` ×1. |
+| References   | 8.5/10 | `qe-ref-001` ×2. |
 | Links        | 8/10  | `qe-link-002` ×1; `qe-link-001` ×1. |
 | Admonitions  | N/A   | no admonitions, exercises or solutions. |
 
@@ -36,6 +36,7 @@ _None found._
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 3. *Lines:* 1201, 1317, 1341. *Example:* .set(title=.
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 1. *Lines:* 41. *Example:* raw link to python-programming.quantecon.org.
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 3. *Lines:* 336, 274, 1379. *Example:* 336-337 writes the period as $\check p = \frac{2\pi}{\omega}$, and the check mark is doing nothing: no plain $p$ is in use anywhere in the lecture, so the decoration exists only to be typed, and the code that computes the same quantity calls it `cycle_period` without any mark. $r$ is given two different names for one symbol: 274 calls it "the *amplitude* of the complex number" and 337 calls it the "*damping factor*", 60 lines apart, with no sentence connecting the two readings. And 1379's $b$ for the accelerator coefficient is a third symbol for an object that already has $\beta$ in the mathematics and `β` in the code.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 343, 403. *Example:* `` {cite} `` in narrative flow: 'Following `` {cite} ``'.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 3. *Lines:* 357, 391, 339. *Example:* "Things this lecture does" (357-399) is 43 lines that describe code the reader is about to see, sentence by sentence, and adds nothing the code does not say more precisely - nine of its paragraphs begin "We" or "The function". 391 is a 43-word sentence that names its subject twice: "the eigenvalues of the matrix $A$ that we use to form the instance of the `LinearStateSpace` class for the Samuelson model equal the roots of the characteristic polynomial `` {eq}`polynomial` `` for the Samuelson multiplier accelerator model". And there are four small breakages of the register: 339 says the cosine wave "goes through exactly one complete cycles"; 341 is a parenthetical instruction with the politeness at the wrong end, "(Draw a cosine function to convince yourself of this please)"; 82 puts the comma inside the emphasis, `*aggregate demand,*`; and the file uses three different dash conventions in prose - `--` at 113 and 249, `---` at 200 and 201.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 3. *Lines:* 977, 1379, 357. *Example:* the class docstring states a different model from the class. 979 writes $Y_t = \alpha(1+\beta)Y_{t-1} - \alpha\beta Y_{t-2}$, while the lecture's own reduction at 177 sets $\rho_1 = (\alpha+\beta)$ and $\rho_2 = -\beta$ and the code implements exactly that, `ρ1 = α + β` and `ρ2 = -β` at 554-555. The two parameterisations are not equal for any nontrivial $(\alpha,\beta)$, so a reader who takes the docstring at face value has the wrong difference equation for the class they are about to instantiate. Second, 1379 says "Let's shut down the accelerator by setting $b=0$" - the accelerator coefficient is $\beta$ throughout the lecture (77, 122, 155, 177) and the code on the next line writes `β=0`, so $b$ appears once, undefined. Third, the lecture states its plan twice: 43-47 gives three objectives in the Overview, and then "Things this lecture does" (357-399) restates them as nine consecutive sentences of implementation narration ("We write a function ... The function requires ... The function checks ... The function also tells us ... If the roots ... We use our function ... We have written the function ...") before any code appears.
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 3. *Lines:* 343, 405, 1385. *Example:* a 1,415-line lecture contains no admonition of any kind - the Admonitions category is `N/A` for want of material, not because the file is clean - and there are two places where the author clearly wanted one: 343 and 352 both open with an italic run-in `*Remark:*` label, exactly what `{note}` or `{prf:remark}` exists for, and 85, 287 and 106 park background reading in bare parenthesised asides. Second, seven of the lecture's figures carry no `mystnb` caption or name metadata (405, 1143, 1155, 1169, 1358, 1363, 1368), so the parameter-region diagram from page 189 of `` {cite}`Sargent1987` `` - the single most useful picture in the lecture, and the one the whole discussion of root types at 518-530 refers to - cannot be cross-referenced from the text at all, and 1148's section heading "Using the graph" has to name it in prose instead. Third, the closing "Pure multiplier model" section (1377-1403) is six consecutive one-line code cells that assign `pure_multiplier` twice with different $\alpha$ (1386, 1394) and plot each in turn; the point being made - that switching the accelerator off removes the cycles - is a comparison, and it is spread over three separate figures with the first parameterisation discarded after one plot.
@@ -44,7 +45,6 @@ _None found._
 ### Low severity
 - **[qe-fig-007]** — Keep figure box and spines. *Count:* 1. *Lines:* 436. *Example:* spine removal.
 - **[qe-link-001]** — Use markdown style links for lectures in same lecture series. *Count:* 1. *Lines:* 387. *Example:* full URL to own series (python.quantecon.org).
-- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 403. *Example:* `` {cite} `` in narrative flow: 'of `` {cite} ``'.
 
 
 ## Strengths

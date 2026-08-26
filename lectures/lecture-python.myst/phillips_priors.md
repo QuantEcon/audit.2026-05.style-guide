@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.9 / 10
+- **Overall score:** 7.5 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -13,11 +13,11 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 4.5/10 | `qe-writing-002` ×5; `qe-writing-005` ×3; `qe-writing-003` ×4, +2 more. |
-| Math         | 9.5/10 | `qe-math-009` ×4. |
+| Math         | 7/10  | `qe-math-010` (proposed) ×2; `qe-math-009` ×4. |
 | Code         | 8.5/10 | `qe-code-001` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5.5/10 | `qe-fig-003` ×3; `qe-fig-004` ×4; `qe-fig-005` ×1, +2 more. |
-| References   | 7/10  | `qe-ref-001` ×10. |
+| References   | 7/10  | `qe-ref-001` ×12. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
@@ -28,7 +28,8 @@ _None found._
 
 ### High severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 5. *Lines:* 328, 366, 397, 553, 655. *Example:* figsize=.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 10. *Lines:* 40, 57, 444, 446, 448, 587, 599, 668. *Example:* `` {cite} `` in narrative flow: 'of `` {cite} ``'.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 2. *Lines:* 161, 189. *Example:* non-blackboard `\operatorname{cov}`.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 12. *Lines:* 40, 57, 103, 182, 444, 446, 448, 587, 599, 668. *Example:* `` {cite} `` in narrative flow: 'of `` {cite} ``'.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 5. *Lines:* 219, 40, 438, 587, 615. *Example:* the file is otherwise well-paced - one sentence per paragraph, no qe-writing-001 hits at all - and the cost is concentrated in five long sentences. 219 is 63 words carrying three equation references and two definitions ("Constant-gain recursive least squares is the special case in which the government's prior is $V = V^* \equiv \epsilon^2\sigma^2 M(\bar\gamma)^{-1}$ and $\sigma = \sigma_1$; then `` {eq}`pp_riccati` `` gives ... and `` {eq}`pp_kalman` `` reduces to ... with gain $\epsilon$") - the sentence that establishes the link to the previous lecture is the hardest one in the file to read. 40 is 39 words and four references; 438 is 40 words with a parenthesis nested inside an em-dash aside; 587 is 57 words ending in an appositive that names another lecture; 615 is 45 words. Splitting each at its semicolon or dash would cost nothing.
 
 ### Medium severity
