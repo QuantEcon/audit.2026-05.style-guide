@@ -58,7 +58,7 @@ _None found._
 2. Bind $m$ to the IMRS in the Overview, at 33-36 where the IMRS is first named, so that the six uses at 39-57 refer to something already defined; and define $\|\cdot\|$ at or before 396 rather than glossing it at 400.
 3. Add a legend to the annual figure (541-569) naming the squares and the cross, annotate a few $\gamma$ values along the CRRA series, and mark $\gamma = -11$ so the figure carries the claim that 579-580 and 933-935 make about it; do the same for the $\gamma$ ordering on the monthly figure at 1058-1077.
 4. Use one name for the discount factor - $\beta$ in the displays and `β` in `crra_points_from_consumption`, but `δ` in `simulate_economy` (1200), `crra_imrs_moments` (1232) and `simulate_nonseparable_imrs` (1016).
-5. Write the 39 bare expectations as `\mathbb{E}` (qe-math-010 (proposed), proposed) - `E(xm)`, `Eq`, `E(m)`, `Exx^\top`, `Em^*` and the rest, starting at 56, 91, 99 and 107.
+5. Write the 39 bare expectations as `\mathbb{E}` (qe-math-010 (proposed)) - `E(xm)`, `Eq`, `E(m)`, `Exx^\top`, `Em^*` and the rest, starting at 56, 91, 99 and 107.
 6. Italicise the three emphatic bolds at 738, 757 and 940, matching the italic already used for the same purpose at 748.
 7. Clean the PEP8 items: the whitespace-only line at 152, the comma import at 180 (and move it to the import cell at 69-76), the double space at 470, the continuation indent at 642-645, the slice spacing at 1038-1039, and the ASCII `alpha_star` at 1265.
 8. Replace the `{doc}` roles used as grammatical subjects at 118 ("`` {doc}`hansen_richard_1987` `` show that no-arbitrage implies...") and 399 with `{cite:t}` plus a separate `{doc}` link, so the sentence reads as a citation rather than as a cross-reference doing duty as a name.

@@ -32,9 +32,9 @@ lecture-dp,mccall_model_with_separation,6.5,8.5,7.5,out-of-scope,8.5,10.0,10.0,1
 lecture-dp,mccall_persist_trans,9.5,6.5,6.0,out-of-scope,8.0,10.0,10.0,10.0,8.6,NONE
 lecture-dp,mccall_q,3.0,9.5,7.0,out-of-scope,7.0,9.0,10.0,N/A,7.6,HIGH
 lecture-dp,odu,3.0,9.0,7.5,out-of-scope,5.0,9.0,8.0,10.0,7.4,HIGH
-lecture-dp,opt_tax_recur,7.0,6.0,10.0,out-of-scope,4.5,9.0,10.0,10.0,8.1,LOW
+lecture-dp,opt_tax_recur,4.0,5.0,8.5,out-of-scope,4.5,9.0,10.0,10.0,7.3,HIGH
 lecture-dp,os,6.0,9.0,9.0,out-of-scope,8.0,10.0,10.0,10.0,8.9,NONE
-lecture-dp,os_egm,7.0,10.0,7.5,out-of-scope,9.0,10.0,10.0,10.0,9.1,NONE
+lecture-dp,os_egm,5.5,9.5,7.5,out-of-scope,9.0,10.0,10.0,10.0,8.8,NONE
 lecture-dp,os_egm_jax,10.0,10.0,7.5,out-of-scope,7.0,N/A,10.0,10.0,9.1,NONE
 lecture-dp,os_numerical,6.0,10.0,10.0,out-of-scope,5.5,N/A,10.0,10.0,8.6,NONE
 lecture-dp,os_stochastic,4.5,7.5,9.5,out-of-scope,7.5,10.0,8.0,10.0,8.1,LOW
@@ -310,7 +310,7 @@ lecture-python.myst,phillips_learning,5.0,7.5,8.5,out-of-scope,6.0,7.0,10.0,10.0
 lecture-python.myst,phillips_lost_conquest,3.5,6.0,7.5,out-of-scope,4.5,7.5,10.0,10.0,7.0,HIGH
 lecture-python.myst,phillips_misspecified,5.5,9.5,8.5,out-of-scope,6.5,8.5,10.0,10.0,8.4,LOW
 lecture-python.myst,phillips_priors,4.5,9.5,8.5,out-of-scope,5.5,7.0,10.0,10.0,7.9,LOW
-lecture-python.myst,phillips_self_confirming,10.0,10.0,10.0,out-of-scope,6.0,10.0,10.0,10.0,9.4,NONE
+lecture-python.myst,phillips_self_confirming,5.5,9.5,8.5,out-of-scope,6.0,10.0,10.0,10.0,8.5,LOW
 lecture-python.myst,phillips_two_stories,3.0,10.0,8.5,out-of-scope,5.0,8.5,10.0,10.0,7.9,HIGH
 lecture-python.myst,pricing_information,5.5,4.5,5.0,out-of-scope,6.0,10.0,10.0,10.0,7.3,LOW
 lecture-python.myst,prob_matrix,3.0,3.0,5.5,out-of-scope,5.0,N/A,10.0,10.0,6.1,HIGH
@@ -319,7 +319,7 @@ lecture-python.myst,prospects_bounded_rationality,10.0,10.0,9.0,out-of-scope,8.5
 lecture-python.myst,qr_decomp,3.0,3.0,7.5,out-of-scope,N/A,N/A,10.0,N/A,5.9,HIGH
 lecture-python.myst,rand_resp,3.5,9.5,7.5,out-of-scope,N/A,10.0,10.0,N/A,8.1,HIGH
 lecture-python.myst,rational_expectations,3.5,5.0,7.5,out-of-scope,10.0,9.0,10.0,10.0,7.9,HIGH
-lecture-python.myst,rational_learning_re,10.0,8.5,10.0,out-of-scope,7.0,10.0,10.0,10.0,9.4,NONE
+lecture-python.myst,rational_learning_re,5.5,7.5,8.5,out-of-scope,7.0,10.0,10.0,10.0,8.4,LOW
 lecture-python.myst,re_with_feedback,3.0,8.5,7.0,out-of-scope,6.0,10.0,10.0,10.0,7.8,HIGH
 lecture-python.myst,robust_permanent_income,3.5,9.0,7.0,out-of-scope,6.0,10.0,10.0,10.0,7.9,HIGH
 lecture-python.myst,ross_recovery,3.5,5.5,6.5,out-of-scope,6.0,10.0,10.0,10.0,7.4,HIGH

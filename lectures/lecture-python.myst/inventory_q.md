@@ -59,7 +59,7 @@ _None found._
 
 1. Replace `\mathbf{1}\{a > 0\}` at 231 with the plain `1\{a > 0\}` already used at 119, or with `\mathbb{1}` - this is a qe-math-004 violation that the draft report does not list (see scanner doubts), and it is also the only place the indicator changes typeface mid-lecture.
 2. Add `mystnb: figure: caption`/`name` metadata to the two un-named figures (681, 718) and move the four `set_title` calls (689, 696, 732, 742) into those captions or into panel labels; then `lw=2` on the seven line plots (379, 684, 685, 691, 692, 730, 740).
-3. Settle the expectation and argmax notation: `\EE` at 86 against `\mathbb E` at 143, 415, 432, and `\argmax` at 174, 495, 669 against `\arg\max` at 277, 441 - then add the braces `\mathbb E` -> `\mathbb{E}` (qe-math-010 (proposed), proposed).
+3. Settle the expectation and argmax notation: `\EE` at 86 against `\mathbb E` at 143, 415, 432, and `\argmax` at 174, 495, 669 against `\arg\max` at 277, 441 - then add the braces `\mathbb E` -> `\mathbb{E}` (qe-math-010 (proposed)).
 4. Delete either "### What the manager needs to know" (463-477) or the Introduction bullets at 42-49; keeping both means the reader is told the same five observables three times, counting 398-402.
 5. Add a picture to the Q-table section: a heatmap of the final `q` array over $(x, a)$ with the infeasible region masked would show both the shape of the solution and why only feasible $a \leq K - x$ entries are ever updated.
 6. Curly-bracket the three sequences at 92, 94 and 96 (`(D_t)_{t \geq 0}` -> `\{D_t\}_{t \geq 0}`), lower-case the H2s at 76 and 154, and change "## Q-Learning" at 394 to "## Q-learning" to match how the prose spells it at 40, 447 and 583.

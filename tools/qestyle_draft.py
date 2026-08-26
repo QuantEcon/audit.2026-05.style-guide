@@ -201,13 +201,26 @@ JUDGMENT_RULES = {
 # tries to resolve every one: 615 of them across the reports, and 478 of the build's warnings.
 # Wrapped in a space-padded double-backtick span they render literally and resolve nothing.
 # The padding matters: ``` ``{doc}`x``` ``` closes on a run of three and does not parse.
+# Two branches, deliberately. A role from the known set is escaped even with no target —
+# a bare ``{eq}`` in prose is still a role. Any *other* role name is escaped only when it
+# carries a backticked target, because a generic ``\{[a-z]+\}`` with the target optional
+# would also match a maths subscript: ``$x_{it}$`` would become ``$x`` `` {it} `` ``$``.
+# ``(?<!`` )`` keeps this idempotent: prose that is already in the padded literal form
+# must not gain a second layer.
 ROLE_RE = re.compile(
-    r"(?<!`)(\{(?:cite|cite:t|eq|doc|numref|ref|term|abbr|prf:ref)\}(?:`[^`\n]*`)?)")
+    r"(?<!`)(?<!`` )(\{(?:cite|cite:t|eq|doc|numref|ref|term|abbr|prf:ref)\}(?:`[^`\n]*`)?"
+    r"|\{[a-z][a-z0-9:_-]*\}`[^`\n]*`)")
+
+# A reviewer reaching for the literal form and getting the backtick count wrong:
+# ``tax_smoothing_2`` wrote `` `{cite}`barro2003religion`` `` — one backtick opening, two
+# closing. ``ROLE_RE``'s ``(?<!`)`` then reads it as already-escaped and leaves the role for
+# Sphinx to resolve. Strip the stray backticks first and let the normal escape apply.
+MALFORMED_ROLE = re.compile(r"(?<!`)`(\{[a-z][a-z0-9:_-]*\}`[^`\n]*`)`+")
 
 
 def escape_roles(text: str) -> str:
     """Render a MyST role in prose as literal text rather than a cross-reference."""
-    return ROLE_RE.sub(r"`` \1 ``", text)
+    return ROLE_RE.sub(r"`` \1 ``", MALFORMED_ROLE.sub(r"\1", text))
 
 
 def tag_proposed(text: str) -> str:
@@ -217,10 +230,22 @@ def tag_proposed(text: str) -> str:
     tag the conventions require. Normalising here keeps the convention without
     asking a reviewer to remember it.
     """
+    # Already-tagged shapes, in the forms reviewers actually write them. Checked against the
+    # text *after* the citation, rather than as a lookahead: with a lookahead the optional
+    # closing backtick backtracks out of the way and ``(`qe-math-013` (proposed))`` gained a
+    # second tag inside the code span.
+    TAGGED = re.compile(r"\s*\(proposed\)|\s*\*\(proposed\)\*|,\s*proposed\b")
     for rule in sorted(PROPOSED, reverse=True):
+        # Reviewers also write the tag as a second item in the citation's own parenthesis —
+        # ``(qe-math-013, proposed)``. Normalise that shape first so it reads like every
+        # other citation.
+        text = re.sub(r"\((`?)" + re.escape(rule) + r"\1,\s*proposed\)",
+                      lambda m: f"({m.group(1)}{rule}{m.group(1)} (proposed))", text)
         text = re.sub(
-            re.escape(rule) + r"`?(?! ?\(proposed\))(?!`? ?\*\(proposed\)\*)",
-            lambda m: m.group(0) + " (proposed)", text)
+            re.escape(rule) + r"`?",
+            lambda m: (m.group(0) if TAGGED.match(m.string, m.end())
+                       else m.group(0) + " (proposed)"),
+            text)
     return text
 
 

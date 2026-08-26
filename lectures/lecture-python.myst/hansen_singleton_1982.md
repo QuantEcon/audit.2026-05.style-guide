@@ -54,10 +54,10 @@ _None found._
 
 ## Recommended actions
 
-1. Brace the 11 bare expectation operators - `E_t[` and `E[` become `\mathbb{E}_t[` and `\mathbb{E}[` (168, 188, 211, 239, 245, 376, 378, 568, 600, 1044, ...) - the single largest fix in this lecture (qe-math-010 (proposed), proposed).
+1. Brace the 11 bare expectation operators - `E_t[` and `E[` become `\mathbb{E}_t[` and `\mathbb{E}[` (168, 188, 211, 239, 245, 376, 378, 568, 600, 1044, ...) - the single largest fix in this lecture (qe-math-010 (proposed)).
 2. Fix the text-versus-code disagreement at 787: the prose says '700 monthly observations' while the cell at 792-793 generates 5000, and the Monte Carlo at 945 uses 900.
 3. Resolve the M/m overloading described above - rename the maturity or the discount factor - and settle on one asset index and one symbol for the information set.
 4. Move the implementation cells at 249-534 after '## GMM criterion and asymptotic theory' (536), or move the criterion, weighting matrix and $J$ statistic ahead of the code that computes them.
 5. Reconcile the two statements of the disturbance's MA order: line 380 says the number of autocovariances in $S_0$ is determined by $n$, 'the order of the moving average disturbance', while 588 says the disturbance is at most MA($n-1$) - the code uses `ma_order=horizon-1` (906), so 380 is the one to fix.
 6. Repair the prose defects: the clauseless sentence at 50, the fragment at 182-184, the triple statement of the instrument-timing requirement at 328-334, and the two grammar slips at 1119 and 1121.
-7. Housekeeping: rename `xi` to `ξ` at 781-782 (qe-code-002), sentence-case the figure caption at 932 (qe-fig-004), drop `figsize=` at 957 (qe-fig-001), write 'IID' at 741 (qe-writing-009 (proposed), proposed), and clear the trailing whitespace at 387 and the double space at 606.
+7. Housekeeping: rename `xi` to `ξ` at 781-782 (qe-code-002), sentence-case the figure caption at 932 (qe-fig-004), drop `figsize=` at 957 (qe-fig-001), write 'IID' at 741 (qe-writing-009 (proposed)), and clear the trailing whitespace at 387 and the double space at 606.

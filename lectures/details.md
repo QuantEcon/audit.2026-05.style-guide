@@ -36,11 +36,11 @@ category.
 | # | Series | Lectures | Writing | Math | Code | Figures | References | Links | Admon | **Overall** | HIGH | MEDIUM | LOW | NONE |
 |---|--------|----------|---|---|---|---|---|---|---|-------------|------|--------|-----|------|
 | 1 | [lecture-python-advanced.myst](lecture-python-advanced.myst/index.md) | 68 | **4.6** | 5.9 | 7.4 | 6.4 | 9.2 | 9.2 | 10.0 | **7.4** | 43 | 0 | 20 | 5 |
-| 2 | [lecture-python.myst](lecture-python.myst/index.md) | 145 | **4.6** | 7.1 | 7.7 | 6.5 | 9.6 | 9.8 | 10.0 | **7.8** | 81 | 1 | 44 | 19 |
-| 3 | [lecture-dp](lecture-dp/index.md) | 52 | **5.1** | 6.9 | 7.9 | 6.4 | 9.3 | 9.5 | 10.0 | **7.8** | 32 | 0 | 6 | 14 |
+| 2 | [lecture-python.myst](lecture-python.myst/index.md) | 145 | **4.5** | 7.1 | 7.7 | 6.5 | 9.6 | 9.8 | 10.0 | **7.8** | 81 | 1 | 46 | 17 |
+| 3 | [lecture-dp](lecture-dp/index.md) | 52 | **5.1** | 6.8 | 7.9 | 6.4 | 9.3 | 9.5 | 10.0 | **7.8** | 33 | 0 | 5 | 14 |
 | 4 | [lecture-python-programming](lecture-python-programming/index.md) | 27 | **4.1** | 9.0 | 8.4 | 7.3 | N/A | 9.8 | 9.9 | **8.0** | 20 | 0 | 5 | 2 |
 | 5 | [lecture-python-intro](lecture-python-intro/index.md) | 56 | **5.2** | 8.6 | 7.3 | 6.6 | 9.3 | 9.7 | 10.0 | **8.1** | 19 | 0 | 28 | 9 |
-|   | **TOTAL / corpus average** | **348** | **4.7** | **7.1** | **7.7** | **6.5** | **9.4** | **9.6** | **10.0** | **7.8** | **195** | **1** | **103** | **49** |
+|   | **TOTAL / corpus average** | **348** | **4.7** | **7.1** | **7.6** | **6.5** | **9.4** | **9.6** | **10.0** | **7.8** | **196** | **1** | **104** | **47** |
 <!-- /qe:full-scoreboard -->
 
 See the [charts](charts.md) for the visual version.
@@ -248,6 +248,7 @@ HIGH lecture was triggered by the category floor; none has an overall at or belo
 | python.myst | [mle](lecture-python.myst/mle.md) | 4.5 | 3.0 | 7.5 | 5.5 | 10.0 | 10.0 | 10.0 | **7.2** | 3.0 |
 | python.myst | [sargent_surico](lecture-python.myst/sargent_surico.md) | 6.5 | 5.5 | 4.5 | 4.0 | 10.0 | 10.0 | 10.0 | **7.2** | 4.0 |
 | dp | [amss](lecture-dp/amss.md) | 3.5 | 3.5 | 8.0 | 6.0 | 10.0 | 10.0 | 10.0 | **7.3** | 3.5 |
+| dp | [opt_tax_recur](lecture-dp/opt_tax_recur.md) | 4.0 | 5.0 | 8.5 | 4.5 | 9.0 | 10.0 | 10.0 | **7.3** | 4.0 |
 | advanced | [amss](lecture-python-advanced.myst/amss.md) | 4.0 | 4.0 | 7.0 | 6.0 | 10.0 | 10.0 | 10.0 | **7.3** | 4.0 |
 | advanced | [gorman_heterogeneous_households](lecture-python-advanced.myst/gorman_heterogeneous_households.md) | 3.0 | 8.0 | 5.0 | 5.0 | 10.0 | 10.0 | 10.0 | **7.3** | 3.0 |
 | advanced | [growth_in_dles](lecture-python-advanced.myst/growth_in_dles.md) | 3.0 | 7.5 | 7.5 | 7.0 | 9.0 | 10.0 | — | **7.3** | 3.0 |

@@ -57,7 +57,7 @@ _None found._
 ## Recommended actions
 
 1. Fix the JAX section's policy figure at 695-702: it plots `a_vec[:, k]` and `c_vec[:, k]`, which are the NumPy arrays from 469, not the JAX solution `a_vec_jax`, `c_vec_jax` computed at 634 - so the figure under '## JAX Implementation' shows the NumPy result, and it duplicates the figure at 476-484 exactly.
-2. Repair the equation reference at 180: `{eq}`eqvfs`` is the label of the value-function display in `` {doc}`ifp_discrete` ``, while this lecture's is `eqvfs_egm` (170), so the cross-reference silently points at another lecture's equation.
+2. Repair the equation reference at 180: `` {eq}`eqvfs` `` is the label of the value-function display in `` {doc}`ifp_discrete` ``, while this lecture's is `eqvfs_egm` (170), so the cross-reference silently points at another lecture's equation.
 3. Sentence-case the nine Title Case headings at 73, 165, 207, 251, 325, 340, 488, 495 and 767 (qe-writing-006).
 4. Replace the six bare `time.time()` readings at 669-683 with the `quantecon.Timer` context manager, and move the mid-lecture `import time` at 656 into the import cell at 62-70 (qe-code-004).
 5. Decide what to do with the value function: either compute and plot it, or drop `` {eq}`eqvfs_egm` `` (167-176) and `v_star` (783) and characterise optimality through the Euler equations alone.

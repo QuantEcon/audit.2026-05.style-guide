@@ -51,7 +51,7 @@ _None found._
 
 ## Recommended actions
 
-1. Add braces to the 21 blackboard operators - `\mathbb E` -> `\mathbb{E}`, `\mathbb P` -> `\mathbb{P}` - the single largest fix in this lecture (qe-math-010 (proposed), proposed).
+1. Add braces to the 21 blackboard operators - `\mathbb E` -> `\mathbb{E}`, `\mathbb P` -> `\mathbb{P}` - the single largest fix in this lecture (qe-math-010 (proposed)).
 2. Simulate the Cauchy failure in "### Infinite first moment": plot a running sample mean of Cauchy draws against $n$, in the style of the violin plots at 302-343, so the section demonstrates rather than asserts.
 3. Add `mystnb: figure: caption/name` metadata to the five un-named figures (260, 302, 475, 526, 679) - the CLT histogram at 475 is the lecture's headline figure and is referred to only as "[above](sim_one)".
 4. Replace `\mathbf 1` with the plain indicator `1` or `\mathbb{1}` (580, 590) and, whichever is chosen, say in the prose that it denotes the indicator - the current text explains it once but the notation is bold-face, which qe-math-004 rules out.

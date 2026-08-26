@@ -57,7 +57,7 @@ _None found._
 
 ## Recommended actions
 
-1. Add braces to the 15 blackboard operators - `\mathbb P` -> `\mathbb{P}`, `\mathbb E` -> `\mathbb{E}`, `\mathbb N` -> `\mathbb{N}`, `\mathbb R` -> `\mathbb{R}` (qe-math-010 (proposed), proposed).
+1. Add braces to the 15 blackboard operators - `\mathbb P` -> `\mathbb{P}`, `\mathbb E` -> `\mathbb{E}`, `\mathbb N` -> `\mathbb{N}`, `\mathbb R` -> `\mathbb{R}` (qe-math-010 (proposed)).
 2. Replace `\mathbf 1` with a non-bold ones vector in the exercise 3 solution (1258, 1259, 1261 - seven occurrences) and say in the prose that it denotes a column of ones.
 3. Fix the figure description at 986-994: the four colours are four initial distributions, and the periodic-chain figure plots no stationary distribution; either plot $\psi^*$ as the Hamilton figure does or correct the text.
 4. Rename the three initial distributions at 828 and 847-849 (for example $\psi^a, \psi^b, \psi^c$) so the subscript on $\psi$ keeps meaning time throughout.

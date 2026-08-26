@@ -58,5 +58,5 @@
 3. Add `:name:`/caption metadata to the 11 figures (46, 61, 179, 209, 374, 417, 481, 524, 576, 632, 652) and set `lw=2` on the 10 plots (67, 182, 217, 382, 426, 491, 534, 586, 646, 663) - qe-fig-005 and qe-fig-008.
 4. Rewrite the exercise-2 hint at 513 as a sentence, and finish the sentence at 349 before the bullet list starts.
 5. Bold the two definitions at 224-225 and the definition sentence at 239, matching 118, 120, 141, 263 and 309.
-6. Fix the PEP8 items above (391, 420, 641, 660, 721) and replace `*` with `\cdot` in the circle-area hint at 693 (qe-math-012 (proposed), proposed, 1 occurrence).
+6. Fix the PEP8 items above (391, 420, 641, 660, 721) and replace `*` with `\cdot` in the circle-area hint at 693 (qe-math-012, proposed, 1 occurrence).
 7. Either rename '## Version 1' (56) or add the Version 2 it implies, and correct 'There are no withdraws over the time period' to 'withdrawals' (405).

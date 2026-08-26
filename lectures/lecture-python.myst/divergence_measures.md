@@ -59,9 +59,9 @@ _None found._
 ## Recommended actions
 
 1. Fix the entropy claim in the note at 88-93: the maximum-entropy uniform distribution has $H(f) = \log n$, not $-\log(n)$ - the minus sign contradicts the definition two lines above at 81.
-2. Convert the raw LaTeX environments to MyST display math: `\begin{equation}` at 114 and 121 to `$$ ... $$`, and the bare `\begin{align}` at 134 to `$$ ... \begin{aligned} ... $$` - the align block is the one build-risk item in the file (qe-math-006).
+2. Convert the raw LaTeX environments to MyST display math: `\begin`` {equation}` at 114 and 121 to ` ``$$ ... $$`, and the bare `\begin`` {align}` at 134 to ` ``$$ ... \begin{aligned} ... $$` - the align block is the one build-risk item in the file (qe-math-006).
 3. Rename the parameter of `plot_dist_diff` at 470: it declares `para_grid` but the loop at 475 iterates the module-level `param_grid`, so the function silently ignores its argument and the call at 507 only works by coincidence.
 4. Figure hygiene, the largest mechanical block here: add mystnb name/caption metadata to the three figure cells at 166, 268 and 433 (qe-fig-005), move the embedded `set_title` calls at 443, 448 and 499 into captions (qe-fig-003), and drop the four `figsize=` overrides at 185, 274, 438 and 473 (qe-fig-001).
 5. Add the Chernoff-coefficient-versus-$\phi$ figure described above, and cut the restatements at 217 and 319 so each result is established once.
-6. Write `\mathbb{E}_f` for the conditional expectation in the chain-rule bullet at 219 (qe-math-010 (proposed), proposed), brace the weight sequence at 310 as $\{\alpha_i\}_{i=1}^n$ (qe-math-005), and write 'IID' at 336 (qe-writing-009 (proposed), proposed).
+6. Write `\mathbb{E}_f` for the conditional expectation in the chain-rule bullet at 219 (qe-math-010 (proposed)), brace the weight sequence at 310 as $\{\alpha_i\}_{i=1}^n$ (qe-math-005), and write 'IID' at 336 (qe-writing-009 (proposed)).
 7. Sweep the 26 double-space runs in the prose (32, 34, 36, 38, 40, 42, 68, 70, 71, 77, ...) and the trailing whitespace inside the code cells at 415, 458, 460, 461, 492, 494, 497 and 500.

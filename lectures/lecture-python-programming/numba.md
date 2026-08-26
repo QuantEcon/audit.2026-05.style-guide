@@ -55,7 +55,7 @@ _None found._
 
 ## Recommended actions
 
-1. Add braces to `\mathbb E` at 975 and 1014 (qe-math-010 (proposed), proposed) - the only math violations in the lecture.
+1. Add braces to `\mathbb E` at 975 and 1014 (qe-math-010 (proposed)) - the only math violations in the lecture.
 2. Sentence-case the six headings (87, 100, 183, 217, 267, 300).
 3. Reconcile the three pre-draw-versus-in-loop conclusions (552-556, 912, 951) into one recommendation that restates the `Generator`-versus-legacy distinction where the recommendation is actually made.
 4. Add mystnb caption/name to the four figures (104, 340, 575, 885), add `lw=2` at 349 and 899, and regenerate the static PNG at 575 from code.

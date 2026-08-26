@@ -54,6 +54,6 @@ _None found._
 2. Mark $\bar w$ on the figure at 360 and give it axis labels, so that 392 can state the agreement instead of saying the value 'seems close'.
 3. Add `mystnb: figure: caption/name` metadata to the four un-named figure cells (354, 678, 696, 714) - the three glued figures are referenced by key but none of the four has a caption (qe-fig-005, 4 occurrences).
 4. Move the `compute_v_e` cell (525-530) ahead of the `update_h` cell (514-521) so no function is called before it is defined.
-5. Brace the blackboard operator at 88, `{\mathbb E}` -> `\mathbb{E}` (qe-math-010 (proposed), proposed, 1 occurrence), and close the double space at 308 (qe-writing-008, 1 occurrence).
+5. Brace the blackboard operator at 88, `{\mathbb E}` -> `\mathbb{E}` (qe-math-010, proposed, 1 occurrence), and close the double space at 308 (qe-writing-008, 1 occurrence).
 6. Give the three one-line docstrings triple quotes (516, 527, 539) to match the other five, space `n-1` at 256, and add the second blank line after the top-level definitions at 388, 684, 702 and 720.
 7. Rename the two code sections so they are distinguishable: '## Code' at 234 holds the two-vector solver and '## Implementation' at 509 holds the scalar solver, and nothing in the titles says which is which.

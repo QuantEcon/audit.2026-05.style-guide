@@ -50,7 +50,7 @@ _None found._
 ## Recommended actions
 
 1. Point the issue tracker at the right repository: line 63 links to `https://github.com/QuantEcon/lecture-python/issues`, which is the intermediate series, while this page ships with `lecture-python-intro` - so a reader following the instruction files an intro-series bug in the wrong tracker. It should be `https://github.com/QuantEcon/lecture-python-intro/issues`.
-2. Replace the raw cross-series URL at 32 with a `{doc}` reference - `{doc}`programming:getting_started`` - which is the one mechanical Links finding on the page (qe-link-002).
+2. Replace the raw cross-series URL at 32 with a `{doc}` reference - `` {doc}`programming:getting_started` `` - which is the one mechanical Links finding on the page (qe-link-002).
 3. Put the two install commands in inline code at 45-46: `conda install -y quantecon` and `!conda install -y quantecon` currently sit in plain prose, so the leading `!` that distinguishes the notebook form from the shell form reads as punctuation.
 4. Split the two-sentence paragraph at 65-66 into two blocks (qe-writing-001), which also removes the double space after "possible." (qe-writing-008), and add the missing full stop at the end of 68.
 5. Convert the `{image}` at 52-54 to a `{figure}` with a `:name:` and a short caption such as "the Launch Notebook icon" (qe-fig-005), and give the path a leading slash - `/_static/lecture_specific/troubleshooting/launch.png` - to match the fifteen other image and figure directives in this series; only this file and `long_run_growth.md:34` use the relative form.

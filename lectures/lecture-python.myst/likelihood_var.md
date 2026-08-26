@@ -60,7 +60,7 @@ _None found._
 ## Recommended actions
 
 1. Delete or implement the claim at 793: the code applies no threshold to the log likelihood ratio anywhere. If clipping is wanted, it belongs in `compute_likelihood_ratio_var` at 289-298; if not, the sentence has to go.
-2. Fix the two displays at 350-352 and 356-358: each opens with `A_f & = ...` inside a bare `$$` with no `aligned` environment, so the top-level `&` is a misplaced alignment tab. Wrap both in `\begin{aligned} ... \end{aligned}` (or drop the `&`) - this is a PDF build risk, not a cosmetic issue.
+2. Fix the two displays at 350-352 and 356-358: each opens with `A_f & = ...` inside a bare `$$` with no `aligned` environment, so the top-level `&` is a misplaced alignment tab. Wrap both in `\begin{aligned} ... \end`` {aligned}` (or drop the ` ``&`) - this is a PDF build risk, not a cosmetic issue.
 3. Correct the timing in 559-561: the observation matrix at 546-549 applied to the state $[1, Y_t, Y_{t-1}]'$ yields $(\gamma+G) + \rho_1 Y_t + \rho_2 Y_{t-1}$, $\gamma + a Y_t$ and $b(Y_t - Y_{t-1})$ - each bullet is currently written one period earlier - and fix the same shift in the comments at 591-593.
 4. Either compute the Samuelson likelihood ratios from the observables that 542-561 and 695-705 go to the trouble of constructing, or delete `G_obs`, the observables branch of `simulate_samuelson` and the observation equation - as it stands $C_t$ and $I_t$ are built and never used, and 769-770 uses the latent state.
 5. Rename the five figure labels from `$\log L_t$` to `$L_t$` (337, 408, 407, 414, 778, 779, 785): 259-261 defines $L_t$ as the sum of log ratios, so the labels currently read as the log of a log.

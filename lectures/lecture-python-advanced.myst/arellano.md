@@ -58,7 +58,7 @@ _None found._
 1. Promote the figure code out of the exercise solution: the four Results figures at 631, 652, 661 and 672 are static PNGs whose generating code already exists at 711-816, so the Results section can show live figures with `:name:` labels and captions and be cross-referenced with `{numref}` (qe-fig-002 ×4, qe-fig-005 ×8).
 2. Fix the algorithm list at 325-330 - the source numbers it 1, 2, 2, 4, and "go to step 2" needs to name a step the reader can actually count to; the loop is over the two sub-steps at 328-329.
 3. Bold the defined terms: "**Defaulting** means..." at 187 and "An **equilibrium** is" at 288 (currently italic, which the rule reserves for emphasis).
-4. Brace the expectation operator at 101 - `\mathbb E` should be `\mathbb{E}` (qe-math-010 (proposed), proposed) - and rename `delta` to `δ` at 416-417 so the code matches $\delta(B',y)$ in the algebra (qe-code-002 ×2).
+4. Brace the expectation operator at 101 - `\mathbb E` should be `\mathbb{E}` (qe-math-010 (proposed)) - and rename `delta` to `δ` at 416-417 so the code matches $\delta(B',y)$ in the algebra (qe-code-002 ×2).
 5. Add a small timing diagram for the pay/default/exclusion/reentry structure described at 179-201; it is the only part of the model with no picture.
 6. Run the code cells through a PEP8 pass for the eight items above, and drop the four `figsize=(10, ...)` overrides at 721, 745, 766 and 799 (qe-fig-001 ×4).
 7. Sweep the typos and the 7 double-space runs: "Because household are averse" (116), "operators that updated" (420), "recieved" (371), "$Y_H$" where 636 writes $y_H$ (628), "Arrelano's" (640), and recast the citation at 317 as `{cite:t}`.

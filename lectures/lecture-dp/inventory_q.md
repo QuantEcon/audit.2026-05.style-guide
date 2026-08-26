@@ -58,7 +58,7 @@ _None found._
 ## Recommended actions
 
 1. Do not act on the 3 qe-math-002 findings (435, 457, 500): each is `a' \in \Gamma(x')` or `q_t(X_{t+1}, a')`, a next-period action inside a max, and no transpose is involved. They matter because Math scores 4/10, which is what puts this lecture in the HIGH priority bucket - see scanner_doubts.
-2. Settle the blackboard-operator spelling: `\mathbb E` at 143, 416 and 433 needs braces (qe-math-010 (proposed), proposed), and line 86 writes the same operator a third way as `\EE`, the series MathJax macro defined in `_config.yml:114`. Pick `\mathbb{E}` for all four.
+2. Settle the blackboard-operator spelling: `\mathbb E` at 143, 416 and 433 needs braces (qe-math-010 (proposed)), and line 86 writes the same operator a third way as `\EE`, the series MathJax macro defined in `_config.yml:114`. Pick `\mathbb{E}` for all four.
 3. Settle the argmax: use one of `\argmax` (174, 496, 670) or `\arg\max` (277, 442) throughout, and restore `\in` in place of `=` at 277 and 442 - line 174 gets this right and the two later displays contradict it.
 4. Plot $v^*$ and $\sigma^*$ directly after they are computed at 347. The S-s policy is described in words at 371-373 and the $v^*$ range asserted at 562, but neither is visible until the comparison figure at 685.
 5. Sentence-case the two Title Case H2s - 'The Model' (76) and 'Solving via Value Function Iteration' (154) - and switch the three parenthesised sequences to curly brackets: $(D_t)_{t \geq 0}$ at 92 and 94, $(X_t)_{t \geq 0}$ at 96 (qe-writing-006 x2, qe-math-005 x3).

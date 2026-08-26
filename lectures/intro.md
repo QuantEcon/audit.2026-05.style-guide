@@ -19,8 +19,8 @@ are LOW or NONE.
 | Attention | Series | Score | Needs work | Weakest categories |
 |-----------|--------|-------|-----------|--------------------|
 | 🔴 **High** | [lecture-python-advanced.myst](lecture-python-advanced.myst/index.md) | 7.4 | 43 / 68 | Writing (4.6), Math (5.9) |
-| 🔴 **High** | [lecture-python.myst](lecture-python.myst/index.md) | 7.8 | 82 / 145 | Writing (4.6), Figures (6.5) |
-| 🔴 **High** | [lecture-dp](lecture-dp/index.md) | 7.8 | 32 / 52 | Writing (5.1), Figures (6.4) |
+| 🔴 **High** | [lecture-python.myst](lecture-python.myst/index.md) | 7.8 | 82 / 145 | Writing (4.5), Figures (6.5) |
+| 🔴 **High** | [lecture-dp](lecture-dp/index.md) | 7.8 | 33 / 52 | Writing (5.1), Figures (6.4) |
 | 🔴 **High** | [lecture-python-programming](lecture-python-programming/index.md) | 8.0 | 20 / 27 | Writing (4.1), Figures (7.3) |
 | 🟠 **Some** | [lecture-python-intro](lecture-python-intro/index.md) | 8.1 | 19 / 56 | Writing (5.2), Figures (6.6) |
 <!-- /qe:focus -->
@@ -127,10 +127,10 @@ violation was measured in it*, not that a human declared it perfect.
 ```{warning}
 <!-- qe:review-coverage -->
 **Review coverage is incomplete in this pass, and it moves the scores.** The judgment
-layer has reached **335 of the 348 lectures**; a lecture assessed against more rules
+layer has reached **339 of the 348 lectures**; a lecture assessed against more rules
 scores lower — not because it is worse, but because more of it was looked at. The gap is
-large enough to matter: the 335 reviewed average **7.74** with 58 % HIGH, the 13
-unreviewed **9.02** with 0 % HIGH.
+large enough to matter: the 339 reviewed average **7.75** with 58 % HIGH, the 9
+unreviewed **9.03** with 0 % HIGH.
 <!-- /qe:review-coverage -->
 
 So **the cross-series comparison below is provisional** wherever coverage differs between

@@ -48,7 +48,7 @@ _None found._
 ## Strengths
 
 - Every one of the eleven labelled equations is cited by `{eq}` somewhere else in the lecture (`two_eq_demand` at 109 and 695, `two_equilibrium` at 689, `la_se` at 836 and 883, `la_se2` at 890/893/991, `la_se_inv` at 1052, `inconsistent` at 1259, `n_eq_sys_la` at 859) - there are no orphan labels and no manual "equation (3)" references.
-- The `\color{red}`/`\color{blue}` highlighting of the row and column being combined (378-388, 540-551, 564-584, 1003-1007) is a genuinely effective way to show where each element of a matrix product comes from.
+- The `\color`` {red}`/` ``\color{blue}` highlighting of the row and column being combined (378-388, 540-551, 564-584, 1003-1007) is a genuinely effective way to show where each element of a matrix product comes from.
 - Transposes are written `^\top` everywhere in the body (378, 396) - only the least-squares formula at 1273 slips to `^T`.
 - The lecture builds the same two-good market three times - pencil and paper (59-114), matrix form (687-764), NumPy (1039-1119) - and closes the loop by checking that the numerical answer matches the hand calculation (1102).
 - `{index}` entries are attached to each major section (16, 132, 180, 369, 421, 880, 1041), which is rare in this series and makes the lecture searchable.
@@ -57,8 +57,8 @@ _None found._
 
 1. Replace `^T` with `^\top` in the least-squares formula at 1273 (two occurrences) so the whole lecture uses one transpose notation.
 2. Fix the determinant display at 1001-1008: as written a `bmatrix` is set equal to the scalar $ad - bc$; use `\det` or a `vmatrix`.
-3. Fix the two index typos in the matrix-times-vector display `` {eq}`la_atx` ``: `a_{i}k` should be `a_{ik}` (567) and the first row of the product reads `a_{11} x_1 + a_{22} x_2` where it should be `a_{12} x_2` (579).
+3. Fix the two index typos in the matrix-times-vector display `` {eq}`la_atx` ``: `a_{i}k` should be `a_`` {ik}` (567) and the first row of the product reads ` ``a_{11} x_1 + a_{22} x_2` where it should be `a_{12} x_2` (579).
 4. Add `mystnb: figure: caption/name` metadata to the five un-named figures (155, 242, 315, 912, 1365), keep the figure spines (161-163, 248-250, 321-323), and set `lw=2` on the four line plots.
-5. Bold the three italicised definitions (1010, 1024, 1245), replace `\begin{matrix}` at 817 with an `aligned` block or a bracketed matrix, and settle on one form of `\mathbb R` versus `\mathbb{R}` (both appear, at 142 and 240).
+5. Bold the three italicised definitions (1010, 1024, 1245), replace `\begin`` {matrix}` at 817 with an ` ``aligned` block or a bracketed matrix, and settle on one form of `\mathbb R` versus `\mathbb{R}` (both appear, at 142 and 240).
 6. Convert the five raw `python-programming.quantecon.org` and `python.quantecon.org` URLs (352, 660, 666, 955, 1388) to `{doc}` cross-series references.
 7. Move the scattered `numpy.linalg` imports into the top imports cell, fix the mislabelled third arrow in the vector-addition figure (254 reads `(x1+x2, y1+y2)` where it should be `(x1+y1, x2+y2)`), settle the $(C-D)$ versus $(D-C)$ convention, and promote "Further reading" at 1384 to an H2.

@@ -53,10 +53,10 @@ _None found._
 
 ## Recommended actions
 
-1. Add braces to the seven bare expectation operators - `E \left[` -> `\mathbb{E}` at 74, 76, 155, 231, 300, 318, 494 - and to the `${E}`/`\hat{E}` variants at 175, 231, 381, 403; this is the largest single fix in the lecture (qe-math-010 (proposed), proposed).
+1. Add braces to the seven bare expectation operators - `E \left[` -> `\mathbb{E}` at 74, 76, 155, 231, 300, 318, 494 - and to the `${E}`/`\hat{E}` variants at 175, 231, 381, 403; this is the largest single fix in the lecture (qe-math-010 (proposed)).
 2. Strip the 38 `\left(...\right)` wrappers around single-symbol arguments listed above; the equations at 196, 245 and 501 shorten by roughly half and stop contradicting themselves.
 3. Introduce $p$ and $q$ before line 233 - one sentence saying that $p$ is the data-generating density and $q$ the sampling density, so the general estimator at 238-245 can be read on first pass - and rename one of the two "...ing a sampling distribution" headings (199, 488).
 4. Close the 27 repeated spaces (qe-writing-008; 25, 31, 68, 76, 82, 157, 173, 183, 193, 201 and 17 more) - they cluster in exactly the passages that are hardest to read.
-5. Replace the unicode Greek inside math with LaTeX: `$μ_L$` (430), `$\hat{μ}$` and `$\hat{σ}^2$` (444, 484) -> `\mu`, `\sigma` (qe-math-001); and write "IID" at 66 instead of "i.i.d." (qe-writing-009 (proposed), proposed).
+5. Replace the unicode Greek inside math with LaTeX: `$μ_L$` (430), `$\hat{μ}$` and `$\hat{σ}^2$` (444, 484) -> `\mu`, `\sigma` (qe-math-001); and write "IID" at 66 instead of "i.i.d." (qe-writing-009 (proposed)).
 6. Move `ax.set_title(f'$T$={T}')` at 432 into the panel caption or drop it, since `fig-imp-estimates` already has a caption; keep the `figsize` at 424 - unlike the usual case it scales with `n_rows` for the 2x2 grid and is doing real work.
 7. Switch the emphasis at 339 and 571 to italic, bold "change of distribution" at 165, and write `$T=1$` rather than bare `T=1` in the prose at 381 and 498.

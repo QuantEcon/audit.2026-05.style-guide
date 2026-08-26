@@ -51,7 +51,7 @@ _None found._
 - The transformation taxonomy is built on one reusable pair of functions, `grid_transform` and `circle_transform` (194-281), then applied unchanged to scaling, shearing, rotation and permutation - so the four sections are directly comparable panel for panel.
 - Non-commutativity is argued twice over: numerically at 404-484, where `\underbrace` / `\overbrace` labels tie every `bmatrix` to $A$, $B$, $x$ and $Bx$, and then visually with the shear-then-rotate / rotate-then-shear grids at 567 and 575.
 - Both labelled equations are cited: `gp_sum` (873) at 905 and `neumann_eqn` (895) at 902 - no orphan labels, and no manual "equation (1)" references anywhere.
-- `plot_series` carries its own `(plot_series)=` anchor at 600 and is reached by `{ref}`Previously <plot_series>`` from exercise `eig1_ex3` at 1166, so the exercise points back at the exact cell it builds on.
+- `plot_series` carries its own `(plot_series)=` anchor at 600 and is reached by `` {ref}`Previously <plot_series>` `` from exercise `eig1_ex3` at 1166, so the exercise points back at the exact cell it builds on.
 - Every matrix is written with `bmatrix` rather than `array`, and Greek names in code are Unicode (`θ` at 249, 348, 618), so qe-math-003 and qe-code-002 are clean throughout.
 
 ## Recommended actions

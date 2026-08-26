@@ -55,7 +55,7 @@ _None found._
 ## Recommended actions
 
 1. Write the McCall Bellman equations and the definitions of $V$ and $U$ in mathematics before the welfare criterion at 385 uses them, so that 'as defined above' at 388 has an antecedent.
-2. Brace the two blackboard operators - `\mathbb P` at 319 and `{\mathbb E}` at 385 become `\mathbb{P}` and `\mathbb{E}` (qe-math-010 (proposed), proposed).
+2. Brace the two blackboard operators - `\mathbb P` at 319 and `{\mathbb E}` at 385 become `\mathbb{P}` and `\mathbb{E}` (qe-math-010 (proposed)).
 3. Figure hygiene, the largest mechanical block here: add mystnb name/caption metadata to the three figure cells at 124, 571 and 610 (qe-fig-005), move the embedded titles at 579 and 658 into captions (qe-fig-003), lowercase the axis labels at 656-657 (qe-fig-006), drop `figsize=` at 572 and 654 (qe-fig-001), and add `lw=2` to the plot at 128 (qe-fig-008).
 4. Compress the three-times-told setup at 45-52 and 73-77 into one statement of what changes relative to `` {doc}`lake_model` ``.
 5. Sentence-case the heading at 71: '## Set Up' becomes '## Set up' (qe-writing-006).

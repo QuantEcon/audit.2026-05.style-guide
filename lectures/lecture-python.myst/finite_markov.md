@@ -61,7 +61,7 @@ _None found._
 
 ## Recommended actions
 
-1. Brace the 21 blackboard operators - `\mathbb P` to `\mathbb{P}`, `\mathbb E` to `\mathbb{E}` (99, 100, 110, 368, 369, 370, 437, 903, 911, 937, ...) - the single largest fix in this lecture (qe-math-010 (proposed), proposed).
+1. Brace the 21 blackboard operators - `\mathbb P` to `\mathbb{P}`, `\mathbb E` to `\mathbb{E}` (99, 100, 110, 368, 369, 370, 437, 903, 911, 937, ...) - the single largest fix in this lecture (qe-math-010 (proposed)).
 2. Sentence-case the 11 Title Case headings at 223, 295, 319, 419, 440, 466, 742, 790, 893, 965 and 984 (qe-writing-006), and fix the mid-sentence capitals at 472, 494 and 495 ('Law of Large Numbers') (qe-writing-004).
 3. Replace the six static PNGs at 200, 538, 572, 607, 635 and 1115 with code-generated graphs (qe-fig-002) - they are the lecture's only figures that cannot be reproduced or edited - and give all eight figures a `:name:` so they can be cross-referenced (qe-fig-005).
 4. Convert the six `\left(\begin{array}{...}...\right)` displays at 156, 179, 457, 548, 923 and 1016 to `bmatrix` (qe-math-003).

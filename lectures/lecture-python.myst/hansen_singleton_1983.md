@@ -56,7 +56,7 @@ _None found._
 ## Recommended actions
 
 1. Strip the bold-face vector notation: 143 `\mathbf{...}` and `\boldsymbol{...}` occurrences (139, 141, 146, 149, 156, 278, 283, 286, 299, 307, ...) become plain letters - by far the largest fix in this lecture, and a mechanical one (qe-math-004).
-2. Brace the 33 bare expectation operators - `E_{t-1}[`, `E_0`, `E(` become `\mathbb{E}_{t-1}[` and so on (215, 234, 237, 248, 250, 255, 268, 276, 283, 314, ...) (qe-math-010 (proposed), proposed).
+2. Brace the 33 bare expectation operators - `E_{t-1}[`, `E_0`, `E(` become `\mathbb{E}_{t-1}[` and so on (215, 234, 237, 248, 250, 255, 268, 276, 283, 314, ...) (qe-math-010 (proposed)).
 3. Repair the Overview: fix 45, 53 and 63 as quoted above, and delete one of the two equity-premium attributions at 45 and 61.
 4. Add the two missing exhibits described above - predictable return against predictable consumption growth in the R-squared section, and the premium/risk-free-rate trade-off against risk aversion in the equity-premium section.
 5. Rename either the period utility function $U(\cdot)$ or the log Euler variable $U_{i,t}$ so that one letter does not carry both, and reconsider $R^2_R$ where $R$ is already the log return.

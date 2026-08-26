@@ -54,7 +54,7 @@ _None found._
 
 ## Recommended actions
 
-1. Add braces to the 21 blackboard operators - `\mathbb P` -> `\mathbb{P}`, `\mathbb E` -> `\mathbb{E}`, `\mathbb V` -> `\mathbb{V}` at 132, 190, 227, 253, 255, 264, 285, 289, 291, 293 and 11 more - by far the largest fix in this lecture (qe-math-010 (proposed), proposed).
+1. Add braces to the 21 blackboard operators - `\mathbb P` -> `\mathbb{P}`, `\mathbb E` -> `\mathbb{E}`, `\mathbb V` -> `\mathbb{V}` at 132, 190, 227, 253, 255, 264, 285, 289, 291, 293 and 11 more - by far the largest fix in this lecture (qe-math-010 (proposed)).
 2. Fix the axis label at 471: `garch_ts` returns the returns series `r` (462), not the variance, so `ylabel="$\\sigma_t^2$"` mislabels the plot the exercise asks the reader to compare against the Nasdaq returns at 104 - it should read $r_t$, and the string wants to be a raw `r'...'`.
 3. Introduce $b_t$ where it is first used at 329, or write $\eta_t$ there and in the code at 339 to match `` {eq}`kesproc` ``; and rename the "### Heavy tails" H3 at 408 so it does not repeat the H2 at 266.
 4. Add the two intuition figures described above to section 307-327, and `mystnb: figure: caption`/`name` metadata to the four un-named figures (104, 331, 448, 726) - the rank-size plot at 726 is the lecture's punchline and 737 refers to it only as "the plot".

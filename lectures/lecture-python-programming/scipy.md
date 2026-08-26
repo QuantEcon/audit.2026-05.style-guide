@@ -31,7 +31,7 @@ _None found._
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 8. *Lines:* 105, 167, 183, 200, 315, 350, 359, 401. *Example:* H3 Title Case: 'Random Variables and Distributions' (Variables, Distributions).
 
 ### Medium severity
-- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 4. *Lines:* 215, 521, 580, 628. *Example:* `f = lambda x: np.sin(4 * (x - 1/4)) + x + x**20 - 1` binds a lambda to a name where PEP8 asks for a `def` (215, and again in the exercise solution at 628) - and this is the lecture's central test function, referenced by `{eq}`root_f`` throughout; trailing whitespace after `y_grid = g(x_grid)` (521) and `P = β**n * np.mean(return_draws)` (580).
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 4. *Lines:* 215, 521, 580, 628. *Example:* `f = lambda x: np.sin(4 * (x - 1/4)) + x + x**20 - 1` binds a lambda to a name where PEP8 asks for a `def` (215, and again in the exercise solution at 628) - and this is the lecture's central test function, referenced by `` {eq}`root_f` `` throughout; trailing whitespace after `y_grid = g(x_grid)` (521) and `P = β**n * np.mean(return_draws)` (580).
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 130, 173, 214, 511. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 219, 524. *Example:* plot() without lw=.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 457, 482. *Example:* 2 sentences in one paragraph.
@@ -49,13 +49,13 @@ _None found._
 - The speed comparison uses the `qe.Timer` context manager (341-348) rather than `%timeit` or `time.time()`, so qe-code-004 and qe-code-005 have nothing to report.
 - `quantecon` is installed in the first code cell with `:tags: [hide-output]` (28-32) and the imports follow immediately at 36-39.
 - Bisection is motivated by the guess-the-number game (238-247) before any code appears, and the homemade `bisect` is labelled `(bisect_func)` (253) and then genuinely re-used by exercise sp_ex1 (595).
-- `{eq}`root_f`` is cited three times (272, 280, 597), so the same function carries the whole root-finding discussion instead of a new example per method.
+- `` {eq}`root_f` `` is cited three times (272, 280, 597), so the same function carries the whole root-finding discussion instead of a new example per method.
 - Density and CDF discipline is exact: lowercase $f$ for the beta density (119) and the lognormal density (482, 485, 491), `q.cdf` and `q.ppf` for the distribution and quantile functions (147, 151) - proposed qe-math-015 (proposed) holds.
 
 ## Recommended actions
 
 1. Lower-case the 8 Title Case headings (105, 167, 183, 200, 315, 350, 359, 401) - qe-writing-006, 8 occurrences and the largest routine fix.
-2. Add braces to the two blackboard expectations: `\mathbb E` -> `\mathbb{E}` at 461 and 560 (qe-math-010 (proposed), proposed, 2 occurrences).
+2. Add braces to the two blackboard expectations: `\mathbb E` -> `\mathbb{E}` at 461 and 560 (qe-math-010, proposed, 2 occurrences).
 3. Give the three stub sections (350, 401, 442) one runnable example each, or fold them into the Overview's list of subpackages - as they stand a reader hits three headings in a row that deliver only a link.
 4. Plot the Newton-Raphson failure at 309 on the existing figure of $f$: the divergent step is the reason the method needs a hybrid fallback, and the next section (315) assumes the reader has seen it.
 5. Turn the two named lambdas into `def f(x)` (215, 628) and strip the trailing whitespace at 521 and 580.

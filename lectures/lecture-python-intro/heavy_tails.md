@@ -56,7 +56,7 @@ _None found._
 
 ## Recommended actions
 
-1. Add braces to every blackboard operator - `\mathbb P` -> `\mathbb{P}`, `\mathbb E` -> `\mathbb{E}`, `\mathbb R` -> `\mathbb{R}`, `\mathbb 1` -> `\mathbb{1}` - 23 occurrences and the single largest fix in this lecture (qe-math-010 (proposed), proposed).
+1. Add braces to every blackboard operator - `\mathbb P` -> `\mathbb{P}`, `\mathbb E` -> `\mathbb{E}`, `\mathbb R` -> `\mathbb{R}`, `\mathbb 1` -> `\mathbb{1}` - 23 occurrences and the single largest fix in this lecture (qe-math-010 (proposed)).
 2. Replace spelled-out Greek names in code with Unicode letters (`alpha` -> `α` and similar), 23 occurrences; the exercise solutions at 1337-1368 already do this, so make the earlier cells match them.
 3. Set `lw=2` on the 13 line plots that currently take the matplotlib default, and drop the 8 hand-set `figsize=` arguments unless a specific aspect ratio is needed.
 4. Move the four `ax.set_title(...)` calls (365, 372, 680, 789) out of the code and into mystnb figure captions, and add `mystnb: figure: caption/name` metadata to the two Q-Q plot cells at 665 and 673 so they can be cross-referenced.

@@ -56,8 +56,8 @@ _None found._
 ## Recommended actions
 
 1. Split the ten 42-plus-word sentences listed above - starting with 2048, 1580, 1599 and 1565 - into one clause per sentence; at 24 sentences over 34 words this is the dominant readability issue in the lecture.
-2. Replace the 17 `\Pr` operators with `\mathbb{P}` at 132, 137, 193, 207, 314, 323, 331, 360, 363, 383 and 7 more (qe-math-010 (proposed), proposed).
+2. Replace the 17 `\Pr` operators with `\mathbb{P}` at 132, 137, 193, 207, 314, 323, 331, 360, 363, 383 and 7 more (qe-math-010 (proposed)).
 3. Move the nine embedded matplotlib titles at 1619, 1624, 1628, 1641, 1646, 1650, 1654, 1658 and 1663 into figure captions (qe-fig-003), add `mystnb: figure: caption/name` to the two case-study cells at 2116 and 2165 so Colombia and Chile can be cross-referenced like the other figures (qe-fig-005), and set `lw=2` on the eight `plot` calls at 1623, 1627, 1631, 1645, 1649, 1653, 1657 and 1662 (qe-fig-008).
 4. Add a figure for the Ramsey-Markov interpolation claimed at 409 - inflation and debt as functions of $\xi$ with the two benchmark levels marked - which would also give the reader something to hold on to across the 250 prose-and-code lines of the computational algorithm section.
 5. Drop the seven `figsize=` overrides at 504, 604, 1226, 1618, 1976 and 2132, 2166 (qe-fig-001) and restore the spines removed at 666-667 (qe-fig-007).
-6. Sweep the small items: `\mathcal{N}` to plain `N` at 1775 (qe-math-011 (proposed), proposed), `i.i.d.` to `IID` at 688 (qe-writing-009 (proposed), proposed), split the two-sentence paragraphs at 2054, 2062 and 2074 (qe-writing-001), and collapse the double space at 272 (qe-writing-008).
+6. Sweep the small items: `\mathcal{N}` to plain `N` at 1775 (qe-math-011 (proposed)), `i.i.d.` to `IID` at 688 (qe-writing-009 (proposed)), split the two-sentence paragraphs at 2054, 2062 and 2074 (qe-writing-001), and collapse the double space at 272 (qe-writing-008).

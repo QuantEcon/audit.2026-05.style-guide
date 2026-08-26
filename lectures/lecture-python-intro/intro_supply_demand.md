@@ -46,7 +46,7 @@ _None found._
 ## Strengths
 
 - The discrete-then-continuous pairing is genuinely well built: each concept gets a bar chart of ten agents and then the matching shaded-area figure, and every one of those figures has a caption and a `name`.
-- The two surplus definitions carry equation labels (`eq:cstm_spls` at 472, `eq:pdcr_spls` at 538) and both are cited by `{eq}` when the integral is evaluated (521, 588); the welfare/equilibrium punchline is made by pointing `{eq}`eq:equilib_q`` back at `{eq}`eq:old1`` (678).
+- The two surplus definitions carry equation labels (`eq:cstm_spls` at 472, `eq:pdcr_spls` at 538) and both are cited by `{eq}` when the integral is evaluated (521, 588); the welfare/equilibrium punchline is made by pointing `` {eq}`eq:equilib_q` `` back at `` {eq}`eq:old1` `` (678).
 - Parameters are held in a `namedtuple` with a `create_market` factory (407-418), so the four exercises can redefine `inverse_demand`/`inverse_supply` without touching the parameter set.
 - Differentials are written `\mathrm{d} x` rather than italic `dx` in the main exposition (471, 537, 646), which is the correct upright form.
 - The `{seealso}` and `{note}` admonitions carry the digressions - the multiple-goods forward pointer at 23, the meaning of "affine" at 380 - keeping the main line of argument clean.

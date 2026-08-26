@@ -57,9 +57,9 @@ _None found._
 ## Recommended actions
 
 1. Convert the eight bold emphases at 114, 148, 166, 172, 193-195, 219, 223 and 239 to italic, keeping bold for the defined terms it already marks correctly.
-2. Honour the $F$/$f$ distinction announced at 162: pick the CDF or the density for each statement and stay with it at 166, 172, 311, 388-391, 512 and in the figure labels at 683-684 and 721 (qe-math-015 (proposed), proposed).
+2. Honour the $F$/$f$ distinction announced at 162: pick the CDF or the density for each statement and stay with it at 166, 172, 311, 388-391, 512 and in the figure labels at 683-684 and 721 (qe-math-015 (proposed)).
 3. Cut the redundancy in the setup: delete the bullet list at 191-197, which restates 178-189, and the repetition of 112-114 at 148-150.
-4. Brace the two bare expectation operators at 700: `E\left[` becomes `\mathbb{E}\left[` (qe-math-010 (proposed), proposed).
+4. Brace the two bare expectation operators at 700: `E\left[` becomes `\mathbb{E}\left[` (qe-math-010 (proposed)).
 5. Replace the seven lambda assignments at 424, 425, 429, 712, 713, 714 and 719 with `def` statements.
 6. Figure hygiene: add mystnb name/caption metadata to the cell at 681 (qe-fig-005), move the embedded `title='convergence'` at 685 into a caption (qe-fig-003), add `lw=2` at 683, 684 and 721 (qe-fig-008), and drop `figsize=` at 446, 479 and 534 (qe-fig-001).
 7. Structural and prose tidy-up: promote the '## Appendix' subsections (579-757) into the body or say why they are an appendix, say what the third instance at 756 shows, split the two-sentence paragraphs at 640 and 659 (qe-writing-001), and sweep the 62 double-space runs (31, 36, 43, 44, 48, 58, 60, 83, 94, 99, ...).

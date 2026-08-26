@@ -47,13 +47,13 @@ _None found._
 - The duality table at 160-168 pairs each LQ matrix with its Kalman counterpart ($A \leftrightarrow A'$, $H \leftrightarrow FB'$, $P \leftrightarrow \Sigma$), so the two halves of the lecture are explicitly tied together instead of being left as two parallel derivations the reader has to align.
 - The LQ transformation at 82-88 is given as a complete five-line system - $A^*$, $R^*$, the Riccati equation in the starred matrices, $F^*$, and the recovery $F = F^* + Q^{-1}H$ - so a reader has every piece needed to implement it without going elsewhere.
 - Conformability is stated for every matrix as it is introduced (line 42 for the LQ 5-tuple, line 109 for the hidden Markov model), which makes the transposes in the displayed formulas checkable at a glance.
-- The forward pointer at line 28 uses the `{doc}` form with an explicit title (`{doc}`Linear Control: Foundations <lqcontrol>``) rather than a bare URL, and it names exactly the lecture whose no-cross-product formulas the transformation is designed to reach.
+- The forward pointer at line 28 uses the `{doc}` form with an explicit title (`` {doc}`Linear Control: Foundations <lqcontrol>` ``) rather than a bare URL, and it names exactly the lecture whose no-cross-product formulas the transformation is designed to reach.
 
 ## Recommended actions
 
 1. Replace the 52 apostrophe transposes with `^\top` (qe-math-002) - at 52 occurrences in a 175-line file this is the dominant fix, and it touches nearly every display block plus the duality table at 162-167.
 2. Convert the 5 bare `\begin{align*}` blocks at 82, 104, 118, 126 and 140 into `$$ ... \begin{aligned} ... \end{aligned} ... $$` (qe-math-006, build risk). While doing 118-121, note that the label is currently attached as `\end{align*} (eq:Kalman102)`, which will not survive the conversion - move it to the `$$ ... $$ (eq:Kalman102)` form.
-3. Fix the malformed cross-reference at line 133: `` `` {eq}`eq:Kalman102} ` ``` closes with a brace instead of a backtick, so the reference does not resolve (qe-math-013 (proposed), proposed).
+3. Fix the malformed cross-reference at line 133: `` {eq}`eq:Kalman102} `` closes with a brace instead of a backtick, so the reference does not resolve (qe-math-013 (proposed)).
 4. Reconcile the algorithm step at 135-136 with the formulas at 140-143 - say that $A^*$ and $B^*{B^*}'$ from 126-129 are substituted into the ordinary formula, rather than that $BF'$ is set to zero.
 5. Sentence-case the two H2 headings at 33 and 92 ('Undiscounted dynamic programming problem', 'Kalman filter') and write IID at line 110 in place of 'i.i.d.' (qe-writing-006 x2, qe-writing-009 (proposed) proposed x1).
 6. Break the 55-60 word sentences at 80 and 94 into one idea each, and fix the four typos along the way: 'between between' (95), 'measurments' (95), 'distibuted' (110), 'tranformed' (124) and 'reconstrution' (151).

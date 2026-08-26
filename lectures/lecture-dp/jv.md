@@ -57,7 +57,7 @@ _None found._
 ## Recommended actions
 
 1. Delete line 205: it discards the `ɛ` the caller passed to `JVWorker` (195), so the grid endpoints at 206 and 209 are computed from a hard-coded tolerance while `self.ɛ` (198) holds a different one. This is the only correctness defect in the file.
-2. Move the `(jv_policies)=` anchor from 366 to the plotting cell at 376 so the back-reference at 486 lands on the figure it names, and cite `{eq}`jvbell`` at 215-218 - `jvbell` (93) is the one labelled equation in the file that is never referenced, and the definition of $Tv$ is exactly where it belongs.
+2. Move the `(jv_policies)=` anchor from 366 to the plotting cell at 376 so the back-reference at 486 lands on the figure it names, and cite `` {eq}`jvbell` `` at 215-218 - `jvbell` (93) is the one labelled equation in the file that is never referenced, and the definition of $Tv$ is exactly where it belongs.
 3. Sentence-case the three Title Case H3s - 'Model Features' (45), 'Back-of-the-Envelope Calculations' (130), 'Solving for Policies' (359) - clear the 3 double spaces (58, 69, 168) and split the two-sentence paragraph at 167-168 (qe-writing-006 x3, qe-writing-008 x3, qe-writing-001 x1). These are the file's highest-weight mechanical findings.
 4. Give the 3 figures mystnb caption/name metadata (376, 444, 526), drop the 3 hand-set `figsize` arguments (380, 461, 534), move the embedded `set(title=...)` at 384 into a caption, and add `lw=2` to the 4 line plots (383, 468, 474, 536).
 5. Replace the prose at 236-239 with what the code actually does - a 15-point grid search over $(s, \phi)$ in the feasible triangle - and say that the coarseness of that grid is why the plotted policies are stepped; then drop the unused $w(z)$ notation at 237.

@@ -57,7 +57,7 @@ _None found._
 1. Rename the Markov kernel from $N$ to a letter not already carrying a meaning: $N$ is the normal distribution from 705 onwards and $n$ is the sample size, so one rename at 149 (and its uses through 313) clears both collisions and leaves the distribution name in the plain form qe-math-011 (proposed) requires.
 2. Cut the NumPyro/BlackJAX point to one place: 45 already makes it, and 827-831 makes it three more times with the same two links - the surviving version belongs at 827 where `mh_ensemble` has just been defined.
 3. Write the three sequences with curly brackets - `(\theta_t)_{t \geq 0}` at 107, 313 and 591 - to match `\{\theta_t\}_{t=1}^T` as the lecture already writes it at 416 and 676 and `\{\theta_t^i\}_{i=1}^{10000}` at 941 (qe-math-005).
-4. Brace the two blackboard operators: `\mathbb P` at 158 and `\mathbb E_\pi` at 322 should be `\mathbb{P}` and `\mathbb{E}_\pi` (qe-math-010 (proposed), proposed).
+4. Brace the two blackboard operators: `\mathbb P` at 158 and `\mathbb E_\pi` at 322 should be `\mathbb{P}` and `\mathbb{E}_\pi` (qe-math-010 (proposed)).
 5. Split the aperiodicity condition at 626 into the condition and the reason, one sentence each.
 6. Bold *trace plot* at 1145, which is a definition rather than emphasis.
 7. Tidy the PEP8 trivia: triple-quote the one-line docstrings at 773, 820 and 986, and fix the blank-line counts at 783, 1008, 1011 and 1082.

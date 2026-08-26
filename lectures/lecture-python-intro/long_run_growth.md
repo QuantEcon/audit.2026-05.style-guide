@@ -49,7 +49,7 @@ _None found._
 - `draw_interp_plots` (219-256) is the right abstraction for this lecture: it draws observed data solid and interpolated data dashed, so every one of the six country figures distinguishes real observations from filled gaps in the same visual language.
 - The `color_mapping` built at 141-151 keeps each country the same colour across all six figures, and the British Empire aggregate is deliberately given Great Britain's colour at 518.
 - Historical events are annotated declaratively through an `Event` namedtuple and a single `draw_events` helper (273, 314-323), so the Navigation Act, Industrial Revolution and Reform-and-Opening-up bands are consistent across the China and UK/US panels.
-- Figures carry `name`s and the prose genuinely uses them: `{numref}`gdp1`` at 38 and 566, `{numref}`gdp2`` at 50 - the lecture is built around a forward reference the reader is invited to jump to.
+- Figures carry `name`s and the prose genuinely uses them: `` {numref}`gdp1` `` at 38 and 566, `` {numref}`gdp2` `` at 50 - the lecture is built around a forward reference the reader is invited to jump to.
 - Cross-series references use the `{doc}` form with an intersphinx prefix (`pyprog:pandas`, `pyprog:matplotlib` at 18) rather than raw URLs.
 
 ## Recommended actions

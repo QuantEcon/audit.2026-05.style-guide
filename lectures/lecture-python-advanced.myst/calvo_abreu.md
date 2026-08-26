@@ -58,7 +58,7 @@ _None found._
 
 1. Strip the 94 runs of double spaces (qe-writing-008) - they are spread over most narrative paragraphs and are the single biggest mechanical item here.
 2. Delete the duplicated overview material: 149 repeats 45 verbatim apart from its opening clause, 151 repeats 47 verbatim, and 42 restates 39-40; then break the 65-word sentence at 35 into three.
-3. Fix the pointer at 213: define $s(\theta,\mu)$ in this lecture or link it with `` {doc}`calvo` ``, because `{eq}`eq_old6`` is not a label in this file and `{cite}`Calvo1978`` is being used where a lecture reference is meant; define $v_t$ before using it at 145, and $J(\cdot)$ before 385.
+3. Fix the pointer at 213: define $s(\theta,\mu)$ in this lecture or link it with `` {doc}`calvo` ``, because `` {eq}`eq_old6` `` is not a label in this file and `` {cite}`Calvo1978` `` is being used where a lecture reference is meant; define $v_t$ before using it at 145, and $J(\cdot)$ before 385.
 4. Rename the recursive policy functions at 641-643 so nu does not sit beside v (for instance $\mu_t = h_\mu(v_t)$, $\theta_t = h_\theta(v_t)$, $v_{t+1} = h_v(v_t,\mu_t)$), and settle on one case for the deviation value - $v^{A,D}$ or $V^{A,D}$, not both.
 5. Move the `!pip install` cell from 275 to the top of the lecture (qe-code-003) and replace `{\bf R}` at 196 with `\mathbb{R}` (qe-math-004).
 6. Clean up the `ChangLQ` cell: remove the trailing whitespace on the fourteen lines listed above, turn the two named lambdas at 453 and 455 into `def`s, and replace the backslash continuations at 453-454 and 621-623 with parentheses.
