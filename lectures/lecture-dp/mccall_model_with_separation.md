@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-26
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.7 / 10
+- **Overall score:** 8.6 / 10
 - **Priority:** NONE
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 6.5/10 | `qe-writing-003` ×2; `qe-writing-002` ×3; `qe-writing-007` ×2, +1 more. |
 | Math         | 8.5/10 | `qe-math-010` (proposed) ×1. |
-| Code         | 7.5/10 | `qe-code-001` ×5. |
+| Code         | 6.5/10 | `qe-code-001` ×5; `qe-code-002` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8.5/10 | `qe-fig-005` ×4. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -31,6 +31,7 @@ _None found._
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 1. *Lines:* 88. *Example:* missing braces: `\mathbb E`.
 
 ### Medium severity
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 4. *Lines:* 697, 702, 715, 720. *Example:* spelled-out `beta`.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 354, 678, 696, 714. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 3. *Lines:* 77, 132, 431. *Example:* line 132 defines the second of the model's two value functions as '$v_u(w)$ be maximum lifetime for a worker who who enters the current period unemployed' - the noun is missing (line 130 has 'maximum lifetime value') and 'who' is doubled, in the sentence that introduces the object the rest of the lecture solves for. Line 431 reads 'But we can go further, but eliminating $v_e$ from the above equation' where the second 'but' should be 'by'. Line 77 spends a parenthesis on '(let's say he to save one character)', a note about the authors' typing rather than the model, and the lecture then mixes 'his' (78, 79) with 'their' (109) anyway.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 511, 532. *Example:* the '## Implementation' section presents its two functions in the wrong order and then mis-describes one of them. `update_h` (514-520) is introduced first and its body calls `compute_v_e` at 518, but `compute_v_e` is not shown until 526 - so the reader meets the update rule in terms of a function that does not yet exist, when the sentence at 523 ('Also, we provide a function to compute $v_e$') would work just as well one cell earlier. Then line 532 says of `compute_v_e` 'This function will be applied once convergence is achieved', which the code contradicts twice over: `update_h` calls it on every iteration (518), and `solve_model` calls it again after the loop (561).

@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.9 / 10
+- **Overall score:** 8.1 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-006` ×10; `qe-writing-003` ×2; `qe-writing-002` ×3, +1 more. |
 | Math         | 9.5/10 | `qe-math-009` ×2. |
-| Code         | 6.5/10 | `qe-code-002` ×2; `qe-code-001` ×4; `qe-code-004` ×6. |
+| Code         | 7.5/10 | `qe-code-001` ×4; `qe-code-004` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6.5/10 | `qe-fig-005` ×5; `qe-fig-003` ×1; `qe-fig-008` ×8. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -34,7 +34,6 @@ _None found._
 
 ### Medium severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 4. *Lines:* 396, 408, 576, 731. *Example:* line 396 closes a hanging-indent signature with `    ) -> np.ndarray:` at 4 spaces, leaving the arguments at body indent (E121/E125); the pattern recurs at 442, 537, 597, 830 and 869. Lambdas are bound to names in eleven places, which PEP8 rules out in favour of `def` (408-410, 549-551, 713, 843-844, 885; E731). Line 576 leaves trailing whitespace, and line 731 puts a space before the comma in `+ y_bar(k) , label=label` (E203).
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 2. *Lines:* 565, 567. *Example:* spelled-out `mu`.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 916. *Example:* .set(xlabel='assets', title=.
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 2. *Lines:* 120, 382. *Example:* both sets are set in sans-serif for no reason - $\mathsf Z$ (120, 322, 387) and $\mathsf S$ (145, 147, 167, 211, 222) - where plain $Z$ and $S$ would sit better beside the $R$, $\Pi$, $K$ used around them. And the endogenous asset grid is $a_{ij}$ where it is derived (307, 310, 318) but $a^e_{ij}$ where it is described to the reader (382, 385), so the same object carries a superscript in one place and not the other.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 3. *Lines:* 156, 178, 693. *Example:* two sentences do not parse: 'consumption at time $t$ cannot be a function of outcomes are yet to be observed' (156) and 'where the maximization is overall feasible consumption paths' (178, for 'over all'). And the policy figure is presented twice with the same sentence - 'Here's a plot of the optimal consumption policy for each $z$ state' (474) and 'Here's a plot of the optimal policy for each $z$ state' (693) - producing the same picture from the same arrays.

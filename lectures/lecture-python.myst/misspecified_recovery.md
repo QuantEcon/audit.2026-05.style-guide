@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-006` ×4; `qe-writing-003` ×5; `qe-writing-004` ×3, +2 more. |
 | Math         | 3/10  | `qe-math-010` (proposed) ×16; `qe-math-004` ×49; `qe-math-003` ×2, +2 more. |
-| Code         | 6/10  | `qe-code-002` ×9; `qe-code-001` ×5. |
+| Code         | 5.5/10 | `qe-code-002` ×15; `qe-code-001` ×5. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6.5/10 | `qe-fig-003` ×2; `qe-fig-005` ×1; `qe-fig-004` ×1, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -28,7 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 5. *Lines:* 113, 294, 1679, 1731, 2277. *Example:* 1679 and 1689-1694 floor the volatility state at `1e-9` inside the Euler loop (`X2_prev = max(X2[t-1], 1e-9)` and `X2[t] = max(..., 1e-9)`), so the simulated CIR-like process is silently truncated whenever a step would go negative, and nothing counts how often that happens over 180,000 steps - yet the whole figure at 1745-1763 is a kernel density estimate of that path, and 1652-1657 draws a quantitative conclusion from it. 113-121 uses a `for ... else: raise` to pick the Perron root, with `exp_eta` and `e` leaking out of the loop by name rather than being returned by a helper; the search stops at the first eigenvalue with a positive eigenvector rather than checking that it is the largest, and the sign fix at 116-117 (`if e.sum() < 0: e = -e`) is applied before the positivity test, so a mixed-sign eigenvector can pass the sum test and fail the elementwise one silently. 294 binds `q_bonds` and never uses it (F841), as do `π_bar` and `π_hat` at 297-298. 1731-1739 copies seven keys out of `lrr_params` one line at a time to build `dyn_true` where `{k: lrr_params[k] for k in (...)}` says it once. And 2277 normalises `e_theory` by its sum while 380 normalises the same array by its middle element, so the lecture and its own exercise solution print the eigenfunction on two different scales.
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 9. *Lines:* 124, 132, 147, 151, 1511, 1513, 1516, 1517, 1981. *Example:* spelled-out `eta`.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 15. *Lines:* 114, 118, 124, 125, 132, 147, 151, 1511, 1513, 1516, …. *Example:* spelled-out `eta`.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 1. *Lines:* 1333. *Example:* apostrophe transpose `)'`.
 - **[qe-math-004]** — Do not use bold face for matrices or vectors. *Count:* 49. *Lines:* 156, 157, 159, 170, 171, 175, 189, 196, 211, 213, …. *Example:* \mathbf.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 16. *Lines:* 730, 741, 773, 779, 858, 877, 880, 1792, 1793, 1809, …. *Example:* bare expectation `E\left[`.

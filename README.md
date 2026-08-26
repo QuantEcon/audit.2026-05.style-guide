@@ -36,7 +36,7 @@ drill-down report for every audited lecture.
 | lecture-dp | 52 | 7.7 | 34 | Writing (4.7) |
 | lecture-python-programming | 27 | 8.0 | 20 | Writing (4.1) |
 | lecture-python-intro | 56 | 8.1 | 19 | Writing (5.2) |
-| **Corpus** | **348** | **7.8** | **197** | Writing (4.6) |
+| **Corpus** | **348** | **7.7** | **197** | Writing (4.6) |
 <!-- /qe:readme-scoreboard -->
 
 Every HIGH-priority lecture in this pass is HIGH because of a single weak category

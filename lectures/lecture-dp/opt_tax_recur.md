@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 4/10  | `qe-writing-005` ×7; `qe-writing-001` ×3; `qe-writing-003` ×3, +3 more. |
-| Math         | 5/10  | `qe-math-010` (proposed) ×2; `qe-math-003` ×2; `qe-math-009` ×15. |
+| Math         | 5/10  | `qe-math-010` (proposed) ×3; `qe-math-003` ×2; `qe-math-009` ×15. |
 | Code         | 8.5/10 | `qe-code-001` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 4.5/10 | `qe-fig-003` ×5; `qe-fig-005` ×5; `qe-fig-006` ×1, +2 more. |
@@ -31,7 +31,7 @@ _None found._
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 5. *Lines:* 1127, 1175, 1250, 1316, 1395. *Example:* .set(title=.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 1101, 1173, 1233, 1302, 1368. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 15. *Lines:* 262, 282, 286, 351, 355, 367, 372, 504, 512, 584, …. *Example:* three notation collisions, each with a simpler spelling already used elsewhere in the same file. (1) Division is written three ways: `{\frac{u_l}{u_c}}` with decorative outer braces (262, 504, 512, 584, 589, 659, 1078), the TeX primitive `{u_c(s^{t}) \over u_c(s^0)}` (282, 286), and plain `\frac` (715, 1157). The outer braces do nothing and `\over` is the legacy spelling of the `\frac` the file already uses. (2) `\rm{:}` labels the four first-order conditions (351, 355, 367, 372) where a bare `:` renders identically - `\rm` is a font switch, so `\rm{:}` is also a misuse of it. (3) The state set is `{\cal S}` at 84, 820, 826, 837, 848, 858, 934 but bare `S` inside the very Bellman equation those constraints belong to, `\sum_{s'\in S}` at 810. Also at 722-726 a single equation with no alignment point is wrapped in `\begin{aligned}`.
-- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 2. *Lines:* 484, 1157. *Example:* non-blackboard `{\rm Prob}`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 3. *Lines:* 484, 884, 1157. *Example:* non-blackboard `{\rm Prob}`.
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 7. *Lines:* 214, 230, 286, 466, 745, 978, 1135. *Example:* the file bolds a term at its definition seven times - **government policy** (161), **feasible allocation** (164), **price system** (167), **competitive equilibrium with distorting taxes** (173), **Ramsey problem** (187), **Ramsey allocation** (234), **continuation Ramsey planner** (793) - and then italicises five more at exactly the same moment: *primal approach* (214, 'called the *primal approach*'), *implementability constraint* (230, 'is regarded as an'), *stochastic discount factor* (286, 'what finance economists call a'), *time-inconsistency* (466) and *state-variable degeneracy* (978, 'this implies'). Line 745 puts a third format on the same job, marking the prose word `backward-looking` as inline code, and 1135 uses a bold line ('**Tax smoothing**') as a section heading where the file's other section breaks are H3s.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 106. *Lines:* 35, 38, 40, 46, 47, 48, 49, 51, 55, 65, …. *Example:* 2 spaces.
 

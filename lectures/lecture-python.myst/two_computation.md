@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 6.5 / 10
+- **Overall score:** 6.2 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 5.5/10 | `qe-writing-005` ×3; `qe-writing-003` ×4; `qe-writing-002` ×4, +2 more. |
 | Math         | 3/10  | `qe-math-002` ×15; `qe-math-010` (proposed) ×6; `qe-math-004` ×2, +1 more. |
-| Code         | 7.5/10 | `qe-code-001` ×7. |
+| Code         | 6/10  | `qe-code-002` ×9; `qe-code-001` ×7. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 3/10  | `qe-fig-003` ×28; `qe-fig-006` ×46; `qe-fig-005` ×5, +3 more. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -28,6 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 7. *Lines:* 1134, 1986, 2222, 2240, 2252, 2277, 2776. *Example:* 1982-1994 defines `buyout_compensation_exp1_exo`, which is never called anywhere in the lecture and would raise if it were: line 1986 is `policy_seq[S1 + 1:S2 + 1, 0] = τ_l_trans` applied to `policy_seq_base.copy()`, and `policy_seq_base` comes from `make_policy_seq` (1116-1128), which builds a `jnp` array - JAX arrays are immutable and reject in-place item assignment. The prose at 1977 introduces it as though it were the working step ("The function `buyout_compensation_exp1_exo` computes the present-value compensation for each cohort alive at the reform date and adds it to their initial assets"), while 1997-2007 actually does the job through `find_transition_exo`. Beyond that: 1134, 1270 and 1272 are f-strings with no placeholders (F541); 2240-2241 selects a default by truthiness, `RR = RR_init if RR_init else tech.RR`, where `is None` is meant; 2252 and 2362 wrap pure-JAX computations in `except ValueError`, which those calls cannot raise, and 2363 then substitutes a hard-coded `τ_l_trans = 0.35`; neither relaxation loop (2245-2277, 2355-2391) says anything when `max_iter` is exhausted, so a non-converged steady state or price path is returned as though converged; 2776 rebinds `n` as a length inside `_agg_c` where `n` is the population growth rate everywhere else in the lecture; exponentiation spacing is inconsistent (`β_t**2` at 426, `π**2` at 673 and 681 against `k_per_eff ** (α - 1)` at 2222 and 2319); the continuation lines at 876-877, 974-976, 992-994 and 1218-1223 sit one space past the opening delimiter (E128); and 90 lines carry trailing whitespace, including runs of spaces on otherwise blank lines inside code cells (657, 661, 665, 669, 683, 1030, 1310, 1318, 1345, 1352, 1388).
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 9. *Lines:* 974, 992, 998, 1036, 1193, 1223, 1233, 1740, 1817. *Example:* spelled-out `tau`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 10. *Lines:* 294, 599, 1578, 1885, 2037, 2096, 2152, 2509, 2727, 2923. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 28. *Lines:* 602, 606, 711, 1895, 1907, 2046, 2064, 2104, 2114, 2123, …. *Example:* .set_title.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 2024, 2080, 2151, 2488, 2710. *Example:* code-cell figure without mystnb figure metadata.

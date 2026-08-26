@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-26
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.0 / 10
+- **Overall score:** 6.9 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -13,8 +13,8 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 5.5/10 | `qe-writing-005` ×3; `qe-writing-003` ×4; `qe-writing-002` ×4, +2 more. |
-| Math         | 3/10  | `qe-math-010` (proposed) ×5; `qe-math-002` ×5; `qe-math-003` ×2, +1 more. |
-| Code         | 6.5/10 | `qe-code-001` ×8; `qe-code-002` ×2. |
+| Math         | 3/10  | `qe-math-010` (proposed) ×32; `qe-math-002` ×5; `qe-math-003` ×2, +1 more. |
+| Code         | 6/10  | `qe-code-002` ×5; `qe-code-001` ×8. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5.5/10 | `qe-fig-006` ×2; `qe-fig-004` ×2; `qe-fig-003` ×1, +2 more. |
 | References   | 8.5/10 | `qe-ref-001` ×2. |
@@ -28,11 +28,11 @@ _None found._
 
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 8. *Lines:* 1108, 1136, 1199, 1301, 1436, 1631. *Example:* 1199 passes a non-raw string containing a LaTeX escape, `ax.set_ylabel('det$(D_a(\lambda))$')`, so `\l` is an invalid escape sequence and Python 3.12 emits a SyntaxWarning - every other label in the file is a raw string, including 1198 two lines above. 1136 and 1141 pad with two spaces before the operator to align assignments (`x_prev  = 0.0`), as do 1436-1438 (`λ_ml   = [...]`), which also pads after commas (`α_se   = [4.62,  1.57,  2.97,  0.40, 10.74,  0.86]`); PEP8 asks for a single space in both places. The continuation lines at 1301-1302 are indented 35 spaces against an opening parenthesis at column 34, so the visual indent is off by one. 1631-1633 write `cxx[1]*np.conj(z) + cxx[0] + cxx[1]*z` with no spaces around the multiplications, where the same lecture writes `φ**2 * (1 + λ**2) * var_diff` at 1575 - the rule reserves the tight form for `a**b`. And 1108-1109 mixes conventions inside one loop body: the lag of `ε` is named `e_prev` while the lag of `η` is named `η_prev`, four lines after both arrays were unpacked as `ε, η` at 1096.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 5. *Lines:* 431, 441, 445, 464, 1678. *Example:* spelled-out `rho`.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 5. *Lines:* 761, 770, 944, 997. *Example:* apostrophe transpose `a_t'`.
-- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 5. *Lines:* 205, 209, 225, 270, 994. *Example:* bare expectation `E_t(`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 32. *Lines:* 155, 158, 167, 169, 172, 195, 198, 205, 209, 225, …. *Example:* bare expectation `E_t x_{t+1}`.
 
 ### Medium severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 2. *Lines:* 431, 445. *Example:* spelled-out `rho`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 1440, 1476. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 1482. *Example:* .set_title.
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 2. *Lines:* 451, 1178. *Example:* caption of 7 words.

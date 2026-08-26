@@ -43,7 +43,7 @@ Each file under [`rule-drafts/`](rule-drafts/) holds one proposed rule in action
 | Proposed ID | Category | File | Evidence |
 |-------------|----------|------|----------|
 | `qe-writing-009` | writing | [`rule-drafts/qe-writing-009-IID.md`](rule-drafts/qe-writing-009-IID.md) | Measured: 30 / 348 lectures, 61 occurrences |
-| `qe-math-010` | math | [`rule-drafts/qe-math-010-blackboard-PEV.md`](rule-drafts/qe-math-010-blackboard-PEV.md) | Measured: **124 / 348**, 1,489 occurrences — strongest of the seven |
+| `qe-math-010` | math | [`rule-drafts/qe-math-010-blackboard-PEV.md`](rule-drafts/qe-math-010-blackboard-PEV.md) | Measured: **124 / 348**, 1,608 occurrences — strongest of the seven |
 | `qe-math-011` | math | [`rule-drafts/qe-math-011-distribution-naming.md`](rule-drafts/qe-math-011-distribution-naming.md) | Measured: 34 / 348, 134 occurrences |
 | `qe-math-012` | math | [`rule-drafts/qe-math-012-multiplication.md`](rule-drafts/qe-math-012-multiplication.md) | Measured: 4 / 348, 6 occurrences — narrower than first estimated |
 | `qe-math-013` | math | [`rule-drafts/qe-math-013-equation-refs.md`](rule-drafts/qe-math-013-equation-refs.md) | Measured: 6 / 348, 6 occurrences — narrower than first estimated |

@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 6/10  | `qe-writing-002` ×4; `qe-writing-004` ×1; `qe-writing-001` ×1, +2 more. |
-| Math         | 3/10  | `qe-math-010` (proposed) ×40; `qe-math-004` ×143; `qe-math-009` ×2. |
+| Math         | 3/10  | `qe-math-010` (proposed) ×42; `qe-math-004` ×143; `qe-math-009` ×2. |
 | Code         | 7/10  | `qe-code-002` ×3; `qe-code-001` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 9.5/10 | `qe-fig-001` ×1. |
@@ -28,7 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-math-004]** — Do not use bold face for matrices or vectors. *Count:* 143. *Lines:* 139, 141, 146, 149, 156, 278, 283, 286, 299, 307, …. *Example:* \mathbf.
-- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 40. *Lines:* 168, 174, 180, 186, 194, 204, 215, 234, 237, 248, …. *Example:* bare expectation `E_0\!\left[`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 42. *Lines:* 134, 156, 168, 174, 180, 186, 194, 204, 215, 234, …. *Example:* bare expectation `E_0 \sum`.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 22. *Lines:* 43, 45, 49, 53, 55, 61, 63, 65, 1573, 1798, …. *Example:* 3 spaces.
 
 ### Medium severity

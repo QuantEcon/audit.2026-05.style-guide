@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.7 / 10
+- **Overall score:** 8.6 / 10
 - **Priority:** NONE
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 8/10  | `qe-writing-003` ×3; `qe-writing-007` ×2. |
 | Math         | 10/10 | no mechanical violations detected. |
-| Code         | 7/10  | `qe-code-002` ×2; `qe-code-001` ×4. |
+| Code         | 6.5/10 | `qe-code-002` ×7; `qe-code-001` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7/10  | `qe-fig-006` ×2; `qe-fig-005` ×2; `qe-fig-008` ×1. |
 | References   | N/A   | no citations in this lecture. |
@@ -27,11 +27,10 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 7. *Lines:* 158, 160, 375, 376, 377, 378. *Example:* spelled-out `mu`.
 
 ### Medium severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 4. *Lines:* 151, 286, 209, 390. *Example:* `s` names two unrelated quantities inside one nine-line function. 151 unpacks `β, μ, s, s_grid, shocks, α = model`, where `s` is the shock *scale* parameter (declared as such at 97 and 106 and used at 121), and 155 then defines `def compute_c(s)` whose `s` is a *savings* value - so the inner parameter shadows the outer binding, `f(s, α)` at 157 means savings, and the outer `s` is never used at all. The sibling lecture avoided this exactly: `` {doc}`os_egm` `` calls the shock scale `ν` (182, 196) and keeps `s` for savings throughout (122, 245, 253), and the field right beside the collision here is still `s_grid`, "exogenous savings grid" (98). The JAX rewrite renamed `ν` to `s` and produced the shadow. Second, `u_crra` (286-287) is dead code that would return NaN at the first value the exercise uses: $(c^{1-\gamma} - 1)/(1-\gamma)$ is $0/0$ at $\gamma = 1$ and 366 sets `γ_values = [1.0, 1.05, 1.1, 1.2]`. The exercise survives only because the solver calls `u_prime_crra` and `u_prime_inv_crra`, both of which are well defined at $\gamma = 1$ ($c^{-1}$ and $x^{-1}$) - but 281-283 presents all three functions as needed, so a reader who evaluates the first one at the advertised value gets NaN with no warning. Third, both solvers unpack four values from `jax.lax.while_loop` and return two, discarding `i` and `error` (209, 358), and neither carries the two safeguards the NumPy sibling has - `` {doc}`os_egm` ``:306-307 prints the error each iteration under `verbose` and 309-310 warns when `max_iter` is hit - so a JAX solve that exhausts its 1000-iteration budget returns silently and looks converged. Fourth, `v_star` (72-80) is defined and never called, as in the sibling; and 390 and 393 disagree about line width inside one loop, `linewidth=2` on the $\gamma = 1$ branch and nothing on the others, which is the drafted `qe-fig-008` finding at 393.
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 2. *Lines:* 158, 160. *Example:* spelled-out `mu`.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 224, 384. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 2. *Lines:* 395, 396. *Example:* axis label `State x`.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 3. *Lines:* 244, 409, 89. *Example:* the lecture exists to be faster and never measures against anything. 43 promises "improved performance", 244 asserts "The JAX implementation is very fast thanks to JIT compilation and vectorization", 252-257 attributes that speed to four named causes, and the single timing at 246-249 produces a number with nothing to compare it to: the NumPy timing lives in a different file (`` {doc}`os_egm` ``:346-348) and even uses a different precision setting, `qe.Timer()` there against `qe.Timer(precision=8)` here, so a reader cannot line the two up without running both notebooks. Second, 409-411 compares `policies[1.0]` with `policies[γ]` element by element - a comparison at matched *savings* grid points, since all four solves share `model_crra.s_grid` - immediately after 402-404 has explained that the endogenous $x$ grids differ across $\gamma$. The comparison is well defined and the conclusion at 414 is correct, but nothing says the difference is taken at common $s$ rather than common $x$, which is precisely the reading the preceding two sentences prime. Third, 89-91 states a real design rule and the exercise then breaks it without comment: the `Model` "stores only the data" because "Utility and production functions will be defined globally to work with JAX's JIT compiler", and yet $\gamma$ - a preference parameter - is threaded through as an explicit argument to `K_crra` and `solve_model_crra` (303, 337) rather than added to the model, leaving two conventions and no stated reason to prefer either.

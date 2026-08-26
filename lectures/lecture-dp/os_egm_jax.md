@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-26
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.4 / 10
+- **Overall score:** 8.2 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 7/10  | `qe-writing-002` ×3; `qe-writing-003` ×1; `qe-writing-007` ×2. |
 | Math         | 10/10 | no mechanical violations detected. |
-| Code         | 6.5/10 | `qe-code-002` ×2; `qe-code-001` ×3; `qe-code-003` ×1. |
+| Code         | 5.5/10 | `qe-code-002` ×7; `qe-code-001` ×3; `qe-code-003` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7/10  | `qe-fig-006` ×2; `qe-fig-005` ×2; `qe-fig-008` ×1. |
 | References   | N/A   | no citations in this lecture. |
@@ -27,11 +27,10 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 7. *Lines:* 151, 153, 368, 369, 370, 371. *Example:* spelled-out `mu`.
 
 ### Medium severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 3. *Lines:* 90, 148, 383. *Example:* `s` is made to carry two unrelated meanings and then shadowed. The `Model` field at 90 is `s: float  # shock scale parameter` - the same quantity os_egm calls `ν` (os_egm.md:175) - while `s_grid` (91) and the loop variable `s` are *savings*. Line 144 unpacks `β, μ, s, s_grid, shocks, α = model` and line 148 immediately rebinds the same name with `def compute_c(s):`, so inside the closure `s` is a savings level and the scale parameter is unreachable. It happens not to matter only because `shocks` was pre-drawn at 114, which is exactly the kind of coincidence a reader should not have to verify. Second point, in the same file: the width kwarg is spelled `lw=2` at 220 and 224 and `linewidth=2` at 383.
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 2. *Lines:* 151, 153. *Example:* spelled-out `mu`.
 - **[qe-code-003]** — Package installation at lecture top. *Count:* 1. *Lines:* 1. *Example:* non-Anaconda import with no install cell: ['jax', 'quantecon'].
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 217, 377. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 2. *Lines:* 388, 389. *Example:* axis label `State x`.

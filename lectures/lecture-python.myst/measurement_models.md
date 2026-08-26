@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.6 / 10
+- **Overall score:** 7.5 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-004` ×12; `qe-writing-003` ×5; `qe-writing-001` ×2, +4 more. |
-| Math         | 5/10  | `qe-math-010` (proposed) ×9; `qe-math-011` (proposed) ×1; `qe-math-009` ×3. |
+| Math         | 4/10  | `qe-math-010` (proposed) ×10; `qe-math-011` (proposed) ×1; `qe-math-009` ×3. |
 | Code         | 6/10  | `qe-code-002` ×8; `qe-code-001` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 9.5/10 | `qe-fig-001` ×2. |
@@ -29,7 +29,7 @@ _None found._
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 6. *Lines:* 422, 492, 717, 742, 1109, 1296. *Example:* `steady_state_kalman` (492-517) hand-iterates the Riccati equation up to 200,000 times to a tolerance of 1e-13 on a two-by-two state, and exits the loop silently when `max_iter` is exhausted (505-513) - while `scipy.linalg` is already imported at 83 and exposes `solve_discrete_are`, which appears nowhere in the file. `T` is bound to a matrix at 742 (`T = psi[j] @ P`) in a file where `.T` is the transpose attribute on almost every line and where $T$ is the sample length in the likelihood at 762 and 1071. The observation dimension is hardcoded seven times rather than derived from the arguments - `np.zeros((2, 3))` at 717, `np.eye(3)` at 720, 725, 1106 and 1110, `np.zeros((3, 3, n_horizons))` at 738, `np.zeros((3, 3))` at 740, `np.eye(2)` at 1111 - so `measured_wold_coeffs` and `fev_contributions` silently only work for this model. `filtered_wold_coeffs(A, C, K, ...)` at 1109 shadows the globals `A` and `C` with its own parameters. `display` is called at 422, 480-482, 836, 854, 904, 1139, 1156 and 1181 but never imported (84 brings in only `Latex`), so every one of those cells relies on the IPython builtin. `t = np.arange(1, 81)` at 1296 hardcodes 81 against the `T=80` passed at 1278 and shadows the loop variable `t` used inside `simulate_series`. And `fev_contributions` recomputes `psi[j] @ P` inside the horizon loop (741-744), doing O(H^2) work where an accumulator does O(H).
 - **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 8. *Lines:* 725, 728, 730, 733, 742, 1110, 1113, 1115. *Example:* spelled-out `psi`.
-- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 9. *Lines:* 628, 629, 630, 631, 640, 954, 1025, 1026, 1027. *Example:* bare expectation `E[`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 10. *Lines:* 141, 628, 629, 630, 631, 640, 954, 1025, 1026, 1027. *Example:* bare expectation `E \sum`.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 5. *Lines:* 236, 343, 599, 1028, 1404. *Example:* five breaks, four of them checkable line by line. (a) The state equation is written with the shock dated one period too early: 343 and 590 give $x_{t+1} = A x_t + \varepsilon_t$ and 348 defines $\varepsilon_t = [0, \theta_t]^\top$, so with $A$'s second row equal to $[0,0]$ the system says $\theta_{t+1} = \theta_t$ - a constant, contradicting assumption 1 at 198 that $\theta_t$ is white noise. The code has it right in both places: the docstring at 495 writes `x_{t+1} = A x_t + w_{t+1}`, and `table2_irf` (411-419) advances the state with `x = A @ x` and no shock after $t=0$. (b) 599-601 writes $E \begin{bmatrix}\varepsilon_t\end{bmatrix}\begin{bmatrix}\varepsilon_t^\top & \bar\nu_t^\top\end{bmatrix}$ and equates it to a two-by-two block matrix: $\bar\nu_t$ is missing from the left column vector, so the dimensions on the two sides do not match. (c) 1028 defines $[K_2, S_2] = \text{kalmanfilter}(A, G, Q_2, R_2, 0)$, a routine that appears nowhere; the implementation is `steady_state_kalman` (492) and its signature is `(A, C_obs, Q, R, W)`. (d) 1404-1407 and 1435 disagree about the same result: "Independent measurement errors break this accounting identity ... The Kalman filter approximately restores it" against "the residual for the filtered data is numerically 0". It is exact, not approximate, and for a reason the lecture never gives - all three filtered series are rows of $C\hat x_t$ for one $\hat x_t$, and rows 2 and 3 of $C$ (357-361) sum to row 1, so the identity is an algebraic property of $C$ rather than an artefact of good filtering. (e) 236 and 293 are the identical display carrying two different labels, `income_process` and `income_process_ma`; the second could cite the first.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 12. *Lines:* 1053, 1059, 1142, 1149, 1151, 1184, 1197, 1218, 1398, 1443, …. *Example:* mid-sentence 'Model'.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 20. *Lines:* 63, 64, 69, 75, 134, 137, 159, 164, 277, 326, …. *Example:* 2 spaces.

@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 4.5/10 | `qe-writing-001` ×3; `qe-writing-005` ×4; `qe-writing-003` ×3, +3 more. |
-| Math         | 5.5/10 | `qe-math-010` (proposed) ×2; `qe-math-003` ×2; `qe-math-009` ×4. |
+| Math         | 5.5/10 | `qe-math-010` (proposed) ×3; `qe-math-003` ×2; `qe-math-009` ×4. |
 | Code         | 8.5/10 | `qe-code-001` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 4.5/10 | `qe-fig-003` ×5; `qe-fig-005` ×5; `qe-fig-006` ×1, +2 more. |
@@ -30,7 +30,7 @@ _None found._
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 5. *Lines:* 1119, 1174, 1245, 1314, 1389. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 5. *Lines:* 1127, 1175, 1250, 1316, 1395. *Example:* .set(title=.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 1101, 1173, 1233, 1302, 1368. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 2. *Lines:* 484, 1157. *Example:* non-blackboard `{\rm Prob}`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 3. *Lines:* 484, 884, 1157. *Example:* non-blackboard `{\rm Prob}`.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 106. *Lines:* 35, 38, 40, 46, 47, 48, 49, 51, 55, 65, …. *Example:* 2 spaces.
 
 ### Medium severity

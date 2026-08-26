@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.8 / 10
+- **Overall score:** 8.6 / 10
 - **Priority:** NONE
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 7/10  | `qe-writing-002` ×2; `qe-writing-003` ×1; `qe-writing-008` ×1, +1 more. |
 | Math         | 8.5/10 | `qe-math-010` (proposed) ×1. |
-| Code         | 7.5/10 | `qe-code-001` ×9. |
+| Code         | 6.5/10 | `qe-code-001` ×9; `qe-code-002` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8.5/10 | `qe-fig-005` ×4. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -31,6 +31,7 @@ _None found._
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 1. *Lines:* 88. *Example:* missing braces: `\mathbb E`.
 
 ### Medium severity
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 4. *Lines:* 697, 702, 715, 720. *Example:* spelled-out `beta`.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 354, 678, 696, 714. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 2. *Lines:* 132, 431. *Example:* two sentences are garbled: line 132 reads '$v_u(w)$ be maximum lifetime for a worker who who enters the current period unemployed' - the noun 'value' is missing from 'maximum lifetime' and 'who' is doubled, in the very sentence that defines one of the lecture's two value functions; line 431 reads 'But we can go further, but eliminating $v_e$ from the above equation', where the second 'but' should be 'by'.
 

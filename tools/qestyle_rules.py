@@ -768,9 +768,45 @@ def check_math_010(doc: Doc):
     # is the same construction as ``E_0\left\{`` and was being missed while the
     # informal ``E_0\{\cdot\}`` two lines away was caught.
     THIN = r"(?:\s*\\[!,;:> ])*"
-    applied = (r"(?:\s*(?:_\{[^}]*\}|_[A-Za-z0-9])?" + THIN +
-               r"\s*(?:\\left)?" + THIN + r"\s*(?:\[|\\\{|\())")
-    bare_E = re.compile(r"(?<![\\A-Za-z0-9_{])E" + applied)
+    SUB = r"(?:_\{[^}]*\}|_[A-Za-z0-9])"
+    # ``\bigl``/``\Bigl``/``\biggl`` open a delimiter exactly as ``\left`` does, so
+    # ``E_t\bigl[\cdot\bigr]`` is the same construction as ``E_t\left[\cdot\right]``.
+    # Only the *openers*: ``bigr``/``Bigm`` and friends close or divide a group, and
+    # ``NOT_A_PRODUCT_PRIME`` two hundred lines up already carries that distinction — a
+    # second, looser spelling of it here would be the file disagreeing with itself.
+    # Measurement-neutral today (the corpus writes no ``E \bigr[``); it is the intent that
+    # has to be right.
+    DELIM = r"(?:\\left|\\[bB]igg?l?)"
+    applied = (r"(?:\s*" + SUB + r"?" + THIN +
+               r"\s*(?:" + DELIM + r")?" + THIN + r"\s*(?:\[|\\\{|\())")
+    # Two juxtaposed shapes carry the operator with no delimiter at all, and neither is
+    # ambiguous. ``E \sum``, ``E_0 \prod``: a letter applied to a big operator is an
+    # operator, not a matrix factor. 56 occurrences, every one read, 0 false positives —
+    # all 56 are ``\sum``; ``\prod`` is carried for symmetry and matches nothing here, as
+    # is the trailing name boundary, which stops ``\sum`` matching the prefix of a longer
+    # macro.
+    bigop = r"(?:\s*" + SUB + r"?" + THIN + r"\s*\\(?:sum|prod)(?![A-Za-z]))"
+    # ``E_t u_{t+1}``: a *subscripted* E juxtaposed with a subscripted symbol, with the
+    # operand either a plain letter or a Greek macro. All 120 corpus matches were read and
+    # every one is the operator.
+    #
+    # What makes that true is worth stating precisely, because the regex does not enforce
+    # it. This corpus also uses E for a matrix, a matrix of ones, expenditure and energy —
+    # and every juxtaposed E in it happens to be *time*-indexed (``_t``, ``_{t-1}``,
+    # ``_{t-j}``, ``_h``), while none of the matrix uses is indexed at all. ``SUB`` accepts
+    # any subscript, so ``E_{ij} a_{kl}`` would match; it does not occur. That is an
+    # observation about the corpus, not a guard. If it ever needs to be load-bearing,
+    # restrict the subscript to a time index rather than trusting this comment.
+    #
+    # Dropping the subscript requirement admits 26 more inside this check (``Eq_a`` in
+    # ``hansen_jagannathan_1991``, ``E w_{st}`` in ``supply_demand_var``); they look
+    # genuine too but were not audited one at a time, so they are left out.
+    juxta = r"(?:\s*" + SUB + THIN + r"\s*(?:[A-Za-z]|\\[A-Za-z]+)" + SUB + r")"
+    # ``\mathbb E \sum`` is kept out of all three by the mask below, not by a lookbehind
+    # here: ``\mathbb`` + one space is not the only spelling (``lqramsey`` writes
+    # ``\mathbb E  \sum``), and a fixed-width lookbehind would miss it and double-count.
+    bare_E = re.compile(r"(?<![\\A-Za-z0-9_{])E(?:" + applied + r"|" + bigop
+                        + r"|" + juxta + r")")
     # (c) Roman or calligraphic spellings of the same operators.
     # Case-insensitive for every operator *except* ``E``. The corpus spells them
     # ``\operatorname{cov}``, ``{\rm var}`` and ``\mathrm{corr}`` as freely as it spells
@@ -906,15 +942,30 @@ GREEK_WORDS = ["alpha", "beta", "gamma", "delta", "epsilon", "zeta", "eta",
                # capitalised forms name matrices and should also be unicode
                "Gamma", "Delta", "Theta", "Lambda", "Xi", "Sigma", "Upsilon",
                "Phi", "Psi", "Omega"]
-# A Greek name almost never stands alone in this corpus: it carries a subscript or a
-# plural — ``mu_0``, ``phi_pi``, ``Sigma_x``, ``alphas``, ``sigmas``. The old trailing
-# ``(?![\\w])`` counted only the bare word, so a lecture writing ``mu_0=μ_sim_0`` on one
-# line was reported clean. The suffix is consumed rather than merely allowed, so
-# ``m.end()`` is the end of the whole identifier and the kwarg tests below still work.
-# ``chi2`` is deliberately left out: a trailing digit is not a subscript here, it is
-# scipy's chi-squared.
-GREEK_RE = re.compile(r"(?<![\w.])(" + "|".join(GREEK_WORDS) +
-                      r")(?:s|_[A-Za-z0-9_]+)?(?![A-Za-z0-9])")
+# A Greek name almost never stands alone in this corpus: it carries a subscript, a plural,
+# or an English *prefix* — ``mu_0``, ``phi_pi``, ``alphas``, ``target_mu``, ``c_gamma``.
+# Allowing a suffix was only half of it: the lookbehind rejects a preceding ``_``, so the
+# Greek word still had to come first. ``mu_vec`` was caught and ``target_mu`` was not, on
+# one line — ``hansen_richard_1987.md:658`` is ``def mv_weights(mu_vec, Sigma, target_mu)``
+# — and ``os_egm_jax.md:368``, ``c_gamma, x_gamma = solve_model_crra(..., γ)``, two
+# spelled-out ``gamma``s beside the unicode one, was reported clean.
+#
+# So the pattern spans the *whole* identifier: ``_``-joined segments before the Greek word
+# and the remainder after it. Matching the whole identifier is what keeps one identifier to
+# one occurrence (``rho_chi`` stays a single ``rho`` hit, not two) and keeps ``m.end()`` at
+# the identifier's end, so the keyword-argument and assignment tests below still work. The
+# leading group is lazy so the *first* Greek segment is the one named, which leaves every
+# existing detail string unchanged.
+#
+# One boundary guard, not two. ``(?![A-Za-z0-9])`` after the Greek segment is what excludes
+# ``chi2`` — a trailing digit is not a subscript here, it is scipy's chi-squared. A second
+# guard after the trailing group is redundant, because that group's first character must be
+# ``_`` and it is greedy, so it can end on neither a letter, a digit nor an underscore.
+# It must not be ``(?![\\w])``: ``\w`` matches unicode letters, so ``sigma_ε`` — one Greek
+# letter spelled out and the other not, in a single identifier — would stop matching. That
+# mixed spelling is the rule's whole point.
+GREEK_RE = re.compile(r"(?<![\w.])(?:[A-Za-z0-9]*_)*?(" + "|".join(GREEK_WORDS) +
+                      r")s?(?![A-Za-z0-9])(?:_[A-Za-z0-9]*)*")
 
 # ``alpha=`` in a drawing call is matplotlib's opacity, not a model parameter.
 STYLE_KWARG = re.compile(
@@ -1069,16 +1120,41 @@ def check_code_002(doc: Doc):
     # Gamma *distributions* in English; ``γ_np`` would be a mistranslation, not a fix. The
     # exemption is evidenced per cell rather than assumed from the name.
     dist_cell = {}
+    # The per-cell evidence is not enough on its own, because a helper is *called* from
+    # cells other than the one that defines it. ``fitting_distributions`` defines
+    # ``def fit_gamma`` in the cell that calls ``scipy.stats.gamma`` and then calls it 31
+    # lines later in a different cell, so the definition was exempt and the call was a
+    # finding — the report contradicting itself about one identifier. So a name a
+    # distribution cell ``def``s is exempt wherever it is used.
+    #
+    # Name-scoped, not file-scoped: making ``DIST_CALL`` itself file-wide costs 28 real
+    # findings (``sargent_surico`` ×15, ``pricing_information`` ×10,
+    # ``hansen_singleton_1982`` ×3), because those files do use ``stats.beta`` somewhere
+    # *and* spell out Greek variables elsewhere.
+    # ``mu`` is also the economics abbreviation for *marginal utility*, and a cell that
+    # binds ``u_prime`` or ``marginal_utility`` has said which it means. ``ifp_egm.md:556``
+    # is ``def compute_mu_k(k)`` whose docstring reads "compute marginal utility
+    # u'(σ(R s_i + y(z_k), z_k))", eight lines under ``u_prime = lambda c: c**(-γ)``;
+    # ``μ_k`` would be a mistranslation. Only a *suffixed* ``mu`` is exempted — a bare
+    # ``mu`` really is the Greek letter spelled out — and only in such a cell, which is the
+    # same shape of evidence as ``DIST_CALL`` above.
+    MU_IS_MARGINAL = re.compile(r"\b(?:u_prime|marginal_utility)\b")
+    mu_cell = {}
+    dist_names = set()
     DIST_CALL = re.compile(r"\b(?:stats|dist|distributions|sps?|st)\."
                            r"(?:beta|gamma|chi2?|invgamma|Beta|Gamma|Chi2?|InverseGamma)\b")
     for start, lines in _code_cells(doc):
         masked = _strip_py("\n".join(lines))
         is_dist = bool(DIST_CALL.search(masked))
+        if is_dist:
+            dist_names.update(re.findall(r"^\s*def\s+([A-Za-z_]\w*)", masked, re.M))
+        is_mu = bool(MU_IS_MARGINAL.search(masked))
         pos = 0
         for off, ml in enumerate(masked.split("\n")):
             masked_code[start + off] = ml
             cell_ctx[start + off] = (masked, pos)
             dist_cell[start + off] = is_dist
+            mu_cell[start + off] = is_mu
             pos += len(ml) + 1
     for l in doc.lines:
         if l.kind != "code":
@@ -1099,7 +1175,10 @@ def check_code_002(doc: Doc):
             # already uses ``β`` for its own variable and passes it to LQ's ``beta=``.
             # Exempt only when the callee is imported — a lecture's own
             # ``def f(alpha=0.5)`` is still its own naming choice, and so is counted.
-            if word in ("beta", "gamma", "chi", "Gamma") and dist_cell.get(l.no):
+            if word in ("beta", "gamma", "chi", "Gamma") and (
+                    dist_cell.get(l.no) or m.group(0) in dist_names):
+                continue
+            if word == "mu" and m.group(0) != "mu" and mu_cell.get(l.no):
                 continue
             if assigned:
                 ctx, base = cell_ctx.get(l.no, (s, 0))

@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 4/10  | `qe-writing-004` ×7; `qe-writing-001` ×8; `qe-writing-002` ×4, +1 more. |
 | Math         | 4/10  | `qe-math-010` (proposed) ×78; `qe-math-009` ×4; `qe-math-014` (proposed) ×1. |
-| Code         | 5/10  | `qe-code-002` ×37; `qe-code-001` ×8. |
+| Code         | 5/10  | `qe-code-002` ×43; `qe-code-001` ×8. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 9.5/10 | `qe-fig-001` ×1. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -28,7 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 8. *Lines:* 98, 426, 449, 653, 681, 848, 1138, 1140. *Example:* 98 imports `pandas as pd` and nothing in the lecture uses it. 426 writes `mu_m = -0.5 * σ_m**2` one line after `σ_m = 0.15`, so the same Greek letter is spelled out and unicode in adjacent lines of one function; the same split runs through the file (`mu_vec` and `Sigma` at 658 against `σ` at 684, `alphas` at 832 against `αs` at 432). 653 drops the spaces from `2*B*frontier_means` four lines after writing `A * C - B**2` at 649. 449 leaves one blank line before the top-level `def objective` where PEP8 asks for two (439 and 656 in the same lecture use two). Assignments are padded to align in seven places - `mu_low  =`, `rets_low  =`, `returns   =`, `w_low  =`, `alphas_dynamic  =` (681-682, 690-692, 696-697, 845-846, 853-854, 866-867, 874-875) - which PEP8 asks not to do. Continuation lines are indented one column past their opening bracket at 848-851 and 870-872. 1138 and 1140 are f-strings with no placeholders. And the SLSQP block at 1133-1135 is a verbatim copy of 454-456, objective, constraint and bounds included, so the exercise solution re-implements the cell the lecture already ran at 450-457.
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 37. *Lines:* 426, 428, 658, 660, 661, 663, 664, 667, 668, 681, …. *Example:* spelled-out `mu`.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 43. *Lines:* 426, 428, 658, 660, 661, 663, 664, 667, 668, 669, …. *Example:* spelled-out `mu`.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 78. *Lines:* 74, 87, 111, 150, 202, 260, 268, 292, 299, 323, …. *Example:* bare expectation `E(`.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 8. *Lines:* 60, 319, 627, 631, 1055, 1062, 1067, 1072. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 7. *Lines:* 399, 584, 918, 938. *Example:* mid-sentence 'Law'.

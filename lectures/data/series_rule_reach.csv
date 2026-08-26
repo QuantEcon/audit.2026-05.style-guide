@@ -1,5 +1,5 @@
 series,rule,lectures_affected,total_occurrences
-lecture-dp,qe-code-002,6,13
+lecture-dp,qe-code-002,7,23
 lecture-dp,qe-code-003,6,9
 lecture-dp,qe-code-004,8,42
 lecture-dp,qe-code-005,3,6
@@ -18,7 +18,7 @@ lecture-dp,qe-math-005,2,4
 lecture-dp,qe-math-006,1,5
 lecture-dp,qe-math-007,1,1
 lecture-dp,qe-math-008,1,1
-lecture-dp,qe-math-010,20,123
+lecture-dp,qe-math-010,20,132
 lecture-dp,qe-math-011,5,5
 lecture-dp,qe-math-013,3,3
 lecture-dp,qe-ref-001,20,45
@@ -27,7 +27,7 @@ lecture-dp,qe-writing-004,14,28
 lecture-dp,qe-writing-006,22,146
 lecture-dp,qe-writing-008,40,1578
 lecture-dp,qe-writing-009,4,7
-lecture-python-advanced.myst,qe-code-002,14,193
+lecture-python-advanced.myst,qe-code-002,17,233
 lecture-python-advanced.myst,qe-code-003,6,9
 lecture-python-advanced.myst,qe-code-004,4,8
 lecture-python-advanced.myst,qe-code-005,1,3
@@ -49,7 +49,7 @@ lecture-python-advanced.myst,qe-math-004,6,49
 lecture-python-advanced.myst,qe-math-005,1,3
 lecture-python-advanced.myst,qe-math-006,1,2
 lecture-python-advanced.myst,qe-math-008,1,1
-lecture-python-advanced.myst,qe-math-010,33,579
+lecture-python-advanced.myst,qe-math-010,33,682
 lecture-python-advanced.myst,qe-math-011,18,95
 lecture-python-advanced.myst,qe-math-013,2,2
 lecture-python-advanced.myst,qe-ref-001,35,93
@@ -105,7 +105,7 @@ lecture-python-programming,qe-writing-001,15,29
 lecture-python-programming,qe-writing-004,6,14
 lecture-python-programming,qe-writing-006,23,178
 lecture-python-programming,qe-writing-008,16,43
-lecture-python.myst,qe-code-002,27,441
+lecture-python.myst,qe-code-002,32,489
 lecture-python.myst,qe-code-003,8,8
 lecture-python.myst,qe-code-004,15,72
 lecture-python.myst,qe-code-005,3,4
@@ -128,7 +128,7 @@ lecture-python.myst,qe-math-005,3,5
 lecture-python.myst,qe-math-006,3,7
 lecture-python.myst,qe-math-007,1,1
 lecture-python.myst,qe-math-008,1,1
-lecture-python.myst,qe-math-010,60,682
+lecture-python.myst,qe-math-010,60,689
 lecture-python.myst,qe-math-011,10,33
 lecture-python.myst,qe-math-012,1,3
 lecture-python.myst,qe-math-013,1,1

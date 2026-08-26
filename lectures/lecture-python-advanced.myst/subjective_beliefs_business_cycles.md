@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-26
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.2 / 10
+- **Overall score:** 7.0 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-004` ×8; `qe-writing-005` ×8; `qe-writing-002` ×5, +5 more. |
 | Math         | 3/10  | `qe-math-010` (proposed) ×44; `qe-math-002` ×40; `qe-math-009` ×3. |
-| Code         | 8.5/10 | `qe-code-001` ×2. |
+| Code         | 7/10  | `qe-code-002` ×2; `qe-code-001` ×2. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7/10  | `qe-fig-005` ×2; `qe-fig-004` ×1; `qe-fig-001` ×5. |
 | References   | 9/10  | `qe-ref-001` ×1. |
@@ -37,6 +37,7 @@ _None found._
 
 ### Medium severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 2. *Lines:* 1002, 1834. *Example:* 1002 builds two f-strings with no placeholders in them, `labels_f = [f'subjective, θ = θ_bar', f'subjective, θ = 2θ_bar']`, which `ruff` reports as F541; the `f` prefixes are inert and the neighbouring list at 903-905 uses a real placeholder in one entry and none in the others, so the distinction is invisible. And `compute_tau_wedge_loadings` (1834, called at 1881) spells out `tau` in an identifier in a file that otherwise uses the unicode letter for exactly that index - `τ_max` is this function's own parameter (1834), `for τ in range(...)` its own loop variable (1853), and `τ_max`, `τ_grid`, `τ` appear at 979-987, 998, 1880-1896 - so the name should be `compute_τ_wedge_loadings` (qe-code-002's intent, though the detector does not reach inside the identifier; see scanner_doubts).
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 2. *Lines:* 1834, 1881. *Example:* spelled-out `tau`.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 2293, 2411. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 3. *Lines:* 1069, 2108, 2150. *Example:* two matrices are set in blackboard bold, $\mathbb{M}_{t+1}$ (2104, 2108) and $\mathbb{D}$ (2121-2164), and 2150-2151 states the reason: "(We write $\mathbb{D}$ for this matrix to avoid confusion with the expectation operator $E_t$.)" - so the decoration exists only because the lecture writes expectation as a bare $E_t$ throughout. Fixing the 38 `qe-math-010` (proposed) occurrences to `\mathbb{E}_t` frees plain $D$ and removes the stated justification, and it also stops blackboard bold meaning two different things in one file. Second, `q` now carries five distinct meanings: the answer shares $q_t^u, q_t^d$ (225-231), the value-function constant $v_q$ (466, 632), the law-of-motion intercept $\psi_q$ (1049), the volatility-scaling parameter $\mathsf{q}$ in a fifth font (1069, 1090, 1970-2012), and `q = macro_q` in code at 175 - where the perturbation parameter is the one object with no competing claim on a fresh letter. Third, the appendix writes `\operatorname{stack}` and `\mathrm{diag}` (2108, 2143) as multi-letter operators inside a display that already has six subscripted $g$ variants, where naming the rows explicitly would be shorter than the notation that describes them.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 1362, 2268. *Example:* 2 sentences in one paragraph.

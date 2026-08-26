@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-006` ×15; `qe-writing-005` ×6; `qe-writing-002` ×5, +5 more. |
-| Math         | 3/10  | `qe-math-003` ×11; `qe-math-010` (proposed) ×3; `qe-math-004` ×5, +1 more. |
+| Math         | 3/10  | `qe-math-010` (proposed) ×5; `qe-math-003` ×11; `qe-math-004` ×5, +1 more. |
 | Code         | 7.5/10 | `qe-code-001` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7.5/10 | `qe-fig-003` ×1; `qe-fig-005` ×1; `qe-fig-008` ×1, +1 more. |
@@ -30,7 +30,7 @@ _None found._
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 6. *Lines:* 940, 1110, 1126, 1130, 1188, 1287. *Example:* three dead locals in `wealth_distribution` - `n = self.n`, `Q = self.Q`, `y, ys = self.y, self.ys` at 940-942 - are assigned and never read (F841); `print (` has a space before the parenthesis at 1110, 1188 and 1287 (E211); and `ex2.P[0,1]` / `ex2.P[1,0]` at 1126 and 1130 omit the space after the comma (E231).
 - **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 11. *Lines:* 540, 550, 566, 597, 607, 623, 627, 721, 731, 754, …. *Example:* array used as matrix.
 - **[qe-math-004]** — Do not use bold face for matrices or vectors. *Count:* 5. *Lines:* 67, 187, 704, 711, 765. *Example:* {\bf.
-- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 3. *Lines:* 299, 393, 446. *Example:* non-blackboard `\Pr`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 5. *Lines:* 113, 299, 393, 446, 462. *Example:* non-blackboard `\Pr`.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 5. *Lines:* 33, 443, 623, 754, 802. *Example:* large blocks are repeated verbatim rather than referred back to. The 'Inputs' bullet at 443-447 reproduces 296-300 word for word, display included; the column vectors $y^k$ and $y$ are displayed three times (566-571, 623-632, 754-763); the two Remarks at 636-641 reappear almost unchanged at 767-772; and the five-step algorithm at 677-687 is re-listed at 802-813 with only the equation labels changed. Line 33 is a single 50-word bullet that chains a utility assumption, a representative-consumer claim, a pricing-kernel formula and an ordering result together.
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 6. *Lines:* 528, 583, 636, 641, 767, 772. *Example:* bold is used as a directive label six times - '**Key finding:**' at 528 and '**Remark:**' at 583, 636, 641, 767 and 772 - none of which is a definition. MyST has `{note}` for exactly this, and the file already uses it correctly once at 346-349 for the resolvent operator.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 15. *Lines:* 148, 242, 287, 318, 355, 373, 435, 486, 588, 643, …. *Example:* H2 Title Case: 'Recursive Formulation' (Formulation).

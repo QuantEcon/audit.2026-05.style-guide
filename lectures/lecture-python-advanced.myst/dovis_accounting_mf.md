@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 5/10  | `qe-writing-002` ×10; `qe-writing-001` ×3; `qe-writing-009` (proposed) ×1, +2 more. |
 | Math         | 4.5/10 | `qe-math-010` (proposed) ×17; `qe-math-011` (proposed) ×1. |
-| Code         | 7/10  | `qe-code-002` ×47. |
+| Code         | 7/10  | `qe-code-002` ×63. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 4.5/10 | `qe-fig-003` ×9; `qe-fig-007` ×2; `qe-fig-005` ×2, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -27,7 +27,7 @@
 _None found._
 
 ### High severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 47. *Lines:* 560, 561, 565, 572, 573, 574, 578, 591, 592, 597, …. *Example:* spelled-out `phi`.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 63. *Lines:* 560, 561, 565, 572, 573, 574, 576, 577, 578, 591, …. *Example:* spelled-out `phi`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 7. *Lines:* 504, 604, 1226, 1618, 1976, 2132, 2166. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 9. *Lines:* 1619, 1624, 1628, 1641, 1646, 1650, 1654, 1658, 1663. *Example:* .suptitle.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 17. *Lines:* 132, 137, 193, 207, 314, 323, 331, 360, 363, 383, …. *Example:* non-blackboard `\Pr`.

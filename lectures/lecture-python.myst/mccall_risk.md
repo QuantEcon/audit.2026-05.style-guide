@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.8 / 10
+- **Overall score:** 7.5 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 6.5/10 | `qe-writing-003` ×4; `qe-writing-002` ×3; `qe-writing-007` ×3. |
 | Math         | 6/10  | `qe-math-010` (proposed) ×4; `qe-math-001` ×1; `qe-math-009` ×3. |
-| Code         | 7/10  | `qe-code-001` ×8; `qe-code-003` ×1. |
+| Code         | 5.5/10 | `qe-code-001` ×8; `qe-code-002` ×4; `qe-code-003` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7/10  | `qe-fig-006` ×2; `qe-fig-005` ×2. |
 | References   | N/A   | no citations in this lecture. |
@@ -31,6 +31,7 @@ _None found._
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 4. *Lines:* 339. *Example:* non-blackboard `\text{Var}`.
 
 ### Medium severity
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 4. *Lines:* 598, 607, 734, 746. *Example:* spelled-out `theta`.
 - **[qe-code-003]** — Package installation at lecture top. *Count:* 1. *Lines:* 69. *Example:* non-Anaconda import with no install cell: ['jax'].
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 287, 651. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 2. *Lines:* 615, 754. *Example:* axis label `Reservation wage`.

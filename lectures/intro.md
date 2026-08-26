@@ -91,8 +91,8 @@ of the lectures rather than of the method. See the
 [trend chart](charts.md#change-since-the-previous-pass) for every rule.
 
 The corpus grew from 300 to 348 lectures. Of the 35 rules measurable in both snapshots,
-**27 improved as a share of the corpus, 5 held level and 3 got worse.** The four largest
-improvements and all three regressions:
+**26 improved as a share of the corpus, 5 held level and 4 got worse.** The four largest
+improvements and all four regressions:
 
 | Direction | Rule | Share of corpus |
 |-----------|------|-----------------|
@@ -103,11 +103,19 @@ improvements and all three regressions:
 | 🔴 Worsening | `qe-fig-004` — caption formatting conventions | 9% → 17% |
 | 🔴 Worsening | `qe-fig-001` — do not set figure size unless necessary | 62% → 64% |
 | 🔴 Worsening | `qe-fig-003` — no matplotlib embedded titles | 46% → 47% |
+| 🔴 Worsening | `qe-code-002` — use unicode Greek letters in code | 18% → 19% |
 
-All three regressions are in Figures, and for the same reason: new lectures add figures
+Three of the four regressions are in Figures, for the same reason: new lectures add figures
 faster than the figure conventions are applied to them. Only `qe-fig-004` moved materially
 — it doubled because the newer lectures do add captions, which is progress, but write them
 in Title Case and over the six-word limit. The other two drifted by under three points.
+
+`qe-code-002` is the one to read carefully, because it moved by a single point and only
+after the check was widened mid-pass to see a Greek name carrying an English prefix
+(`target_mu`, `c_gamma`). Both snapshots were re-measured with that wider check, so the
+comparison is still like for like — but the honest reading is that this rule was *always*
+drifting slightly and the pass could not see it until the last day. The reach it reports
+now, 66 of 348 lectures, is four times what the pass first measured.
 
 ---
 

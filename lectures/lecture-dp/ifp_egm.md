@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-26
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.9 / 10
+- **Overall score:** 8.0 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-006` ×10; `qe-writing-003` ×2; `qe-writing-002` ×4, +2 more. |
 | Math         | 9/10  | `qe-math-009` ×7. |
-| Code         | 6.5/10 | `qe-code-002` ×2; `qe-code-001` ×3; `qe-code-004` ×6. |
+| Code         | 7.5/10 | `qe-code-001` ×3; `qe-code-004` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6.5/10 | `qe-fig-005` ×5; `qe-fig-003` ×1; `qe-fig-008` ×8. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -35,7 +35,6 @@ _None found._
 
 ### Medium severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 3. *Lines:* 576, 731, 780. *Example:* line 576 has trailing whitespace after `compute_c(jnp.arange(1, len(s)))` (W291); line 731 writes `+ y_bar(k) , label=label` with a space before the comma (E203); line 780 writes `β ** (1/γ)` with spaces around the exponentiation operator, while line 784 two lines below writes `β**(1 / γ)` - the rule asks for the tight `a**b` form, and the two adjacent lines should at least agree with each other.
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 2. *Lines:* 565, 567. *Example:* spelled-out `mu`.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 916. *Example:* .set(xlabel='assets', title=.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 4. *Lines:* 156, 178, 528, 695. *Example:* line 156 'consumption at time $t$ cannot be a function of outcomes are yet to be observed' is missing a 'that'; line 178 writes 'the maximization is overall feasible consumption paths' where 'over all' is meant. The other two are duplication rather than length: lines 528-529 repeat 376-377 word for word ('Here is the operator $K$ that transforms current guess $\sigma$ into next period guess $K\sigma$'), and the two operator docstrings at 397-404 and 538-544 are byte-identical - so the JAX section opens by telling the reader nothing new. Worse, the figure at 693-702 is an exact copy of the figure at 474-484, down to the labels, and both plot `a_vec`/`c_vec`, the NumPy solution from line 469 - the JAX section's plot never shows the JAX policy.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 180, 637. *Example:* line 180 sends the reader to `` {eq}`eqvfs` ``, but the label defined in this file at 170 is `eqvfs_egm` - `eqvfs` is the label in `` {doc}`ifp_discrete` ``, so the reference resolves to nothing and the definition of an optimal consumption path points at an empty target. The larger break is at 637-649: the text says 'To verify the correctness of our JAX implementation, let's compare it with the NumPy version' and then 'These numbers confirm that we are computing essentially the same policy'. They are not the same model. `create_ifp` is defined twice - at 358 with `β=0.96` and again at 509 with `β=0.94` - so `ifp_numpy` (463) and `ifp` (628) differ in the discount factor, and the printed 'Maximum difference in consumption policy' at 644 is measuring that difference, not floating-point agreement. The timing comparison at 668-688 inherits the same mismatch.

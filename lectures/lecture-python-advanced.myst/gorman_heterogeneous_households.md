@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-001` ×6; `qe-writing-009` (proposed) ×5; `qe-writing-003` ×3, +3 more. |
 | Math         | 8/10  | `qe-math-002` ×1; `qe-math-009` ×3. |
-| Code         | 5/10  | `qe-code-002` ×45; `qe-code-001` ×8. |
+| Code         | 5/10  | `qe-code-002` ×48; `qe-code-001` ×8. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5/10  | `qe-fig-005` ×5; `qe-fig-003` ×2; `qe-fig-004` ×1, +2 more. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -28,7 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 8. *Lines:* 747, 772, 1271, 1375, 1747, 1925, 1936, 2198. *Example:* continuation lines are indented to a fixed offset rather than to the opening delimiter, in five places and never the same offset twice: 1271-1272 (`lq.compute_sequence(x0_full, ` then 24 spaces), 1375-1376 (16 spaces against a paren at column 35), 1747-1748 (20 spaces), 1925-1926 and 1933-1934 (8 and 12 spaces), 2055-2060 (12), 2184-2191 (16). Blank-line spacing around top-level definitions is also inconsistent: 747 puts one blank line between `doublej2` and `heter` where PEP8 asks for two, and `_pct` at 2198 is defined in the middle of a script cell with one blank line on each side. 772 and 858 use `##` to head a block comment (E266), and 772 also carries trailing whitespace, as do 64 other lines in the file. 1936 is an f-string with no placeholder, `set_title(f'Average of Individual Household Endowments')`. Inside the same figure, `fontsize=20` is set on three axis labels (2214, 2215, 2221, 2227) and omitted on two others (2220, 2226), and 2209 writes `figsize=(14,  6)` with a double space.
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 45. *Lines:* 1528, 1529, 1530, 1531, 1532, 1558, 1559, 1560, 1561, 1563, …. *Example:* spelled-out `sigma`.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 48. *Lines:* 1528, 1529, 1530, 1531, 1532, 1558, 1559, 1560, 1561, 1563, …. *Example:* spelled-out `sigma`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 5. *Lines:* 1762, 1879, 1922, 2052, 2209. *Example:* figsize=.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 1759, 1847, 1905, 2038, 2166. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 1. *Lines:* 1048. *Example:* `^T` transpose in `R^T`.

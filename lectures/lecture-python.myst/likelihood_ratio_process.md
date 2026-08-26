@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-004` ×7; `qe-writing-001` ×4; `qe-writing-005` ×4, +5 more. |
-| Math         | 3/10  | `qe-math-010` (proposed) ×56; `qe-math-004` ×3; `qe-math-014` (proposed) ×4, +1 more. |
+| Math         | 3/10  | `qe-math-010` (proposed) ×57; `qe-math-004` ×3; `qe-math-014` (proposed) ×4, +1 more. |
 | Code         | 7/10  | `qe-code-001` ×5; `qe-code-002` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 3.5/10 | `qe-fig-003` ×9; `qe-fig-005` ×7; `qe-fig-006` ×4, +2 more. |
@@ -32,7 +32,7 @@ _None found._
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 9. *Lines:* 198, 510, 560, 603, 656, 808, 822, 1464, 1670. *Example:* plt.title.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 7. *Lines:* 225, 344, 354, 642, 754, 1116, 1306. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 11. *Lines:* 227, 346, 355, 498, 499, 556, 557, 593, 596, 651, …. *Example:* plot() without lw=.
-- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 56. *Lines:* 237, 242, 252, 262, 263, 264, 265, 272, 277, 297, …. *Example:* bare expectation `E\left[`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 57. *Lines:* 237, 242, 252, 262, 263, 264, 265, 272, 277, 297, …. *Example:* bare expectation `E\left[`.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 7. *Lines:* 422, 448, 473, 1847. *Example:* mid-sentence 'Type'.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 1. *Lines:* 70. *Example:* H2 Title Case: 'Likelihood Ratio Process' (Ratio, Process).
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 31. *Lines:* 847, 848, 850, 859, 869, 872, 873, 874, 876, 878, …. *Example:* 2 spaces.

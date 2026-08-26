@@ -707,6 +707,129 @@ one-word lecture-side fix is better. And `qe-math-010` cannot see LaTeX operator
 matplotlib label strings (`rational_learning_re` writes a bare `$E_t$` in four of them), which
 is a scope decision about what surface the maths rules cover, not a defect.
 
+### The last three doubts, put through three adversarial lenses each
+
+The final batch's three doubts were measured, then attacked: for each patch, one reader hunted
+a false-positive class in the additions, one hunted a lost or double-reported finding, and one
+checked whether the named mechanism was really the cause. Seven of the nine lenses reported.
+**Every one of the three patches needed changing, and one was rejected outright** — which is
+the strongest argument yet for the layer. A measurement pass alone would have landed all three.
+
+#### `qe-math-010`: the operator juxtaposed, with no delimiter at all
+
+The bare-letter branch required the operator letter to be *applied* to a delimiter. Three
+shapes carry it without one: the `\big` family of openers, `E \sum` / `E_0 \prod`, and a
+subscripted `E` juxtaposed with a subscripted symbol. **1489 → 1608 occurrences, reach
+unchanged at 124**: 119 added, 0 removed, every one read.
+
+Three things the lenses changed:
+
+- **The doubt's numbers were a gate claim wearing a pattern claim's clothes.** Its two
+  headline lines — `tax_smoothing_3:80`, `un_insure:34` — are not reachable by *any* pattern
+  change: those files contain no `E[` anywhere, so the per-file `e_is_operator` gate switches
+  the whole branch off. The doubt had silently widened the gate too, which is where its 33
+  file-paths and 12-off-zero came from. Widening it measures +168 / −0 and moves reach
+  124 → 136, and the 61 extra additions were read and are genuine — but it takes seven
+  lectures off a clean 0 on this rule. **That is a scoring decision, not a detector decision,
+  and it wants its own pass.** Recorded, not implemented.
+- **`\bigr` is not an opener.** The proposed `\bigg?[lrm]?` matched `\bigr`, `\Bigm` and
+  friends as readily as `\bigl`, while `NOT_A_PRODUCT_PRIME` two hundred lines up in the
+  same file already carries exactly that curated distinction. Zero corpus instances either
+  way, so the fix is measurement-neutral — but a file disagreeing with itself about which
+  macros open a group is a defect waiting for its input. Now `\[bB]igg?l?`.
+- **The safety argument was an observation dressed as a guard.** The comment justified the
+  mandatory subscript with "a matrix `E` is not time-indexed", but the pattern accepts *any*
+  subscript: `E_{ij} a_{kl}` matches. The 73-of-73 read is real evidence and every juxtaposed
+  `E` in this corpus is genuinely time-indexed — but that is a fact about the corpus, and the
+  comment now says so, with the instruction to restrict the subscript if it ever needs to be
+  load-bearing. A unit case pins the accepting behaviour so the next reader sees it.
+
+One lens found something the measurement pass had missed and it is now fixed: the operand
+bound was `[A-Za-z]`, so a **Greek** operand stayed invisible beside a counted Latin one *on
+the same line*. `cagan_rational_expectations:1223` writes
+`a_{2t} = \mu_t - E_{t-1}\mu_t = \mu_t - E_{t-1}x_t` and was reported once of two. Admitting
+a Greek macro as the operand adds those 12. That same-page self-contradiction is this
+project's strongest evidence class, and it was being *created* by the patch meant to remove it.
+
+#### `qe-code-002`: refuted as specified, adopted with three changes
+
+The mechanism reproduced exactly — the lookbehind rejects a preceding `_`, so `mu_vec` was
+caught and `target_mu` was not, and `hansen_richard_1987:658` is
+`def mv_weights(mu_vec, Sigma, target_mu)`, contradicting itself inside one signature. But all
+three lenses refused it as written.
+
+- **The tail guard was a silent regression on the rule's own core case.** The patch ended in
+  `(?![\w])`, and `\w` matches unicode letters, so `sigma_ε` — one Greek letter spelled out
+  and the other not, in a single identifier — *stopped* matching. That mixed spelling is what
+  the rule is for; `mu_m = -0.5 * σ_m**2` is the evidence this whole family of fixes was built
+  on. Invisible in the diff (the corpus has no such token today), so it measured −0. Two of
+  the guards were also mutually redundant and each individually dead. Now one guard,
+  `(?![A-Za-z0-9])`, which still excludes `chi2`, and `sigma_ε` matches again.
+- **A conceded false positive was a class the project had already built a gate for.**
+  `fitting_distributions` went from clean to 1 hit on `'gamma': fit_gamma(price)` — scipy's
+  **Gamma** distribution, sibling to `fit_normal` and `fit_lognormal`. It leaked because
+  `DIST_CALL` is *cell*-scoped: the `def` sits in the cell that calls `scipy.stats.gamma` and
+  the call site is 31 lines later in another cell, so the report exempted the definition and
+  flagged the call of the same name. The gate is now **name**-scoped — a name a distribution
+  cell `def`s is exempt wherever it is used. Making `DIST_CALL` file-scoped instead was
+  measured and rejected: it costs 28 real findings.
+- **`mu` is also the economics abbreviation for marginal utility.** `ifp_egm:556` is
+  `def compute_mu_k(k)` whose docstring reads "compute marginal utility u'(σ(...))", eight
+  lines under `u_prime = lambda c: c**(-γ)`. A cell binding `u_prime` or `marginal_utility`
+  has said which `mu` it means, so a *suffixed* `mu` there is exempt — a bare `mu` still is
+  not, and `robust_permanent_income:675`'s `mu = np.exp(log_mu)` is still a finding. This
+  removes 4 pre-existing false positives as well as 12 new ones.
+
+Final: **700 → 798 occurrences, reach 57 → 66**; 102 added, 4 removed, all four of the
+removals verified as marginal-utility false positives in the two synced copies of `ifp_egm`.
+
+And the doubt's own second guard — "skip identifiers the file `def`s" — is **rejected in every
+form.** Blanket, it deletes the `market_diffusion:159` `def mu(self, a)` canary (8 removals),
+which is the exemption this project already rejected once. Narrowed to mixed English/Greek
+names it still deletes 7 findings; narrowed to distribution names, 4. Its cost is 45 surviving
+additions of the `def compute_res_wage_given_beta(β)` shape, kept because the rule already
+counts identical sites at HEAD. Do not re-propose it. Its `tv_beta` example is not a finding
+either: `merging_of_opinions` imports `beta as beta_dist`, so the file-level import exemption
+already excludes all three.
+
+#### `qe-ref-001`: verified, then rejected
+
+The shape is real and would be valuable: prose writes the author and year by hand and *then*
+adds a plain `{cite}` for the same work, so the page prints
+"Shavell and Weiss (1979) [Shavell and Weiss, 1979]" — the reference twice. Measured
+291 → 330, +39 / −0. It is still rejected, on three counts, and the third is the one that
+settles it.
+
+- **The patch as specified is a no-op.** The replacement text compiles the new pattern and
+  builds the de-duplication set, and then contains no loop over either. Applied verbatim it
+  measures 291, +0, leaving an unused regex and an unused set. The lens had to reconstruct the
+  missing branch from the prose to reproduce the number at all.
+- **The confirmation checked the wrong half.** "37 of 39 machine-confirmed" was confirmed by
+  finding a capitalised token from the line inside the cite key — which tests the *author*
+  half of "author-year" and never the *year* half, and the year is the half the
+  rendered-duplication argument rests on.
+- **3 of the 39 have a year that does not match the cited entry, so the page does not print
+  anything twice and the prescribed fix corrupts the sentence.**
+  `smoothing_tax:87` reads "Secretary of Treasury Albert Gallatin (1807) `` {cite}`Gallatin` ``";
+  the entry is `year = {1837}`, a collected volume whose title carries "November, 1807". So the
+  page renders two *different* years, and "use `{cite:t}` alone" would drop the given name and
+  misdate the report by thirty years. That line is the only `qe-ref-001` hit in either copy of
+  that lecture, so 2 of the 10 "newly reached" lectures are reached solely by a false positive.
+  `re_with_feedback:68` is the same shape — "Blanchard and Khan (1981)" against
+  `year = 1980` and a different spelling of the surname.
+
+Two further classes the measurement pass under-counted: the possessive — "Ryoo and Rosen's
+(2004)" ×2, where `{cite:t}` cannot emit "'s" and the prescribed fix is ungrammatical — and
+the given name, ~6 sites rather than the 1 disclosed. And the guard is not "a capitalised
+author surname" but any capital-initial run of non-space characters, markup included:
+`black_litterman:41` matches `**Black-Litterman** (1992)`, which is the *model's* name.
+
+**The minimum change to adopt is a year match against the bibliography, and the corpus is a
+sparse checkout of `lectures/*.md` with no `.bib` in it.** So this cannot be verified here at
+all, at any effort. It is worth re-proposing in a session that checks out
+`_static/quant-econ.bib` — the underlying defect is real in at least 34 of the 39 sites, and it
+is the cleanest addition the rule has left.
+
 ### The build's warnings: 478 down to 23
 
 Almost all of them were one thing. Reviewer prose and the detectors' own sample text quote

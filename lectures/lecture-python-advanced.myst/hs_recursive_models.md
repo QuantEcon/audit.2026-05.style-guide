@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-004` ×28; `qe-writing-001` ×15; `qe-writing-005` ×26, +4 more. |
-| Math         | 3/10  | `qe-math-010` (proposed) ×26; `qe-math-002` ×154; `qe-math-011` (proposed) ×3, +1 more. |
+| Math         | 3/10  | `qe-math-010` (proposed) ×76; `qe-math-002` ×154; `qe-math-011` (proposed) ×3, +1 more. |
 | Code         | N/A   | no executable code cells. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | N/A   | no figures or plotting code. |
@@ -28,7 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 154. *Lines:* 220, 244, 271, 309, 310, 317, 318, 331, 335, 351, …. *Example:* \prime transpose.
-- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 26. *Lines:* 217, 220, 259, 265, 271, 299, 309, 351, 873, 876, …. *Example:* bare expectation `E(`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 76. *Lines:* 217, 220, 259, 265, 271, 296, 299, 304, 309, 351, …. *Example:* bare expectation `E(`.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 15. *Lines:* 324, 358, 365, 963, 1734, 1759, 1879, 1937, 1944, 1956, …. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 6. *Lines:* 430, 788, 1495, 1702, 1743, 2408. *Example:* the same objects are restated many times over 2400 lines and the restatements have drifted apart. The household objective is written six times; 525, 802, 1197, 2208, 2301 and 2344 all carry the leading minus sign, but 430 and 788-789 drop it, so as printed the household maximises a quadratic loss, and 2425-2430 likewise asks the reader to "maximize the criterion" $\sum \beta^t[\lambda(s_{1t}-b_{1t})\cdot(s_{1t}-b_{1t}) + \ldots]$ with no minus. Five further symbols are stale: 1702 calls $\mu_0^2$ "the marginal utility of individual wealth" one clause before naming the same object $\mu_0^w$; 1495 keeps the time subscript in $K = A^o \Sigma_t G^\prime(G\Sigma G^\prime + R)^{-1}$ inside the *limiting time-invariant* representation, where every other $\Sigma$ in the display has lost it; 1743 sums the denominator of $\mu^w_t$ over $t$ while its numerator sums over $j$; 2387 writes $\mu_{02}\Pi_2\Pi_2^{-1\prime}$ and 2408 writes $\mu_{01}\Pi_1^{-1}\Pi_2^{-1\prime}$, where 2395-2400 pairs each $\Pi_i^{-1}$ with its own transpose; and 2437 writes $s_{jt} = \Delta_j h_{jt-1} + \Pi_j c_{jt}$ where 2307 has $\Lambda_i$. A reader checking the mongrel-aggregation punchline at 2404-2410 against the derivation it follows cannot make them agree.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 28. *Lines:* 91, 598, 710, 901, 959, 1187, 1419, 1436, 1465, 1474, …. *Example:* mid-sentence 'State'.

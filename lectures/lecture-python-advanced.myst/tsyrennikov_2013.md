@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-26
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.5 / 10
+- **Overall score:** 7.2 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 4.5/10 | `qe-writing-001` ×4; `qe-writing-009` (proposed) ×2; `qe-writing-003` ×4, +3 more. |
 | Math         | 5.5/10 | `qe-math-010` (proposed) ×6; `qe-math-014` (proposed) ×3; `qe-math-009` ×3. |
-| Code         | 7.5/10 | `qe-code-001` ×3; `qe-code-003` ×1. |
+| Code         | 5.5/10 | `qe-code-002` ×5; `qe-code-001` ×3; `qe-code-003` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5/10  | `qe-fig-003` ×6; `qe-fig-005` ×2; `qe-fig-004` ×1, +2 more. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -27,6 +27,7 @@
 _None found._
 
 ### High severity
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 5. *Lines:* 992, 993, 2165, 2185, 2193. *Example:* spelled-out `delta`.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 6. *Lines:* 1880, 1889, 1899, 1909, 1923, 1936. *Example:* .set_title.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 6. *Lines:* 136, 144, 221, 222, 1004, 1955. *Example:* non-blackboard `\Pr`.
 

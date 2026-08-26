@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 6.5/10 | `qe-writing-003` ×4; `qe-writing-002` ×4; `qe-writing-008` ×7. |
-| Math         | 3/10  | `qe-math-010` (proposed) ×14; `qe-math-002` ×10; `qe-math-009` ×2. |
+| Math         | 3/10  | `qe-math-010` (proposed) ×19; `qe-math-002` ×10; `qe-math-009` ×2. |
 | Code         | 7.5/10 | `qe-code-001` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8/10  | `qe-fig-006` ×3; `qe-fig-001` ×2. |
@@ -29,7 +29,7 @@ _None found._
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 6. *Lines:* 590, 670, 716, 728, 827, 939. *Example:* line 670 is `nx, nx = A.shape` - the same name bound twice, which works only because the matrix is square and silently hides the second dimension. Lines 716 and 722 call `sys.exit(0)` from inside `compute_paths` when the parameters admit no Ramsey equilibrium: in a notebook that raises SystemExit rather than returning, and the status code says success. `l = (Sl @ x).flatten()` (728) is the ambiguous single-character name PEP8 forbids (E741), and it is also a `Path` field. Continuation lines are misaligned throughout: 590 is indented 20 against a visual indent of 21, 600 is 16 against 18, and the same off-by-two or off-by-three appears at 907, 939, 945, 956 and 1019 (E128). `bbox = (0., 1.02, 1., .102)` is written twice, identically, at 826 and 827. Add the missing spaces around `-` in `temp[:T-1]` (741), `R[:T-1]` (755), `x[:, t-1]` (681) and around `*` in `mg*(1-ρ)` (1005).
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 10. *Lines:* 387, 393, 401, 404, 408, 410, 411, 430. *Example:* apostrophe transpose `)'`.
-- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 14. *Lines:* 117, 128, 206, 262, 275, 331, 336, 359, 365, 401, …. *Example:* missing braces: `\mathbb E`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 19. *Lines:* 117, 128, 206, 262, 275, 331, 336, 359, 365, 401, …. *Example:* missing braces: `\mathbb E`.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 7. *Lines:* 53, 59, 382, 541, 572, 860. *Example:* 2 spaces.
 
 ### Medium severity
