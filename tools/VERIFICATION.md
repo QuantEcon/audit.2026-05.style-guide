@@ -398,6 +398,91 @@ narrower version has somewhere to start.
   headings*, three lines apart. That is precisely the inconsistency the rule exists to
   find, so the 71 removals include real findings.
 
+### `qe-math-010`: a thin space hid the operator, and a calligraphic letter never was one
+
+Two independent faults, both from reviewer doubts, both in the same check. Net **1397 → 1414
+occurrences, reach unchanged at 118**: 25 added, 8 removed.
+
+**`\!` and friends are thin spaces, not content.** `E_0\!\left\{` is the same construction
+as `E_0\left\{`, and the check missed it because the `applied` pattern allowed only
+whitespace between the letter and the bracket. `hansen_singleton_1982` and `_1983` write the
+padded form throughout — 25 occurrences across the two — and in `hansen_singleton_1983` an
+informal `E_0\{\cdot\}` two lines away *was* being caught, so the report contradicted
+itself on the same page. The pattern now steps over runs of `\!`, `\,`, `\;`, `\:`, `\>`
+and `\ ` on either side of an optional `\left`.
+
+**`\mathcal{E|P|V}` had zero true positives corpus-wide.** A calligraphic letter is
+conventionally a *set*, not an operator, and all 8 hits were set names. Two lectures say so
+in their own text: `information_market_equilibrium` defines
+`\mathcal{P} = \{ p(\mu_y) : y \in Y \}` outright, and `theil_1` writes
+`f : S_1 \times \mathcal{E} \to S_1` for the shock space. The alternative is gone rather
+than gated — there was nothing to keep.
+
+### `qe-fig-008` asked a scatter plot to set its line width
+
+`lw` governs the width of a line, so a `plot()` call that draws no line has nothing to set
+it on. The check flagged them all the same, and the reviewer doubt named the shape exactly:
+`plt.plot(fp_mult, fp_mult, 'o')` marking fixed points, `ax.plot(250, 120, "*", ...)`
+marking a single point on a phase diagram. **1382 → 1258 occurrences, reach 216 → 202**:
+124 removed, 0 added, and no removed hit draws a line.
+
+The exemption reads the positional format string and clears the call only when it carries a
+marker character and no line style. Three things about it were wrong first, and each is a
+distinct trap:
+
+- **Keying on quotes swallowed keywords.** Matching any quoted string exempted
+  `ax.plot(x, y, color='C1')`, which draws a plain solid line. The format string is
+  *positional* — a comma, then the quote, nothing in between — so the match has to be too.
+- **`1`–`4` are markers, and admitting them exempted `'C1'`.** They are tri_down, tri_up,
+  tri_left and tri_right. Nothing in the corpus uses them; what the corpus does have is
+  `ax.plot(x, y, 'C1')`, a *colour* spec that still draws a solid line. Dropping the four
+  digits from the marker class restored that one real finding — which is why the final total
+  is 1258 rather than the 1257 the looser version measured.
+- **A nested call's string argument is not a format string.** The call text is assembled
+  across up to twelve source lines, so a search over the whole of it reaches inside nested
+  calls: `ax[2].plot(plot_grid, policy_curve(policies['MH'], 'd1'), ...)` in
+  `tsyrennikov_2013` would read `'d1'` as a thin-diamond marker. The assembler now records
+  each character's nesting level and the search runs over the top-level arguments only.
+
+Eleven cases pin the behaviour — `'o'`, `'ko'`, `'C1'`, `'C1o'`, `'o-'`, `'k--'`, no format
+string, `lw=2`, `color='C1'`, and the nested-call form with and without a real format string
+after it.
+
+One measurement mistake here is worth recording, because it looked alarming and was
+entirely an artifact of the query. Asked whether any exempted call still draws a line, a
+first attempt scanned every line *outside the new hit set* and reported 256 — but a call
+carrying `lw=` was never a hit under either version of the rule, so it cannot be a lost
+finding. Every sample the query printed turned out to contain `lw=`. **A removal has to be
+measured as a set difference between the two rules' hits, not as everything the new rule
+does not flag.**
+
+### `qe-writing-006` and eighteen author surnames
+
+Same shape as the earlier heading fixes: a sentence-case check flagging eponyms. The
+reviewers' doubts named them in ones and twos across several batches, and enumerating every
+flagged heading word against the corpus turned up the rest — the check fires only on
+headings, so the population is small enough to read in full.
+
+Added to `PROPER_NOUNS`: `coleman`, `reffett`, `groves`, `clarke`, `singleton`, `jones`,
+`manuelli`, `kiyotaki`, `wright`, `rosen`, `topel`, `metropolis`, `gibbs`, `hicks`,
+`hicksian`, `pearce`, `stacchetti`, `newcomb`, `benford`, `breeden`, `chaudhuri`,
+`mukerjee`, `greenberg`, `lanke`, `leysieffer`, `warner`, `wecker`, `shorrocks`, `hopfield`,
+`riesz`, `engel`, `gumbel`. **787 → 768 occurrences, reach 143 → 132.**
+
+`within` went to `STOP_SMALL`, not to the surname list. `Metropolis-within-Gibbs` needs
+*every* part of the compound cleared, and "within" is a preposition in the same family as
+the `with`, `by` and `from` already there — listing it as a proper noun to make one heading
+pass would have been the wrong repair in the right place.
+
+Two checks kept this honest. Every heading in the corpus using an ambiguous word —
+`groves`, `singleton`, `metropolis`, `jones`, `clarke`, `wright`, `white` — was read before
+the name went in, and all were eponyms except one: `python_by_example.md:39`, "The Task:
+Plotting a White Noise Process". "White noise" is not a proper noun and that heading is a
+real violation, so `white` was left out. And 7 of the 26 changed hits come back as *new*
+hits with the surname dropped from the reason list — `'Original Wecker Method'
+(Wecker, Method)` becomes `(Method)`, still a finding because `Method` should be lowercase.
+The fix narrows the reason; it does not clear the heading.
+
 ### The build's warnings: 478 down to 23
 
 Almost all of them were one thing. Reviewer prose and the detectors' own sample text quote

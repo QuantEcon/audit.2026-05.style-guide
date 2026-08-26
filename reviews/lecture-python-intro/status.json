@@ -1,0 +1,17 @@
+{
+  "series": "lecture-python-intro",
+  "lecture": "status",
+  "judgment": [],
+  "strengths": [
+    "Every environment fact on the page is produced by a live cell rather than typed in - `{nb-exec-table}` (16-17), `!python --version` (25-27), `!conda list` (31-33) - so the page cannot go stale",
+    "The `!conda list` cell carries `:tags: [hide-output]` (32), keeping a several-hundred-line dump out of the rendered page while leaving it in the notebook",
+    "The machine-details region carries an explicit `(status:machine-details)=` anchor (19), so other pages can link straight at it"
+  ],
+  "actions": [
+    "Give the machine-details region a heading - `(status:machine-details)=` at 19 anchors a bare paragraph, so a `{ref}` to it lands on text with no visible target",
+    "Tag the cells `ipython3` rather than `ipython` (25, 31) to match the `python3` kernel declared at 9",
+    "Reconcile the five series' copies of this page: `lecture-python-programming` and `lecture-python.myst` carry a 47-line version with GPU and JAX-backend probes, while this file, `lecture-python-intro` and `lecture-dp` carry a 33-line one - the page is hand-maintained in five places and has already diverged",
+    "Drop the trailing space at the end of line 21, and add the missing newline at end of file"
+  ],
+  "scanner_doubts": []
+}

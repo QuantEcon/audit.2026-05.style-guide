@@ -57,6 +57,11 @@ PROPER_NOUNS = {
     # ``_is_proper`` can clear only when *every* part is listed.
     "modigliani", "miller", "litterman", "porteus", "tallarini", "backus", "chernov",
     "bray", "savin", "eckart", "young",
+    "coleman", "reffett", "groves", "clarke", "singleton", "jones", "manuelli",
+    "kiyotaki", "wright", "rosen", "topel", "metropolis", "gibbs", "hicks",
+    "hicksian", "pearce", "stacchetti", "newcomb", "benford", "breeden",
+    "chaudhuri", "mukerjee", "greenberg", "lanke", "leysieffer", "warner",
+    "wecker", "shorrocks", "hopfield", "riesz", "engel", "gumbel",
     "monte", "carlo",               # "Monte Carlo" in a heading is a proper noun
     "cauchy", "schwarz", "hilbert", "banach", "lyapunov", "sylvester", "cholesky",
     "frobenius", "perron", "chebyshev", "bernoulli", "poisson", "cobb", "douglas",
@@ -108,7 +113,7 @@ PROPER_NOUNS = {
 # Words that are commonly capitalised in these headings but are not proper nouns.
 # Kept explicit so the check is transparent rather than dictionary-driven.
 STOP_SMALL = {"a", "an", "the", "of", "in", "on", "to", "for", "and", "or",
-              "with", "by", "at", "as", "from", "vs", "via", "is", "it"}
+              "with", "within", "by", "at", "as", "from", "vs", "via", "is", "it"}
 
 # Common nouns observed capitalised mid-sentence in this corpus. ``qe-writing-004``
 # fires only on this curated set, so the check cannot mistake an unlisted surname
@@ -521,7 +526,7 @@ def check_math_002(doc: Doc):
     declared = bool(PRIME_NOT_TRANSPOSE.search(
         "\n".join(l.raw for l in doc.lines if l.kind == "text")))
     def _delim_evidence(src):
-        """``)'`` as evidence — but not the ``(v^*)'(x)`` that ``fn_paren`` exempts.
+        r"""``)'`` as evidence — but not the ``(v^*)'(x)`` that ``fn_paren`` exempts.
 
         The counting pass treats a parenthesised *function name* applied to an argument
         as a derivative. The evidence pass did not, so a lecture whose only ``)'`` was
@@ -696,14 +701,23 @@ def check_math_010(doc: Doc):
     bare_mathbb = re.compile(r"\\(?:mathbb|Bbb)\s+[PEV](?![A-Za-z])")
     # (b) A plain letter used as the operator: E[X], E_t(...), P(A).
     #     Only counted where the letter is actually applied to something.
-    applied = r"(?:\s*(?:_\{[^}]*\}|_[A-Za-z0-9])?\s*(?:\\left)?\s*(?:\[|\\\{|\())"
+    # ``\!``, ``\,``, ``\;`` and friends are thin-space macros, so ``E_0\!\left\{``
+    # is the same construction as ``E_0\left\{`` and was being missed while the
+    # informal ``E_0\{\cdot\}`` two lines away was caught.
+    THIN = r"(?:\s*\\[!,;:> ])*"
+    applied = (r"(?:\s*(?:_\{[^}]*\}|_[A-Za-z0-9])?" + THIN +
+               r"\s*(?:\\left)?" + THIN + r"\s*(?:\[|\\\{|\())")
     bare_E = re.compile(r"(?<![\\A-Za-z0-9_{])E" + applied)
     # (c) Roman or calligraphic spellings of the same operators.
     ROMAN = r"(?:Var|Cov|Pr|Prob|E|Cor)"
     other = re.compile(r"\\(Pr|Var|Cov|Prob)\b"
                        r"|\\(?:text|textrm|mathrm|operatorname)\s*\{\s*" + ROMAN + r"\s*\}"
-                       r"|\{\s*\\rm\s+" + ROMAN + r"\s*\}"
-                       r"|\\mathcal\s*\{\s*[EPV]\s*\}")
+                       r"|\{\s*\\rm\s+" + ROMAN + r"\s*\}")
+    # ``\mathcal{E|P|V}`` was a fourth alternative here and had **zero** true positives
+    # corpus-wide: a calligraphic letter is conventionally a *set*, not an operator.
+    # All 8 hits were set names — ``information_market_equilibrium`` defines
+    # ``\mathcal{P} = \{ p(\mu_y) : y \in Y \}`` outright, and ``theil_1`` writes
+    # ``f : S_1 \times \mathcal{E} \to S_1`` for the shock space. Removed.
     spans = list(_math_spans(doc))
     # The bare-letter branch only makes sense in a lecture that really does use E as
     # an operator; otherwise E is far more likely to be a matrix or a variable.
@@ -733,7 +747,7 @@ DIST_BEFORE = re.compile(r"\\(?:sim|thicksim|overset\{[^}]*\}\{\\sim\})\s*"
 
 
 def check_math_011(doc: Doc):
-    """(proposed) Distribution names: plain letters, never \mathcal / \mathbb."""
+    r"""(proposed) Distribution names: plain letters, never \mathcal / \mathbb."""
     hits = []
     pat = re.compile(r"\\mathcal\s*\{\s*(N|U)\s*\}|\{\s*\\cal\s*(N|U)\s*\}"
                      r"|\{\s*\\mathcal\s+(N|U)\s*\}"
@@ -762,7 +776,7 @@ def check_math_011(doc: Doc):
 
 
 def check_math_012(doc: Doc):
-    """(proposed) Multiplication uses \cdot or juxtaposition, never ``*``."""
+    r"""(proposed) Multiplication uses \cdot or juxtaposition, never ``*``."""
     hits = []
     # A convolution is conventionally written with a star, so exempt lectures that
     # say so rather than flagging their notation.
@@ -1329,24 +1343,55 @@ def check_fig_008(doc: Doc):
     for i, l in enumerate(code):
         for m in pat.finditer(l.raw):
             # Walk forward until the call's parentheses balance.
-            depth, args, j, pos = 0, [], i, m.end() - 1
+            # ``depth`` finds the closing paren; ``lvl`` records, per character, how
+            # deeply nested inside the call's own argument list it sits, so the
+            # top-level arguments can be picked out below.
+            depth, lvl, args, nest, j, pos = 0, 0, [], [], i, m.end() - 1
+            done = False
             while j < len(code) and j - i < 12:
                 seg = code[j].raw[pos:] if j == i else code[j].raw
                 for ch in seg:
                     if ch == "(":
                         depth += 1
+                        if depth > 1:
+                            lvl += 1
                     elif ch == ")":
                         depth -= 1
                         if depth == 0:
+                            done = True
                             break
+                    elif ch in "[{":
+                        lvl += 1
                     args.append(ch)
-                if depth == 0:
+                    nest.append(lvl)
+                    if ch in ")]}":
+                        lvl -= 1
+                if done:
                     break
                 j += 1
                 pos = 0
             call = "".join(args)
-            if not re.search(r"\b(?:lw|linewidth)\s*=", call):
-                hits.append(Hit("qe-fig-008", l.no, "plot() without lw="))
+            if re.search(r"\b(?:lw|linewidth)\s*=", call):
+                continue
+            # ``lw`` governs line width, so a call that draws no line has nothing to
+            # set it on. A positional format string of marker characters with no line
+            # style — ``plot(x, y, 'o')``, ``plot(x, y, 'k.')`` — is a scatter.
+            #
+            # Two things this deliberately does *not* do. It matches the format string
+            # positionally rather than as any quoted string, because keying on quotes
+            # swallowed ``color='C1'`` and inflated the exemption. And it searches only
+            # the call's own top-level arguments, because a nested call's string
+            # argument is not a format string: ``ax.plot(g, curve(pol['MH'], 'd1'))``
+            # would otherwise read ``'d1'`` as a thin-diamond marker.
+            top = "".join(ch for ch, d in zip(args, nest) if d == 0)
+            fmt = re.search(r",\s*(['\"])([^'\"]{1,4})\1", top)
+            # ``1``-``4`` are the tri_down/up/left/right markers. They are excluded:
+            # nothing in the corpus uses them, and admitting them exempted ``'C1'``,
+            # which is a *colour* spec and still draws a solid line.
+            if fmt and not re.search(r"[-:]", fmt.group(2)) \
+                    and re.search(r"[.,ov^<>spP*hH+xXDd]", fmt.group(2)):
+                continue
+            hits.append(Hit("qe-fig-008", l.no, "plot() without lw="))
     return hits
 
 
