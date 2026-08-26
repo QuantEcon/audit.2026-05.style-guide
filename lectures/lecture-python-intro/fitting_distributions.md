@@ -2,10 +2,10 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/fitting_distributions.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 9.1 / 10
+- **Overall score:** 9.2 / 10
 - **Priority:** NONE
 
 ## Score breakdown
@@ -16,7 +16,7 @@
 | Math         | 10/10 | no mechanical violations detected. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 8/10  | `qe-fig-005` ×2; `qe-fig-008` ×2. |
+| Figures      | 8.5/10 | `qe-fig-005` ×2. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -31,7 +31,6 @@ _None found._
 
 ### Medium severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 786, 854. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 258, 564. *Example:* plot() without lw=.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 2. *Lines:* 307, 589. *Example:* line 307-309 is a 41-word sentence with three clauses chained through a colon and a "so" ("The points curve away from the line, and the departure has a clear meaning: towards the right, ... so the data have a longer right tail than the normal distribution allows"), where the lecture's other sentences run to a single idea; lines 589-590 restate the third warning of 492-495 almost word for word ("it is only the best of the candidates we happened to try") rather than referring back to it the way line 649 refers to the second warning.
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 2. *Lines:* 243, 670. *Example:* two definitions set in italics in a lecture that bolds nine others: "They are called *plotting positions*" at 243 and "an additional parameter $\nu > 0$, called the *degrees of freedom*" at 670 - both are the "called X" pattern that **parametric class** (33), **method of moments** (84), **Q-Q plot** (202), **Kolmogorov-Smirnov statistic** (358) and **Student's t distributions** (668) all get bold for.
 

@@ -2,7 +2,7 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/rs_inventory_q.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, links  *(JAX out of scope)*
 - **Overall score:** 6.4 / 10

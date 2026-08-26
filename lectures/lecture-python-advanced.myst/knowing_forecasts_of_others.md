@@ -2,10 +2,10 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/knowing_forecasts_of_others.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 6.2 / 10
+- **Overall score:** 6.1 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-005` ×12; `qe-writing-001` ×8; `qe-writing-009` (proposed) ×7, +5 more. |
 | Math         | 3/10  | `qe-math-003` ×26; `qe-math-010` (proposed) ×4; `qe-math-011` (proposed) ×3, +1 more. |
-| Code         | 7/10  | `qe-code-001` ×17. |
+| Code         | 6/10  | `qe-code-001` ×17; `qe-code-002` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 9/10  | `qe-fig-010` ×1. |
 | References   | 7.5/10 | `qe-ref-001` ×7. |
@@ -39,6 +39,7 @@ _None found._
 - **[qe-writing-009 (proposed)]** — Write "IID" — not "i.i.d." or "iid". *Count:* 7. *Lines:* 163, 176, 479, 536, 1416, 1494, 1528. *Example:* i.i.d..
 
 ### Medium severity
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 4. *Lines:* 993, 995, 1245, 1247. *Example:* spelled-out `mu`.
 - **[qe-fig-010]** — Plotly figures require latex directive. *Count:* 1. *Lines:* 1. *Example:* plotly used with no {only} latex directive.
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 3. *Lines:* 118, 119, 186. *Example:* raw link to python-intro.quantecon.org.
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 3. *Lines:* 806, 857, 904. *Example:* the same objects are written two ways. The root equation is $(\lambda-1)(\lambda-1/\beta)=b\lambda$ at 414 and $\left(\lambda-1\right)\left(\lambda-\frac{1}{\beta}\right)=b\lambda$ at 806-807, with `\left(...\right)` armour around single symbols and `\frac` for a constant; the same coefficient is `{1 \over \lambda - \rho}` at 509, 623, 670, 683 and 767 but `\frac{1}{\lambda-\rho}` at 857, 1125, 1383 and 1396; and the Gaussian is `${\mathcal N}(0, \sigma_\epsilon^2)$` at 164 but `\mathcal{N}\left(0,I\right)` at 904 and 1190, where a plain $N$ is what the style guide asks for and `\left(\right)` around `0,I` buys nothing.

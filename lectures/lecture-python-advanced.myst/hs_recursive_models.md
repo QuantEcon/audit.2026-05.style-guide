@@ -2,7 +2,7 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/hs_recursive_models.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, references, links  *(JAX out of scope)*
 - **Overall score:** 5.6 / 10
@@ -12,7 +12,7 @@
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 3/10  | `qe-writing-004` ×28; `qe-writing-001` ×15; `qe-writing-005` ×26, +5 more. |
+| Writing      | 3/10  | `qe-writing-004` ×28; `qe-writing-001` ×15; `qe-writing-005` ×26, +4 more. |
 | Math         | 3/10  | `qe-math-010` (proposed) ×26; `qe-math-002` ×154; `qe-math-011` (proposed) ×3, +1 more. |
 | Code         | N/A   | no executable code cells. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
@@ -33,7 +33,6 @@ _None found._
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 6. *Lines:* 430, 788, 1495, 1702, 1743, 2408. *Example:* the same objects are restated many times over 2400 lines and the restatements have drifted apart. The household objective is written six times; 525, 802, 1197, 2208, 2301 and 2344 all carry the leading minus sign, but 430 and 788-789 drop it, so as printed the household maximises a quadratic loss, and 2425-2430 likewise asks the reader to "maximize the criterion" $\sum \beta^t[\lambda(s_{1t}-b_{1t})\cdot(s_{1t}-b_{1t}) + \ldots]$ with no minus. Five further symbols are stale: 1702 calls $\mu_0^2$ "the marginal utility of individual wealth" one clause before naming the same object $\mu_0^w$; 1495 keeps the time subscript in $K = A^o \Sigma_t G^\prime(G\Sigma G^\prime + R)^{-1}$ inside the *limiting time-invariant* representation, where every other $\Sigma$ in the display has lost it; 1743 sums the denominator of $\mu^w_t$ over $t$ while its numerator sums over $j$; 2387 writes $\mu_{02}\Pi_2\Pi_2^{-1\prime}$ and 2408 writes $\mu_{01}\Pi_1^{-1}\Pi_2^{-1\prime}$, where 2395-2400 pairs each $\Pi_i^{-1}$ with its own transpose; and 2437 writes $s_{jt} = \Delta_j h_{jt-1} + \Pi_j c_{jt}$ where 2307 has $\Lambda_i$. A reader checking the mongrel-aggregation punchline at 2404-2410 against the derivation it follows cannot make them agree.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 28. *Lines:* 91, 598, 710, 901, 959, 1187, 1419, 1436, 1465, 1474, …. *Example:* mid-sentence 'State'.
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 26. *Lines:* 553, 758, 1419, 2149, 2340, 2412. *Example:* bold is used as a substitute for headings, for admonitions and for emphasis, and only occasionally for definitions. 26 lines consist of nothing but a bold span acting as a heading - the six preference examples (553, 560, 583, 598, 624, 665, 710), the four-part framework summary (758, 767, 776, 785), the econometrics labels (1419, 1436, 1457, 1474, 1489), and the permanent-income and mongrel-aggregation labels (2121, 2149, 2171, 2190, 2260, 2320, 2340, 2352, 2412) - and two of them carry a stray full stop after the closing asterisks (`**Adjustment Costs**.` 665, `**Kalman Filter:**.` 1457). Separately, structured claims are bolded where a directive belongs: `**Definition:**` (1270, 1620, 2039), `**Assumption:**` (401, 419, 541), `**Key Insight:**` (1563, 2377), `**Key Property:**` (1572), `**Key invertibility property:**` (1627), `**Remark:**` (2070), `**Punchline:**` (2254, 2404), `**Secret Weapon:**` (2454), `**Verification:**` (1317), `**Step 1:**`/`**Step 2:**` (1283, 1288). And bold is used for plain emphasis at 70 (`**no frictions**`), 84, 86-87, 213 (`**and**`), 959 (`**let**`), 1285-1286 (`**quantities**`, `**are**`) and 2458 (`**are all alike**`, `**gives the same name to different things**`), where the rule asks for italic - the lecture uses italic nowhere.
-- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 2. *Lines:* 1695, 1892. *Example:* H2 Title Case: 'Gorman aggregation and Engel curves' (Engel).
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 50. *Lines:* 40, 43, 57, 77, 82, 91, 96, 116, 118, 123, …. *Example:* 2 spaces.
 
 ### Medium severity

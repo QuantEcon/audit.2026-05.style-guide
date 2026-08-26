@@ -2,7 +2,7 @@
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/need_for_speed.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `ceec881028`
 - **Categories audited:** writing, code, figures, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 8.3 / 10
@@ -31,7 +31,7 @@ _None found._
 
 ### Medium severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 313, 458, 492. *Example:* {figure} without :name:.
-- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 424, 466. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 424, 466. *Example:* 3 sentences in one paragraph.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 2. *Lines:* 300, 421. *Example:* 38- and 33-word single sentences carrying two clauses each: 300-302 on subcontracting matrix inversion to pre-compiled machine code, and 421 on splitting an array operation across a laptop's cores.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 272, 313. *Example:* 272 announces "three related techniques for accelerating Python code" (the same triple listed at 96-98), but only vectorization and JIT compilers arrive under that heading - Parallelization is promoted to its own H2 at 387, so the promised grouping is split across two top-level sections; and the `matlab.png` figure at 313 is dropped between two sentences that read continuously (310 and 316) with no caption saying what it shows.
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 3. *Lines:* 82, 90, 288. *Example:* "**Python is small**" (82) and "**Python is slow**" (90) use bold as a substitute for headings - neither is a definition nor an emphasis - and at 288 the term the whole section turns on is introduced in quotation marks: "Many economists usually refer to array programming as \"vectorization.\""; the lecture does get bold right later for **GPUs** (453), **core** (466) and **TPUs** (477).

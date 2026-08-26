@@ -2,7 +2,7 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/imp_sample.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, links  *(JAX out of scope)*
 - **Overall score:** 7.4 / 10

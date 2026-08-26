@@ -2,18 +2,18 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/lln_clt.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 7.8 / 10
-- **Priority:** HIGH
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 8/10  | `qe-writing-003` ×2; `qe-writing-007` ×1. |
-| Math         | 4/10  | `qe-math-010` (proposed) ×21; `qe-math-004` ×1; `qe-math-008` ×1. |
+| Math         | 4.5/10 | `qe-math-010` (proposed) ×21; `qe-math-004` ×1. |
 | Code         | 7.5/10 | `qe-code-001` ×7. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8/10  | `qe-fig-005` ×3; `qe-fig-001` ×3. |
@@ -38,7 +38,6 @@ _None found._
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 349, 457. *Example:* the "## Breaking the LLN" section (349-412) is asymmetric: its first subsection makes its case in prose only while its second gets a worked example, a note and a forward pointer to an exercise; and "### Simulation 1" (457) is the only numbered section in the lecture - there is no Simulation 2, so the numbering promises a sequence that never arrives.
 
 ### Low severity
-- **[qe-math-008]** — Explain special notation (vectors/matrices). *Count:* 1. *Lines:* 580. *Example:* ones vector `\mathbf 1` used 1x with no 'vector of ones' explanation in the prose.
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 1. *Lines:* 359. *Example:* "### Infinite first moment" says "We can demonstrate this using the Cauchy distribution" (359) and then demonstrates nothing - lines 361-369 assert in prose that $\bar X_n$ is Cauchy and therefore does not concentrate, with no simulation and no figure. This is the one place in a lecture that announces at line 26 that it "is based around simulations" where a claim is left unillustrated, and the non-settling sample-mean path is the single most memorable picture in the topic.
 
 

@@ -212,6 +212,23 @@ def check_snapshot(ck, root, data):
 # business; these regexes strip them so only hand-written prose is examined.
 SPLICE_RE = re.compile(r"<!-- qe:[A-Za-z0-9_-]+ -->.*?<!-- /qe:[A-Za-z0-9_-]+ -->", re.S)
 FENCE_RE = re.compile(r"^(```|~~~).*?^\1", re.S | re.M)
+# Spelled-out counts appear in the narrative ("eleven distinct values"); the gate has to
+# read them to hold them to the CSV.
+NUMBER_WORDS = {w: i for i, w in enumerate(
+    "zero one two three four five six seven eight nine ten eleven twelve thirteen "
+    "fourteen fifteen sixteen seventeen eighteen nineteen twenty".split())}
+
+
+def _as_int(word):
+    """A count written as a digit, a number word, or a hyphenated one ("twenty-one")."""
+    if word.isdigit():
+        return int(word)
+    if word in NUMBER_WORDS:
+        return NUMBER_WORDS[word]
+    tens, _, units = word.partition("-")
+    if tens in NUMBER_WORDS and units in NUMBER_WORDS:
+        return NUMBER_WORDS[tens] + NUMBER_WORDS[units]
+    return None
 INT_RE = re.compile(r"\d[\d,]*(?:\.\d+)?")
 
 
@@ -349,6 +366,140 @@ def check_narrative(ck, root, data):
             f"rule_reach_history.csv")
 
 
+def check_line_width_claims(ck, root, data):
+    """The appendix's line-width figures must come from `fig_line_widths.csv`.
+
+    `qe-fig-008` asks for ``lw=2`` but the check only answers the unambiguous half of that,
+    so the spread of widths the corpus uses is the evidence behind a rule-scope question the
+    report cites. Those numbers move whenever the check's exemptions move — the keyword-bundle
+    and ``ls='none'`` exemptions each shifted them once — and nothing regenerates the
+    sentence quoting them.
+    """
+    path = os.path.join(data, "fig_line_widths.csv")
+    if not os.path.exists(path):
+        ck.note("fig_line_widths.csv absent, line-width claims not checked")
+        return
+    widths, classes = {}, {}
+    with open(path, newline="", encoding="utf-8") as fh:
+        for r in csv.DictReader(fh):
+            (widths if r["kind"] == "width" else classes)[r["key"]] = (
+                int(r["calls"]), int(r["lectures"]))
+
+    # The published appendix carries the summary; the contribution draft carries the full
+    # tables and is the one whose numbers a checker change moves first.
+    docs = [os.path.join(root, "appendix.md"),
+            os.path.join("contributions", "issues",
+                         "07-fig-008-line-width-tolerance.md")]
+    n = 0
+    for doc in docs:
+        if os.path.exists(doc):
+            with open(doc, encoding="utf-8") as fh:
+                n += _line_width_claims(
+                    ck, doc, FENCE_RE.sub("", SPLICE_RE.sub("", fh.read())),
+                    widths, classes)
+    ck.note(f"{n} line-width claims cross-checked against fig_line_widths.csv")
+
+
+def _line_width_claims(ck, doc, text, widths, classes):
+    """Hold one document's line-width figures to the CSV. Returns the number checked."""
+    n = 0
+    # ``| `lw=2` | 977 |`` and ``| some other value | 264 |``
+    for label, key in (("lw=2", "house"), ("some other value", "other")):
+        m = re.search(r"\|\s*`?" + re.escape(label) + r"`?\s*\|\s*([\d,]+)\s*\|", text)
+        if m and key in classes:
+            n += 1
+            cited = int(m.group(1).replace(",", ""))
+            if cited != classes[key][0]:
+                ck.fail("line-width-claims",
+                        f"{doc}: {label} cited as {cited} calls, "
+                        f"measured {classes[key][0]}")
+
+    # ``264 `plot()` calls across 84 lectures set some other width, spread over twenty
+    # distinct values`` — the appendix's one-sentence form.
+    m = re.search(r"(\d+) `plot\(\)` calls across (\d+) lectures", text)
+    if m and "other" in classes:
+        n += 2
+        if int(m.group(1)) != classes["other"][0]:
+            ck.fail("line-width-claims",
+                    f"{doc}: says {m.group(1)} calls set another width, "
+                    f"measured {classes['other'][0]}")
+        if int(m.group(2)) != classes["other"][1]:
+            ck.fail("line-width-claims",
+                    f"{doc}: says {m.group(2)} lectures, "
+                    f"measured {classes['other'][1]}")
+    m = re.search(r"spread over ([\w-]+)\s*\n?\s*distinct values", text)
+    if m:
+        n += 1
+        n_vals = len([k for k in widths if float(k) != 2])
+        if _as_int(m.group(1)) != n_vals:
+            ck.fail("line-width-claims",
+                    f"{doc}: says {m.group(1)!r} distinct values, measured {n_vals}")
+
+    # ``spread across **84 lectures** and twenty distinct values`` — the draft's form.
+    m = re.search(r"spread across \*\*(\d+) lectures\*\* and (\w+) distinct values", text)
+    if m and "other" in classes:
+        n += 2
+        if int(m.group(1)) != classes["other"][1]:
+            ck.fail("line-width-claims",
+                    f"{doc}: says {m.group(1)} lectures use another width, "
+                    f"measured {classes['other'][1]}")
+        n_vals = len([k for k in widths if float(k) != 2])
+        if _as_int(m.group(2)) != n_vals:
+            ck.fail("line-width-claims",
+                    f"{doc}: says {m.group(2)!r} distinct values, measured {n_vals}")
+
+    # ``— `lw=1` x60, `1.5` x48, …``
+    for val, cited in re.findall(r"`(?:lw=)?([0-9.]+)`\s*(?:\u00d7|x)\s*(\d+)", text):
+        key = "%g" % float(val)
+        if key in widths:
+            n += 1
+            if int(cited) != widths[key][0]:
+                ck.fail("line-width-claims",
+                        f"{doc}: lw={key} cited {cited} times, "
+                        f"measured {widths[key][0]}")
+
+    # The deliberate/drift split.
+    for label, key in (("de-emphasis signal", "de-emphasised"),
+                       ("above 2 (emphasis)", "emphasis"),
+                       ("no such signal", "plain")):
+        m = re.search(r"\|[^|\n]*" + re.escape(label) + r"[^|\n]*\|\s*(\d+)\s*\|", text)
+        if m and key in classes:
+            n += 1
+            if int(m.group(1)) != classes[key][0]:
+                ck.fail("line-width-claims",
+                        f"{doc}: {key} cited as {m.group(1)}, "
+                        f"measured {classes[key][0]}")
+
+    # ``the report gains 264 occurrences across 84 lectures``
+    m = re.search(r"gains \*{0,2}(\d+)\*{0,2} occurrences\s*\n?\s*across (\d+) lectures", text)
+    if m and "other" in classes:
+        n += 2
+        if int(m.group(1)) != classes["other"][0]:
+            ck.fail("line-width-claims",
+                    f"{doc}: reading-1 cost cited as {m.group(1)} occurrences, "
+                    f"measured {classes['other'][0]}")
+        if int(m.group(2)) != classes["other"][1]:
+            ck.fail("line-width-claims",
+                    f"{doc}: reading-1 cost cited as {m.group(2)} lectures, "
+                    f"measured {classes['other'][1]}")
+
+    # ``roughly **152** of those are deliberate and the remaining **112** are the finding``
+    m = re.search(r"roughly \*\*(\d+)\*\* of those are deliberate and the remaining "
+                  r"\*\*(\d+)\*\*", text)
+    if m and {"emphasis", "de-emphasised", "plain"} <= set(classes):
+        n += 2
+        want = classes["emphasis"][0] + classes["de-emphasised"][0]
+        if int(m.group(1)) != want:
+            ck.fail("line-width-claims",
+                    f"{doc}: says {m.group(1)} deliberate, measured {want}")
+        if int(m.group(2)) != classes["plain"][0]:
+            ck.fail("line-width-claims",
+                    f"{doc}: says {m.group(2)} the finding, "
+                    f"measured {classes['plain'][0]}")
+
+    return n
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--root", default="lectures")
@@ -364,6 +515,7 @@ def main():
     check_conventions(ck, args.root)
     check_snapshot(ck, args.root, args.data)
     check_narrative(ck, args.root, args.data)
+    check_line_width_claims(ck, args.root, args.data)
     return ck.report()
 
 

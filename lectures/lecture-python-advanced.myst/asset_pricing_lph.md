@@ -2,7 +2,7 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/asset_pricing_lph.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 6.4 / 10
@@ -16,7 +16,7 @@
 | Math         | 3/10  | `qe-math-010` (proposed) ×26; `qe-math-006` ×2; `qe-math-011` (proposed) ×1, +1 more. |
 | Code         | 5.5/10 | `qe-code-002` ×13; `qe-code-001` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 7.5/10 | `qe-fig-003` ×1; `qe-fig-005` ×1; `qe-fig-008` ×3. |
+| Figures      | 7.5/10 | `qe-fig-003` ×1; `qe-fig-005` ×1; `qe-fig-008` ×2. |
 | References   | 8.5/10 | `qe-ref-001` ×4. |
 | Links        | 7.5/10 | `qe-link-001` ×3; `qe-link-002` ×1. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -37,7 +37,7 @@ _None found._
 
 ### Medium severity
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 383. *Example:* plt.title.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 380, 381, 387. *Example:* plot() without lw=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 380, 381. *Example:* plot() without lw=.
 - **[qe-link-001]** — Use markdown style links for lectures in same lecture series. *Count:* 3. *Lines:* 57, 59, 93. *Example:* full URL to own series (python-advanced.quantecon.org).
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 1. *Lines:* 96. *Example:* raw link to python.quantecon.org.
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 2. *Lines:* 174, 456. *Example:* $\beta$ carries two different meanings that meet inside the same bullet: it is the intertemporal discount factor at 218, 221 and 508, and the regression coefficient $\beta_{i,m}$, $\beta_{i,a}$, $\beta_{i,R^{mv}}$ at 174, 185, 473, 488 and 492 - and 508 uses both readings in one line ("specifies the factor to be $m_{t+1} = \beta \frac{u'(c_{t+1})}{u'(c_t)}$" in a passage about $\beta_{i,j}$ exposures). Separately, the scalar $a$ names three unrelated objects: the slope of the affine frontier relation at 456-457, one of four scalars at 462, and the SDF intercept at 705-708 and 852.

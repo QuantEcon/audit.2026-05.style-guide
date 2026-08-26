@@ -2,21 +2,21 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/msy_fishery.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 9.1 / 10
-- **Priority:** NONE
+- **Overall score:** 8.0 / 10
+- **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 7.5/10 | `qe-writing-006` ×1; `qe-writing-001` ×1. |
+| Writing      | 3.5/10 | `qe-writing-005` ×12; `qe-writing-003` ×4; `qe-writing-002` ×4, +3 more. |
 | Math         | 10/10 | no mechanical violations detected. |
-| Code         | 10/10 | no mechanical violations detected. |
+| Code         | 6/10  | `qe-code-001` ×10; `qe-code-002` ×2. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6.5/10 | `qe-fig-005` ×2; `qe-fig-004` ×2; `qe-fig-008` ×4, +1 more. |
+| Figures      | 6.5/10 | `qe-fig-005` ×2; `qe-fig-004` ×2; `qe-fig-001` ×4. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -27,14 +27,19 @@
 _None found._
 
 ### High severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 10. *Lines:* 144, 236, 373, 377, 486, 492. *Example:* 377 and 492 exceed 79 characters (88 and 98) - `ax.plot([x_bar(e)], [q * e * x_bar(e)], 'o', color=line.get_color(), ms=7, zorder=5)` and the `ax.annotate(r'$\bar{x}(e^*)=K/2$', ...)` call - where every comparable call in the lecture wraps (148-149, 160-162, 608-609, 611-612). 373 aligns an assignment with two spaces before `=` (`labels  = [r'low $e$', ...]`) to line up with `efforts` on the line above. 144 closes the `def plot_45(` signature on a line indented to the same column as the body that follows it, so the signature and the first statement are indistinguishable. The rest are blank-line counts: one blank line before the nested `def x_bar` at 236, and a statement immediately after a function body at 240, 486, 842, 926 and 981. Naming is otherwise clean and the Greek identifiers (`σ`, `ξ`) are spelled as letters per qe-code-002.
+- **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 12. *Lines:* 424, 784, 788, 791, 819, 853, 860, 880. *Example:* definitions are bolded correctly throughout the first half - **logistic growth** (73), **current biomass** / **annual growth** / **intrinsic growth rate** / **carrying capacity** (82-85), **steady state** (131), **effort** (201), **catchability coefficient** (208), **sustainable yield** (307), **environmental shock** (695), **tangent** (811) - and italic is used correctly for emphasis (*up* / *across* at 133-134, *any* at 512, *semi-stable* at 813, *overfished* at 638, *full* at 889, *on average* at 718). The second half then switches to bold for emphasis: 784 and 790 re-bold **constant effort** and **constant quota**, already bolded as definitions in the list at 720-722; 788 (**self-correcting**), 791 (**collapses**), 819 (**no margin for error**), 880 (**precautionarily**) and 892 (**precautionary**) are all emphasis; 860, 863 and 869 bold three proper nouns (**Peruvian anchovy**, **El Niño**, **Atlantic cod**) that 29-31 already introduced unbolded; and 853-854 sets an entire two-line sentence in bold, "**the MSY is a deterministic, steady-state concept, and steering straight at it ignores the risk that randomness creates.**". 424 also re-bolds **maximum sustainable yield**, defined and bolded at 18.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 1. *Lines:* 563. *Example:* H2 Title Case: 'A success story: Pacific Coast lingcod' (Coast).
 
 ### Medium severity
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 2. *Lines:* 927, 930. *Example:* spelled-out `alpha`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 4. *Lines:* 180, 240, 264, 762. *Example:* figsize=.
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 2. *Lines:* 589, 750. *Example:* Title Case caption (Coast).
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 910, 973. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 4. *Lines:* 159, 269, 342, 377. *Example:* plot() without lw=.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 567. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 4. *Lines:* 33, 519, 571, 671. *Example:* 33 restates 18 ("In this lecture we study fishery management through quotas and **maximum sustainable yield** (MSY)" / "In this lecture we provide an introduction to MSY-based management of fisheries"). 519-525 spends four sentences setting up an optional section, and the last of them - "The continuous time version is frequently used and has some advantages (and some disadvantages)" - names neither, so it carries no information the section does not immediately supply. 571-573 states the logic backwards: "This analysis leads to a target biomass and a target fishing pressure that together define the maximum sustainable yield" - the MSY defines the reference points $B_{MSY}$ and $F_{MSY}$, not the reverse, as 577-583 then correctly explains. 671 ("This randomness and risk is associated with several features of fisheries") is a hinge sentence with a plural subject and a singular verb, and 673-677 would follow 669 directly without it. Similarly 651-655 says "also" twice in two sentences and then joins two unrelated clauses with "so" ("the cut in fishing was important but recruitment luck set the speed of recovery").
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 4. *Lines:* 236, 334, 442, 585. *Example:* the steady-state stock formula reaches the reader as code 65 lines before it reaches them as algebra: `def x_bar(e): return K * (1 - q * e / r)` sits at 236-238, buried inside the `mystnb` figure cell for fig:cobweb-fished, and is used to place the annotated dot at 242 - but `` {eq}`eq:xstar` `` does not derive $\bar{x}(e) = K(1 - qe/r)$ until 298-302, so the figure at 240-245 asserts a result the reader has not been shown, in a cell whose stated purpose is plotting. `e_demo = 20.0` (234) is defined in the same place and then used three sections later at 338-341. Second, 439-444 reads as a contradiction where it stands: "We can compute it either by calculus or numerically ... Below we look at the solution using calculus. For now we will use the numerical approach:" - the calculus is two sections away at 516, and nothing between 444 and 516 tells the reader that. Third, 582-585 maps the data to the model incorrectly: "$F / F_{MSY}$, fishing pressure relative to the pressure $F_{MSY}$ that achieves the MSY. (In our model this is the MSY effort $e^*$.)" - fishing mortality in this model is $qe$, so the model counterpart of $F_{MSY}$ is $qe^*$, not $e^*$; the parallel parenthesis at 580 gets the biomass mapping right. Fourth, 334 rebinds `x` as a 400-point grid and the next figure cell (362-386) then uses that `x` at 370, 376 and 377 without defining it, so that cell cannot be run on its own - and `x` is simultaneously the scalar parameter name of `G` (90), `update` (220) and the annotation labels.
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 2. *Lines:* 798, 842. *Example:* the lecture illustrates almost everything it claims - ten captioned, named figures - and then argues its single most important point without one. "Why the quota is a knife-edge" (798-824) is entirely geometric: the constant quota is a *horizontal* line at $h = rK/4$, it is tangent to $G(x)$ at $x = K/2$, the two steady states have merged, and below $K/2$ the gap $G(x) - rK/4$ is negative all the way down. fig:sustainable-point (327-355) already draws $G(x)$ against a harvest line through the origin; the same figure with a horizontal line added would carry the whole section, and would sit beside the effort case for direct comparison. Second, 828-848 quantifies collapse risk at one noise level and reports it as two printed numbers, and the surrounding prose makes $\sigma$ the driver of everything ("Add even a little randomness and the knife-edge reveals itself", 824). Collapse probability against $\sigma$ for the two policies - two curves, one cell, using `collapse_fraction` unchanged - is the figure this section is missing; the exercise plots against $\alpha$ instead (929-934) and never varies $\sigma$.
 
 ### Low severity
 _None found._
@@ -42,18 +47,26 @@ _None found._
 
 ## Strengths
 
-- Math, Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
-- Citations distinguish `{cite}` from `{cite:t}` correctly (1 parenthetical, 6 in-text).
+- Ten of the twelve figures carry full `mystnb` metadata with both a caption and a `name:` (99-105, 173-179, 227-233, 255-261, 327-333, 362-368, 401-407, 471-477, 589-595, 750-757), so every figure in the main text is captioned and cross-referenceable - the best figure discipline in the batch.
+- The cobweb machinery is factored into one `plot_45` helper (142-169) carrying `:tags: [hide-input]`, so the same diagram is drawn three times (181, 241, and the manual version at 265-276) without the reader ever reading the staircase loop twice.
+- The knife-edge is proved in three lines: set $h = rK/4$, solve $r x(1 - x/K) = rK/4$, and the algebra collapses to $\left(x - K/2\right)^2 = 0$ (805-809), from which 811-817 reads off that the two steady states have merged and that the point is stable from above and unstable from below.
+- The numerical MSY search prints the closed forms alongside the numbers before the calculus section derives them - `stock at MSY x̄ = 500.0 tonnes (= K/2)` and `maximum yield MSY = 125.0 tonnes/year (= rK/4)` (455-456) - so a reader who skips 516-547 still knows what the numbers are.
+- The lingcod section is read against the model year by year rather than gestured at: light exploitation through the 1960s, $F$ above $F_{MSY}$ from the early 1970s for three decades, a trough at $0.27\,B_{MSY}$ in 1993, the 1999 overfished declaration, recovery through $B_{MSY}$ by 2004 (629-645) - and the figure marks 1999 and 2005 with vertical rules (616-617) and shades the years $F > F_{MSY}$ (607-609) so each claim is locatable.
+- 651-658 then declines to overclaim: the strong 1999 year-class and the coast-wide groundfish measures are named as confounds, which is a rare and valuable move in an introductory lecture drawing a lesson from one time series.
+- The two `{note}` admonitions do different and necessary jobs - 505-514 warns that the oscillation a reader might see is an artifact of the one-year step rather than biology, and 550-561 connects the whole construction to `` {doc}`solow` `` (one control, a one-parameter family of steady states, a hump-shaped flow, over-fishing as the analogue of over-saving).
+- The two exercises pick up exactly the two threads the main text leaves open - the precautionary fraction $\alpha$ of the MSY (886-901) and the large-$r$ misbehaviour the note at 506-510 warned about (949-966) - and msy_ex2 rescales to $u_t = x_t/K$ first (957-961) so the three paths are comparable.
+- The closing summary table (1011-1015) gives formula and numeric value side by side for all three MSY objects, and 1017-1028 lists what the concept omits before restating the knife-edge - a genuine summary rather than a recap.
 
 ## Recommended actions
 
-1. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
-2. `qe-fig-004` — Caption formatting conventions (2 occurrences).
-3. `qe-writing-006` — Capitalize lecture titles properly (1 occurrence).
-4. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
-5. `qe-fig-008` — Use lw=2 for line charts (4 occurrences).
-6. `qe-fig-001` — Do not set figure size unless necessary (4 occurrences).
+1. Move `def x_bar(e)` and `e_demo` out of the figure cell at 234-238 into a cell of their own placed after `` {eq}`eq:xstar` `` (302), where the formula is derived - as it stands the figure at 240-245 annotates a steady state the reader has not yet been given.
+2. Fix the model mapping at 585: $F_{MSY}$ corresponds to $q e^*$, not to $e^*$, since fishing mortality here is $qe$ (see `` {eq}`eq:harvest` ``).
+3. Add the knife-edge figure to 798-824: $G(x)$ with the horizontal quota line $h = rK/4$ tangent at $x = K/2$, ideally beside the through-the-origin harvest line of fig:sustainable-point so the two policies are compared as pictures, not only as words.
+4. Draw the two policies on common random numbers: 760 creates one `rng` and 764-770 advances it across both panels, so the constant-effort paths and the constant-quota paths see different shock sequences and the visual comparison confounds policy with luck - re-seed inside the policy loop, or draw the shocks once and pass them in.
+5. Rework the bold in 784-892: un-bold the re-introduced policy names (784, 790) and the emphasis items (788, 791, 819, 880, 892), set the whole-sentence bold at 853-854 as plain text or a `{note}`, and drop the bold from the three proper nouns at 860, 863 and 869.
+6. Plot collapse probability against $\sigma$ for both policies (the section at 826-854 currently reports two numbers at one $\sigma$), and quote the printed figures in the sentence at 847-848 instead of "essentially never" and "much of the time".
+7. Rewrite 571-573 so the MSY defines the reference points rather than the other way round, and cut the filler at 525 and 671.
+8. Fix the forward pointer at 442-444 - name the section ("The same result with calculus", 516) instead of "Below", since the numerical approach comes first and two sections intervene.
+9. Sweep the mechanical items: the H2 at 563 to sentence case (`## A success story: Pacific coast lingcod`), the matching caption at 593 and the caption at 754 (qe-fig-004), `mystnb` metadata for the two exercise-solution figures at 910 and 973 (qe-fig-005), the two-sentence paragraph at 567, the trailing spaces at 80 and 521, and the four `figsize=` overrides at 180, 240, 264 and 762.
+10. Do NOT add `lw=2` to the four drafted qe-fig-008 sites (159, 269, 342, 377): all four are marker-only calls - `ax.plot([steady_state], [steady_state], 'o', ...)` and the three `ax.plot([xs], [ys], 'o', ...)` dots - that draw no line, so `lw` has no effect. See the measured note in solow.json's scanner_doubts; this lecture's count goes to zero.
+11. Tidy the code: wrap the over-length lines at 377 and 492, the aligned `labels  =` at 373, the signature-closing bracket at 144, and settle on one spelling for the acronym in maths - `\text{MSY}` (434, 547, 722, 802, 1014) versus `\mathrm{MSY}` (767) versus the italic multi-letter subscripts `B_{MSY}` and `F_{MSY}` (577-583, 611-614, 629-642).

@@ -2,19 +2,19 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/scalar_dynam.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 9.1 / 10
-- **Priority:** NONE
+- **Overall score:** 8.2 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 7.5/10 | `qe-writing-001` ×2; `qe-writing-008` ×1. |
+| Writing      | 4.5/10 | `qe-writing-001` ×2; `qe-writing-005` ×2; `qe-writing-003` ×3, +3 more. |
 | Math         | 10/10 | no mechanical violations detected. |
-| Code         | 8.5/10 | `qe-code-002` ×4. |
+| Code         | 6/10  | `qe-code-001` ×12; `qe-code-002` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8.5/10 | `qe-fig-007` ×1; `qe-fig-008` ×2. |
 | References   | N/A   | no citations in this lecture. |
@@ -27,12 +27,16 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 12. *Lines:* 362, 374, 401, 425. *Example:* 425 puts spaces around all four keyword defaults - `def g(k, A = 2, s = 0.3, alpha = 0.3, delta = 0.4)` - eight PEP8 violations in one line, and the same line carries the four spelled-out Greek names the drafted qe-code-002 hit reports. 362-363 under-indent the continuation lines of the `arrow_args = dict(...)` call relative to its opening delimiter. 374 uses one space before an inline comment (`**arrow_args) # x, y, dx, dy`). 401 leaves one blank line between two top-level defs. Separately, the helper at 335 is named `subplots` and its body calls `plt.subplots()`, so a reader of `fig, ax = subplots()` at 353 and 402 cannot tell which is meant, and its docstring reads "axes throught the origin" (336). The three `g = lambda x: ...` assignments at 519, 578 and 602 are flake8 E731 but should be left alone: `g` is the mathematical object the lecture passes to `plot45`, and a one-line lambda is closer to $g(x) = 4x(1-x)$ than a `def` would be - exactly the exception this rule allows.
 
 ### Medium severity
 - **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 4. *Lines:* 425, 426. *Example:* spelled-out `alpha`.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 377, 386. *Example:* plot() without lw=.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 300, 421. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 3. *Lines:* 63, 116, 295. *Example:* 116 is circular: "We care about dynamic systems because we can use them to study dynamics!" - the exclamation mark does not rescue a sentence that defines a thing by itself, and 118-119 immediately supplies the real reason (a dynamic system generates a sequence). 295 opens the local-stability discussion with "Obviously every globally stable steady state is also locally stable" - in an introductory lecture that has just given two $\epsilon$-free definitions, "obviously" tells a reader who does not see it that they should have. 63 ("For this lecture you should know the following.") promises prerequisites without saying what kind, where naming them - function composition and iterated maps - costs the same number of words. 59 similarly restates its own heading. Two single-item bullet lists are used as trailing footnotes rather than lists (114, "* $g$ does not always send points in $S$ back into $S$", and 154, "* first order means dependence on only one lag"), which reads as a list that lost its other items.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 3. *Lines:* 187, 454, 504. *Example:* 454 and 459 introduce a symbol $z$ that the lecture never defines: "the unique positive number such that $k = s z k^{\alpha} + (1 - \delta) k$" and $k^* = \left(\frac{sz}{\delta}\right)^{1/(1-\alpha)}$. The model these lines are about is `` {eq}`solow_lom2` `` at 223, $k_{t+1} = s A k_t^{\alpha} + (1 - \delta) k_t$, whose productivity parameter is $A$ and is named as such at 226 ("$A$ is the total factor productivity") and coded as `A = 2` at 425 - so $z$ is $A$ under another name, appearing twice in the two lines that state the lecture's only analytical steady state. Second, `` {eq}`sdslinmod` `` at 185-188 is presented without qualification ("we find that, for any $t = 0, 1, 2, \ldots$" and then "We have an exact expression for $x_t$ ... and hence a full understanding of the dynamics") although its $b\frac{1-a^t}{1-a}$ term requires $a \neq 1$; the exclusion is stated 70 lines later at 257-261, where the reader learns that $a = 1$ is a genuinely different case with either every point or no point a steady state. Third, the "Complex dynamics" section (504-543) does not use the apparatus the lecture just built. It introduces the quadratic map, draws four figures, and says only "Notice how irregular it is" (531) and "The irregularity is even clearer over a longer time horizon" (539) - the fixed points of $g(x) = 4x(1-x)$ (namely $0$ and $3/4$) are never located, never tested against the steady-state definition of 248 or the stability definitions of 269 and 287, and the word chaos is never used, so a section motivated as the payoff of graphical analysis ends without an analysis.
+- **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 2. *Lines:* 161, 203. *Example:* the bold discipline in this lecture is otherwise the best in the batch - thirteen terms defined and every one of them bolded on first use: **composition** (70), **(discrete time) dynamic system** (100), **trajectory** (137), **state space** and **state variable** (139-140), **first order difference equation** (152), **linear difference equation** (163), **steady state** (248), **fixed point** (251), **globally stable** (269), **locally stable** (287), **45-degree diagrams** (319), **quadratic map** (508), **damped oscillations** (625) - with no bold used for emphasis anywhere. The two exceptions both introduce a term without bold: 161 puts it in TeX quotes, "where $a, b$ are constants (sometimes called ``parameters'')", which in MyST renders the backticks and apostrophes literally rather than as quotation marks; and 203 introduces global stability in plain text ("This is an example of what is called global stability, a topic we return to below") 66 lines before 269 bolds **globally stable** as the definition.
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 2. *Lines:* 349, 517. *Example:* the lecture spends a whole section defining steady states (245-261) and stability (265-307), then draws seven 45-degree diagrams that never mark a steady state. `plot45` (349-399) plots $g$, the 45-degree line, the cobweb arrows and a full set of $x_t$ tick labels, and stops there; 448 tells the reader that "If $g$ hits the 45-degree line at this point, then we have $k_{t+1} = k_t$, so $k_t$ is a steady state" and 456-460 computes $k^*$ in closed form, and neither is ever put on a figure - one marker and one label in `plot45` would connect the definitions to every diagram that follows. Second, the quadratic-map section draws the same single trajectory four times (522, 528, 536, 542) and omits the one figure that would explain the irregularity: two trajectories from nearby initial conditions, which is what makes sensitive dependence visible and is a three-character change to the existing `ts_plot` call.
 
 ### Low severity
 - **[qe-fig-007]** — Keep figure box and spines. *Count:* 1. *Lines:* 344. *Example:* spine removal.
@@ -41,16 +45,27 @@ _None found._
 
 ## Strengths
 
-- Math, Links, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The lecture front-loads exactly the prerequisite it needs and no more: function composition, $f^2$, $f^n$, each with a worked numeric example ($\sqrt{x^2} = |x|$ at 79, $f^2(x) = x^{1/4}$ at 88, $f^n(x) = x^{1/(2^n)}$ at 94), so that $x_t = g^t(x_0)$ at 146 lands without further explanation.
+- The definition of a dynamic system is followed immediately by three examples that satisfy it and one that does not, with the reason given ($S = (-1,1)$, $g(x) = x+1$, "since $g(1) = 2$", 104-114) - a non-example is the cheapest way to make a closure condition concrete.
+- Thirteen technical terms are defined and bolded on first use, and no term is bolded twice or bolded for emphasis - see the qe-writing-005 note.
+- The linear model is used as the running control case: it appears as the example with a closed form (158-204), then again as the example whose steady states can be enumerated by hand (254-261), then again as the example where global stability follows "directly from `` {eq}`sdslinmod` ``" (275-281), and finally as the exercise (547-565). Each return uses the same $x_{t+1} = a x_t + b$ and cites the same labelled equation.
+- The local-versus-global distinction is settled with one counterexample rather than prose: $g(x) = x^2$ on $\mathbb{R}$, where $0$ is locally but not globally stable because $1$ is also a fixed point (299-307), placed immediately after the definitions it separates.
+- The plotting helpers carry `:tags: [hide-input, output_scroll]` (332-333) and are introduced honestly - "some plotting code that you can ignore at first reading" (323) - so a first-course reader is told which 90 lines are not the lesson.
+- The two anchors `(scalar-dynam:steady-state)=` (245) and `(scalar-dynam:global-stability)=` (265) are placed on the two definitions that other lectures need, and `solow.md` does link to both (at its lines 189 and 214), so the cross-lecture contract actually holds.
+- The Solow figures are shown in matched pairs - 45-degree diagram then time series, from below the steady state (470-481) and then from above it (492-501) - so the reader sees the same trajectory in two representations before the irregular case is introduced.
 
 ## Recommended actions
 
-1. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
-2. `qe-code-002` — Use Unicode symbols for Greek letters in code (4 occurrences).
-3. `qe-fig-007` — Keep figure box and spines (1 occurrence).
-4. `qe-fig-008` — Use lw=2 for line charts (2 occurrences).
-5. `qe-writing-008` — Remove excessive whitespace between words (1 occurrence).
+1. Replace $z$ with $A$ at 454 and 459 - it is the only undefined symbol in the lecture and it sits in the two lines that give the analytical steady state.
+2. State the $a \neq 1$ condition where `` {eq}`sdslinmod` `` is derived (185-191), not 70 lines later at 257.
+3. Finish the Complex dynamics section: locate the fixed points of $g(x) = 4x(1-x)$, check them against the definitions at 248, 269 and 287, and add a second trajectory from a nearby $x_0$ so the irregularity at 531 has a mechanism rather than an adjective.
+4. Mark the steady state in `plot45` (349-399): one marker at $(x^*, x^*)$ and a label would connect 448 and 456-460 to all seven diagrams, and would give the Stability section something to point at.
+5. Fix line 161: `` ``parameters'' `` renders its backticks and apostrophes literally in MyST - use **parameters** as the definition, consistent with the other thirteen terms.
+6. Fix the keyword-default spacing at 425 (`A = 2` to `A=2`, and likewise `s`, `alpha`, `delta`) and rename `alpha`/`delta` to `α`/`δ` there, which clears the drafted qe-code-002 count of 4 at the same time.
+7. Rename the `subplots` helper at 335 (say `origin_subplots`) so `fig, ax = subplots()` at 353 and 402 is not mistakable for `plt.subplots`, and fix "throught" in its docstring at 336.
+8. Treat the drafted qe-fig-007 hit at 344 as a decision, not a defect: the spine removal is deliberate and the docstring says why ("Custom subplots with axes throught the origin", 336) - moving the left and bottom spines to zero is the point of the helper, and restoring the box would undo it. Either grant the exception or redesign the helper; do not simply delete the `set_color('none')` lines.
+9. Leave the three `g = lambda x: ...` assignments (519, 578, 602) alone - a linter will flag them as E731, but a one-line lambda is the form closest to the mathematics here, which qe-code-001 explicitly permits.
+10. Split the two genuinely two-sentence paragraphs at 300 and 421 (the drafted qe-writing-001 hits), even though 300 is inside a `{prf:example}` body.
+11. Sweep the source: 15 lines end in trailing whitespace (46, 65, 68, 72, 76, 78, 85, 124, 142, 143, 166, 167, 172, 218, 226), the double space at 111, and the missing full stop at 26.
+12. Cut or rewrite 116 (circular), 295 ("Obviously"), 59 and 63 (heading restatements), and turn the two single-item bullet lists at 114 and 154 into sentences.
+13. Add `lw=2` to the two drafted qe-fig-008 sites: 377 and 386 are both `ax.plot((x, x), (0, x), 'k', ls='dotted')`, real dotted line segments, so both hits are genuine.

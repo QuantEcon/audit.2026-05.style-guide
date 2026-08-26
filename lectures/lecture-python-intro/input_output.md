@@ -2,7 +2,7 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/input_output.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 8.5 / 10
@@ -16,7 +16,7 @@
 | Math         | 10/10 | no mechanical violations detected. |
 | Code         | 7.5/10 | `qe-code-001` ×9. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6/10  | `qe-fig-005` ×5; `qe-fig-006` ×1; `qe-fig-008` ×7, +1 more. |
+| Figures      | 6/10  | `qe-fig-005` ×5; `qe-fig-006` ×1; `qe-fig-008` ×5, +1 more. |
 | References   | 8.5/10 | `qe-ref-001` ×2. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -29,7 +29,7 @@ _None found._
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 9. *Lines:* 89, 152, 155, 168, 285, 298, 304, 471, 593. *Example:* missing space after a comma in `colorise_weights(centrality,beta=False)` (89, 593), `[(2,'c')]` (155), `nx.draw_networkx_edges(G,pos=pos, ...)` (168) and `[0,0]` (471); `nodes= (1, 2, 'c')` with a space on only one side of `=` (152); a continuation line under-indented by one column relative to the opening bracket (285); and single-space-before-hash inline comments where PEP8 asks for two (298, 304).
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 147, 197, 453, 539, 586. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 7. *Lines:* 206, 207, 208, 222, 462, 463, 477. *Example:* plot() without lw=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 5. *Lines:* 206, 207, 208, 462, 463. *Example:* plot() without lw=.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 12. *Lines:* 109, 118, 136, 230, 249, 253, 335, 337, 404, 405, …. *Example:* 2 spaces.
 
 ### Medium severity

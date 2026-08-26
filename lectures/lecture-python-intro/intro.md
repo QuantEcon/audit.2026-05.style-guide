@@ -2,7 +2,7 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/intro.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, links  *(JAX out of scope)*
 - **Overall score:** 10.0 / 10

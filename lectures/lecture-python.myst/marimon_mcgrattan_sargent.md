@@ -2,21 +2,21 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/marimon_mcgrattan_sargent.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.1 / 10
+- **Overall score:** 8.0 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 3.5/10 | `qe-writing-004` ×8; `qe-writing-005` ×3; `qe-writing-003` ×3, +3 more. |
+| Writing      | 4/10  | `qe-writing-004` ×8; `qe-writing-005` ×3; `qe-writing-003` ×3, +2 more. |
 | Math         | 9.5/10 | `qe-math-009` ×4. |
-| Code         | 7.5/10 | `qe-code-001` ×5. |
+| Code         | 6.5/10 | `qe-code-001` ×5; `qe-code-002` ×2. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 7.5/10 | `qe-fig-003` ×4; `qe-fig-001` ×2; `qe-fig-008` ×1. |
+| Figures      | 7.5/10 | `qe-fig-003` ×4; `qe-fig-001` ×2. |
 | References   | 8.5/10 | `qe-ref-001` ×2. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -29,9 +29,9 @@ _None found._
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 5. *Lines:* 674, 746, 1423, 634, 1497. *Example:* flake8 (90-character limit) finds one long line (634, 92 characters; 35 code lines exceed PEP8's own 79), so the rest is naming. 674 and 687 spell the same counter two ways twelve lines apart in one method - `τ = T.used[e]` and then `tau_p = C.used[p]` - in a file that otherwise has no Greek identifiers at all. 746 binds `A, B = self.agents[ia], self.agents[ib]`, so `A` is an agent in the code while $A$ is the *number* of agents in the algebra (118, 696), and `A` is then reused as the agent loop variable at 782, 824, 830, 920, 936 and 981; 669 has the matching problem for `T`, which is a rule population there (`T, C = self.trade, self.consume`) and the horizon in `run(self, T, ...)` at 722. 1423 names a similarity score `sim` inside `crowding_victim`, while `sim` is the name of the `Simulation` object in every reporting function and every economy cell (887, 896, 913, 959, 980, 1046, ...). 1497 writes `for k, parent in zip(range(2), (mum, dad))` where `enumerate((mum, dad))` is the idiom, and 768 and 772 add a comparison to an integer without parentheses (`n_eaten += pa == ia`).
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 8. *Lines:* 1311, 1316, 1554, 1819, 1874, 1880, 1944, 2028. *Example:* mid-sentence 'Economy'.
-- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 1. *Lines:* 89. *Example:* H2 Title Case: 'The Kiyotaki-Wright environment' (Kiyotaki-Wright).
 
 ### Medium severity
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 2. *Lines:* 687, 689. *Example:* spelled-out `tau`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 964, 992. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 4. *Lines:* 969, 975, 1009, 1015. *Example:* .set_title.
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 4. *Lines:* 295, 300, 915, 1357. *Example:* (1) The strength of a classifier is written three ways: $S^a_e(t)$ when it is introduced (295), $S^a_{e,\tau_e(t)}$ and $S^a_{c,\tau_c(t)}$ in the laws of motion (354-364), and bare $S_e$, $S_c$ in the stationarity conditions of the note (402-404) - two indices are silently dropped between one display and the next, and the code carries a fourth form, `T.strength[e]` (677). Since $\tau$ is a deterministic function of the history, indexing the strength by the date alone would do throughout. (2) 300 defines the matched set as $M_e(z_{at}) = \{e : z_{at} \text{ matches the condition part of } e\}$, in which $e$ is simultaneously the subscript of $M$ and the bound variable inside the braces; and 210 puts a whole English sentence inside display math via `\text{probability that a type } i \text{ agent holds good } k \text{ at } t`, where prose plus a short definition would read better. (3) $\tilde\pi^e_{it}(jk|j)$ is used in the prose at 1120 and defined nowhere in the lecture text - its only definition is inside a function docstring at 915, which the reader of the rendered page never sees. (4) $f$ is the production map $f(a) = i^*$ (162, 169, 178) and the specialization probability $f_s(t) = 1/(2\sqrt t)$ (1357), and `f` in the code is a frequency array (905, 987, 1729).
@@ -42,7 +42,7 @@ _None found._
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 3. *Lines:* 213, 338, 1401. *Example:* the lecture draws the trading pattern the agents discover, five times, with a purpose-built graph helper (`plot_flows`, 980-1017) - and never draws the three things the reader is asked to compare it against. (1) The fundamental and speculative equilibria (213-231) are given as prose plus a table of holding probabilities (222-226), so at 1106-1108 the reader has to hold a table of numbers in mind while looking at a picture of arrows. `plot_flows` takes an exchange-frequency array; feeding it the theoretical equilibrium instead of a simulation would put the prediction and the outcome side by side in the same visual language, which is the whole claim of the lecture. (2) §"The bucket brigade" (315-389) is the hardest part of the file - the lecture says so itself at 369 ("The timing in `` {eq}`mms_strengthc` `` is worth reading carefully") - and its content is a payment chain across two periods, given as three bullets (340-344), a prose paragraph (372-377) and one inline arrow diagram at 382. A timing figure with the two auctions per period and the two payment arrows would carry it. (3) 1401-1405 describes the generalizing crossover and then says it is "the operator described in section 6 of the paper and illustrated in its figure 5" - the lecture points at a figure that would help, in a paper the reader may not have, and declines to reproduce it, although the operator is the eight lines at 1474-1483 and one worked pair of parent strings would do it.
 
 ### Low severity
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 996. *Example:* plot() without lw=.
+_None found._
 
 
 ## Strengths

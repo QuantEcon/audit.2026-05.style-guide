@@ -2,10 +2,10 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/affine_risk_prices.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.3 / 10
+- **Overall score:** 7.4 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -16,7 +16,7 @@
 | Math         | 4/10  | `qe-math-010` (proposed) ×3; `qe-math-011` (proposed) ×9; `qe-math-003` ×2. |
 | Code         | 8.5/10 | `qe-code-001` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 5/10  | `qe-fig-006` ×16; `qe-fig-004` ×4; `qe-fig-001` ×5, +1 more. |
+| Figures      | 5.5/10 | `qe-fig-006` ×16; `qe-fig-004` ×4; `qe-fig-001` ×5. |
 | References   | 9/10  | `qe-ref-001` ×1. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -35,7 +35,6 @@ _None found._
 ### Medium severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 3. *Lines:* 520, 552, 1347. *Example:* twelve assignment lines pad with multiple spaces before `=` to line up columns (552-558, 577-578, 762, 763, 765), which PEP8 names specifically as something not to do; three continuation blocks are indented to a column that matches neither the opening bracket nor a hanging indent - 521-522 sit at column 24 under a paren opened at 20, 764 and 770 sit one space past their opening bracket, and 1002 and 1004 likewise; and 1348-1349 indent the `label=` continuation to column 10 under a paren opened at column 23.
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 4. *Lines:* 567, 782, 958, 1324. *Example:* caption of 7 words.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 594, 805. *Example:* plot() without lw=.
 - **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 2. *Lines:* 731, 1303. *Example:* pmatrix environment.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 652, 680. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 3. *Lines:* 848, 1295, 1402. *Example:* the same result is stated three times in eight lines: the display at 848, then "The term premium equals the inner product of the bond's shock exposure $\bar B_n^\top C$ with the risk price vector $\lambda_t$" (851-852), then "Because the term premium equals $\bar B_n^\top C \lambda_t$, its sign depends on the *current* risk-price vector" (854-855). Line 1295 is a 34-word sentence introducing three separate processes at once, and the list item at 1402-1404 runs to 40 words with a parenthetical cross-reference inside it.

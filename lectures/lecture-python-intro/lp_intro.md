@@ -2,7 +2,7 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/lp_intro.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 8.0 / 10
@@ -16,7 +16,7 @@
 | Math         | 6.5/10 | `qe-math-002` ×9. |
 | Code         | 7.5/10 | `qe-code-001` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 8.5/10 | `qe-fig-005` ×1; `qe-fig-008` ×3. |
+| Figures      | 8.5/10 | `qe-fig-005` ×1; `qe-fig-008` ×2. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -33,7 +33,7 @@ _None found._
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 36. *Lines:* 27, 31, 70, 80, 160, 166, 168, 170, 172, 176, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 118, 119, 132. *Example:* plot() without lw=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 118, 119. *Example:* plot() without lw=.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 4. *Lines:* 193, 200, 208, 419. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 4. *Lines:* 166, 168, 170, 178. *Example:* the three investment options are stated as 36-43 word run-ons, each packing two or three separate rules into one sentence - the annuity terms plus the must-keep-investing condition (166), the deposit terms plus the borrowing limit plus the repayment terms (168), and the bond availability plus the cap plus the payout (170-172) - and the variable list at 178 is a 32-word sentence that also contains the typo "the amount of put in the annuity".
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 3. *Lines:* 240, 405, 513. *Example:* mid-sentence 'Example'.

@@ -2,7 +2,7 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/mccall_model_with_sep_markov.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 8.0 / 10

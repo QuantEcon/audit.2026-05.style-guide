@@ -2,7 +2,7 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/phillips_escaping_nash.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 8.0 / 10
@@ -16,7 +16,7 @@
 | Math         | 9.5/10 | `qe-math-009` ×3. |
 | Code         | 8.5/10 | `qe-code-001` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 4.5/10 | `qe-fig-003` ×7; `qe-fig-004` ×5; `qe-fig-008` ×9, +1 more. |
+| Figures      | 4.5/10 | `qe-fig-003` ×7; `qe-fig-004` ×5; `qe-fig-008` ×6, +1 more. |
 | References   | 8.5/10 | `qe-ref-001` ×4. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -30,7 +30,7 @@ _None found._
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 5. *Lines:* 172, 219, 324, 420, 508. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 7. *Lines:* 181, 224, 331, 339, 427, 513, 518. *Example:* .set_title.
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 5. *Lines:* 164, 203, 317, 402, 498. *Example:* caption of 7 words.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 9. *Lines:* 175, 220, 326, 327, 334, 422, 423, 509, 515. *Example:* plot() without lw=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 6. *Lines:* 220, 326, 327, 334, 509, 515. *Example:* plot() without lw=.
 
 ### Medium severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 4. *Lines:* 512, 517, 173, 118. *Example:* 512-513 and 517-518 put two statements on one line with a semicolon - `axes[0].set_xlabel('time'); axes[0].set_ylabel('inflation level')` and three more - which PEP8 forbids (E702); the structurally identical two-panel cell at 326-340 writes exactly these calls one per line, so the file contradicts itself in the space of 180 lines. Eight code lines run past 79 characters (E501): 118 (93), 159 (81), 173 (94), 328 (81), 347 (86), 349 (99), 382 (81), 516 (87). The LaTeX labels are quoted two ways in adjacent cells - raw strings at 173, 425, 426 and 516 (`label=r'$\gamma_{-1} = u(1+\gamma_1^2)$'`) but escaped backslashes at 326, 327 and 328 (`label='intercept $\\gamma_{-1}$'`). And the four one-line docstrings at 118, 128, 133 and 304 use single double-quotes rather than the triple quotes PEP 257 asks for.

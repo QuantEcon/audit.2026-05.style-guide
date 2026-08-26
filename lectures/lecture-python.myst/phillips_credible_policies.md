@@ -2,21 +2,21 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/phillips_credible_policies.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.4 / 10
+- **Overall score:** 8.5 / 10
 - **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 6/10  | `qe-writing-003` ×2; `qe-writing-002` ×3; `qe-writing-006` ×1, +1 more. |
+| Writing      | 6.5/10 | `qe-writing-003` ×2; `qe-writing-002` ×3; `qe-writing-007` ×2. |
 | Math         | 9.5/10 | `qe-math-009` ×3. |
 | Code         | 8.5/10 | `qe-code-001` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 5.5/10 | `qe-fig-003` ×4; `qe-fig-004` ×2; `qe-fig-005` ×1, +2 more. |
+| Figures      | 6/10  | `qe-fig-003` ×4; `qe-fig-004` ×2; `qe-fig-005` ×1, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 9/10  | `qe-link-002` ×1. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -27,14 +27,13 @@
 _None found._
 
 ### High severity
-- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 1. *Lines:* 381. *Example:* H2 Title Case: 'The Abreu–Pearce–Stacchetti method' (Pearce, Stacchetti).
+_None found._
 
 ### Medium severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 4. *Lines:* 863, 714, 169, 236. *Example:* 863 puts `import pandas as pd` in the middle of the lecture, 750 lines after the import cell at 109-113 that collects the other three (E402), and pandas is then used again at 999 in an exercise solution. 714 is an f-string with no placeholders, `print(f"at δ = 0.2:")` (F541). Docstring quoting is inconsistent within the file: 455-459 uses a proper triple-quoted docstring while fifteen other functions use a bare one-line double-quoted string (169, 175, 204, 209, 473, 563, 568, 643, 688, 711, 758, 763, 768, 784, 798). And fourteen code lines run past 79 characters (E501): 169, 236, 248, 462, 463, 696, 716, 768, 776, 784, 877, 881, 882, 1046. 708-710 also leaves one blank line before a top-level `def` where PEP8 asks for two.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 235, 816, 1045. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 4. *Lines:* 248, 821, 825, 828. *Example:* .set_title.
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 2. *Lines:* 223, 805. *Example:* caption of 11 words.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 238, 240, 242. *Example:* plot() without lw=.
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 1. *Lines:* 82. *Example:* raw link to python-advanced.quantecon.org.
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 3. *Lines:* 409, 243, 423. *Example:* $B$ is two different objects in the same section. 133-135 defines $B(x)$ as the government's one-period best response and the lecture uses it that way throughout (433 "$\eta = B(y)$", 445, 507, 521, 549, 616, 684). Then 409 says "Let $B(W)$ collect the $w$ components of all admissible pairs", and 423-426 works with that $B$ - "$B$ maps compact sets into compact sets", "$B$ is monotone", "$W_j = B(W_{j-1})$", "$V = B(V)$" - while 433-445, twenty lines later, is back to the best response. The code keeps them apart (`B` at 174, `B_operator` at 454) and the math does not; the APS operator is conventionally $\mathcal{B}$ or $T$, and either would cost nothing. Second, the worst equilibrium value has two names: $\underline v$ everywhere in the prose and displays (505, 514, 521, 748, 874, 1093, 1128, 1133) but $v_{min}$ in both figures - the annotation at 243 and the suptitle at 828-829 - so the only place a reader meets the symbol visually is the one place it is spelled differently. Third, $V$ is the set of SPE values at 423, 426 and 1023, while $V^g$ is the value functional at 148, 294 and 303; the two are separated by a superscript alone and appear 130 lines apart.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 3. *Lines:* 253, 423, 340. *Example:* 253-254 says the wrong thing about the figure it annotates: "The vertical gap between the curves is the government's one-period temptation to inflate *less* than expected." The gap is $r(y, B(y)) - r(y, y)$, the gain from deviating, and the *direction* of the deviation flips at the Nash rate. With the lecture's own parameters ($\theta = 1.25$, $U^* = 5.5$, so $y^N = 6.875$), $B(0) = 2.68 > 0$: at the Ramsey point marked $v^R$ on that same figure the temptation is to inflate *more* than expected, and at $y^\# = 10$, $B(10) = 8.78 < 10$, so there it is to inflate less. The next sentence (256-257) is the one that is true - "it widens as expected inflation rises above the Nash rate" - so the paragraph describes only the right-hand half of a figure that spans $[0, y^\#]$, and the half it misdescribes is the half the Barro-Gordon argument at 626-658 depends on. Separately 423-426 puts four distinct theorems in one 58-word sentence (largest self-generating set, compactness preservation, monotonicity with its parenthesised statement, and monotone convergence from any $W_0$ with $B(W_0) \subseteq W_0$), and 340-343 is 55 words with three subordinate clauses.

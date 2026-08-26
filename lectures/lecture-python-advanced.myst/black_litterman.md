@@ -2,7 +2,7 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/black_litterman.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 6.5 / 10
@@ -31,7 +31,6 @@ _None found._
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 7. *Lines:* 203, 320, 413, 661, 715, 1261, 1397. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 5. *Lines:* 204, 321, 427, 1268, 1401. *Example:* .set_title.
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 7. *Lines:* 212, 326, 673, 674, 728, 729, 1403. *Example:* axis label `Assets`.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 12. *Lines:* 205, 206, 322, 323, 414, 416, 418, 428, 429, 430, …. *Example:* plot() without lw=.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 38. *Lines:* 121, 130, 244, 252, 527, 555, 556, 583, 584, 592, …. *Example:* apostrophe transpose `w'`.
 - **[qe-math-004]** — Do not use bold face for matrices or vectors. *Count:* 24. *Lines:* 97, 104, 110, 121, 153, 261, 280, 292, 341, 357, …. *Example:* {\bf.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 14. *Lines:* 759, 760, 762, 778, 821, 1025, 1035, 1111, 1117, 1124, …. *Example:* missing braces: `\mathbb E`.
@@ -44,6 +43,7 @@ _None found._
 
 ### Medium severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 172, 303, 1249, 1369. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 670, 725. *Example:* plot() without lw=.
 - **[qe-link-001]** — Use markdown style links for lectures in same lecture series. *Count:* 2. *Lines:* 30, 38. *Example:* full URL to own series (python-advanced.quantecon.org).
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 3. *Lines:* 292, 759, 1124. *Example:* the same three objects each have two spellings. The market-implied mean is $\mu_{BL}$ at 231, 341, 370, 381, 477, 495, 555 and 601 but $\mu_{\bf BL}$ at 292, 362 and 365 - a bold subscript on a two-letter label. The mean squared error function is `\text{mse}` at 759, 777 and 820 and `\text{MSE}` at 1124, 1132, 1167, 1173 and 1184. And operators are set in four different fonts across the lecture: `{\sf T}` (900-1060), `{\rm ent}` (941, 947), `{\rm var}` (1025), `{\rm rob}` (1074), `\text{corr}` and `\text{cov}` (1229, 1235, 1292), and `{\bf SR}_m` (261, 280) - the last putting a scalar in bold. Settling on `\mathrm{}` for all of them, and on one spelling of each label, costs nothing and removes a reader's doubt about whether $\mu_{\bf BL}$ and $\mu_{BL}$ are the same object.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 3. *Lines:* 30. *Example:* mid-sentence 'Asset'.

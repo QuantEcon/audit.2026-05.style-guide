@@ -2,7 +2,7 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/repeat_mh.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 7.9 / 10

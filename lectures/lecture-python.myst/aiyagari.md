@@ -2,7 +2,7 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/aiyagari.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 8.2 / 10
@@ -16,7 +16,7 @@
 | Math         | 8.5/10 | `qe-math-010` (proposed) ×1. |
 | Code         | 8.5/10 | `qe-code-001` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 7/10  | `qe-fig-005` ×5; `qe-fig-008` ×4; `qe-fig-001` ×3. |
+| Figures      | 7/10  | `qe-fig-005` ×5; `qe-fig-008` ×3; `qe-fig-001` ×3. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 9/10  | `qe-link-002` ×1. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -34,7 +34,7 @@ _None found._
 ### Medium severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 3. *Lines:* 84, 353, 380. *Example:* lines 84-85 bind `I = jnp.identity(n)` and `O = jnp.ones((n, n))`; PEP8 names `l`, `O` and `I` as the three identifiers never to use alone because they are indistinguishable from digits in many fonts, and the ones matrix has no symbol in the surrounding mathematics to inherit. Lines 353 (81 chars) and 831 (86 chars) exceed the 79-character limit, and four lines carry trailing whitespace (380, 526, 589, 592).
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 379, 506, 588. *Example:* figsize=.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 4. *Lines:* 380, 508, 597, 677. *Example:* plot() without lw=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 380, 508, 677. *Example:* plot() without lw=.
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 1. *Lines:* 692. *Example:* raw link to dp.quantecon.org.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 3. *Lines:* 57, 391, 560. *Example:* line 374 ("The next plot shows asset accumulation policies at different values of the exogenous state") and line 391 ("The plot shows asset accumulation policies at different values of the exogenous state.") are the same sentence, once before the figure and once after; lines 556-562 spend three paragraphs on one idea ("We can visualize the equilibrium using supply and demand curves" / "The following code draws the aggregate supply and demand curves" / "The intersection gives the equilibrium interest rate and capital"); and line 57 is a list item reading "etc., etc., etc.".
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 80, 462. *Example:* `compute_stationary` is defined at 80-88, inside "### Preliminaries" and before the model exists, but is not used until line 424 - 340 lines later - and the only account of what it does is a page reference to an external book, so a reader meets the linear system $(I - P^\top + O)x = \mathbb{1}$ with no explanation of why it yields a stationary distribution. Separately the lecture has two H3s both titled "Equilibrium" (213 under "The Economy", 462 under "Implementation"), which makes the contents directive at 28-30 ambiguous and gives the reader no way to tell which section a reference means.

@@ -2,10 +2,10 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/theil_2.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.4 / 10
+- **Overall score:** 8.1 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 4.5/10 | `qe-writing-001` ×3; `qe-writing-005` ×4; `qe-writing-003` ×3, +3 more. |
 | Math         | 7.5/10 | `qe-math-004` ×3; `qe-math-009` ×4. |
-| Code         | 8.5/10 | `qe-code-001` ×4. |
+| Code         | 6.5/10 | `qe-code-002` ×8; `qe-code-001` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8.5/10 | `qe-fig-005` ×1; `qe-fig-001` ×5. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -27,6 +27,7 @@
 _None found._
 
 ### High severity
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 8. *Lines:* 622, 632, 657, 658, 663, 668, 706, 707. *Example:* spelled-out `beta`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 5. *Lines:* 163, 341, 660, 709, 779. *Example:* figsize=.
 
 ### Medium severity

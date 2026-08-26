@@ -2,10 +2,10 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/lqramsey.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.4 / 10
+- **Overall score:** 7.5 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -16,7 +16,7 @@
 | Math         | 3/10  | `qe-math-010` (proposed) ×14; `qe-math-002` ×10; `qe-math-009` ×4. |
 | Code         | 7.5/10 | `qe-code-001` ×7. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 7/10  | `qe-fig-006` ×3; `qe-fig-008` ×12; `qe-fig-001` ×2. |
+| Figures      | 8/10  | `qe-fig-006` ×3; `qe-fig-001` ×2. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -28,7 +28,6 @@ _None found._
 
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 7. *Lines:* 589, 670, 716, 728, 740, 808, 826. *Example:* (1) 716 and 722 call `sys.exit(0)` from inside a library function to report a failure - it kills the notebook kernel rather than raising, and reports success while doing it; `import sys` at 78 exists only for those two lines, and a `ValueError` naming the failed condition is what the two neighbouring diagnostics at 711-721 are actually testing for. (2) 670 writes `nx, nx = A.shape`, binding one name twice and discarding the first value, and 676 then rebinds `nx` from `C.shape`. (3) 728 names the labour path `l`, the single letter PEP8 asks never to use, in a file that otherwise carries its mathematics in unicode (`β`, `ν`, `τ`, `π`, `Π`, `ξ`) - `ℓ` or `ell` would match both PEP8 and the $\ell_t$ of the algebra; 896 likewise spells $\mu_g$ as `mg` while $\rho$ next to it is `ρ`. (4) 738 and 740 assign the identical expression to two names, `H` and `temp` (the second wrapped in a redundant extra pair of parentheses), and only `temp` is used at 741. (5) 826 and 827 are the same statement twice, `bbox = (0., 1.02, 1., .102)`. (6) 808 calls `axes[1, 1].plot(...)` where the two lines above it in the same block use the local alias `ax` (806, 807). (7) Continuation indentation for the same construct takes three different forms: the namedtuple field lists are flat-indented to 20 and 16 spaces against parens at columns 28 and 24 (589-596, 599-613), `Economy(...)` continues at 16 against a paren at 18 (906-907, 955-956) but correctly at 18 at 1018-1019, and the array literals at 938-940 and 944-948 are indented to 12 where 1005-1009 aligns properly.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 12. *Lines:* 787, 788, 789, 794, 795, 796, 801, 806, 807, 808, …. *Example:* plot() without lw=.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 10. *Lines:* 387, 393, 401, 404, 408, 410, 411, 430. *Example:* apostrophe transpose `)'`.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 14. *Lines:* 117, 128, 206, 262, 275, 331, 336, 359, 365, 401, …. *Example:* missing braces: `\mathbb E`.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 5. *Lines:* 59, 536, 850, 858, 860. *Example:* 858-865 stops the lecture to teach the standard library: a 38-word sentence explaining what a `namedtuple` is, followed by a two-bullet list of its benefits ("Keeps content organized by meaning", "Helps reduce the number of global variables") and the concession at 867 that "Other than that, our code is long but relatively straightforward" - eight lines that say nothing about optimal taxation. 536 drops a symbol from the definition it is restating: the bullet writes $R_t[B_t + g_t - \tau_t]$ where 524 has $R_t[B_t - (\tau_t \ell_t - g_t)]$ and 542 gets it right ($B_t + g_t - \tau_t \ell_t$), so the $\ell_t$ is missing in the middle version of three. 59 drops a conjunction from the sentence stating the lecture's subject ("the dynamics of tax rates, tax revenues, government debt under a Ramsey plan"), 860 has "can then be references via dotted attribute notation", and three more words are mistyped in load-bearing sentences: "identify covariance matrix" for identity (185), "the first-conditions" for first-order conditions (238), and the empty blockquote marker `>` left on line 539 in the middle of the martingale exposition.

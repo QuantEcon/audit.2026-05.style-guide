@@ -2,21 +2,21 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/prob_dist.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 9.2 / 10
-- **Priority:** NONE
+- **Overall score:** 8.0 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 9.5/10 | `qe-writing-008` ×1. |
-| Math         | 7.5/10 | `qe-math-010` (proposed) ×3. |
-| Code         | 10/10 | no mechanical violations detected. |
+| Writing      | 5/10  | `qe-writing-005` ×7; `qe-writing-003` ×4; `qe-writing-002` ×3, +2 more. |
+| Math         | 7/10  | `qe-math-010` (proposed) ×3; `qe-math-009` ×3. |
+| Code         | 7/10  | `qe-code-001` ×23. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 8.5/10 | `qe-fig-005` ×1; `qe-fig-008` ×4. |
+| Figures      | 9/10  | `qe-fig-005` ×1. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -27,10 +27,15 @@
 _None found._
 
 ### High severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 23. *Lines:* 410, 692, 713, 780, 799, 848, 867, 921, 940, 993, …. *Example:* ten `ax.plot` calls inside `for` loops indent their continuation lines to the loop-body level instead of to the opening delimiter, so the arguments are indistinguishable from the next statement: `ax.plot(x_grid, u.pdf(x_grid),` then `    alpha=0.5, lw=2,` then `    label=rf'...')` at 692-694, and identically at 713-715, 780-782, 799-801, 848-850, 867-869, 921-923, 940-942, 993-995 and 1012-1014 - twenty PEP8 continuation-line violations from one copied block. 410 packs three into one line: `n * θ,  n *  θ * (1 - θ)  ` has a double space after the comma, a double space after an operator, and trailing whitespace. The same copied block also mixes the f-string prefixes `rf'` (694, 801, 850, 869, 923, 942, 995, 1014) and `fr'` (782), and puts `ax.set_ylim(0, 1)` inside the loop in all five CDF cells (716, 802, 870, 943, 1015) where it belongs outside.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 3. *Lines:* 152, 591, 615. *Example:* missing braces: `\mathbb P`.
+- **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 7. *Lines:* 100, 161, 183, 347, 492, 538, 636. *Example:* two definitions arrive in italic where the rule asks for bold, and both are alternative names for objects the lecture has just bolded: "Expectation is also called the *first moment* of the distribution" (161) and "Variance is also called the *second central moment* of the distribution" (183). Three of the ten distribution sections omit the bold that the other seven have - "the Bernoulli distribution on $S = \{0,1\}$" (347), "The geometric distribution has infinite support" (492) and "The Poisson distribution on $S = \{0, 1, \ldots\}$" (538) are plain, against **uniform distribution** (267), **binomial distribution** (385), **normal distribution** (74), **lognormal distribution** (725), **exponential distribution** (811), **beta distribution** (879) and **gamma distribution** (952). 100 uses bold for emphasis, "a smooth density with just **two parameters**", where italic is wanted, and 636 re-bolds **normal distribution** which 74 has already defined and bolded. Everything else here is right: twenty-one terms defined and bolded on first use, and *every* at 231 correctly italic for emphasis.
 
 ### Medium severity
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 4. *Lines:* 306, 434, 528, 571. *Example:* plot() without lw=.
+- **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 3. *Lines:* 216, 616, 894. *Example:* 616 uses the same letter as the upper limit of integration and as the variable being integrated: $F(x) = \mathbb P\{X \leq x\} = \int_{-\infty}^x p(x) dx$. The two displays immediately above it (601, 607) use $x$ correctly as a dummy under infinite limits, which is what makes the clash at 616 easy to miss and hard for a first-course reader to recover from; $\int_{-\infty}^x p(s)\,ds$ costs one character. Second, $S$ carries two meanings: it is the support of every distribution in the lecture ($S = \{x_1, \ldots, x_n\}$ at 112, $\{0,1\}$ at 347, $\{0, \ldots, n\}$ at 385, $\{0,1,2,\ldots\}$ at 492 and 538) and it is also skewness at 216, $S = \mathbb{E}[((X-\mu)/\sigma)^3]$ - and in the code `S` is the plotting grid (305, 324, 433, 452, 527, 570). Since skewness is used once and never referred to again by name, the symbol is pure cost. Third, 894 relies on precedence rather than brackets to write a fraction (see the qe-writing-003 note); every other moment formula in the lecture is either bracketed or unambiguous.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 3. *Lines:* 21, 163, 500. *Example:* 163 contains a stranded editorial insertion: "We also refer to this number as the mean of the distribution (represented by) $p$" - the parenthesis has no verb to attach to and the sentence adds nothing to 155-158 in any case. 500 parks a definition in a parenthetical after the term has already been used: "(A discrete distribution has infinite support if the set of points to which it assigns positive probability is infinite.)" arrives eight lines after 492 has described the geometric distribution as having infinite support. And 21 opens the lecture on the wrong subject - "In data science applications, we are often interested in data on a specific variable" - where this is the lecture about probability distributions and 27-29 explicitly hands observed data to the next one.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 4. *Lines:* 492, 570, 894, 462. *Example:* the geometric distribution section (490-534) states three mutually inconsistent things and its own output cell contradicts two of them. 492 gives the support as $S = \{0, 1, 2, \ldots\}$ and 495 the PMF as $p(i) = (1-\theta)^i \theta$, so $p(0) = \theta$ and the mean is $(1-\theta)/\theta$; 506 then says "the mean of the distribution is $1/\theta$ and the variance is $(1-\theta)/\theta$"; and 512 uses `scipy.stats.geom`, whose support is $\{1, 2, \ldots\}$. I ran it: at $\theta = 0.1$ the cell at 513 prints mean 10.0 and variance 90.0, against the 9.0 that 506's variance formula gives - the correct variance is $(1-\theta)/\theta^2$ either way - and `u.pmf(0)` is 0.0 against the 0.1 that 495 predicts. The PMF figure at 525-533 then plots `S = np.arange(20)`, so its leftmost point sits at zero, which is exactly the value the displayed formula says should be the largest. Second, 894 loses a pair of brackets: "the variance is $\alpha \beta / (\alpha + \beta)^2 (\alpha + \beta + 1)$" reads as $\frac{\alpha\beta}{(\alpha+\beta)^2}(\alpha+\beta+1)$, which at $(\alpha, \beta) = (3, 1)$ gives 0.9375, while `u.var()` at 904 prints 0.0375 - the correct denominator is $(\alpha+\beta)^2(\alpha+\beta+1)$. Third, the Poisson PMF figure at 570 plots `S = np.arange(1, n+1)` where `n` is 20, inherited from the geometric figure cell at 526 rather than chosen for a $\lambda = 2$ Poisson; the range is mostly empty and it drops $p(0) = e^{-2} \approx 0.135$, the second largest point in the distribution (the binomial figure at 433 starts at 1 for the same reason, dropping $p(0)$ from a support the lecture defines as $\{0, \ldots, n\}$ at 385). Fourth, the exercise labels run `prob_ex1` (336) then `prob_ex3` (462) with no `prob_ex2`, and `prob_ex1` is the only exercise in the lecture with no solution.
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 2. *Lines:* 197, 619. *Example:* the moments section (197-251) is the one part of the lecture with no figure. It defines standardized moments, skewness, kurtosis and excess kurtosis and makes three claims that are purely about shape - "Any distribution that is symmetric about its mean has zero skewness, while a distribution with a long right tail has positive skewness" (221), "Kurtosis measures how much probability mass sits far out in the tails" (229), "Positive excess kurtosis means more mass in the tails" (241) - and the reader is given no picture of a skewed or heavy-tailed density until the lognormal appears 550 lines later. Two densities on one axes, with their skewness and excess kurtosis printed, would settle the whole section, and the machinery is already there (`u.stats(moments='sk')` at 661 and 755). Second, the quantile material at 619-629 introduces the quantile function, the median, the quartiles and the interquartile range, and 671 prints all three numbers for the standard normal - but nothing is ever marked on a figure, so the geometric content of 623 ("the point such that $X$ falls below it with probability $\tau$") is never seen; three vertical lines on fig:normal-cdf, or a shaded area on fig:normal-pdf, would connect the definition to the two plots that follow it.
 
 ### Low severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 473. *Example:* code-cell figure without mystnb figure metadata.
@@ -39,15 +44,26 @@ _None found._
 
 ## Strengths
 
-- Writing, Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The lecture opens with a real data set rather than an axiom: two NHANES height histograms (49-70), the observation that both are bell-shaped (72), a normal fit to each (78-96), and then the point of the whole lecture stated in one sentence - "each dataset of around 5,000 individual measurements is now summarized by a smooth density with just two parameters" (100).
+- It places itself in a sequence and says what the other two lectures do: `` {doc}`observed_distributions` `` for measured data and `` {doc}`fitting_distributions` `` for choosing a family (25-32), and it then keeps that promise by pointing forward at the two places where it would otherwise have to digress (251 for skewness and kurtosis as normality diagnostics, 631 for why robust measures matter).
+- The moment hierarchy is built once and reused: 165-173 defines $\mathbb{E}[f(X)]$ and says "Every quantity we define below is an expectation of this form, for a suitable choice of $f$" (173), after which mean, variance, moments, central moments, standardized moments, skewness and kurtosis all follow as choices of $f$ rather than as separate definitions.
+- qe-math-014 (proposed) is satisfied throughout: every use of $\mathbb P$ takes an event in braces - $\mathbb P\{X = x_i\}$ (152), $\mathbb P\{X \leq x\}$ (256, 615), $\mathbb P\{a < X < b\}$ (591) - and the indicator at 257 and 260 does the same.
+- qe-math-015 (proposed) is satisfied throughout: lower-case $p$ for every PMF (112, 350, 388, 495, 541) and every density (582, 639, 728, 814, 882, 955), upper-case $F$ for both CDF definitions (256, 615), with no crossover in either direction.
+- The standard deviation is motivated by units rather than convention (191-195): "if $X$ is a height in centimeters, then $\sigma$ is in centimeters, while the variance is in centimeters squared", closing with the reason a reader can act on - $\sigma$ can be read off the horizontal axis of the histogram they were shown at line 49.
+- The `{note}` at 243-249 warns about a real trap with a named example - `scipy.stats.kurtosis` returns excess kurtosis by default, and `fisher=False` recovers the kurtosis - which is exactly the kind of thing a reader hits an hour later.
+- Seventeen of the eighteen figures carry full `mystnb` metadata with both caption and `name:`, and each distribution's PDF and CDF are captioned as a matched pair (fig:normal-pdf / fig:normal-cdf, and the same for lognormal, exponential, beta and gamma).
+- The lognormal section makes the contrast with the normal concrete instead of asserting it: the same `u.stats(moments='sk')` call is run on both (661 and 755), the reader is told what to expect from each (664 "Both are zero, as promised", 758 "The skewness is large and positive ... the excess kurtosis is enormous"), and 760-763 then prints the mean against the median to show the same asymmetry a third way.
 
 ## Recommended actions
 
-1. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (3 occurrences).
-2. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
-3. `qe-fig-008` — Use lw=2 for line charts (4 occurrences).
-4. `qe-writing-008` — Remove excessive whitespace between words (1 occurrence).
+1. Fix the geometric distribution section (490-514), which currently disagrees with itself three ways: state the support and PMF that match `scipy.stats.geom` ($S = \{1, 2, \ldots\}$, $p(i) = (1-\theta)^{i-1}\theta$) or switch the code to `scipy.stats.geom(θ, loc=-1)`, and correct the variance to $(1-\theta)/\theta^2$ - the cell at 513 prints 90.0 where 506's formula gives 9.0.
+2. Add the missing brackets to the beta variance at 894: $\alpha\beta / \left[(\alpha+\beta)^2(\alpha+\beta+1)\right]$ - as written it evaluates to 0.9375 at $(3, 1)$ where `u.var()` at 904 prints 0.0375.
+3. Rename the dummy variable at 616: $F(x) = \int_{-\infty}^x p(s)\,ds$.
+4. Give the Poisson figure its own grid at 570 - it currently inherits `n = 20` from the geometric cell at 526 - and start both it and the binomial figure at 433 from 0, since 385 and 538 both define the support as including 0 and $p(0)$ is the largest or second-largest point in each.
+5. Re-indent the ten copied `ax.plot` blocks (692, 713, 780, 799, 848, 867, 921, 940, 993, 1012) so the continuation lines align with the opening parenthesis rather than with the loop body, move `ax.set_ylim(0, 1)` out of the five CDF loops (716, 802, 870, 943, 1015), and settle on one f-string prefix (782 uses `fr'`, the other nine use `rf'`).
+6. Add a figure to the moments section: two densities with contrasting skewness and excess kurtosis, with the numbers from `u.stats(moments='sk')` printed alongside - 221, 229 and 241 are all claims about shape made without one.
+7. Mark the median and quartiles on fig:normal-cdf or fig:normal-pdf so that 619-629 and the printed values at 671 have a picture.
+8. Bold the three unbolded distribution names (347, 492, 538) to match the other seven, move *first moment* (161) and *second central moment* (183) from italic to bold, un-bold **two parameters** at 100, and drop the second bolding of **normal distribution** at 636.
+9. Rename the skewness symbol at 216 so it does not collide with the support set $S$ used at 112, 347, 385, 492 and 538 and with the `S` grid variable in six code cells.
+10. Do NOT add `lw=2` to the four drafted qe-fig-008 sites (306, 434, 528, 571): all four are `ax.plot(S, u.pmf(S), linestyle='', marker='o', ...)`, explicitly line-free stem plots whose lines are drawn by the accompanying `ax.vlines`. See the measured note in solow.json's scanner_doubts; this lecture's count goes to zero.
+11. Sweep the small items: renumber `prob_ex3` (462) to `prob_ex2` or add the missing exercise, give `prob_ex1` (335-342) a solution like the other exercise has, add `mystnb` metadata to the one un-named figure at 473, clear the double space at 269 and the trailing spaces at 341, 410 and 643, and cut the stranded parenthetical at 163.

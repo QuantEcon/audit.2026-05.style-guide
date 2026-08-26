@@ -2,10 +2,10 @@
 
 - **Series:** lecture-dp
 - **File:** `lectures/mccall_persist_trans.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.7 / 10
+- **Overall score:** 8.6 / 10
 - **Priority:** NONE
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 9.5/10 | `qe-writing-007` ×1. |
 | Math         | 6.5/10 | `qe-math-010` (proposed) ×5. |
-| Code         | 7/10  | `qe-code-001` ×14. |
+| Code         | 6/10  | `qe-code-001` ×14; `qe-code-002` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8/10  | `qe-fig-005` ×4; `qe-fig-008` ×4. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -31,6 +31,7 @@ _None found._
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 5. *Lines:* 100, 104, 116, 129, 136. *Example:* missing braces: `\mathbb E`.
 
 ### Medium severity
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 3. *Lines:* 446, 448, 457. *Example:* spelled-out `beta`.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 289, 309, 416, 455. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 4. *Lines:* 293, 318, 418, 457. *Example:* plot() without lw=.
 

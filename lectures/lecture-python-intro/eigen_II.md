@@ -2,7 +2,7 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/eigen_II.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 8.4 / 10

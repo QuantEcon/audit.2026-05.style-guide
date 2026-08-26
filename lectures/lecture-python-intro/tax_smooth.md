@@ -2,19 +2,19 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/tax_smooth.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.9 / 10
-- **Priority:** NONE
+- **Overall score:** 7.8 / 10
+- **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 6/10  | `qe-writing-001` ×2; `qe-writing-006` ×1; `qe-writing-008` ×21. |
-| Math         | 10/10 | no mechanical violations detected. |
-| Code         | 10/10 | no mechanical violations detected. |
+| Writing      | 3/10  | `qe-writing-003` ×5; `qe-writing-002` ×6; `qe-writing-001` ×2, +4 more. |
+| Math         | 9.5/10 | `qe-math-009` ×1. |
+| Code         | 6/10  | `qe-code-001` ×15; `qe-code-002` ×2. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-005` ×6; `qe-fig-006` ×1; `qe-fig-008` ×9, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -27,33 +27,45 @@
 _None found._
 
 ### High severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 15. *Lines:* 151, 319, 365, 373, 401, 570. *Example:* 401 breaks a call argument to column 1, flush with the left margin and outside its own parentheses: `G_seq_pos = np.concatenate([np.ones(21), np.array([2.5]),` then `np.ones(24), np.ones(20)])` - the only unindented continuation line in the lecture, and the three other `np.concatenate` calls in the same section (414-415, 422-423, 434-435) show the intended shape. 570 omits the space before `=` (`ϕs= [.95, 1.02]`). 319 and 373 write `figsize=(12,5)` with no space after the comma, while 746 writes `figsize=(12, 4)` correctly. 151 under-indents the continuation of `namedtuple(...)` relative to its opening delimiter and 365 closes `def plot_ts(` on a bracket line indented to neither the opening line nor the arguments. The rest are blank-line counts: two blank lines inside a function body at 387, one blank line where two are wanted between top-level defs at 153 and 347, and after a def at 345, 350 and 622.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 6. *Lines:* 315, 567, 627, 645, 739, 844. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 9. *Lines:* 590, 594, 630, 637, 648, 655, 752, 753, 857. *Example:* plot() without lw=.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 6. *Lines:* 22, 33, 174, 294, 337, 490. *Example:* 22 is a 42-word sentence with a broken apposition at its centre: "we obtain a version of a model \"tax-smoothing model\" that Robert Barro `` {cite}`Barro1979` `` used to explain why governments sometimes choose not to balance their budgets every period but instead issue debt to smooth tax rates over time". 30-33 links to `` {doc}`pv` `` twice in consecutive sentences ("so we'll again use formulas presented in ..." / "We'll again use the matrix multiplication and matrix inversion tools that we used in ..."), and 174 links it a third time as "this QuantEcon lecture `` {doc}`present values <pv>` ``", where "this" points at the lecture the reader is in. 172-176 is three sentences that each restate that $h_0$ is a present value without adding anything: "This sum represents the present value of all future government expenditures that must be financed" / "Formally it resembles the present value calculations we saw in ..." / "This present value calculation is crucial for determining the government's total financing needs". 294 is a pure restatement of 292 ("We use an example where the government starts with initial debt $B_0>0$" / "This represents the government's initial debt burden"). 337 blurs the two criteria it just defined - "cost criterion `` {eq}`cost` `` which measures the total cost / welfare of taxation", where `` {eq}`cost` `` measures cost and welfare is its negative - and 492 repeats the same slash ("cost-minimizing / welfare-improving"). 486-490 is three consecutive one-line fillers ("Let's do that now." / "The approach we'll take is an elementary example of the calculus of variations." / "Let's dive in and see what the key idea is.") where the middle sentence is the only one carrying content.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 5. *Lines:* 145, 296, 430, 396, 646. *Example:* the lecture is a rename of `` {doc}`cons_smooth` `` and several passages were not renamed with it, so the prose now describes a different experiment from the one the code runs. (i) 296 says "The government expenditure process $\{G_t\}_{t=0}^{S}$ is constant and positive up to $t=45$ and then drops to zero afterward" - the code at 305 is `np.concatenate([np.ones(46), 4*np.ones(5), np.ones(15)])`, which is flat at 1, *quadruples* for five periods, then returns to 1; it never drops to zero. The sentence is cons_smooth.md:292 with the nouns swapped, where the income sequence really is `[np.ones(46), np.zeros(20)]`. 298 then explains "The drop in government expenditures" - a feature of the figure at 313-332 that is not there. (ii) 430 says expenditures "are zero for 46 years, and then rise to 1 for the last 20 years" while 434-435 is `[np.ones(46), 2*np.ones(20)]` - one then two, inherited unchanged from cons_smooth.md:428/433. (iii) 145 states "we use default parameters $R = 1.05$" and 213 repeats "e.g., $R = 1.05$", but `create_tax_smoothing_model` at 153 defaults to `R=1.01`, and every figure and every printed number in the lecture is computed at 1.01. (iv) 396 promises both signs - "positive to indicate a spending surge ... and negative to indicate a spending cut" - and Experiment 1 then runs only the positive case, leaving the variable named `G_seq_pos` (400) with no `G_seq_neg` beside it, unlike Experiment 2 which does run both (414, 422). (v) 646 sweeps $\phi$ over `np.linspace(-0.5, 0.5, 20)`, which never reaches the $\phi \in \{.95, 1.02\}$ whose variations were just plotted at 565-600, so the derivative panel at 645-658 is computed in a region of the parameter space the lecture never motivates.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 1. *Lines:* 482. *Example:* H3 Title Case: 'Feasible Tax Variations' (Tax, Variations).
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 21. *Lines:* 19, 22, 27, 33, 50, 54, 58, 62, 69, 77, …. *Example:* 2 spaces.
 
 ### Medium severity
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 2. *Lines:* 702, 705. *Example:* spelled-out `delta`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 319, 373, 746. *Example:* figsize=.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 605, 673. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 4. *Lines:* 108, 499, 541, 605. *Example:* 108 uses bold for emphasis - "there are **many** budget feasible tax paths" - where the rule asks for italic. 499 bolds **present value**, a term the lecture has already used unbolded at 30, 165, 172, 176 and 190, so the bold reads as emphasis rather than a definition. 541 uses bold as a run-in label, `**Key Idea:**`, which is neither a definition nor emphasis (and is title-cased mid-sentence). And the genuine definition is bolded 117 lines too late: 488 introduces the term in scare quotes, "an elementary example of the \"calculus of variations\"", and only 605 bolds it, `**calculus of variations**`, by which point the technique has already been carried out. Against that, the five real definitions are correctly bolded - **boundary conditions** (73), **terminal condition** (77), **budget feasible** (100), **smoother** (131), **admissible tax path variation sequence** (492) and **annuity value** (674).
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 2. *Lines:* 362, 627. *Example:* the eight main-body figures are all produced by `plot_ts` (362-388), which sets axis labels and a legend but no title and no caption, so Experiments 1-4 (403, 417, 425, 437, 457, 468, 479) render as seven near-identical two-panel plots that a reader scrolling the page cannot tell apart - and none carries `mystnb` figure metadata, so none can be cross-referenced (the six drafted qe-fig-005 sites). The exercise solution at 760-762 shows what was wanted, setting `'Expenditure sequences'` and `'Debt paths'` as panel titles. Second, the variational argument is the analytical core (482-545) and the figures that follow it (627-658) plot cost against $\xi_1$ and $\phi$ one at a time; the one figure that would show why the flat path is optimal - cost over the $(\xi_1, \phi)$ plane, with the minimum sitting at $\xi_1 = 0$ for every $\phi$ - is not drawn, even though `cost_vec` (622) is already vectorised for exactly that.
 
 ### Low severity
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 1. *Lines:* 859. *Example:* axis label `Optimal flat tax $T_0$`.
+- **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 1. *Lines:* 229. *Example:* the annuity factor $\left(\frac{1 - R^{-1}}{1 - R^{-(S+1)}}\right)$ is written out in full four times - 229, 536, 678 and 837 - and once more as $\left(\sum_{t=0}^S R^{-t}\right)^{-1}$ at 204, which is the same quantity in a second notation. The code names it once (`annuity_factor`, 704 and 864) and 870 then refers to it in maths as $\text{annuity factor}$, a words-in-math placeholder for the symbol the lecture never defined. Naming it once, say $a(R, S)$, at its first appearance would shorten three displayed equations and let `` {eq}`eq:taxsmoothing` `` be quoted rather than re-derived.
 
 
 ## Strengths
 
-- Math, Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The model is set up as a numbered list of primitives (62-69) followed by exactly the two boundary conditions it needs (73-77), and the terminal condition is then given its economic reading in one parenthetical - "This no-Ponzi condition ensures that the government ultimately pays off its debts -- it can't simply roll them over indefinitely" (79) - which is the right depth for a first course.
+- 91-104 states the algorithm as a four-step logical flow before any linear algebra appears, and the three `### Step` headings at 215, 224 and 232 then execute exactly those steps in order, so the reader can see where they are.
+- The matrix formulation at 238-252 writes out the full band matrix with its `\vdots` row rather than describing it, and 254-258 says in one sentence what to do with it, which makes `A = np.diag(-R*np.ones(S), k=-1) + np.eye(S+1)` at 283 legible to a reader who has not seen the trick before.
+- The terminal condition is not merely asserted: 260-265 predicts $B_{S+1} = 0$ before the code runs, 309-310 tests it (`np.abs(B_seq[-1] - 0) <= 1e-8`), and 335 closes the loop with "Note that $B_{S+1} = 0$, as anticipated".
+- The variational argument is built rather than quoted: 495-497 states the feasibility restriction, 507-509 restricts to a two-parameter family, 515-537 solves for $\xi_0$ in four displayed steps each introduced by "which implies that", and 557 then checks feasibility numerically (`np.isclose(β_seq @ v_seq, 0)`) for every variation plotted.
+- The plotted variations are labelled with their own parameters (`label=fr'$\xi_1 = {ξ1}, \phi = {ϕ}$'`, 592) and each one prints whether it beats the optimum (583, `welfare < optimal: ...`), so the figure at 567-600 and the printed output make the same claim two ways.
+- The four exercises each verify an analytical result numerically rather than only computing: 704-709 checks the annuity formula for $\Delta T_0$ against a recomputed optimum, 863-867 recovers the annuity factor as the slope of $T_0$ in $B_0$, and 811-818 tabulates the welfare gap for four variations - each ends in a printed `Match:` or a signed gap.
 
 ## Recommended actions
 
-1. `qe-fig-005` — Descriptive figure names for cross-referencing (6 occurrences).
-2. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
-3. `qe-writing-006` — Capitalize lecture titles properly (1 occurrence).
-4. `qe-writing-008` — Remove excessive whitespace between words (21 occurrences).
-5. `qe-fig-006` — Lowercase axis labels (1 occurrence).
-6. `qe-fig-008` — Use lw=2 for line charts (9 occurrences).
-7. `qe-fig-001` — Do not set figure size unless necessary (3 occurrences).
+1. Rewrite 296-298 for the sequence the code actually builds: `[np.ones(46), 4*np.ones(5), np.ones(15)])` at 305 is a temporary fourfold surge in expenditure, not a drop to zero, and 298's explanation of "the drop" describes nothing in the figure - this is cons_smooth.md:292 carried over unedited.
+2. Reconcile $R$: 145 and 213 both say $R = 1.05$, the default at 153 is `R=1.01`, and every number in the lecture comes from 1.01 - change one of them, and check `` {eq}`eq:taxsmoothing` ``'s discussion at 192 ("When $\beta R = 1$") still reads correctly afterwards.
+3. Fix Experiment 3's description at 430 ("zero for 46 years, and then rise to 1") to match `[np.ones(46), 2*np.ones(20)]` at 434-435; the same mismatch sits upstream at cons_smooth.md:428, so fix both or neither.
+4. Correct the x-array at 648: `plt.plot(ξ1_arr, cost_vec(0.05, ϕ_arr))` plots the $\phi$ sweep against `ξ1_arr` while labelling the axis $\phi$ - it looks right only because 628 and 646 happen to be the same `linspace(-0.5, 0.5, 20)`; 655 already uses `ϕ_arr` correctly. While there, move the sweep to a range containing the $\phi$ values plotted at 565.
+5. Either run the negative case Experiment 1 promises at 396, or drop the promise and rename `G_seq_pos` (400) - Experiment 2 does it properly at 414 and 422.
+6. Give `plot_ts` a title argument and pass it at each of the seven call sites (403, 417, 425, 437, 457, 468, 479), and add `mystnb` `figure: caption/name` metadata to the six un-named figure cells (315, 567, 627, 645, 739, 844) so the six drafted qe-fig-005 hits clear.
+7. Settle the emphasis markup: `**many**` at 108 to italic, drop the bold on 499's already-used **present value**, turn `**Key Idea:**` at 541 into a `{note}` or a plain sentence, and move the bolding of **calculus of variations** from 605 back to its introduction at 488.
+8. Name the annuity factor once and reuse it (229, 536, 678, 837, and 870's $\text{annuity factor}$), and cut the three-sentence restatement at 172-176 and the empty restatement at 294 down to one sentence each.
+9. Sweep the mechanical items: 21 double-space runs (19, 22, 27, 33, 50, 54, 58, 62, 69, 77 and 11 more), the H3 `### Feasible Tax Variations` at 482 to sentence case, the two-sentence paragraphs at 605 and 673, the nine `lw=`-less `plt.plot` calls (all real here - 590, 594, 630, 637, 648, 655, 752, 753, 857 are line charts, unlike the marker-only cases in solow), the axis label `Optimal flat tax $T_0$` at 859 to lower case, and the three `figsize=` overrides (319, 373, 746).
+10. Tidy the code: the unindented continuation at 401, `ϕs= [.95, 1.02]` at 570, `figsize=(12,5)` at 319 and 373, and the mixed drawing APIs in the cell at 567-600, which creates `fig, ax` at 568, draws through `ax.plot` at 590 and then switches to `plt.plot`/`plt.legend`/`plt.xlabel` at 594-599.

@@ -2,7 +2,7 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/status.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, links  *(JAX out of scope)*
 - **Overall score:** 10.0 / 10
@@ -38,12 +38,13 @@ _None found._
 
 ## Strengths
 
-- Writing, Links score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- Every environment fact on the page is produced by a live cell rather than typed in - `{nb-exec-table}` (16-17), `!python --version` (25-27), `!conda list` (31-33) - so the page cannot go stale.
+- The `!conda list` cell carries `:tags: [hide-output]` (32), keeping a several-hundred-line dump out of the rendered page while leaving it in the notebook.
+- The machine-details region carries an explicit `(status:machine-details)=` anchor (19), so other pages can link straight at it.
 
 ## Recommended actions
 
-1. No remediation required; keep the current conventions.
+1. Give the machine-details region a heading - `(status:machine-details)=` at 19 anchors a bare paragraph, so a `{ref}` to it lands on text with no visible target.
+2. Tag the cells `ipython3` rather than `ipython` (25, 31) to match the `python3` kernel declared at 9.
+3. Reconcile the five series' copies of this page: `lecture-python-programming` and `lecture-python.myst` carry a 47-line version with GPU and JAX-backend probes, while this file, `lecture-python-intro` and `lecture-dp` carry a 33-line one - the page is hand-maintained in five places and has already diverged.
+4. Drop the trailing space at the end of line 21, and add the missing newline at end of file.

@@ -2,10 +2,10 @@
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/python_oop.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `ceec881028`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.0 / 10
+- **Overall score:** 8.1 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -16,7 +16,7 @@
 | Math         | 10/10 | no mechanical violations detected. |
 | Code         | 7.5/10 | `qe-code-001` ×9. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 7.5/10 | `qe-fig-005` ×4; `qe-fig-008` ×2; `qe-fig-001` ×1. |
+| Figures      | 8/10  | `qe-fig-005` ×4; `qe-fig-008` ×1; `qe-fig-001` ×1. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -34,13 +34,13 @@ _None found._
 
 ### Medium severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 439, 549, 646, 660. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 447, 667. *Example:* plot() without lw=.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 3. *Lines:* 154, 189, 195. *Example:* 'Before we do so, in order to indicate some of the power of Classes, we'll define two functions that we'll call `earn` and `spend`' (154) spends 23 words on a lead-in; 'an *instance* will be the name of  particular *person* whose *instance data* consist solely of its wealth' (189) is missing an article and does not agree in number; and 'Taken together,  the instance data and functions  are called *attributes*' (195) redefines a term the lecture already defined 89 lines earlier at 106, in the same words and the same italics.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 193, 239. *Example:* the prose asserts a link between the standalone functions and the class that the code does not have. 'In our example, two functions `earn` and `spend` can be applied to the current instance data' (193) and 'The `earn` and `spend` methods deploy the functions we described earlier' (239) both describe the `Consumer` class at 211-229 as using the `earn`/`spend` defined at 156-168, but the methods reimplement the arithmetic inline (`self.wealth += y`) and never call them. A reader who takes 239 at face value goes looking for a call that is not there.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 4. *Lines:* 154, 209, 297, 765. *Example:* mid-sentence 'Classes'.
 
 ### Low severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 1. *Lines:* 444. *Example:* figsize=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 447. *Example:* plot() without lw=.
 
 
 ## Strengths

@@ -529,6 +529,88 @@ Twelve unit cases pin the behaviour, including the two that pull in opposite dir
 `beta_*` for its own discount factor would have that name exempted. Two occurrences changed
 hands on this test, both correctly; the exposure is small and the direction is conservative.
 
+### Three doubts from one `lecture-dp` batch, each measured before it was believed
+
+All three came with a number attached, all three reproduced, and all three were narrower than
+the obvious fix.
+
+**`qe-fig-008` could not see a keyword bundle.** `lqcontrol` builds all four of its panels as
+`p_args = {'lw': 2, 'alpha': 0.7}` and then `ax.plot(x, y, 'k-', **p_args)`. The width the
+rule asks for *is* set, one cell-line away, and the lecture was reported 18 times for a
+convention it follows. A `**name` splat is now exempt where the same cell binds `name` to a
+dict literal or a `dict(...)` call that sets `lw` or `linewidth`. **1258 → 1198, reach
+216 → 197**: 60 removed across `lqcontrol`, `lqramsey`, `money_inflation`,
+`dovis_accounting_mf`, `robustness` and `python_advanced_features`; 0 added. Orthogonal to
+the marker-only exemption above — the two together take the rule from 1382 to 1198.
+
+**`R^T(s_{t+T}, \ldots, s_t)` is a function of T arguments, not a transpose.**
+`smoothing_tax` says so in the two lines above the display — "the cumulative return earned
+from … rolling over the proceeds each period thereafter" — and computes it with `np.cumprod`.
+The signature that separates the two readings is a *top-level comma or conditioning bar*
+inside the group: `A^T(B + C)` has neither and stays a transpose. **1599 → 1597**, touching
+only the two byte-identical copies of that one file.
+
+Two wider fixes for the same site were measured and rejected, and are recorded so they are
+not re-proposed: dropping `(` from the `supT` lookahead (37 → 25 on the branch) and a
+function-name-aware variant (37 → 31) both silence genuine transposes in
+`calvo_machine_learn` — `\vec{\mu}^T (M - F) \vec{\mu}` among them.
+
+**`qe-math-008` looked only inside one source line.** `_math_spans` yields one span per line,
+so `mccall_model`'s `\sigma(w) := \mathbf{1}` with `\left\{` underneath presented the
+indicator test with an empty string. `check_math_004` already looks one span ahead for
+exactly this shape; this now matches it.
+
+Reading the survivors then found two more false positives in a rule that only had seven hits,
+so both were fixed in the same pass:
+
+- `two_computation` writes `\mathbf{1}^{\text{work}}_t` — an indicator with a label, whose
+  `_t` sits one group past the superscript. The test now steps over an optional superscript.
+- `lln_clt` writes ``$X = \mathbf 1\{U < p\}$ where $\mathbf 1$ is the
+  [indicator function](…)``. The first occurrence carries its argument and was already
+  exempt; the second is the symbol being *defined*, and the sentence defining it says what it
+  is. A nearby "indicator function" now takes the occurrence out of scope.
+
+**7 → 3 occurrences, reach 7 → 3.** The three survivors are real: `blackwell_kihlstrom`'s
+`\mathbf{1}\mathbf{1}^\top` outer product, and `discrete_dp`'s
+`[\ldots] \mathbf{1}` in both copies.
+
+Ten unit cases cover the three fixes, including the two canaries that must keep firing:
+`A^T(B + C)`, and a bare unexplained `z \mathbf{1}`.
+
+### Two doubts from the intro batch, and a line-width question referred rather than fixed
+
+**A one-character placeholder is indistinguishable from an initial.** `_count_sentences`
+substitutes a role or a markdown link with `"X"` before looking for sentence boundaries, and
+the abbreviation guard two lines down then discards the following full stop as an initial. So
+a paragraph whose first sentence ended in a link — `solow`'s *"… using
+[scipy.optimize.minimize_scalar](url). We will use $-c^*(s)$ since …"* — counted as one
+sentence and was reported clean. Two letters fix it. **442 → 448 occurrences, reach
+173 → 175**: 7 added, and the one "removal" is the same paragraph in `need_for_speed` whose
+count went from 2 to 3. All 7 read as genuine two-sentence paragraphs.
+
+**`linestyle=''` says outright that the call draws no line.** Same reasoning as the
+marker-only format string, stated by the keyword instead: 14 further `qe-fig-008` occurrences,
+every one a `marker='o'` scatter. With the marker-only and keyword-bundle exemptions, the rule
+now stands at **1184 occurrences over 195 lectures**, from 1382 over 216.
+
+**And the part that is not a detector question at all.** `qe-fig-008` asks for `lw=2`; the
+check only ever asked whether a width is set. Whether a value *other than* 2 is a violation
+depends on something the rule's text does not say — whether a faint reference line or one of
+fifty sample paths is in scope. Both readings were costed rather than guessed:
+264 calls across 84 lectures set some other width, of which 152 also dash, grey or fade the
+line and read as deliberate. That went to
+`contributions/issues/07-fig-008-line-width-tolerance.md` as a rule-definition question, the
+same treatment `qe-ref-001` got.
+
+The numbers in it are **measured, not typed.** `qestyle_scan` now writes
+`data/fig_line_widths.csv` — every explicit width, with each non-house value labelled by the
+only mechanical signal for "this was deliberate" — and the gate holds both the appendix's
+summary and the draft's tables to that file. 31 claims cross-checked. It was worth doing
+immediately: a first hand-typed pass had the lecture count at 78 (a filename set collapses
+the two series' copies of a shared lecture; the pipeline counts series-lecture pairs, so 84),
+`lw=1` at 60 rather than 66, and the deliberate split at 101/130 rather than 119/112. **Every
+one of those five numbers was wrong, and the gate caught all five on its first run.**
+
 ### The build's warnings: 478 down to 23
 
 Almost all of them were one thing. Reviewer prose and the detectors' own sample text quote

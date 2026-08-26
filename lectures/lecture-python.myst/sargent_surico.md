@@ -2,7 +2,7 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/sargent_surico.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 7.2 / 10
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 6.5/10 | `qe-writing-005` ×3; `qe-writing-002` ×3; `qe-writing-008` ×2, +1 more. |
 | Math         | 5.5/10 | `qe-math-002` ×13. |
-| Code         | 4.5/10 | `qe-code-002` ×87; `qe-code-001` ×6; `qe-code-004` ×8, +1 more. |
+| Code         | 4.5/10 | `qe-code-002` ×143; `qe-code-001` ×6; `qe-code-004` ×8, +1 more. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 4/10  | `qe-fig-003` ×16; `qe-fig-005` ×6; `qe-fig-001` ×12, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -28,7 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 6. *Lines:* 87, 88, 112, 625, 967, 1702. *Example:* 87 is `warnings.filterwarnings('ignore')` at module scope, which silences everything for the remaining 2000 lines - and this lecture leans harder on numerical warnings than most: `ordqz` (636), `solve_discrete_lyapunov`, `svd` (647, 660), two `optimize.minimize` calls (1702-1705, and the earlier mode search), a hand-written Kalman filter, and NUTS. Its own headline finding is that sampler diagnostics led to a second and better posterior mode (1897-1899), so globally suppressing the other diagnostic channel is at odds with the lecture's method. 1702-1706 compounds it: the bimodality claim rests on a Powell run followed by an L-BFGS-B run whose `res_a.success` is never inspected, and the printed comparison at 1708-1713 reports the log posteriors as if both had converged. 88-90 sets `figure.figsize`, `axes.grid` and `grid.alpha` in `plt.rcParams`, so all sixteen figures are 10x6 whether or not that suits them (this is what the three `qe-fig-001` "style override" hits at 88-90 are). 112-120 implements a filter that is not the one displayed at 98-100: the equation truncates at $\pm n$ with the explicit normalizing constant $a$, while `lucas_filter` weights every observation and renormalizes, so $a$ and $n$ appear in the lecture's first equation and are used by nothing - and the loop rebuilds a length-$T$ weight vector $T$ times where one Toeplitz construction would do. 625 and 695 give one matrix two names in adjacent cells - `gensys(g0, g1, psi, pi, ...)` takes it as `pi` while `toy_nk` returns it as `pie`, presumably to dodge `np.pi`. And exponentiation is written `s ** 2` at all seven sites (967, 972, 976 and four more) where the rule asks for `a**b`; 660 uses `SMALL * n` as a tolerance three lines after using bare `SMALL` at 648, with no note on why the two differ.
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 87. *Lines:* 112, 118, 323, 324, 330, 331, 368, 374, 375, 383, …. *Example:* spelled-out `beta`.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 143. *Lines:* 112, 118, 321, 323, 324, 330, 331, 333, 368, 374, …. *Example:* spelled-out `beta`.
 - **[qe-code-004]** — Use quantecon Timer context manager. *Count:* 8. *Lines:* 1086, 1088, 1548, 1552, 1554, 1557, 1627, 1630. *Example:* time.time(.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 12. *Lines:* 88, 89, 90, 258, 290, 418, 1096, 1135, 1178, 1731, …. *Example:* style override.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 16. *Lines:* 265, 267, 300, 303, 426, 428, 1102, 1103, 1140, 1143, …. *Example:* .set_title.

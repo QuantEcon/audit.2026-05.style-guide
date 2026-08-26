@@ -2,21 +2,21 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/stats_examples.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 6.8 / 10
+- **Overall score:** 6.9 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 3/10  | `qe-writing-006` ×5; `qe-writing-003` ×6; `qe-writing-005` ×3, +3 more. |
+| Writing      | 3/10  | `qe-writing-006` ×4; `qe-writing-003` ×6; `qe-writing-005` ×3, +3 more. |
 | Math         | 4.5/10 | `qe-math-010` (proposed) ×12; `qe-math-014` (proposed) ×7; `qe-math-009` ×4. |
 | Code         | 7/10  | `qe-code-001` ×6; `qe-code-003` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6.5/10 | `qe-fig-005` ×5; `qe-fig-003` ×1; `qe-fig-008` ×1. |
+| Figures      | 7/10  | `qe-fig-005` ×5; `qe-fig-003` ×1. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -32,7 +32,7 @@ _None found._
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 12. *Lines:* 61, 110, 153, 343, 346, 385, 393, 394, 395, 470, …. *Example:* non-blackboard `\textrm{Prob}`.
 - **[qe-math-014 (proposed)]** *(reviewer)* — Braces \{…\} for events, parentheses (…) for sets. *Count:* 7. *Lines:* 61, 110, 287, 291, 470, 471, 479. *Example:* the lecture writes events both ways in roughly equal measure. With braces, as the convention asks: $\textrm{Prob}\{X=d\}$ (153), $\textrm{Prob}\{\tilde{X}=i\}$ (343), $\textrm{Prob}\{X=i\}$ (346), $\textrm{Prob}\{X\le x\}$ (385) and $\textrm{Prob}\left\{X\leq x\right\}$ three times in the derivation at 393-395. With parentheses, for events of exactly the same kind: $\textrm{Prob}(X=k)$ (61), $\textrm{Prob}(X=k;r,p)$ (110), $\textrm{Prob}(X=i)$ (470, 471), $\textrm{Prob}(X\le i)$ (479), and the bare $P(X=0)$ and $P(300\le X \le 400)$ at 287 and 291. The two styles appear within a single derivation: 385 uses braces for $\textrm{Prob}\{X \le x\}$ and 479 uses parentheses for $\textrm{Prob}(X \le i)$. Nothing in the file is a named set, so every one of these arguments is a logical condition and every one should be braced.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 6. *Lines:* 64, 121, 417, 428, 500, 528. *Example:* the displayed algebra and the code disagree repeatedly, and where they disagree the code is right. 121-122 gives the negative binomial moments as $\mathbb{E}(X) = k(1-p)/p$ and $\mathbb{V}(X) = k(1-p)/p^2$, using $k$ - which is the realised number of failures, the argument of the mass function two lines above at 110 - where $r$ is meant; the code at 138-139 correctly computes `r*(1-p)/p` and `r*(1-p)/p**2`. 417 writes the exponential CDF as $F(x)=\int_{0}^{\infty}\lambda e^{-\lambda x}=1-e^{-\lambda x}$: the upper limit must be $x$ (with $\infty$ the integral is 1, contradicting the stated answer) and the $dx$ is missing. 428-431 derives the inverse transform with two errors - 429 reads $-U = e^{-\lambda X}$, dropping the 1 from $1-U$, and 431 concludes $X = (1-U)/(-\lambda)$ with the logarithm dropped - while 430 in between and 435 after both have it right, as does the code at 449. 479 sums $\lambda^i$ over $j = 0, \ldots, i$ where the summand is $\lambda^j$. 500 inverts its own relation: "However, $\tilde{U}=F^{-1}(X)$ may not be an integer for any $x\geq0$" - it is $X = F^{-1}(\tilde U)$, and it is $X$, not $\tilde U$, that need not be an integer. 64 says $k$ is "the number of trials before the first success" where the mass function $(1-p)^{k-1}p$ on $k = 1, 2, \ldots$ counts trials *including* the success. And 528 compares the wrong two samples: `x` from 525 has support $\{0, 1, \ldots\}$, matching the parameterisation at 470, while `rng.geometric(1-λ, n)` returns $\{1, 2, \ldots\}$, so the two histograms the section exists to compare are offset by exactly one and the verification promised at 512 does not hold.
-- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 5. *Lines:* 45, 143, 238, 275, 338. *Example:* H2 Title Case: 'Some Discrete Probability Distributions' (Discrete, Probability, Distributions).
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 4. *Lines:* 45, 238, 275, 338. *Example:* H2 Title Case: 'Some Discrete Probability Distributions' (Discrete, Probability, Distributions).
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 29. *Lines:* 48, 53, 58, 74, 114, 145, 275, 277, 280, 284, …. *Example:* 3 spaces.
 
 ### Medium severity
@@ -44,7 +44,7 @@ _None found._
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 3. *Lines:* 191, 275, 455. *Example:* the two places where the lecture says "# plot and compare" cannot compare anything: 454-461 and 530-545 each draw the transformed sample and the library sample as separate histograms in separate cells with separate `plt.show()` calls, so they land as two figures with independently chosen axis limits - and the `alpha=0.6` on the second of each pair (460, 544) only makes sense for overlaid series, which is evidently what was intended. Two `hist` calls in one cell would settle both verifications, and would also have exposed the off-by-one between `x` and `x_g` at 525-528. Second, the mixed discrete-continuous distribution (275-335) is the most interesting object in the lecture - a point mass of 0.95 at zero plus a uniform slab of total mass 0.05 on $[300,400]$ - and it has no figure at all, even though `x` is already simulated at 301-304 and a single histogram would show the atom and the slab together and make the variance of 332 (dominated by the $0.95 \times 17.5^2$ term) intuitive. Third, the Benford figure at 191-195 plots nine probabilities as unconnected markers via `plt.plot(range(1,10), Benford_pmf, 'o')` with a title and no axis labels; a bar chart is the natural form for a mass function, and the claim the section opens with - that in real data "the leading digit is more likely to be small than large" (145-146) - is never plotted against any data.
 
 ### Low severity
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 193. *Example:* plot() without lw=.
+_None found._
 
 
 ## Strengths

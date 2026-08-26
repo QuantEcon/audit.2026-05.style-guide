@@ -2,7 +2,7 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/chow_business_cycles.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 8.1 / 10
@@ -16,7 +16,7 @@
 | Math         | 6.5/10 | `qe-math-010` (proposed) ×5. |
 | Code         | 8.5/10 | `qe-code-001` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6/10  | `qe-fig-005` ×14; `qe-fig-001` ×11; `qe-fig-008` ×1. |
+| Figures      | 6.5/10 | `qe-fig-005` ×14; `qe-fig-001` ×11. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -39,7 +39,6 @@ _None found._
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 2. *Lines:* 302, 446. *Example:* the lecture's pivot is Frisch's claim that damped oscillations are "maintained" by a stream of shocks (302-306, quoted at length at 350-356), and it is never shown: the deterministic impulse responses are plotted at 234-244 and 257-296, and the shocked counterpart of the same Samuelson system - the one thing that would make Frisch's point visible - is never simulated. Line 446 likewise states that complex roots "generate damped oscillatory autocovariance functions" in the stochastic model and no autocovariance function is ever plotted anywhere in 1652 lines. Both figures are one call away: `simulate_var1` (81-92) and `sample_autocorrelation` (94-102) are defined in the helper cell and never used.
 
 ### Low severity
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 1475. *Example:* plot() without lw=.
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 1. *Lines:* 1273. *Example:* line 1273 introduces the *scalar kernel* in italic - "Each eigenvalue contributes a characteristic spectral shape through the *scalar kernel*" - which is a definition and the rule's case for bold; line 546 uses the same term unstyled ("the scalar kernel $g_i(\omega) = \ldots$"), so the one term the lecture returns to twice is the one it never bolds, against eight other terms that are correctly bolded at their definitions (**acceleration effect** 180, **damped cosine** 434, **spectral density matrix** 454, **cross-spectrum** 1125, **cross-amplitude** 1127, **squared coherence** 1129, **gain** 1141, **phase** 1153).
 
 

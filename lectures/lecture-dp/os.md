@@ -2,7 +2,7 @@
 
 - **Series:** lecture-dp
 - **File:** `lectures/os.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 8.9 / 10
@@ -12,7 +12,7 @@
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 6/10  | `qe-writing-001` ×2; `qe-writing-004` ×1; `qe-writing-005` ×1, +2 more. |
+| Writing      | 6/10  | `qe-writing-001` ×3; `qe-writing-004` ×1; `qe-writing-005` ×1, +2 more. |
 | Math         | 9/10  | `qe-math-009` ×7. |
 | Code         | 9/10  | `qe-code-001` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
@@ -32,7 +32,7 @@ _None found._
 ### Medium severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 245, 305. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 4. *Lines:* 251, 307, 308, 309. *Example:* plot() without lw=.
-- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 456, 652. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 3. *Lines:* 402, 456, 652. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 501. *Example:* mid-sentence 'Theorem'.
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 2. *Lines:* 115, 411. *Example:* the two things in this lecture a reader is most likely to need a picture of are the two with no picture. '### Trade-off' (115-125) argues from the concavity of $u$ to consumption smoothing in prose alone, and the perturbation at 411-417 - 'reduces consumption at time $t$ to $c^*_t - h$ and increases it in the next period to $c^*_{t+1} + h$', with everything else held fixed - is a two-bar sketch that would make $U'(c^*) = 0$ concrete before four displays of algebra (421-447). The lecture's only two figures (245, 305) both come from the closed-form solution, so the entire Euler-equation half of the file (317-513) is unillustrated.
 

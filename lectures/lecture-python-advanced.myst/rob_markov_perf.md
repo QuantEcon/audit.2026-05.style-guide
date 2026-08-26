@@ -2,7 +2,7 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/rob_markov_perf.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
 - **Overall score:** 6.4 / 10
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 3.5/10 | `qe-writing-005` ×6; `qe-writing-003` ×6; `qe-writing-002` ×5, +3 more. |
 | Math         | 4/10  | `qe-math-002` ×46; `qe-math-003` ×1. |
-| Code         | 6.5/10 | `qe-code-001` ×8; `qe-code-002` ×4. |
+| Code         | 6.5/10 | `qe-code-001` ×8; `qe-code-002` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8/10  | `qe-fig-005` ×3; `qe-fig-001` ×3. |
 | References   | 9/10  | `qe-ref-001` ×1. |
@@ -36,7 +36,7 @@ _None found._
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 55. *Lines:* 37, 39, 47, 61, 62, 65, 66, 69, 71, 77, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 4. *Lines:* 470, 736, 741, 797. *Example:* spelled-out `beta`.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 3. *Lines:* 470, 741, 797. *Example:* spelled-out `beta`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 858, 884, 949. *Example:* figsize=.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 857, 883, 947. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 1. *Lines:* 779. *Example:* pmatrix environment.

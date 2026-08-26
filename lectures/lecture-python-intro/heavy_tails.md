@@ -2,7 +2,7 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/heavy_tails.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 7.4 / 10
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 6/10  | `qe-writing-001` ×4; `qe-writing-005` ×2; `qe-writing-003` ×1, +1 more. |
 | Math         | 5.5/10 | `qe-math-010` (proposed) ×23. |
-| Code         | 6.5/10 | `qe-code-001` ×7; `qe-code-002` ×4. |
+| Code         | 6/10  | `qe-code-002` ×5; `qe-code-001` ×7. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5/10  | `qe-fig-003` ×4; `qe-fig-005` ×4; `qe-fig-004` ×3, +2 more. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -28,13 +28,13 @@ _None found._
 
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 7. *Lines:* 551, 552, 571, 572, 679, 760, 765. *Example:* PEP8 spacing/naming slips in otherwise clean code: a space after the unary minus in `np.exp(- alpha * x)` and `x**(- alpha)` (551-552, 571-572), whitespace before the closing paren from a dangling comma in `sm.qqplot(data, line='45', ax=ax, )` (679), a lambda bound to a name instead of a `def` in `pdf = lambda x: np.interp(...)` (760), and a missing space after the operator in `y_vals[i] = 1- j` (765).
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 5. *Lines:* 551, 552, 571, 572, 1226. *Example:* spelled-out `alpha`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 8. *Lines:* 354, 627, 675, 829, 857, 886, 934, 1224. *Example:* figsize=.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 13. *Lines:* 95, 123, 205, 237, 363, 370, 417, 474, 551, 552, …. *Example:* plot() without lw=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 5. *Lines:* 95, 551, 552, 779, 1000. *Example:* plot() without lw=.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 23. *Lines:* 431, 491, 528, 529, 530, 694, 702, 958, 964, 967, …. *Example:* missing braces: `\mathbb P`.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 6. *Lines:* 161, 1021, 1036, 1037, 1293. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 4. *Lines:* 551, 552, 571, 572. *Example:* spelled-out `alpha`.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 4. *Lines:* 365, 372, 680, 789. *Example:* .set_title.
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 3. *Lines:* 193, 225, 871. *Example:* Title Case caption (Amazon).
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 665, 673, 1216, 1374. *Example:* code-cell figure without mystnb figure metadata.

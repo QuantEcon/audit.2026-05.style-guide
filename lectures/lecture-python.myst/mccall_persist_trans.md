@@ -2,10 +2,10 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/mccall_persist_trans.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.4 / 10
+- **Overall score:** 8.2 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 6.5/10 | `qe-writing-003` ×2; `qe-writing-002` ×2; `qe-writing-007` ×2. |
 | Math         | 6/10  | `qe-math-010` (proposed) ×5; `qe-math-009` ×3. |
-| Code         | 8.5/10 | `qe-code-001` ×4. |
+| Code         | 7/10  | `qe-code-002` ×3; `qe-code-001` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8/10  | `qe-fig-005` ×4; `qe-fig-008` ×4. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -31,6 +31,7 @@ _None found._
 
 ### Medium severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 4. *Lines:* 360, 271, 185, 318. *Example:* `draw_duration` computes the unemployment duration twice and returns the wrong one. 360 binds `τ = jnp.where(accept, t, t_max)` and never reads it; the function instead returns `jnp.where(unemployed_final, t_max, t_final)` at 376, where `t_final` is the post-increment `t + 1` produced by the accepting iteration (`t_new = t + 1` at 365, returned at 368). So a worker who accepts the very first offer is recorded as unemployed for 1 period rather than 0, and every number behind the two duration figures (418, 457) carries that offset. The discarded `τ` is precisely the expression that would have given 0, so the dead line documents the intended semantics and the live one contradicts it - one of the two has to go. Second, `compute_fixed_point` unpacks three values from `jax.lax.while_loop` at 271-273 and uses one: `iterations` and `final_error` are dropped, so the `qe.Timer()` block at 283 reports how long the solve took while the iteration count it computed is thrown away. Third, eleven lines carry trailing whitespace (185, 191, 194, 238, 250, 255, 259, 265, 269, 274, 318). Fourth, the continuation at 319 is indented twelve spaces past the `ax.plot(` it continues (E127) and 195 falls one space short of aligning with the open parenthesis on 194; `i` is bound and never used in both loops (407, 448); and 448 rebinds the module-level `β` as a loop variable.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 3. *Lines:* 446, 448, 457. *Example:* spelled-out `beta`.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 289, 309, 416, 455. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 4. *Lines:* 293, 318, 418, 457. *Example:* plot() without lw=.
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 3. *Lines:* 80, 185, 97. *Example:* 80 uses a distributional symbol for a deterministic identity: $Y_t \sim \exp(\mu + s \zeta_t)$, where the right-hand side is a function of the standard normal $\zeta_t$ rather than the name of a distribution. The code writes the same relation as an equality, `y_next = jnp.exp(μ + s * e2)` (234), and the neighbouring half of the same display uses `=` for the AR(1). The two correct forms are $Y_t = \exp(\mu + s\zeta_t)$ or $\log Y_t \sim N(\mu, s^2)$; as written it reads as though $\exp$ were a distribution family. Second, the same quantity is mislabelled in the `Model` definition: 185's comment calls `s` the "transient shock log variance" when 80 makes it the log *standard deviation* - the log variance is $s^2$ - and the default `s=1.0` makes the two numerically identical, which is why the error survives; 184-185 also say "transient" where the prose says "transitory" throughout (41, 47, 49, 54, 87). Third, the model is stated in $(W_t, Y_t, Z_t)$ at 74-87 and solved in $(w, z, w', z')$ from 97 onward with no sentence bridging the two, so $w$ makes its first appearance inside $v^*(w, z)$ having never been introduced.

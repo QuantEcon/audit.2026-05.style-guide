@@ -2,17 +2,17 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/mobility.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.7 / 10
-- **Priority:** HIGH
+- **Overall score:** 7.8 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 4/10  | `qe-writing-004` ×2; `qe-writing-005` ×3; `qe-writing-003` ×3, +3 more. |
+| Writing      | 4.5/10 | `qe-writing-004` ×2; `qe-writing-005` ×3; `qe-writing-003` ×3, +2 more. |
 | Math         | 7/10  | `qe-math-010` (proposed) ×4; `qe-math-009` ×2. |
 | Code         | 8.5/10 | `qe-code-001` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
@@ -29,7 +29,6 @@ _None found._
 ### High severity
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 4. *Lines:* 92, 899, 904, 905. *Example:* missing braces: `\mathbb P`.
 - **[qe-ref-001]** — Use correct citation style. *Count:* 19. *Lines:* 248, 286, 298, 360, 504, 590, 597, 771, 804, 984, …. *Example:* `` {cite} `` in narrative flow: 'of `` {cite} ``'.
-- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 1. *Lines:* 246. *Example:* H3 Title Case: 'The Shorrocks index' (Shorrocks).
 
 ### Medium severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 4. *Lines:* 515, 516, 729, 788. *Example:* the code is otherwise clean - no line over 79 characters, no trailing whitespace anywhere in the file, and Unicode Greek used exactly as intended (`ψ_star`, `λ`, `α`, `β`, `Δ_B`, `Δ_T`). Four items remain. 515 and 523 use single-quoted one-line docstrings (`"Return the four mobility measures for stochastic matrix M."`) where PEP 257 asks for triple quotes even on one-liners - and the file's other three docstrings (442-448, 1145 region) are correctly triple-quoted, so it disagrees with itself. 516-519 and 788-791 pad after the dict colon to align the values (`'μ_S':   shorrocks(M),`), which is the "more than one space around an operator to align it with another" that PEP8 lists under Pet Peeves. And 729-734 and 736-741 indent the continuation to a flat 28 spaces under `long_horizon['1989-2009'] = normalize_rows(`, whose opening delimiter sits at column 42 - neither a visual indent nor a 4-space hanging one.

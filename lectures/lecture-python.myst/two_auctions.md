@@ -2,10 +2,10 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/two_auctions.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 6.2 / 10
+- **Overall score:** 6.0 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-005` ×5; `qe-writing-003` ×6; `qe-writing-002` ×5, +4 more. |
 | Math         | 4.5/10 | `qe-math-004` ×22; `qe-math-012` (proposed) ×3; `qe-math-014` (proposed) ×9, +1 more. |
-| Code         | 7.5/10 | `qe-code-001` ×6. |
+| Code         | 6.5/10 | `qe-code-001` ×6; `qe-code-002` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 3/10  | `qe-fig-006` ×16; `qe-fig-007` ×7; `qe-fig-005` ×6, +3 more. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -32,7 +32,7 @@ _None found._
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 6. *Lines:* 255, 315, 429, 455, 488, 525. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 16. *Lines:* 270, 271, 327, 328, 443, 444, 460, 499, 500, 538, …. *Example:* axis label `Valuation, $v_i$`.
 - **[qe-fig-007]** — Keep figure box and spines. *Count:* 7. *Lines:* 272, 329, 446, 501, 540, 623, 660. *Example:* spine removal.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 9. *Lines:* 264, 265, 266, 439, 440, 494, 495, 616, 617. *Example:* plot() without lw=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 6. *Lines:* 264, 265, 439, 440, 495, 617. *Example:* plot() without lw=.
 - **[qe-math-004]** — Do not use bold face for matrices or vectors. *Count:* 22. *Lines:* 101, 165, 166, 177, 292, 303, 304, 305, 306, 356, …. *Example:* \mathbf.
 - **[qe-math-014 (proposed)]** *(reviewer)* — Braces \{…\} for events, parentheses (…) for sets. *Count:* 9. *Lines:* 165, 166, 303, 356. *Example:* every probability in the lecture takes an event as its argument and every one of them is written with parentheses. 165 has $\mathbf{P}(y_i \leq y)$ and $\mathbf{P}(\max_{j\neq i} v_j \leq y)$, 166 has $\prod_{j\neq i}\mathbf{P}(v_j \leq y)$, 303 has $\mathbf{P}(y_i < v_i)$ and $\mathbf{P}(y_i > v_i)$, and 356 has four more, $\mathbf{P}(y_i < v_i)$ and $\mathbf{P}(y_i \ge v_i)$ twice each. All nine are logical conditions on random variables, which is exactly the case proposed qe-math-014 (proposed) assigns to braces - and there is no named set anywhere in the file, so nothing here should be parenthesised. Written $\mathbb{P}\{y_i \leq y\}$ they would also pick up the blackboard operator the same lines need for qe-math-010 (proposed).
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 5. *Lines:* 73, 79, 116, 145, 253. *Example:* 73-81 is a seven-item list under "Evidently," whose first and third items state the same fact from opposite sides, and whose fifth item carries a nested sub-bullet. Item 79 also misnames the central object: "buyer $i$ wants to know the probability that she wins the auction as a function of her bid $v_i$" - $v_i$ is her valuation, not her bid, and the whole lecture turns on the two being different. 116-129 and 184-186 say the SPSB result three times in three places ("In a SPSB auction bidders optimally choose to bid their values" / "Formally, a dominant strategy profile ... has each bidder bidding its value" / "In a **SPSB**, it is optimal for bidder $i$ to bid $v_i$"), and 92 duplicates bullet 76 in the same way for FPSB. 253 is a 44-word bullet. Four typos: "Wikepedia" (145), "Equibrium" (345), "biders" (389), and 297 mixes prose and math mode in "The expected revenue equals n $\times$ expected payment of a bidder".
@@ -42,6 +42,7 @@ _None found._
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 64. *Lines:* 23, 47, 51, 58, 61, 68, 80, 86, 88, 90, …. *Example:* 2 spaces.
 
 ### Medium severity
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 4. *Lines:* 669, 673, 677, 681. *Example:* spelled-out `chi`.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 445. *Example:* .set_title.
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 3. *Lines:* 137, 179, 292. *Example:* 292 and 303 give the same quantity two names in adjacent displays: $\mathbf{R}$ is "expected revenue" for FPSB and $\mathbf{TR}$ is the SPSB total, both evaluating to $\frac{n-1}{n+1}$, which is the section's whole point - one symbol would make the equality visible instead of requiring the reader to match two. The subscripted expectation operators at 303-306 put the subscript inside the command, $\mathbf{E_{v_i}}$ and $\mathbf{E_{y_i}}$, so the conditioning variable is bolded along with the operator. 179 writes the evaluation bar as `\bigg{|}` with braces around it rather than `\bigg|`, and applies it to $\frac{n-1}{n}y_i$ after the ratio on the previous line has already cancelled the integrals, so the bar has nothing left to evaluate. And 137 writes the IID marker as `\stackrel{\text{i.i.d.}}{\sim}` where `\overset{\text{IID}}{\sim}` is both the simpler command and the corpus spelling.
 - **[qe-math-012 (proposed)]** — Multiplication via \cdot or juxtaposition, never *. *Count:* 3. *Lines:* 285, 356. *Example:* * as multiplication.

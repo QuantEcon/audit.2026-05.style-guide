@@ -2,10 +2,10 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/information_market_equilibrium.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.7 / 10
+- **Overall score:** 7.9 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 4/10  | `qe-writing-005` ×5; `qe-writing-009` (proposed) ×2; `qe-writing-003` ×2, +4 more. |
-| Math         | 4/10  | `qe-math-010` (proposed) ×7; `qe-math-002` ×4; `qe-math-009` ×3. |
+| Math         | 5.5/10 | `qe-math-002` ×4; `qe-math-010` (proposed) ×1; `qe-math-009` ×3. |
 | Code         | 8.5/10 | `qe-code-001` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7.5/10 | `qe-fig-005` ×3; `qe-fig-001` ×9. |
@@ -29,7 +29,7 @@ _None found._
 ### High severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 9. *Lines:* 595, 707, 1020, 1080, 1173, 1287, 1396, 1502, 1523. *Example:* figsize=.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 4. *Lines:* 59, 61, 234, 245. *Example:* apostrophe transpose `}'`.
-- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 7. *Lines:* 286, 373, 425, 472, 475, 1567. *Example:* non-blackboard `\mathcal{P}`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 1. *Lines:* 1567. *Example:* bare expectation `E_h[`.
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 5. *Lines:* 34, 181, 234, 236, 1199. *Example:* the lecture's bold-for-definition usage is mostly right (**competitive equilibrium** 166, **posterior** 189, **elasticity of substitution** 360, **structural parameter vector** 753, **reduced form** 796, **CARA** 1212), which makes the exceptions conspicuous: 34, 181, 236 and 1199 use bold for pure emphasis - "the **informational role of prices**", "Suppose **agent 1** (the insider)", "**independent of** $\bar{a}$", "the observer's **price expectations** converge" - and 234 does the reverse, italicising the term the `prf:definition` exists to define ("A random variable $\tilde{y}$ is *sufficient* for $\tilde{y}'$") six lines after the same word was bolded at 229.
 
 ### Medium severity

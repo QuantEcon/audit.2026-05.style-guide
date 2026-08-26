@@ -2,17 +2,17 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/genetic_classifier.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.7 / 10
+- **Overall score:** 8.8 / 10
 - **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 5.5/10 | `qe-writing-005` ×4; `qe-writing-002` ×3; `qe-writing-006` ×1, +2 more. |
+| Writing      | 6/10  | `qe-writing-005` ×4; `qe-writing-002` ×3; `qe-writing-003` ×1, +1 more. |
 | Math         | 10/10 | no mechanical violations detected. |
 | Code         | 8.5/10 | `qe-code-001` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
@@ -27,7 +27,7 @@
 _None found._
 
 ### High severity
-- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 1. *Lines:* 178. *Example:* H2 Title Case: 'Associative memory: the Hopfield network' (Hopfield).
+_None found._
 
 ### Medium severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 3. *Lines:* 111, 359, 402. *Example:* line 111 pads the assignment operator to align with the line above (`players    = ...`) and pads inside the mean vector (E221, E241); lines 359-361 put the return statement on the same line as the `if` (E701) with padding after the colon; and lines 402-406 define the five panel strategies as one-line `def ... : return ...` bodies (E704), again column-aligned. All three read as deliberate tables, but PEP8 rules out the construct rather than the spacing.

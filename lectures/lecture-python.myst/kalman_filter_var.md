@@ -2,10 +2,10 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/kalman_filter_var.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.0 / 10
+- **Overall score:** 7.9 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 5.5/10 | `qe-writing-005` ×3; `qe-writing-003` ×2; `qe-writing-002` ×4, +1 more. |
 | Math         | 7.5/10 | `qe-math-003` ×3; `qe-math-009` ×3. |
-| Code         | 6.5/10 | `qe-code-001` ×5; `qe-code-002` ×3. |
+| Code         | 5.5/10 | `qe-code-002` ×11; `qe-code-001` ×5. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6.5/10 | `qe-fig-003` ×3; `qe-fig-005` ×2; `qe-fig-001` ×2. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -28,9 +28,9 @@ _None found._
 
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 5. *Lines:* 656, 709, 828, 996, 1104. *Example:* continuation-line indentation is inconsistent from cell to cell: 656 indents two spaces under the opening bracket, 709-713 indent eight where visual alignment would be thirteen (PEP8 E128), while 717-718 and 724-725 in the same cell do align, and 996-998 and 1084-1085 over-indent past the opening paren (E127); 828 binds `sign, logdet = np.linalg.slogdet(Omega)` and never uses `sign` (F841); 1104 has three spaces after a comma inside `ax.axvline(ρ_true, color='k',   ls='--', ...)` (E241). Separately, the same four matrices are disambiguated three different ways across cells - `H_`, `lss_`, `kf_`, `T_`, `m_` at 812-819, `A_`, `C_`, `G_`, `R_` at 938-941, `A_t`, `C_t`, `G_t`, `R_t` at 1078-1082 - and 1105 and 1108 escape LaTeX inside plain f-strings where the rest of the file uses `r''` and `rf''`.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 11. *Lines:* 682, 687, 717, 761, 812, 815, 817, 825, 828, 830, …. *Example:* spelled-out `Sigma`.
 
 ### Medium severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 3. *Lines:* 825, 828, 830. *Example:* spelled-out `Omega`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 705, 1010. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 3. *Lines:* 714, 721, 726. *Example:* .set_title.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 987, 1074. *Example:* code-cell figure without mystnb figure metadata.

@@ -2,21 +2,21 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/schelling.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 9.4 / 10
+- **Overall score:** 8.6 / 10
 - **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8/10  | `qe-writing-006` ×1; `qe-writing-008` ×1. |
+| Writing      | 5/10  | `qe-writing-005` ×4; `qe-writing-003` ×4; `qe-writing-002` ×4, +3 more. |
 | Math         | 10/10 | no mechanical violations detected. |
-| Code         | 10/10 | no mechanical violations detected. |
+| Code         | 7/10  | `qe-code-001` ×13. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 8.5/10 | `qe-fig-003` ×1; `qe-fig-008` ×3. |
+| Figures      | 9/10  | `qe-fig-003` ×1. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 9/10  | `qe-link-002` ×1. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -27,12 +27,16 @@
 _None found._
 
 ### High severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 13. *Lines:* 176, 190, 247, 310, 379, 421, 464. *Example:* 176 names a parameter `type`, shadowing the builtin, and the attribute `self.type` then propagates it through `happy` (214) and `plot_distribution` (237); the exercise version gets this right with `agent_type` (425). 190-192 over-indent the three continuation lines of `def happy(self,` relative to the opening delimiter, and 247 and 249 under-indent the continuations of the two `ax.plot` calls. 310 leaves a blank line at the end of the `run_simulation` cell. Seven top-level defs in the exercise cell are separated by a single blank line (379, 389, 396, 406, 413, 421, 438) while one pair (382-384) has two, so the file is inconsistent with itself. Three further readability items: `plot_distribution` is redefined at 421 with an incompatible signature, shadowing the version at 230, and carries the older version's docstring ("after cycle_num rounds of the loop") although its parameter is now `title`; its `savepdf=False` argument is never used; and `cycle = current_iter / n` at 464 is computed and discarded. `for i in range(num_of_type_0)` at 281 and 283 binds a loop variable that is never read.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 1. *Lines:* 79. *Example:* H3 Title Case: 'Set-Up' (Set-Up).
 
 ### Medium severity
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 250. *Example:* .set_title.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 246, 248, 427. *Example:* plot() without lw=.
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 1. *Lines:* 154. *Example:* raw link to python-programming.quantecon.org.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 4. *Lines:* 56, 60, 81, 327. *Example:* the central result is stated four times in the Outline and three more times after the simulation. 47-48 ("mixed race neighborhoods are likely to be unstable, tending to collapse over time"), 50-51 ("the model predicts strongly divided neighborhoods, with high levels of segregation") and 53-54 ("extreme segregation outcomes arise even though people's preferences are not particularly extreme") are three formulations of one claim in eight lines; 327-331 then repeats it three more times ("how rapidly racial integration breaks down" / "people in the model don't actually mind living mixed with the other type" / "Even with these preferences, the outcome is a high degree of segregation"). 60 ("These ideas will become clearer as the lecture unfolds") carries nothing. 56-58 says "in the model" twice in one sentence. And 81-83 restates the heading at 75 and the sentence at 77 in a 26-word chain of three coordinated clauses ("different from the original but also easy to program and, at the same time, captures his main idea").
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 4. *Lines:* 247, 250, 370, 476. *Example:* 370 is a placeholder that reached publication: the `{solution-start}` block for schelling_ex1 opens with the single line `solution here` before the code cell. Second, the model is described entirely in colours and the figures are labelled entirely in integers. 85 sets up "two types of people: orange people and green people", 226-227 says "Orange agents are represented by orange dots and green ones are represented by green dots", and the legend then reads `Type 0` and `Type 1` (247, 249, and again at 433 in the exercise), so the reader must map the words onto the picture unaided. Third, the figure title and the printed message disagree by one: `plot_distribution` titles the plot `f'Cycle {cycle_num-1}'` (250) while `run_simulation` passes the same `count` to `print(f'Converged after {count} iterations.')` (307), so the final figure is captioned one cycle behind the sentence beneath it. Fourth, the exercise's second modification is implemented and then never discussed: 357 asks for the type to flip with probability 0.01, 359-362 motivates it ("every so often, an agent moves to a different city and, with small probability, is replaced by an agent of the other type"), the solution implements it at 455-460 and runs it at 481 - and 476 concludes only that "we again find that mixed neighborhoods break down and segregation emerges", which was already true without the flip. What the perturbation changes (the state can no longer settle permanently, so `count_happy(locations, types) == n` at 466 need never hold and the run ends at the iteration bound) is left for the reader to infer from a printed message the text does not mention.
+- **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 4. *Lines:* 101, 103, 110, 112. *Example:* the two definitions the entire model rests on are set in italic rather than bold: "We will say that an agent is *happy* if 5 or more of her 10 nearest neighbors are of the same type" (101) and "An agent who is not happy is called *unhappy*" (103) - both are definitions on first use, and the lecture's only correctly bolded definition, **unit square** (94), is seven lines above them. 110 introduces a third term in single quotes, "'Nearest' is in terms of [Euclidean distance]", where the lecture uses double quotes for scare quotes elsewhere ("surrounded" at 45, "address" at 91). And 112 uses bold for emphasis - "agents are **not** averse to living in mixed areas" - where italic is wanted; *interactions* at 56 shows the lecture knows the italic form.
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 2. *Lines:* 289, 321. *Example:* the lecture's claims are about a rate and its figures show only endpoints. `run_simulation` plots the distribution once before the loop (289) and once after it (304), and the prose then makes three assertions about the path between them - "after several cycles, they become segregated into distinct regions" (321), "the program terminated after a small number of cycles" (323), and "What is striking about the pictures is how rapidly racial integration breaks down" (327) - with no intermediate figure to support any of them. The exercise version does the right thing, plotting inside the loop every `test_freq` iterations (463-465), so the main text is the weaker of the two presentations of the same model. Second, nothing quantifies segregation at any point. `count_happy` (406-411) exists in the exercise and is used only as a convergence test; a curve of the fraction of happy agents, or of the average share of same-type neighbours, against cycle number would turn "rapidly" into a measurement and would let 327-331 point at something.
 
 ### Low severity
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 1. *Lines:* 91. *Example:* 2 spaces.
@@ -40,16 +44,25 @@ _None found._
 
 ## Strengths
 
-- Math, Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The two `{prf:algorithm}` directives state the mechanics before any code appears - the three-step move rule (134-141) and the four-step main loop (258-267) - and each is followed by the code that implements it, so the reader checks an implementation against a specification rather than reading code for the specification.
+- The model's crucial and counterintuitive feature is stated explicitly and then repeated where it matters: agents "are **not** averse to living in mixed areas" and "are perfectly happy if half of their neighbors are of the other color" (112-114), which is what makes the result at 327-331 surprising rather than mechanical.
+- The class skeleton is given as a plain data-and-methods sketch in a `{code-block} none` (158-169) before the actual class, which is the right way to introduce an object to readers who have just met objects - and 154 links out to the OOP lecture for those who have not.
+- `Agent.happy` (189-215) is commented at exactly the granularity a first-course reader needs - one comment per step, naming what the step produces ("Distances is a list of pairs (d, agent)", "Sort from smallest to largest, according to distance", "Extract the neighboring agents", "Count how many neighbors have the same type as self") - and its three thresholds are keyword arguments with inline explanations rather than magic numbers.
+- `run_simulation` is fully reproducible and says so: `set_seed=1234` is a named argument, `seed(set_seed)` is called with a comment giving the reason (277-278), and the loop carries an explicit `max_iter` bound with a distinct message for each exit path (306-309).
+- The exercise is genuinely instructive rather than decorative: it asks for the same model rewritten in array-based procedural style, states the pedagogical reason ("neat but harder to optimize than procedural code", 341-343), specifies the two data structures, and then adds two behavioural changes so the rewrite is not a transcription.
+- The exercise solution's vectorised distance computation (385-394) replaces the class version's Python loop and list sort with `np.linalg.norm(..., axis=1)` and `np.argsort`, and the two are close enough side by side that the reader can see what vectorisation replaced.
 
 ## Recommended actions
 
-1. `qe-writing-006` — Capitalize lecture titles properly (1 occurrence).
-2. `qe-link-002` — Use doc links for cross-series references (1 occurrence).
-3. `qe-fig-003` — No matplotlib embedded titles (1 occurrence).
-4. `qe-fig-008` — Use lw=2 for line charts (3 occurrences).
-5. `qe-writing-008` — Remove excessive whitespace between words (1 occurrence).
+1. Delete the `solution here` placeholder at 370.
+2. Label the figures in the language the model is described in: 247, 249 and 433 say `Type 0` and `Type 1` where 85 and 226-227 say orange and green.
+3. Plot the intermediate cycles in `run_simulation` as the exercise version already does at 463-465, so that "after several cycles" (321) and "how rapidly racial integration breaks down" (327) have evidence - and add a curve of the happy fraction (`count_happy`, 406-411) against cycle to make "rapidly" a number.
+4. Reconcile the off-by-one at 250 and 307: the final figure is titled `Cycle {count-1}` and the message below it says `Converged after {count} iterations`.
+5. Say in the exercise solution what the type-flipping actually does (476): with `flip_prob = 0.01` the happy-count test at 466 need never succeed, so the run ends at the iteration bound rather than converging - that difference is the reason 357 asked for the change.
+6. Rename the `type` parameter at 176 (and `self.type` throughout) to `agent_type`, as the exercise version does at 425 - it currently shadows a builtin in the lecture's central class.
+7. Move *happy* (101), *unhappy* (103) and 'Nearest' (110) into bold as definitions, and *un*-bold **not** at 112.
+8. Do NOT add `lw=2` to the three drafted qe-fig-008 sites (246, 248, 427): all three are marker-only scatter calls - `ax.plot(x_values_0, y_values_0, 'o', markerfacecolor='orange', ...)` and the exercise equivalent - that draw no line. See the measured note in solow.json's scanner_doubts; this lecture's count goes to zero.
+9. The drafted qe-fig-003 hit at 250 is real but needs care: the title `f'Cycle {cycle_num-1}'` is generated per call, so moving it to a `mystnb` caption means passing the caption in, or splitting the two calls at 289 and 304 into separately captioned cells.
+10. Cut the repetition: 47-54 states the result three ways and 327-331 states it three more; 60 can go entirely; and 81-83 can lose its middle clause.
+11. Tidy the code: the continuation indents at 190-192, 247 and 249, the trailing blank line at 310, the inconsistent blank-line counts between the exercise's seven defs (379, 389, 396, 406, 413, 421, 438), `plot_distribution`'s stale docstring and unused `savepdf` argument (421-422), the dead `cycle` assignment at 464, and the unread loop variables at 281 and 283.
+12. Sweep the mechanical items: the H3 `### Set-Up` at 79 to sentence case, the double space at 91, the raw `python-programming.quantecon.org` URL at 154 to a cross-series `{doc}` link (qe-link-002), and the three bare `+++` markers at 97, 116 and 148.

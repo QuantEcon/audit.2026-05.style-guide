@@ -2,7 +2,7 @@
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/about_py.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `ceec881028`
 - **Categories audited:** writing, code, figures, links  *(JAX out of scope)*
 - **Overall score:** 7.1 / 10

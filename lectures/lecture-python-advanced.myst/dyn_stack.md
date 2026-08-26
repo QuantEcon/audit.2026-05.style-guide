@@ -2,10 +2,10 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/dyn_stack.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 6.6 / 10
+- **Overall score:** 6.8 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,9 +14,9 @@
 |--------------|-------|---------------|
 | Writing      | 3.5/10 | `qe-writing-005` ×12; `qe-writing-003` ×4; `qe-writing-002` ×4, +3 more. |
 | Math         | 4/10  | `qe-math-002` ×25; `qe-math-009` ×6. |
-| Code         | 7/10  | `qe-code-001` ×7; `qe-code-002` ×1. |
+| Code         | 7.5/10 | `qe-code-001` ×7. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 4.5/10 | `qe-fig-003` ×6; `qe-fig-005` ×6; `qe-fig-008` ×13, +1 more. |
+| Figures      | 5/10  | `qe-fig-003` ×6; `qe-fig-005` ×6; `qe-fig-008` ×7, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 7.5/10 | `qe-link-002` ×5. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -30,7 +30,7 @@ _None found._
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 7. *Lines:* 1005, 1058, 1213, 1236, 1255, 1257, 1356. *Example:* 1005 writes `π_matrix = (R + F. T @ Q @ F)` - a space between the attribute dot and `T`, which parses but reads as a typo and is what PEP8's whitespace-before-member rule exists to prevent. Four of the file's "manual checks" are one-sided inequalities where a magnitude is meant: `(P - P_next < tol0).all()` at 1058, `(v_leader_direct - v_expanded < tol0)[0, 0]` at 1066, `yt[:, 0][-1] - (...)[-1] < tol0` at 1172 and `(P  - (...) < tol0).all()` at 1205 (also carrying a double space) all pass whenever the difference is negative, so a comment reading "Manually checks whether P is approximately a fixed point" is checking something weaker than it claims; 1403 does it correctly with `np.abs`, so the pattern is available in the same file. The two iteration cells use `for i in range(1000)` and `for i in range(100)` with `i` unused and a fixed count in place of a convergence test (1213, 1234, 1237), and 1236 resets `P_iter = np.zeros((5, 5))` inside the outer loop so each policy evaluation restarts from zero. 1255 is a bare `F_iter` expression nested inside an `if` block, which Jupyter does not echo, so the success branch of the policy-iteration cell prints nothing at all. 1257-1258 and 1260-1261 put a backslash continuation inside a string literal, so the failure messages carry a run of twelve spaces mid-sentence. And 1356-1357 name the MPE quantities against the state vector: 1292 defines $z_t = [1, q_{2t}, q_{1t}]'$, so `q1 = z[1, :]` is firm 2's output and `q2 = z[2, :]` is firm 1's - the reverse of the convention `q_leader = yt[1, :-1]`, `q_follower = yt[2, :-1]` used at 1022-1023 - and 1380-1381 then pair `π_1 = p * q1 - γ * u1**2` with `u1 = -F1 @ z`, mixing one firm's control with the other's quantity; the error is invisible only because the MPE is symmetric, which the cell at 1372 goes on to verify.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 6. *Lines:* 1031, 1101, 1106, 1110, 1364, 1429. *Example:* .set_title.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 6. *Lines:* 1021, 1094, 1151, 1264, 1355, 1417. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 13. *Lines:* 1097, 1099, 1104, 1105, 1108, 1109, 1155, 1156, 1276, 1277, …. *Example:* plot() without lw=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 7. *Lines:* 1155, 1156, 1276, 1277, 1426, 1427, 1428. *Example:* plot() without lw=.
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 5. *Lines:* 42, 324, 519, 814, 1411. *Example:* raw link to python.quantecon.org.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 25. *Lines:* 355, 513, 516, 523, 529, 658, 669, 714, 887, 1073. *Example:* apostrophe transpose `y'`.
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 6. *Lines:* 516, 750, 887, 900, 906, 591. *Example:* 516 writes the maximum as `{\rm max}_{u, y^*}` where `\max` is the standard operator and is used correctly at 473, 479 and 502 in the same section. The multiplier matrices flip index order between their definition and their use: 750 writes $\check x_t = \sum_{j=1}^t H_j^t \check z_{t-j}$ and 756-760 define $H^t_1, H^t_2, \ldots, H^t_t$, so the same object appears as both $H_j^t$ and $H^t_j$ in adjacent displays. The accent on $X$ is applied inconsistently in the follower's problem: 887 writes $\tilde X_t' \tilde R x_t$ where the display's own right side is a quadratic form in the five-vector (so the second factor should be $\tilde X_t$), and puts $- x_t^2 \tilde Q$ on the left against $- \gamma x_t^2$ on the right, giving two names for one scalar; 900 has $x_t = -\tilde F X_t$ and 920 $x_0 = -\tilde F \tilde X_0$; 906 has $\tilde X_{t+1} = (\tilde A - \tilde B \tilde F) X_t$, accented on the left and not on the right. And 591 introduces a third sequence notation, $\vec q_{2,1} = \{q_{2t+1}\}_{t=0}^\infty$, used once and never again beside $\vec q_2$ and $\{q_{2t+1}\}_{t=0}^\infty$.
@@ -45,7 +45,7 @@ _None found._
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 3. *Lines:* 102, 1094, 1161. *Example:* the timing protocol is the concept the whole lecture rests on - both firms choose entire sequences once and for all at $t=0$, the leader first *within* time 0 and the follower second, knowing the leader's whole sequence (102-121, restated at 153-158 and again at 459-468) - and it is carried entirely by prose that has to italicise "within time" to make the point; a single timeline would do it. Second, the file has twelve code cells whose entire output is an unlabelled bare value: `True`/`False` at 1058, 1066, 1172, 1205 and 1403, a raw float at 1167, 1284, 1372 and 1445, and raw matrices at 1190, 1195 and 1200 - a reader cannot tell what any of them is asserting without reading the code, where a printed sentence or a `{note}` would say it. The one place the lecture does want to flag something to the reader, 1161-1162 ("Note: Variables with `_tilde` are obtained from solving the follower's problem -- those without are from the Stackelberg problem"), is written as bare prose immediately after a figure rather than as a `{note}` admonition, so the convention that governs the next fifteen cells is easy to miss. Third, the time-inconsistency figure (1094-1113) plots 301 points as `'bo'`/`'ro'` markers at `ms=2` in three stacked panels with embedded titles and no y-axis labels, and the second panel has no legend at all.
 
 ### Low severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 1340. *Example:* spelled-out `beta`.
+_None found._
 
 
 ## Strengths

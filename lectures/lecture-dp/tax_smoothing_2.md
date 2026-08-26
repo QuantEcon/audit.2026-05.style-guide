@@ -2,19 +2,19 @@
 
 - **Series:** lecture-dp
 - **File:** `lectures/tax_smoothing_2.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 7.6 / 10
+- **Overall score:** 6.5 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 9/10  | `qe-writing-008` ×19. |
-| Math         | 4/10  | `qe-math-002` ×59; `qe-math-011` (proposed) ×1. |
-| Code         | 10/10 | no mechanical violations detected. |
+| Writing      | 5.5/10 | `qe-writing-003` ×5; `qe-writing-002` ×4; `qe-writing-008` ×19, +1 more. |
+| Math         | 3.5/10 | `qe-math-002` ×59; `qe-math-011` (proposed) ×1; `qe-math-009` ×3. |
+| Code         | 7.5/10 | `qe-code-001` ×5. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 4/10  | `qe-fig-003` ×9; `qe-fig-006` ×9; `qe-fig-005` ×4, +2 more. |
 | References   | 8.5/10 | `qe-ref-001` ×3. |
@@ -27,17 +27,22 @@
 _None found._
 
 ### High severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 5. *Lines:* 440, 444, 471, 443, 793. *Example:* 440 flattens a two-index object into four flat names: `p1, p2, p3, p4 = β, β**2 - 0.02, β, β**2 + 0.02` for what the algebra calls $p^1_{t,t+1}, p^1_{t,t+2}, p^2_{t,t+1}, p^2_{t,t+2}$ (415-421), so 447-448 have to be read character by character to see which state gets which pair - and the same names are then reused at 782-783 for whole price *vectors*, a different type. 444 defines the primitive `C_2` one underscore away from `C2`, which 448 immediately rebinds to state 2's LQ noise matrix, so `C_2` and `C2` are different objects that coexist for the rest of the lecture (489, 499, 789-790, 803). 471, 518 and 813 bind the Markov-state path to `t` (`x, u, w, t = lqm.compute_sequence(...)`), the symbol used for the time index throughout the algebra, and never use it. 443 has a space before the comma and a stray trailing comma, `np.array([[1, 0], [Gbar, ρ] ,])` (E203). And 793-798 writes the same no-Ponzi perturbation out six times by hand; a loop over `np.arange(H)` or `R1[np.diag_indices(H)] += 1e-9` says it once and does not silently need editing when $H$ changes from 3.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 9. *Lines:* 476, 479, 523, 526, 821, 824, 827, 830, 841. *Example:* .set_title.
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 9. *Lines:* 477, 480, 524, 527, 822, 825, 828, 831, 842. *Example:* axis label `Time`.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 9. *Lines:* 475, 478, 522, 525, 820, 823, 826, 829, 840. *Example:* plot() without lw=.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 59. *Lines:* 268, 274, 280, 287, 617, 625, 631, 637, 649, 656, …. *Example:* apostrophe transpose `x_t'`.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 5. *Lines:* 544, 589, 641, 787, 812. *Example:* the debt notation changes at line 544 and nothing says so. Everything up to 531 writes debt issued at $t$ maturing at $t+j$ as $b_{t,t+j}$ (99-108, 118, 129, 147, 173, 183, 199-200, 209, 226-227); from 544 on the same objects are $b^{t}_{t+j}$ with the issue date raised to a superscript (544, 550, 559, 589, 593, 605, 649), and prices flip too - $p_{t,t+j}$ at 550 becomes $p^t_{t+j}$ at 605. A reader who has just followed the two-period mapping has to re-learn the notation to follow the restructuring section. Second, 589 writes the vector as ending in $b^{t-1}_{t+T-1}$ where every other line in the section says $H$ (535, 544, 550, 559, 579, 585, 596, 758), and the code then makes $T$ the *name* of the horizon (`LQ_markov_mapping_restruct(A22, C2, Ug, T, p_t, c=0)` at 709, `np.eye(T-1)` at 729-730, 'p_t should be a T by 1 matrix' at 714) in a lecture whose central variable $T_t$ is tax collections - so $T$ means the horizon in the code, the horizon at 589, and taxes everywhere else. Third, 641 states the notational convention wrongly: '$R_t \equiv R_{s_t}, Q_t \equiv W_{s_t}$ and so on' - the second should be $Q_{s_t}$, and this same convention has already been declared at 164-166 and is declared again at 643. Fourth, the comment at 786-787 is wrong: `# Put penalty on different issuance across maturities` / `c2 = 0.5`, where $c_2$ is the *rescheduling* cost (544, 645-646, and the function's own docstring at 715, 'c is the rescheduling cost') - the comment has been copied from the $c_1$ cell at 495. Fifth, `x0` jumps from `[[100, 50, 1, 10]]` (470) to `[[5000, 5000, 5000, 1, 10]]` (812) with no word about scale, and the four panels at 819-833 are read in those units.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 19. *Lines:* 29, 32, 41, 44, 66, 292, 321, 488, 490, 491, …. *Example:* 2 spaces.
 
 ### Medium severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 474, 521, 819. *Example:* figsize=.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 437, 494, 816, 836. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 3. *Lines:* 403, 637, 617. *Example:* `\hspace{2mm}` and `\hspace{5mm}` are used as display separators fourteen times (403 x2, 415, 421, 559, 585 implicitly, 637 x2, 697 x2, 767 x2, 773 x2) where `\quad` and `\qquad` are the standard one-token forms, and the comma is placed before the space in some (403, 415) and the spacing is 2mm in one half of the file and 5mm in the other (637, 697) with no reason for the split. Second, 617 and 620 write the selection matrix as bare `Ug` inside math, where 403 correctly writes `U_g` - so the same symbol appears subscripted and unsubscripted in displays 200 lines apart. Third, 550 sets `\sum_{j=1}^Hp_{t,t+j}` with no space after the limit, so the $H$ and the $p$ collide in the source and the reader parsing it has to check whether the exponent is $H$ or $Hp$.
 - **[qe-math-011 (proposed)]** — Distribution names in plain letters, not \mathcal / \mathbb. *Count:* 1. *Lines:* 142. *Example:* decorated distribution `{\cal N}`.
 - **[qe-ref-001]** — Use correct citation style. *Count:* 3. *Lines:* 32, 35, 41. *Example:* `` {cite} `` in narrative flow: 'by  `` {cite} ``'.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 4. *Lines:* 32, 35, 101, 119. *Example:* 32 runs two words together and closes a parenthesis it never opened: 'toimplement suggestions by `` {cite}`barro1999determinants` `` and `` {cite}`barro2003religion` ``) for extending his classic 1979 model'. 35 and 39 use a citation as a possessive without the possessive: ' `` {cite}`Barro1979` `` model is about a government' and 'Technically, `` {cite}`Barro1979` `` model looks a lot like a consumption-smoothing model' - both need 'Barro's `` {cite}`Barro1979` `` model', which is also the fix for the three qe-ref-001 hits. 101 has 'betime': '$b_{t,t+2}$ betime $t+2$ goods that the government promises to pay'. 119 ends the sentence that introduces the objective with a full stop before the display - 'the government chooses a contingency plan for $\{b_{t, t+1}, b_{t,t+2}, T_t\}_{t=0}^\infty$ to maximize.' - where the parallel construction at 125 ('subject to the constraints') has none. And 66 reads 'this lecture  deploys the quantecon library', where the house form, used verbatim in the previous lecture of this same series, is 'In addition to what's in Anaconda, this lecture will need the following libraries'.
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 3. *Lines:* 474, 819, 412. *Example:* there are 20 panels in this lecture and not one has a y-axis label. Every panel sets `set_xlabel('Time')` (477, 480, 524, 527, 822, 825, 828, 831, 842) and identifies its own contents only through an embedded `set_title` - which qe-fig-003 asks to be moved into a caption, so acting on that finding alone would leave the panels unlabelled on both axes. Second, the comparison the section is built around cannot be cross-referenced: 474-481 and 521-528 are the same seven lines of plotting code run against two different models, and 484-492 then compares them ('The above simulations show that when no penalty is imposed ... the government has an incentive to take large "long-short" positions') with neither figure carrying a name - putting the $c_1 = 0$ and $c_1 = 0.01$ cases in one 2x2 figure would make the penalty's effect a single visual comparison instead of two figures 50 lines apart. Third, the yield-curve structure that drives everything is given only as numbers: 415-421 and 767-773 list six prices, and 409-410 and 760-761 assert 'one with a flatter yield curve, and one with a steeper yield curve' - a two-line plot of the two price vectors against maturity would show the two curves crossing, and would also make visible the fact that $p_{t,t+2} = 0.902$ is *identical* in both states (767, 773), which is what makes the pivot clean and is never mentioned.
 
 ### Low severity
 _None found._
@@ -45,18 +50,22 @@ _None found._
 
 ## Strengths
 
-- Writing, Code, Links score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The two specifications are separated and named before either is developed (83-92): one where 'the maturity structure of government debt at each date is partly inherited from the past' and one where 'the government redesigns the maturity structure of the debt each period' - and the lecture then treats them in that order, in two self-contained mappings (94-529 and 531-844), each ending in its own worked example.
+- The penalty parameter is motivated, implemented and then demonstrated. 151-158 says what $c_1$ is for ('deters the government from taking large "long-short" positions in debt of different maturities') and promises 'An example below will show the penalty in action'; 424-425 runs the model with $c_1 = 0$; 484-492 reads the consequence off the figure; and 494-528 re-runs with $c_1 = 0.01$ - so the reader sees the pathology and then sees it removed.
+- The algebra from the budget constraint to the LQ matrices is complete and each step is one display: taxes as a function of state and control (262), the square expanded (268), the square rewritten in $R, Q, W$ form (274), the three matrices identified (280), the penalty term added (287-296) - and the code at 375-377 (`R = S.T @ S`, `Q = M.T @ M + c1 * Qc`, `W = M.T @ S`) is a line-for-line transcription a reader can verify.
+- The restructuring section does the harder version of the same derivation properly, defining three selection matrices with their dimensions stated explicitly ('the first two matrices defined above are $(H-1) \times H$. The last is $1 \times H$', 596-598) and then using each one visibly in the budget constraint at 611 and in $S_t$ at 617 - and the code at 729-734 builds exactly those three.
+- The two-step recipe for using the machinery is stated as a recipe (382-388): map primitives into per-state $A, B, C, R, Q, W$ with `LQ_markov_mapping`, then hand the lists to `LQMarkov` - which is what makes the second example (789-810) readable as a substitution rather than a new derivation.
+- The lecture declares its indexing convention rather than leaving it implicit: 164-166 says that 'for matrices appearing in a linear state space, $A_t \equiv A_{s_t}, C_t \equiv C_{s_t}$ and so on, so that dependence on $t$ is always intermediated through the Markov state $s_t$', which is exactly the ambiguity a Markov jump problem creates and most treatments leave the reader to infer.
 
 ## Recommended actions
 
-1. `qe-math-002` — Use \top for transpose notation (59 occurrences).
-2. `qe-fig-003` — No matplotlib embedded titles (9 occurrences).
-3. `qe-fig-006` — Lowercase axis labels (9 occurrences).
-4. `qe-ref-001` — Use correct citation style (3 occurrences).
-5. `qe-fig-005` — Descriptive figure names for cross-referencing (4 occurrences).
-6. `qe-math-011` (proposed) — Distribution names in plain letters, not \mathcal / \mathbb (1 occurrence).
-7. `qe-writing-008` — Remove excessive whitespace between words (19 occurrences).
+1. Fix the two curly quotation marks inside math at line 620. `$S_t = \begin{bmatrix} (\tilde S_x + p_t’S_s’S_x) & Ug \end{bmatrix}$` uses U+2019 RIGHT SINGLE QUOTATION MARK where 617, three lines above, uses ASCII `'` for the same two transposes - so the expression renders with two stray quote glyphs instead of primes, and a search-and-replace converting `'` to `^\top` will skip them. This is an instance of the already-filed qe-math-001 gap (non-Greek Unicode inside math is not detected), so it will not appear in any count.
+2. Announce or unify the notation change at 544. Either keep $b_{t,t+j}$ and $p_{t,t+j}$ through the restructuring section, or add one sentence at 533-538 saying that the issue date moves to a superscript and why. As it stands the reader meets $b^{t-1}_{t+j}$ at 544 with no bridge from $b_{t-1,t+j}$ at 183.
+3. Rename the horizon. The code calls it `T` (709, 714, 729-745), the algebra calls it $H$ (535 onwards) except at 589 where it slips to $T$, and $T_t$ is tax collections throughout - the lecture's single most-used symbol. Use `H` in the function signature and fix 589.
+4. Fix the convention statement at 641: '$Q_t \equiv W_{s_t}$' should be '$Q_t \equiv Q_{s_t}$'. While there, note that this convention is declared three times (164-166, 640-641, 643) and once is enough.
+5. Fix the misleading comment at 786: `c2 = 0.5` is the rescheduling cost, not a penalty on different issuance across maturities - that was $c_1$ in the previous section, and the comment has been copied from line 495.
+6. Fix the four broken sentences: 'toimplement' and the unopened parenthesis at 32, '`` {cite}`Barro1979` `` model' at 35 and 39 (which also clears the three qe-ref-001 hits), 'betime' at 101, and the full stop after 'to maximize' at 119. Replace the non-standard install lead-in at 66 with the house wording used in `tax_smoothing_1`.
+7. Convert the 59 apostrophe transposes to `^\top` - by far the largest mechanical item here, concentrated in 268, 274, 287, 617, 620, 625, 631, 637, 649, 656, 664, 671 - and while doing that replace the fourteen `\hspace{2mm}` / `\hspace{5mm}` separators with `\quad`, subscript the bare `Ug` at 617 and 620, and write `{\cal N}(0,I)` as `N(0,I)` at 142 (qe-math-011 (proposed), proposed).
+8. Figures: give each of the four figure cells (437, 494, 816, 836) `mystnb` figure metadata with a `:name:`, move the nine `set_title` calls into those captions and add the y-axis labels the panels currently lack, lowercase the nine `'Time'` labels, add `lw=2` to the nine line plots, and drop the three `figsize` overrides (474, 521, 819). Then combine the two identical 1x2 figures at 474-481 and 521-528 into one 2x2 so 484-492 can point at a single figure and the $c_1$ comparison is visible in one view.
+9. Tidy the code per the findings above: name the four prices by state and maturity rather than `p1..p4` (440), rename `C_2` or `C2` (444, 448), stop binding the Markov path to `t` (471, 518, 813), remove the stray comma at 443, and collapse the six hand-written no-Ponzi perturbations at 793-798 into one indexed statement.
+10. Clear the 19 double spaces, and note that this file is byte-identical to `lecture-python-advanced.myst/lectures/tax_smoothing_2.md`, so every fix should be made once, upstream, and both series clear - the same holds for `tax_smoothing_1` and `smoothing_tax`.

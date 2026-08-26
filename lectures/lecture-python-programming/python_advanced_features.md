@@ -2,10 +2,10 @@
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/python_advanced_features.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `ceec881028`
 - **Categories audited:** writing, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.3 / 10
+- **Overall score:** 8.4 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -16,7 +16,7 @@
 | Math         | N/A   | no mathematical content. |
 | Code         | 8.5/10 | `qe-code-001` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 8.5/10 | `qe-fig-005` ×1; `qe-fig-008` ×1. |
+| Figures      | 9/10  | `qe-fig-005` ×1. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -39,7 +39,6 @@ _None found._
 
 ### Low severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 345. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 377. *Example:* plot() without lw=.
 
 
 ## Strengths

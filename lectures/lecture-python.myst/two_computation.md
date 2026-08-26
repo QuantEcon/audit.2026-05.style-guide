@@ -2,7 +2,7 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/two_computation.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
 - **Overall score:** 6.5 / 10
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 5.5/10 | `qe-writing-005` ×3; `qe-writing-003` ×4; `qe-writing-002` ×4, +2 more. |
-| Math         | 3/10  | `qe-math-002` ×15; `qe-math-010` (proposed) ×6; `qe-math-004` ×2, +2 more. |
+| Math         | 3/10  | `qe-math-002` ×15; `qe-math-010` (proposed) ×6; `qe-math-004` ×2, +1 more. |
 | Code         | 7.5/10 | `qe-code-001` ×7. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 3/10  | `qe-fig-003` ×28; `qe-fig-006` ×46; `qe-fig-005` ×5, +3 more. |
@@ -47,7 +47,7 @@ _None found._
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 2. *Lines:* 329, 2851. *Example:* the hardest thing in this lecture is the nesting of its loops, and it is never drawn. 329 says "The computation requires nested iteration: an inner loop determines labor income tax rates, and an outer loop adjusts interest rates to clear factor markets", and 2203-2211 spells the same structure out as indented pseudo-text inside a `{prf:algorithm}`; the real depth is four levels (price relaxation at 2355-2391, bisection on $\tau_\ell$ inside `find_transition_exo`, the backward Riccati scan at 1319-1351, the forward moment scan at 1400-1425), and a reader has to reconstruct it from fourteen function introductions. The lecture has one diagram, the age-time chart at 287-309, and it is the clearest thing in the file - which is the argument for a second. Second, the sixteen 3D surfaces at 2944-2982 are drawn with `edgecolor='none', alpha=0.8` and no colorbar (2929), so the reader is asked to read four-way comparisons off shaded surfaces with nothing to anchor a value to; the claims made about them (2941 "peak assets shifting", 2951 "dispersion to increase with age") are one-dimensional statements that slices at fixed $s$ would show far better than a perspective view.
 
 ### Low severity
-- **[qe-math-008]** — Explain special notation (vectors/matrices). *Count:* 1. *Lines:* 459. *Example:* ones vector `\mathbf{1}` used 2x with no 'vector of ones' explanation in the prose.
+_None found._
 
 
 ## Strengths

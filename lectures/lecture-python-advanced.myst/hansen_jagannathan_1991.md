@@ -2,10 +2,10 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/hansen_jagannathan_1991.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.3 / 10
+- **Overall score:** 8.0 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -13,8 +13,8 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 6.5/10 | `qe-writing-005` ×3; `qe-writing-003` ×4; `qe-writing-007` ×2. |
-| Math         | 5/10  | `qe-math-010` (proposed) ×39. |
-| Code         | 7.5/10 | `qe-code-001` ×6. |
+| Math         | 5/10  | `qe-math-010` (proposed) ×40. |
+| Code         | 5.5/10 | `qe-code-002` ×10; `qe-code-001` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 9/10  | `qe-fig-001` ×6. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -28,8 +28,9 @@ _None found._
 
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 6. *Lines:* 152, 180, 470, 642, 1038, 1265. *Example:* 152 is a whitespace-only line inside `crra_points_from_consumption`, immediately followed by a blank one. 180 puts two imports on one line (`import json, urllib.request`), which PEP8 asks to be split - and does so in a mid-lecture cell rather than the import cell at 69-76. 470 writes `ones  = np.ones(n)` with two spaces before the operator. 642-645 breaks the `np.sqrt(max(...))` call so that the inner expression is indented to the same column as the `max(` that opens it, leaving the continuation visually detached from its call. 1038-1039 writes the slices `s_γ[1:T+1]`, `c_γ[2:T+2]` and `c_γ[1:T+1]` unspaced while the same file writes `T + 2` and `T + 1` at 1022-1026. And the exercise solution names its variables `alpha_star` and `Mxx` (1264-1266) where the whole lecture otherwise uses unicode Greek (`α`, `μ_x`, `σ_c`, `γ`, `Σ`) and the corresponding display at 269 writes $\alpha^*$.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 10. *Lines:* 151, 157, 159, 783, 794, 842, 847, 850, 1265, 1266. *Example:* spelled-out `sigma`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 6. *Lines:* 541, 668, 717, 866, 1053, 1157. *Example:* figsize=.
-- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 39. *Lines:* 56, 99, 107, 121, 139, 169, 260, 278, 282, 285, …. *Example:* bare expectation `E(`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 40. *Lines:* 56, 91, 99, 107, 121, 139, 169, 260, 278, 282, …. *Example:* bare expectation `E\!\left(`.
 
 ### Medium severity
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 4. *Lines:* 129, 39, 396, 1220. *Example:* the sign convention on $\gamma$ reverses between the body and the exercises with nothing said. 129-137 sets $U(c) = c^{1+\gamma}/(1+\gamma)$ for $\gamma < 0$, calls $-\gamma > 0$ the coefficient of relative risk aversion and writes $m = \beta(c_{t+1}/c_t)^\gamma$; `crra_points_from_consumption` follows it (`γ_grid = -np.arange(31)`, `m = β * growth ** γ`, 147-155), as do 911, 921 and 933-935 ($\gamma \approx -11$). But `simulate_economy` writes `m_true = δ * gc ** (-γ)` (1220) and `crra_imrs_moments` writes `E_m = δ * np.exp(-γ * μ_c + ...)` (1233), both assuming $\gamma > 0$, and the exercise then says "Using `simulate_economy` with $\gamma = 5$" (1242) - which under the body's convention is negative risk aversion. Second, $m$ is used six times in the Overview (39, 42, 49, 53, 56, 57) before it is bound to anything; 33-36 names the intertemporal marginal rate of substitution but never assigns it a symbol, and $m$ is first defined at 88-95. Third, $\|\cdot\|$ appears at 396 with no definition and is glossed only in passing at 400 ("the smallest norm (second moment)"), four lines after the display that uses it three times. Fourth, the discount factor is $\beta$ in every display (133, 921, 980) and in `crra_points_from_consumption` (144), but `δ` in `simulate_economy` (1200), `crra_imrs_moments` (1232) and `simulate_nonseparable_imrs` (1016).

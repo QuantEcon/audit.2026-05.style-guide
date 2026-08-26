@@ -18,11 +18,11 @@ are LOW or NONE.
 <!-- qe:focus -->
 | Attention | Series | Score | Needs work | Weakest categories |
 |-----------|--------|-------|-----------|--------------------|
-| 🔴 **High** | [lecture-python-advanced.myst](lecture-python-advanced.myst/index.md) | 7.5 | 44 / 68 | Writing (4.6), Math (5.9) |
-| 🔴 **High** | [lecture-python.myst](lecture-python.myst/index.md) | 7.8 | 80 / 145 | Writing (4.7), Figures (6.5) |
-| 🔴 **High** | [lecture-dp](lecture-dp/index.md) | 7.9 | 28 / 52 | Writing (5.5), Figures (6.4) |
-| 🔴 **High** | [lecture-python-programming](lecture-python-programming/index.md) | 8.1 | 19 / 27 | Writing (4.1), Figures (7.3) |
-| 🟠 **Some** | [lecture-python-intro](lecture-python-intro/index.md) | 8.3 | 18 / 56 | Writing (5.9), Figures (6.5) |
+| 🔴 **High** | [lecture-python-advanced.myst](lecture-python-advanced.myst/index.md) | 7.4 | 43 / 68 | Writing (4.6), Math (5.9) |
+| 🔴 **High** | [lecture-python.myst](lecture-python.myst/index.md) | 7.8 | 82 / 145 | Writing (4.6), Figures (6.5) |
+| 🔴 **High** | [lecture-dp](lecture-dp/index.md) | 7.8 | 32 / 52 | Writing (5.1), Figures (6.4) |
+| 🔴 **High** | [lecture-python-programming](lecture-python-programming/index.md) | 8.0 | 20 / 27 | Writing (4.1), Figures (7.3) |
+| 🟠 **Some** | [lecture-python-intro](lecture-python-intro/index.md) | 8.1 | 19 / 56 | Writing (5.2), Figures (6.6) |
 <!-- /qe:focus -->
 
 **Every HIGH-priority lecture in this pass is HIGH because of one weak category, not
@@ -43,9 +43,9 @@ Fix one of these *once* and it lifts dozens of lectures. Ordered by reach.
 | **Name your figures** | Add a `name:` so figures can be cross-referenced with `numref` | **273** | 🔧 |
 | **Collapse double spaces** | Reduce runs of spaces between words to one | **237** | 🔧 |
 | **Figure sizes** | Drop `figsize=` overrides — let the site defaults apply | **224** | 🔧 |
-| **Line widths** | Pass `lw=2` on line plots for consistent weight | **216** | 🔧 |
+| **Line widths** | Pass `lw=2` on line plots for consistent weight | **195** | 🔧 |
 | **Plot titles → captions** | Move `ax.set_title(...)` out of the plot into the figure caption | **165** | ✋ |
-| **Heading capitalization** | Section headings → sentence case (first word + proper nouns only) | **143** | 🔧 |
+| **Heading capitalization** | Section headings → sentence case (first word + proper nouns only) | **132** | 🔧 |
 | **Expectation notation** *(proposed)* | Use `\mathbb{E}` / `\mathbb{P}` / `\mathbb{V}` with braces | **118** | 🔧 |
 | **Narrative citations** | Use `{cite:t}` where the author name is part of the sentence | **105** | ✋ |
 
@@ -97,9 +97,9 @@ improvements and all three regressions:
 | Direction | Rule | Share of corpus |
 |-----------|------|-----------------|
 | 🟢 Improving | `qe-writing-008` — remove excessive whitespace between words | 78% → 68% |
-| 🟢 Improving | `qe-writing-006` — capitalize lecture titles properly | 48% → 42% |
+| 🟢 Improving | `qe-writing-006` — capitalize lecture titles properly | 47% → 38% |
+| 🟢 Improving | `qe-fig-008` — figure-directive option conventions | 62% → 56% |
 | 🟢 Improving | `qe-writing-001` — use one sentence per paragraph | 55% → 50% |
-| 🟢 Improving | `qe-fig-008` — figure-directive option conventions | 66% → 62% |
 | 🔴 Worsening | `qe-fig-004` — caption formatting conventions | 9% → 17% |
 | 🔴 Worsening | `qe-fig-001` — do not set figure size unless necessary | 62% → 64% |
 | 🔴 Worsening | `qe-fig-003` — no matplotlib embedded titles | 46% → 47% |
@@ -127,10 +127,10 @@ violation was measured in it*, not that a human declared it perfect.
 ```{warning}
 <!-- qe:review-coverage -->
 **Review coverage is incomplete in this pass, and it moves the scores.** The judgment
-layer has reached **298 of the 348 lectures**; a lecture assessed against more rules
+layer has reached **335 of the 348 lectures**; a lecture assessed against more rules
 scores lower — not because it is worse, but because more of it was looked at. The gap is
-large enough to matter: the 298 reviewed average **7.68** with 61 % HIGH, the 50
-unreviewed **8.99** with 10 % HIGH.
+large enough to matter: the 335 reviewed average **7.74** with 58 % HIGH, the 13
+unreviewed **9.02** with 0 % HIGH.
 <!-- /qe:review-coverage -->
 
 So **the cross-series comparison below is provisional** wherever coverage differs between

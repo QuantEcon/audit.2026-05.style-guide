@@ -2,10 +2,10 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/bivariate_dist.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.8 / 10
+- **Overall score:** 7.6 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 6.5/10 | `qe-writing-002` ×11; `qe-writing-003` ×1. |
 | Math         | 5.5/10 | `qe-math-010` (proposed) ×15. |
-| Code         | 7.5/10 | `qe-code-003` ×1; `qe-code-002` ×1; `qe-code-001` ×1. |
+| Code         | 6/10  | `qe-code-002` ×6; `qe-code-003` ×1; `qe-code-001` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5/10  | `qe-fig-003` ×8; `qe-fig-006` ×2; `qe-fig-005` ×1, +2 more. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -27,6 +27,7 @@
 _None found._
 
 ### High severity
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 6. *Lines:* 488, 491, 493, 495. *Example:* spelled-out `sigma`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 5. *Lines:* 172, 271, 311, 352, 490. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 8. *Lines:* 174, 177, 275, 313, 317, 355, 359, 497. *Example:* .set_title.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 15. *Lines:* 93, 195, 198, 377, 380, 384, 399, 464, 467, 470, …. *Example:* missing braces: `\mathbb P`.
@@ -39,7 +40,6 @@ _None found._
 
 ### Low severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 1. *Lines:* 337. *Example:* the continuation line at 337 is indented 34 spaces where the visual-indent target is 33 (the column after `pd.DataFrame(` on line 336), so the second argument does not line up under the first.
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 495. *Example:* spelled-out `rho`.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 818. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 1. *Lines:* 391. *Example:* the note at lines 386-392 promises 'We will see an example of this below, in the discussion of the bivariate normal distribution' - an example of zero covariance without independence - but the bivariate normal discussion at lines 507-517 shows the opposite (for the bivariate normal, zero correlation IS equivalent to independence), and the counterexample at lines 552-620 is about normal marginals not implying joint normality, with a covariance that is not zero. The forward reference has no destination.
 

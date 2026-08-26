@@ -2,10 +2,10 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/gorman_heterogeneous_households.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.5 / 10
+- **Overall score:** 7.3 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-001` ×6; `qe-writing-009` (proposed) ×5; `qe-writing-003` ×3, +3 more. |
 | Math         | 8/10  | `qe-math-002` ×1; `qe-math-009` ×3. |
-| Code         | 6.5/10 | `qe-code-001` ×8; `qe-code-002` ×2. |
+| Code         | 5/10  | `qe-code-002` ×45; `qe-code-001` ×8. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5/10  | `qe-fig-005` ×5; `qe-fig-003` ×2; `qe-fig-004` ×1, +2 more. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -28,6 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 8. *Lines:* 747, 772, 1271, 1375, 1747, 1925, 1936, 2198. *Example:* continuation lines are indented to a fixed offset rather than to the opening delimiter, in five places and never the same offset twice: 1271-1272 (`lq.compute_sequence(x0_full, ` then 24 spaces), 1375-1376 (16 spaces against a paren at column 35), 1747-1748 (20 spaces), 1925-1926 and 1933-1934 (8 and 12 spaces), 2055-2060 (12), 2184-2191 (16). Blank-line spacing around top-level definitions is also inconsistent: 747 puts one blank line between `doublej2` and `heter` where PEP8 asks for two, and `_pct` at 2198 is defined in the middle of a script cell with one blank line on each side. 772 and 858 use `##` to head a block comment (E266), and 772 also carries trailing whitespace, as do 64 other lines in the file. 1936 is an f-string with no placeholder, `set_title(f'Average of Individual Household Endowments')`. Inside the same figure, `fontsize=20` is set on three axis labels (2214, 2215, 2221, 2227) and omitted on two others (2220, 2226), and 2209 writes `figsize=(14,  6)` with a double space.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 45. *Lines:* 1528, 1529, 1530, 1531, 1532, 1558, 1559, 1560, 1561, 1563, …. *Example:* spelled-out `sigma`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 5. *Lines:* 1762, 1879, 1922, 2052, 2209. *Example:* figsize=.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 1759, 1847, 1905, 2038, 2166. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 1. *Lines:* 1048. *Example:* `^T` transpose in `R^T`.
@@ -37,7 +38,6 @@ _None found._
 - **[qe-writing-009 (proposed)]** — Write "IID" — not "i.i.d." or "iid". *Count:* 5. *Lines:* 326, 1327, 1508, 1523, 1553. *Example:* i.i.d..
 
 ### Medium severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 2. *Lines:* 1270, 1374. *Example:* spelled-out `beta`.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 2. *Lines:* 1927, 1936. *Example:* .set_title.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 1764, 1768. *Example:* plot() without lw=.
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 3. *Lines:* 405, 995, 1995. *Example:* $\alpha$ and $\beta$ are already spoken for by the model - $\alpha_j$ is household $j$'s mean endowment (1478, 1490, 1496) and $\beta$ is the discount factor from 314 onward - and 1995 reuses both as the two shape parameters of the redistribution function, $\tau(j; J, \alpha, \beta) = \alpha [g(j;J)]^\beta$, so 2000-2001 has to gloss "$\alpha > 0$ controls the overall magnitude of redistribution" and "$\beta$ controls the progressivity" about symbols the reader has been holding two other meanings for since the Overview; the code avoids the collision by renaming them `red_α` and `red_β` (2043-2044), which is what the mathematics could have done too. The information set is written `\mathcal{J}_0` at 405, 639 and 934 where a plain $J_0$ would read as easily - and $J$ is already the household count (316), so the calligraphic form is carrying the disambiguation that a different letter would carry better.

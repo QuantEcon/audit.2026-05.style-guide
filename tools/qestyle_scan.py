@@ -29,7 +29,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from qestyle_lex import lex                                    # noqa: E402
 from qestyle_rules import (                                    # noqa: E402
     BUILD_RISK, CATEGORY, CHECKS, PROPOSED, count_citations, load_rule_titles,
-    run_all,
+    plot_line_widths, run_all,
 )
 
 SERIES = [
@@ -82,6 +82,7 @@ def scan_series(corpus, series):
         hits = run_all(doc)
         cites, cites_t = count_citations(doc)
         rec = {
+            "line_widths": [[w, k] for _, w, k in plot_line_widths(doc)],
             "series": series,
             "lecture": fn[:-3],
             "lines": doc.n_lines,
@@ -175,6 +176,36 @@ def main():
                 per[k] = (a + 1, b + v["count"])
         for (s, rule) in sorted(per):
             w.writerow([s, rule, per[(s, rule)][0], per[(s, rule)][1]])
+
+    # --- explicit plot() line widths --------------------------------------
+    # ``qe-fig-008`` asks for ``lw=2`` but the check only answers the unambiguous half of
+    # that — whether a width is set at all — because the rule's text does not settle
+    # whether a reference line or a faint sample path may differ. The spread of values the
+    # corpus actually uses is what the rule-scope question in
+    # ``contributions/issues/07-fig-008-line-width-tolerance.md`` costs both readings
+    # against, so it is measured here rather than typed into the prose.
+    widths, width_files, kinds, kind_files = {}, {}, {}, {}
+    for r in records:
+        lec = (r["series"], r["lecture"])
+        for val, kind in r["line_widths"]:
+            key = "%g" % float(val)
+            widths[key] = widths.get(key, 0) + 1
+            width_files.setdefault(key, set()).add(lec)
+            kinds[kind] = kinds.get(kind, 0) + 1
+            kind_files.setdefault(kind, set()).add(lec)
+            if kind != "house":
+                kinds["other"] = kinds.get("other", 0) + 1
+                kind_files.setdefault("other", set()).add(lec)
+    with open(os.path.join(args.out, "fig_line_widths.csv"), "w", newline="") as fh:
+        w = csv.writer(fh)
+        w.writerow(["key", "kind", "calls", "lectures"])
+        for key in sorted(widths, key=lambda k: float(k)):
+            w.writerow([key, "width", widths[key], len(width_files[key])])
+        # ``other`` is the union over every non-house width, so its lecture count is not the
+        # sum of the per-width ones — a lecture using both 1.5 and 0.8 is one lecture.
+        for kind in ("house", "other", "emphasis", "de-emphasised", "plain"):
+            if kind in kinds:
+                w.writerow([kind, "class", kinds[kind], len(kind_files[kind])])
 
     # --- cross-period rule reach ------------------------------------------
     # Reach measured by the same code over a pinned snapshot is comparable

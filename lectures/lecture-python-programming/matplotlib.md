@@ -2,7 +2,7 @@
 
 - **Series:** lecture-python-programming
 - **File:** `lectures/matplotlib.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `ceec881028`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 7.6 / 10
@@ -35,13 +35,13 @@ _None found._
 ### Medium severity
 - **[qe-code-003]** — Package installation at lecture top. *Count:* 1. *Lines:* 1. *Example:* non-Anaconda import with no install cell: ['cycler'].
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 3. *Lines:* 137, 190, 317. *Example:* .set_title.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 308, 488. *Example:* plot() without lw=.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 42. *Example:* mid-sentence 'Programming'.
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 4. *Lines:* 42, 44, 267, 410. *Example:* the lecture contains no bold and no italic anywhere, so the three terms it defines are carried by quotation marks or plain text - the MATLAB-style API (42), the "Pythonic" object-oriented API (44) and style sheets (267) - and at 410 the emphasis on a plain English word is carried by a code span: "These settings are `global`".
 
 ### Low severity
 - **[qe-fig-002]** — Prefer code-generated figures. *Count:* 1. *Lines:* 465. *Example:* static image .png.
 - **[qe-fig-007]** — Keep figure box and spines. *Count:* 1. *Lines:* 245. *Example:* spine removal.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 488. *Example:* plot() without lw=.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 1. *Lines:* 265. *Example:* "Style Sheets" runs 265-437, more than a third of the lecture, as an H3 sibling of one-paragraph sections like "3D Plots" (194) - in a section whose own opening says "We mention just a few" (146); and it mutates global `plt.rcParams` at 381-403, which then has to be undone by a reset cell at 430-437.
 
 

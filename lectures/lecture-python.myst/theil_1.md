@@ -2,10 +2,10 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/theil_1.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.9 / 10
+- **Overall score:** 8.0 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -13,8 +13,8 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 4.5/10 | `qe-writing-005` ×5; `qe-writing-003` ×3; `qe-writing-002` ×3, +2 more. |
-| Math         | 6.5/10 | `qe-math-010` (proposed) ×3; `qe-math-009` ×5. |
-| Code         | 7.5/10 | `qe-code-001` ×3; `qe-code-002` ×1. |
+| Math         | 6.5/10 | `qe-math-010` (proposed) ×2; `qe-math-009` ×5. |
+| Code         | 8.5/10 | `qe-code-001` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6.5/10 | `qe-fig-003` ×2; `qe-fig-005` ×1; `qe-fig-004` ×1, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -28,7 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 5. *Lines:* 145, 255, 277, 184, 103. *Example:* $V$ carries two meanings 120 lines apart: 145 defines it as the one-period **return function**, $V : S_1 \times S_2 \times U \to \mathbb{R}$, and 149 discounts and sums it, while 262 writes "the additive term in $V(y) = -y^\top P y - d$" - the value function. 140 ("recover the **return function** $V$") makes the first reading explicit, so the second is a straight collision. In the same vein 255 uses $r$ twice in one display, once as the name of the return function and once as its own control-cost coefficient: $r(y_t, u_t) = -(q y_t^2 + r u_t^2)$; the code then has to route the lecture's $q$ (state cost) into `R_mat` and its $r$ (control cost) into `Q_mat` (277-278) because `quantecon.LQ` uses the opposite letters, and the comments there are the only thing keeping the reader oriented. 184 and 187 introduce the prescript form ${}_{t+j}z_t^e$ - a prescript, a subscript and a superscript on one letter - for the $j$-step forecast, use it twice, and then abandon it for $\tilde z_t$; $z^e_{t+j\mid t}$ or $\mathbb{E}_t z_{t+j}$ would carry the same content. And $\mathcal{E}$ at 103 and 105 is the only calligraphic set in a lecture whose other spaces are plain ($S_1$, $S_2$, $U$, $S_1^\infty$). Fifth - and this is a cross-file break rather than a local one - the code at 277-278 names the state cost `R_mat` and the control cost `Q_mat`, matching `quantecon.LQ`, whose docstring gives the objective as $x_t' R x_t + u_t' Q u_t$. The companion lecture `theil_2` reverses both: its math at line 117 writes $r(y,u) = -y^\top Q y - u^\top R u$ and its code at lines 150-151 comments `Q_mat` as "state cost" and `R_mat` as "control cost". Each lecture compensates in the call - `LQ(Q_mat, R_mat, ...)` here at 285, `LQ(R_mat, Q_mat, ...)` there at 158 - so both compute identical results (I ran both: P = 1.472317, F = 0.524797, d = 27.974028), which is exactly what makes the disagreement invisible to anyone reading one file at a time. The two lectures share a title, a model and this code cell, and neither warns of the swap.
-- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 3. *Lines:* 103, 105, 154. *Example:* non-blackboard `\mathcal{E}`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 2. *Lines:* 149, 154. *Example:* bare expectation `E_0\!\left\{`.
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 5. *Lines:* 51, 198, 205, 229, 324. *Example:* the lecture's title concept is italicised where it is coined and bolded where it is restated: 51 writes "established a celebrated *certainty equivalence* (CE) property" and 174 writes "the **certainty equivalence** theorem" - the rule inverted in both directions on the same term. Bold is then used for pure emphasis four times where the lecture's own practice elsewhere is italic (*identical* 60, *level*/*does* 62, *why* 88, *reveals nothing* 134, *quadratic*/*linear* 170, *determined* 326, *flat* 306): "the optimal action is a **linear** function" (198), "depends entirely on preferences $(V)$ and technology $(g)$ but **not** on the stochastic environment" (205), "as if the agent **knew the future path $z_{t+1}, z_{t+2}, \ldots$ with certainty**" (229, an eleven-word clause), and "the deficiency is that the **coefficients** of the distributed lag are left unrestricted" (324).
 
 ### Medium severity
@@ -40,7 +40,6 @@ _None found._
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 2. *Lines:* 317, 211. *Example:* the adaptive-expectations critique (313-332) is the lecture's sharpest argument and it is made entirely in prose. `` {eq}`eq:adaptive_expectations_v3` `` at 317 gives geometrically declining weights $\lambda(1-\lambda)^i$; 324-328 says the defect is that those weights are "left unrestricted by theory" while the optimal ones are "*determined* by $f$". One panel - the $\lambda(1-\lambda)^i$ weights for two values of $\lambda$ against the optimal forecast weights implied by an AR(1) environment, redrawn for a second $f$ - would show both halves of that claim at once, including the part the prose can only assert: that the optimal weights move when $f$ moves and the postulated ones do not. Second, the boxed composite rule at 211, $h(z_t,x_t) = h_1[h_2(z_t), x_t]$, together with the dependency table at 218-221, is a two-box-and-two-arrow diagram written as algebra; the lecture's one figure (264-303) is of a different model.
 
 ### Low severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 376. *Example:* spelled-out `beta`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 1. *Lines:* 290. *Example:* figsize=.
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 1. *Lines:* 264. *Example:* caption of 7 words.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 360. *Example:* code-cell figure without mystnb figure metadata.

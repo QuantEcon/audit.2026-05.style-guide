@@ -2,7 +2,7 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/inventory_dynamics.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 8.9 / 10
@@ -16,7 +16,7 @@
 | Math         | 10/10 | no mechanical violations detected. |
 | Code         | 9.5/10 | `qe-code-004` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 7/10  | `qe-fig-005` ×6; `qe-fig-008` ×7; `qe-fig-001` ×1. |
+| Figures      | 7/10  | `qe-fig-005` ×6; `qe-fig-008` ×6; `qe-fig-001` ×1. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -28,7 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 6. *Lines:* 161, 181, 209, 252, 293, 383. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 7. *Lines:* 168, 169, 170, 185, 186, 233, 290. *Example:* plot() without lw=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 6. *Lines:* 168, 169, 170, 185, 186, 290. *Example:* plot() without lw=.
 
 ### Medium severity
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 142. *Example:* 2 sentences in one paragraph.

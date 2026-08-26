@@ -2,10 +2,10 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/lqcontrol.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.4 / 10
+- **Overall score:** 7.5 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -16,7 +16,7 @@
 | Math         | 5/10  | `qe-math-010` (proposed) ×15; `qe-math-009` ×3. |
 | Code         | 7.5/10 | `qe-code-001` ×5. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 5/10  | `qe-fig-005` ×8; `qe-fig-006` ×3; `qe-fig-008` ×13, +2 more. |
+| Figures      | 5.5/10 | `qe-fig-005` ×8; `qe-fig-006` ×3; `qe-fig-002` ×5, +2 more. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -30,7 +30,6 @@ _None found._
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 5. *Lines:* 698, 1272, 1293, 1298, 1556. *Example:* the lecture builds an `LQModel` NamedTuple with `create_lq_model` and `simulate_and_plot` (635-716), and 746 makes a point of the pattern - "Since `LQModel` is a `NamedTuple`, we can obtain the new model by copying the old one with a single field changed" - and then not one of the three exercise solutions uses it: 1255-1319, 1372-1469 and 1525-1579 all rebuild raw parameters and re-inline the plotting. The consequence is that the twenty-line plotting block at 688-712 is copied nearly verbatim at 1297-1319 and again at 1447-1469 (same `n_rows`, `subplots_adjust(hspace=0.5)`, `bbox`, `legend_args`, `p_args`, same loop over `axes`), three copies to keep in step. The matrices are built two different ways for the same purpose: `np.array` at 661-669 in the body, bare nested lists at 1272-1283, 1391-1424 and 1542-1554 in the solutions. `time` is used as a variable name at 1293, 1442 and 1572, shadowing the standard-library module. `LQ` is called with `C` positional at 679, 1286, 1405 and 1427 but `C=C` at 1556. And the continuation lines at 699, 1308 and 1458 are indented to column 12 under a call whose opening delimiter is at column 20, so they neither align with the delimiter nor use a plain hanging indent.
 - **[qe-fig-002]** — Prefer code-generated figures. *Count:* 5. *Lines:* 1018, 1088, 1164, 1168, 1172. *Example:* static image .png.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 8. *Lines:* 1018, 1088, 1164, 1168, 1172, 1255, 1372, 1525. *Example:* {figure} without :name:.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 13. *Lines:* 698, 700, 702, 704, 705, 1307, 1309, 1311, 1312, 1457, …. *Example:* plot() without lw=.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 15. *Lines:* 101, 301, 373, 387, 410, 421, 434, 458, 587, 786, …. *Example:* missing braces: `\mathbb E`.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 5. *Lines:* 109, 731, 766, 838, 1481. *Example:* five breaks. (a) Four headings, two names: `#### Example 1` appears at 109 and again at 252, `#### Example 2` at 131 and again at 274 - one pair under "The law of motion", one under "Preferences" - so the TOC carries two entries called "Example 1" and the labelled references have to route around them (`lq_hhp` at 130 and `{ref}`studied above <lq_hhp>`` at 276 do exactly that). (b) 731 defines cumulative unanticipated income as $z_t := \sum_{j=0}^t \sigma w_t$ - the summation index $j$ never appears in the summand, so as written the sum is $(t+1)\sigma w_t$; the code at 702 computes `np.cumsum(income - \u03bc)`, i.e. $\sum_j \sigma w_j$. (c) 766-768 says "we've chosen not to treat this extension in our implementation given below", but the implementation is above it: the `LQ` interface is described at 544-563 and the model built and simulated at 634-716. (d) 838-842 joins two statements with "In other words" that are not restatements of each other - "optimal policies can depend on time only if time itself is a component of the state vector $x_t$" followed by "In other words, there exists a fixed matrix $F$ such that $u_t = -Fx_t$ for all $t$"; the second follows from time *not* being in the state, which the first sentence does not say. (e) `lqc_ex3` at 1480-1482 asks the reader to reproduce three figures, "while $\gamma$ varies between 1 and 50 (see figures)", and the solution at 1525-1579 sets `\u03b3 = 1` once and draws one figure - two of the three static images at 1164-1174 are never reproduced.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 12. *Lines:* 247, 272, 332, 345, 353, 530, 551, 724, 839, 1022, …. *Example:* 2 spaces.
@@ -38,6 +37,7 @@ _None found._
 ### Medium severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 4. *Lines:* 690, 1299, 1449, 1565. *Example:* figsize=.
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 3. *Lines:* 709, 1316, 1466. *Example:* axis label `Time`.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 705, 1312, 1462. *Example:* plot() without lw=.
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 3. *Lines:* 492, 925, 1496. *Example:* $m_0, m_1, m_2$ are the coefficients of the income polynomial at 925-931 and 1055, and then at 1496 the same letters become the monopoly constants, "Letting $m_0 := (a_0 - c) / 2a_1$ and $m_1 := 1 / 2 a_1$" - and the code carries the collision, with `m1`/`m2` as polynomial coefficients at 1264-1265 and 1383-1384 and `m0`/`m1` as monopoly constants at 1537-1538. Worse, both definitions at 1496 are missing their braces: `(a_0 - c) / 2a_1` renders as $\tfrac{a_0-c}{2}a_1$ and `1 / 2 a_1` as $\tfrac12 a_1$, where the code at 1537-1538 computes `(a0-c)/(2 * a1)` and `1/(2 * a1)` - the display and the code compute different things. And the trace operator is written `\mathop{\mathrm{trace}}` at 492, 513 and 881, where `\mathrm{tr}` is both the conventional spelling and shorter, and the `\mathop{}` wrapper adds nothing `\mathrm{}` does not already give.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 247. *Example:* 3 sentences in one paragraph.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 3. *Lines:* 335, 462, 1238. *Example:* 335-341 spends three paragraphs and about ninety words establishing a measurability condition and then tells the reader to ignore it: "The fancy measure-theoretic way of saying this is that $u_t$ must be measurable with respect to the $\sigma$-algebra generated by $x_0, w_1, w_2, \ldots, w_t$", then the equivalent function form, then "(Just about every function that's useful for applications is Borel measurable, so, for the purposes of intuition, you can read that last phrase as \"for some function $g_t$\")" - which is the whole content, and could be the whole passage. The lecture also apologises twice for its own plotting code rather than simplifying it: 1238-1239 "We use some fancy plot commands to get a certain style -- feel free to use simpler ones" and the comment at 1567 "# Some fancy plotting stuff -- simplify if you prefer"; what is being apologised for is the same six-line `bbox_to_anchor` legend block copied three times. And 462 abbreviates "the r.h.s." where 101 writes "the right-hand side" in full for the same thing.

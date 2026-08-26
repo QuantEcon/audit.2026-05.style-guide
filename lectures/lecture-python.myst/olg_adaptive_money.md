@@ -2,10 +2,10 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/olg_adaptive_money.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.7 / 10
+- **Overall score:** 7.6 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,9 +14,9 @@
 |--------------|-------|---------------|
 | Writing      | 3.5/10 | `qe-writing-005` ×9; `qe-writing-002` ×5; `qe-writing-004` ×2, +3 more. |
 | Math         | 7.5/10 | `qe-math-010` (proposed) ×1; `qe-math-009` ×5. |
-| Code         | 7.5/10 | `qe-code-001` ×5. |
+| Code         | 6.5/10 | `qe-code-001` ×5; `qe-code-002` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 5.5/10 | `qe-fig-005` ×2; `qe-fig-004` ×3; `qe-fig-003` ×1, +2 more. |
+| Figures      | 6/10  | `qe-fig-005` ×2; `qe-fig-004` ×3; `qe-fig-003` ×1, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -36,10 +36,10 @@ _None found._
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 1. *Lines:* 1104. *Example:* H3 Title Case: 'From escape dynamics to the *Conquest of American Inflation*' (Conquest, Inflation).
 
 ### Medium severity
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 4. *Lines:* 663, 669, 674, 677. *Example:* spelled-out `beta`.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 419. *Example:* .set_title.
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 3. *Lines:* 695, 996, 1046. *Example:* caption of 7 words.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 1284, 1341. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 577, 1352. *Example:* plot() without lw=.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 4. *Lines:* 859, 515, 613, 314. *Example:* (1) The overview announces "a **third application**" (86) and the body is scaffolded as `## Part 1: a stochastic deficit` (159) and `## Part 2: a constant deficit and two steady states` (497) - but the third application arrives as `## A government learning the Phillips curve` (859), with no Part 3, and the concluding remarks then go back to "Part 1" (1131) and "Part 2" (1136) before switching to "The Phillips curve application" (1155). The scaffolding is dropped exactly where the reader changes models. (2) 515 writes $h_t = m_t / p_t$, introducing $m_t$ for the first time; Part 1 called the same object $H_t$ throughout (120, 123, 132, 391) and real balances $H_t/p_t$ (132). Nothing says they are the same thing, and 813 then uses $m_t/p_t$ again inside the Brock model. (3) 613 asserts "the low-inflation equilibrium Pareto-dominates every other equilibrium of this model, stationary or not" - the welfare claim on which the whole "learning selects the good equilibrium" story rests, and which 806-807 and 851-852 both lean on - with no argument, no citation and no forward pointer. (4) 288 introduces the conditioning operator as $E_t$, then 314-315 silently switches to $E_i$ for the same conditional expectation two paragraphs later, with $i$ the deficit state and $t$ the date.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 2. *Lines:* 91, 874. *Example:* mid-sentence 'Inflation'.
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 4. *Lines:* 611, 839, 319, 780. *Example:* four places where the picture the argument needs is either missing or hidden. (1) 611 tells the reader the high equilibrium sits "on the wrong side of an inflation-tax **Laffer curve**" and points to `` {ref}`olg_ex3` ``; the Laffer curve is then drawn at 1341-1358, inside a `:class: dropdown` solution at the very end of the file, so the one picture that explains Part 2's central comparative static is invisible to a reader following the main line. (2) The Brock counterexample (804-857) is the section that limits the lecture's main claim, and its content is the *continuum of non-stationary equilibria* in which "gross inflation rate converges to $\beta$ ... and real balances exploding" (839-842) - none of which is computed or plotted; the only cell in the section (825-836) tabulates the *stationary* equilibrium's classical comparative static, i.e. the part that is not the counterexample. Four lines of `re_path`-style iteration would show the deflationary paths. (3) The odd/even two-class device (319-326) and the one-period-lagged learning it forces (363-377: `prev`, `R = (N*s_t - G[i]) / (N*s_p)`, `τ[j_p, i_p] += 1`) are the trickiest bookkeeping in the lecture and are carried entirely by prose plus code; a three-row timing diagram would settle it. (4) Marimon and Sunder's experiment (759-802) is the lecture's empirical centrepiece - "the experimental inflation paths were much better approximated by the least squares dynamics" (780-782) - and has no figure, table or admonition at all, in a lecture that already plots exactly those two families of paths at 695-722.

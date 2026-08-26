@@ -272,8 +272,12 @@ def _paragraph_blocks(doc: Doc):
 def _count_sentences(text: str) -> int:
     t = strip_inline(text)
     t = re.sub(r"\d\.\d", "0 0", t)                 # decimals
-    t = re.sub(r"\{[a-z:]+\}`[^`]*`", "X", t)       # roles
-    t = re.sub(r"\[[^\]]*\]\([^)]*\)", "X", t)      # links
+    # Two letters, not one: a single-letter placeholder is indistinguishable from an
+    # initial, and the guard below then discards the full stop that follows it. So a
+    # paragraph whose first sentence ended in a link — ``… the [Solow-Swan model](url).
+    # Here we …`` — counted as one sentence and was reported clean.
+    t = re.sub(r"\{[a-z:]+\}`[^`]*`", "Xx", t)      # roles
+    t = re.sub(r"\[[^\]]*\]\([^)]*\)", "Xx", t)     # links
     t = t.strip()
     if not t:
         return 0
@@ -556,10 +560,49 @@ def check_math_002(doc: Doc):
             for m in lprime.finditer(src):
                 hits.append(Hit("qe-math-002", no, r"\prime transpose"))
         for m in supT.finditer(src):
+            # ``R^T(s_{t+T}, \ldots, s_t)`` is a function of T arguments, not a transpose:
+            # ``smoothing_tax`` says so in the two lines above the display ("the cumulative
+            # return earned from ... rolling over the proceeds each period thereafter") and
+            # computes it with ``np.cumprod``. The signature is a *top-level comma or
+            # conditioning bar* inside the group — ``A^T(B + C)`` has neither and stays a
+            # transpose. Kept deliberately narrow: dropping ``(`` from the lookahead
+            # altogether, or exempting any function-like name, silences genuine transposes
+            # in ``calvo_machine_learn`` (``\vec{\mu}^T (M - F) \vec{\mu}``).
+            if _is_function_application(src, m):
+                continue
             hits.append(Hit("qe-math-002", no, f"`^T` transpose in `{m.group(0)}`"))
         for m in sup_prime.finditer(src):
             hits.append(Hit("qe-math-002", no, f"apostrophe transpose `{m.group(0)}`"))
     return hits
+
+
+def _is_function_application(src: str, m) -> bool:
+    """Is this ``X^T(...)`` a function of several arguments rather than a transpose?
+
+    Only for an undecorated single capital immediately applied to a parenthesised group
+    whose top level holds a comma or a conditioning bar.
+    """
+    if not re.fullmatch(r"[A-Z]\^\{?T\}?", m.group(0)):
+        return False
+    rest = src[m.end():]
+    open_m = re.match(r"\s*(?:\\left\s*)?\(", rest)
+    if not open_m:
+        return False
+    depth, i = 1, open_m.end()
+    while i < len(rest) and depth:
+        c = rest[i]
+        if c == "(":
+            depth += 1
+        elif c == ")":
+            depth -= 1
+            if not depth:
+                break
+        elif depth == 1 and (c == "," or c == "|"):
+            return True
+        elif depth == 1 and rest.startswith("\\mid", i):
+            return True
+        i += 1
+    return False
 
 
 def check_math_003(doc: Doc):
@@ -672,11 +715,31 @@ def check_math_008(doc: Doc):
     hits = []
     ones = re.compile(r"\\(?:mathbb|mathbf|bm|boldsymbol)\s*\{?\s*1\s*\}?"
                       r"|\{\s*\\bf\s*1\s*\}")
-    indicator = re.compile(r"^\s*(?:\\left)?\s*(?:\\?\{|\[|\(|_\s*\{?[A-Za-z\\])")
+    # An optional superscript may sit between the symbol and its argument:
+    # ``two_computation`` writes ``\mathbf{1}^{\text{work}}_t`` for the indicator that the
+    # household works at t, and the ``_t`` that marks it as an indicator is one group along.
+    indicator = re.compile(r"^\s*(?:\^\{(?:[^{}]|\{[^{}]*\})*\}|\^[A-Za-z0-9])?"
+                           r"\s*(?:\\left)?\s*(?:\\?\{|\[|\(|_\s*\{?[A-Za-z\\])")
+    # A line that calls the symbol an indicator function has said what it is, and it is not
+    # a ones vector: ``lln_clt`` writes ``$X = \mathbf 1\{U < p\}$ where $\mathbf 1$ is the
+    # [indicator function](...)``, so the second, argument-less occurrence is the one being
+    # *defined* rather than an unexplained vector.
+    named_indicator = re.compile(r"indicator\s+function", re.IGNORECASE)
+    raw_by_no = {l.no: l.raw for l in doc.lines}
     uses = []
-    for no, src in _math_spans(doc):
+    # ``_math_spans`` yields one span per source line, so an argument on the *next* line
+    # was invisible: ``mccall_model`` writes ``\sigma(w) := \mathbf{1}`` and opens
+    # ``\left\{`` underneath, and its own line 233 then says
+    # ``$\mathbf{1}\{ P \} = 1$ if statement $P$ is true``. ``check_math_004`` already
+    # looks one span ahead for exactly this shape; this now matches it.
+    spans = list(_math_spans(doc))
+    for i, (no, src) in enumerate(spans):
+        nxt = spans[i + 1][1] if i + 1 < len(spans) else ""
+        near = " ".join(raw_by_no.get(n, "") for n in (no, no + 1, no + 2))
         for m in ones.finditer(src):
-            if indicator.match(src[m.end():]):
+            if indicator.match(src[m.end():] or " " + nxt):
+                continue
+            if named_indicator.search(near):
                 continue
             uses.append((no, m.group(0).strip()))
     if not uses:
@@ -1364,22 +1427,32 @@ def check_fig_007(doc: Doc):
     return hits
 
 
-def check_fig_008(doc: Doc):
-    """Line charts should use lw=2.
+# Names bound, in a cell, to a kwargs bundle that already sets the line width —
+# ``p_args = {'lw': 2, 'alpha': 0.7}`` or ``kw = dict(lw=2)``. A ``**`` splat of one of these
+# carries ``lw`` into the call.
+LW_BUNDLE = re.compile(r"^[ \t]*([A-Za-z_]\w*)[ \t]*=[ \t]*(?:\{[^}]*|dict\([^)]*)"
+                       r"['\"]?(?:lw|linewidth)['\"]?[ \t]*[:=]", re.M)
+PLOT_CALL_RE = re.compile(r"\b(?:ax\d?|axes?\[[^\]]*\]|axs?\[[^\]]*\]|plt|ax)\.plot\s*\(")
 
-    A ``plot(...)`` call often spans several source lines, so the whole argument
-    list has to be assembled before deciding whether ``lw=`` is there.
+
+def _plot_calls(doc: Doc):
+    """Every ``plot(...)`` call in the document, assembled across continuation lines.
+
+    Yields ``(line_no, call_text, top_level_text, bundles)`` where *top_level_text* keeps
+    only the call's own arguments — a nested call's contents are dropped, so a string
+    argument inside one is not mistaken for a format string — and *bundles* is the set of
+    names this cell binds to a kwargs dict that sets the line width.
     """
-    hits = []
-    pat = re.compile(r"\b(?:ax\d?|axes?\[[^\]]*\]|axs?\[[^\]]*\]|plt|ax)\.plot\s*\(")
+    kwargs_lw = {}
+    for start, lines in _code_cells(doc):
+        names = {m.group(1) for m in LW_BUNDLE.finditer("\n".join(lines))}
+        for off in range(len(lines)):
+            kwargs_lw[start + off] = names
     code = [l for l in doc.lines if l.kind == "code"]
-    by_no = {l.no: i for i, l in enumerate(code)}
     for i, l in enumerate(code):
-        for m in pat.finditer(l.raw):
-            # Walk forward until the call's parentheses balance.
-            # ``depth`` finds the closing paren; ``lvl`` records, per character, how
-            # deeply nested inside the call's own argument list it sits, so the
-            # top-level arguments can be picked out below.
+        for m in PLOT_CALL_RE.finditer(l.raw):
+            # ``depth`` finds the closing paren; ``lvl`` records, per character, how deeply
+            # nested inside the call's own argument list it sits.
             depth, lvl, args, nest, j, pos = 0, 0, [], [], i, m.end() - 1
             done = False
             while j < len(code) and j - i < 12:
@@ -1404,28 +1477,90 @@ def check_fig_008(doc: Doc):
                     break
                 j += 1
                 pos = 0
-            call = "".join(args)
-            if re.search(r"\b(?:lw|linewidth)\s*=", call):
-                continue
-            # ``lw`` governs line width, so a call that draws no line has nothing to
-            # set it on. A positional format string of marker characters with no line
-            # style — ``plot(x, y, 'o')``, ``plot(x, y, 'k.')`` — is a scatter.
-            #
-            # Two things this deliberately does *not* do. It matches the format string
-            # positionally rather than as any quoted string, because keying on quotes
-            # swallowed ``color='C1'`` and inflated the exemption. And it searches only
-            # the call's own top-level arguments, because a nested call's string
-            # argument is not a format string: ``ax.plot(g, curve(pol['MH'], 'd1'))``
-            # would otherwise read ``'d1'`` as a thin-diamond marker.
-            top = "".join(ch for ch, d in zip(args, nest) if d == 0)
-            fmt = re.search(r",\s*(['\"])([^'\"]{1,4})\1", top)
-            # ``1``-``4`` are the tri_down/up/left/right markers. They are excluded:
-            # nothing in the corpus uses them, and admitting them exempted ``'C1'``,
-            # which is a *colour* spec and still draws a solid line.
-            if fmt and not re.search(r"[-:]", fmt.group(2)) \
-                    and re.search(r"[.,ov^<>spP*hH+xXDd]", fmt.group(2)):
-                continue
-            hits.append(Hit("qe-fig-008", l.no, "plot() without lw="))
+            yield (l.no, "".join(args),
+                   "".join(ch for ch, d in zip(args, nest) if d == 0),
+                   kwargs_lw.get(l.no, set()))
+
+
+# A call that draws a line thinner than the house width *and* dashes it, greys it or fades it
+# is de-emphasising that line on purpose — a zero reference, one of many sample paths. This is
+# the audit's reading, not the rule's, which is exactly why the rule needs to say.
+DE_EMPHASIS = re.compile(r"alpha\s*=\s*0?\.[0-8]"
+                         r"|['\"][a-zA-Z]?(?:--|-\.|:)['\"]"
+                         r"|color\s*=\s*['\"](?:k|black|gr[ae]y|0\.\d+)['\"]"
+                         r"|\b(?:ls|linestyle)\s*=")
+
+
+def plot_line_widths(doc: Doc):
+    """The explicit ``lw=``/``linewidth=`` values on this document's ``plot()`` calls.
+
+    Feeds ``data/fig_line_widths.csv``. ``qe-fig-008`` asks for ``lw=2`` but the check only
+    answers the unambiguous half of that — whether a width is set at all — because the rule's
+    text does not settle whether a reference line or a faint sample path may differ. So the
+    spread of values the corpus actually uses is measured here, and each non-house value is
+    labelled with the only mechanical signal available for "this was deliberate", for the
+    rule-scope question in ``contributions/issues/07-fig-008-line-width-tolerance.md`` to
+    cost both readings against.
+
+    Yields ``(line_no, width, kind)`` with *kind* one of ``house`` (exactly 2), ``emphasis``
+    (above 2), ``de-emphasised`` (below 2, and the call also dashes, greys or fades the line)
+    or ``plain`` (below 2 with no such signal).
+    """
+    out = []
+    for no, call, _top, _bundles in _plot_calls(doc):
+        m = re.search(r"\b(?:lw|linewidth)\s*=\s*([0-9]*\.?[0-9]+)", call)
+        if not m:
+            continue
+        v = float(m.group(1))
+        if v == 2:
+            kind = "house"
+        elif v > 2:
+            kind = "emphasis"
+        else:
+            kind = "de-emphasised" if DE_EMPHASIS.search(call) else "plain"
+        out.append((no, m.group(1), kind))
+    return out
+
+
+def check_fig_008(doc: Doc):
+    """Line charts should use lw=2.
+
+    A ``plot(...)`` call often spans several source lines, so the whole argument
+    list has to be assembled before deciding whether ``lw=`` is there.
+    """
+    hits = []
+    for no, call, top, bundles in _plot_calls(doc):
+        if re.search(r"\b(?:lw|linewidth)\s*=", call):
+            continue
+        # ``ax.plot(x, y, **p_args)`` with ``p_args = {'lw': 2, 'alpha': 0.7}`` sets the
+        # width the rule asks for; the literal ``lw=`` is just one cell-line away.
+        # ``lqcontrol`` builds all four of its panels this way and was reported 18 times
+        # for a convention it follows.
+        if set(re.findall(r"\*\*\s*([A-Za-z_]\w*)", call)) & bundles:
+            continue
+        # ``linestyle=''`` and ``ls='none'`` say outright that the call draws no line, so
+        # there is no width to set. Same reasoning as the marker-only case below, stated by
+        # the keyword instead of by a format string.
+        if re.search(r"\b(?:ls|linestyle)\s*=\s*(['\"])(?:none|None|)\1", call):
+            continue
+        # ``lw`` governs line width, so a call that draws no line has nothing to set it
+        # on. A positional format string of marker characters with no line style —
+        # ``plot(x, y, 'o')``, ``plot(x, y, 'k.')`` — is a scatter.
+        #
+        # Two things this deliberately does *not* do. It matches the format string
+        # positionally rather than as any quoted string, because keying on quotes
+        # swallowed ``color='C1'`` and inflated the exemption. And it reads only *top*,
+        # the call's own arguments, because a nested call's string argument is not a
+        # format string: ``ax.plot(g, curve(pol['MH'], 'd1'))`` would otherwise read
+        # ``'d1'`` as a thin-diamond marker.
+        fmt = re.search(r",\s*(['\"])([^'\"]{1,4})\1", top)
+        # ``1``-``4`` are the tri_down/up/left/right markers. They are excluded: nothing in
+        # the corpus uses them, and admitting them exempted ``'C1'``, which is a *colour*
+        # spec and still draws a solid line.
+        if fmt and not re.search(r"[-:]", fmt.group(2)) \
+                and re.search(r"[.,ov^<>spP*hH+xXDd]", fmt.group(2)):
+            continue
+        hits.append(Hit("qe-fig-008", no, "plot() without lw="))
     return hits
 
 

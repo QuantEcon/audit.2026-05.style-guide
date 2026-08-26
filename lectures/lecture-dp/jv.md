@@ -2,7 +2,7 @@
 
 - **Series:** lecture-dp
 - **File:** `lectures/jv.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 8.0 / 10
@@ -16,7 +16,7 @@
 | Math         | 9.5/10 | `qe-math-009` ×2. |
 | Code         | 7.5/10 | `qe-code-001` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6.5/10 | `qe-fig-005` ×3; `qe-fig-003` ×1; `qe-fig-008` ×4, +1 more. |
+| Figures      | 6.5/10 | `qe-fig-005` ×3; `qe-fig-003` ×1; `qe-fig-008` ×3, +1 more. |
 | References   | 9/10  | `qe-ref-001` ×1. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -34,7 +34,7 @@ _None found._
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 380, 461, 534. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 384. *Example:* .set(title=.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 376, 444, 526. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 4. *Lines:* 383, 468, 474, 536. *Example:* plot() without lw=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 383, 468, 536. *Example:* plot() without lw=.
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 2. *Lines:* 99, 227. *Example:* `\vee` is defined at 104 as `a \vee b := \max\{a, b\}` purely so it can be used twice, in `` {eq}`jvbell` `` (99) and `` {eq}`defw` `` (227). The identical quantity is written out as `\max \{ g(x_t, \phi_t), u_{t+1}\}` in `` {eq}`jd` `` (84) and as `max(g(x, ϕ), u)` in the code (266, 456), so the join symbol saves nothing, costs the reader a definition to carry, and leaves the lecture using two notations for one operation.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 168. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 4. *Lines:* 87, 143, 166, 395. *Example:* the substitutes prediction is stated three times in almost the same words - 'Our risk-neutral worker should focus on whatever instrument has the highest expected return' (143), 'worker will focus on whichever instrument has the higher expected return' (166), 'Worker switches from one investment strategy to the other depending on relative return' (395) - and the third is presented as a finding from the computation when it is a restatement of the second. The lecture also drops articles into note form at several points, so sentences read as slides rather than prose: 'Agent's objective: maximize expected discounted sum of wages via controls' (87), 'marginal cost of investment via either $\phi$ or $s$ is identical' (141), 'Return from investment via $\phi$ dominates expected return from search' (161), 'worker does better by investing' (397).

@@ -2,19 +2,19 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/observed_distributions.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 9.4 / 10
-- **Priority:** NONE
+- **Overall score:** 8.4 / 10
+- **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8.5/10 | `qe-writing-001` ×1; `qe-writing-008` ×1. |
+| Writing      | 4/10  | `qe-writing-005` ×6; `qe-writing-003` ×5; `qe-writing-002` ×3, +3 more. |
 | Math         | 10/10 | no mechanical violations detected. |
-| Code         | 10/10 | no mechanical violations detected. |
+| Code         | 7.5/10 | `qe-code-001` ×5. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7/10  | `qe-fig-004` ×4; `qe-fig-005` ×1; `qe-fig-008` ×3. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -27,12 +27,16 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 5. *Lines:* 37, 56, 413, 689. *Example:* the Python here is otherwise clean - flake8 over every code cell reports nothing but trailing whitespace, at 37, 56, 57, 413 and 689. Naming and spacing are consistent, the Greek identifiers at 808-810 are spelled as letters, and `plot_ecdf` (493-496) is the only helper and is well factored. Two smaller readability items in the same vein: 809-810 computes `σ_squared = x_amazon.var()` and then `σ = np.sqrt(σ_squared)` where `x_amazon.std()` gives the same number in one step, and `σ_squared` is never used again; and 749 reaches inside `x_amazon` and `x_costco` by column name where every other call site passes them whole.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 5. *Lines:* 104, 465, 725, 749, 943. *Example:* 104 prints `x.mean(), x.var(), x.std()` immediately under the definitions at 88-98, introduced as "For the income distribution given above, we can calculate these numbers via" - but 95 defines $s^2$ with $1/n$ and Pandas `var()` divides by $n-1$, so the printed variance is not the number just defined. The lecture knows this: the exercise at 226-234 says "you will see that the variance isn't quite right". As it stands the discrepancy is presented as a confirmation for 100 lines before it is named. Second, 465 histograms the Amazon returns without `density=True` while 467 labels the vertical axis `'density'`; every other histogram in the lecture passes `density=True` (341, 357, 375, 393, 413, 607, 824, 855), so this one alone plots counts under a density label. Third, 725 labels the horizontal axis of a single violin plot `'KDE'` - a leftover from the KDE cell at 567 - where the two later violin plots correctly label their categorical axis (`'retailers'` at 751, `'sex'` at 774). Fourth, `x_amazon` is treated as a one-dimensional sample everywhere - 436-438 says "we will have one observation for each month", and it is passed whole to `hist` (465), `sns.kdeplot` (565), `violinplot` (723), `mean`/`var` (808-809) - and then at 749 it must be written `x_amazon['AMZN']`, revealing that it is a one-column DataFrame; the reader is given no signal at 445 that this is the case, and the $\mu$ and $\sigma$ built at 808-811 are consequently Series rather than scalars. Fifth, `x` is the income data from 103 through 341, and 943 rebinds it to a single scalar draw (`x = u.rvs(random_state=1234)`); `df` similarly means the income frame (67), then the Amazon download (443), then the Costco download (736).
+- **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 6. *Lines:* 550, 620, 713, 802, 911. *Example:* the bolding is right where it happens - **sample mean** (86), **sample variance** (92), **sample standard deviation** (98), **sample skewness** and **sample kurtosis** (113), **sample $\tau$-quantile** (255), **sample median** (259), **sample quartiles** (260), **empirical cumulative distribution function** (475), **independent** (920) - and then stops for the second half of the lecture. Four of the five visualization tools are named without it: "Kernel density estimates (KDE)" (550), "box-and-whisker plot (or box plot)" (620), "interquartile range" (623) and "violin plot" (713), each introduced in the first sentence of its own subsection exactly as the ECDF is at 475. "the method of moments" (802) is the same case. And 911 puts a definition in italic where the rule wants bold: "This convergence is a version of the *law of large numbers*" - the other seven italics in the lecture (182, 210, 306, 656, 796, 834) are all correctly emphasis.
 
 ### Medium severity
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 4. *Lines:* 457, 557, 715, 741. *Example:* Title Case caption (Amazon).
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 536, 823, 854. *Example:* plot() without lw=.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 229. *Example:* 4 sentences in one paragraph.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 3. *Lines:* 438, 790, 830. *Example:* 790 restates the heading directly above it: "## Connection to probability distributions" then "Let's discuss the connection between observed distributions and probability distributions." 438 ("So we will have one observation for each month") follows 436, which has just defined the monthly return as the percent change over each month, so the conclusion is already in the premise. 830 hedges into vacuity - "The match between the histogram and the density is not bad but also not very good" - where the lecture has spent its first section building exactly the numbers that would settle it: `scipy.stats.skew(x_amazon)` and `scipy.stats.kurtosis(x_amazon)` are one line each and would let the sentence say how bad and why, which 832 then gestures at instead.
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 2. *Lines:* 82, 620. *Example:* the Sample moments section (82-248) computes skewness and kurtosis for three data sets and shows not one figure. The reader is told that the house prices have "a long right tail --- a small number of houses sell for far more than the typical price" (164-165), that logging makes the skewness "almost exactly zero" (180), and that the age-at-death skewness is "large and *negative*" with "a long tail running down towards zero" (210-213), and the corresponding histograms do not appear until 357, 375 and 393 - 200 lines later, in a section whose stated purpose (316-318) is to show shape. The `{note}` at 215-224 even forward-references figures the reader has not reached ("We will see it below as a spike at the right-hand end of the histograms"). One small histogram beside each triple of numbers would close the gap. Second, the box-plot anatomy is described entirely in prose - the box spans the quartiles, its width is the interquartile range, the line inside is the median, the whiskers reach 1.5 interquartile ranges, points beyond are plotted individually (623-628) - and the figure that follows at 636-650 has five boxes and no annotation, so a reader meeting a box plot for the first time has to map five sentences onto an unlabelled picture.
 
 ### Low severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 688. *Example:* code-cell figure without mystnb figure metadata.
@@ -41,16 +45,26 @@ _None found._
 
 ## Strengths
 
-- Math, Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The lecture opens by naming and then dissolving the terminological trap it is about: a set of ten incomes might be called an "income distribution", "The terminology is confusing because this set is not a probability distribution --- it's just a collection of numbers" (73-74), and "However, as we will see, there are connections" (76) - which is the whole lecture stated in three sentences.
+- Sample moments are introduced as counterparts rather than new definitions - "Each of these statistics is the sample counterpart of one of the population quantities defined in `` {doc}`prob_dist` ``: we replace the probability distribution by the observed data, weighting each observation equally" (107-109) - and the notation follows suit, $\hat S$ and $\hat K$ at 116-118 against prob_dist's $S$ and $K$.
+- The three data sets are chosen to make one point each and the point is stated before the numbers appear: US women's heights as the normal case (129-142), Ames house prices as right-skewed and then log-normalised (144-183), and Japanese age at death as the left-skewed mirror image (185-213) - a designed sequence rather than three examples.
+- The robustness of quantiles is demonstrated rather than asserted: one income is replaced by 10,000,000 and the mean and median are recomputed (274-285), then the same asymmetry is shown in real data twice, house prices where the mean exceeds the median by 13% (291-298) and age at death where it runs the other way (300-306), closing with the general rule at 308-309.
+- The `{note}` at 215-224 declares a data artifact before it can mislead - the top age category is "100 and over", it accounts for 3.3% of all deaths and 5.7% of female deaths, and the resulting spike "is an artifact of how the data are recorded rather than a feature of the data" - and 426-427 then points at that spike when it appears.
+- The box-plot figure is read honestly against the reader's likely prior: four-bedroom houses do sell for more than three, but one-bedroom houses have a higher median than two-bedroom, "the spread within every group is far larger than the differences across groups", and therefore "the number of bedrooms tells us relatively little about the price" (653-662) - and obs_ex2 then supplies the contrast case, floor area, where the medians do separate (669-703).
+- The final section earns its own claim rather than asserting convergence: ECDFs at $n = 10, 100, 1000$ are drawn against the true CDF (879-896), the sample mean is tabulated up to $n = 10^6$ against the population mean (904-908), and both are labelled as the law of large numbers with a pointer to `` {doc}`lln_clt` ``.
+- The independence subsection (915-977) is the best-constructed passage in the batch: a degenerate sample $X_i = X$ that is marginally correct but carries no information, the observation that "Judged one at a time, these are perfectly good observations" (932), a figure in which the three ECDFs coincide exactly (936-953), the reason (962-963), and then a note that pulls the claim back to the right strength - independence is sufficient, not necessary, and the monthly returns histogrammed earlier are certainly not independent (965-976).
+- Sixteen of the seventeen figures carry full `mystnb` metadata with caption and `name:`, and the `plot_ecdf` helper (493-496) is written once and reused at 509, 535, 891 and 948.
 
 ## Recommended actions
 
-1. `qe-fig-004` — Caption formatting conventions (4 occurrences).
-2. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
-3. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
-4. `qe-fig-008` — Use lw=2 for line charts (3 occurrences).
-5. `qe-writing-008` — Remove excessive whitespace between words (1 occurrence).
+1. Add `density=True` at 465 or relabel the axis at 467 - as it stands the only histogram in the lecture without `density=True` is the one labelled `'density'`.
+2. Fix the violin plot axis label at 725: `'KDE'` is left over from 567; the axis has no meaningful label for a single violin, so drop it or name the series.
+3. Say at 445 that `x_amazon` is a one-column DataFrame, or reduce it to a Series (`prices['AMZN'].pct_change()...`) so that 749 does not have to index into it while 465, 565, 723 and 808 pass it whole - and check that $\mu$ and $\sigma$ at 808-810 are scalars before they reach `scipy.stats.norm`.
+4. Move the $1/n$ versus $1/(n-1)$ point from the exercise at 226-234 up to line 104, where the printed variance first fails to match the definition at 95 - and give obs_ex1 a solution, as obs_ex2 has.
+5. Put a small histogram next to each moment computation in 129-213 (or forward-reference the specific figure by name), so the claims at 164, 180 and 210 are not 200 lines from their evidence; the `{note}` at 222 already forward-references figures the reader has not seen.
+6. Annotate one box plot with its parts - box, median line, whiskers at 1.5 IQR, individual points - to carry 623-628.
+7. Bold the four unbolded tool definitions (550 KDE, 620 box-and-whisker, 623 interquartile range, 713 violin plot) and 802's method of moments, to match **empirical cumulative distribution function** at 475, and move *law of large numbers* (911) from italic to bold.
+8. Replace the hedge at 830 with the two numbers the lecture already knows how to compute - `scipy.stats.skew(x_amazon)` and `scipy.stats.kurtosis(x_amazon)` - so "not bad but also not very good" becomes a measurement.
+9. Rename the rebound variables: `x` is income from 103 to 341 and a scalar draw at 943; `df` is the income frame at 67, the Amazon download at 443 and the Costco download at 736.
+10. Do NOT add `lw=2` to the drafted qe-fig-008 sites at 823 and 854 unconditionally - both are `ax.plot(x_grid, u.pdf(x_grid))` density curves and are genuine, as is 536 (`ax.plot(x_grid, u.cdf(x_grid), 'k--', ...)`); all three are real here, unlike the marker-only cases elsewhere in this series.
+11. Sweep the mechanical items: the four Title Case captions (457 'Histogram of Amazon monthly returns', 557 'KDE of Amazon monthly returns', 715 'Violin plot of Amazon returns', 741 'Amazon and Costco monthly returns' - qe-fig-004), `mystnb` metadata for the un-named exercise figure at 688 (qe-fig-005), the four-sentence paragraph at 229-233 and the double space at 231, the trailing whitespace at 37, 56, 57, 92, 413 and 689, and the two ways the same lecture is referenced (`{doc}`heavy_tails`` at 311 versus `{ref}`heavy tailed distributions<heavy_tail>`` at 832).

@@ -2,10 +2,10 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/money_inflation_nonlinear.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.1 / 10
+- **Overall score:** 7.9 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-006` ×6; `qe-writing-005` ×4; `qe-writing-003` ×3, +4 more. |
 | Math         | 9.5/10 | `qe-math-009` ×3. |
-| Code         | 7.5/10 | `qe-code-001` ×5. |
+| Code         | 6.5/10 | `qe-code-001` ×5; `qe-code-002` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6.5/10 | `qe-fig-005` ×4; `qe-fig-004` ×2; `qe-fig-008` ×9, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -33,6 +33,7 @@ _None found._
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 37. *Lines:* 20, 27, 29, 33, 38, 40, 46, 82, 106, 108, …. *Example:* 2 spaces.
 
 ### Medium severity
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 3. *Lines:* 664, 691, 717. *Example:* spelled-out `alpha`.
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 2. *Lines:* 166, 394. *Example:* caption of 15 words.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 504, 568, 659, 713. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 3. *Lines:* 85, 451, 464. *Example:* the steady-state inflation rate carries four names and the lecture never says they are the same object. 80 announces "the two prospective limiting values for $\overline \pi$"; 85-88 introduces $x$ as "a common rate of growth of logarithms of the money supply and price level" and states the defining equation `` {eq}`eq:steadypi` `` in $x$; 155-157 solves it and stores the answers as $\pi_l$ and $\pi_u$ (labelled that way on the figure at 170 and 190); and the exercises add $x^*$ (457) while `mni_ex2` reverts to $\pi_l(g), \pi_u(g)$ (553-554) with its own solution labelling the axis "steady-state inflation rate $x$" (516, 673). Not one sentence connects $x$ to $\overline\pi$ to $\pi_l$. The same function is spelled three ways too: `\exp(-\alpha x) - \exp(-(1+\alpha)x)` at 93 and 99, $L(x) = e^{-\alpha x} - e^{-(1+\alpha)x}$ at 451, and `compute_seign` in code at 175 - so the reader matching the exercise's $L$ against the body's display has to notice they are the same. And the lower/upper distinction is marked two different ways in adjacent paragraphs: $\underline p(m_0)$ and $\overline p(m_0)$ by under- and overline (208-213), $\pi_l$ and $\pi_u$ by subscript. `{\rm max}` for a subscript recurs at 464, 468, 511, 553, 558, 609, 641 and 669 where `\mathrm{max}` or `_{\max}` is the LaTeX form.

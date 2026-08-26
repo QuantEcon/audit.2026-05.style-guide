@@ -2,19 +2,19 @@
 
 - **Series:** lecture-dp
 - **File:** `lectures/mccall_model.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.9 / 10
+- **Overall score:** 7.4 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 4/10  | `qe-writing-006` ×12; `qe-writing-001` ×1; `qe-writing-008` ×6. |
-| Math         | 7/10  | `qe-math-010` (proposed) ×1; `qe-math-001` ×1; `qe-math-008` ×1. |
-| Code         | 10/10 | no mechanical violations detected. |
+| Writing      | 3/10  | `qe-writing-006` ×12; `qe-writing-002` ×5; `qe-writing-003` ×3, +3 more. |
+| Math         | 7/10  | `qe-math-010` (proposed) ×1; `qe-math-001` ×1; `qe-math-009` ×2. |
+| Code         | 7.5/10 | `qe-code-001` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-005` ×8; `qe-fig-003` ×2; `qe-fig-008` ×2. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -27,8 +27,10 @@
 _None found._
 
 ### High severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 6. *Lines:* 456, 453, 462, 391, 590, 1130. *Example:* 456-457, 552-553 and 710-711 write annotated defaults without spaces around the equals sign - `tol: float=1e-6`, `max_iter: int=500` (E252) - while 390-393 in the same file writes `c: float = 25` correctly. 453-458, 549-554 and 708-712 close the signature at an indent of 4, matching neither column 0 nor the 8-space argument indent (E124). There is trailing whitespace on eleven lines, six of them inside code cells: 391 (after `# discount factor`), 462, 464, 470, 557, 559, 571 (W291/W293), plus 162, 278, 947, 958 and 960 in the prose and in a math block. 590-595 shadows names already bound at module scope inside a nested loop - `for i, c in enumerate(c_vals): for j, β in enumerate(β_vals)` rebinds `c` and `β`, which 509 and 479 unpacked from the model - and warm-starts `v_init = v` from the previous grid point, so the contour at 597-607 depends on the iteration order. 1130 is 84 characters and 1155 is 82 (E501). And 459 uses a single-quoted one-line docstring where 968 and 1091 in the same file use triple quotes.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 8. *Lines:* 373, 427, 495, 581, 858, 931, 1049, 1089. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 1. *Lines:* 104. *Example:* missing braces: `\mathbb E`.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 5. *Lines:* 150, 155, 952, 743, 202. *Example:* 150 ends in an orphaned fragment: 'More precisely, $v^*(w)$ denotes the total sum of expected discounted earnings when an agent always behaves in an optimal way. points in time.' - the last two words are the tail of a deleted clause, lower-cased, after a full stop. 155 repeats 152-153 and misspells twice while doing it: 152 already says 'Of course $v^*(w)$ is not trivial to calculate because we don't yet know what decisions are optimal and what aren't!', and 155 then says 'If we don't know what opimal choices are, it feels imposible to calculate $v^*(w)$'. 952-956 is a two-item numbered list numbered 1 and 3. 743-747 spends two sentences on a transition that needs none ('The discrete wage offer distribution used above is convenient for theory and computation, but many realistic distributions are continuous (i.e., have a density). / Fortunately, the theory changes little in our simple model when we shift to a continuous offer distribution.'). And 202-213 says the same thing four times in five short paragraphs - 'suppose for now that we do know $v^*$', 'Once we have this function in hand we can easily make optimal choices', 'All we have to do is select the maximal choice on the right-hand side of `` {eq}`odu_pv` ``', 'In other words, we make the best choice between stopping and continuing' - and then 218-219 says it a fifth time.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 12. *Lines:* 78, 117, 133, 200, 257, 287, 317, 485, 612, 741, …. *Example:* H2 Title Case: 'The McCall Model' (Model).
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 6. *Lines:* 52, 111, 174, 202, 351. *Example:* 2 spaces.
 
@@ -37,26 +39,35 @@ _None found._
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 375, 1178. *Example:* plot() without lw=.
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 2. *Lines:* 124, 382. *Example:* raw link to dp.quantecon.org.
 - **[qe-math-001]** — Prefer UTF-8 unicode for simple parameter mentions, be consistent. *Count:* 1. *Lines:* 425. *Example:* unicode `β` inside a math environment.
+- **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 2. *Lines:* 87, 425. *Example:* $\mathbb{W}$ is blackboard bold for a finite set of wage numbers (87, 145, 174, 221, 264, 644-674), which puts it in the same visual register as $\mathbb{E}$ at 104 and $\mathbb{R}^n$ at 291, 321, 343 - reserved by convention for the standard number systems and the expectation operator. A plain $W$ is not available because $W_t$ is the wage process (83), but $\mathcal{W}$ or simply listing the set as at 264 would carry the same meaning with less decoration. Second, 425 writes Greek beta as the Unicode character inside inline math - '$v(i) = w(i) / (1 - β)$' - where every other display in the lecture writes `\beta`; the same substitution appears in the axis labels at 604 and 870, `ax.set_ylabel("$β$")`. This is the qe-math-001 hit, and the fix is one character.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 33. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 3. *Lines:* 739, 759, 257. *Example:* 739 promises a use for code that is never used: 'You can use this code to solve the exercise below', pointing at `compute_reservation_wage_two` (708-736), the whole point of the 'Take 2' section - but the solution at 1083-1183 builds its own machinery on the continuous model and says so ('Here's a solution using the continuous wage offer distribution with JAX', 1087), and `compute_reservation_wage_two` is called nowhere in the lecture or anywhere else in the series. Second, the continuous-distribution section reuses $q$ for a different measure on a different space: $q(w)$ is the wage PMF from 87 onwards, and 759 and 773 write $\int v^*(s') q(s') ds'$, where $q$ is now the density of the standard normal *state* $s$ (784-785) - and 759 also applies $v^*$, defined on wages at 143-145, to a state, $v^*(s')$, where 772 correctly writes $w(s')$. Third, the two parallel sections are titled 'Computing the Optimal Policy: Take 1' (257) and 'Computing an Optimal Policy: Take 2' (612).
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 3. *Lines:* 597, 929, 490. *Example:* the lecture draws the same contour plot twice - 597-607 for the discrete model and 858-875 for the continuous one - with identical titles ('reservation wage'), identical axis labels, identical `fontsize=13`/`16`, and 877 then says 'As with the discrete case, the reservation wage increases with both patience and unemployment compensation'. Neither figure has a name, so the comparison the sentence makes cannot be pointed at, and a reader scrolling back cannot tell the two apart. Second, the volatility section makes two claims and draws them in two separate single-line figures 100 lines apart (931-936 for the reservation wage, 1049-1054 for expected lifetime value), then 1057-1059 asserts the joint claim - 'despite workers setting higher reservation wages ... they achieve higher expected lifetime values' - which is precisely a two-panel figure. Third, the font handling is inconsistent across the lecture's eight figures: 530-533, 603-604, 869-870, 934-935 and 1052-1053 set `fontsize` at 11, 12, 13 and 16 by hand, while 376-377, 439-440 and 1179 use the defaults, so the figures do not read as one set.
 
 ### Low severity
-- **[qe-math-008]** — Explain special notation (vectors/matrices). *Count:* 1. *Lines:* 226. *Example:* ones vector `\mathbf{1}` used 1x with no 'vector of ones' explanation in the prose.
+_None found._
 
 
 ## Strengths
 
-- Code, References, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The Bellman equation is motivated before it is written and then justified term by term: 126-131 frames dynamic programming as assign-values-then-deduce-actions and promises to do both, 135-160 builds up to $v^*$ while being honest that it cannot yet be computed, `` {eq}`odu_pv` `` appears at 164-172, and 179-197 then explains each side of the max separately, including the geometric-sum expansion $\frac{w}{1-\beta} = w + \beta w + \beta^2 w + \cdots$ at 185 that makes the accept branch obvious.
+- The reservation wage is derived rather than asserted: the policy is first written as an indicator on the whole max comparison (226-231), the indicator notation is explained on the next line ('Here $\mathbf{1}\{ P \} = 1$ if statement $P$ is true and equals 0 otherwise', 233), and only then is the comparison collapsed into the threshold form $\sigma(w) = \mathbf{1}\{w \geq \bar w\}$ with $\bar w$ defined by `` {eq}`reswage` `` - so the reader sees where the threshold comes from.
+- The 'Take 2' derivation is shown step by step with each algebraic operation named in prose before it is performed: multiply by $q(w')$ (638), sum over $w' \in \mathbb{W}$ (644), multiply by $\beta$ (651), add $c$ (658), recognise the left-hand side as $h$ (665) - five displays for five operations, which is exactly the level of detail a reader meeting the trick for the first time needs, and 703 then names the payoff ('we're iterating on a scalar $h$, rather than an $n$-vector').
+- The five-step successive-approximation algorithm (289-311) is stated as an algorithm and then the fixed-point theory that licenses it is given its own section (317-352), with the mapping $T$ defined as a display, the Banach conditions cited, and both implications spelled out - uniqueness of the fixed point, and convergence of $\{T^k v\}$ from any starting point.
+- The iteration is made visible before it is trusted: 427-442 plots the first six iterates from the explicit initial guess $v(i) = w(i)/(1-\beta)$, which is itself given an economic reading ('the value of accepting at every given wage', 425), and 444 reads the convergence off the picture - so the tolerance loop at 452-473 is checking something the reader has already seen happen.
+- The volatility result is given its mechanism, its construction and its check: 884-888 explains why volatility raises the reservation wage (enjoy the upside, reject the downside), 890-902 constructs the mean-preserving spread properly by solving $\mu = \ln(m) - \sigma^2/2$ so that the comparison is about spread and not about the mean, and 941-1059 then shows that lifetime value rises too, which is the non-obvious half of the claim.
+- The JAX code is idiomatic in the ways the series cares about: `NamedTuple` models with the reason stated (384, 'to maintain immutability, which works well with JAX's functional programming paradigm'), `jax.lax.while_loop` rather than a Python loop inside `@jax.jit` (572, 732, 829, 1126), nested `jax.vmap` for the parameter grid with each axis commented (848-855), and explicit key splitting (990, 1022, 1113).
 
 ## Recommended actions
 
-1. `qe-writing-006` — Capitalize lecture titles properly (12 occurrences).
-2. `qe-fig-005` — Descriptive figure names for cross-referencing (8 occurrences).
-3. `qe-link-002` — Use doc links for cross-series references (2 occurrences).
-4. `qe-fig-003` — No matplotlib embedded titles (2 occurrences).
-5. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (1 occurrence).
-6. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
-7. `qe-math-001` — Prefer UTF-8 unicode for simple parameter mentions, be consistent (1 occurrence).
+1. Fix the two broken passages in the exposition: delete the orphaned 'points in time.' at 150, and cut 155 (which repeats 152 and contains 'opimal' and 'imposible'). Renumber the list at 952-956, which runs 1, 3.
+2. Decide what to do with `compute_reservation_wage_two` (708-736). Either the exercise solution should use it, as 739 says it will, or the pointer at 739 should go - as it stands the section's payoff function is dead code and the sentence introducing the exercise is wrong.
+3. Convert the two raw links (124, 382) to `{doc}` references. Line 124 points at `https://dp.quantecon.org/`, which is the site this very lecture is published on, and 382 points at `python-programming.quantecon.org/jax_intro.html`, for which `programming:` is not currently in this repo's `intersphinx_mapping` - so either add the mapping or link the local intro. This is the qe-link-002 finding and the first of the two is the more surprising one.
+4. Name the figures and pair the two that are compared. Add `mystnb` figure metadata with a `:name:` to the eight figure cells (373, 427, 495, 581, 858, 931, 1049, 1089) and move the two `set_title('reservation wage')` calls into captions (602, 868) - which is also what makes 877 ('As with the discrete case') and 1057-1059 ('despite workers setting higher reservation wages ... they achieve higher expected lifetime values') into citable comparisons rather than requests to scroll. Consider putting the two volatility figures (931-936, 1049-1054) into one two-panel figure.
+5. Settle the figure fonts: drop the hand-set `fontsize` and `labelsize` arguments at 530-533, 603-604, 869-870, 934-935 and 1052-1053 so the eight figures match 376-377, 439-440 and 1179, and add `lw=2` to the two line plots that lack it (375, 1178) - note that 435, 503, 933 and 1051 already set a width and should be left alone.
+6. Sync the deprecated JAX RNG API from `lecture-python.myst/lectures/mccall_model.md`, which is the *only* difference between the two copies: it uses `jax.random.key(seed)` at its 805, 1021 and 1151 where this copy uses the deprecated `jax.random.PRNGKey(seed)`, and updates the two docstring type lines (973, 1099) to match. Five lines, and it is the whole diff.
+7. Tidy the code: spaces around the annotated defaults at 456-457, 552-553 and 710-711 (E252), the closing parens at 458, 554 and 712 (E124), the eleven trailing-whitespace lines (162, 278, 391, 462, 464, 470, 557, 559, 571, 947, 958, 960), the two long lines at 1130 and 1155 (E501), and the loop-variable shadowing at 590-591. If the warm start at 594 (`v_init = v`) is deliberate, say so in a comment - as written the contour plot depends on the order the grid is traversed.
+8. Do the math sweep: write `\beta` rather than the Unicode `β` at 425 (the qe-math-001 hit) and in the two axis labels at 604 and 870; brace `{\mathbb E}` at 104 (qe-math-010 (proposed), proposed); and use a distinct symbol for the state density at 759 and 773, where $q$ currently denotes both the wage PMF and the density of $s$, and write $v^*(w(s'))$ rather than $v^*(s')$ at 759.
+9. Sentence-case the 12 Title Case headings (78, 117, 133, 200, 257, 287, 317, 485, 612, 741, 780, 941) and make 257 and 612 agree ('the' vs 'an' optimal policy). Note the sibling copy has the same headings, so this is not an upstream-sync win.
+10. Note for anyone working from the report alone: the qe-math-008 hit at line 226 is a false positive - the `\mathbf{1}` there is an indicator function, not a ones vector, and line 233 explains it explicitly. See scanner_doubts; do not add a 'vector of ones' sentence to satisfy it.
+11. Remaining sweep: the six double spaces (52, 111, 174, 202, 351), the two-sentence epigraph paragraph at 33 (which is a quotation and arguably outside qe-writing-001's intent), and the stray trailing blank line inside the cell at 1044-1045.

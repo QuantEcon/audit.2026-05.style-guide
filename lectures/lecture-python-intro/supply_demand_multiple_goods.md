@@ -2,17 +2,17 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/supply_demand_multiple_goods.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.9 / 10
-- **Priority:** HIGH
+- **Overall score:** 8.0 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 4/10  | `qe-writing-005` ×4; `qe-writing-003` ×4; `qe-writing-002` ×3, +5 more. |
+| Writing      | 4.5/10 | `qe-writing-005` ×4; `qe-writing-003` ×4; `qe-writing-002` ×3, +4 more. |
 | Math         | 9.5/10 | `qe-math-009` ×3. |
 | Code         | 6.5/10 | `qe-code-001` ×5; `qe-code-002` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
@@ -29,7 +29,6 @@ _None found._
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 5. *Lines:* 228, 266, 740, 753, 1031. *Example:* twenty lines carry trailing whitespace, and most of them are indentation-only blank lines inside class bodies - 228, 251, 260 in `ExchangeEconomy`, 656, 675 in `ProductionEconomy`, 973, 984 in `Monopoly` - plus the per-parameter signature lines at 229-231, 657-661 and 974-978. Five lambdas are assigned to names where PEP8 asks for a `def`: `supply_inv` and `demand_inv` (740-741), `marg_cost`, `marg_rev` and `demand_inv` (1030-1032). Ten lines exceed 79 characters, four of them past 110: 1047 at 116, 1046 at 113, 753 and 754 at 112. 1031 multiplies by a redundant literal, `-2 * 1 / μ * Π * Π * x`. And 266, 690 and 999 call the built-in `any()` on a NumPy array (`if any(c < 0)`, `if any(Π @ c - b >= 0)`) rather than `np.any()`, which works only because the arrays are one-dimensional and raises on anything else - in a lecture whose whole subject is the $n$-good generalisation. One stray item: 1027 is the comment `# compute` with nothing after it.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 5. *Lines:* 750, 751, 1042, 1043, 1044. *Example:* plot() without lw=.
-- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 1. *Lines:* 273. *Example:* H2 Title Case: 'Digression: Marshallian and Hicksian demand curves' (Hicksian).
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 10. *Lines:* 52, 54, 144, 219, 355, 448, 934, 1117. *Example:* 2 spaces.
 
 ### Medium severity

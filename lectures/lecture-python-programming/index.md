@@ -6,10 +6,10 @@ Style audit of the **lecture-python-programming** series.
 - **Audit date:** 2026-08-21
 - **Corpus snapshot:** `ceec881028`
 - **Lectures audited:** 27
-- **Average overall score:** 8.1 / 10
-- **Average per-category scores:** writing 4.1, math 9.0, code 8.5, figures 7.3, links 9.8, admon 9.9  *(references not in scope for this series)*
+- **Average overall score:** 8.0 / 10
+- **Average per-category scores:** writing 4.1, math 9.0, code 8.4, figures 7.3, links 9.8, admon 9.9  *(references not in scope for this series)*
 - **JAX:** out of scope — the `qe-jax-*` rules target `lecture-jax`.
-- **Judgment-review coverage:** **26 of 27 reviewed** — scores for the unreviewed 1 reflect the 41 measured rules only, so they are not directly comparable with the reviewed ones.
+- **Judgment-review coverage:** all lectures reviewed.
 <!-- /qe:series-meta -->
 
 <!-- qe:series-narrative -->
@@ -31,10 +31,10 @@ series. No other series has that property.
 <!-- qe:series-priority -->
 | Priority | Count | % |
 |----------|-------|---|
-| HIGH     | 19    | 70.4% |
+| HIGH     | 20    | 74.1% |
 | MEDIUM   | 0     | 0.0% |
 | LOW      | 5     | 18.5% |
-| NONE     | 3     | 11.1% |
+| NONE     | 2     | 7.4% |
 <!-- /qe:series-priority -->
 
 ## Top systemic issues across the series
@@ -45,8 +45,8 @@ Ranked by how many of the series' lectures each rule reaches.
 1. **`qe-writing-006`** — Capitalize lecture titles properly — **23 / 27** lectures, 178 occurrences.
 2. **`qe-fig-005`** — Descriptive figure names for cross-referencing — **21 / 27** lectures, 128 occurrences.
 3. **`qe-writing-008`** — Remove excessive whitespace between words — **16 / 27** lectures, 43 occurrences.
-4. **`qe-fig-008`** — Use lw=2 for line charts — **15 / 27** lectures, 66 occurrences.
-5. **`qe-writing-001`** — Use one sentence per paragraph — **15 / 27** lectures, 29 occurrences.
+4. **`qe-writing-001`** — Use one sentence per paragraph — **15 / 27** lectures, 29 occurrences.
+5. **`qe-fig-008`** — Use lw=2 for line charts — **14 / 27** lectures, 63 occurrences.
 6. **`qe-fig-001`** — Do not set figure size unless necessary — **9 / 27** lectures, 22 occurrences.
 7. **`qe-writing-004`** — Avoid unnecessary capitalization in narrative text — **6 / 27** lectures, 14 occurrences.
 8. **`qe-fig-002`** — Prefer code-generated figures — **5 / 27** lectures, 15 occurrences.
@@ -119,19 +119,19 @@ that lecture. Click a lecture for its full report.
 | 9 | [names](names.md) | 3 | — | 8.5 | 7 | — | 10 | 10 | **7.7** | HIGH |
 | 10 | [workspace](workspace.md) | 4.5 | — | 8.5 | 5.5 | — | 10 | 10 | **7.7** | LOW |
 | 11 | [scipy](scipy.md) | 3 | 7.5 | 8.5 | 8 | — | 10 | 10 | **7.8** | HIGH |
-| 12 | [getting_started](getting_started.md) | 3 | — | 10 | 7 | — | 10 | 10 | **8.0** | HIGH |
-| 13 | [python_oop](python_oop.md) | 3 | 10 | 7.5 | 7.5 | — | 10 | 10 | **8.0** | HIGH |
+| 12 | [writing_good_code](writing_good_code.md) | 3 | 9.5 | 7 | 7.5 | — | 10 | 10 | **7.8** | HIGH |
+| 13 | [getting_started](getting_started.md) | 3 | — | 10 | 7 | — | 10 | 10 | **8.0** | HIGH |
 | 14 | [autodiff](autodiff.md) | 7 | 7.5 | 7.5 | 6.5 | — | 10 | 10 | **8.1** | LOW |
 | 15 | [polars](polars.md) | 4.5 | — | 9 | 7 | — | 10 | 10 | **8.1** | LOW |
-| 16 | [sympy](sympy.md) | 4 | 8 | 8.5 | 10 | — | 8 | 10 | **8.1** | HIGH |
-| 17 | [functions](functions.md) | 3 | 10 | 8.5 | 7.5 | — | 10 | 10 | **8.2** | HIGH |
-| 18 | [oop_intro](oop_intro.md) | 4 | — | 9 | — | — | 10 | 10 | **8.2** | HIGH |
-| 19 | [troubleshooting](troubleshooting.md) | 5.5 | — | — | 9 | — | 10 | — | **8.2** | LOW |
-| 20 | [need_for_speed](need_for_speed.md) | 3 | — | 10 | 8.5 | — | 10 | 10 | **8.3** | HIGH |
-| 21 | [numpy_vs_numba_vs_jax](numpy_vs_numba_vs_jax.md) | 3 | 10 | 8.5 | 8.5 | — | 10 | 10 | **8.3** | HIGH |
-| 22 | [python_advanced_features](python_advanced_features.md) | 4.5 | — | 8.5 | 8.5 | — | 10 | 10 | **8.3** | LOW |
+| 16 | [python_oop](python_oop.md) | 3 | 10 | 7.5 | 8 | — | 10 | 10 | **8.1** | HIGH |
+| 17 | [sympy](sympy.md) | 4 | 8 | 8.5 | 10 | — | 8 | 10 | **8.1** | HIGH |
+| 18 | [functions](functions.md) | 3 | 10 | 8.5 | 7.5 | — | 10 | 10 | **8.2** | HIGH |
+| 19 | [oop_intro](oop_intro.md) | 4 | — | 9 | — | — | 10 | 10 | **8.2** | HIGH |
+| 20 | [troubleshooting](troubleshooting.md) | 5.5 | — | — | 9 | — | 10 | — | **8.2** | LOW |
+| 21 | [need_for_speed](need_for_speed.md) | 3 | — | 10 | 8.5 | — | 10 | 10 | **8.3** | HIGH |
+| 22 | [numpy_vs_numba_vs_jax](numpy_vs_numba_vs_jax.md) | 3 | 10 | 8.5 | 8.5 | — | 10 | 10 | **8.3** | HIGH |
 | 23 | [python_essentials](python_essentials.md) | 3 | 10 | 8.5 | — | — | 10 | 10 | **8.3** | HIGH |
-| 24 | [writing_good_code](writing_good_code.md) | 4.5 | 10 | 10 | 7.5 | — | 10 | 10 | **8.7** | NONE |
+| 24 | [python_advanced_features](python_advanced_features.md) | 4.5 | — | 8.5 | 9 | — | 10 | 10 | **8.4** | LOW |
 | 25 | [debugging](debugging.md) | 3.5 | 10 | 10 | 9 | — | 10 | 10 | **8.8** | HIGH |
 | 26 | [status](status.md) | 10 | — | 9 | — | — | 10 | — | **9.7** | NONE |
 | 27 | [intro](intro.md) | 10 | — | — | — | — | 10 | — | **10.0** | NONE |

@@ -2,10 +2,10 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/smoothing_tax.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.0 / 10
+- **Overall score:** 7.1 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 4/10  | `qe-writing-002` ×9; `qe-writing-005` ×4; `qe-writing-003` ×4, +4 more. |
-| Math         | 4.5/10 | `qe-math-010` (proposed) ×5; `qe-math-002` ×1; `qe-math-009` ×6. |
+| Math         | 5.5/10 | `qe-math-010` (proposed) ×5; `qe-math-009` ×6. |
 | Code         | 7.5/10 | `qe-code-001` ×7. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 4/10  | `qe-fig-003` ×7; `qe-fig-006` ×9; `qe-fig-005` ×2, +2 more. |
@@ -31,7 +31,6 @@ _None found._
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 7. *Lines:* 250, 257, 284, 292, 585, 593, 604. *Example:* .set_title.
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 9. *Lines:* 255, 263, 289, 298, 590, 600, 607, 608, 613. *Example:* axis label `Periods`.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 20. *Lines:* 251, 252, 253, 258, 259, 260, 285, 286, 287, 293, …. *Example:* plot() without lw=.
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 1. *Lines:* 364. *Example:* `^T` transpose in `R^T`.
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 6. *Lines:* 684, 729, 763, 797, 837, 910. *Example:* rows inside `bmatrix` are separated with the plain-TeX `\cr` in all five example chains (684-686, 729-731, 763-766, 797-801, 837-843) while the exercise at 524-527 separates them with `\\` - one file, two spellings, and `\\` is both the AMS form and the one the rest of the corpus uses. The conditional expectation is written two ways as well: `\mathbb E_t` in the continuous-state section (877, 884, 892, 898), then at 910 as `\frac{b(x_{t+1})}{\beta E b(x_{t+1})| x_t}` - a bare $E$ with the conditioning bar left outside the operator's argument, so the denominator renders as $\beta E b(x_{t+1})$ followed by a dangling $| x_t$ rather than $\beta \mathbb{E}_t[b(x_{t+1})]$.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 5. *Lines:* 877, 884, 892, 898. *Example:* missing braces: `\mathbb E`.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 9. *Lines:* 26, 78, 82, 425, 501, 808. *Example:* the text has not been proofread and in several places the sentence no longer carries its meaning. 26 is missing the package name: "In addition to what's in Anaconda, this lecture uses the  library:". 78 collapses three phrasings into one: "$a_t$ is the government's holdings of one-period risk-free bonds coming maturing at the due at the beginning of time $t$". 82 does the same: "We'll spend most of this lecture studying acquire finite-state Markov specification". 425: "Here's code that itinitializes government assets to be unity". 808: "We ssume that $b_0 = 1$". Agreement errors in 336 ("the government has sold an Arrow securities paying off"), 419 ("The government then experiences 3 time periods of war and come back to peace again") and 501 ("the government always purchase $1$ units"), a stray space before the full stop at 722, and missing terminal periods at 88, 105, 337 and 425.

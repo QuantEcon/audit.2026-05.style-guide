@@ -2,7 +2,7 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/money_inflation.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 8.2 / 10
@@ -16,7 +16,7 @@
 | Math         | 9.5/10 | `qe-math-009` ×3. |
 | Code         | 7.5/10 | `qe-code-001` ×5. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6/10  | `qe-fig-005` ×3; `qe-fig-004` ×3; `qe-fig-008` ×10, +1 more. |
+| Figures      | 6/10  | `qe-fig-005` ×3; `qe-fig-004` ×3; `qe-fig-008` ×8, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -28,7 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 5. *Lines:* 263, 272, 291, 512, 1068. *Example:* 263 places `from collections import namedtuple` after an executable statement (`plt.rcParams['figure.dpi'] = 300` at 262), where PEP8 asks for all imports at the top of the block. Two continuation lines are under-indented against their opening delimiter: `MoneySupplyModel = namedtuple("MoneySupplyModel",` opens its parenthesis at column 29 and continues at column 24 (272-274), and `line_params = {'lw': 1.5,` opens its brace at column 14 and continues at column 14 (512-514), one short of the visual indent. 291 mixes operator spacing inside one expression and leaves a stray double space - `return -γ2/R + (γ1 + γ2)  - γ1 * R`, with `/` unspaced and `*` spaced - and 495-501 does the same (`γ1 - γ2/R0` next to `γ1/γ2 - (1 / γ2) * b_values[0]`). Five lines run past 79 characters (1049, 1068, 1135, 1140, 1142), 1068 at 96. And LaTeX in matplotlib labels is written with doubled backslashes in ordinary strings at 1048, 1051, 1126, 1211 and 1212 while 518 correctly uses a raw string for the same job.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 10. *Lines:* 329, 535, 538, 905, 908, 912, 1048, 1121, 1122, 1209. *Example:* plot() without lw=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 8. *Lines:* 329, 905, 908, 912, 1048, 1121, 1122, 1209. *Example:* plot() without lw=.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 89. *Lines:* 35, 36, 43, 50, 54, 60, 78, 80, 81, 96, …. *Example:* 3 spaces.
 
 ### Medium severity

@@ -2,10 +2,10 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/prospects_bounded_rationality.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 9.8 / 10
+- **Overall score:** 9.6 / 10
 - **Priority:** NONE
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 10/10 | no mechanical violations detected. |
 | Math         | 10/10 | no mechanical violations detected. |
-| Code         | 10/10 | no mechanical violations detected. |
+| Code         | 9/10  | `qe-code-002` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8.5/10 | `qe-fig-004` ×1; `qe-fig-001` ×2. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -33,6 +33,7 @@ _None found._
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 280, 345. *Example:* figsize=.
 
 ### Low severity
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 247. *Example:* spelled-out `sigma`.
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 1. *Lines:* 329. *Example:* caption of 7 words.
 
 
@@ -48,4 +49,5 @@ _None found._
 ## Recommended actions
 
 1. `qe-fig-004` — Caption formatting conventions (1 occurrence).
-2. `qe-fig-001` — Do not set figure size unless necessary (2 occurrences).
+2. `qe-code-002` — Use Unicode symbols for Greek letters in code (1 occurrence).
+3. `qe-fig-001` — Do not set figure size unless necessary (2 occurrences).

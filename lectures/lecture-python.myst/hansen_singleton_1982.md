@@ -2,19 +2,19 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/hansen_singleton_1982.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.4 / 10
+- **Overall score:** 8.0 / 10
 - **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 7/10  | `qe-writing-002` ×4; `qe-writing-009` (proposed) ×1; `qe-writing-003` ×1, +1 more. |
-| Math         | 5/10  | `qe-math-010` (proposed) ×12; `qe-math-009` ×3. |
-| Code         | 7/10  | `qe-code-002` ×2; `qe-code-001` ×2. |
+| Writing      | 6/10  | `qe-writing-002` ×4; `qe-writing-001` ×1; `qe-writing-009` (proposed) ×1, +2 more. |
+| Math         | 5/10  | `qe-math-010` (proposed) ×19; `qe-math-009` ×3. |
+| Code         | 5.5/10 | `qe-code-002` ×29; `qe-code-001` ×2. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 9.5/10 | `qe-fig-001` ×1. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -27,12 +27,13 @@
 _None found._
 
 ### High severity
-- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 12. *Lines:* 168, 188, 211, 239, 245, 376, 378, 568, 600, 841, …. *Example:* bare expectation `E_t[`.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 29. *Lines:* 404, 405, 745, 749, 750, 752, 753, 766, 767, 768, …. *Example:* spelled-out `gamma`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 19. *Lines:* 151, 161, 168, 188, 195, 196, 204, 211, 239, 245, …. *Example:* bare expectation `E_t\!\left[`.
 
 ### Medium severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 2. *Lines:* 86, 387. *Example:* lines 85-87 split a conditional expression across three continuation lines at a 9-space indent that matches neither the opening bracket nor a hanging indent (E128), leaving `if "\\" not in c / and "^" not in c and "_" not in c / else c for c in ...` hard to parse; line 387 leaves trailing whitespace inside a docstring. The `data[n_lags - 1 - j : t_obs - 1 - j, :]` spacing at 311, 363 and 368 is correct PEP8 for a slice with compound expressions and is left alone.
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 2. *Lines:* 781, 782. *Example:* spelled-out `xi`.
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 3. *Lines:* 154, 166, 378. *Example:* the letter M carries three jobs and its lowercase carries two more: $M_j$ is the maturity of asset $j$ (124, 131, 151), $M_{t+1}(\theta)$ is the stochastic discount factor (166, 188, 540, 598), $m$ is the number of Euler equations (221, 376, 574) and $m_t(\theta)$ is the moment vector (540, 600) - so `\beta^{M_j}` and $M_{t+1}$ appear in the same display at 151-166 meaning unrelated things. The asset index also switches mid-sentence at 154, from 'asset $j$' to $R^i_{t+1} = (P_{i,t+1}+D_{i,t+1})/P_{i,t}$, and the superscript $i$ then persists (161, 164, 188, 540) while the model is written in $j$. And the information set is $\mathcal{I}_t$ at 328, 330, 332 and 334 but plain $I_t$ at 378.
+- **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 988. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 4. *Lines:* 50, 182, 330, 1119. *Example:* line 50 is a subordinate clause with no main clause ('Though maximum likelihood estimators ... will be asymptotically more efficient when the distributional assumptions are correctly specified.'), and line 182 is a fragment ending in a comma - 'Just like what we did together in `` {doc}`hansen_singleton_1983` ``,' - whose continuation starts a new paragraph at 184. Lines 328, 330 and 334 state the same requirement three times in four lines: instruments must lie in $\mathcal{I}_t$. Lines 1119 and 1121 each contain a grammatical slip ('So GMM is provides a way', 'more efficient that are the GMM estimators').
 
 ### Low severity

@@ -2,7 +2,7 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/pricing_information.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 7.3 / 10
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 5.5/10 | `qe-writing-005` ×4; `qe-writing-003` ×3; `qe-writing-002` ×3, +1 more. |
 | Math         | 4.5/10 | `qe-math-010` (proposed) ×6; `qe-math-003` ×1; `qe-math-014` (proposed) ×4, +1 more. |
-| Code         | 5/10  | `qe-code-002` ×64; `qe-code-001` ×5. |
+| Code         | 5/10  | `qe-code-002` ×82; `qe-code-001` ×5. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-003` ×3; `qe-fig-004` ×3; `qe-fig-005` ×1, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -28,7 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 5. *Lines:* 953, 946, 424, 486, 1081. *Example:* 953 writes `title='revenue is linear in $\pi_2$, so the optimum is at an endpoint'` in a plain string, so `\p` is an invalid escape sequence - flake8 reports it as `W605` and CPython raises a `SyntaxWarning` on compile, which I confirmed by compiling the extracted cells with warnings enabled. Every other LaTeX-bearing string in the lecture is either raw (`r'$\theta$'` at 247, 329, 497) or double-escaped (`'...$\\theta^H$'` at 486-487), so this one line is the exception, and it is inside an exercise solution where a warning will surface in the built page. Nineteen lines exceed 79 characters, the worst being 963 at 90, 486 at 88, and 487 and 489 at 86. 946 writes `1/3` inside a list with no spaces around the division (E226) where the neighbouring literals are plain floats. On naming, `two_type_revenue(pi1, pi2, tL, tH, gamma)` at 423 uses `tL`/`tH` for the two *types* $\theta^L,\theta^H$ while `t_low`/`t_high` in the same function body (427-428) are *prices* - and the lecture's own notation makes $t$ the price (358, 364), so the parameter names contradict the mathematics they implement. 1081 packs five initialisations onto one line, `n_pairs, n_garble, n_unranked, n_disagree, violations = 4000, 0, 0, 0, 0`.
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 64. *Lines:* 181, 183, 184, 185, 186, 200, 202, 203, 204, 238, …. *Example:* spelled-out `theta`.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 82. *Lines:* 181, 183, 184, 185, 186, 200, 202, 203, 204, 238, …. *Example:* spelled-out `theta`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 5. *Lines:* 90, 240, 484, 751, 814. *Example:* style override.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 6. *Lines:* 115, 160, 364, 374, 411. *Example:* non-blackboard `\Pr`.
 

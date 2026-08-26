@@ -2,10 +2,10 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/risk_aversion_or_mistaken_beliefs.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.4 / 10
+- **Overall score:** 7.2 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 5/10  | `qe-writing-001` ×2; `qe-writing-005` ×3; `qe-writing-003` ×4, +3 more. |
 | Math         | 3/10  | `qe-math-010` (proposed) ×34; `qe-math-011` (proposed) ×18; `qe-math-009` ×4. |
-| Code         | 10/10 | no mechanical violations detected. |
+| Code         | 9/10  | `qe-code-002` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 3.5/10 | `qe-fig-006` ×19; `qe-fig-005` ×12; `qe-fig-004` ×2, +2 more. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -44,6 +44,7 @@ _None found._
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 4. *Lines:* 278, 669, 885, 1533. *Example:* the two pictures that carry the entire second half of the argument - the discounted entropy ball (885-887) and the tilted entropy balls (1193-1195) - are static PNGs with no `:name:`, so 1143-1145's claim that including parametric alternatives tilts the ball cannot be pointed at with `{numref}`, and neither can be redrawn at a different $\theta$ or $\Xi$; the same is true of the state-dependent-dynamics figure at 278-280. Second, the figure at 646-666 is asked to demonstrate the lecture's central claim - 669 says "The two yield curves are identical" - by plotting a solid steelblue curve and then a dashed firebrick curve on top of it, so the blue one is invisible and the reader has to accept "identical" from a plot in which one series is hidden; a difference panel would show it. Third, the legend text in two figures is broken: 1533 and 1580 write `r"Sz\H{o}ke ..."`, and `\H{o}` is a LaTeX accent macro that matplotlib's text renderer does not interpret outside mathtext, so the legends read `Sz\H{o}ke` while every prose mention (1133, 1197, 1683, 1793) uses the unicode `Szőke`. Fourth, the lecture's two organising tables - four likelihood ratios and their roles at 61-66, three probability twisters at 1557-1561 - describe overlapping objects in different symbols ($m_{t+1}^w$ against $w_t^*$, $m_{t+1} \in \mathcal M$ against $\tilde W x_t$) and neither refers to the other.
 
 ### Low severity
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 1353. *Example:* spelled-out `xi`.
 - **[qe-writing-009 (proposed)]** — Write "IID" — not "i.i.d." or "iid". *Count:* 1. *Lines:* 246. *Example:* i.i.d..
 
 

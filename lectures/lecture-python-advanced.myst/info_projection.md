@@ -2,10 +2,10 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/info_projection.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.9 / 10
+- **Overall score:** 7.5 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 4.5/10 | `qe-writing-001` ×2; `qe-writing-005` ×4; `qe-writing-003` ×4, +2 more. |
 | Math         | 5/10  | `qe-math-010` (proposed) ×17; `qe-math-009` ×4. |
-| Code         | 8.5/10 | `qe-code-001` ×4. |
+| Code         | 6/10  | `qe-code-002` ×10; `qe-code-001` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8/10  | `qe-fig-005` ×2; `qe-fig-001` ×2. |
 | References   | 9/10  | `qe-ref-001` ×1. |
@@ -27,6 +27,7 @@
 _None found._
 
 ### High severity
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 10. *Lines:* 670, 671, 673, 675, 676, 681, 684. *Example:* spelled-out `theta`.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 17. *Lines:* 98, 108, 179, 184, 187, 194, 220, 274, 959, 966, …. *Example:* bare expectation `E[`.
 
 ### Medium severity

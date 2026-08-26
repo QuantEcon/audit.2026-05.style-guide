@@ -2,7 +2,7 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/aiyagari_egm.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 8.0 / 10
@@ -16,7 +16,7 @@
 | Math         | 8.5/10 | `qe-math-010` (proposed) ×1. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 5.5/10 | `qe-fig-003` ×5; `qe-fig-005` ×3; `qe-fig-001` ×3, +1 more. |
+| Figures      | 5.5/10 | `qe-fig-003` ×5; `qe-fig-005` ×3; `qe-fig-001` ×3. |
 | References   | 9/10  | `qe-ref-001` ×1. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -40,7 +40,6 @@ _None found._
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 3. *Lines:* 51, 647, 654. *Example:* the lecture uses bold for eight different jobs and italic for none. Line 51 bolds **simulation** for contrast, not definition ("We compute aggregate capital by **simulation** rather than an algebraic technique"); lines 647 and 654 use `**Advantages:**` and `**Disadvantages:**` as section headings; and line 50 re-bolds **endogenous grid method**, already bolded and defined eight lines earlier at 42.
 
 ### Low severity
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 569. *Example:* plot() without lw=.
 - **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 64. *Example:* `` {cite} `` in narrative flow: 'of `` {cite} ``'.
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 1. *Lines:* 258. *Example:* the endogenous grid - the one idea the lecture exists to teach - is never drawn. Section "The EGM operator" (256-308) explains in a three-step recipe that the exogenous $a'$ grid is mapped back to an *irregular* implied grid $a_{ij} = (c_{ij} + a_i - w z_j)/(1+r)$ and then interpolated back onto the regular grid, and step 3 mentions "handling the borrowing constraint where it binds"; a plot of `a_endo` against `a_grid`, or of the $(a_{endo}, c_{endo})$ points before and after interpolation, would show both the irregular spacing and the binding region that lines 298-303 handle in code.
 

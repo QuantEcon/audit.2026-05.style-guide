@@ -2,7 +2,7 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/status.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, code, links  *(JAX out of scope)*
 - **Overall score:** 9.7 / 10
@@ -38,12 +38,16 @@ _None found._
 
 ## Strengths
 
-- Writing, Code, Links score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The page does one thing: it renders `{nb-exec-table}` (16-17) and then reports the machine that rendered it, with no narrative padding around either.
+- Every environment fact is produced by a live cell rather than typed in - `!python --version` (26), `!conda list` (33), `!nvidia-smi` (39) and the JAX backend probe (44-47) - so the page cannot go stale.
+- The `!conda list` cell carries `:tags: [hide-output]` (32), keeping a several-hundred-line dump out of the rendered page while leaving it in the notebook.
+- The machine-details region carries an explicit `(status:machine-details)=` anchor (19), so other pages can link straight at it.
 
 ## Recommended actions
 
-1. `qe-code-003` — Package installation at lecture top (1 occurrence).
+1. Install `jax` in a first code cell with `:tags: [hide-output]` before the import at 45 - it is the only non-Anaconda package on the page and currently has no install cell (qe-code-003, 1 occurrence).
+2. Guard or reword the `!nvidia-smi` cell (38-40): line 36 asserts that the series 'has access to the following GPU', which is false on a CPU runner, and the cell then renders a command-not-found error into the published page.
+3. Give the machine-details region a heading - `(status:machine-details)=` at 19 anchors a bare paragraph, so a `{ref}` to it lands on text with no visible target.
+4. Make the cell language tags consistent: three cells are `ipython` (25, 31, 38) and the last is `ipython3` (44).
+5. Drop the trailing space at the end of line 21.
+6. Reconcile the five series' copies of this page: this file is byte-identical to `lecture-python-programming/lectures/status.md`, while `lecture-python-intro`, `lecture-python-advanced.myst` and `lecture-dp` carry a 33-line version with no GPU or JAX-backend probe - the page is hand-maintained in five places and has already diverged.

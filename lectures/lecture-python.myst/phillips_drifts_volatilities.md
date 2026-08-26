@@ -2,7 +2,7 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/phillips_drifts_volatilities.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 7.9 / 10
@@ -12,7 +12,7 @@
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 3/10  | `qe-writing-006` ×2; `qe-writing-002` ×5; `qe-writing-004` ×4, +3 more. |
+| Writing      | 3.5/10 | `qe-writing-002` ×5; `qe-writing-004` ×4; `qe-writing-005` ×4, +3 more. |
 | Math         | 9.5/10 | `qe-math-009` ×4. |
 | Code         | 8/10  | `qe-code-001` ×3; `qe-code-004` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
@@ -30,7 +30,7 @@ _None found._
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 13. *Lines:* 422, 1255, 1397, 1758, 1828, 2028, 2342, 2543, 2650, 2858, …. *Example:* figsize=.
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 11. *Lines:* 410, 1384, 1821, 2134, 2335, 2503, 2536, 2643, 2760, 2851, …. *Example:* caption of 7 words.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 5. *Lines:* 575, 900, 1485, 2880, 3234. *Example:* the second half of the lecture (2181-3245) re-runs the first half section for section, and it re-states the first half's caveats in near-identical words rather than referring back: 1854-1855 "The solid curves are posterior medians, and the shaded regions are pointwise 90 percent intervals rather than simultaneous bands for entire paths" against 2880-2881 "The solid lines are posterior medians, and the shaded regions are pointwise 90 percent intervals rather than simultaneous whole-path bands"; 1204-1205 against 2527-2528; 1657-1658 against 2927-2928; 2014-2015 against 3116-3117. The summary section then says one thing twice in consecutive paragraphs - 3234-3235 "adds a dramatic volatility episode without a post-2000 low-frequency ridge comparable to the 1970s" and 3237-3238 "the recent inflation surge does not reproduce the 1970s low-frequency persistence ridge". Roughly fifteen result paragraphs are each followed by a standalone disclaimer sentence (1207-1208, 1424-1426, 1454-1455, 1572-1574, 1713-1715, 1892-1894, 1896-1897, 2049-2050, 2052-2053, 2177-2178, 2692-2694, 3055-3056, 3150-3151, 3228-3230), which is honest but by the tenth repetition costs more words than it adds. On individual sentences: 900-903 is 38 words and carries the sampler's validity argument; 1485-1488 is 37 words defining two objects and denying two others in one breath; 3228-3230 joins an unrelated plotting note and an unrelated policy caveat with "and". 575-576 is not long but is unclear - "But in this case only stable sweeps contribute realizations to the retained restricted-posterior sample" opens with "But" and does not say what case, in the middle of the passage that explains the lecture's one methodological departure. 158 is a comma splice inside parentheses.
-- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 2. *Lines:* 564, 2577. *Example:* H2 Title Case: 'A Metropolis-within-Gibbs sampler' (Metropolis-within-Gibbs).
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 1. *Lines:* 2577. *Example:* H3 Title Case: 'Volatility after the Great Moderation' (Moderation).
 
 ### Medium severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 3. *Lines:* 102, 371, 1642. *Example:* the code is unusually clean - flake8 with `--select=E1,E2,E5,E7,W2,W3,W6 --max-line-length=79` over every code cell reports only three items in 3,413 lines. 371 writes `raw_y[n_lags-lag:-lag]` with no spaces around the subtraction on the same line as `left:left + n_variables`, which does space it (E226). 102 is 86 characters (E501) and 996, inside `run_sampler`'s docstring, is 80. Two cells also end with a blank line before the closing fence (1642, 2217). Nothing else: naming is consistent, Unicode Greek is used throughout, and `**` is written without spaces at 791 and 834.

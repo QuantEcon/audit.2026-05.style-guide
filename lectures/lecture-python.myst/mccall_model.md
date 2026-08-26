@@ -2,10 +2,10 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/mccall_model.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.3 / 10
+- **Overall score:** 7.4 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-006` ×12; `qe-writing-002` ×4; `qe-writing-001` ×1, +3 more. |
-| Math         | 7/10  | `qe-math-010` (proposed) ×1; `qe-math-001` ×1; `qe-math-008` ×1. |
+| Math         | 7.5/10 | `qe-math-010` (proposed) ×1; `qe-math-001` ×1. |
 | Code         | 7/10  | `qe-code-001` ×22. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-005` ×8; `qe-fig-003` ×2; `qe-fig-008` ×2. |
@@ -42,7 +42,6 @@ _None found._
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 4. *Lines:* 150, 155, 152, 955. *Example:* line 150 ends with a dangling fragment left over from an edit - '$v^*(w)$ denotes the total sum of expected discounted earnings when an agent always behaves in an optimal way. points in time.' - in the sentence that defines the lecture's central object; line 155 contains two typos in one clause, 'If we don't know what opimal choices are, it feels imposible to calculate $v^*(w)$'; lines 152-160 then make the same point three times in a row (we cannot compute $v^*$ yet, it feels impossible to compute $v^*$, let us set that aside), where one paragraph would do; and the numbered list at 952-956 runs '1.' then '3.'.
 
 ### Low severity
-- **[qe-math-008]** — Explain special notation (vectors/matrices). *Count:* 1. *Lines:* 226. *Example:* ones vector `\mathbf{1}` used 1x with no 'vector of ones' explanation in the prose.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 1. *Lines:* 739. *Example:* `compute_reservation_wage_two` is derived over forty lines of algebra (636-675), stated as an algorithm (679-699), implemented (708-736), and then never called - by the lecture or by the exercise. Line 739 says 'You can use this code to solve the exercise below', but the exercise at 1065 is about unemployment duration under a *continuous* distribution and its solution (1089-1182) uses `compute_reservation_wage_continuous` instead. So the whole point of '## Computing an Optimal Policy: Take 2' - that iterating on a scalar beats iterating on an $n$-vector - is never demonstrated, and the one sentence that promises a payoff points at the wrong place.
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 1. *Lines:* 409. *Example:* the lecture contains no admonition at all, and four substantive asides are carried in inline parentheses instead: the broadcasting clarification at 409-410 ('The first term inside the max is an array and the second is just a number -- here we mean that the max comparison against this number is done element-by-element'), the scope note at 91, the offer-in-hand clarification at 147, and the reading instruction for $Tv$ at 335-336. The one at 409 is the most important - it is the only place the array form of the Bellman operator is explained - and it is the easiest to skip in its current form.
 

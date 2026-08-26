@@ -2,7 +2,7 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/learning_approximation.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 8.1 / 10
@@ -16,7 +16,7 @@
 | Math         | 8/10  | `qe-math-010` (proposed) ×1; `qe-math-009` ×3. |
 | Code         | 7/10  | `qe-code-001` ×20. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6/10  | `qe-fig-003` ×2; `qe-fig-005` ×1; `qe-fig-004` ×1, +2 more. |
+| Figures      | 6.5/10 | `qe-fig-003` ×2; `qe-fig-005` ×1; `qe-fig-004` ×1, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -42,7 +42,6 @@ _None found._
 ### Low severity
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 1. *Lines:* 598. *Example:* caption of 7 words.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 827. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 607. *Example:* plot() without lw=.
 
 
 ## Strengths

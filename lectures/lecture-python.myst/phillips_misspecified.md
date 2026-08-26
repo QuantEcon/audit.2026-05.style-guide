@@ -2,21 +2,21 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/phillips_misspecified.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 9.3 / 10
-- **Priority:** NONE
+- **Overall score:** 8.4 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 10/10 | no mechanical violations detected. |
-| Math         | 10/10 | no mechanical violations detected. |
-| Code         | 10/10 | no mechanical violations detected. |
+| Writing      | 5.5/10 | `qe-writing-005` ×2; `qe-writing-003` ×3; `qe-writing-002` ×3, +1 more. |
+| Math         | 9.5/10 | `qe-math-009` ×2. |
+| Code         | 8.5/10 | `qe-code-001` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6.5/10 | `qe-fig-005` ×2; `qe-fig-004` ×2; `qe-fig-008` ×2, +1 more. |
+| Figures      | 6.5/10 | `qe-fig-005` ×2; `qe-fig-004` ×2; `qe-fig-001` ×4, +1 more. |
 | References   | 8.5/10 | `qe-ref-001` ×2. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -30,28 +30,40 @@ _None found._
 _None found._
 
 ### Medium severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 4. *Lines:* 241, 239, 271, 324. *Example:* the function that carries the whole estimation is named for the opposite of what it returns. `neg_profile` (241-244) computes $\log\hat\sigma_\epsilon^2 + \overline{\log H}$, which is the profiled criterion `` {eq}`pm_criterion` `` itself (up to the additive constant 1), and 246 hands it to `minimize_scalar` - correct behaviour under a name that says it is the negative of the profile. 239 unpacks `z, ν, N = model.z, model.ν, model.N` and never uses `N` (flake8 F841). 271 declares `def fitted_sigma2(model, C, c)`, two live parameters differing only by case, used three lines apart at 273 and 274, where a slip between them is silent and gives a wrong number rather than an error. 324 declares `def impulse_response(num_roots, den_roots, T=25)` and is called with $1 - C$ and $\phi$ (335-336), which are scalar polynomial coefficients, not roots, and not plural. flake8 over the code cells (`--select=E1,E2,E5,E7,W2,W3,W6,F,C4 --max-line-length=79`) also finds two lines past 79 characters, 244 (83) and 300 (81), both of which are trailing-comment padding.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 4. *Lines:* 298, 338, 388, 418. *Example:* figsize=.
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 2. *Lines:* 286, 317. *Example:* caption of 13 words.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 384, 414. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 419, 421. *Example:* plot() without lw=.
+- **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 2. *Lines:* 218, 142. *Example:* `` {eq}`pm_criterion` `` suppresses arguments three different ways inside one display: $F(\omega_j)$ hides the $C$ dependence that 145 has just told the reader to notice ("Notice that $F$ depends on $C$ through $f$"), $G(\omega_j, c)$ shows both, and $G(0)$ shows neither - so the two functions the whole minimisation compares are written with two, one and zero arguments in three consecutive terms. Writing $F(\omega_j; C)$ and $G(\omega_j; c)$ throughout, or dropping the arguments consistently and stating the dependence once in the prose, costs nothing. Second, 142 defines the spectral density as $F(\omega) = f(e^{i\omega}) f(e^{-i\omega}) \sigma_u^2$, which obliges the reader to see that a product of two complex numbers is real, where the code writes the simpler and equivalent thing at 172, `np.abs(f)**2 * self.σ_u**2` - and $|f(e^{i\omega})|^2\sigma_u^2$ is the standard form.
 - **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 54, 189. *Example:* `` {cite} `` in narrative flow: 'with `` {cite} ``'.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 3. *Lines:* 363, 361, 309. *Example:* 361 and 363 are consecutive paragraphs of 34 and 44 words that make the same point twice. 361: "The peculiar way that the adaptive expectations model uses a unit root to mimic a constant foreshadows a version of the Phillips curve model, developed in `` {doc}`phillips_self_confirming` ``, that will help vindicate econometric policy evaluation." 363: "This same trick — using a unit root to approximate a constant — turns out to be the engine of the *escape dynamics* of `` {doc}`phillips_learning` `` and `` {doc}`phillips_escaping_nash` ``, where a learning government's estimated Phillips curve drifts toward the induction hypothesis and, believing it, cuts inflation toward Ramsey." 78 words, one idea, and 363 re-glosses in an em-dash aside the trick 361 has just spelled out. Elsewhere 309 is 36 words with two nested italic contrasts, 311 is 35 with a quoted phrase and a citation inside the dash aside, 359 is 35 with a 22-word parenthetical em-dash clause, and 89 is 34. Six sentences past 32 words in a 434-line file whose `qe-writing-001` count is zero.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 3. *Lines:* 336, 205, 210. *Example:* the impulse-response figure compares two different shock sizes and the prose then describes a crossing the figure does not contain. 335 builds the true response as `scale * impulse_response(1 - C_star, φ)`, which carries the $1/(1-bC)$ gain of $f(L)$ with $\sigma_u = 1$; 336 builds the approximating one as `impulse_response(1 - c_star, bray.ρ)`, carrying neither a scale nor $\sigma_\epsilon$ - although the lecture computed $\bar\sigma_\epsilon = 1.0579$ fifty-eight lines earlier at 278-279 and never uses it. Running the file's own code: the true response is 1.042, 0.040, 0.039, ..., 0.015 and the approximating one 1.000, 0.0755, 0.0751, ..., 0.0673, so 349's "tends to under-predict the short-term consequences of a shock while over-predicting the long-term ones" is true only at lag 0; from lag 1 onward the approximating response is above the true one at every single lag, by nearly a factor of two at short lags. Second, 205 states the numerical device in words - "Numerically we replace the unit root by a root $\rho$ slightly below one" - and never gives the value, which lives as a constructor default at 159 (`ρ=0.995`). The headline result at 266, "the equilibrium belief is $C \approx 0.08$, reproducing the value reported in chapter 6 of `` {cite}`Sargent1999` ``", is largely a function of that hidden constant: re-running the lecture's code gives $C^* = 0.1245$ at $\rho = 0.99$, $0.0805$ at $0.995$, $0.0284$ at $0.999$ and $0.0058$ at $0.9999$, and all four are "slightly below one". Third, {prf:definition} `pm_bmap` at 210 defines $c = B(C)$ as "the nonlinear least squares estimator of $c$ in `` {eq}`pm_bray6` ``, where the data are generated by `` {eq}`pm_bray4` ``" - an estimator computed from a sample - while 213-225 and `best_estimate` (236-247) minimise a population frequency-domain criterion assembled from `true_spectrum`, with no data anywhere in the lecture.
+- **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 2. *Lines:* 60, 363. *Example:* 58 bolds the term the lecture is about - **market equilibrium with optimal but misspecified forecasts** - and 60-61 then italicises the two halves *while defining them*: "* *Optimal* means the free parameters of the forecasting scheme are chosen by (nonlinear) least squares." and "* *Misspecified* means the forecasting model is wrong in functional form." Those two lines are the definitions and they are the only place either word is defined. 353 repeats the pattern in a single sentence: "The agents in this model are **boundedly rational**: *rational* describes their use of least squares, and *bounded* describes their model misspecification" - compound bolded, components italicised as they are glossed. Second, 363 italicises *escape dynamics*, and the suite now carries three spellings at two weights for one object: **escape routes** in bold at `phillips_learning.md:75` (where it is defined as one of the two organising objects), *escape routes* in italic at `phillips_two_stories.md:327`, and *escape dynamics* in italic here - in the sentence that claims to have found the mechanism ("This same trick ... turns out to be the engine of the *escape dynamics*").
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 3. *Lines:* 227, 105, 286. *Example:* the lecture's central definition is illustrated only inside a dropdown. {prf:definition} `pm_equilibrium` at 227-231 is "a fixed point $C = B(C)$", and the picture of it - $B$ against the 45-degree line with the crossing marked - exists at 414-429, inside a `{solution-start} :class: dropdown` that a reader will not open until after the lecture is over. Moving it to 233 would put the one object everything else serves in front of the reader when it is defined. Second, 103 says fixing $C$ "*discounts* past observations" and 105-113 writes the scheme as the distributed lag $\frac{C}{1-(1-C)L}$; the geometric weights $C(1-C)^{i-1}$ are never plotted, although the sibling lecture draws exactly that picture for its own scheme (`phillips_adaptive.md:114-141`) and this file's equilibrium $C \approx 0.08$ implies a half-life of about eight periods, which is the fact the section turns on. Third, both 203 and 223 and again 307-309 are statements about $\omega = 0$ - the infinite DC gain, the $\nu^2/G(0)$ term, "a spike in the spectral density at frequency zero" - and the figure at 286-305 plots $\log F$ and $\log G$ over $\omega \in [0, \pi)$ without marking $\omega = 0$, the mean $\nu$, or the gap the prose calls "large".
 
 ### Low severity
-_None found._
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 419. *Example:* plot() without lw=.
 
 
 ## Strengths
 
-- Writing, Math, Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The derivation at 127-137 is correct and is not obvious: substituting the belief `` {eq}`pm_bray3` `` into `` {eq}`pm_bray` `` and clearing the lag polynomial really does give mean $a/(1-b)$ and the filter $\frac{1}{1-bC}\frac{1-(1-C)L}{1-\frac{1-C}{1-bC}L}$, and the code transcribes it literally - `φ = (1 - C) / (1 - b * C)` and `scale = 1 / (1 - b * C)` at 169-170 are exactly the two coefficients of `` {eq}`pm_bray4` ``.
+- The concentration step is right and the reported number reproduces: `σ_ε2 = np.mean(F / H) + ν**2 / H[0]` (243) is precisely the minimiser of `` {eq}`pm_criterion` `` over $\sigma_\epsilon^2$, and 244 is what remains after substituting it back. Running the lecture's own code gives $C^* = 0.0805$, so 266's "$C \approx 0.08$" is honest.
+- Exercise 1's stated grid and its solution agree - $b \in \{0.1, 0.2, \ldots, 0.8\}$ at 373 and `np.arange(0.1, 0.85, 0.1)` at 385 - and the conclusion at 396 is true: re-running it gives $C^*$ rising monotonically from 0.050 at $b = 0.1$ to 0.169 at $b = 0.8$, so "stronger feedback raises the equilibrium gain $C$" is a verified claim and not a plausible one.
+- 182-189 is the most useful passage in the lecture and it is only three sentences: it numbers the two things wrong with the actual law of motion, then says exactly which one the new equilibrium concept repairs and which it deliberately leaves alone - "we leave feature 1 untouched (agents keep the wrong functional form) while fixing feature 2 (they choose the best parameter within that form)".
+- 191 sets up the representative-agent device explicitly rather than assuming it - "Think of putting a single individual into a market where everyone else (the 'representative agent') uses $C$" - and 233 then cashes the fixed point out in the same language: "At such a fixed point the representative agent is representative".
+- The two objects the lecture adds each get a labelled `{prf:definition}` (207-211 for the best-estimate map, 227-231 for the equilibrium), so the equilibrium concept the next lecture imports is quotable by reference rather than by paraphrase.
+- 353-359 states the structural difference bounded rationality makes in three short sentences - one model in play under rational expectations, at least two under bounded rationality, and the two shaping each other - which is the point the rest of the suite depends on.
+- 41-46 justifies the lecture's existence in the suite's own terms: the free $\lambda$ of `` {doc}`phillips_adaptive` `` "was unsatisfying in a way the *vindication* story ... cannot afford: a free parameter describing expectations is exactly what rational expectations was meant to eliminate".
 
 ## Recommended actions
 
-1. `qe-ref-001` — Use correct citation style (2 occurrences).
-2. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
-3. `qe-fig-004` — Caption formatting conventions (2 occurrences).
-4. `qe-fig-008` — Use lw=2 for line charts (2 occurrences).
-5. `qe-fig-001` — Do not set figure size unless necessary (4 occurrences).
+1. Put the two impulse responses on the same footing: scale the approximating one at 336 by the $\bar\sigma_\epsilon$ already computed at 278, or normalise both to a unit-variance innovation. Then rewrite 349 - with the file's own numbers the approximating response exceeds the true one at every lag from 1 onward, not only in the long run.
+2. State $\rho = 0.995$ in the prose at 205 and say the equilibrium depends on it: $C^*$ is 0.125, 0.081, 0.028 and 0.006 at $\rho = 0.99$, 0.995, 0.999 and 0.9999. As written, 266 presents agreement with chapter 6 of `` {cite}`Sargent1999` `` as if it were parameter-free.
+3. Correct {prf:definition} `pm_bmap` at 210: $B$ as implemented is the population frequency-domain minimiser, not "the nonlinear least squares estimator ... where the data are generated by `` {eq}`pm_bray4` ``" - there is no sample anywhere in the lecture.
+4. Move exercise 2's fixed-point figure (414-429) into the body beside {prf:definition} `pm_equilibrium` at 231. The definition is the lecture's centre and its only picture is currently behind a dropdown.
+5. Rename `neg_profile` (241) - it returns the profiled criterion, not its negative; drop the unused `N` at 239; rename `num_roots`/`den_roots` (324) to the coefficients they are; and give `fitted_sigma2` (271) parameters that differ by more than case, since `C` and `c` are both live in its body.
+6. Do not 'fix' one drafted finding: `qe-fig-008` at 421 is `ax.plot(C_star, C_star, 'ko')`, a marker-only call that plots the fixed point as a single dot and draws no line, so `lw=2` has nothing to act on - the already-filed marker-only false positive. Only 419 (`ax.plot(C_grid, B_vals, 'C0', ...)`) genuinely wants it.
+7. Bold **Optimal** and **Misspecified** at 60-61 - they are the definitions of the term bolded at 58 - and settle *escape dynamics* (363) against **escape routes** at `phillips_learning.md:75`, which the suite treats as the defined term.
+8. Merge 361 into 363, which repeats it at 44 words, and split the em-dash asides out of 309, 311 and 359.
+9. Sweep the mechanical items: the four `figsize=` overrides (298, 338, 388, 418), `mystnb` figure metadata on the two solution cells (384, 414), the two `set_title` calls into captions (392, 426), the two captions cut to six words (286, 317), `lw=2` at 419, the two long code lines (244, 300), and `{cite:t}` at 54 and 189 - 54 most of all, since `{cite}`Bray1982`'s` renders as "(Bray, 1982)'s simple model".

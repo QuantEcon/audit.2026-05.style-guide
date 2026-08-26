@@ -2,10 +2,10 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/linear_models.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 6.7 / 10
+- **Overall score:** 6.5 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,9 +14,9 @@
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-006` ×25; `qe-writing-005` ×5; `qe-writing-003` ×5, +4 more. |
 | Math         | 3/10  | `qe-math-002` ×40; `qe-math-010` (proposed) ×4; `qe-math-009` ×4. |
-| Code         | 7.5/10 | `qe-code-001` ×5. |
+| Code         | 6/10  | `qe-code-002` ×7; `qe-code-001` ×5. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 7.5/10 | `qe-fig-005` ×2; `qe-fig-008` ×2; `qe-fig-001` ×1. |
+| Figures      | 8/10  | `qe-fig-005` ×2; `qe-fig-001` ×1. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 9/10  | `qe-link-002` ×1. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -28,6 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 5. *Lines:* 191, 657, 663, 911, 914. *Example:* all three function signatures mis-indent their continuation lines (E128): 191-195 opens `def plot_lss(A,` with the paren at column 13 and continues at column 10; 657-664 opens at column 23 and continues at 20; 911-918 opens at column 15 and continues at 13. Keyword defaults are spaced in five places where the same signatures get it right elsewhere: `sample_size = 20` at 663 beside `T=20` and `ymin=-0.8` at 660-661, and `T0 = 10`, `T1 = 50`, `T2 = 75`, `T4 = 100` at 915-918 (E251). 914 uses the *string* `'False'` as a boolean flag, tested as `steady_state == 'True'` at 922 and 939 and passed as `steady_state='True'` at 996 - so calling `cross_plot(..., steady_state=True)` silently takes the else branch. 800 writes `label='$\\bar y_t$'`, escaping the backslash in a plain string, where the adjacent call at 808 uses the raw form `r'$G\mu_t$'`. And 74 imports the standard-library `random` purely for `random.choice` at 685 and 937, adding a second unseeded generator to a lecture built on `numpy` simulation. Note that the column-aligned matrix literals at 212-214, 278-281 and 704-707 are *not* counted here - that is the mathematical-notation exception the rule grants.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 7. *Lines:* 737, 738. *Example:* spelled-out `mu`.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 40. *Lines:* 239, 404, 431, 444, 488, 535, 543, 575, 609, 635, …. *Example:* apostrophe transpose `A'`.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 4. *Lines:* 575, 1218. *Example:* non-blackboard `\textrm{Var}`.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 5. *Lines:* 549, 583, 823, 1161, 1232. *Example:* 583-598 takes five consecutive paragraphs to reach "everything here is Gaussian": "In general, knowing the mean and variance-covariance matrix ... is not quite as good as knowing the full distribution" / "However, there are some situations where these moments alone tell us all we need to know" / "These are situations in which the mean vector and covariance matrix are all of the **parameters** that pin down the population distribution" / "One such situation is when the vector in question is Gaussian" / "This is the case here, given ...". 549-558 hedges three times in a row about a naming choice. 823-825 uses a term in scare quotes and then defines it in a parenthetical on the next line. 1161-1164 states ergodicity twice, the second time announced as "More formally" without being any more formal ("time series and ensemble averages coincide" / "time series sample averages converge to their expectation under the stationary distribution"). And 1232-1233 is the entire body of the H2 "Prediction": "The theory of prediction for linear state space systems is elegant and simple" - a value claim carrying no information, where the section's actual content starts under the next heading.
@@ -38,7 +39,6 @@ _None found._
 
 ### Medium severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 728, 782. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 689, 946. *Example:* plot() without lw=.
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 1. *Lines:* 1343. *Example:* raw link to python-programming.quantecon.org.
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 4. *Lines:* 908, 1033, 1081, 1305. *Example:* the prime carries three different meanings in this file. It is the transpose at 239, 404, 431, 488, 543, 575, 635, 830, 1052, 1108 and 1116; it indexes time at 908 and 935 ($T, T', T''$ for three dates, with the same marks reused as tick labels at 935); and it is spelled two different ways for the same operation - `'` in most places but `^\prime` at 444, 1305 and 1313, twice inside a single display. 1305 also mis-places one: `A^{k^\prime}` renders as $A^{k'}$, a prime on the exponent, where the intended object is $(A^k)'$. 1081 nests the mark inside itself, $x_t = \begin{bmatrix} x_{1t}' & 1\end{bmatrix}'$, transposing a column to a row so it can be stacked and then transposing the stack back. And 1033 states a mathematical condition as a Python expression - "That is, if `(np.absolute(np.linalg.eigvals(A)) < 1).all() == True`" - restating in code what the preceding sentence has just said in words, with a redundant `== True`.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 444, 1409. *Example:* 2 sentences in one paragraph.

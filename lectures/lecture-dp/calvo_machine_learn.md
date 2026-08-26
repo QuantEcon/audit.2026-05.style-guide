@@ -2,7 +2,7 @@
 
 - **Series:** lecture-dp
 - **File:** `lectures/calvo_machine_learn.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 7.4 / 10

@@ -2,7 +2,7 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/jv.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 8.0 / 10
@@ -16,7 +16,7 @@
 | Math         | 10/10 | no mechanical violations detected. |
 | Code         | 7.5/10 | `qe-code-001` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6.5/10 | `qe-fig-005` ×3; `qe-fig-003` ×1; `qe-fig-008` ×4, +1 more. |
+| Figures      | 6.5/10 | `qe-fig-005` ×3; `qe-fig-003` ×1; `qe-fig-008` ×3, +1 more. |
 | References   | 9/10  | `qe-ref-001` ×1. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -35,7 +35,7 @@ _None found._
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 402, 500, 569. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 406. *Example:* .set(title=.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 398, 469, 561. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 4. *Lines:* 405, 507, 508, 571. *Example:* plot() without lw=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 405, 507, 571. *Example:* plot() without lw=.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 182. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 21, 413. *Example:* the H1 at 21 announces "Job Search VIII" but nothing in the lecture says what the preceding seven are or where to find them - there is no link to the series and no `{doc}` reference, so a reader arriving here cannot place it; and 413 ("The horizontal axis is the state $x$, while the vertical axis gives $s(x)$ and $\phi(x)$") describes a two-panel figure while the figure above it at 398-410 has three panels, the third being the value function, which the sentence does not mention.
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 3. *Lines:* 72, 118, 263. *Example:* 263 uses bold for emphasis - "written for a **single** state $x$ and a **single** action pair" - where the rule wants italic, and it is the only bold in the file; meanwhile the terms the lecture actually defines are in plain text, including "job-specific human capital" at 72, which is the central concept, and the notation $a \vee b := \max\{a, b\}$ introduced mid-sentence at 118. The one italic in the file, *infinitely* at 536, is correct.

@@ -2,10 +2,10 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/prob_meaning.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.1 / 10
+- **Overall score:** 6.8 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-006` ×3; `qe-writing-001` ×6; `qe-writing-005` ×9, +5 more. |
 | Math         | 7.5/10 | `qe-math-010` (proposed) ×2. |
-| Code         | 7.5/10 | `qe-code-001` ×6. |
+| Code         | 6/10  | `qe-code-002` ×5; `qe-code-001` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 4.5/10 | `qe-fig-003` ×6; `qe-fig-005` ×8; `qe-fig-008` ×12, +1 more. |
 | References   | N/A   | no citations in this lecture. |
@@ -28,6 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 6. *Lines:* 52, 175, 241, 455, 474, 505. *Example:* 241 recomputes `binom.pmf(k, n, θ)` inside a 200-iteration loop where none of the three arguments changes, appending the same constant 200 times and then plotting it as a "theoretical" curve at 249 - a horizontal line drawn from 200 identical values. The same loop calls `simulate_head_counts(θ, n, Is[i], seed=i)` with `Is[i]` up to $10^6$ two hundred times, and the θ- and n-sweeps each run 50 simulations at $I = 10^6$, so the three cells draw on the order of $2\times10^9$ uniforms to produce three figures; `binom.rvs` or one multinomial draw gives the same curves. 172-181, 203-211 and 234-243 are three copies of the same six-line loop, and 183-195, 214-226 and 246-258 three copies of the same twelve-line plot cell, differing only in the swept variable; all six index with `for i in range(n_thetas)` rather than iterating the array. 52-53 imports the same module twice, `from scipy.stats import binom` and `import scipy.stats as st`. 175 names a list of probabilities `P` where the lecture's own notation for that object is lowercase $p(k \mid \theta)$ (65, 102). 455 and 539 `enumerate` one list only to index a parallel one (`for i, n_obs in enumerate(n_obs_list[:10]): posterior = posterior_list[i]`) where `zip` is meant. 474-478 builds a two-row table by constructing an empty DataFrame, assigning `'upper'` before `'lower'`, setting `.index`, and transposing - five statements for one constructor, and the resulting display puts the upper bound above the lower one. And `fontsize=` is hard-coded at seven different values (11, 12, 13, 15, 16) across the eight figure cells (188-192, 219-223, 251-255, 460-464, 506-513, 544-548, 606-617, 638-642).
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 5. *Lines:* 174, 178, 179, 186, 187. *Example:* spelled-out `theta`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 8. *Lines:* 184, 215, 247, 449, 504, 537, 603, 634. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 6. *Lines:* 188, 219, 251, 606, 613, 641. *Example:* .set_title.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 8. *Lines:* 183, 214, 246, 437, 496, 536, 599, 626. *Example:* code-cell figure without mystnb figure metadata.

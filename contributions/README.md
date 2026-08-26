@@ -1,6 +1,6 @@
 # Contributions to action-style-guide
 
-Feedback this audit fed back to [QuantEcon/action-style-guide](https://github.com/QuantEcon/action-style-guide) and the [QuantEcon style guide](https://github.com/QuantEcon/QuantEcon.manual/tree/main/manual/styleguide). This folder is the source material behind the four issues opened from the May 2026 audit; the reader-facing summary is the [Feedback appendix](../lectures/appendix.md) in the report.
+Feedback this audit fed back to [QuantEcon/action-style-guide](https://github.com/QuantEcon/action-style-guide) and the [QuantEcon style guide](https://github.com/QuantEcon/QuantEcon.manual/tree/main/manual/styleguide). This folder is the source material behind the four issues opened from the May 2026 audit, plus three drafts from the 2026-08 pass that are not yet filed; the reader-facing summary is the [Feedback appendix](../lectures/appendix.md) in the report.
 
 ## Issues posted
 
@@ -14,18 +14,27 @@ All four are open on `action-style-guide`. The files here are the bodies as post
 | [#21](https://github.com/QuantEcon/action-style-guide/issues/21) | Offer: labelled lecture corpus with per-rule violation counts as test fixtures | [`issues/04-corpus-offer.md`](issues/04-corpus-offer.md) | Resource offer |
 | *(not yet posted)* | Proposal: rule-definition format changes so the registry determines its own counts | [`issues/05-rule-format-for-checkability.md`](issues/05-rule-format-for-checkability.md) | Concrete proposal |
 | *(not yet posted)* | Question: what `qe-ref-001` means by a narrative citation — 299 author-name sites are undetermined under the current text | [`issues/06-ref-001-author-name-citations.md`](issues/06-ref-001-author-name-citations.md) | Rule-definition question |
+| *(not yet posted)* | Question: does `qe-fig-008`'s `lw=2` mean every line, or the primary lines — 264 calls in 78 lectures set some other width | [`issues/07-fig-008-line-width-tolerance.md`](issues/07-fig-008-line-width-tolerance.md) | Rule-definition question |
 
 ### Not yet posted
 
-`issues/05-rule-format-for-checkability.md` and `issues/06-ref-001-author-name-citations.md`
-both came out of the 2026-08 pass and have **no issue number yet** — it needs filing against whichever repo ends up owning the rule registry
+`issues/05-rule-format-for-checkability.md`, `issues/06-ref-001-author-name-citations.md`
+and `issues/07-fig-008-line-width-tolerance.md` all came out of the 2026-08 pass and have
+**no issue number yet** — they need filing against whichever repo ends up owning the rule registry
 (`action-style-guide` today, the consolidated `QuantEcon/style-guide` under the current
-program direction). It is the one contribution here that is about the *format* of the rule
+program direction).
+
+`05` is the one contribution here that is about the *format* of the rule
 definitions rather than their content: 144 under-specification gaps across 42 of the
 in-scope rules, measured by auditing the rule files against a working implementation of 41
 of them. The single strongest datum is that `qe-fig-003` — the only rule in the registry
 carrying an explicit exemption clause — is also the only figure rule with zero false
 positives.
+
+`06` and `07` are the two places where our checker deliberately answers a *narrower* question
+than the rule asks, because the rule's text does not settle the wider one — narrative
+citations in the first case, line widths other than 2 in the second. Both carry the cost of
+each reading, so whoever answers can see what they are choosing between.
 
 ## Rule entry drafts
 
@@ -34,8 +43,8 @@ Each file under [`rule-drafts/`](rule-drafts/) holds one proposed rule in action
 | Proposed ID | Category | File | Evidence |
 |-------------|----------|------|----------|
 | `qe-writing-009` | writing | [`rule-drafts/qe-writing-009-IID.md`](rule-drafts/qe-writing-009-IID.md) | Measured: 30 / 348 lectures, 61 occurrences |
-| `qe-math-010` | math | [`rule-drafts/qe-math-010-blackboard-PEV.md`](rule-drafts/qe-math-010-blackboard-PEV.md) | Measured: **105 / 348**, 1,167 occurrences — strongest of the seven |
-| `qe-math-011` | math | [`rule-drafts/qe-math-011-distribution-naming.md`](rule-drafts/qe-math-011-distribution-naming.md) | Measured: 24 / 348, 86 occurrences |
+| `qe-math-010` | math | [`rule-drafts/qe-math-010-blackboard-PEV.md`](rule-drafts/qe-math-010-blackboard-PEV.md) | Measured: **118 / 348**, 1,414 occurrences — strongest of the seven |
+| `qe-math-011` | math | [`rule-drafts/qe-math-011-distribution-naming.md`](rule-drafts/qe-math-011-distribution-naming.md) | Measured: 34 / 348, 134 occurrences |
 | `qe-math-012` | math | [`rule-drafts/qe-math-012-multiplication.md`](rule-drafts/qe-math-012-multiplication.md) | Measured: 4 / 348, 6 occurrences — narrower than first estimated |
 | `qe-math-013` | math | [`rule-drafts/qe-math-013-equation-refs.md`](rule-drafts/qe-math-013-equation-refs.md) | Measured: 6 / 348, 6 occurrences — narrower than first estimated |
 | `qe-math-014` | math | [`rule-drafts/qe-math-014-events-vs-sets.md`](rule-drafts/qe-math-014-events-vs-sets.md) | Judgment-only — no mechanical check possible |

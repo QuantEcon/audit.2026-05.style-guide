@@ -2,7 +2,7 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/subjective_beliefs_business_cycles.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 7.2 / 10
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-004` ×8; `qe-writing-005` ×8; `qe-writing-002` ×5, +5 more. |
-| Math         | 3/10  | `qe-math-010` (proposed) ×38; `qe-math-002` ×40; `qe-math-009` ×3. |
+| Math         | 3/10  | `qe-math-010` (proposed) ×44; `qe-math-002` ×40; `qe-math-009` ×3. |
 | Code         | 8.5/10 | `qe-code-001` ×2. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7/10  | `qe-fig-005` ×2; `qe-fig-004` ×1; `qe-fig-001` ×5. |
@@ -29,7 +29,7 @@ _None found._
 ### High severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 5. *Lines:* 332, 1262, 1470, 1647, 2421. *Example:* figsize=.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 40. *Lines:* 1059, 1093, 1108, 1113, 1116, 1122, 1137, 1158, 1175, 1200, …. *Example:* apostrophe transpose `)'`.
-- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 38. *Lines:* 80, 88, 104, 114, 161, 480, 518, 519, 547, 577, …. *Example:* bare expectation `E_t[`.
+- **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 44. *Lines:* 80, 88, 104, 114, 161, 480, 483, 484, 518, 519, …. *Example:* bare expectation `E_t[`.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 5. *Lines:* 120, 363, 404, 1450, 1497. *Example:* the "Empirical facts" section (404-427) restates in three bullets what the two preceding figure discussions have just established: 408-409 ("Both wedges are **positive on average**") repeats 360 ("Both wedges are positive most of the time"), 411-412 ("**countercyclical**: they rise during every NBER recession in the sample") repeats 360-361 ("both rise during the shaded NBER recessions"), and 414-416 ("the first principal component explains about four-fifths of their joint variation") repeats 387 and 396-402. Line 120-122 is a 37-word sentence whose whole job is to restate 111-118: "Thus the lecture uses one object in two related ways: empirically, a belief wedge is a survey forecast minus a statistical benchmark forecast; in the model, it is a subjective expectation minus an objective expectation." Line 363 opens with a pronoun that has no antecedent - "It suggests that households persistently overpredict unemployment and inflation" - where the referent is the pair of facts in the previous paragraph. And several paragraphs are split mid-thought, leaving an orphan clause standing as its own paragraph: 1450-1453 ("...act as if bad future states are more likely." / "Vacancy posting weakens, output falls, unemployment rises, and the two survey wedges jump together."), 1497-1501, 944-945, 1630-1631 and 2452-2453.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 8. *Lines:* 642, 758, 764, 844, 959, 1194, 1215. *Example:* mid-sentence 'Step'.
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 8. *Lines:* 29, 48, 432, 706, 1045, 1220, 1789, 2201. *Example:* the two terms the lecture is named for are the two it italicises: "These biases, called *belief wedges*" (29) and "a time-varying *belief shock*" (48), with *wedge loadings* (432) a third - all definitions, all in italic - while the sentence immediately above 29 puts the finding in bold ("**systematic upward biases**", 27). Bold is then used for plain emphasis at 1045 ("with **objective** law of motion"), 1220 ("driven by the **single scalar** belief factor"), 1789 ("Under the **subjective** measure") and 2256 ("the wedge is **negative**"), alongside its correct definitional uses (**likelihood ratio** 488, **risk-sensitive** 539, **Riccati equation** 746). Italic also does heading duty in nine places where a heading or a `{prf}` label would be clearer: *Case 1: fixed $\theta$.* (706), *Case 2: state-dependent $\theta_t$.* (726), *Part 1.* / *Part 2.* / *Part 3.* (2221, 2249, 2259) and the four exercise titles (2201, 2278, 2332, 2392).

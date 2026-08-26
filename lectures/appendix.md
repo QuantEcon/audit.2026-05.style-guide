@@ -7,6 +7,7 @@ This audit doesn't just score lectures — it also feeds back into the tooling a
 - The **[QuantEcon manual style guide](https://github.com/QuantEcon/QuantEcon.manual/tree/main/manual/styleguide)** is the human-readable source of conventions.
 - **[`action-style-guide`](https://github.com/QuantEcon/action-style-guide)** is the tool that enforces them — a registry of `qe-*` rules checked at PR time. This audit scores lectures against that registry (see the [scoring spec](spec.md)).
 - Where the audit found a convention in the manual that **isn't yet a coded rule**, or a way to make the tool **catch more, faster**, it became feedback. Four issues capture it.
+- Where the audit found that a rule's *text* does not settle a question its own counts depend on, that became feedback too — three drafts from this pass, not yet filed.
 
 ## Four issues opened
 
@@ -28,7 +29,7 @@ they carry no mechanical count.
 
 | Proposed ID | Convention | Lectures | Occurrences |
 |-------------|-----------|---------:|------------:|
-| `qe-math-010` | `\mathbb{P}` / `\mathbb{E}` / `\mathbb{V}` (with braces) for probability, expectation, variance | **118 / 348** | 1,397 |
+| `qe-math-010` | `\mathbb{P}` / `\mathbb{E}` / `\mathbb{V}` (with braces) for probability, expectation, variance | **118 / 348** | 1,414 |
 | `qe-writing-009` | Write "IID", not "i.i.d." / "iid" | 30 | 61 |
 | `qe-math-011` | Plain letters for distribution names (`N`, not `\mathcal{N}`) | 34 | 134 |
 | `qe-math-013` | Reference equations via `` {eq}`label` `` | 6 | 6 |
@@ -53,6 +54,20 @@ Two findings are build-breaking and were flagged for `lecture-python.myst` regar
 - [`ifp_advanced.md:158`](https://github.com/QuantEcon/lecture-python.myst/blob/main/lectures/ifp_advanced.md#L158) — raw `\label{a:y0}` inside `$$`, which MyST does not resolve (`qe-math-007`). `lecture-dp` has the same defect at the same line, but its copy of this lecture has diverged from the upstream one — so each needs its own fix.
 
 > **Withdrawn.** An earlier pass reported `divergence_measures.md:134` as `\begin{align}` inside `$$`, breaking the PDF build. Re-measured mechanically, there is no `align` inside `$$` anywhere in the corpus — that line is a bare top-level `\begin{align}`, which MyST's amsmath extension handles. It remains a convention outlier and is reported as one under `qe-math-006`, but no issue should be filed calling it a build break.
+
+## Three questions this pass could not answer for itself
+
+Three drafts came out of the 2026-08 pass and are **not yet filed** — they need a home once
+the rule registry is consolidated. All three are places where the checker deliberately
+answers a *narrower* question than the rule asks, because the rule's text does not settle the
+wider one, and guessing would either flood the report or hide real drift. Each carries the
+cost of both readings, so whoever answers can see what they are choosing between.
+
+| Draft | The question | What turns on it |
+|---|---|---|
+| [`05-rule-format-for-checkability`](https://github.com/QuantEcon/audit.2026-05.style-guide/blob/main/contributions/issues/05-rule-format-for-checkability.md) | Should a rule definition carry the exemptions and scope its own counts depend on? | 144 under-specification gaps across 42 in-scope rules. `qe-fig-003`, the only rule with an explicit exemption clause, is also the only figure rule with zero false positives. |
+| [`06-ref-001-author-name-citations`](https://github.com/QuantEcon/audit.2026-05.style-guide/blob/main/contributions/issues/06-ref-001-author-name-citations.md) | What makes a citation "narrative" — the author's name in the sentence, or the citation's position? | 299 author-name sites are undetermined under the current text; the two readings need different fixes, and repairing one deletes true findings under the other. |
+| [`07-fig-008-line-width-tolerance`](https://github.com/QuantEcon/audit.2026-05.style-guide/blob/main/contributions/issues/07-fig-008-line-width-tolerance.md) | Does `lw=2` mean every line, or the primary lines? | 264 `plot()` calls across 84 lectures set some other width, spread over twenty-one distinct values. Just over half carry a de-emphasis signal and read as deliberate; the rest read as drift. |
 
 ## Status
 

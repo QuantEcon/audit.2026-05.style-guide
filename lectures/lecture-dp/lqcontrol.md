@@ -2,21 +2,21 @@
 
 - **Series:** lecture-dp
 - **File:** `lectures/lqcontrol.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.1 / 10
+- **Overall score:** 6.6 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 4/10  | `qe-writing-006` ×13; `qe-writing-001` ×1; `qe-writing-008` ×12. |
-| Math         | 3/10  | `qe-math-002` ×85; `qe-math-010` (proposed) ×15; `qe-math-003` ×17. |
-| Code         | 10/10 | no mechanical violations detected. |
+| Writing      | 3/10  | `qe-writing-006` ×13; `qe-writing-005` ×6; `qe-writing-003` ×4, +4 more. |
+| Math         | 3/10  | `qe-math-002` ×85; `qe-math-010` (proposed) ×15; `qe-math-003` ×17, +1 more. |
+| Code         | 7.5/10 | `qe-code-001` ×5. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 4.5/10 | `qe-fig-005` ×10; `qe-fig-006` ×4; `qe-fig-008` ×18, +2 more. |
+| Figures      | 4.5/10 | `qe-fig-005` ×10; `qe-fig-006` ×4; `qe-fig-002` ×5, +2 more. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 8/10  | `qe-link-002` ×2. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -27,20 +27,26 @@
 _None found._
 
 ### High severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 5. *Lines:* 664, 691, 1567, 698, 1586. *Example:* 664-669 indents the second row of each matrix literal to 4 spaces where the visual indent is 5, so `[0,` sits one column left of `[1 + r,` and `[ 0]` also carries a space after the opening bracket (E128, E201) - and the same file gets this right eleven times elsewhere (1305, 1309, 1313, 1423, 1427, 1431, 1445, 1449, 1453, 1573, 1580). 691-692, 695-696, 1339-1340 and 1488-1489 indent the continuation of `axes[0].plot(` to 12 against a visual indent of 13 (E128), while 759-760 and 763-764 use 13 - both conventions in one lecture. 1567 mixes spacing inside one expression: `m0 = (a0-c)/(2 * a1)`. 698, 766, 1344 and 1493 draw a horizontal zero line as a data series, `axes[1].plot(range(T), np.zeros(T), 'k-')`, where `axhline(0, color='k')` is one call, needs no matching array length, and removes four of the qe-fig-008 hits at a stroke. And 1586 passes `C=C` by keyword where 672, 740 and 1318 pass the same argument positionally. Note that the aligned multiple spaces inside the matrix literals (`[0,              1]`, 665; `[-a1,  a1,  0]`, 1573) are NOT a violation - lining matrix entries into columns is exactly the 'closer to mathematical notation' exemption the rule grants, and a contributor should not run a formatter over them.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 5. *Lines:* 683, 751, 1331, 1480, 1595. *Example:* figsize=.
 - **[qe-fig-002]** — Prefer code-generated figures. *Count:* 5. *Lines:* 1051, 1121, 1197, 1201, 1205. *Example:* static image .png.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 10. *Lines:* 649, 735, 1051, 1121, 1197, 1201, 1205, 1287, 1403, 1555. *Example:* {figure} without :name:.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 18. *Lines:* 691, 693, 695, 697, 698, 759, 761, 763, 765, 766, …. *Example:* plot() without lw=.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 85. *Lines:* 100, 253, 271, 293, 316, 324, 373, 385, 397, 406, …. *Example:* apostrophe transpose `x_t'`.
 - **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 17. *Lines:* 170, 176, 182, 188, 195, 213, 221, 229, 237, 623, …. *Example:* array used as matrix.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 15. *Lines:* 100, 314, 386, 398, 421, 432, 445, 469, 598, 807, …. *Example:* missing braces: `\mathbb E`.
+- **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 6. *Lines:* 912, 882, 884, 159, 53, 99. *Example:* every genuine definition in the lecture is italicised and the one bold term is not a definition. Italic definitions: 'have the property of *certainty equivalence*' (912), 'is also called the *LQ Bellman equation*' (882), 'is called the *LQ Bellman operator*' (884), 'we are dealing with an *affine* function' (159). The single bold is **Riccati equations** at 53, a passing mention in a bullet - and the sibling copy in `lecture-python.myst` has already replaced it with a Wikipedia link, which is what it wanted to be. Compounding this, eight terms that are being introduced are set in scare quotes rather than in either markup: the '"linear"' and '"quadratic"' parts of LQ (80), a '"control"' vector (99), an '"ideal"' quantity (140), non-Euclidean notions of '"distance"' (277), total '"loss-to-go"' (402), the '"cost"' of landing in a state (413), and a symmetric inverted '"U"' (931).
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 13. *Lines:* 84, 298, 305, 577, 781, 785, 800, 842, 910, 920, …. *Example:* H3 Title Case: 'The Law of Motion' (Law, Motion).
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 12. *Lines:* 262, 285, 345, 358, 366, 541, 562, 713, 860, 1055, …. *Example:* 2 spaces.
 
 ### Medium severity
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 4. *Lines:* 702, 770, 1348, 1497. *Example:* axis label `Time`.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 4. *Lines:* 698, 766, 1344, 1493. *Example:* plot() without lw=.
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 2. *Lines:* 54. *Example:* raw link to python-advanced.quantecon.org.
+- **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 2. *Lines:* 503, 613. *Example:* 503, 524 and 902 write the trace as `\mathop{\mathrm{trace}}(C' P_T C)` - the plain-TeX `\mathop{\mathrm{...}}` construction where `\operatorname{tr}` (or `\mathrm{tr}`) is the standard one-token form, and three occurrences of it are the only `\mathop` in the file. Second, the same state vector is written three ways: as a stacked `array` display at 211-217, as `$x_t = (a_t \; 1)'$` at 613, and as `$x_t = (\bar q_t \;\, q_t \;\, 1)'$` at 1213 and 1523, where `\;\,` is a hand-tuned space doing the work a `bmatrix` or a plain comma would do.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 262. *Example:* 3 sentences in one paragraph.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 3. *Lines:* 47, 344, 929. *Example:* the lecture hedges eight times with the same phrase - 'it is in fact far more flexible' (47), 'In fact, for many economic problems' (262), '(In fact, the general case' (276), 'This is in fact equivalent to' (351), 'In fact, it turns out that' (358), 'Actually, the preceding discussion' (364), 'In fact, we can tackle many models' (793), 'In fact, this is a nontrivial problem' (1097), '(In fact, we are just adding a constant term' (1223) - and in every case the sentence is unchanged if the phrase is deleted. 344-354 spends five paragraphs and a Wikipedia link on measurability in order to arrive at 'you can read that last phrase as "for some function $g_t$"' (354), which is where 362 ends up anyway; the measure-theoretic detour is self-cancelling. 929 is a 30-word sentence that loses track of its own list: 'rises in early working life, peaks towards the middle and maybe declines toward the end of working life and falls more during retirement'.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 4. *Lines:* 862, 720, 1195, 1526. *Example:* 862-863 signals a restatement and delivers a different claim: 859-860 says 'optimal policies can depend on time only if time itself is a component of the state vector $x_t$', then 862 says 'In other words, there exists a fixed matrix $F$ such that $u_t = -F x_t$ for all $t$'. The second is not the first in other words - it is the conclusion the first is meant to support, and the step (that the infinite-horizon problem is stationary, so $P_t$ and hence $F_t$ converge to constants) is skipped. 720 defines cumulative unanticipated income as $z_t := \sum_{j=0}^t \sigma w_t$, summing $w_t$ over $j$ - the summand should be $w_j$, and the code the sentence is describing gets it right (`np.cumsum(income - μ)` at 695). 1193-1207 shows three figures for three values of $\gamma$, says 'The only difference in parameters across the figures is the size of $\gamma$' (with no full stop), and then gives the reader no way to tell which is which: the three `{figure}` directives at 1197, 1201 and 1205 have empty bodies, no `:name:`, no caption, and the only place $\gamma$'s values appear is the exercise 300 lines later ('$\gamma$ varies between 1 and 50', 1512) and the PNG filenames. 1526 writes $m_0 := (a_0 - c) / 2a_1$ and $m_1 := 1 / 2 a_1$, both of which read as $((a_0-c)/2)a_1$ and $(1/2)a_1$; the code at 1567-1568 means $(a_0-c)/(2a_1)$ and $1/(2a_1)$, and the same lecture writes the same quantity correctly with `\frac` at 1183.
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 3. *Lines:* 1197, 508, 142. *Example:* first, the three monopoly figures (1197, 1201, 1205) are the lecture's one comparative-statics exhibit and they are unlabelled, uncaptioned static PNGs, so the claim they exist to support - 'if $\gamma$ is close to zero, then $q_t$ will track $\bar q_t$ relatively closely... if $\gamma$ is larger, then $q_t$ will be smoother' (1188-1189) - has to be taken on trust. Second, the object the whole 'Solution' section constructs is the backward recursion $P_{t-1} = f(P_t)$ (508-517) and the policy sequence $F_t$ (531-537), and neither is ever plotted, even though `LQ.update_values` exposes both and the two later sections turn on whether they settle down ('Time-Varying Parameters' 785, 'Infinite Horizon' 842, 'Not surprisingly, $P$ and $d$ are also constant' 868). One panel of $F_t$ against $t$ for the $T=45$ problem, converging to the stationary $F$, would connect four sections that are currently connected only by assertion. Third, in 1613 lines there is exactly one admonition (the `{note}` at 261-263), while ten asides are set as whole parenthesised paragraphs that a `{note}` or `{hint}` would carry properly: 142, 276-277, 353-354, 506, 608, 713-714, 726, 948, 1103-1104, 1223.
 
 ### Low severity
 _None found._
@@ -48,18 +54,21 @@ _None found._
 
 ## Strengths
 
-- Code, References, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The backward induction is built one period at a time with the reader following: $J_T$ is defined first as a naming convenience (373, 'For reasons that will soon become clear'), then the $T-1$ problem is written out in full (383-388), then $J_{T-1}$ is named (392-400) and interpreted ('total "loss-to-go" from state $x$', 402), then the $T-2$ problem is written out again in full (417-423) with an explicit statement of what has changed ('the value $J_{T-1}(x)$ plays a role analogous to that played by the terminal loss', 406) - and only at 436, after two worked steps, does the lecture say 'the pattern for backward induction is now clear'.
+- The affine-to-linear trick is motivated by the problem it solves rather than presented as a device: 156-157 states the obstruction ('the law of motion contains some constant terms on the right-hand side'), 159-160 names it ('we are dealing with an *affine* function, not a linear one') and links the definition, 164-201 writes the augmented system out entry by entry, 203 checks it ('then the first row is equivalent to `` {eq}`lq_lomwc` ``'), and 244 says what was paid for it ('we've bought ourselves linearity by adding another state').
+- Every extension in 'Extensions and Comments' (781-918) says exactly which earlier equation it replaces and which it leaves alone: `` {eq}`lq_pr` `` becomes `` {eq}`lq_pr_cp` `` (815), `` {eq}`lq_oc` `` becomes `` {eq}`lq_oc_cp` `` (827), 'The sequence $\{d_t\}$ is unchanged from `` {eq}`lq_dd` ``' (837), and in the infinite-horizon section `` {eq}`lq_pr_ih` ``, `` {eq}`lq_oc_ih` `` and `` {eq}`lq_dd_ih` `` are each paired against their finite-horizon counterpart (874-903).
+- The three applications escalate along one axis - constant-mean income (577), polynomial age profile (923), polynomial profile plus a retirement kink (1062) - and the third is honest about the fact that it does not fit the framework: 1097 says the kink 'makes it very difficult to express the law of motion as a fixed-coefficient linear system', and 1110-1116 then gives the three-step patch (solve `lq_retired`, use its start-of-retirement $P$ as the working-life $R_f$, solve `lq_working`) as a numbered procedure that the solution code at 1436-1464 follows line for line.
+- The monopoly application earns its state before it computes anything: 1174-1189 reasons out what the answer must look like at $\gamma = 0$ and for large $\gamma$ *before* the LQ mapping appears, 1211 admits that choosing the state 'can be a bit of an art', and 1219-1229 shows the objective-shifting step ($\hat\pi_t := \pi_t - a_1\bar q_t^2$) with the reason it is legitimate stated twice, once in words and once as the general principle that 'optimizers are not affected by constant terms' (1223).
+- The `LQ` class is documented in the prose before it is used (561-574) as instance data and methods, with each method tied to the equation it implements - `update_values` to `` {eq}`lq_pr` ``, `` {eq}`lq_dd` `` and `` {eq}`lq_oc` `` - and with the two `None` sentinels for the infinite-horizon and deterministic cases spelled out (566-567).
 
 ## Recommended actions
 
-1. `qe-math-002` — Use \top for transpose notation (85 occurrences).
-2. `qe-writing-006` — Capitalize lecture titles properly (13 occurrences).
-3. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (15 occurrences).
-4. `qe-math-003` — Use square brackets for matrix notation (17 occurrences).
-5. `qe-fig-005` — Descriptive figure names for cross-referencing (10 occurrences).
-6. `qe-link-002` — Use doc links for cross-series references (2 occurrences).
-7. `qe-fig-006` — Lowercase axis labels (4 occurrences).
+1. Sync this file from `lecture-python.myst/lectures/lqcontrol.md`, which is 420 lines ahead of this copy and has already done almost all of the mechanical work. Measured with the audit's own checks, the sibling copy scores qe-math-002 0 (vs 85 here - it uses `^\top` throughout), qe-math-003 0 (vs 17 - `bmatrix` instead of `\left(\begin{array}...\right)`), qe-writing-006 0 (vs 13 - sentence-cased H3s, e.g. '### The law of motion' at its line 85), and qe-link-002 0 (vs 2 - `{doc}`advanced:lu_tricks`` and `{doc}`advanced:classical_filtering`` instead of the raw `python-advanced.quantecon.org` URLs at 54, and `advanced:` is already a mapped intersphinx key in this repo's `_config.yml`). Total mechanical hits: 187 here against 61 there. One sync clears 117 findings and is worth doing before any hand-editing.
+2. Give the three monopoly figures identities. Add `:name:` and a caption naming $\gamma$ to each of 1197, 1201 and 1205 (the filenames already encode `g1`, `g10`, `g50`), then have 1193-1195 refer to them by name and end the sentence at 1195 with a full stop. Better still, replace the three PNGs with the code from the `lqc_ex3` solution (1555-1609) run in a loop over $\gamma \in \{1, 10, 50\}$, which removes three of the five qe-fig-002 static images and makes the comparative static executable.
+3. Fix the summation at 720: `z_t := \sum_{j=0}^t \sigma w_t` should sum $w_j$, and 716-717 is the one sentence in the lecture that asks the reader to check a figure against a formula.
+4. Disambiguate 1526: write $m_0 := (a_0 - c)/(2 a_1)$ and $m_1 := 1/(2 a_1)$ with `\frac`, matching 1183 and the code at 1567-1568.
+5. Repair the logic at 859-863: either drop 'In other words' and state the stationarity step, or move 862-863 after 868 ('Not surprisingly, $P$ and $d$ are also constant'), which is where it actually follows from.
+6. Replace the four zero-line `plot(range(T), np.zeros(T), 'k-')` calls (698, 766, 1344, 1493) with `axhline(0, color='k')`, lowercase the four `'Time'` axis labels (702, 770, 1348, 1497) and the fifth inside `ax.set(xlabel='Time', ...)` at 1603 (which the checker does not report - it cannot see labels set through `ax.set`), and drop the five `figsize=(12, 10)` / `figsize=(10, 6.5)` overrides (683, 751, 1331, 1480, 1595).
+7. Settle the emphasis convention: bold the four definitions at 159, 882, 884 and 912, and convert the eight scare-quoted terms at 80, 99, 140, 277, 402, 413 and 931 to bold on first definition or plain text thereafter.
+8. Note that the qe-fig-008 count of 18 is 14 false positives - see scanner_doubts. Only 698, 766, 1344 and 1493 are real, and the fix for those is the `axhline` change above, so no `lw=` should be added anywhere in this file.
+9. Trim: the eight 'In fact'/'Actually' hedges (47, 262, 276, 351, 358, 364, 793, 1097, 1223), the measurability detour at 344-354, the three-sentence `{note}` paragraph at 262 (qe-writing-001), the 12 double spaces, and the `{contents}` directive at 26-28, which duplicates the theme's own page navigation.

@@ -2,7 +2,7 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/lln_clt.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 7.1 / 10
@@ -16,7 +16,7 @@
 | Math         | 3/10  | `qe-math-010` (proposed) ×42; `qe-math-004` ×121; `qe-math-002` ×5, +2 more. |
 | Code         | 6.5/10 | `qe-code-001` ×5; `qe-code-002` ×2. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 7/10  | `qe-fig-005` ×6; `qe-fig-001` ×6; `qe-fig-008` ×1. |
+| Figures      | 7/10  | `qe-fig-005` ×6; `qe-fig-001` ×6. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -45,7 +45,6 @@ _None found._
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 3. *Lines:* 42, 190, 200. *Example:* three places where a figure is the natural carrier and the lecture uses prose. The breakdown case promised at 42 is the clearest: the machinery at 226-272 already plots $\bar X_n$ against $n$ for three distributions, and adding a fourth panel with a Cauchy sample would show non-convergence next to convergence in the same axes - which is what the sentence at 42 promises and never delivers. Second, the proof produces a concrete bound, $\mathbb P\{|\bar X_n - \mu| \geq \epsilon\} \leq \sigma^2/(n\epsilon^2)$ at 184-189, and never plots it against the simulated tail frequency, although Simulation 1 (390-413) already generates 100,000 draws of $\bar X_n$ and could overlay the two curves in three lines. Third, 200-206 introduces "asymptotic independence" - covariance $\mathbb E(X_i-\mu)(X_j-\mu)$ falling to zero as $|i-j|$ grows - calls it "very important in time series analysis", and illustrates it with nothing at all; it is the one idea in the lecture with no accompanying picture, code or example.
 
 ### Low severity
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 263. *Example:* plot() without lw=.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 1. *Lines:* 825. *Example:* 2 spaces.
 
 

@@ -2,10 +2,10 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/ar1_processes.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.0 / 10
+- **Overall score:** 7.9 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 6/10  | `qe-writing-001` ×3; `qe-writing-009` (proposed) ×1; `qe-writing-005` ×1, +3 more. |
 | Math         | 7.5/10 | `qe-math-010` (proposed) ×2. |
-| Code         | 6.5/10 | `qe-code-002` ×8; `qe-code-001` ×3. |
+| Code         | 6/10  | `qe-code-002` ×21; `qe-code-001` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7/10  | `qe-fig-005` ×6; `qe-fig-008` ×9; `qe-fig-001` ×1. |
 | References   | 9/10  | `qe-ref-001` ×1. |
@@ -27,7 +27,7 @@
 _None found._
 
 ### High severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 8. *Lines:* 166, 180, 182, 211, 213, 216. *Example:* spelled-out `mu`.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 21. *Lines:* 166, 180, 182, 210, 211, 213, 216, 230, 265, 267, …. *Example:* spelled-out `mu`.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 6. *Lines:* 171, 209, 228, 263, 407, 623. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 9. *Lines:* 182, 215, 436, 437, 530, 531, 633, 634, 635. *Example:* plot() without lw=.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 2. *Lines:* 372. *Example:* missing braces: `\mathbb E`.

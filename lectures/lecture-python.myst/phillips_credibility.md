@@ -2,21 +2,21 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/phillips_credibility.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 9.2 / 10
-- **Priority:** NONE
+- **Overall score:** 8.4 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 9/10  | `qe-writing-004` ×1. |
-| Math         | 10/10 | no mechanical violations detected. |
-| Code         | 10/10 | no mechanical violations detected. |
+| Writing      | 5/10  | `qe-writing-005` ×2; `qe-writing-003` ×3; `qe-writing-002` ×2, +2 more. |
+| Math         | 9.5/10 | `qe-math-009` ×2. |
+| Code         | 9/10  | `qe-code-001` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 7/10  | `qe-fig-004` ×3; `qe-fig-005` ×1; `qe-fig-008` ×4, +1 more. |
+| Figures      | 7/10  | `qe-fig-004` ×3; `qe-fig-005` ×1; `qe-fig-001` ×4, +1 more. |
 | References   | 8.5/10 | `qe-ref-001` ×3. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -32,27 +32,38 @@ _None found._
 ### Medium severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 4. *Lines:* 220, 285, 396, 504. *Example:* figsize=.
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 3. *Lines:* 213, 278, 387. *Example:* caption of 15 words.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 4. *Lines:* 236, 238, 288, 297. *Example:* plot() without lw=.
+- **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 2. *Lines:* 364, 473. *Example:* $\mathcal{M}$ (364, 367, 488, 490, 519) is a calligraphic capital for a scalar derivative, $-1/(\theta^2+1)$; it is never a set, a space or an operator, so a plain $M$ is the simpler option the rule asks for. It also collides across the suite: `phillips_drifts_volatilities.md:1983` uses $\mathcal{M}_t = \beta_{1t} + \beta_{3t} - 1$ for the "policy margin", an unrelated object, and the suite's notation table (`phillips_two_stories.md:84-98`) does not record the letter. Second, the appendix writes the same ODE a third way. `` {eq}`pc_ode` `` at 356 is $dx/dt = B(x) - x$; 454-459 interpolates into $x^0(t)$, where the superscript zero reads as an initial condition and $x^0(0)$ at 459 is genuinely hard to parse; and 473 then writes $\frac{d}{dt}\tilde x(t) = B(\tilde x(t)) - \tilde x(t)$, which is `` {eq}`pc_ode` `` again in a third dress, immediately before 476 and 480 refer to it as "the mean dynamics `` {eq}`pc_ode` ``". One symbol for the ODE solution would do.
 - **[qe-ref-001]** — Use correct citation style. *Count:* 3. *Lines:* 34, 75, 367. *Example:* `` {cite} `` in narrative flow: 'by `` {cite} ``'.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 2. *Lines:* 311, 197. *Example:* length is not this lecture's problem - only three sentences run past 32 words (127 at 35, 480 at 33, 203 at 32) and none reaches 40 - but two claims are each made three times. Convergence of the best response dynamics: 262 "iterating on it converges to the fixed point $y^N = \theta U^*$ from any starting point", then 309 "The limit of this process is the Nash outcome $y = x = y^N$", then 311 "Thus best response dynamics converge to the Nash equilibrium" - three consecutive paragraphs, no new content in the second and third. The payoff ordering likewise: 151 "the Nash equilibrium delivers it with positive inflation and hence a strictly lower payoff", 197 "The Nash payoff is worse than the Ramsey payoff", 250 "lies on a larger circle (lower payoff)" - of which only 250 adds anything, because it is about the figure.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 3. *Lines:* 382, 351, 490. *Example:* the learning gain is indexed three different ways in 120 lines and the code comment papers over it rather than resolving it: the prose writes $\frac{1}{t-1}$ (322, 330, 348), the code writes `gain = 1.0 / t` with the comment `# the 1/(t-1) gain of equation (7), reindexed` (382), and the appendix writes $a_n = 1/(n+1)$ (442) - three offsets for one sequence, and a reader checking the simulation against `` {eq}`pc_expect3` `` has to work out the shift unaided. The comment also cites "equation (7)" by number where the lecture cites equations by `{eq}` label eleven times (97, 121, 129, 207, 209, 343, 369, 432, 470, 480); it happens to be right today because `pc_expect3` is the seventh labelled equation, but it breaks silently the moment one is inserted - the same defect as `phillips_learning.md:836`'s "Figures 8.1 and 8.2". Second, 351 asserts "By the theory of stochastic approximation, the limiting behavior of $x_t$ is described by the associated ordinary differential equation" with no forward pointer to the appendix; the connection is made only backwards, at 432. Third, 490 establishes that convergence at the $\sqrt{t}$ rate requires $\theta < 1$, and every figure in the body is drawn at the class default $\theta = 1.0$ (161, 188, 394) - exactly the boundary case where that condition fails - which the body never mentions.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 36. *Example:* mid-sentence 'Critique'.
+- **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 2. *Lines:* 476, 115. *Example:* 476 sets the suite's central defined term in italic - "which is said to describe the *mean dynamics* of the original system" - and this is where the suite defines it: `phillips_learning.md:206` points back here explicitly ("the vector generalization of the scalar least-squares-learning ODE derived in the appendix of `` {doc}`phillips_credibility` ``"). Every later lecture that restates the term bolds it: `phillips_learning.md:75` ("the two analytical objects - **mean dynamics** and **escape routes**") and `:206`, `phillips_escaping_nash.md:48` and `:189` (**mean-dynamics**), `phillips_priors.md:50`. So the definitional first use is the one occurrence in the suite set in italic. Second, 115 italicises *Ramsey outcome* - "The *Ramsey outcome* is the value of $y$ that attains the maximum" - one line below **Ramsey problem:** at 113, inside a block of five definitions that are correctly bolded (107, 109, 111, 113, 117), so the same paragraph both follows and breaks the rule. The file otherwise uses italic correctly for emphasis (*before*/*after* 52-53, *first* 203, *acceleration*/*stabilization* 408-410, *not* 478).
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 2. *Lines:* 430, 213. *Example:* the appendix (430-480) is 50 lines of prose about a change of time scale, an interpolated process $x^0(t)$, left-shifted copies of it and a martingale variance, and it draws nothing - although both objects it compares are already in the file. `ls_learning` (372-384) produces $x_t$, and `` {eq}`pc_ode` `` is linear with the closed form $x(t) = y^N + (x_0 - y^N)e^{-t/(\theta^2+1)}$, so overlaying the simulated path on that solution against the transformed clock $t_n = \sum_{i<n} a_i$ (454) is a few lines of code and is the appendix's entire claim. Second, 211 says the best response "occurs where an indifference curve is tangent to the Phillips curve indexed by $x$" and the figure at 213-246 contains that tangency but marks nothing: the Nash and Ramsey points get `'ko'` dots and annotations (236-239), the tangency itself is left for the reader to spot, and of the three Phillips curves drawn (225) two have no indifference curve tangent to them. The lecture's title concept - the temptation to inflate, the gap between $r(x, B(x))$ and $r(x, x)$ - is never drawn here at all, although `phillips_credible_policies.md:236-254` draws exactly that gap for the same model.
 
 ### Low severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 1. *Lines:* 382. *Example:* flake8 over every code cell (`--select=E1,E2,E5,E7,W2,W3,W6,F,C4 --max-line-length=79`) reports one item in the whole file: 382 is 83 characters, `gain = 1.0 / t                # the 1/(t-1) gain of equation (7), reindexed`, and the excess is fourteen spaces of alignment padding before a comment that should be a `{eq}` reference in the prose instead. Everything else is clean - Greek identifiers throughout (`θ`, `σ_η`, `η`, `ξ`, `cm_θ`), capitals only where the maths has them (`U_star`, `U_grid`, `B`, `R` as a radius at 232), and `**` written without spaces (171, 176). One inconsistency worth folding in: 513 escapes the backslash in a plain string, `ax.set_ylabel('$x_t - \\theta U^*$')`, four lines after 509 uses an r-string for the same LaTeX, `rf'$\theta = {θ}$'`.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 503. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 288. *Example:* plot() without lw=.
 
 
 ## Strengths
 
-- Writing, Math, Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- 105-117 collects all five objects the lecture works with - rational expectations equilibrium, the government's best response, Nash equilibrium, the Ramsey problem, best response dynamics - in one block before any of them is used, and each is then used exactly as defined: $B$ at 129-134, Nash at 137-141, Ramsey at 143-147, the dynamics at 258-262.
+- `CredibilityModel` (156-184) is a transcription of the displayed equations rather than a re-derivation, and the argument orders agree: `` {eq}`pc_r` `` at 102 writes $r(x, y)$ and 168 writes `def r(self, x, y)`; `` {eq}`pc_phillips` `` at 92 is $U = U^* - \theta(y - x)$ and 164-166 is `def phillips(self, y, x)` returning `U_star - θ * (y - x)`, called as `self.phillips(y, x)` at 170.
+- The three numbers the argument turns on are printed rather than asserted (191-194: Nash inflation, Ramsey inflation and both payoffs), so the claim at 197 is checkable from the output rather than taken on trust.
+- The algebra is right at every point where it would be easy to slip: 149's $r(x^N, y^N) = -\tfrac{1}{2}(1+\theta^2)U^{*2}$, 262's slope $\theta^2/(\theta^2+1) \in (0,1)$, 364's $\mathcal{M} = -1/(\theta^2+1)$, and 488-490's $\mathcal{M} < -1/2 \iff \theta < 1$ all check out.
+- The figure at 213-246 is geometrically true and not merely suggestive: at the default $\theta = 1$, $U^* = 5$ the circle of radius $\sqrt{50}$ drawn at 232 is exactly tangent to the Phillips curve for $x = y^N$ (both sit at distance $10/\sqrt{2}$ from the origin), so the tangency asserted at 211 really is in the picture.
+- 408-412 states plainly what the model cannot do - the dynamics "can explain an *acceleration* of inflation" but "cannot explain a Volcker-style *stabilization*" - and 412 says which later lectures take that up, so the reader is not left to discover the limitation.
+- 422-428 and 480 route each of the three foresight approaches to a named successor lecture (`phillips_credible_policies`, `phillips_adaptive`, `phillips_misspecified`/`phillips_self_confirming`, then `phillips_learning`/`phillips_escaping_nash`/`phillips_priors`), so the eleven-lecture suite is navigable from here.
+- The appendix argues at the level of the two moving parts rather than gesturing at a literature: 466 identifies the martingale whose variance is proportional to $\sum_i a_i^2$ and 468 identifies the Riemann mesh that $a_i \to 0$ shrinks, which are precisely the two error terms named at 462.
 
 ## Recommended actions
 
-1. `qe-ref-001` — Use correct citation style (3 occurrences).
-2. `qe-fig-004` — Caption formatting conventions (3 occurrences).
-3. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (1 occurrence).
-4. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
-5. `qe-fig-008` — Use lw=2 for line charts (4 occurrences).
-6. `qe-fig-001` — Do not set figure size unless necessary (4 occurrences).
+1. Bold **mean dynamics** at 476 and **Ramsey outcome** at 115. The first is the suite-wide inconsistency: this is where the term is defined, and the four later lectures that use it all bold it (`phillips_learning.md:75`, `:206`; `phillips_escaping_nash.md:48`; `phillips_priors.md:50`).
+2. Reconcile the learning gain across prose, code and appendix - $1/(t-1)$ at 322/330/348, `1.0 / t` at 382, $a_n = 1/(n+1)$ at 442 - and replace the code comment's "equation (7)" with a prose sentence carrying `` {eq}`pc_expect3` ``, since the bare number is unresolvable from inside the lecture.
+3. Do not 'fix' these drafted findings, they are false positives: `qe-fig-008` at 236, 238 and 297 are `ax.plot(cm.U_star, y_N, 'ko')`-style marker-only calls that draw no line, so `lw=2` has nothing to act on - only 288 (`ax.plot(x_grid, cm.B(x_grid), 'C0', ...)`) genuinely wants it; and `qe-writing-004` at 36 is "the Lucas Critique", a proper name.
+4. Add one figure to the appendix: overlay the `ls_learning` path from 372-384 on the closed-form solution of `` {eq}`pc_ode` ``, $x(t) = y^N + (x_0 - y^N)e^{-t/(\theta^2+1)}$, plotted against the transformed clock $t_n = \sum_{i<n} a_i$ from 454. That single picture is the whole content of 430-480.
+5. Rename $\mathcal{M}$ to $M$ at 364, 367, 488, 490 and 519, and write the appendix ODE at 473 in the symbols of `` {eq}`pc_ode` `` rather than introducing $\tilde x$ and $x^0$ for the same object.
+6. Change the three genuine narrative citations to `{cite:t}` (34 "studied by", 75 "the one-period model of", 367 "theorems of"), and give Barro and Gordon a bibliography key at 34 - they are named in prose with no citation at all, which neither reference rule can see.
+7. Sweep the figures: drop the four `figsize=` overrides (220, 285, 396, 504), add `mystnb` figure metadata to the solution cell at 503, cut the three captions to six words (213, 278, 387) folding the line-convention sentence at 248 into the caption at 217, and set `lw=2` at 288.
+8. Cut the repetition at 311 (which restates 309, which restates 262) and at 197 (which restates 151); make 513 an r-string to match 509; and add a forward pointer at 351 to the appendix, noting there that the body's baseline $\theta = 1$ is the boundary case of 490.

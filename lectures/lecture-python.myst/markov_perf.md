@@ -2,7 +2,7 @@
 
 - **Series:** lecture-python.myst
 - **File:** `lectures/markov_perf.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 7.4 / 10
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 4/10  | `qe-writing-006` ×8; `qe-writing-003` ×3; `qe-writing-008` ×12, +1 more. |
 | Math         | 5/10  | `qe-math-002` ×37. |
-| Code         | 7/10  | `qe-code-002` ×3; `qe-code-001` ×4. |
+| Code         | 7/10  | `qe-code-002` ×2; `qe-code-001` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-005` ×6; `qe-fig-003` ×1; `qe-fig-002` ×3, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -34,7 +34,7 @@ _None found._
 
 ### Medium severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 4. *Lines:* 548, 623, 636, 642. *Example:* the $R_1$ literal at 548-550 writes the same entry three different ways in three adjacent rows - `-a0/2` (548), `-a0 / 2.` (549), `-a0 / 2` (552 in $R_2$) - and mixes integer and float zeros within one row (`0` and `0.` at 550); `float(x.item())` at 623 casts a value `.item()` has already returned as a Python float; and `frameon=0` at 636 and 642 passes an integer where the same lecture writes `frameon=False` at 496. The space-aligned matrix literals themselves are fine - laying them out to look like matrices is the mathematical-notation exemption qe-code-001 allows.
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 3. *Lines:* 453, 455, 562. *Example:* spelled-out `beta`.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 2. *Lines:* 453, 455. *Example:* spelled-out `beta`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 492, 630, 848. *Example:* figsize=.
 - **[qe-fig-002]** — Prefer code-generated figures. *Count:* 3. *Lines:* 509, 730, 740. *Example:* static image .png.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 495. *Example:* .set_title.

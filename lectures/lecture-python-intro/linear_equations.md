@@ -2,7 +2,7 @@
 
 - **Series:** lecture-python-intro
 - **File:** `lectures/linear_equations.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
 - **Overall score:** 7.2 / 10
@@ -16,7 +16,7 @@
 | Math         | 6.5/10 | `qe-math-002` ×2; `qe-math-003` ×1. |
 | Code         | 7.5/10 | `qe-code-001` ×9. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6/10  | `qe-fig-005` ×5; `qe-fig-007` ×3; `qe-fig-008` ×4. |
+| Figures      | 6/10  | `qe-fig-005` ×5; `qe-fig-007` ×3; `qe-fig-008` ×3. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 7.5/10 | `qe-link-002` ×5. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -34,7 +34,7 @@ _None found._
 
 ### Medium severity
 - **[qe-fig-007]** — Keep figure box and spines. *Count:* 3. *Lines:* 163, 250, 323. *Example:* spine removal.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 4. *Lines:* 915, 916, 1372, 1373. *Example:* plot() without lw=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 915, 916, 1373. *Example:* plot() without lw=.
 - **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 1. *Lines:* 817. *Example:* matrix environment.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 1157. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 4. *Lines:* 525, 947, 1017, 1259. *Example:* two 36-38 word sentences (525, 1259) and two sentences that do not parse: "the $2^{nd}$ row of matrix $A = (2, 6)$ is just a scalar multiple of the $1^{st}$ row of matrix $A = (1, 3)$" (947, where $A$ is the matrix, not the row, and the ordinals are set in math mode) and "You can check yourself that the in `` {eq}`no_soln` `` and `` {eq}`many_solns` `` with linearly dependent rows are singular matrices" (1017, missing the noun).

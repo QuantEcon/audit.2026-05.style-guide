@@ -6,10 +6,10 @@ Style audit of the **lecture-python-intro** series.
 - **Audit date:** 2026-08-23
 - **Corpus snapshot:** `a12d17c0ef`
 - **Lectures audited:** 56
-- **Average overall score:** 8.3 / 10
-- **Average per-category scores:** writing 5.9, math 8.7, code 8.0, figures 6.5, references 9.3, links 9.7, admon 10.0
+- **Average overall score:** 8.1 / 10
+- **Average per-category scores:** writing 5.2, math 8.6, code 7.3, figures 6.6, references 9.3, links 9.7, admon 10.0
 - **JAX:** out of scope — the `qe-jax-*` rules target `lecture-jax`.
-- **Judgment-review coverage:** **43 of 56 reviewed** — scores for the unreviewed 13 reflect the 41 measured rules only, so they are not directly comparable with the reviewed ones.
+- **Judgment-review coverage:** all lectures reviewed.
 <!-- /qe:series-meta -->
 
 <!-- qe:series-narrative -->
@@ -31,10 +31,10 @@ notation debt to work through.
 <!-- qe:series-priority -->
 | Priority | Count | % |
 |----------|-------|---|
-| HIGH     | 18    | 32.1% |
+| HIGH     | 19    | 33.9% |
 | MEDIUM   | 0     | 0.0% |
-| LOW      | 19    | 33.9% |
-| NONE     | 19    | 33.9% |
+| LOW      | 28    | 50.0% |
+| NONE     | 9     | 16.1% |
 <!-- /qe:series-priority -->
 
 ## Top systemic issues across the series
@@ -43,15 +43,15 @@ Ranked by how many of the series' lectures each rule reaches.
 
 <!-- qe:series-systemic -->
 1. **`qe-fig-005`** — Descriptive figure names for cross-referencing — **46 / 56** lectures, 174 occurrences.
-2. **`qe-fig-008`** — Use lw=2 for line charts — **39 / 56** lectures, 266 occurrences.
-3. **`qe-writing-008`** — Remove excessive whitespace between words — **39 / 56** lectures, 709 occurrences.
+2. **`qe-writing-008`** — Remove excessive whitespace between words — **39 / 56** lectures, 709 occurrences.
+3. **`qe-fig-008`** — Use lw=2 for line charts — **34 / 56** lectures, 210 occurrences.
 4. **`qe-fig-001`** — Do not set figure size unless necessary — **30 / 56** lectures, 91 occurrences.
-5. **`qe-writing-001`** — Use one sentence per paragraph — **30 / 56** lectures, 53 occurrences.
+5. **`qe-writing-001`** — Use one sentence per paragraph — **30 / 56** lectures, 54 occurrences.
 6. **`qe-writing-004`** — Avoid unnecessary capitalization in narrative text — **18 / 56** lectures, 40 occurrences.
 7. **`qe-fig-004`** — Caption formatting conventions — **17 / 56** lectures, 69 occurrences.
 8. **`qe-fig-003`** — No matplotlib embedded titles — **15 / 56** lectures, 36 occurrences.
 9. **`qe-ref-001`** — Use correct citation style — **15 / 56** lectures, 48 occurrences.
-10. **`qe-writing-006`** — Capitalize lecture titles properly — **15 / 56** lectures, 33 occurrences.
+10. **`qe-writing-006`** — Capitalize lecture titles properly — **13 / 56** lectures, 31 occurrences.
 <!-- /qe:series-systemic -->
 
 ## Clean across the series
@@ -65,6 +65,7 @@ already holds to.
 - **`qe-fig-010`** — Plotly figures require latex directive
 - **`qe-math-006`** — Use aligned environment correctly for PDF compatibility
 - **`qe-math-007`** — Use automatic equation numbering, not manual tags
+- **`qe-math-008`** — Explain special notation (vectors/matrices)
 - **`qe-math-013`** *(proposed)* — Reference equations via `` {eq}`label` ``
 <!-- /qe:series-clean -->
 
@@ -102,54 +103,54 @@ that lecture. Click a lecture for its full report.
 | 3 | [french_rev](french_rev.md) | 3 | 10 | 7.5 | 3 | 7.5 | 10 | 10 | **7.3** | HIGH |
 | 4 | [networks](networks.md) | 4 | 6 | 7 | 5.5 | 8.5 | 10 | 10 | **7.3** | HIGH |
 | 5 | [eigen_I](eigen_I.md) | 3.5 | 10 | 7.5 | 3.5 | — | 10 | 10 | **7.4** | HIGH |
-| 6 | [heavy_tails](heavy_tails.md) | 6 | 5.5 | 6.5 | 5 | 10 | 9 | 10 | **7.4** | LOW |
+| 6 | [heavy_tails](heavy_tails.md) | 6 | 5.5 | 6 | 5 | 10 | 9 | 10 | **7.4** | LOW |
 | 7 | [inflation_history](inflation_history.md) | 3 | 10 | 6 | 4.5 | 8.5 | 10 | 10 | **7.4** | HIGH |
 | 8 | [markov_chains_I](markov_chains_I.md) | 6 | 3 | 7 | 7.5 | 9 | 9 | 10 | **7.4** | HIGH |
 | 9 | [time_series_with_matrices](time_series_with_matrices.md) | 3 | 6 | 7.5 | 7 | 10 | 8 | 10 | **7.4** | HIGH |
 | 10 | [business_cycle](business_cycle.md) | 6 | — | 7 | 7 | — | 10 | — | **7.5** | LOW |
-| 11 | [greek_square](greek_square.md) | 4 | 7.5 | 7 | 6.5 | 9 | 10 | 10 | **7.7** | HIGH |
-| 12 | [mobility](mobility.md) | 4 | 7 | 8.5 | 7.5 | 7 | 10 | 10 | **7.7** | HIGH |
+| 11 | [bivariate_dist](bivariate_dist.md) | 6.5 | 5.5 | 6 | 5 | 10 | 10 | 10 | **7.6** | LOW |
+| 12 | [greek_square](greek_square.md) | 4 | 7.5 | 7 | 6.5 | 9 | 10 | 10 | **7.7** | HIGH |
 | 13 | [monte_carlo](monte_carlo.md) | 5.5 | 5 | 7.5 | 8 | — | 10 | 10 | **7.7** | LOW |
-| 14 | [bivariate_dist](bivariate_dist.md) | 6.5 | 5.5 | 7.5 | 5 | 10 | 10 | 10 | **7.8** | LOW |
-| 15 | [inequality](inequality.md) | 4 | 9 | 6.5 | 5 | 10 | 10 | 10 | **7.8** | HIGH |
-| 16 | [intro_supply_demand](intro_supply_demand.md) | 4.5 | 10 | 7.5 | 6.5 | — | 8 | 10 | **7.8** | LOW |
-| 17 | [lln_clt](lln_clt.md) | 8 | 4 | 7.5 | 8 | — | 9 | 10 | **7.8** | HIGH |
-| 18 | [long_run_growth](long_run_growth.md) | 5 | — | 7.5 | 6 | 8.5 | 10 | 10 | **7.8** | LOW |
+| 14 | [inequality](inequality.md) | 4 | 9 | 6.5 | 5 | 10 | 10 | 10 | **7.8** | HIGH |
+| 15 | [intro_supply_demand](intro_supply_demand.md) | 4.5 | 10 | 7.5 | 6.5 | — | 8 | 10 | **7.8** | LOW |
+| 16 | [lln_clt](lln_clt.md) | 8 | 4.5 | 7.5 | 8 | — | 9 | 10 | **7.8** | LOW |
+| 17 | [long_run_growth](long_run_growth.md) | 5 | — | 7.5 | 6 | 8.5 | 10 | 10 | **7.8** | LOW |
+| 18 | [mobility](mobility.md) | 4.5 | 7 | 8.5 | 7.5 | 7 | 10 | 10 | **7.8** | LOW |
 | 19 | [simple_linear_regression](simple_linear_regression.md) | 4.5 | 8.5 | 7.5 | 6.5 | — | 10 | 9.5 | **7.8** | LOW |
-| 20 | [complex_and_trig](complex_and_trig.md) | 3 | 9.5 | 7 | 5.5 | 10 | 10 | 10 | **7.9** | HIGH |
-| 21 | [equalizing_difference](equalizing_difference.md) | 5 | 8 | 7.5 | 5.5 | 9 | 10 | 10 | **7.9** | LOW |
-| 22 | [laffer_adaptive](laffer_adaptive.md) | 4 | 10 | 7 | 6 | 8.5 | 10 | 10 | **7.9** | HIGH |
-| 23 | [lake_model](lake_model.md) | 4.5 | 10 | 7.5 | 5.5 | — | 10 | 10 | **7.9** | LOW |
-| 24 | [supply_demand_multiple_goods](supply_demand_multiple_goods.md) | 4 | 9.5 | 6.5 | 7.5 | — | 10 | 10 | **7.9** | HIGH |
-| 25 | [unpleasant](unpleasant.md) | 3.5 | 8 | 7.5 | 6 | 10 | 10 | 10 | **7.9** | HIGH |
-| 26 | [ar1_processes](ar1_processes.md) | 6 | 7.5 | 6.5 | 7 | 9 | 10 | 10 | **8.0** | LOW |
-| 27 | [lp_intro](lp_intro.md) | 3.5 | 6.5 | 7.5 | 8.5 | 10 | 10 | 10 | **8.0** | HIGH |
-| 28 | [cons_smooth](cons_smooth.md) | 4.5 | 10 | 7.5 | 6 | 9 | 10 | 10 | **8.1** | LOW |
-| 29 | [money_inflation_nonlinear](money_inflation_nonlinear.md) | 3 | 9.5 | 7.5 | 6.5 | 10 | 10 | 10 | **8.1** | HIGH |
-| 30 | [cagan_adaptive](cagan_adaptive.md) | 5 | 10 | 7 | 6.5 | 9 | 10 | 10 | **8.2** | LOW |
-| 31 | [mle](mle.md) | 5 | 10 | 7 | 7.5 | — | 10 | 10 | **8.2** | LOW |
-| 32 | [money_inflation](money_inflation.md) | 4.5 | 9.5 | 7.5 | 6 | 10 | 10 | 10 | **8.2** | LOW |
-| 33 | [eigen_II](eigen_II.md) | 4.5 | 9.5 | 7.5 | — | 9 | 10 | 10 | **8.4** | LOW |
-| 34 | [markov_chains_II](markov_chains_II.md) | 6.5 | 10 | 7.5 | 6.5 | 8.5 | 10 | 10 | **8.4** | LOW |
-| 35 | [about](about.md) | 8 | — | — | — | — | 9 | — | **8.5** | LOW |
-| 36 | [cagan_ree](cagan_ree.md) | 4 | 10 | 8.5 | 7 | 10 | 10 | 10 | **8.5** | HIGH |
-| 37 | [input_output](input_output.md) | 7.5 | 10 | 7.5 | 6 | 8.5 | 10 | 10 | **8.5** | LOW |
-| 38 | [bayes_intro](bayes_intro.md) | 7.5 | 9.5 | 10 | 5.5 | — | 10 | 10 | **8.8** | NONE |
-| 39 | [troubleshooting](troubleshooting.md) | 8.5 | — | — | 9 | — | 9 | — | **8.8** | NONE |
-| 40 | [solow](solow.md) | 7.5 | 8.5 | 10 | 7.5 | — | 10 | 10 | **8.9** | NONE |
-| 41 | [tax_smooth](tax_smooth.md) | 6 | 10 | 10 | 6 | 10 | 10 | 10 | **8.9** | NONE |
-| 42 | [cobweb](cobweb.md) | 7.5 | 10 | 9 | 6.5 | 10 | 10 | 10 | **9.0** | NONE |
-| 43 | [pv](pv.md) | 7 | 10 | 10 | 7 | — | 10 | 10 | **9.0** | NONE |
-| 44 | [fitting_distributions](fitting_distributions.md) | 6.5 | 10 | 10 | 8 | — | 10 | 10 | **9.1** | NONE |
-| 45 | [msy_fishery](msy_fishery.md) | 7.5 | 10 | 10 | 6.5 | 10 | 10 | 10 | **9.1** | NONE |
-| 46 | [olg](olg.md) | 9.5 | 10 | 10 | 6.5 | 10 | 8 | 10 | **9.1** | NONE |
-| 47 | [scalar_dynam](scalar_dynam.md) | 7.5 | 10 | 8.5 | 8.5 | — | 10 | 10 | **9.1** | NONE |
-| 48 | [commod_price](commod_price.md) | 7.5 | 10 | 9 | 8 | 10 | 10 | 10 | **9.2** | NONE |
-| 49 | [prob_dist](prob_dist.md) | 9.5 | 7.5 | 10 | 8.5 | — | 10 | 10 | **9.2** | NONE |
-| 50 | [observed_distributions](observed_distributions.md) | 8.5 | 10 | 10 | 7 | 10 | 10 | 10 | **9.4** | NONE |
-| 51 | [schelling](schelling.md) | 8 | 10 | 10 | 8.5 | 10 | 9 | 10 | **9.4** | NONE |
-| 52 | [supply_demand_heterogeneity](supply_demand_heterogeneity.md) | 9 | 10 | 8.5 | — | — | 10 | 10 | **9.5** | NONE |
-| 53 | [short_path](short_path.md) | 10 | 10 | 10 | 8 | — | 10 | 10 | **9.7** | NONE |
+| 20 | [solow](solow.md) | 4 | 8 | 7 | 8 | — | 10 | 10 | **7.8** | HIGH |
+| 21 | [tax_smooth](tax_smooth.md) | 3 | 9.5 | 6 | 6 | 10 | 10 | 10 | **7.8** | HIGH |
+| 22 | [ar1_processes](ar1_processes.md) | 6 | 7.5 | 6 | 7 | 9 | 10 | 10 | **7.9** | LOW |
+| 23 | [complex_and_trig](complex_and_trig.md) | 3 | 9.5 | 7 | 5.5 | 10 | 10 | 10 | **7.9** | HIGH |
+| 24 | [equalizing_difference](equalizing_difference.md) | 5 | 8 | 7.5 | 5.5 | 9 | 10 | 10 | **7.9** | LOW |
+| 25 | [laffer_adaptive](laffer_adaptive.md) | 4 | 10 | 7 | 6 | 8.5 | 10 | 10 | **7.9** | HIGH |
+| 26 | [lake_model](lake_model.md) | 4.5 | 10 | 7.5 | 5.5 | — | 10 | 10 | **7.9** | LOW |
+| 27 | [money_inflation_nonlinear](money_inflation_nonlinear.md) | 3 | 9.5 | 6.5 | 6.5 | 10 | 10 | 10 | **7.9** | HIGH |
+| 28 | [olg](olg.md) | 4.5 | 9.5 | 7 | 6.5 | 10 | 8 | 10 | **7.9** | LOW |
+| 29 | [unpleasant](unpleasant.md) | 3.5 | 8 | 7.5 | 6 | 10 | 10 | 10 | **7.9** | HIGH |
+| 30 | [lp_intro](lp_intro.md) | 3.5 | 6.5 | 7.5 | 8.5 | 10 | 10 | 10 | **8.0** | HIGH |
+| 31 | [msy_fishery](msy_fishery.md) | 3.5 | 10 | 6 | 6.5 | 10 | 10 | 10 | **8.0** | HIGH |
+| 32 | [prob_dist](prob_dist.md) | 5 | 7 | 7 | 9 | — | 10 | 10 | **8.0** | LOW |
+| 33 | [supply_demand_multiple_goods](supply_demand_multiple_goods.md) | 4.5 | 9.5 | 6.5 | 7.5 | — | 10 | 10 | **8.0** | LOW |
+| 34 | [cons_smooth](cons_smooth.md) | 4.5 | 10 | 7.5 | 6 | 9 | 10 | 10 | **8.1** | LOW |
+| 35 | [cagan_adaptive](cagan_adaptive.md) | 5 | 10 | 7 | 6.5 | 9 | 10 | 10 | **8.2** | LOW |
+| 36 | [mle](mle.md) | 5 | 10 | 7 | 7.5 | — | 10 | 10 | **8.2** | LOW |
+| 37 | [money_inflation](money_inflation.md) | 4.5 | 9.5 | 7.5 | 6 | 10 | 10 | 10 | **8.2** | LOW |
+| 38 | [scalar_dynam](scalar_dynam.md) | 4.5 | 10 | 6 | 8.5 | — | 10 | 10 | **8.2** | LOW |
+| 39 | [supply_demand_heterogeneity](supply_demand_heterogeneity.md) | 4.5 | 9.5 | 7 | — | — | 10 | 10 | **8.2** | LOW |
+| 40 | [pv](pv.md) | 4.5 | 10 | 8.5 | 7 | — | 10 | 10 | **8.3** | LOW |
+| 41 | [eigen_II](eigen_II.md) | 4.5 | 9.5 | 7.5 | — | 9 | 10 | 10 | **8.4** | LOW |
+| 42 | [markov_chains_II](markov_chains_II.md) | 6.5 | 10 | 7.5 | 6.5 | 8.5 | 10 | 10 | **8.4** | LOW |
+| 43 | [observed_distributions](observed_distributions.md) | 4 | 10 | 7.5 | 7 | 10 | 10 | 10 | **8.4** | HIGH |
+| 44 | [about](about.md) | 8 | — | — | — | — | 9 | — | **8.5** | LOW |
+| 45 | [cagan_ree](cagan_ree.md) | 4 | 10 | 8.5 | 7 | 10 | 10 | 10 | **8.5** | HIGH |
+| 46 | [input_output](input_output.md) | 7.5 | 10 | 7.5 | 6 | 8.5 | 10 | 10 | **8.5** | LOW |
+| 47 | [short_path](short_path.md) | 5.5 | 10 | 7.5 | 8 | — | 10 | 10 | **8.5** | LOW |
+| 48 | [schelling](schelling.md) | 5 | 10 | 7 | 9 | 10 | 9 | 10 | **8.6** | NONE |
+| 49 | [bayes_intro](bayes_intro.md) | 7.5 | 9.5 | 10 | 5.5 | — | 10 | 10 | **8.8** | NONE |
+| 50 | [cobweb](cobweb.md) | 7.5 | 10 | 7.5 | 6.5 | 10 | 10 | 10 | **8.8** | NONE |
+| 51 | [troubleshooting](troubleshooting.md) | 8.5 | — | — | 9 | — | 9 | — | **8.8** | NONE |
+| 52 | [commod_price](commod_price.md) | 7.5 | 10 | 9 | 8 | 10 | 10 | 10 | **9.2** | NONE |
+| 53 | [fitting_distributions](fitting_distributions.md) | 6.5 | 10 | 10 | 8.5 | — | 10 | 10 | **9.2** | NONE |
 | 54 | [intro](intro.md) | 10 | — | — | — | — | 10 | — | **10.0** | NONE |
 | 55 | [status](status.md) | 10 | — | — | — | — | 10 | — | **10.0** | NONE |
 | 56 | [zreferences](zreferences.md) | 10 | — | — | — | — | 10 | — | **10.0** | NONE |

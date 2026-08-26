@@ -2,7 +2,7 @@
 
 - **Series:** lecture-python-advanced.myst
 - **File:** `lectures/five_preferences.md`
-- **Audit date:** 2026-08-25
+- **Audit date:** 2026-08-26
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
 - **Overall score:** 6.2 / 10
@@ -16,7 +16,7 @@
 | Math         | 6/10  | `qe-math-011` (proposed) ×2; `qe-math-010` (proposed) ×1; `qe-math-001` ×1, +1 more. |
 | Code         | 7/10  | `qe-code-001` ×12. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 4/10  | `qe-fig-005` ×12; `qe-fig-003` ×5; `qe-fig-008` ×59, +1 more. |
+| Figures      | 4/10  | `qe-fig-005` ×12; `qe-fig-003` ×5; `qe-fig-008` ×39, +1 more. |
 | References   | 7/10  | `qe-ref-001` ×12. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | N/A   | no admonitions, exercises or solutions. |
@@ -31,7 +31,7 @@ _None found._
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 19. *Lines:* 74, 75, 76, 77, 78, 79, 229, 273, 557, 613, …. *Example:* style override.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 5. *Lines:* 291, 312, 628, 644, 1569. *Example:* .set_title.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 12. *Lines:* 221, 265, 554, 610, 761, 802, 1102, 1231, 1342, 1407, …. *Example:* non-descriptive name `figure1`.
-- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 59. *Lines:* 230, 558, 559, 615, 616, 617, 622, 623, 631, 632, …. *Example:* plot() without lw=.
+- **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 39. *Lines:* 230, 558, 559, 615, 616, 631, 632, 765, 769, 808, …. *Example:* plot() without lw=.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 1. *Lines:* 658. *Example:* bare expectation `E\left[`.
 - **[qe-ref-001]** — Use correct citation style. *Count:* 12. *Lines:* 380, 477, 899, 1369, 1820, 1826, 1829, 1844, 1916. *Example:* `` {cite} `` in narrative flow: 'Following `` {cite} ``'.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 7. *Lines:* 166, 904, 1172, 1254, 1279, 1289, 1833. *Example:* 2 sentences in one paragraph.
