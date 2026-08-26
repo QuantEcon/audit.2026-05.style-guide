@@ -8,9 +8,9 @@ Everything below is committed and pushed.
 | | |
 |---|---|
 | Corpus | 348 lectures, 5 series, pinned per series in `lectures/data/snapshot.json` |
-| Evidence layer | **complete** — 41 checks over all 348, 18,790 findings in `lectures/data/violations.csv` |
-| Scoring layer | **complete** — corpus mean 7.77, 197 HIGH / 1 MEDIUM / 106 LOW / 44 NONE |
-| Judgment layer | **effectively complete** — see the count in `reviews/` against 348 |
+| Evidence layer | **complete** — 41 checks over all 348, 18,884 findings in `lectures/data/violations.csv` |
+| Scoring layer | **complete** — corpus mean 7.75, 197 HIGH / 1 MEDIUM / 108 LOW / 42 NONE |
+| Judgment layer | **complete** — 348 of 348; the coverage caveat has retired itself |
 | Gate | `All checks passed` — 16 narrative claims + 31 line-width claims cross-checked |
 | Build | succeeds on Python 3.12 (`.venv`), **0 warnings** |
 | Trend | both snapshots measured with current code; 27 improved, 5 level, 3 worse |
@@ -24,6 +24,63 @@ for s in lecture-python-intro lecture-python-programming lecture-python.myst \
   for f in ../quantecon/$s/lectures/*.md; do b=$(basename $f .md)
     [ -f "reviews/$s/$b.json" ] || echo "$s/$b"; done; done
 ```
+
+## In flight when this was written — read this first
+
+**The pass itself is finished.** All three layers cover all 348 lectures, the gate passes and
+the build is clean. What is *not* done is the pull request, and one batch of verified detector
+patches that had not yet been applied.
+
+### Three verified patches waiting in `.claude/pending-patches.json`
+
+The final review batch filed three doubts. All three were implemented against the pinned
+snapshot in a scratchpad copy, measured in both directions with a `Counter` over
+`(line, detail)`, and **every addition was read individually**. Removals are **0** in all
+three and every canary held. The exact `patch_old` / `patch_new` text is in that JSON, keyed
+by check name, along with the measurement and the canary results.
+
+| Check | Verdict | Measured | Note |
+|---|---|---|---|
+| `check_math_010` | adopt | 1489 → 1596, +107 / −0 | juxtaposed operator: `\big`-family delimiters, `E \sum` / `E \prod`, `E_t u_{...}` |
+| `check_code_002` | adopt-narrowed | 700 → 815, +115 / −0 | Greek word as an identifier *suffix* (`target_mu`, `c_gamma`) |
+| `check_ref_001` | adopt | 291 → 330, +39 / −0 | a hand-written author-year followed by its own `{cite}`, rendering the reference twice |
+
+Adversarial refutation of these three was **still running** when this was written. Before
+applying, check whether `tools/VERIFICATION.md` already records them — if it does, they
+landed and this section is stale. If it does not, apply them, re-measure with the harness in
+that file, then run the full refresh, the gate and the build.
+
+### Three things the verification established that are worth not re-deriving
+
+- **The reviewer's `qe-math-010` numbers were bigger than the pattern change justifies**
+  because they had silently also widened the per-file `e_is_operator` evidence gate. Their two
+  headline lines (`tax_smoothing_3:80`, `un_insure:34`) are *not* reachable by any pattern
+  change — those files have no `E[` anywhere, so the whole bare-letter branch is switched off.
+  Widening the gate measures +168 / −0 and moves reach 124 → 136, and the 61 extra additions
+  were read and are genuine — but it takes seven lectures off a clean 0 on that rule, which
+  changes category scores. **That is a scoring decision, not a detector decision, and wants
+  its own pass.** Also latent: the gate pattern is a hand-copied duplicate of `applied` that
+  lacks the `THIN` steps, so simply reusing `applied` for the gate is worth +1 on its own.
+- **The `qe-code-002` doubt's second guard is wrong in every form.** "Skip identifiers the
+  file `def`s" deletes the `market_diffusion.md:159` `def mu(self, a)` canary — 8 removals,
+  measured — which is the exemption this project has *already* rejected. Narrowed to mixed
+  English/Greek names it still deletes 7 HEAD findings; narrowed to distribution names it
+  still deletes 4. Do not re-propose it. The cost of dropping it is 45 surviving additions of
+  the form `def compute_res_wage_given_beta(β)`, judged real because the rule already counts
+  identical HEAD sites. `tv_beta` is **not** a finding — `merging_of_opinions` imports
+  `beta as beta_dist`, so the file-level import exemption already excludes it.
+- **The one `qe-code-002` false-positive class worth a follow-on is `mu` for *marginal
+  utility*** (`ifp_egm.md:556` `def compute_mu_k(k)`, docstring "compute marginal utility").
+  12 of the 115 additions, and 4 more already false at HEAD. A surgical gate — skip a
+  non-bare `mu` in a cell that binds `u_prime`/`marginal_utility`, in the style of the
+  existing `DIST_CALL` gate — measures 815 → 799, reach 71 → 67, and touches nothing else.
+
+### Then: the pull request
+
+Task 6 is the only open deliverable. `main` is the base. The branch is
+`claude/project-review-lecture-updates-6o9a2f`. Check for a PR template first
+(`.github/pull_request_template.md` and the other three locations) and mirror its headings.
+**Do not open it until the gate passes and the build is clean.**
 
 ## The one thing to understand about this pass
 
