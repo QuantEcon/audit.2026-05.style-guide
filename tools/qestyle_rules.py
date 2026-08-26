@@ -57,6 +57,7 @@ PROPER_NOUNS = {
     # ``_is_proper`` can clear only when *every* part is listed.
     "modigliani", "miller", "litterman", "porteus", "tallarini", "backus", "chernov",
     "bray", "savin", "eckart", "young",
+    "monte", "carlo",               # "Monte Carlo" in a heading is a proper noun
     "cauchy", "schwarz", "hilbert", "banach", "lyapunov", "sylvester", "cholesky",
     "frobenius", "perron", "chebyshev", "bernoulli", "poisson", "cobb", "douglas",
     "koopmans", "cass", "diamond", "arrow", "debreu", "walras", "walrasian",
@@ -455,7 +456,11 @@ def check_math_002(doc: Doc):
     # history), so it counts only where the base is a matrix-like symbol AND the
     # superscript is followed by a factor rather than a relation.
     supT = re.compile(
-        r"(?:(?<![A-Za-z0-9\\])[A-Z]|" + DECORATED + r")"
+        # ``\)`` as a base: ``(h_1 \cdot B^T \vec\beta)^T \vec\mu`` and
+        # ``\big(z_t - \hat E z_t\big)^T`` are transposes of a parenthesised
+        # expression. ``\}`` deliberately stays out — it would admit 64 summation
+        # limits like ``\sum_{t=0}^{T}``.
+        r"(?:(?<![A-Za-z0-9\\])[A-Z]|" + DECORATED + r"|\))"
         r"\^\{?T\}?"
         r"(?=\s*(?:[A-Za-z(\[]|\\(?!(?:" + NOT_A_PRODUCT + r")\b)[A-Za-z]+))")
     # Explicit alternation, not ``\{?...\}?``: with an optional brace the engine
@@ -1030,8 +1035,14 @@ def check_code_003(doc: Doc):
             installs.append((start, pkgs, opts))
 
     installed = set().union(*(p for _, p, _ in installs)) if installs else set()
+    # PEP 503: a distribution name and an import name differ in ``-`` vs ``_``, so
+    # ``!pip install quantecon-book-theme`` did not answer ``import
+    # quantecon_book_theme``. Normalise both sides before comparing.
+    def _norm(name):
+        return re.sub(r"[-_.]+", "-", name).lower()
+
     missing = {e for e in extra
-               if not any(e.lower() in p.lower() for p in installed)}
+               if not any(_norm(e) in _norm(p) for p in installed)}
     if missing:
         hits.append(Hit("qe-code-003", installs[0][0] if installs else 1,
                         f"non-Anaconda import with no install cell: "

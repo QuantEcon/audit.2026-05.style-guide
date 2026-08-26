@@ -21,7 +21,6 @@ lecture-python-intro,bivariate_dist,qe-fig-005,1,0,0
 lecture-python-intro,bivariate_dist,qe-fig-006,2,0,0
 lecture-python-intro,bivariate_dist,qe-fig-008,2,0,0
 lecture-python-intro,bivariate_dist,qe-math-010,15,1,0
-lecture-python-intro,business_cycle,qe-code-003,1,0,0
 lecture-python-intro,business_cycle,qe-fig-001,1,0,0
 lecture-python-intro,business_cycle,qe-fig-004,2,0,0
 lecture-python-intro,business_cycle,qe-fig-006,1,0,0
@@ -222,10 +221,9 @@ lecture-python-intro,money_inflation,qe-fig-001,4,0,0
 lecture-python-intro,money_inflation,qe-fig-004,3,0,0
 lecture-python-intro,money_inflation,qe-fig-005,3,0,0
 lecture-python-intro,money_inflation,qe-fig-008,10,0,0
-lecture-python-intro,money_inflation,qe-math-001,2,0,0
 lecture-python-intro,money_inflation,qe-writing-001,1,0,0
 lecture-python-intro,money_inflation,qe-writing-004,1,0,0
-lecture-python-intro,money_inflation,qe-writing-008,90,0,0
+lecture-python-intro,money_inflation,qe-writing-008,89,0,0
 lecture-python-intro,money_inflation_nonlinear,qe-fig-001,1,0,0
 lecture-python-intro,money_inflation_nonlinear,qe-fig-004,2,0,0
 lecture-python-intro,money_inflation_nonlinear,qe-fig-005,4,0,0
@@ -238,7 +236,6 @@ lecture-python-intro,monte_carlo,qe-fig-003,1,0,0
 lecture-python-intro,monte_carlo,qe-fig-005,1,0,0
 lecture-python-intro,monte_carlo,qe-fig-008,1,0,0
 lecture-python-intro,monte_carlo,qe-math-010,10,1,0
-lecture-python-intro,monte_carlo,qe-writing-006,1,0,0
 lecture-python-intro,monte_carlo,qe-writing-008,2,0,0
 lecture-python-intro,msy_fishery,qe-fig-001,4,0,0
 lecture-python-intro,msy_fishery,qe-fig-004,2,0,0
@@ -246,7 +243,6 @@ lecture-python-intro,msy_fishery,qe-fig-005,2,0,0
 lecture-python-intro,msy_fishery,qe-fig-008,4,0,0
 lecture-python-intro,msy_fishery,qe-writing-001,1,0,0
 lecture-python-intro,msy_fishery,qe-writing-006,1,0,0
-lecture-python-intro,networks,qe-code-003,1,0,0
 lecture-python-intro,networks,qe-fig-001,2,0,0
 lecture-python-intro,networks,qe-fig-002,5,0,0
 lecture-python-intro,networks,qe-fig-004,3,0,0
@@ -660,7 +656,6 @@ lecture-python.myst,genetic_classifier,qe-fig-004,2,0,0
 lecture-python.myst,genetic_classifier,qe-writing-006,1,0,0
 lecture-python.myst,hansen_singleton_1982,qe-code-002,2,0,0
 lecture-python.myst,hansen_singleton_1982,qe-fig-001,1,0,0
-lecture-python.myst,hansen_singleton_1982,qe-fig-004,1,0,0
 lecture-python.myst,hansen_singleton_1982,qe-math-010,12,1,0
 lecture-python.myst,hansen_singleton_1982,qe-writing-008,1,0,0
 lecture-python.myst,hansen_singleton_1982,qe-writing-009,1,1,0
@@ -722,7 +717,6 @@ lecture-python.myst,ifp_opi,qe-link-002,1,0,0
 lecture-python.myst,ifp_opi,qe-writing-006,5,0,0
 lecture-python.myst,imp_sample,qe-fig-001,1,0,0
 lecture-python.myst,imp_sample,qe-fig-003,1,0,0
-lecture-python.myst,imp_sample,qe-fig-004,1,0,0
 lecture-python.myst,imp_sample,qe-math-001,3,0,0
 lecture-python.myst,imp_sample,qe-math-010,7,1,0
 lecture-python.myst,imp_sample,qe-writing-008,27,0,0
@@ -961,7 +955,6 @@ lecture-python.myst,mccall_model_with_sep_markov,qe-fig-003,4,0,0
 lecture-python.myst,mccall_model_with_sep_markov,qe-fig-005,5,0,0
 lecture-python.myst,mccall_model_with_sep_markov,qe-writing-001,1,0,0
 lecture-python.myst,mccall_model_with_sep_markov,qe-writing-009,1,1,0
-lecture-python.myst,mccall_model_with_separation,qe-code-003,1,0,0
 lecture-python.myst,mccall_model_with_separation,qe-fig-005,4,0,0
 lecture-python.myst,mccall_model_with_separation,qe-math-010,1,1,0
 lecture-python.myst,mccall_model_with_separation,qe-writing-008,1,0,0
@@ -1007,7 +1000,6 @@ lecture-python.myst,misspecified_recovery,qe-math-010,16,1,0
 lecture-python.myst,misspecified_recovery,qe-writing-004,3,0,0
 lecture-python.myst,misspecified_recovery,qe-writing-006,4,0,0
 lecture-python.myst,mix_model,qe-code-003,1,0,0
-lecture-python.myst,mix_model,qe-fig-004,1,0,0
 lecture-python.myst,mix_model,qe-fig-005,3,0,0
 lecture-python.myst,mix_model,qe-fig-006,2,0,0
 lecture-python.myst,mle,qe-fig-001,7,0,0
@@ -1325,7 +1317,6 @@ lecture-python.myst,sargent_surico,qe-fig-003,16,0,0
 lecture-python.myst,sargent_surico,qe-fig-004,1,0,0
 lecture-python.myst,sargent_surico,qe-fig-005,6,0,0
 lecture-python.myst,sargent_surico,qe-math-002,13,0,0
-lecture-python.myst,sargent_surico,qe-writing-006,1,0,0
 lecture-python.myst,sargent_surico,qe-writing-008,2,0,0
 lecture-python.myst,sir_model,qe-fig-005,1,0,0
 lecture-python.myst,sir_model,qe-fig-008,2,0,0
@@ -1594,7 +1585,7 @@ lecture-python-advanced.myst,calvo_machine_learn,qe-code-003,4,0,0
 lecture-python-advanced.myst,calvo_machine_learn,qe-code-004,2,0,0
 lecture-python-advanced.myst,calvo_machine_learn,qe-fig-005,4,0,0
 lecture-python-advanced.myst,calvo_machine_learn,qe-fig-008,3,0,0
-lecture-python-advanced.myst,calvo_machine_learn,qe-math-002,13,0,0
+lecture-python-advanced.myst,calvo_machine_learn,qe-math-002,14,0,0
 lecture-python-advanced.myst,calvo_machine_learn,qe-math-004,4,0,0
 lecture-python-advanced.myst,calvo_machine_learn,qe-math-013,1,1,0
 lecture-python-advanced.myst,calvo_machine_learn,qe-writing-001,1,0,0
@@ -1954,6 +1945,7 @@ lecture-python-advanced.myst,supply_demand_var,qe-fig-001,3,0,0
 lecture-python-advanced.myst,supply_demand_var,qe-fig-003,4,0,0
 lecture-python-advanced.myst,supply_demand_var,qe-fig-005,3,0,0
 lecture-python-advanced.myst,supply_demand_var,qe-fig-008,10,0,0
+lecture-python-advanced.myst,supply_demand_var,qe-math-002,1,0,0
 lecture-python-advanced.myst,tax_smoothing_1,qe-code-003,1,0,0
 lecture-python-advanced.myst,tax_smoothing_1,qe-fig-005,3,0,0
 lecture-python-advanced.myst,tax_smoothing_1,qe-fig-006,6,0,0
@@ -2045,7 +2037,7 @@ lecture-dp,calvo_machine_learn,qe-code-003,4,0,0
 lecture-dp,calvo_machine_learn,qe-code-004,2,0,0
 lecture-dp,calvo_machine_learn,qe-fig-005,4,0,0
 lecture-dp,calvo_machine_learn,qe-fig-008,3,0,0
-lecture-dp,calvo_machine_learn,qe-math-002,13,0,0
+lecture-dp,calvo_machine_learn,qe-math-002,14,0,0
 lecture-dp,calvo_machine_learn,qe-math-004,4,0,0
 lecture-dp,calvo_machine_learn,qe-math-013,1,1,0
 lecture-dp,calvo_machine_learn,qe-writing-001,1,0,0
@@ -2228,7 +2220,6 @@ lecture-dp,mccall_model_with_sep_markov,qe-fig-003,4,0,0
 lecture-dp,mccall_model_with_sep_markov,qe-fig-005,5,0,0
 lecture-dp,mccall_model_with_sep_markov,qe-writing-001,1,0,0
 lecture-dp,mccall_model_with_sep_markov,qe-writing-009,1,1,0
-lecture-dp,mccall_model_with_separation,qe-code-003,1,0,0
 lecture-dp,mccall_model_with_separation,qe-fig-005,4,0,0
 lecture-dp,mccall_model_with_separation,qe-math-010,1,1,0
 lecture-dp,mccall_model_with_separation,qe-writing-008,1,0,0

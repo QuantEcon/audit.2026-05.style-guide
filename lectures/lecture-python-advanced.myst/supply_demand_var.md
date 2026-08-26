@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.8 / 10
+- **Overall score:** 8.6 / 10
 - **Priority:** NONE
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 8/10  | `qe-writing-002` ×3; `qe-writing-007` ×2. |
-| Math         | 10/10 | no mechanical violations detected. |
+| Math         | 8.5/10 | `qe-math-002` ×1. |
 | Code         | 7.5/10 | `qe-code-001` ×9. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-003` ×4; `qe-fig-005` ×3; `qe-fig-008` ×10, +1 more. |
@@ -29,6 +29,7 @@ _None found._
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 9. *Lines:* 614, 618, 765, 803, 844, 480, 495, 1158, 1214. *Example:* compound statements are used systematically to build the state-space blocks - `B = np.zeros((n, 1)); B[0, 0] = 1.0` at 614 and the same pattern at 615, 620, 621, 765-770, 797, 799, 800, 805, 806 and 844, seventeen lines in all - and 618 and 803 pack three statements including a `return` onto one line (`e = np.zeros(n); e[k - 1] = 1.0; return e`), which PEP8 asks to be split. Top-level `def`s are separated by a single blank line rather than two throughout (480, 488, 495, 505, 592, and the same at 439, 669, 761, 792, 1158), while the one-line docstrings at 481, 489, 496, 506, 587, 670, 762, 793 and 1159 use single double-quotes against the triple quotes of the multi-line docstring at 593-601. `make_ar_price` at 1158 declares a parameter `nX_extra=0` that its body never uses. And 1214 rebinds the module-level `scale` set at 514, inside an exercise solution, so a reader who runs the exercises and then re-runs an earlier cell gets different numbers.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 10. *Lines:* 529, 530, 697, 699, 701, 703, 1039, 1040, 1046, 1047. *Example:* plot() without lw=.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 1. *Lines:* 975. *Example:* `^T` transpose in `)^T`.
 
 ### Medium severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 527, 695, 1038. *Example:* figsize=.

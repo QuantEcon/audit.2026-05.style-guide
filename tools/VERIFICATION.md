@@ -184,6 +184,39 @@ The general lesson, which cost two other bugs today: **when a check has an evide
 a counting phase, they have to agree about what the evidence is.** A signal the counter
 rejects must not be allowed to unlock the counter.
 
+### Four smaller fixes from the intro series, and one claim that did not reproduce
+
+- **`qe-math-002` could not see `)^T`.** `supT` admitted only a bare capital or a braced
+  `DECORATED` base, so `(h_1 \cdot B^T \vec\beta)^T \vec\mu` and
+  `\big(z_t - \hat E z_t\big)^T` went uncounted. Adding `\)` adds exactly those two
+  sites. `\}` was measured too and **stays out**: it would admit 64 summation limits of
+  the form `\sum_{t=0}^{T}`.
+- **`qe-code-003` compared an import name to a distribution name.** PEP 503 makes `-` and
+  `_` equivalent, so `!pip install pandas-datareader` did not answer
+  `import pandas_datareader`. Both sides are normalised now: 4 occurrences, reach 29 → 25,
+  the others being `myst_nb` and `quantecon_book_networks`.
+- **`monte` and `carlo` were missing from `PROPER_NOUNS`.** Five false positives — two
+  headings and, unexpectedly, three `qe-fig-004` captions, because that rule shares
+  `_is_proper`. A reminder that the noun list is load-bearing for more than one rule.
+- **MyST `%` line comments were not masked.** `money_inflation` has a commented-out draft
+  derivation at 443-447 whose LaTeX was read as narrative — that lecture's entire Math
+  finding. Now typed `raw` outside code fences, so `%%time` in a cell is untouched.
+  `qe-math-001` −2, `qe-writing-008` −1.
+
+**One claim in the same report did not reproduce, and that is worth recording.** It said
+`supT`'s `\^\{?T\}?` suffered the optional-brace backtracking hazard documented above for
+`\prime`, making `(1+r)^{T+1}` look like `^T`. Measured against the corpus, rewriting it as
+an explicit alternation changes **nothing** — 16 hits before and after — because the
+following-factor lookahead already rejects `+`. The `)`-base half of that doubt was real and
+is fixed; the backtracking half was not, and the reviewer's own predicted total (+7) was
+also high, the true figure being +2. Filed doubts are evidence, not conclusions.
+
+While in the lexer: `cell_meta` was never initialised before the main loop. It happened to
+work, because the only read is inside `if in_code_fence:` and a fence open always assigns
+it first, but it was one control-flow change away from a `NameError`. Initialised properly,
+and the stray assignment that an earlier patch left in the HTML-comment branch — where it
+meant nothing — is gone.
+
 ### `qe-writing-006` never looked at the first word of a heading
 
 Sentence case allows the first word of a heading a capital, so `check_writing_006` skipped

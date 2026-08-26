@@ -5,14 +5,14 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.1 / 10
+- **Overall score:** 7.2 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 5.5/10 | `qe-writing-005` ×3; `qe-writing-002` ×3; `qe-writing-006` ×1, +2 more. |
+| Writing      | 6.5/10 | `qe-writing-005` ×3; `qe-writing-002` ×3; `qe-writing-008` ×2, +1 more. |
 | Math         | 5.5/10 | `qe-math-002` ×13. |
 | Code         | 4.5/10 | `qe-code-002` ×87; `qe-code-001` ×6; `qe-code-004` ×8, +1 more. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
@@ -34,7 +34,6 @@ _None found._
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 16. *Lines:* 265, 267, 300, 303, 426, 428, 1102, 1103, 1140, 1143, …. *Example:* .set_title.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 6. *Lines:* 254, 404, 1095, 1132, 1787, 1860. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 13. *Lines:* 181, 182, 183, 184, 190, 202, 204, 782, 929. *Example:* apostrophe transpose `A'`.
-- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 1. *Lines:* 1269. *Example:* H2 Title Case: 'Estimating with Hamiltonian Monte Carlo' (Monte, Carlo).
 
 ### Medium severity
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 3. *Lines:* 1215, 1911, 1931. *Example:* the lecture ends twice. "What to take away" (1886-1909) and "Concluding remarks" (1911-1943) make the same four points in the same order: the obstacle is the solver and not the statistics (1888 against 1935), a fixed point that uses only linear algebra buys exact gradients (1891-1893 against 1937), cheap chains and their diagnostics found a second mode (1895-1899 against 1939-1941), and the caveat about efficiency being posterior-specific (1908-1909 against 1937). Twenty-five lines apart, that is a whole section restated. 1215 announces three deliverables in one sentence ("Here is where the slopes bottom out, a slice through the grid at the posterior mean of $\phi_x$, and the fraction of the grid the stationarity test removes") and then delivers all three as printed text. 1931 is 37 words whose subject and verb are eleven words apart: "driving it to the near-zero values that the post-1984 data display takes a money growth rule far more anti-inflationary than the one those same data select".

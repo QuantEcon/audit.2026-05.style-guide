@@ -19,10 +19,10 @@ are LOW or NONE.
 | Attention | Series | Score | Needs work | Weakest categories |
 |-----------|--------|-------|-----------|--------------------|
 | 🔴 **High** | [lecture-python-advanced.myst](lecture-python-advanced.myst/index.md) | 7.5 | 44 / 68 | Writing (4.6), Math (5.9) |
-| 🔴 **High** | [lecture-python.myst](lecture-python.myst/index.md) | 7.9 | 79 / 145 | Writing (4.9), Figures (6.5) |
+| 🔴 **High** | [lecture-python.myst](lecture-python.myst/index.md) | 7.8 | 80 / 145 | Writing (4.8), Figures (6.5) |
 | 🔴 **High** | [lecture-dp](lecture-dp/index.md) | 8.0 | 28 / 52 | Writing (5.6), Figures (6.4) |
 | 🔴 **High** | [lecture-python-programming](lecture-python-programming/index.md) | 8.1 | 19 / 27 | Writing (4.1), Figures (7.3) |
-| 🟠 **Some** | [lecture-python-intro](lecture-python-intro/index.md) | 8.4 | 14 / 56 | Writing (6.2), Figures (6.5) |
+| 🟠 **Some** | [lecture-python-intro](lecture-python-intro/index.md) | 8.3 | 18 / 56 | Writing (5.9), Figures (6.5) |
 <!-- /qe:focus -->
 
 **Every HIGH-priority lecture in this pass is HIGH because of one weak category, not
@@ -45,7 +45,7 @@ Fix one of these *once* and it lifts dozens of lectures. Ordered by reach.
 | **Figure sizes** | Drop `figsize=` overrides — let the site defaults apply | **224** | 🔧 |
 | **Line widths** | Pass `lw=2` on line plots for consistent weight | **216** | 🔧 |
 | **Plot titles → captions** | Move `ax.set_title(...)` out of the plot into the figure caption | **165** | ✋ |
-| **Heading capitalization** | Section headings → sentence case (first word + proper nouns only) | **145** | 🔧 |
+| **Heading capitalization** | Section headings → sentence case (first word + proper nouns only) | **143** | 🔧 |
 | **Expectation notation** *(proposed)* | Use `\mathbb{E}` / `\mathbb{P}` / `\mathbb{V}` with braces | **118** | 🔧 |
 | **Narrative citations** | Use `{cite:t}` where the author name is part of the sentence | **105** | ✋ |
 
@@ -91,7 +91,7 @@ of the lectures rather than of the method. See the
 [trend chart](charts.md#change-since-the-previous-pass) for every rule.
 
 The corpus grew from 300 to 348 lectures. Of the 35 rules measurable in both snapshots,
-**28 improved as a share of the corpus, 4 held level and 3 got worse.** The four largest
+**27 improved as a share of the corpus, 5 held level and 3 got worse.** The four largest
 improvements and all three regressions:
 
 | Direction | Rule | Share of corpus |
@@ -100,7 +100,7 @@ improvements and all three regressions:
 | 🟢 Improving | `qe-writing-006` — capitalize lecture titles properly | 48% → 42% |
 | 🟢 Improving | `qe-writing-001` — use one sentence per paragraph | 55% → 50% |
 | 🟢 Improving | `qe-fig-008` — figure-directive option conventions | 66% → 62% |
-| 🔴 Worsening | `qe-fig-004` — caption formatting conventions | 9% → 19% |
+| 🔴 Worsening | `qe-fig-004` — caption formatting conventions | 9% → 17% |
 | 🔴 Worsening | `qe-fig-001` — do not set figure size unless necessary | 62% → 64% |
 | 🔴 Worsening | `qe-fig-003` — no matplotlib embedded titles | 46% → 47% |
 
@@ -127,10 +127,10 @@ violation was measured in it*, not that a human declared it perfect.
 ```{warning}
 <!-- qe:review-coverage -->
 **Review coverage is incomplete in this pass, and it moves the scores.** The judgment
-layer has reached **281 of the 348 lectures**; a lecture assessed against more rules
+layer has reached **295 of the 348 lectures**; a lecture assessed against more rules
 scores lower — not because it is worse, but because more of it was looked at. The gap is
-large enough to matter: the 281 reviewed average **7.66** with 63 % HIGH, the 67
-unreviewed **8.92** with 9 % HIGH.
+large enough to matter: the 295 reviewed average **7.69** with 62 % HIGH, the 53
+unreviewed **8.95** with 11 % HIGH.
 <!-- /qe:review-coverage -->
 
 So **the cross-series comparison below is provisional** wherever coverage differs between

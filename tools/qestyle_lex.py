@@ -209,6 +209,7 @@ def lex(path: str, series: str) -> Doc:
     ams_buf: list = []
     in_frontmatter = False
     in_html_comment = False   # <!-- ... --> content is not published
+    cell_meta = None          # a ``{code-cell}``'s leading ``---`` YAML block
 
     for idx, raw in enumerate(raw_lines):
         no = idx + 1
@@ -239,10 +240,17 @@ def lex(path: str, series: str) -> Doc:
                 doc.lines.append(Line(no, raw, "raw", tuple(f.directive for f in stack)))
                 if "-->" in raw:
                     in_html_comment = False
-                    cell_meta = None      # a ``{code-cell}``'s leading ``---`` YAML block
                 continue
             if "<!--" in raw and "-->" not in raw[raw.index("<!--"):]:
                 in_html_comment = True
+                doc.lines.append(Line(no, raw, "raw", tuple(f.directive for f in stack)))
+                continue
+            # A line starting with ``%`` is a MyST comment and never reaches the page.
+            # ``money_inflation`` has a commented-out draft derivation at 443-447 whose
+            # LaTeX was being read as narrative, which was that lecture's whole Math
+            # finding. ``%%`` is a notebook magic and is left alone — but only inside a
+            # code fence, which this branch already excludes.
+            if raw.lstrip().startswith("%") and not raw.lstrip().startswith("%%"):
                 doc.lines.append(Line(no, raw, "raw", tuple(f.directive for f in stack)))
                 continue
 

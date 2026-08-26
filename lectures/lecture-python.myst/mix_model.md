@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.9 / 10
+- **Overall score:** 8.0 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -16,7 +16,7 @@
 | Math         | 9/10  | `qe-math-009` ×3; `qe-math-015` (proposed) ×1. |
 | Code         | 7/10  | `qe-code-001` ×5; `qe-code-003` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6.5/10 | `qe-fig-006` ×2; `qe-fig-005` ×3; `qe-fig-004` ×1. |
+| Figures      | 7/10  | `qe-fig-006` ×2; `qe-fig-005` ×3. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -40,7 +40,6 @@ _None found._
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 3. *Lines:* 146, 269, 790. *Example:* (1) The two distributions the whole lecture is about are never drawn. 146 says "Let's use Python to generate two Beta distributions", 152-163 sets $F = \mathrm{Beta}(1,1)$ and $G = \mathrm{Beta}(3,1.2)$ and defines `f` and `g` - and no cell ever plots them. Every later claim is about how close $h = \alpha f + (1-\alpha) g$ is to each of them (497, 502-508, 663-665), and the reader cannot see either one; the only density that appears is at 289, and there $\alpha = 0$ so it is just $g$. Three lines added to the existing `xs = np.linspace(0, 1, 1000)` cell would fix it. (2) The sampler check at 269-292 draws one histogram pair at $\alpha = 0$; a small panel over $\alpha \in \{0, 0.5, 1\}$ would both verify the samplers where it matters and show the mixture deforming from $g$ to $f$, which is the mechanism behind the KL crossing at 610-614. (3) The closing generalization (790-802) - a manifold $S$ of models $s(X\mid\theta)$, nature's $h$ lying outside it, Bayes selecting the $\theta$ that minimizes the KL divergence from $h$ - is the canonical projection diagram, is the lecture's actual thesis, and is given as two paragraphs of prose. It is also the one figure that would tie the two agents together, since type 2's model contains $h$ and type 1's does not.
 
 ### Low severity
-- **[qe-fig-004]** — Caption formatting conventions. *Count:* 1. *Lines:* 269. *Example:* Title Case caption (Monte, Carlo).
 - **[qe-math-015 (proposed)]** *(reviewer)* — Lowercase for densities/PMFs, uppercase for CDFs. *Count:* 1. *Lines:* 396. *Example:* the lecture is otherwise a model of this rule - $F$, $G$ and $H$ are the CDFs and are used only as such ($H(w) = \alpha F(w) + (1-\alpha)G(w)$ at 71, "if a random variable $X$ has CDF $F$" at 223, `jsp.beta.cdf` at 262), while $f$, $g$ and $h$ are the densities and are used only as such ("The two density functions" at 161, $h(w) = \alpha f(w) + (1-\alpha)g(w)$ at 497, the integrands of the two divergences at 502-508) - which is exactly why the one slip is visible. The H2 at 396 reads "What a type 1 agent learns when mixture $H$ generates data", using the CDF letter for the data-generating object, and line 398 immediately below it uses the density: "We now study what happens when the mixture distribution $h;\alpha$ truly generated the data each period". Every other statement of that idea uses $h$ (92-93, 111, 780, 800).
 
 

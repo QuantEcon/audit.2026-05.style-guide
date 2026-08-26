@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 4/10  | `qe-writing-005` ×5; `qe-writing-002` ×6; `qe-writing-003` ×2, +2 more. |
-| Math         | 3/10  | `qe-math-002` ×13; `qe-math-004` ×4; `qe-math-013` (proposed) ×1, +1 more. |
+| Math         | 3/10  | `qe-math-002` ×14; `qe-math-004` ×4; `qe-math-013` (proposed) ×1, +1 more. |
 | Code         | 6.5/10 | `qe-code-003` ×4; `qe-code-001` ×4; `qe-code-004` ×2. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8/10  | `qe-fig-005` ×4; `qe-fig-008` ×3. |
@@ -27,7 +27,7 @@
 _None found._
 
 ### High severity
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 13. *Lines:* 860, 862, 865, 867, 870, 879, 880, 881. *Example:* `^T` transpose in `\vec{\beta}^T`.
+- **[qe-math-002]** — Use \top for transpose notation. *Count:* 14. *Lines:* 860, 862, 865, 867, 870, 879, 880, 881. *Example:* `^T` transpose in `\vec{\beta}^T`.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 6. *Lines:* 46, 391, 417, 1184, 1191, 1328. *Example:* line 46 has 'money growh rates'; line 391 has 'answers will agree with those found obtained by other more structured methods'; line 417 doubles a clause - 'compare the results we obtain here to those that we obtain in those obtained in this quantecon lecture'; line 1184 reads 'it will worthwhile to study the reasoning that let Chang `` {cite}`chang1998credible` `` to choose' (missing 'be', and 'let ... to choose' for 'led ... to choose'); line 1191 has 'inflation at time $t$ is determined $\{\mu_s\}_{s=t}^\infty$' with the preposition missing; line 1328 has 'the peak of the function quadratic function'. Line 1163 is a seventh of the same kind and a notation slip besides - 'both of them converge from above to the same constant $\vec \mu$' uses the vector symbol for what the rest of the lecture calls $\bar\mu$.
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 5. *Lines:* 18, 24, 59, 72, 389. *Example:* five concept names are wrapped in double backticks and so render as inline code rather than as defined terms: ``machine learning`` (18 and again 389), ``dynamic programming squared`` (24), ``gradient descent`` (59), ``artificial intelligence`` (72). None is a code identifier. The file itself shows what these should look like - '**machine learning** approach' at 48, '**human intelligence**' and '**artificial intelligence**' at 1167 - so the same terms appear in two different formats within one lecture, and the code font wrongly suggests the reader should look for a function of that name.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 193. *Lines:* 18, 19, 21, 24, 27, 29, 31, 36, 39, 43, …. *Example:* 2 spaces.

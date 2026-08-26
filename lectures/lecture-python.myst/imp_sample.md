@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, links  *(JAX out of scope)*
-- **Overall score:** 7.3 / 10
+- **Overall score:** 7.4 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -16,7 +16,7 @@
 | Math         | 4/10  | `qe-math-010` (proposed) ×7; `qe-math-001` ×3; `qe-math-009` ×38. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 8/10  | `qe-fig-003` ×1; `qe-fig-004` ×1; `qe-fig-001` ×1. |
+| Figures      | 8.5/10 | `qe-fig-003` ×1; `qe-fig-001` ×1. |
 | References   | N/A   | no citations in this lecture. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | N/A   | no admonitions, exercises or solutions. |
@@ -40,7 +40,6 @@ _None found._
 
 ### Low severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 1. *Lines:* 424. *Example:* figsize=.
-- **[qe-fig-004]** — Caption formatting conventions. *Count:* 1. *Lines:* 460. *Example:* Title Case caption (Carlo).
 - **[qe-writing-009 (proposed)]** — Write "IID" — not "i.i.d." or "iid". *Count:* 1. *Lines:* 66. *Example:* i.i.d..
 
 

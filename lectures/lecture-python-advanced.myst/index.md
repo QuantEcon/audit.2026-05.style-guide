@@ -163,7 +163,7 @@ that lecture. Click a lecture for its full report.
 | 61 | [rosen_schooling_model](rosen_schooling_model.md) | 5.5 | 10 | 7.5 | 6 | 9 | 10 | 10 | **8.3** | LOW |
 | 62 | [lucas_model](lucas_model.md) | 6 | 9.5 | 7.5 | 7.5 | 10 | 8 | 10 | **8.4** | LOW |
 | 63 | [chang_credible](chang_credible.md) | 3 | 10 | 8.5 | 9.5 | 10 | 10 | — | **8.5** | HIGH |
-| 64 | [supply_demand_var](supply_demand_var.md) | 8 | 10 | 7.5 | 6 | 10 | 10 | 10 | **8.8** | NONE |
+| 64 | [supply_demand_var](supply_demand_var.md) | 8 | 8.5 | 7.5 | 6 | 10 | 10 | 10 | **8.6** | NONE |
 | 65 | [troubleshooting](troubleshooting.md) | 8.5 | — | — | 9 | — | 9 | — | **8.8** | NONE |
 | 66 | [intro](intro.md) | 10 | — | — | — | — | 10 | — | **10.0** | NONE |
 | 67 | [status](status.md) | 10 | — | — | — | — | 10 | — | **10.0** | NONE |

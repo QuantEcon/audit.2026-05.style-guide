@@ -32,11 +32,11 @@ drill-down report for every audited lecture.
 | Series | Lectures | Overall | HIGH | weakest category |
 |--------|---------:|--------:|-----:|------------------|
 | lecture-python-advanced.myst | 68 | 7.5 | 44 | Writing (4.6) |
-| lecture-python.myst | 145 | 7.9 | 78 | Writing (4.9) |
+| lecture-python.myst | 145 | 7.8 | 79 | Writing (4.8) |
 | lecture-dp | 52 | 8.0 | 28 | Writing (5.6) |
 | lecture-python-programming | 27 | 8.1 | 19 | Writing (4.1) |
-| lecture-python-intro | 56 | 8.4 | 14 | Writing (6.2) |
-| **Corpus** | **348** | **7.9** | **183** | Writing (5.1) |
+| lecture-python-intro | 56 | 8.3 | 18 | Writing (5.9) |
+| **Corpus** | **348** | **7.9** | **188** | Writing (5.0) |
 <!-- /qe:readme-scoreboard -->
 
 Every HIGH-priority lecture in this pass is HIGH because of a single weak category

@@ -7,7 +7,7 @@ Style audit of the **lecture-dp** series.
 - **Corpus snapshot:** `c30490a2f4`
 - **Lectures audited:** 52
 - **Average overall score:** 8.0 / 10
-- **Average per-category scores:** writing 5.6, math 6.9, code 8.4, figures 6.4, references 9.3, links 9.5, admon 10.0
+- **Average per-category scores:** writing 5.6, math 6.9, code 8.5, figures 6.4, references 9.3, links 9.5, admon 10.0
 - **JAX:** out of scope — the `qe-jax-*` rules target `lecture-jax`.
 - **Judgment-review coverage:** **31 of 52 reviewed** — scores for the unreviewed 21 reflect the 41 measured rules only, so they are not directly comparable with the reviewed ones.
 <!-- /qe:series-meta -->
@@ -143,9 +143,9 @@ that lecture. Click a lecture for its full report.
 | 36 | [os_stochastic](os_stochastic.md) | 4.5 | 7.5 | 9.5 | 7.5 | 10 | 8 | 10 | **8.1** | LOW |
 | 37 | [chang_credible](chang_credible.md) | 3 | 10 | 8.5 | 9.5 | 10 | 10 | — | **8.5** | HIGH |
 | 38 | [ifp_discrete](ifp_discrete.md) | 6 | 7 | 8 | 8.5 | 10 | 10 | 10 | **8.5** | LOW |
-| 39 | [mccall_model_with_separation](mccall_model_with_separation.md) | 6.5 | 8.5 | 7 | 8.5 | 10 | 10 | 10 | **8.6** | NONE |
-| 40 | [os_numerical](os_numerical.md) | 6 | 10 | 10 | 5.5 | — | 10 | 10 | **8.6** | NONE |
-| 41 | [tax_smoothing_3](tax_smoothing_3.md) | 9 | 9 | 10 | 5 | 8.5 | 10 | — | **8.6** | NONE |
+| 39 | [os_numerical](os_numerical.md) | 6 | 10 | 10 | 5.5 | — | 10 | 10 | **8.6** | NONE |
+| 40 | [tax_smoothing_3](tax_smoothing_3.md) | 9 | 9 | 10 | 5 | 8.5 | 10 | — | **8.6** | NONE |
+| 41 | [mccall_model_with_separation](mccall_model_with_separation.md) | 6.5 | 8.5 | 7.5 | 8.5 | 10 | 10 | 10 | **8.7** | NONE |
 | 42 | [mccall_persist_trans](mccall_persist_trans.md) | 9.5 | 6.5 | 7 | 8 | 10 | 10 | 10 | **8.7** | NONE |
 | 43 | [career](career.md) | 8 | 9.5 | 8.5 | 6.5 | 10 | 10 | 10 | **8.9** | NONE |
 | 44 | [os](os.md) | 6 | 9 | 9 | 8 | 10 | 10 | 10 | **8.9** | NONE |

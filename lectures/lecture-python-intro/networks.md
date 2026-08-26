@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.2 / 10
+- **Overall score:** 7.3 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 4/10  | `qe-writing-006` ×2; `qe-writing-003` ×3; `qe-writing-002` ×3, +3 more. |
 | Math         | 6/10  | `qe-math-004` ×3; `qe-math-003` ×3; `qe-math-009` ×4. |
-| Code         | 6.5/10 | `qe-code-001` ×14; `qe-code-003` ×1. |
+| Code         | 7/10  | `qe-code-001` ×14. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5.5/10 | `qe-fig-005` ×5; `qe-fig-004` ×3; `qe-fig-002` ×5, +1 more. |
 | References   | 8.5/10 | `qe-ref-001` ×3. |
@@ -33,7 +33,6 @@ _None found._
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 2. *Lines:* 85, 160. *Example:* H3 Title Case: 'Example: Aircraft Exports' (Exports).
 
 ### Medium severity
-- **[qe-code-003]** — Package installation at lecture top. *Count:* 1. *Lines:* 16. *Example:* non-Anaconda import with no install cell: ['quantecon_book_networks'].
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 118, 431. *Example:* figsize=.
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 3. *Lines:* 89, 401, 786. *Example:* Title Case caption (Aircraft, Network).
 - **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 3. *Lines:* 549, 605, 618. *Example:* pmatrix environment.

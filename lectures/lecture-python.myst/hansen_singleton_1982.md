@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.2 / 10
+- **Overall score:** 8.4 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -16,7 +16,7 @@
 | Math         | 5/10  | `qe-math-010` (proposed) ×12; `qe-math-009` ×3. |
 | Code         | 7/10  | `qe-code-002` ×2; `qe-code-001` ×2. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 8.5/10 | `qe-fig-004` ×1; `qe-fig-001` ×1. |
+| Figures      | 9.5/10 | `qe-fig-001` ×1. |
 | References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -37,7 +37,6 @@ _None found._
 
 ### Low severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 1. *Lines:* 957. *Example:* figsize=.
-- **[qe-fig-004]** — Caption formatting conventions. *Count:* 1. *Lines:* 932. *Example:* Title Case caption (Carlo).
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 1. *Lines:* 420. *Example:* the whole estimator is implemented before the object it minimises is defined: `two_step_gmm` at 420-534 minimises the GMM criterion, forms the optimal weighting matrix and computes the $J$ statistic, and the section that defines $g_T(\theta)$, the criterion `` {eq}`hs82-criterion` ``, the sandwich covariance and $J_T$ only begins at 536. A reader meeting `j_stat`, `j_df` and the two-step weighting at 420-534 has not yet been told what any of them are.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 1. *Lines:* 606. *Example:* 2 spaces.
 - **[qe-writing-009 (proposed)]** — Write "IID" — not "i.i.d." or "iid". *Count:* 1. *Lines:* 741. *Example:* iid.
