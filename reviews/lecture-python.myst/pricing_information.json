@@ -1,0 +1,103 @@
+{
+  "series": "lecture-python.myst",
+  "lecture": "pricing_information",
+  "judgment": [
+    {
+      "rule": "qe-math-014",
+      "count": 4,
+      "lines": [
+        115,
+        160,
+        411
+      ],
+      "detail": "every probability in the lecture is an event written with square brackets: `\\Pr[\\omega = \\omega_1]` at 115, `\\Pr[s_1 \\mid \\omega_1]` and `\\Pr[s_2 \\mid \\omega_2]` at 160, and `\\Pr[\\theta = \\theta^H]` at 411. All four arguments are logical conditions on random variables - two equalities and two conditional events - which is exactly the case the rule reserves braces for, so each should read `\\mathbb{P}\\{\\omega = \\omega_1\\}` and so on. The lecture has no set-valued argument anywhere, so there is no site where parentheses would be right, and the fix is uniform. This is separate from the operator itself: qe-math-010 already counts the four `\\Pr` spellings that should be `\\mathbb{P}`, and 3 of its 6 hits at 115, 160 and 411 are these same lines - the delimiter shape is the part a program cannot decide"
+    },
+    {
+      "rule": "qe-math-009",
+      "count": 3,
+      "lines": [
+        174,
+        364,
+        126
+      ],
+      "detail": "$V$ carries three different meanings distinguished only by how many arguments it takes, and two of them appear on one line. 174 defines $V(E, \\theta)$ as the buyer's gross net-of-reservation value; 567 defines $V(q, \\theta)$ for the same quantity reparameterised by the scalar $q$, so the first argument silently changes type from a $2\\times 2$ matrix to a real number; and 364 defines $V(\\theta) = V(E(\\theta), \\theta) - t(\\theta)$ as the buyer's *rent*, a different quantity - after which 374 writes `V(\\theta) \\geq V(E(\\theta'), \\theta) - t(\\theta')`, using the rent and the gross value in the same inequality with the same letter. A separate letter for the rent (the paper's $u(\\theta)$ or a $W$) would remove the whole ambiguity. $u$ is likewise overloaded three ways: $u(\\omega_i, a_j)$ the payoff function of state and action (103), $u_1, u_2$ the two scalar payoffs (106), and $u(\\theta)$ the buyer's reservation utility (126) - so $u$ of one argument and $u$ of two arguments are unrelated functions. Minor by comparison, 776 writes `\\text{Beta}(8, 30)` where qe-math-011 asks for `\\mathrm{Beta}`"
+    },
+    {
+      "rule": "qe-writing-003",
+      "count": 3,
+      "lines": [
+        238,
+        754,
+        795
+      ],
+      "detail": "three breaks, in rising order of consequence. (1) 754 labels a horizontal line `$\\lambda^* = 1/2$` in the left panel of {numref}`fig-pi-uniform`, and $\\lambda^*$ is never defined anywhere in the lecture: 679 mentions \"the multiplier on {eq}`eq:pi_integral`\" without naming it, and no equation or sentence gives it a symbol or the value $1/2$, so the reader meets a Lagrange multiplier for the first time as an unexplained line on a chart. (2) 795-797 says the two-item menu is \"in line with {prf:ref}`pi_prop_structure` and with the result that an optimal menu never contains more than two\", but {prf:ref}`pi_prop_structure` (382-391) states three properties - full information is offered, experiments are nondispersed, experiments are concentrated - and says nothing about a bound on the number of items; the two-item claim belongs to the Corollary 1 result quoted at 770-771, so the cross-reference points at the wrong proposition. (3) The global `theta = np.linspace(0, 1, 1001)` is created at 238 *inside a figure cell*, and five later analysis cells depend on it (321, 336-338, 592, and the `value_q(q, theta)` call at 592), so reordering or deleting a plotting cell breaks the computation - and the same name is the parameter of `value` (181), `value_obedient` (200) and `value_q` (577), where it means a scalar type rather than a grid"
+    },
+    {
+      "rule": "qe-code-001",
+      "count": 5,
+      "lines": [
+        953,
+        946,
+        424,
+        486,
+        1081
+      ],
+      "detail": "953 writes `title='revenue is linear in $\\pi_2$, so the optimum is at an endpoint'` in a plain string, so `\\p` is an invalid escape sequence - flake8 reports it as `W605` and CPython raises a `SyntaxWarning` on compile, which I confirmed by compiling the extracted cells with warnings enabled. Every other LaTeX-bearing string in the lecture is either raw (`r'$\\theta$'` at 247, 329, 497) or double-escaped (`'...$\\\\theta^H$'` at 486-487), so this one line is the exception, and it is inside an exercise solution where a warning will surface in the built page. Nineteen lines exceed 79 characters, the worst being 963 at 90, 486 at 88, and 487 and 489 at 86. 946 writes `1/3` inside a list with no spaces around the division (E226) where the neighbouring literals are plain floats. On naming, `two_type_revenue(pi1, pi2, tL, tH, gamma)` at 423 uses `tL`/`tH` for the two *types* $\\theta^L,\\theta^H$ while `t_low`/`t_high` in the same function body (427-428) are *prices* - and the lecture's own notation makes $t$ the price (358, 364), so the parameter names contradict the mathematics they implement. 1081 packs five initialisations onto one line, `n_pairs, n_garble, n_unranked, n_disagree, violations = 4000, 0, 0, 0, 0`"
+    },
+    {
+      "rule": "qe-writing-005",
+      "count": 4,
+      "lines": [
+        255,
+        258,
+        262,
+        795
+      ],
+      "detail": "bold is used well for definitions - **matching** (99), **type** (112), **fully informative** (165), **net value of information** (170), **garbling** (270), **nondispersed** and **concentrated** (388-389), **congruent** (413), **differential informativeness** (561), **ironing** (669), and the **vertical**/**horizontal** pair (65-66) - which makes the four emphasis uses stand out as inconsistent: 255 **piecewise linear**, 258 **highest at $\\theta^*$**, 262 **nothing at all** and 795 **two** are all emphasis on a claim, not terms being defined, and italic is what the rule asks for. 625 then bolds **concave and piecewise linear** for the same property that 255 bolded, so the reader cannot tell whether the bold at 255 was defining a term or stressing a fact"
+    },
+    {
+      "rule": "qe-writing-002",
+      "count": 3,
+      "lines": [
+        894,
+        396,
+        306
+      ],
+      "detail": "the prose is otherwise tight - the longest paragraph in the lecture is 52 words - but one claim is made four times in nearly the same words: 59-60 \"degrading information is not simply a matter of adding noise\", 396-397 \"Optimal degradation never adds unbiased noise everywhere; it leaves one state perfectly detectable and blurs the other\", 851-853 \"The partial experiment is not a noisier version of the same product; it is a *differently positioned* one\", and 868-870 \"optimal degradation of information is structured rather than random: every experiment on the menu keeps one state perfectly detectable and blurs the other\". The horizontal/vertical distinction is likewise explained three times at 65-70, 306-312 and 341-354. And 894-899 is a single 52-word sentence carrying three `{doc}` cross-references and three separate reasons to follow them, where three short sentences would read better"
+    },
+    {
+      "rule": "qe-writing-007",
+      "count": 3,
+      "lines": [
+        65,
+        388,
+        527
+      ],
+      "detail": "the lecture's central idea is geometric and is never drawn. 65-70, 306-312 and 341-354 argue that information has a vertical dimension (quality) and a horizontal one (position), and that the seller lives in the region Blackwell's order leaves unranked - and all of that is a picture of the unit square in $(\\pi_1, \\pi_2)$ with, for one chosen $E$, the set of experiments it garbles shaded. The code to draw it already exists: `experiment` (281) and `garbling` (285) are exactly the two functions needed, and `pi_ex3` (1077-1112) already samples 4,000 random pairs and counts how many are unranked - it reports the fraction as a printed number where the same loop would draw the region. Second, {prf:ref}`pi_prop_structure` parts 2 and 3 (388-390) say every menu item satisfies $\\pi_1 = 1$ or $\\pi_2 = 1$, i.e. lies on two edges of that same square; 393-397 explains this in words and no figure shows it, although it is the structural result the whole lecture confirms. Third, the two-type switch at $\\gamma = \\theta^L/\\theta^H$ is delivered as a five-row printed table (527-535) plus a sentence at 541; revenue plotted against $\\gamma$ for the three candidate menus, with the crossing marked, would show why the switch happens where it does"
+    }
+  ],
+  "strengths": [
+    "Every analytic result the lecture quotes from {cite:t}`BergemannBonattiSmolin2018` is checked numerically against a brute-force alternative, and the check is shown rather than asserted: the closed form {eq}`eq:pi_optimal2type` against a $301\\times301$ grid search over all experiments (512-536), the uniform-type menu against the paper's $[1/4, 3/4]$ interval and price of $1/4$ (738-739), and the two-expression equivalence at 207-208 against a 51-by-51 sweep that reports the largest gap on each side of the normalization (210-223)",
+    "Solving the continuum problem as a linear program (623-665) is the lecture's best pedagogical choice and it says why: 667-682 explains that the LP's monotonicity constraint does the work of Myerson's ironing, spells out what the manual alternative would require (form the virtual values, take derivatives of convex hulls of their integrals, find the multiplier), and attributes it to {cite:t}`Myerson1981` and {cite:t}`Toikka2011` - so the shortcut is presented as a substitute for something the reader can see the shape of",
+    "The `{note}` at 137-146 turns the model's least intuitive convention into the reader's intuition: it explains where the interim belief $\\theta$ comes from, points at {doc}`likelihood_bayes` for the mechanism, and then states the consequence in one sentence - \\\"So 'high type' in this lecture means *badly informed*, and it is the badly informed buyer who is willing to pay the most\\\"",
+    "Blackwell's order is shown to be partial by exhibiting the failure rather than describing it: 295-301 tests five specific pairs and prints yes/no for each, 309 names the incomparable pair, and {numref}`fig-pi-blackwell` (314-333) plots the two value functions with the crossing shaded in both directions and prints four types' preferences underneath",
+    "`menu_items` (688-710) documents the one numerical judgment the results depend on - that values of $q$ taken on a negligible set of types are grid artifacts rather than menu items - in its own docstring, and makes both thresholds arguments (`tol=1e-4`, `min_width=0.01`) rather than magic numbers buried in the body",
+    "The three exercises each extend the lecture instead of rehearsing it: `pi_ex1` (903-933) works the congruent case the body skipped and asks why the answer is extremal there and interior in the noncongruent case; `pi_ex2` (992-1011) tests Corollary 1's claim that uniform types need one item *whatever* the payoffs, over four asymmetric pairs with an `assert` on the result (1029); `pi_ex3` (1047-1069) verifies Blackwell's theorem itself on 4,000 random pairs and measures how often the order is silent",
+    "The closing section (855-899) places the paper against three neighbours and says what differs in each - {cite:t}`AdmatiPfleiderer1986` where the seller creates the heterogeneity rather than screening on it (878-884), {cite:t}`BergemannBonatti2015` on the buyer's side of the same market, and {cite:t}`KamenicaGentzkow2011` where the sender has no transfers and cares about the action - and 866-874 states the two lessons that survive outside the model"
+  ],
+  "actions": [
+    "Convert the four `\\Pr[...]` sites to `\\mathbb{P}\\{...\\}` (115, 160 twice, 411): every one is an event, so the operator fix qe-math-010 asks for and the brace fix qe-math-014 asks for are the same edit made once",
+    "Fix the invalid escape at 953 - `title='revenue is linear in $\\pi_2$, ...'` needs an `r` prefix or `\\\\pi_2`, and today raises a `SyntaxWarning` when the notebook compiles. Every other LaTeX string in the lecture is already raw or double-escaped",
+    "Define $\\lambda^*$ or drop it from the figure: 754 draws a line labelled `$\\lambda^* = 1/2$` for a multiplier the text only alludes to at 679. And point 795-797's cross-reference at the Corollary 1 result quoted at 770-771 rather than at {prf:ref}`pi_prop_structure`, which does not contain the two-item bound",
+    "Rename `theta` at 238 (say `theta_grid`) and move its assignment out of the figure cell: five later cells depend on a global created inside a plotting cell, and the same name is the scalar parameter of `value`, `value_obedient` and `value_q`",
+    "Rename the type arguments of `two_type_revenue` (423): `tL`/`tH` are types $\\theta^L,\\theta^H$ while `t_low`/`t_high` two lines below are prices, and the lecture's own notation reserves $t$ for the price",
+    "Add the one figure the argument needs: the unit square in $(\\pi_1,\\pi_2)$ with the garbling cone of a chosen $E$ shaded, so 'Blackwell's order is only partial' (267) and parts 2-3 of {prf:ref}`pi_prop_structure` become visible. `experiment` (281), `garbling` (285) and the sampling loop already written for `pi_ex3` (1082-1105) supply everything needed",
+    "Cut two of the four statements that optimal degradation is not added noise (59, 396, 851, 868) and two of the three explanations of the horizontal dimension (65, 306, 341); split the 52-word sentence at 894",
+    "Switch the four bold-for-emphasis sites to italic (255, 258, 262, 795), and sweep the mechanical items: the 64 spelled-out `theta` identifiers (qe-code-002) - noting that a contributor who renames them must also rename `pi1`/`pi2` to `π1`/`π2`, which the checker cannot see because `pi` is deliberately not in its word list - the `pmatrix` at 155 (qe-math-003, use `bmatrix`), the `plt.rcParams['figure.figsize']` override at 90 and the four `figsize=` overrides (240, 484, 751, 814), the three embedded titles (248 `suptitle`, 497, 755) plus the `title=` keyword inside `ax.set(...)` at 247, 329, 755, 759, 817 and 821, the missing `mystnb` metadata on the solution figure at 941, the three over-long captions (314, 477, 805), and the nineteen lines over 79 characters",
+    "While there: `solve_menu` normalises `F` to end at 1 (646-647) but leaves `f` unnormalised, so the objective at 651 mixes a normalised CDF with an unnormalised density, and `revenue` (834-840) divides by `np.sum(f) * dth` to compensate. For the Beta mixture the discrepancy is tiny, but the three lines disagree about whether `f` is a density"
+  ],
+  "scanner_doubts": [
+    "pricing_information.md:364,374 - qe-math-010 (proposed) is reported with count 6 and two of the six are false positives, caused by a one-character defect I traced and then tested. The two hits are tagged 'bare expectation `E(`' and sit on `$V(\\theta) = V(E(\\theta), \\theta) - t(\\theta)$` (364) and `V(\\theta) \\geq V(E(\\theta'), \\theta) - t(\\theta')` (374). In this lecture $E$ is a statistical experiment, not an expectation: 150 says \"A statistical experiment is a stochastic matrix mapping states into signals\", 155 defines `E = \\begin{pmatrix} \\pi_1 & 1 - \\pi_1 \\\\ 1 - \\pi_2 & \\pi_2 \\end{pmatrix}`, and 358 defines the menu as `\\{E(\\theta), t(\\theta)\\}`, so $E(\\theta)$ is the experiment assigned to type $\\theta$. The lecture contains no expectation operator at all. The bare-letter branch is supposed to be gated off in exactly this situation by `e_is_operator` (qestyle_rules.py:690-692), and the gate is switched on by an accident of concatenation: it is evaluated against `corpus = \" \".join(src for _, src in spans)`, so the regex matches *across two unrelated formulas* - `$E_a$` at the end of line 346's inline math supplies the `E_a`, the joining space supplies the `\\s*`, and `\\{E(\\theta), t(\\theta)\\}` at the start of 358 supplies the `\\{`. I printed the match to confirm it: `'... E_b E_a \\\\{E(\\\\theta), t(\\\\t'`. Changing the separator from `\" \"` to a character no pattern can cross (I used `\"\\x00\"`) switches the gate off here and takes qe-math-010 from 6 to 4 for this file. I then ran the change over all five series: pricing_information is the *only* file in the corpus whose count changes, so the fix is free of side effects. Note this is a different defect from the already-filed `e_is_operator` gap in `os_time_iter`, where the gate is switched on from within a single formula",
+    "Cleared, not filed. (1) qe-math-015 (proposed) is satisfied and worth recording as a positive: 552 introduces the type distribution as \"density $f$ and distribution $F$\", and the lecture keeps the case straight everywhere afterwards - lower-case $f$ in the objective (617-618), in the virtual values (673-675) and in the code (`f`, `f_bimodal`), upper-case $F$ for the CDF at 120, 617 and in `F = np.cumsum(f) * dth` (646). No density is written with a capital and no CDF with a lower-case letter. (2) The qe-code-002 count of 64 is right and is a real systemic violation, not an artifact: `theta` is spelled out in every signature and body (181-186, 200-204, 238, 577-581, 642-651 and on), and the corpus convention is Unicode `θ`. I checked whether the docstring-masking exemption should have removed some of them - it should not; the hits are identifiers, not prose. (3) qe-math-003 count 1 at 155 is right: it is the lecture's only matrix display and it uses `pmatrix`. (4) I checked whether qe-writing-001 should have fired on the numbered list inside {prf:proposition} at 385-390 and the bulleted list at 74-80; it should not, and it did not - both are lists, which the rule exempts"
+  ]
+}

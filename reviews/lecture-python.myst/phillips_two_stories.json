@@ -1,0 +1,93 @@
+{
+  "series": "lecture-python.myst",
+  "lecture": "phillips_two_stories",
+  "judgment": [
+    {
+      "rule": "qe-writing-003",
+      "count": 5,
+      "lines": [
+        98,
+        167,
+        396,
+        469,
+        128
+      ],
+      "detail": "this lecture is where the ten-lecture Phillips suite establishes its conventions, and three of them do not survive contact with the last lecture in the suite. (1) The notation table at 84-98 promises to \"record the translations\" for the whole suite, and its `discount factor | $\\beta$ | phillips_lost_conquest, phillips_drifts_volatilities` row is wrong: `phillips_drifts_volatilities` contains no discount factor at all (zero occurrences of the word \"discount\"), and $\\beta$ there is the vector of free elements of the triangular factor $B$ (phillips_drifts_volatilities.md:293-303, 510) and the coefficients $\\beta_0,\\dots,\\beta_3$ of the Taylor rule (phillips_drifts_volatilities.md:1916-1919) - so a reader carrying the table forward reads $\\beta_1$ in that lecture's policy rule as a discount factor. The `government's beliefs | $\\theta$` row points at the same lecture, where $\\theta_t$ is an *econometrician's* posterior over VAR coefficients, a distinction that lecture makes itself at its lines 213-216. And 111-114 says $\\lambda$ \"works four shifts\" and lists them, missing the two in the suite's own last lecture ($\\lambda=(Q,H^T,\\beta,\\sigma)$ at phillips_drifts_volatilities.md:878 and $\\max(\\lambda)$ for an eigenvalue of $Q$ at its 1309-1316). (2) Figures are cross-referenced by the book's numbers, hard-coded inside `set_title` strings - 'Figure 1.1:' at 167, 'Figure 1.2:' at 210, 'Figure 1.3:' at 239, 'Figure 1.4:' at 266, 'Figure 1.5:' at 272 - and eight prose sentences depend on those strings (194, 249 twice, 280, 487, 523, 637, 638), even though every cell already carries a `mystnb` `name:` (`fig-ts-inflation`, `fig-ts-raw-series`, `fig-ts-bandpass`, `fig-ts-scatter-6082`) and the lecture never uses `{numref}` once. Worse, \"Figure 1.4\" and \"Figure 1.5\" are the two panels of a *single* MyST figure (251-276), so the book's numbering cannot be reproduced by `{numref}` without splitting that cell. (3) 469 says \"Let's extend the sample to the latest available month\" and the code immediately pins it instead: `end_recent = datetime.datetime(2026, 7, 1)` at 472, with '1948-2026' and '1990-2026' typed into two figure titles (512, 542) and '2008-2026' into an era label (573). Also, the `{note}` at 127-137 says the figures \"reproduce the ones in chapters 1 and 2\", but the chapter-2 material (331-378) has no figure at all; and the roadmap is given three times - as a nine-item list at 62-73, again as prose at 396-436, and a third time at 623-625"
+    },
+    {
+      "rule": "qe-writing-002",
+      "count": 13,
+      "lines": [
+        295,
+        327,
+        329,
+        370,
+        400,
+        416,
+        432,
+        448,
+        452,
+        454,
+        489,
+        609,
+        623
+      ],
+      "detail": "thirteen sentences run to 40 words or more and six of them to 49 or more, in a lecture that is otherwise disciplined about one sentence per paragraph (qe-writing-001 measures zero). The worst are the ones carrying the argument: 416 is 57 words with three semicolon-separated clauses and a parenthetical em-dash aside (\"They carry no free parameters governing expectations; period by period they impose the same cross-equation restrictions as a rational expectations model; and - because a self-confirming equilibrium is the attractor of their *mean dynamics* - under tranquil conditions they converge back to it, and hence, on the equilibrium path, to rational expectations, satisfying a desideratum of {cite}`Kreps1998`\"); 370 is 55 words and is the lecture's answer to the objection it raised at 333; 623 is 55 words and asks the lecture's closing question; 489 is 55 words listing \"three chapters the book could not see\"; 609 is 52 words with two quoted phrases and four date ranges. Then 452 (49), 454 (46), 295 (45), 432 (44), 448 (44), 400 (42), 327 (41) and 329 (41). Several would split cleanly at their existing semicolons or em-dashes, which is what the rule asks for"
+    },
+    {
+      "rule": "qe-writing-007",
+      "count": 3,
+      "lines": [
+        280,
+        293,
+        420
+      ],
+      "detail": "280 states the finding the section exists for - \"Figure 1.5 reveals **Phillips loops**: inflation and unemployment trace out counter-clockwise loops rather than a single stable curve\" - but the figure it points at (251-276) is drawn as an undirected point cloud, `ax.scatter(..., s=8, alpha=0.6)`, with no time ordering at all: a loop is a statement about the *order* of the points, and a scatter cannot show it. Colouring by date, or connecting the monthly points with a thin line, would make the counter-clockwise motion visible and costs one keyword. Second, \"Two interpretations\" (293-329) is the lecture's core and carries no visual: each story is a causal chain the prose walks through in order (Samuelson-Solow, exploitable curve, policy raises inflation, adverse shift, natural-rate theory, low inflation - against re-estimate, read mechanically, led to lower inflation), and the two chains side by side are exactly the two-column figure this lecture needs; the notation table at 84-98 shows the author already reaches for tabular layout when it helps. Third, the escape mechanism at 420-424 and the reservation at 448 - mean dynamics pointing toward a self-confirming equilibrium, then away from it once beliefs approach the induction hypothesis - is a phase diagram described in words in a lecture with no equations to fall back on"
+    },
+    {
+      "rule": "qe-writing-005",
+      "count": 4,
+      "lines": [
+        56,
+        289,
+        335,
+        599
+      ],
+      "detail": "there are 59 italicised spans in roughly 250 lines of prose, which is past the point where italics mark anything; whole clauses are set in italic (*and precisely those missing parameters would be needed*-style asides at 370, 416, 424) alongside single words (*temporary* 309, *fixed* 341, *unstable* 557). Against that, bold is used sparingly and correctly for four definitions - **Phillips loops** (280), **drifting coefficients** (335), **self-confirming equilibrium** (366), **induction hypothesis** (428) - but the same concept is italicised elsewhere: *drifting beliefs* at 289 and 593 for what 335 bolds, and *escape routes* at 327 for what the suite treats as a defined term. Bold also does duty as a heading in three different shapes within one lecture: list labels at 56-57 (**The triumph of natural-rate theory.**, **The vindication of econometric policy evaluation.**), which are then repeated verbatim as real `###` headings at 297 and 315, and run-in paragraph labels at 599 and 606 (**For the triumph of natural-rate theory.**)"
+    },
+    {
+      "rule": "qe-code-001",
+      "count": 3,
+      "lines": [
+        187,
+        475,
+        537
+      ],
+      "detail": "three lines exceed 79 characters - 187 at 85, 537 at 83 and 475 at 80 - and 187 could lose the trailing `# white men 20+` comment, which the prose at 182 already says. flake8 over every code cell with `--select=E1,E2,E5,E7,W2,W3,W6 --max-line-length=79` reports nothing else: spacing, naming and operator style are clean throughout, and single-letter names (`u` 187, `bk` 221) track the economics"
+    }
+  ],
+  "strengths": [
+    "The notation table at 84-98 is the most useful thing in the lecture and does not exist in most lecture suites: it maps six objects onto the symbols each source uses, and 100-114 then names the three collisions ($x$ changing sides between the public and the government, $\\theta$ moving from a scalar slope to a whole belief vector, $\\lambda$ working four shifts) with the reason for keeping them - 81-82, staying faithful to the papers a reader may want to consult",
+    "The three `{note}` admonitions each carry a caveat the argument would be weaker without: 127-137 says the reproduced figures use late-1990s data and points forward to the section that updates them, 282-291 explains why a single demographic unemployment series is used and where the unit root in the essay actually comes from, and 611-621 states the assumption the whole book rests on (stable fundamentals) and names the 2021-2022 episode as the case that violates it",
+    "The data work follows the book's recipe explicitly rather than approximately, and says so at each step: the single demographic series with its FRED code (182, 187), the Baxter-King band of 24 to 84 months with a truncation of 84 (215-221) attributed to {cite}`BaxterKing1999`, and the 13-month centered moving average (143, 152) - so every figure can be checked against chapter 1",
+    "The post-1999 section (460-625) is organised as a one-for-one extension of the book's figures and then, at 595-609, splits the new evidence between the two stories instead of declaring a winner - the Great Moderation and the fast 2021-2022 disinflation for triumph, the falsified 'transitory' model and the flat 2010s curve for vindication",
+    "'The reservation' (438-458) states the case against the reading the lecture has just made attractive: 444 distinguishes positive from normative, 446-448 points out that the same mean dynamics that permit a stabilization guarantee it is temporary, and 452 gives the commitment-mechanism objection with its citations - then 454-456 closes on a hope rather than a verdict",
+    "The exercise (629-643) turns the lecture's one qualitative claim - 278, that filtering sharpens the apparent Phillips curve - into a two-line computation on data the lecture already has in memory (`data`, `bk`, `sub`), and the solution at 657-659 explains *why* the raw correlation is near zero rather than just reporting it",
+    "Every figure cell carries `mystnb` caption and name metadata (155-160, 196-201, 225-230, 251-256, 491-496, 527-532, 561-566) - qe-fig-005 measures zero - and every cross-lecture pointer in the lecture is a `{doc}` link (64-73, 363, 366, 378, 398, 402, 410-412, 625) rather than a URL"
+  ],
+  "actions": [
+    "Convert the figure references before deleting the embedded titles: the eight prose pointers at 194, 249 (twice), 280, 487, 523, 637 and 638 name 'Figure 1.1' to 'Figure 1.5', and those numbers exist only inside the `set_title` strings at 167, 210, 239, 266 and 272 that qe-fig-003 asks to be removed. Point them at the `mystnb` labels with `{numref}` instead - and split the two-panel cell at 251-276, since 'Figure 1.4' and 'Figure 1.5' are two panels of one MyST figure and cannot both be numbered",
+    "Fix the notation table's two wrong rows (84-98) before the suite is read in order: `phillips_drifts_volatilities` has no discount factor, and its $\\beta$ is the triangular-factor parameter vector and the Taylor-rule coefficients; its $\\theta$ is an econometrician's posterior, not a government's belief. Add the two extra meanings of $\\lambda$ in that lecture to the list at 111-114",
+    "Make 469 true or change it: it promises 'the latest available month' and 472 pins `datetime.datetime(2026, 7, 1)`. Derive the endpoint from the downloaded series and print it, then remove '1948-2026' (512), '1990-2026' (542) and '2008-2026' (573), and stop hard-coding the four annotation positions at 503-506",
+    "Do NOT lower-case the eleven flagged capitalisations: eight of the nine qe-writing-004 hits are 'Critique' in 'the Lucas Critique' or its shorthand (60, 333, 335, 355, 366, 378, 406, 432), the ninth is the italic book title *The Conquest of American Inflation* (42), and both qe-writing-006 hits are the same proper name in a heading (331, 337). Of the four qe-ref-001 hits, three are real and want `{cite:t}` (402 'the recursive methods of', 430 'the adaptive expectations hypothesis of', 463 sentence-initial) - but 301 is a false positive: 'Paul Samuelson and Robert Solow {cite}`SamuelsonSolow1960` found' already names the authors in the prose, so the parenthetical form is correct there",
+    "Show the Phillips loops the lecture claims at 280: order or colour the points in the scatter at 251-276 by date, or connect them, so the counter-clockwise motion is visible rather than asserted",
+    "Split the six sentences of 49 words or more (370, 416, 452, 489, 609, 623) at the semicolons and em-dashes they already contain, then the seven of 40-48 (295, 327, 329, 400, 432, 448, 454)",
+    "Thin the italics - 59 spans is enough that none of them signals anything - and settle on one shape for the two stories' labels: they are bold list items at 56-57, real `###` headings at 297 and 315, and bold run-in paragraph labels again at 599 and 606. Italicised *drifting beliefs* (289, 593) should match bolded **drifting coefficients** (335)",
+    "Sweep the mechanical items: the seven `figsize` overrides (162, 203, 232, 260, 498, 536, 575), the six over-long captions (155, 196, 225, 251, 491), the eight `set_title` calls once their numbers have been rehomed (167, 210, 239, 266, 272, 511, 542, 581), the three lines over 79 characters (187, 475, 537), and the `fontsize=10` and `fontsize=9` overrides at 581 and 507"
+  ],
+  "scanner_doubts": [
+    "phillips_two_stories.md:42,60,333,335,355,366,378,406,432 and 331,337 - qe-writing-004 (count 9) and qe-writing-006 (count 2) are eleven false positives on two proper names, and there is a fix I verified across all five series. `check_writing_004` (qestyle_rules.py:285-296) fires on any word in `COMMON_NOUNS` that is capitalised mid-sentence; both 'critique' and 'inflation' are in that set. I enumerated every hit on those two words in the whole corpus: 'Critique' fires 12 times and every one is the Lucas Critique (phillips_two_stories 60, 333, 335, 355, 366, 378, 406, 432; hansen_singleton_1983:33 'to the Lucas Critique?'; phillips_credibility:36; phillips_learning:770; phillips_lost_conquest:417), and 'Inflation' fires 8 times, all of them either 'Great Inflation' (phillips_drifts_volatilities 67, 107, 1781, 3323 and phillips_priors:615) or the italic book title *The Conquest of American Inflation* (phillips_two_stories:42, olg_adaptive_money 91 and 874). Dropping just those two words from `COMMON_NOUNS` therefore takes the corpus total from 339 to 319 and cannot cause a false negative anywhere in the corpus as it stands, because there is no site where either word is used as a common noun capitalised mid-sentence. I first tried the more general guard - skip a hit whose preceding word is capitalised and itself in `PROPER_NOUNS` - and rejected it: it removes 28 of 339 but among them are genuine violations, 'Bayesian Nash Equilibrium' (two_auctions.md:96 and 368) and 'Taylor Series' (eigen_I.md:34, 925, 939, 965). For qe-writing-006 the same name trips a different gap: `_is_proper` (qestyle_rules.py:169-179) has 'lucas' in `PROPER_NOUNS` but the heading word it tests is 'Critique', so 'Ignoring the Lucas Critique' (331) and 'The Critique' (337) both fail; adding 'critique' to `PROPER_NOUNS` clears both and, by the same enumeration, cannot suppress a real heading violation in this corpus",
+    "phillips_two_stories.md:301 - qe-ref-001 is reported with count 4 and one of the four is a false positive, with the mechanism visible in the rule's own detail strings. The three genuine hits are tagged '{cite} in narrative flow' (402 'the recursive methods of {cite}', 430 'the hypothesis of {cite}', 463 sentence-initial `{cite}`Sargent1999` was written'), and all three do want `{cite:t}`. The fourth, at 301, is tagged differently - '{cite} in author position: {cite}`SamuelsonSolow1960` found' - and the line is \"In 1960, Paul Samuelson and Robert Solow {cite}`SamuelsonSolow1960` found a Phillips curve in U.S. data\": the authors are already named in the prose, so the parenthetical `{cite}` is the correct form and `{cite:t}` would render 'Paul Samuelson and Robert Solow Samuelson and Solow (1960) found'. The author-position branch needs a guard for a preceding capitalised name run - it is the mirror image of the already-filed author-name-in-prose miss, so the same guard would serve both",
+    "Cleared, not filed. (1) qe-math-009 does not apply here even though the lecture is full of symbols, because 78-82 states the reason it does not have a free choice: \"The lectures follow the notation of the source each one is based on, and those sources do not agree ... Rather than impose a single scheme and diverge from the papers a reader may want to consult, we keep each lecture faithful to its source and record the translations here.\" The rule is about picking the simpler of two reasonable options; this lecture argues, on the record, that it is not choosing. The table's *accuracy* is a separate problem and is reported under qe-writing-003. (2) qe-math-014 and qe-math-015 (proposed) have nothing to score: the lecture contains no `\\mathbb{P}`, no expectation operator, and no density or CDF - its only mathematics is the symbol column of the table at 84-98. (3) Math and Code both at 10/10 are right: I extracted every code cell and ran flake8, which found only the three long lines reported under qe-code-001, and the file has no display math at all, so qe-math-002 through qe-math-008 have no surface to fire on. (4) I checked whether qe-fig-005 should have fired on the solution cell at 649-655; it should not - that cell prints two numbers and draws nothing"
+  ]
+}

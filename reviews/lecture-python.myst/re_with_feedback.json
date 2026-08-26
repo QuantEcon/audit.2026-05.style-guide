@@ -1,0 +1,107 @@
+{
+  "series": "lecture-python.myst",
+  "lecture": "re_with_feedback",
+  "judgment": [
+    {
+      "rule": "qe-writing-003",
+      "count": 8,
+      "lines": [
+        226,
+        369,
+        618,
+        641,
+        730,
+        745,
+        901,
+        1078
+      ],
+      "detail": "a reader working through the algebra is stopped in six places, and two sentences simply stop mid-thought. (1) 226 reads \"Cagan did not use a rational expectations version of his model, but Sargent {cite}`Sargent77hyper`\" - no verb, no full stop - and it duplicates 54, which says the same thing completely (\"but Sargent {cite}`Sargent77hyper` did.\"). (2) 901 reads \"so we avoid values of $\\delta$ that are too.\" - the adjective is missing, and 903 then supplies the intended meaning in a separate sentence. (3) 369 says \"To capture this parameterization with system {eq}`equation_2` we set\" and then gives $x_t$, $A$ and $G$: those define the state-space system {eq}`equation_3`, not the price formula {eq}`equation_2`, so the cross-reference points at the wrong equation. (4) 611 defines $y^*_t = Q^{-1} y_t$ but 641 writes `Q y_0 = y^*_0`, which contradicts it - the correct statement, used two lines later at 662, needs $Q^{-1}$. (5) 618 writes `y^*_{t+1} = \\Lambda^t y^*_t`, where the transition is $\\Lambda$; the power belongs to 600's $y_t = Q\\Lambda^t Q^{-1} y_0$, not to the one-step recursion. (6) 730-732 says \"we want to compute $Q_1$ the eigenvector of $Q$ associated with the stable eigenvalue $\\rho$ of $Q$\" - $\\rho$ is an eigenvalue of $H$, and $Q_1$ is a column of $Q$, i.e. an eigenvector of $H$; the sentence names the wrong matrix twice. (7) 745 writes `p_t = G (I - \\lambda A)^{-1} m_t = (1-\\lambda)(1-\\lambda\\rho)^{-1} m_t`, dropping the $(1-\\lambda)$ factor that {eq}`equation_5` at 344 puts in front of $G$, so the two sides of the displayed equality disagree. (8) 1078 rebinds `λ, δ, ρ = symbols('λ, δ, ρ')`, replacing the floats set at 1034-1036 (and, for `λ`, at 382) with SymPy symbols, so the notebook's three most-used globals mean three different things at three points in the file and any numeric cell run after 1078 fails. Two smaller repetitions: 279 and 329 both set $c=0$ for the same reason, and 415's comment calls {eq}`equation_5` \"forumula (3)\" while 908's docstring calls {eq}`equation_14` \"the magic formula (8)\" - both manual numeric references to labelled equations, and both wrong about the number"
+    },
+    {
+      "rule": "qe-code-001",
+      "count": 15,
+      "lines": [
+        417,
+        427,
+        429,
+        441,
+        449,
+        493,
+        849,
+        1057,
+        1082,
+        1137
+      ],
+      "detail": "flake8 over every extracted code cell with `--select=E1,E2,E5,E7,W2,W3,W6 --max-line-length=79` reports nineteen items, fifteen of which are real. Six missing spaces after a comma (E231): `print(\"F= \",F)` at 417, `y[0,:]` and `y[1,:]` at 493-494, `H[0, :] = ρ,δ` at 849, and `Matrix([[ρ,δ], ...])` / `Matrix([[ρ,0], ...])` at 1082 and 1100. Seven missing spaces around arithmetic (E226): `T+1` at 429, 430, 449 and 450, `t+1` at 441 and 442, `vec[1-ind]` at 1137. One missing space around an assignment (E225): `F_check= (1 - λ) * G @ ...` at 1057. One inline comment with a single leading space (E261): `T = 100 # length of simulation` at 427. Two further items are style rather than spacing: the one-line docstrings at 846 and 855 use single double-quotes (`\"contruct matrix H given parameters.\"`, which also misspells \"construct\") where PEP 257 asks for triple quotes, and `H_eigvals` at 854 follows `construct_H` after one blank line instead of two. The remaining four hits - E241, multiple spaces after a comma at 388 and 390 - are *not* violations and should be left alone: they align the rows of `A = np.array([[1,  0,  0], [α, ρ1, ρ2], [0,  1,  0]])` so that the literal reads like the matrix it implements at 373-375, which is exactly the mathematical-notation exception the rule allows"
+    },
+    {
+      "rule": "qe-math-009",
+      "count": 4,
+      "lines": [
+        665,
+        671,
+        711,
+        727
+      ],
+      "detail": "the components of $Q$ and of $Q^{-1}$ are distinguished only by whether the index rides high or low, and the two appear together. 665 introduces $Q^{\\{2\\}}$ for \"the second row of $Q^{-1}$\"; 671 and 674-675 then switch to $Q^{21}, Q^{22}$ for the components of $Q^{-1}$; 699 and 719 use $Q_{11}, Q_{21}$ for the components of $Q$; and 711 puts both conventions in one line, `-(Q^{22})^{-1} Q^{21} = Q_{21} Q^{-1}_{11}`, where a reader has to notice the raised versus lowered index to know which matrix is meant. Worse, the same scalar is written two ways two lines apart - $Q_{11}^{-1}$ at 719 and $Q^{-1}_{11}$ at 727 - and under the lecture's own convention the second reads as the $(1,1)$ entry of $Q^{-1}$, which is a different number. Writing $R = Q^{-1}$ once and then using $R_{21}, R_{22}$ would remove the whole ambiguity at no cost. Related: 967's heading is \"Big $P$, Little $p$ Interpretation\" while 67 and 970 call the same device \"Big $K$, little $k$\", so the reader meets two names for one idea"
+    },
+    {
+      "rule": "qe-writing-002",
+      "count": 6,
+      "lines": [
+        56,
+        257,
+        503,
+        528,
+        542,
+        1019
+      ],
+      "detail": "four sentences are ungrammatical rather than merely long. 257-258 reads \"(We note that the characteristic polynomial if $1 - \\lambda^{-1} z^{-1} = 0$ so that the zero of the characteristic polynomial in this case is $\\lambda \\in (0,1)$ ...)\" - \"if\" for \"is\", and the parenthesis then repeats \"the characteristic polynomial\" twice in twenty words. 503 reads \"in ways that will let focus on an important idea\", missing its object. 528 reads \"so that the log the log price level satisfies\". 1115 reads \"Below we do induce SymPy to do the following fun things for us analytically\". On length: 542-546 is 57 words, 573-577 is 51, 56-59 is 50 and is the lecture's second sentence, 503-507 is 46, 244-247 is 41. The numbered list at 1019-1030 runs to 120 words across three items, each of which embeds displayed matrices inside the list text; 1117-1125 is 69 words the same way"
+    },
+    {
+      "rule": "qe-writing-007",
+      "count": 4,
+      "lines": [
+        579,
+        798,
+        870,
+        933
+      ],
+      "detail": "the lecture's whole subject is a picture it never draws. 579-686 works out, in algebra only, that the eigenvalues of $H$ split around unity, that $y^*_t$ must start on the stable eigenvector, and that $p_0$ is therefore pinned to $Q_{21}Q_{11}^{-1} m_0$ - which is a line through the origin in the $(m, p)$ plane. One phase-plane sketch with the two eigenvector directions and that line drawn on it would carry the entire section, and the code already has `Q` in hand (913, 1042). Second, 870-897 explores how the eigenvalues depend on $\\delta$ by calling `H_eigvals()` five times in five separate cells (875, 880, 887, 896) and printing raw complex pairs, with the conclusion asserted in prose at 959-961; the two eigenvalue moduli plotted against $\\delta$ with a horizontal line at one would replace all five cells and show precisely where the split breaks down. Third, the four figures (447-455, 485-499, 933-943, 948-957) are the only ones in the lecture and none is referenced from the text, none carries `mystnb` metadata (qe-fig-005 counts all four), and all four use the state-based `plt.plot` interface, so there is no handle to caption or cross-reference them. Fourth, 798 sets a genuine caveat in bold - \"**Warning:** If things are to fit together as we wish ... $\\delta$ cannot be too large\" - where MyST has a `{warning}` directive; the lecture's single `{note}` at 347-352 shows the author knows the syntax. There are no exercises at all"
+    },
+    {
+      "rule": "qe-writing-005",
+      "count": 5,
+      "lines": [
+        69,
+        213,
+        258,
+        268,
+        770
+      ],
+      "detail": "bold is used correctly and often for definitions - **backward shift**/**lag** (81), **forward shift** (88), **distributed lag** (171), **distributed lead** (173-174), **feedback part**/**feedforward part** (218-219), **expectational difference equation** (74), **state**/**jump** (649), **stabilizing value** (685), **exogenous** (283), **perfect foresight** (281) - which makes the emphasis uses inconsistent: **inside** (258), **stable** (268), **backward**/**forward** (213-214), **forward** (765) and **unstable** (770) are all stress on a word, and italic is what the rule asks for. 69 and 470 bold library names (**SymPy**, **LinearStateSpace**), which are neither, and 798's **Warning:** is a run-in label standing in for an admonition"
+    }
+  ],
+  "strengths": [
+    "The review of first- and second-order difference equations (79-219) is genuinely self-contained: it states the operator algebra it will use (81-93), solves the $|\\lambda|<1$ and $|\\lambda|>1$ cases separately with the existence condition for each (170-180), and closes by naming the two pieces of {eq}`equation_7` - the **feedback part** and the **feedforward part** (218-219) - which are exactly the two objects the rest of the lecture is about",
+    "The same answer is reached three independent ways and the three are explicitly reconciled: forward-solving the expectational equation gives $F = (1-\\lambda)G(I-\\lambda A)^{-1}$ ({eq}`equation_5`, 344); the eigenvector route gives $p_0 = Q_{21}Q_{11}^{-1} m_0$ ({eq}`equation_14`, 719); 741-752 shows the two agree in the scalar case; and the Big-$P$/little-$p$ section derives the fixed point $F^* = F_1 + F_2 F^*$ (1013) and then checks it numerically at 1064",
+    "The Big $K$, little $k$ device is used to say precisely what is held fixed by whom: 967-974 explains that the decision makers using {eq}`equation_2` take the $\\{m_t\\}$ path as given, 1024 stops to point out that the state carries Big $P_t$ and not little $p_t$, and the three-step plan at 1019-1030 states what the code will compute before it computes it",
+    "The parameter study is honest about where the method breaks: 870-897 shows that negative $\\delta$ never imperils the split even when large, that small positive $\\delta$ is safe, and that $\\delta = 0.2$ pushes both eigenvalues outside the unit circle - and `magic_p0` (906-927) returns `None` with a printed explanation rather than a wrong number in that case, which 964 then exercises deliberately",
+    "The SymPy section (1067-1161) earns its place: it recomputes the eigenvalues, the eigenvectors, $Q$, $Q^{-1}$, $Q_{21}Q_{11}^{-1}$ and $-(Q^{22})^{-1}Q^{21}$ in symbols, so the two formulas the lecture spent forty lines proving equal at 694-712 can be seen to be equal in closed form",
+    "Cross-references to companion lectures are made where the reader would want them and are `{doc}` links, not bare names: matrix decompositions to {doc}`lagrangian_lqdp` (71), characteristic polynomials to {doc}`samuelson` (321), and the Big $K$, little $k$ argument to {doc}`rational_expectations` (970)"
+  ],
+  "actions": [
+    "Fix the six algebra errors first, since a reader checking the derivation hits every one: 641 needs $Q^{-1} y_0 = y^*_0$ (611 defines $y^* = Q^{-1}y$); 618 needs $\\Lambda$, not $\\Lambda^t$; 730-732 should say the eigenvector of $H$ associated with the stable eigenvalue $\\rho$ of $H$; 745 is missing the $(1-\\lambda)$ factor that {eq}`equation_5` supplies; 369 should cite {eq}`equation_3`, not {eq}`equation_2`; and 257 reads \\\"the characteristic polynomial if\\\" for \\\"is\\\"",
+    "Complete the two sentences that stop mid-thought: 226 ends at a citation with no verb and duplicates 54, so it can simply be deleted; 901 ends \\\"values of $\\delta$ that are too.\\\"",
+    "Settle the $Q$ notation: define $R = Q^{-1}$ once and use $R_{ij}$, so that $Q^{21}$, $Q^{22}$, $Q^{\\{2\\}}$ (665, 671, 674) and the clash between $Q_{11}^{-1}$ (719) and $Q^{-1}_{11}$ (727) all disappear. While there, make 967's heading say \\\"Big $K$, little $k$\\\" to match 67 and 970",
+    "Stop rebinding the globals: 1078 turns `λ`, `δ` and `ρ` from floats into SymPy symbols, and `λ` has already had two different float values (382, 1035). Use `λ_s, δ_s, ρ_s` for the symbols, or set the numeric parameters once at the top",
+    "Do NOT 'fix' the four E241 hits at 388 and 390: the extra spaces align the rows of `A` with the matrix displayed at 373-375, which the rule explicitly allows. The other fifteen PEP8 items are real - E231 at 417, 493, 494, 849, 1082, 1100; E226 at 429, 430, 441, 442, 449, 450, 1137; E225 at 1057; E261 at 427",
+    "Draw the stable subspace: one phase-plane figure of the $(m,p)$ plane with the two eigenvector directions of $H$ and the line $p = Q_{21}Q_{11}^{-1}m$ would carry 579-686, and replace the five separate `H_eigvals()` cells (875-896) with one plot of the two eigenvalue moduli against $\\delta$ and a line at unity",
+    "Convert the bold **Warning:** at 798 to a `{warning}` admonition, switch the emphasis bolds at 213, 214, 258, 268, 765 and 770 to italic, and unbold the two library names at 69 and 470",
+    "Sweep the mechanical items: the twelve Title-Case headings (79, 95, 182, 221, 354, 467, 501, 537, 688, 760, 781, 967 - note 781 is inconsistent even as Title Case, 'Log money Supply Feeds Back on Log Price Level'), the 33 double-space runs, `{\\bf R}` at 277 (qe-math-004, use `\\mathbb{R}`), the three paragraphs holding two sentences (195, 629, 1023), `mystnb` caption and name metadata plus `lw=2` for all four figures (447, 485, 933, 948), the three `plt.title` calls (452, 496, 955) - whose strings also write `$ρ_1$` and `$ρ_2$` with Unicode Greek inside math delimiters, where `\\rho` is what qe-math-001 asks for - and the missing full stops at 83, 329, 631 and 770"
+  ],
+  "scanner_doubts": [
+    "re_with_feedback.md:1157 - qe-math-001 measures zero for this file but line 1157 is `$−(Q^{22})^{−1}Q^{21}$`, and both minus signs are U+2212 MINUS SIGN, not ASCII hyphen: I dumped the code points to be sure (`['0x2212', '0x2212']`). Inside `$...$` that is precisely what the rule forbids - \"UTF-8 unicode in narrative, LaTeX in math envs\" - and in a LaTeX/PDF build it does not render as a minus at all. The gap is narrow and visible in the implementation: `check_math_001` (qestyle_rules.py:369-372) scans math spans only for `[GREEK_UNICODE]`, so any non-Greek Unicode inside math is invisible to it. I sized the fix by scanning every math span in all five series for non-ASCII characters that are not in `GREEK_UNICODE`: there are 32, in 7 files - `·` used for `\\cdot` 21 times in qr_decomp (71, 88, 99, 116, 117, 136, 137, 148, 149, 150), `’` 4 times in tax_smoothing_2:620, `−` twice here, and one each of `°` (chow_business_cycles:1421), `≥` (mccall_risk:460), `–` (morris_learn:510) and `×` (svd_intro:696). So widening the in-math character class from Greek to all non-ASCII adds 32 hits across 7 lectures and would catch every one of these; none of the 32 looks like a case where the Unicode form is wanted. Note `mccall_risk` is also in this batch, so the fix touches two lectures I reviewed",
+    "Cleared, not filed. (1) The Code score of 10/10 is correct as a *mechanical* result - qe-code-002 through qe-code-006 genuinely find nothing, the lecture already uses Unicode `λ`, `α`, `ρ`, `δ` throughout, `!pip install quantecon` is at the top with `hide-output` (32-37), and there is no timing code - but flake8 finds fifteen real PEP8 items, which is why qe-code-001 above carries a count of 15. Worth noting that the deterministic code rules and the judgment code rule can diverge this far. (2) qe-math-014 and qe-math-015 (proposed) do not apply: the lecture is deterministic throughout - it contains no `\\mathbb{P}`, no expectation operator (the \"mathematical expectation\" at 59 is prose), no density and no CDF. (3) The single qe-math-004 hit at 277, `c \\in {\\bf R}`, is right and is the only bold in any math span. (4) qe-math-002 at zero is right: there is no transpose anywhere in the file, and the many primes a reader might expect (`Q^{-1}`, `y^*`) are inverses and stars, not primes. (5) All twelve qe-writing-006 hits are genuine Title-Case headings, not proper-noun false positives - I checked each detail string, and the flagged words are 'Difference', 'Equations', 'Order', 'Model', 'Code', 'Case', 'Perspective', 'Formula', 'Feedback', all common nouns"
+  ]
+}

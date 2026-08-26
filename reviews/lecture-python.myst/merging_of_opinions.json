@@ -1,0 +1,93 @@
+{
+  "series": "lecture-python.myst",
+  "lecture": "merging_of_opinions",
+  "judgment": [
+    {
+      "rule": "qe-writing-003",
+      "count": 4,
+      "lines": [
+        85,
+        871,
+        1307,
+        331
+      ],
+      "detail": "(1) 85 defines \"the **tail $\\sigma$-algebra** $\\mathscr{F}_\\infty = \\sigma(\\bigcup_{n \\geq 1}\\mathscr{F}_n)$\", and that is not the tail $\\sigma$-algebra - the tail is $\\bigcap_n \\sigma(x_n, x_{n+1},\\ldots)$, whereas $\\sigma(\\bigcup_n \\mathscr{F}_n)$ is the $\\sigma$-algebra *generated* by the filtration, which for $\\Omega = S^{\\mathbb{N}}$ with the product $\\sigma$-algebra is all of $\\mathscr{F}$ (73-75). The mislabel is load-bearing: 210-214 puts $Z = dQ/dP$ on $(\\Omega, \\mathscr{F})$ and 226 sets $Z_\\infty = \\mathbb{E}_P[Z \\mid \\mathscr{F}_\\infty]$, so on the lecture's own definitions $Z_\\infty = Z$ and the distinction it maintains between them for the next thousand lines is empty; and 1086-1099 turns on whether local absolute continuity extends to $\\mathscr{F}_\\infty$, which is a different question if $\\mathscr{F}_\\infty = \\mathscr{F}$. (2) $P_n$ is defined twice with incompatible meanings: 93-94 sets $P_n = P|_{\\mathscr{F}_n}$, the joint law of the first $n$ observations, and 871, 884, 890 and 901-902 use $P_n$ for the $n$-th *marginal factor* on $(S, \\mathscr{S})$ - so `Let $P = \\bigotimes_{n=1}^\\infty P_n$` at 901 reads, under the earlier definition, as a product of restrictions of $P$ with itself. (3) 1307 repeats 1153 almost word for word - both begin \"DiaconisFreedman1986 study the consistency of Bayes estimates\" - and cites the same paper two different ways, `{cite:t}` at 1153 and `{cite}` at 1307, which is the qe-ref-001 hit. (4) 331-333 gives the wrong reason for a right conclusion: \"One-sided absolute continuity $Q \\ll P$ gives merging $Q$-almost surely. Since $Q \\ll P$ means every $P$-null set is also $Q$-null, $Q$-a.s. convergence does *not* automatically imply $P$-a.s. convergence.\" The stated fact is what makes a $P$-a.s. statement imply a $Q$-a.s. one; it is not a reason for the non-implication in the other direction"
+    },
+    {
+      "rule": "qe-math-009",
+      "count": 4,
+      "lines": [
+        93,
+        388,
+        397,
+        439
+      ],
+      "detail": "the subscript on $P$ carries four different kinds of index and the reader has to infer which from context every time: a horizon, $P_n = P|_{\\mathscr{F}_n}$ (93); a parameter value, $P_p$ for the IID Bernoulli$(p)$ law (388); an agent, $P_i$ for agent $i$'s mixture (394); and both at once, $P_{1,n}$ (439). By 901 a fifth reading is in play, $P_n$ as the $n$-th marginal factor. The argument of $P$ is overloaded too: $P_i(A)$ at 397 is a measure applied to an event, and $P_i(x^n)$ at 405, 422 and 439 is applied to a single history - the lecture needs a whole sentence (404-406) to say which is meant, which is itself the evidence that the notation is doing too much. Distinct letters would cost nothing: $P^{(n)}$ or $P|_n$ for restrictions, $\\mathrm{Ber}_p$ for the parameterised law, $m_i(x^n)$ for the marginal likelihood. Separately 884 and 947 decorate the normal law as $\\mathcal{N}$ where the lecture already writes $\\mathrm{Beta}$ and $\\mathrm{Bernoulli}$ upright (366, 373, 890, 1149) - qe-math-011 counts those four and the fix is to match the convention the same file already uses"
+    },
+    {
+      "rule": "qe-math-015",
+      "count": 3,
+      "lines": [
+        405,
+        422,
+        439
+      ],
+      "detail": "the lecture is careful about case everywhere else - the prior density is lower-case $\\pi_i$ (393, 411), the generic Radon-Nikodym density is lower-case $f = d\\mu/d\\nu$ (136), the Beta density is $\\pi_i(p)$ (411) - and then writes the probability mass function of a history with a capital: $P_i(x^n)$ at 405, 422 and 439, where 434 confirms it is a mass function (\"It depends on the data only through the count $k$, so histories with the same number of successes receive the same probability\"). Under the rule this should be $p_i(x^n)$, or $m_i(x^n)$ for a marginal likelihood, which is the name 386 gives it. The counter-reading is that $P_i(x^n)$ abbreviates the measure of the cylinder set $\\{X_1 = x_1, \\ldots, X_n = x_n\\}$, in which case a capital is right - but that reading is exactly why 404-406 has to explain the notation, and the same symbol is applied to a genuine event two lines earlier at 397, so the two uses are not distinguishable by shape"
+    },
+    {
+      "rule": "qe-writing-007",
+      "count": 3,
+      "lines": [
+        971,
+        609,
+        933
+      ],
+      "detail": "the Kakutani section ends in three consecutive code cells (971-994, 998-1021, 1027-1050) that are identical apart from `cases[0]`/`cases[1]`/`cases[2]`, a colour and a caption, each drawing one line of $\\log Z_N$ on its own axes. The section's whole point is the *dichotomy* - constant and $c/\\sqrt n$ drift give $P \\perp Q$, $c/n$ gives $P \\sim Q$ - and that comparison is destroyed by putting the three on three separate axes with three separate y-scales. Worse, each cell draws its own `x = rng.standard_normal(N_plot)` from the same generator (981, 1008, 1037), so the three panels use three different shock paths and the visible differences conflate the drift regime with the sampling noise; one figure, one $x$, three lines on shared axes would make the dichotomy immediate and is strictly less code. Second, panel (d) of {numref}`fig-merging-of-opinions-beta-bernoulli` (609-637) already plots the two posterior densities at four horizons, and $d_n$ - the quantity panel (b) plots on a log scale, and the object {prf:ref}`total_variation_distance` defines as $\\tfrac12\\int|d\\mu/d\\lambda - d\\nu/d\\lambda|d\\lambda$ - is literally half the area between those two curves; shading it would tie the definition at 120-134, the code at 501, and panels (b) and (d) together in one stroke. Third, the dichotomy table at 933-937 tabulates three scenarios by whether $\\sum_n(1-\\rho_n)$ converges, and $1-\\rho_n$ for the three Gaussian cases is a two-line plot the lecture never draws"
+    },
+    {
+      "rule": "qe-code-001",
+      "count": 3,
+      "lines": [
+        626,
+        481,
+        1240
+      ],
+      "detail": "626 puts `from matplotlib.lines import Line2D` in the middle of a plotting cell, 560 lines after the import cell at 57-62 (flake8 E402), where the lecture's other four imports are collected at the top as the series convention asks. Twenty-two assignments are padded with extra spaces to align their `=` signs - 481, 497, 524, 530, 531, 677, 680, 682, 686, 740, 956, 957, 958, 960, 1225, 1226, 1230, 1231, 1232, 1233, 1236 (E221) - which PEP8 lists under extraneous whitespace, and unlike a matrix literal there is nothing mathematical being aligned: they are scalars and array allocations (`ns     = np.arange(1, N_max + 1)`, `tv_all   = np.empty(...)`). 1240 adds a double space inside a call argument list, `ax.loglog(ns_rate, mean_tv,  color='steelblue', ...)` (E241). Nothing else: no long lines, no operator-spacing problems, and the Unicode Greek convention is followed (`μ_seq` at 980, 1007, 1036)"
+    },
+    {
+      "rule": "qe-writing-002",
+      "count": 3,
+      "lines": [
+        1149,
+        457,
+        1289
+      ],
+      "detail": "1147-1149 is where the lecture's most delicate point lives and it is delivered in two sentences of 38 and 49 words, the second carrying a parenthetical, an inline set-builder and a parenthetical gloss at the end - \"yet $Q^* \\not\\ll P$ globally because the set $\\{\\lim k_n/n = p^*\\}$ has $Q^*$-measure one but $P$-measure zero (different Bernoulli product measures are mutually singular)\". 457-460 is 40 words with a parenthetical in the middle of the premise. And \"Applications in economics\" (1287-1303) is thirteen bullets of one-line paraphrase with no synthesis and no ordering principle - a bibliography set as prose, where two or three sentences saying what the literature collectively established would carry more per word. Against that, the rest of the file is a model of one-sentence-per-paragraph and qe-writing-001 measures only 2"
+    }
+  ],
+  "strengths": [
+    "The theorem is set up before it is stated and every ingredient it needs is defined first: the standard Borel assumption with the reason it is needed (69-71, 'guarantees the existence of regular conditional distributions, which the theorem requires'), absolute continuity in its three flavours as a `{prf:definition}` (98-109), total variation with the equivalent sup and integral forms (120-134), and only then the merging question at 185-192",
+    "The proof of {prf:ref}`blackwell_dubins` is given in three numbered steps (288-324) and each step names the tool it uses - the representation of $d_n$ via $Z_\\infty/Z_n$, convexity of total variation for the supermartingale property, $L^1(P)$ convergence of the martingale for the limit - and 296-298 states the economic content of the supermartingale step in one sentence: 'Conditioning on more information reduces distinguishability on average'",
+    "The identity the whole proof rests on is set as an exercise with a hint and a five-line worked solution (142-166) rather than asserted: 139 states $\\|\\mu-\\nu\\|_{TV} = \\mathbb{E}_\\nu[(f-1)^+]$ and the solution derives it from $\\mathbb{E}_\\nu[f]=1$ and $|f-1| = (f-1)^+ + (1-f)^+$",
+    "The Beta-Bernoulli example is carried all the way from the marginal likelihood in closed form (420-430, with the beta-function identity written out) to the exact TV formula (464-468, justified by de Finetti and the mutual singularity of Bernoulli product measures at 453-460) to code that computes it (474-544), so the simulated $d_n$ is the theorem's $d_n$ and not a proxy",
+    "The negative result is done properly: the point-mass example (781-855) gives $d_n = 1$ for every $n$, and 802-804 heads off the obvious objection by computing the one-step predictive gap, $|p_P - p_Q| = 0.45$, and saying explicitly that it 'is not the quantity that appears in Blackwell-Dubins'",
+    "The lecture is candid where the simulation falls short of the theorem: 718-720 says the distances at $n = 500$ 'are not yet close to zero' and that this is still consistent with an asymptotic statement, and 770-772 says the supermartingale figure 'is only an illustration, not a proof, because it uses unconditional averages rather than the full conditional expectation'",
+    "Bold is reserved for definitions on first use without exception - all nine spans (85, 87, 101, 104 twice, 107, 131, 872, 1104) define a term - and italic carries every emphasis (*possible* 114, *not* 333, *both* 335, *future*/*past* 174) and the run-in labels (*Hint:* 147, *Proof sketch.* 229, *Proof idea.* 919), so qe-writing-005 has nothing to report",
+    "All six figures carry `mystnb` caption and name metadata with multi-line captions that say what each panel shows (562-568, 664-670, 730-736, 807-815, 972-978, 1209-1215), and the four-panel figure's panels are then walked through one by one at 643-654"
+  ],
+  "actions": [
+    "Rename $\\mathscr{F}_\\infty$ at 85: it is the $\\sigma$-algebra generated by the filtration, not the tail $\\sigma$-algebra, and on the lecture's own construction (73-75) it equals $\\mathscr{F}$ - which also makes $Z_\\infty = \\mathbb{E}_P[Z \\mid \\mathscr{F}_\\infty]$ at 226 equal to $Z$. Either say so, or state the weaker $\\mathscr{F}_\\infty \\subseteq \\mathscr{F}$ the rest of the lecture (1086-1099) actually needs",
+    "Give the two meanings of $P_n$ different symbols: it is the restriction $P|_{\\mathscr{F}_n}$ at 93 and the $n$-th marginal factor at 871, 884, 890 and 901, and both readings are live in the Kakutani section. While there, unify the other three subscripts on $P$ ($P_p$ 388, $P_i$ 394, $P_{1,n}$ 439) and write the history mass function in lower case, $p_i(x^n)$ or $m_i(x^n)$, per qe-math-015",
+    "Merge the three Kakutani cells (971-1050) into one figure with three lines on shared axes, drawing a single `x = rng.standard_normal(N_plot)` once and reusing it - as written each panel uses a different shock path, so the comparison the section exists to make is confounded",
+    "Delete or rewrite 1307: it repeats 1153 nearly verbatim about the same paper, and it is the file's one qe-ref-001 hit - 1153 already gets it right with `{cite:t}`DiaconisFreedman1986` study ...`, so the fix is to make 1307 match or to drop the duplicate paragraph. Do NOT change the thirteen bullet citations at 1291-1303 on the strength of that hit (see scanner_doubts)",
+    "Fix the reasoning at 331-333: the stated fact ($Q \\ll P$ means every $P$-null set is $Q$-null) is why $P$-a.s. implies $Q$-a.s., not why $Q$-a.s. fails to imply $P$-a.s.",
+    "Shade the total-variation area in panel (d) of the four-panel figure (609-637): it is half the area between the two posterior densities already drawn there and it is the quantity panel (b) plots, so one `fill_between` connects the definition at 120-134 to both panels",
+    "Split the two sentences at 1147-1149 and the one at 457-460, and replace the thirteen-bullet list at 1291-1303 with two or three sentences plus the citations",
+    "Do NOT lower-case 'Step' at 314: it refers to the labelled 'Step 1' at 290, which is the already-known qe-writing-004 false-positive shape. The other three writing hits are genuine - the Title-Case H2 at 353 ('The Beta-Bernoulli model' is flagged on 'Beta', a proper noun, so check before editing: the heading is in fact correct sentence case and needs no change), the two two-sentence paragraphs at 290 and 312, and the double spaces at 229 and 1277",
+    "Sweep the mechanical items: the eight `figsize` overrides (578, 675, 742, 828, 985, 1012, 1041, 1239), the four panel `set_title` calls (588, 599, 607, 624) which duplicate what the caption at 565-567 already lists, the two `\\mathcal{N}` sites (884, 947), the `from matplotlib.lines import Line2D` at 626, the twenty-two E221 alignment paddings, the `Blackwell--Dubins` at 1299 which uses a LaTeX double hyphen where the rest of the file uses the Unicode en dash, and the eight `fontsize=8` overrides"
+  ],
+  "scanner_doubts": [
+    "merging_of_opinions.md:1291-1303 - suspicion raised and then cleared, with the reasoning, because it would have been a plausible 13-hit finding. qe-ref-001 reports count 1 (line 1307), but the file has fourteen places where a citation key is the grammatical subject: 1307 plus the thirteen bullets at 1291-1303, each of the form `- {cite}`KalaiLehrer1993Nash`: repeated-game learning drives play ...`. Two separate guards in `check_ref_001` keep the bullets out. First, `NARRATIVE_LEAD` (qestyle_rules.py:1416-1418) allows a citation at line start only via `^\\s*`, which a list marker `- ` defeats. Second, even without that, the exemption at qestyle_rules.py:1440, `re.match(r\"[^`]*`\\s*[.,;:)]\", after)`, skips any `{cite}` whose closing backtick is followed by a colon - which is exactly this shape. I decided *not* to file it, for a reason the corpus settles: the `- {cite}`Key`: text` construction occurs 13 times in the whole corpus and all 13 are in this one file (I grepped all five series), and the `{cite:t}` counterpart occurs 0 times, so there is no corpus convention for the checker to enforce and the colon exemption is defensible as a bibliography-style label. The genuine finding is narrower and is in the actions: the same paper is cited with `{cite:t}` at 1153 and `{cite}` at 1307 with the same following verb, so the file contradicts itself once and the checker caught precisely that one",
+    "Cleared, not filed. (1) qe-math-014 (proposed) does not apply: the lecture never writes `\\mathbb{P}`, using the named measures $P$, $Q$, $Q^*$, $P_i$ instead, and where those are applied to a named event the delimiter is already a parenthesis, $P(A)$ and $Q(A)$ at 102 and 397 - which is what the rule asks for a set. The only place a brace-versus-parenthesis question arises is $P_i(x^n)$, and I have reported that as a case problem under qe-math-015 rather than stretching a `\\mathbb{P}`-scoped rule to cover it. (2) qe-writing-005 is satisfied, not merely unreported: I enumerated all nine bold spans and all italic spans in the file; every bold is a definition on first use and every italic is emphasis or a run-in proof label. (3) The `\\mathscr{...}` script letters (47 of them) are not a qe-math-009 problem: $\\sigma$-algebras conventionally take script letters, the lecture is consistent about it, and qe-math-011 concerns distribution names, which the file writes upright as `\\mathrm{Beta}` and `\\mathrm{Bernoulli}` except at the two `\\mathcal{N}` sites already counted. (4) The Code score of 10/10 is a fair mechanical result, but flake8 finds 24 real items, reported under qe-code-001. (5) qe-writing-006 count 1 at 353 is a false positive of the known proper-noun kind: 'The Beta-Bernoulli model' is flagged on 'Beta', which is a distribution name and correctly capitalised, and the heading is already sentence case"
+  ]
+}

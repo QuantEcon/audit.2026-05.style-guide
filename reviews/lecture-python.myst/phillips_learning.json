@@ -1,0 +1,96 @@
+{
+  "series": "lecture-python.myst",
+  "lecture": "phillips_learning",
+  "judgment": [
+    {
+      "rule": "qe-math-009",
+      "count": 7,
+      "lines": [
+        361,
+        356,
+        345,
+        310,
+        313,
+        537,
+        563
+      ],
+      "detail": "seven letters carry two meanings each, and in every case one meaning belongs to the primer (71-411) and the other to the model (413 onward), which is exactly where a reader is switching between them. $\\gamma$ is the vector of Phillips-curve coefficients throughout (83, 93, 109, 424, 445, 514) and at 361 it is the *gain decay exponent*: \"$h(s) = \\exp(s)$ when $\\gamma = 1$ in $a_n = a_0/n^\\gamma$\". $h$ is the Phelps decision rule $h(\\gamma)$ (98, 434, 464, 514) and at 356 and 361 it is the weight function $h(s)$ inside the action functional. $R$ is $\\sum_j \\mathbb{E}\\,\\zeta_t\\zeta_{t-j}^\\top$ at 345, $R_{XC}$ the regressor second-moment matrix at 94 and 446, and in the code three more things - `R = np.outer(c, c)` (517), `R2 = model.σC2` a scalar variance (547), `R1` a matrix increment (567). $A$ is the set of admissible escape paths at 310 and the LQ transition matrix at 468 and 520. $\\delta$ is the tolerance in the escape limit at 313 and 318-320 and the discount factor at 468, 486 and 737. $T$ is the escape horizon in $S(T,\\phi)$ at 308 and the prior sample size at 537 (`T_prior`). And $\\phi$ is the stacked belief vector $(\\gamma, \\operatorname{col}(R_{XC}))$ at 109 while the code's `φ` at 563 is the regressor vector $X_{C,t}$ - the two most important symbols of the primer, reused for something else in the implementation. The gain itself has three names in three sections: $a_n$ (161, 176, 194), $g_t$ (445, 450, 452), and the forgetting factor $\\lambda$ with `g0 = 1 - λ` (535, 548)"
+    },
+    {
+      "rule": "qe-writing-003",
+      "count": 3,
+      "lines": [
+        836,
+        413,
+        77
+      ],
+      "detail": "836 reads \"The contrast between Figures 8.1 and 8.2 hinges on the gain\", and those numbers appear nowhere else in the lecture: they are {cite}`Sargent1999`'s figure numbers, the lecture's own two figures carry `mystnb` names `fig-learn-ls` (602) and `fig-learn-cgain` (629), and `{numref}` is not used once in the file. So the one cross-reference in the lecture cannot be resolved from inside it. This is a suite-wide convention and it is worth fixing here because it is the same defect as `phillips_two_stories`, where the book's numbers are baked into `set_title` strings and eight prose sentences depend on them: across the eleven Phillips lectures, source-paper figure numbers appear in prose or in embedded titles 21 times (two_stories 12, credible_policies 2, escaping_nash 2, priors 2, self_confirming 2, learning 1) and `{numref}` is used exactly once in the whole suite, in `phillips_drifts_volatilities`. Second, the primer builds its entire apparatus on $\\phi$, $b(\\phi)$, $\\phi_f$, $S(T,\\phi)$, $\\tilde\\phi(\\cdot)$ and $\\partial D$ (104-331), and the model section from 413 onward never uses any of those symbols again - the escape-route figure at 694-711 shows a belief path in terms of \"constant\" and \"sum of weights\", never in terms of $\\tilde\\phi$ leaving $D$, so the theory and the simulation are never joined symbol to symbol. Third, 77 tells the reader the primer can be skipped (\"readers who want the punchline can skip to the simulations below and refer back as needed\"), which is honest but is also an admission that 340 lines of the lecture are optional; the material that is genuinely needed later - the induction-hypothesis direction of the escape, 365 - is two sentences of it"
+    },
+    {
+      "rule": "qe-writing-007",
+      "count": 3,
+      "lines": [
+        71,
+        694,
+        606
+      ],
+      "detail": "the primer (71-411) runs 340 lines, introduces the two objects that \"organize everything that follows\" (75), and contains no figure at all - in a section whose own author says at 77 that readers may want to skip it. The picture it is about is a phase portrait: the mean-dynamics flow toward $\\phi_f$, the compact set $D$ with boundary $\\partial D$, and the least-action path $\\tilde\\phi(\\cdot)$ leaving through it (301-325). That single sketch would carry {eq}`pl_ode`, {eq}`pl_escapeproblem` and {eq}`pl_escapelim` together, and 327's \"crucial contrast\" - that the mean dynamics do not depend on the noise while the escape routes do - is a statement about two arrows in the same diagram. Second, {numref}`fig-learn-belief-path` (694-711) already plots the realised belief path in two dimensions coloured by time, which is the empirical version of that phase portrait; overlaying the mean-dynamics direction at a few points, or simply marking $\\phi_f$ and the induction line as the primer's $\\partial D$, would join the two halves of the lecture in one figure. Third, the lecture's central claim is the contrast between least squares and constant gain, and it is delivered as two separate single-panel figures 20 lines apart (606-613 and 633-640) with the same axes but independent y-limits, so the comparison the reader is asked to make is across two differently scaled charts; two stacked panels with `sharey=True` would make it one glance"
+    },
+    {
+      "rule": "qe-writing-002",
+      "count": 4,
+      "lines": [
+        54,
+        215,
+        241,
+        721
+      ],
+      "detail": "the two bullets that carry the lecture's thesis are 70 and 55 words: 54 runs \"With a *decreasing* gain that implements least squares, the mean dynamics pull the economy to a self-confirming equilibrium, and we get nothing new: the system is stuck near the Nash outcome\" plus its continuation, and 55 similarly. Both would split at their existing colons. Elsewhere: 215-219 is 57 words on the Jacobian and local stability; 721 is 55 words with an em-dash aside and an \"except that\" clause carrying the section's whole point; 401-405 is 53 words with a parenthetical list inside it; 388-389 is 54 words across two numbered items; 241 is 52. Fourteen paragraphs in the file run past 42 words. The primer is where they cluster (75, 215, 241, 327, 388, 401), which compounds the problem that 77 already concedes about that section"
+    },
+    {
+      "rule": "qe-code-001",
+      "count": 4,
+      "lines": [
+        520,
+        497,
+        563,
+        502
+      ],
+      "detail": "520 and 521 each pack two statements onto one line with a semicolon - `A = np.zeros((5, 5)); B = np.zeros((5, 1))` and `A[0, :] = c; B[0, 0] = γ0` (E702) - inside the one function where the reader most needs to follow the state-space construction line by line. Three one-line docstrings are written as padded single-double-quote strings rather than triple-quoted: `\"E[X_C X_C'] at the serially-uncorrelated classical SCE.\"` (497), `\"Government decision rule ŷ_t = h(γ)·X_{t-1} for belief γ.\"` (515), `\"Simulate the adaptive system. λ=1 is least squares; λ<1 is constant gain.\"` (541). `φ` at 563 names the regressor vector $X_{C,t}$, which is what the lecture's own comment on that line says, while the mathematics reserves $\\phi$ for the stacked belief vector (109) - the two are different lengths and different objects. Three lines exceed 79 characters (502 at 83, 567 at 82, 571 at 86). Nothing else: Unicode Greek is used throughout, `**` is written without spaces, and the class and function names follow PEP8"
+    },
+    {
+      "rule": "qe-writing-005",
+      "count": 2,
+      "lines": [
+        55,
+        206
+      ],
+      "detail": "twelve of the fourteen bold spans are terms defined on first use and are correct - **gain** (52), **mean dynamics** and **escape routes** (75), **artificial time** (164), **theory of large deviations** (251), **Legendre transform** (278), **action functional** (286), **recursive least squares** (439), **induction hypothesis** (658), **anticipated utility** (750), **Keynesian** (793). The two exceptions: 55 bolds **new outcomes emerge**, which is emphasis on a claim and wants italic (the same bullet already italicises *constant* and *escapes*), and 206 bolds **mean dynamics** a second time having defined it at 75, so a reader cannot tell which of the two is the definition"
+    }
+  ],
+  "strengths": [
+    "The lecture states its own thesis as a one-parameter claim in the overview and then delivers exactly that: 52-55 says the answer 'depends on a single parameter — the **gain**', gives the two cases in two bullets, and 589-651 runs the same simulation twice changing only `λ=1.0` to `λ=0.975`, so the comparison is controlled by construction",
+    "The primer is labelled as skippable and its purpose is stated up front (73-77), and it does the one thing that makes the escape story more than a curiosity: 380-389 explains that the same recursion is an *algorithm* when $\\phi_n$ is an iterate and a *model* when $\\phi_n$ is a belief, which is why a numerical-analysis result about gain sequences becomes an economic result about policy",
+    "327 draws the distinction that a reader would otherwise miss - 'the mean dynamics do *not* depend on the noise around them, whereas the escape routes *do*' - and 323-325 states what {eq}`pl_escapelim` means in words, that conditional on escaping, the system leaves near the terminal point of the least-action path, so the escapes 'seem purposeful' without any large shock",
+    "The mechanism is not merely asserted but located in the data the simulation produces: 654-690 plots inflation against the sum of weights on lagged inflation, 688 notes that every stabilization coincides with that sum moving from $-1$ toward zero, and {numref}`fig-learn-belief-path` (694-711) then shows the same thing as a path in belief space coloured by time",
+    "Four `{note}` admonitions carry the intellectual history without interrupting the argument - stochastic approximation back to {cite}`RobbinsMonro1951` and {cite}`KieferWolfowitz1952` (178-190), the large-deviation foundations (329-331), the published analytic treatment in {cite}`ChoWilliamsSargent2002` and what it proves (367-378), and the learning-literature history (391-411)",
+    "The concluding section turns the model into a falsifiable statement and hands it to the next lecture: 774-778 says 'it is worth recording what the model predicts before anyone looks', states the prediction (drifting coefficients, not merely drifting shock variances), and points at {doc}`phillips_drifts_volatilities` 'including one prediction of the escape mechanism that the data decline to confirm' - and that lecture does report exactly that failure at its lines 1902-1904 and 3272-3278, so the cross-reference is accurate in both directions",
+    "Both exercises change one thing and explain the result mechanically rather than descriptively: `pl_ex1` varies the gain and prints the near-Ramsey fraction in the legend itself (812-824), and `pl_ex2` varies the prior tightness and 857-861 explains the outcome through the effective gain $1/(T+t)$ and the marginal stability of the self-confirming equilibrium",
+    "`AdaptivePhillips._sce_moments` (496-512) builds $\\mathbb{E}[X_C X_C^\\top]$ from a regressor list of `(lag, variable)` pairs and a moment dictionary rather than by writing out 36 entries, so the moment matrix can be checked against the model rather than trusted"
+  ],
+  "actions": [
+    "Resolve the figure reference at 836: 'Figures 8.1 and 8.2' are {cite}`Sargent1999`'s numbers and appear nowhere else in the lecture, while the two figures already carry `mystnb` names `fig-learn-ls` and `fig-learn-cgain`. Point `{numref}` at those. The same edit is wanted across the suite - 21 source-figure references in prose or embedded titles against one `{numref}` in eleven lectures - so it is worth settling the convention here and in `phillips_two_stories` together",
+    "Separate the seven colliding symbols, starting with the three that collide inside one section: rename the gain exponent at 361 (it is $\\gamma$, the Phillips-curve coefficient vector, everywhere else), the weight function $h(s)$ at 356 and 361 (it is the Phelps rule $h(\\gamma)$ everywhere else), and the escape tolerance $\\delta$ at 313-320 (it is the discount factor at 468 and 737). Then $R$ (345 against 94), $A$ (310 against 468), $T$ (308 against 537), and the code's `φ` at 563 against the primer's $\\phi$ at 109",
+    "Put one figure in the primer: the phase portrait of the mean dynamics flowing to $\\phi_f$ with $D$, $\\partial D$ and the least-action path $\\tilde\\phi(\\cdot)$ leaving through it (301-325). Then mark $\\phi_f$ and the induction line on {numref}`fig-learn-belief-path` (694-711) so the simulated path can be read against the theory it is meant to illustrate",
+    "Stack the least-squares and constant-gain panels in one figure with `sharey=True` (606-613, 633-640): the lecture's central contrast is currently split across two charts with independent y-limits",
+    "Convert 17 `{cite}` sites to `{cite:t}` - they are all author-position uses (186, 189, 194 twice, 220, 267 twice, 313, 330 twice, 375, 377, 394, 397 twice, 407, 802) - and note that 179 and 181 need the same change even though the checker does not flag them (see scanner_doubts). While there, 401 and 408 name In-Koo Cho and Roger Myerson in prose with no citation at all",
+    "Split the two thesis bullets at 54 and 55 (70 and 55 words) at their colons, and the four 50-plus-word sentences at 215, 241, 401 and 721",
+    "Fix the two semicolon-joined statement pairs at 520 and 521, rewrite the three padded one-line docstrings at 497, 515 and 541 as triple-quoted, and wrap the three lines over 79 characters (502, 567, 571)",
+    "Switch **new outcomes emerge** at 55 to italic and drop the second bolding of **mean dynamics** at 206; do NOT lower-case 'Critique' at 770, which is 'his Critique' referring to the Lucas Critique and is the same proper-noun false positive as in `phillips_two_stories`",
+    "Sweep the remaining mechanical items: the six `figsize` overrides (606, 633, 669, 701, 736, 813), the five over-long captions (597, 624, 662, 694, 729), the `fig.suptitle` at 682 - which repeats the caption at 666 almost word for word - the embedded title at 822, the missing `mystnb` metadata on the exercise figure at 812, and `\\operatorname{Prob}` at 318, which should be `\\mathbb{P}`"
+  ],
+  "scanner_doubts": [
+    "phillips_learning.md:179,181 - qe-ref-001 reports 17 hits and misses two more of the same kind, and the fix is one alternation that I tested across all five series. The two misses are `originates with {cite}`RobbinsMonro1951`, who devised {eq}`pl_sa` ...` (179) and `and with {cite}`KieferWolfowitz1952`, who adapted it ...` (181). Both are unambiguously author position - a relative pronoun \"who\" can only refer to people, so the rendered text must read \"Robbins and Monro (1951), who devised ...\" - and both are suppressed by the exemption at qestyle_rules.py:1440, `re.match(r\"[^`]*`\\s*[.,;:)]\", after)`, which treats any citation followed by a comma as parenthetical. `NARRATIVE_LEAD` does match them (the cue words `with` and `and` are both in its list at qestyle_rules.py:1417), so the comma exemption is the sole cause. Adding a guard that skips that exemption when the citation is followed by `,\\s+(who|whose)` takes the corpus qe-ref-001 total from 282 to 285: this file gains 2 (179, 181) and `lecture-python-intro/mobility.md` gains 1 (1220, `{cite}`prais1955measuring`, who`). I checked the whole corpus for the shape: five sites use `{cite}`X`, who` and four already use `{cite:t}`X`, who`, so the textual form is the established one and none of the five is a case where the parenthetical form could be defended",
+    "Cleared, not filed. (1) qe-math-010 (proposed) is reported with count 1 (line 318, `\\operatorname{Prob}`) and misses two bare expectations on line 83, `(\\gamma, \\, E X_{C} X_{C}^\\top, \\, E U X_{C})`, where the file writes `\\mathbb{E}` correctly at 93, 94, 119, 121, 150, 345 and 468. I am not filing it because the cause is already on the known list: the bare-letter branch's `applied` pattern (qestyle_rules.py:679) requires a following `[`, `\\{` or `(`, and these two expectations are applied by juxtaposition, `E X_{C}`. Recording it as a second corpus instance of that gap. (2) qe-math-014 and qe-math-015 (proposed) have nothing to score: the only probability operator in the file is the single `\\operatorname{Prob}(...)` at 318, whose argument is an event written with parentheses - which under qe-math-014 would want braces, but the operator itself is already counted by qe-math-010 and the rule as written is scoped to `\\mathbb{P}`, so I have left it to the qe-math-010 fix rather than double-count one site. No density or CDF is named anywhere. (3) The Code score of 10/10 is a correct mechanical result but flake8 finds five real items, reported under qe-code-001. (4) The single qe-writing-004 hit at 770 is the already-known 'Critique' false positive - 'the constant adjustments that Lucas noted in his Critique' - one of the twelve corpus-wide hits on that word, all of which are the Lucas Critique. (5) I checked the two remaining Writing rules that measure zero and they are genuinely clean: every paragraph holds one sentence (qe-writing-001 = 0) and there are no double-space runs (qe-writing-008 = 0), which is unusual for a file this long"
+  ]
+}
