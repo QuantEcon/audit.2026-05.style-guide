@@ -255,9 +255,12 @@ PY
 .venv/bin/jupyter-book build lectures
 ```
 
-Must succeed. A few dozen warnings are standing — the audit quotes rule examples (stray
-`$`, `\begin{align}`, `` {eq}`…` ``) inside prose. Treat a *new* warning class as a
-regression, not the absolute count. Confirm the charts rendered:
+Must succeed. **About 23 warnings are standing** — hand-written prose quoting rule examples
+(stray `$`, `\begin{align}`), one malformed `eq:` target in the corpus, and three `mcmc`
+theorem labels that do not exist in this book. Treat a *new* warning class as a regression,
+and treat a jump in the *count* as one too: a MyST role reaching a report unescaped used to
+put this at 478, so `escape_roles()` in `qestyle_draft.py` is what keeps it low. If the
+count climbs with coverage, that is the regression to look for. Confirm the charts rendered:
 
 ```bash
 ls lectures/_build/jupyter_execute/*.png | wc -l    # expect 5

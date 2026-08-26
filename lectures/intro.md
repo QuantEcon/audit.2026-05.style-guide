@@ -127,10 +127,10 @@ violation was measured in it*, not that a human declared it perfect.
 ```{warning}
 <!-- qe:review-coverage -->
 **Review coverage is incomplete in this pass, and it moves the scores.** The judgment
-layer has reached **219 of the 348 lectures**; a lecture assessed against more rules
+layer has reached **220 of the 348 lectures**; a lecture assessed against more rules
 scores lower — not because it is worse, but because more of it was looked at. The gap is
-large enough to matter: the 219 reviewed average **7.72** with 59 % HIGH, the 129
-unreviewed **8.43** with 22 % HIGH.
+large enough to matter: the 220 reviewed average **7.72** with 59 % HIGH, the 128
+unreviewed **8.45** with 21 % HIGH.
 <!-- /qe:review-coverage -->
 
 So **the cross-series comparison below is provisional** wherever coverage differs between

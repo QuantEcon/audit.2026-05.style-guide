@@ -65,7 +65,7 @@ already holds to.
 - **`qe-fig-010`** — Plotly figures require latex directive
 - **`qe-math-006`** — Use aligned environment correctly for PDF compatibility
 - **`qe-math-007`** — Use automatic equation numbering, not manual tags
-- **`qe-math-013`** *(proposed)* — Reference equations via {eq}`label`
+- **`qe-math-013`** *(proposed)* — Reference equations via `` {eq}`label` ``
 <!-- /qe:series-clean -->
 
 ## Series-level recommendations

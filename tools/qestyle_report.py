@@ -28,6 +28,8 @@ import re
 import sys
 import textwrap
 
+from qestyle_draft import escape_roles                        # noqa: E402
+
 CATS = ["writing", "math", "code", "figures", "references", "links", "admonitions"]
 CAT_LABEL = {"writing": "Writing", "math": "Math", "code": "Code",
              "figures": "Figures", "references": "References", "links": "Links",
@@ -219,7 +221,8 @@ def block_full_scoreboard(rows):
 def block_systemic(data_dir, top=None):
     """details.md: every recurring rule, ranked by lectures affected."""
     reach = read_csv(os.path.join(data_dir, "rule_reach.csv"))
-    titles = {r["rule"]: r["title"] for r in read_csv(os.path.join(data_dir, "rule_titles.csv"))}
+    titles = {r["rule"]: escape_roles(r["title"])
+              for r in read_csv(os.path.join(data_dir, "rule_titles.csv"))}
     per = read_csv(os.path.join(data_dir, "series_rule_reach.csv"))
     counts = read_csv(os.path.join(data_dir, "series_summary.csv"))
     n_series = {r["series"]: int(r["lectures"]) for r in counts}
@@ -370,7 +373,8 @@ def block_series_priority(rows, data_dir, series):
 def block_series_systemic(rows, data_dir, series):
     per = [r for r in read_csv(os.path.join(data_dir, "series_rule_reach.csv"))
            if r["series"] == series]
-    titles = {r["rule"]: r["title"] for r in read_csv(os.path.join(data_dir, "rule_titles.csv"))}
+    titles = {r["rule"]: escape_roles(r["title"])
+              for r in read_csv(os.path.join(data_dir, "rule_titles.csv"))}
     prop = {r["rule"] for r in read_csv(os.path.join(data_dir, "rule_reach.csv"))
             if r["proposed"] == "1"}
     r = next((x for x in rows if x["series"] == series), None)
@@ -389,7 +393,8 @@ def block_series_clean(rows, data_dir, series):
     """Rules with no violation anywhere in the series — the series' strengths."""
     per = {r["rule"] for r in read_csv(os.path.join(data_dir, "series_rule_reach.csv"))
            if r["series"] == series}
-    titles = {r["rule"]: r["title"] for r in read_csv(os.path.join(data_dir, "rule_titles.csv"))}
+    titles = {r["rule"]: escape_roles(r["title"])
+              for r in read_csv(os.path.join(data_dir, "rule_titles.csv"))}
     checked = {r["rule"] for r in read_csv(os.path.join(data_dir, "rule_reach.csv"))}
     all_checked = sorted(set(titles) & (checked | per))
     prop = {r["rule"] for r in read_csv(os.path.join(data_dir, "rule_titles.csv"))

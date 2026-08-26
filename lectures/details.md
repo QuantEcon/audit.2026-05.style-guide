@@ -138,7 +138,7 @@ reach. Rules tagged **(proposed)** are documented in the style guide but not yet
 ### 28. `qe-code-005` — Use quantecon timeit for benchmarking (7 / 348 lectures, 13 occurrences)
 - `lecture-dp` 3 / 52 · `lecture-python.myst` 3 / 145 · `lecture-python-advanced.myst` 1 / 68
 
-### 29. `qe-math-013` (proposed) — Reference equations via {eq}`label` (6 / 348 lectures, 6 occurrences)
+### 29. `qe-math-013` (proposed) — Reference equations via `` {eq}`label` `` (6 / 348 lectures, 6 occurrences)
 - `lecture-dp` 3 / 52 · `lecture-python-advanced.myst` 2 / 68 · `lecture-python.myst` 1 / 145
 
 ### 30. `qe-math-006` — Use aligned environment correctly for PDF compatibility (5 / 348 lectures, 14 occurrences)

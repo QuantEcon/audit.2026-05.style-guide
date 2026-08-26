@@ -166,19 +166,38 @@ narrower version has somewhere to start.
   headings*, three lines apart. That is precisely the inconsistency the rule exists to
   find, so the 71 removals include real findings.
 
-### The build's 309 warnings
+### The build's warnings: 478 down to 23
 
-Almost all of them are one thing: reviewer prose quotes a MyST role from the corpus
-verbatim — `` {cite}`X` ``, `` {cite:t}`X` ``, `` {eq}`label` ``, `` {doc}`advanced:…` `` —
-and Sphinx tries to resolve it in *this* book, where the cited work is not present. 308 of
-the 309 fall into that family (41 `cite`, 8 `cite:t`, 15 undefined labels, the rest
-`equation not found`); the one straggler, `unknown document: 'advanced:additive_functionals'`
-from `exchangeable.md:44`, is the same thing with a `{doc}` role.
+Almost all of them were one thing. Reviewer prose and the detectors' own sample text quote
+MyST roles from the corpus — `` {cite}`Hall1978` ``, `` {eq}`label` ``, `` {doc}`ifp_egm` ``
+— and left bare, Sphinx tries to resolve every one against a book that does not contain the
+cited work. 615 such roles across the 348 reports produced 478 of the build's warnings, and
+the count grew with every batch of overlays (263 → 309 → 391 → 478), heading for roughly 700
+at full coverage. At that level the build stops being a usable signal for a real problem.
 
-They are noise, but enough of it to hide a real warning. The fix belongs in
-`qestyle_draft.py`, where reviewer `detail` text is rendered: escape a bare MyST role into
-literal backticks so it displays rather than resolves. Not done yet — it rewrites all 348
-reports, so it wants its own pass and its own diff.
+`escape_roles()` in `qestyle_draft.py` now wraps them as literal spans at every point prose
+reaches a report — mechanical sample text, reviewer finding detail, strengths, actions and
+rule titles — and `qestyle_report.py` does the same for the titles it splices into the series
+tables. Build warnings: **478 → 23**.
+
+Two things had to be right, and neither is obvious:
+
+- **The space padding is load-bearing.** ``` ``{doc}`x``` ``` closes on a run of three
+  backticks and does not parse as a code span. `` `` {doc}`x` `` `` does. The hand-written
+  prose in `intro.md` already used the padded form, which is the clue.
+- **One dangling backtick was upstream, not a rendering problem.** `qe-ref-001`'s detail
+  quoted `m.group(0)`, and that match *ends* in a backtick, so the sample carried a stray one
+  that no escaping could close. Fixed in the detector.
+
+Worth recording how the measurement went wrong twice, because the same trap is easy to fall
+into again: the first count treated the escaped form as unescaped — the padding space defeats
+a `` (?<!`) `` lookbehind — which made a working fix look like it had done nothing. The
+warning count is the only ground truth here.
+
+The 23 that remain are hand-written prose quoting examples in `intro.md`, `appendix.md` and
+`cross_product_trick`'s malformed `eq:Kalman102}` target, plus three `mcmc` theorem labels
+that genuinely do not exist in this book. That is the "few dozen standing" level the runbook
+describes, and a new warning is now visible against it.
 
 ## Reproducing this
 

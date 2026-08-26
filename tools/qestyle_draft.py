@@ -201,7 +201,8 @@ JUDGMENT_RULES = {
 # tries to resolve every one: 615 of them across the reports, and 478 of the build's warnings.
 # Wrapped in a space-padded double-backtick span they render literally and resolve nothing.
 # The padding matters: ``` ``{doc}`x``` ``` closes on a run of three and does not parse.
-ROLE_RE = re.compile(r"(?<!`)(\{(?:cite|cite:t|eq|doc|numref|ref|term|abbr)\}(?:`[^`\n]*`)?)")
+ROLE_RE = re.compile(
+    r"(?<!`)(\{(?:cite|cite:t|eq|doc|numref|ref|term|abbr|prf:ref)\}(?:`[^`\n]*`)?)")
 
 
 def escape_roles(text: str) -> str:

@@ -72,7 +72,7 @@ already holds to.
 - **`qe-math-007`** — Use automatic equation numbering, not manual tags
 - **`qe-math-008`** — Explain special notation (vectors/matrices)
 - **`qe-math-011`** *(proposed)* — Distribution names in plain letters, not \mathcal / \mathbb
-- **`qe-math-013`** *(proposed)* — Reference equations via {eq}`label`
+- **`qe-math-013`** *(proposed)* — Reference equations via `` {eq}`label` ``
 - **`qe-ref-001`** — Use correct citation style
 - **`qe-writing-009`** *(proposed)* — Write "IID" — not "i.i.d." or "iid"
 <!-- /qe:series-clean -->
