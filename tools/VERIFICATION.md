@@ -824,11 +824,26 @@ the given name, ~6 sites rather than the 1 disclosed. And the guard is not "a ca
 author surname" but any capital-initial run of non-space characters, markup included:
 `black_litterman:41` matches `**Black-Litterman** (1992)`, which is the *model's* name.
 
-**The minimum change to adopt is a year match against the bibliography, and the corpus is a
-sparse checkout of `lectures/*.md` with no `.bib` in it.** So this cannot be verified here at
-all, at any effort. It is worth re-proposing in a session that checks out
-`_static/quant-econ.bib` — the underlying defect is real in at least 34 of the 39 sites, and it
-is the cleanest addition the rule has left.
+**The minimum change to adopt is a year match against the bibliography.** The first reading of
+this was that the corpus is a sparse checkout of `lectures/*.md` with no `.bib` in it, so the
+patch could not be verified here at any effort. **That was wrong, and it is worth recording as
+a mistake rather than quietly fixing:** the `.bib` is not absent, it is merely not
+*checked out*, and one command produces it —
+
+```bash
+git -C <corpus>/lecture-python-advanced.myst sparse-checkout add '/lectures/_static/*.bib'
+```
+
+Both disputed entries were then read directly and both false positives are confirmed:
+`@incollection{Gallatin, year = {1837}, title = {Report on the Finances**, November, 1807}}`,
+so "Gallatin (1807)" against a 1837 entry renders two different years; and
+`@Article{Blanchard_Khan, author={Blanchard, … and Kahn, Charles M}, year=1980}`, so the
+lecture's "Blanchard and Khan (1981)" differs in both the year and the spelling.
+
+So the rule is **unblocked, not unverifiable**. The remaining work is to write the branch the
+patch never contained, gate it on the in-text year equalling the cited entry's year, and
+handle the possessive and markup classes. The underlying defect is real in at least 34 of the
+39 sites and it is the cleanest addition this rule has left.
 
 ### The build's warnings: 478 down to 23
 

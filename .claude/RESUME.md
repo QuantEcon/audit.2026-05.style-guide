@@ -43,13 +43,17 @@ rejected. Two things carried forward from it:
   category scores — a **scoring** decision, not a detector one, and it wants its own pass.
   Related: the gate pattern is a hand-copied duplicate of `applied`. Reusing `applied`
   verbatim is +27 findings and reach 124 → 129 on its own, because `applied` also accepts `(`.
-- **`qe-ref-001`'s author-year duplication is real and unverifiable here.** Prose that writes
+- **`qe-ref-001`'s author-year duplication is real, and now unblocked.** Prose that writes
   "Shavell and Weiss (1979)" and then adds a plain `{cite}` for the same work prints the
-  reference twice. 34 of 39 candidate sites are genuine, but 3 have an in-text year that does
-  not match the cited entry (`smoothing_tax:87` says 1807 against `year = {1837}`), so the
-  prescribed fix would misdate the sentence. Verifying it needs `_static/quant-econ.bib`, and
-  the corpus here is a sparse checkout of `lectures/*.md`. **Re-propose it in a session that
-  checks the bib out** — add `'/lectures/_static/*.bib'` to the sparse-checkout set below.
+  reference twice. 34 of 39 candidate sites are genuine; 3 have an in-text year that does not
+  match the cited entry, so the prescribed fix would misdate the sentence. That was first
+  written up as unverifiable for want of a bibliography — **wrong**: the `.bib` is not absent,
+  only unchecked-out, and `git -C <corpus>/lecture-python-advanced.myst sparse-checkout add
+  '/lectures/_static/*.bib'` produces it. Both false positives are now confirmed against the
+  real entries. **This is the top follow-up.** The work is to write the branch the filed patch
+  never contained, gate it on the in-text year equalling the entry's year, and handle the
+  possessive (`Ryoo and Rosen's (2004)`, where `{cite:t}` cannot emit "'s") and markup
+  (`**Black-Litterman** (1992)`, a model name) classes.
 
 ## The one thing to understand about this pass
 
