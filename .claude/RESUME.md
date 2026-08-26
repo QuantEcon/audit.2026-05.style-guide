@@ -1,6 +1,6 @@
 # Resume brief — 2026-08 audit pass
 
-Session state as of commit `5b31e36` on `claude/project-review-lecture-updates-6o9a2f`.
+Session state as of commit `8d64964` on `claude/project-review-lecture-updates-6o9a2f`.
 Everything below is committed and pushed; the working tree is clean.
 
 ## Where the pass stands
@@ -8,41 +8,60 @@ Everything below is committed and pushed; the working tree is clean.
 | | |
 |---|---|
 | Corpus | 348 lectures, 5 series, pinned per series in `lectures/data/snapshot.json` |
-| Evidence layer | **complete** — 41 checks over all 348, 19,076 findings in `lectures/data/violations.csv` |
-| Scoring layer | **complete** — corpus mean 8.03, 153 HIGH / 1 MEDIUM / 102 LOW / 92 NONE |
-| Judgment layer | **189 of 348 reviewed** — 159 to go, queued in `.claude/review-queue.json` |
-| Gate | `All checks passed` |
-| Build | succeeds on Python 3.12 (`.venv`), 353 pages, 5 charts |
-| Trend | 2026-05 and 2026-08 both measured with today's code; 27 rules improved, 5 level, 3 worse |
+| Evidence layer | **complete** — 41 checks over all 348, 18,783 findings in `lectures/data/violations.csv` |
+| Scoring layer | **complete** — corpus mean 7.99, 158 HIGH / 1 MEDIUM / 99 LOW / 90 NONE |
+| Judgment layer | **229 of 348 reviewed** — 119 to go, queued in `.claude/review-queue.json` |
+| Gate | `All checks passed` — 17 hand-written claims cross-checked |
+| Build | succeeds on Python 3.12 (`.venv`), 353 pages, 5 charts, **4 warnings** |
+| Trend | both snapshots measured with current code; 27 improved, 4 level, 4 worse |
 
 The only unfinished work is the judgment review. Nothing else is waiting on it: the
 front-page caveat, the five per-series coverage lines and the scoreboard all regenerate
 themselves from whichever overlays exist, so the book is publishable at any coverage level
 and says so honestly.
 
-## What the 2026-08-25 session changed
+## What the 2026-08-25/26 session changed
 
-Five verified detector fixes came out of reviewer `scanner_doubts`, which is now the most
-productive source of defects in the project — worth reading every batch's doubts carefully.
+**Fourteen verified detector and lexer fixes, every one traced to a reviewer's
+`scanner_doubts`.** That is now far and away the most productive source of defects in the
+project — read every batch's doubts carefully, and ask reviewers to name the pattern and the
+exact input it mishandles.
 
-- **`qe-math-010`** was undercounting: `[PEV]\b` never fires before a subscript, because
-  `_` is a word character, so `\mathbb E_t` — the corpus's usual conditional expectation —
-  was invisible. Its Roman branch also missed `\textrm{…}`, `{\rm …}` and `Prob`.
-  Reach 105 → 117.
-- **`qe-math-011`**'s bare-`\mathcal` alternative did not consume its closing brace, so
-  `{\mathcal N}(0,1)` failed the distribution-context gate. Reach 24 → 34.
-- **`qe-math-002`** had three false-positive classes, all guards a sibling branch already
-  had: no guard at all on `^\prime`, no relation guard on `prime_vec`, and no
-  double-prime exclusion. Occurrences 2,129 → 1,865.
+The `qe-math-002` work is the substantial part. A bare apostrophe is genuinely ambiguous in
+this corpus — a transpose in the LQ lectures, a next-period state in the dynamic-programming
+ones — so the check now decides **per file** whether the file uses it as a transpose at all,
+and an author's **stated convention overrides that heuristic** (`var_dmd` line 75 says the
+prime "is part of the name of the matrix"; `arellano` line 147 says it "denotes a next period
+value"). Occurrences went 2,129 → 1,612. Also fixed: derivative primes, summation indices,
+second derivatives, `)'` before a parenthesised factor, superscripted `C^{'}`, and the
+`^\prime` spelling of the next-period case.
 
-Both snapshots were re-measured after each fix, so the trend is still like-for-like.
-`tools/VERIFICATION.md` carries the details, plus a *Known limitations, accepted
-deliberately* section listing what was left and why — read it before "fixing" something
-there.
+Others: `qe-math-010` was blind to `\mathbb E_t` because `\b` cannot fire before a
+subscript; `qe-math-011` missed `{\mathcal N}`; `qe-code-002` counted imported names like
+`scipy.stats.beta`; `qe-ref-001`'s `see`/`include` exemption was dead code; `_is_proper`
+rejected `Student-t`; and a single stray backtick in `five_preferences` was masking 381 of
+its 798 narrative lines because `` [^`] `` matches newlines and made the paragraph-break
+guard unreachable.
 
-The gate also grew a `narrative-claims` check that holds hand-written tables to
-`rule_reach_history.csv`, and the `intro.md` coverage caveat is now a generated
-`<!-- qe:review-coverage -->` block rather than two hand-typed figures.
+**Read `tools/VERIFICATION.md` before "fixing" anything here.** It records all of it, plus a
+*Known limitations, accepted deliberately* section and — just as important — three fixes that
+were **verified and then rejected** because they deleted real findings. Two `qe-writing-004`
+exemptions and one `qe-ref-001` line-break repair. Do not re-propose them.
+
+**Two things about measurement**, both of which caught me out:
+
+- Judge every fix in **both directions**. Removing false positives is worthless if it also
+  removes true positives, and twice a fix that measured well in aggregate was deleting
+  genuine findings. Keep a canary list of real findings that must survive.
+- **De-duplicating hits into a set will lie to you.** Every `\prime transpose` match on a
+  line carries an identical detail string, so a set collapses them and a −8 change reads as
+  −380. Count occurrences with `qestyle_scan`, not with a Python set.
+
+The gate grew two checks that exist because prose went stale after a rule fix: it now holds
+hand-written tables *and* the trend sentence's own tallies to `rule_reach_history.csv`. It
+has caught me three times since. Separately, `escape_roles()` renders MyST roles in reviewer
+prose literally, which took the build from 478 warnings to 4 — if that count climbs with
+coverage again, that function is what regressed.
 
 ## Resuming the review — one agent, many sessions
 
