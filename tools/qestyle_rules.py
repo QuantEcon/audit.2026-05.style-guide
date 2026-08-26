@@ -391,6 +391,9 @@ NOT_A_PRODUCT_PRIME = "|".join(
      if t not in {"begin", "left", "big", "Big", "bigg", "Bigg"}]
     + ["bigr", "Bigr", "biggr", "Biggr", "bigm", "Bigm"])
 # A prime on a closing delimiter: ``(A+B)'``, ``\end{bmatrix}'``, ``[0,1,0,0]'``.
+# Deliberately NOT extended to ``^\prime``: a ``}`` before it is usually a subscript's
+# closing brace, not a transposed group, so ``Q_{r}^\prime`` — next period's Q in
+# ``mccall_q`` — would falsely signal that the file uses primes for transposes.
 DELIM_PRIME = re.compile(r"(?:\)|\}|\])'(?!')")
 # A prime on the repeat of the symbol just before it: ``CC'``, ``U_t U_t'``.
 REPEATED_PRIME = re.compile(r"(?<![A-Za-z0-9\\])([A-Za-z])(?:_\{[^}]*\}|_[A-Za-z0-9])?"
@@ -479,10 +482,14 @@ def check_math_002(doc: Doc):
     # apostrophes count too. A lecture writing none of them uses it for a continuation
     # state, and none of its apostrophes are transposes. The patterns themselves are not
     # narrowed; only the two bare-apostrophe branches are gated.
+    # ``^\prime`` carries the same ambiguity as the bare apostrophe — ``\pi^{\prime}`` is
+    # next period's belief in ``navy_captain``, whose line 633 defines it as the posterior
+    # after one more draw — so it is gated on the same evidence, and can also supply it.
     spans = list(_math_spans(doc))
     evident = any(
         DELIM_PRIME.search(src) or REPEATED_PRIME.search(src)
-        or any(FOLLOWING_FACTOR.match(src, m.end()) for m in prime.finditer(src))
+        or any(FOLLOWING_FACTOR.match(src, m.end())
+               for m in list(prime.finditer(src)) + list(lprime.finditer(src)))
         for _, src in spans)
     for no, src in spans:
         if evident:
@@ -495,10 +502,10 @@ def check_math_002(doc: Doc):
                 if m.start() in deriv:
                     continue
                 hits.append(Hit("qe-math-002", no, f"apostrophe transpose `{m.group(0)}`"))
+            for m in lprime.finditer(src):
+                hits.append(Hit("qe-math-002", no, r"\prime transpose"))
         for m in supT.finditer(src):
             hits.append(Hit("qe-math-002", no, f"`^T` transpose in `{m.group(0)}`"))
-        for m in lprime.finditer(src):
-            hits.append(Hit("qe-math-002", no, r"\prime transpose"))
         for m in sup_prime.finditer(src):
             hits.append(Hit("qe-math-002", no, f"apostrophe transpose `{m.group(0)}`"))
     return hits

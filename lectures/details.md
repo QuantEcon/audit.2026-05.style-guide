@@ -90,8 +90,8 @@ reach. Rules tagged **(proposed)** are documented in the style guide but not yet
 ### 12. `qe-link-002` — Use doc links for cross-series references (73 / 348 lectures, 205 occurrences)
 - `lecture-python-advanced.myst` 26 / 68 · `lecture-python.myst` 20 / 145 · `lecture-dp` 15 / 52 · `lecture-python-intro` 9 / 56 · `lecture-python-programming` 3 / 27
 
-### 13. `qe-math-002` — Use \top for transpose notation (70 / 348 lectures, 1648 occurrences)
-- `lecture-python.myst` 28 / 145 · `lecture-python-advanced.myst` 20 / 68 · `lecture-dp` 17 / 52 · `lecture-python-intro` 4 / 56 · `lecture-python-programming` 1 / 27
+### 13. `qe-math-002` — Use \top for transpose notation (67 / 348 lectures, 1640 occurrences)
+- `lecture-python.myst` 26 / 145 · `lecture-python-advanced.myst` 20 / 68 · `lecture-dp` 16 / 52 · `lecture-python-intro` 4 / 56 · `lecture-python-programming` 1 / 27
 
 ### 14. `qe-fig-004` — Caption formatting conventions (63 / 348 lectures, 183 occurrences)
 - `lecture-python.myst` 38 / 145 · `lecture-python-intro` 17 / 56 · `lecture-python-advanced.myst` 8 / 68
@@ -174,10 +174,11 @@ HIGH lecture was triggered by the category floor; none has an overall at or belo
 | python.myst | [cross_product_trick](lecture-python.myst/cross_product_trick.md) | 3.5 | 3.0 | — | — | — | 10.0 | — | **5.5** | 3.0 |
 | advanced | [hs_recursive_models](lecture-python-advanced.myst/hs_recursive_models.md) | 3.0 | 3.0 | — | — | 8.5 | 8.0 | — | **5.6** | 3.0 |
 | dp | [cross_product_trick](lecture-dp/cross_product_trick.md) | 4.0 | 3.0 | — | — | — | 10.0 | — | **5.7** | 3.0 |
+| python.myst | [navy_captain](lecture-python.myst/navy_captain.md) | 3.0 | 6.5 | 6.5 | 3.0 | — | 10.0 | — | **5.8** | 3.0 |
 | advanced | [markov_jump_lq](lecture-python-advanced.myst/markov_jump_lq.md) | 5.0 | 3.0 | 5.0 | 5.5 | 8.5 | 9.0 | — | **6.0** | 3.0 |
 | advanced | [smoothing](lecture-python-advanced.myst/smoothing.md) | 3.0 | 3.0 | 7.5 | 5.0 | 10.0 | 7.5 | — | **6.0** | 3.0 |
 | advanced | [tax_smoothing_1](lecture-python-advanced.myst/tax_smoothing_1.md) | 4.0 | 4.5 | 5.5 | 6.0 | 7.5 | 9.0 | — | **6.1** | 4.0 |
-| python.myst | [navy_captain](lecture-python.myst/navy_captain.md) | 4.5 | 4.5 | 8.5 | 3.0 | — | 10.0 | — | **6.1** | 3.0 |
+| python.myst | [prob_matrix](lecture-python.myst/prob_matrix.md) | 3.0 | 3.0 | 5.5 | 5.0 | — | 10.0 | 10.0 | **6.1** | 3.0 |
 | dp | [markov_jump_lq](lecture-dp/markov_jump_lq.md) | 5.0 | 3.0 | 6.0 | 5.5 | 8.5 | 9.0 | — | **6.2** | 3.0 |
 | advanced | [five_preferences](lecture-python-advanced.myst/five_preferences.md) | 3.0 | 6.0 | 7.0 | 4.0 | 7.0 | 10.0 | — | **6.2** | 3.0 |
 | advanced | [knowing_forecasts_of_others](lecture-python-advanced.myst/knowing_forecasts_of_others.md) | 3.0 | 3.0 | 7.0 | 9.0 | 7.5 | 8.0 | — | **6.2** | 3.0 |
@@ -197,13 +198,12 @@ HIGH lecture was triggered by the category floor; none has an overall at or belo
 | advanced | [robustness](lecture-python-advanced.myst/robustness.md) | 3.0 | 3.0 | 7.0 | 6.5 | 10.0 | 7.5 | 10.0 | **6.7** | 3.0 |
 | python.myst | [lagrangian_lqdp](lecture-python.myst/lagrangian_lqdp.md) | 3.0 | 3.0 | 6.5 | — | 10.0 | 7.5 | 10.0 | **6.7** | 3.0 |
 | python.myst | [imp_sample](lecture-python.myst/imp_sample.md) | 4.5 | 4.0 | 7.5 | 8.0 | — | 10.0 | — | **6.8** | 4.0 |
-| python.myst | [prob_matrix](lecture-python.myst/prob_matrix.md) | 5.0 | 3.0 | 7.5 | 5.0 | — | 10.0 | 10.0 | **6.8** | 3.0 |
+| python.myst | [var_dmd](lecture-python.myst/var_dmd.md) | 3.0 | 4.5 | — | — | 7.5 | 9.0 | 10.0 | **6.8** | 3.0 |
 | dp | [dyn_stack](lecture-dp/dyn_stack.md) | 4.0 | 5.0 | 7.0 | 4.5 | 10.0 | 7.5 | 10.0 | **6.9** | 4.0 |
 | dp | [ifp_advanced](lecture-dp/ifp_advanced.md) | 3.0 | 3.0 | 6.5 | 7.0 | 8.5 | 10.0 | 10.0 | **6.9** | 3.0 |
 | advanced | [stationary_densities](lecture-python-advanced.myst/stationary_densities.md) | 4.0 | 6.0 | 6.0 | 6.0 | 9.0 | 7.5 | 10.0 | **6.9** | 4.0 |
 | python.myst | [ifp_advanced](lecture-python.myst/ifp_advanced.md) | 3.0 | 3.0 | 7.0 | 7.0 | 8.5 | 10.0 | 10.0 | **6.9** | 3.0 |
 | python.myst | [markov_asset](lecture-python.myst/markov_asset.md) | 3.0 | 4.5 | 7.5 | 6.5 | 9.0 | 8.0 | 10.0 | **6.9** | 3.0 |
-| python.myst | [var_dmd](lecture-python.myst/var_dmd.md) | 3.0 | 5.0 | — | — | 7.5 | 9.0 | 10.0 | **6.9** | 3.0 |
 | dp | [smoothing](lecture-dp/smoothing.md) | 6.5 | 3.0 | 10.0 | 5.0 | 10.0 | 7.5 | — | **7.0** | 3.0 |
 | advanced | [cagan_rational_expectations](lecture-python-advanced.myst/cagan_rational_expectations.md) | 5.5 | 3.0 | 6.5 | 5.5 | 8.5 | 10.0 | 10.0 | **7.0** | 3.0 |
 | advanced | [calvo](lecture-python-advanced.myst/calvo.md) | 3.0 | 5.5 | 7.0 | 7.0 | 8.5 | 8.0 | 10.0 | **7.0** | 3.0 |
@@ -228,7 +228,6 @@ HIGH lecture was triggered by the category floor; none has an overall at or belo
 | dp | [amss](lecture-dp/amss.md) | 3.5 | 3.5 | 8.0 | 6.0 | 10.0 | 10.0 | 10.0 | **7.3** | 3.5 |
 | dp | [calvo_machine_learn](lecture-dp/calvo_machine_learn.md) | 4.0 | 3.0 | 6.0 | 8.0 | 10.0 | 10.0 | 10.0 | **7.3** | 3.0 |
 | dp | [lq_inventories](lecture-dp/lq_inventories.md) | 4.0 | 3.0 | 7.0 | 7.0 | 10.0 | 10.0 | 10.0 | **7.3** | 3.0 |
-| dp | [mccall_q](lecture-dp/mccall_q.md) | 3.0 | 8.0 | 7.0 | 7.0 | 9.0 | 10.0 | — | **7.3** | 3.0 |
 | dp | [tax_smoothing_2](lecture-dp/tax_smoothing_2.md) | 9.0 | 4.0 | 8.5 | 4.0 | 8.5 | 10.0 | — | **7.3** | 4.0 |
 | advanced | [amss](lecture-python-advanced.myst/amss.md) | 4.0 | 4.0 | 7.0 | 6.0 | 10.0 | 10.0 | 10.0 | **7.3** | 4.0 |
 | advanced | [growth_in_dles](lecture-python-advanced.myst/growth_in_dles.md) | 3.0 | 7.5 | 7.5 | 7.0 | 9.0 | 10.0 | — | **7.3** | 3.0 |
@@ -264,6 +263,7 @@ HIGH lecture was triggered by the category floor; none has an overall at or belo
 | python.myst | [information_market_equilibrium](lecture-python.myst/information_market_equilibrium.md) | 4.0 | 4.0 | 7.0 | 7.5 | 10.0 | 10.0 | 10.0 | **7.5** | 4.0 |
 | python.myst | [inventory_q](lecture-python.myst/inventory_q.md) | 3.0 | 6.0 | 10.0 | 6.0 | 10.0 | 10.0 | — | **7.5** | 3.0 |
 | python.myst | [perm_income](lecture-python.myst/perm_income.md) | 3.5 | 4.5 | 10.0 | 6.0 | 8.5 | 10.0 | 10.0 | **7.5** | 3.5 |
+| dp | [mccall_q](lecture-dp/mccall_q.md) | 3.0 | 9.5 | 7.0 | 7.0 | 9.0 | 10.0 | — | **7.6** | 3.0 |
 | advanced | [amss2](lecture-python-advanced.myst/amss2.md) | 3.5 | 10.0 | 7.5 | 6.0 | 8.5 | 10.0 | — | **7.6** | 3.5 |
 | advanced | [calvo_abreu](lecture-python-advanced.myst/calvo_abreu.md) | 4.0 | 8.5 | 5.5 | 9.0 | 8.5 | 10.0 | — | **7.6** | 4.0 |
 | advanced | [doubts_or_variability](lecture-python-advanced.myst/doubts_or_variability.md) | 4.0 | 3.0 | 8.5 | 9.0 | 9.0 | 10.0 | 10.0 | **7.6** | 3.0 |
@@ -381,7 +381,7 @@ needs a reading pass; the third is small and structural.
     appear in both series, but only **6 are byte-identical** at this snapshot:
     `cross_product_trick`, `ifp_discrete`, `ifp_opi`, `lq_inventories`,
     `mccall_model_with_separation`, `os_numerical`. Those 6 account for 223 of the corpus's
-    18,923 findings — **1.2 % genuinely counted twice**, which is the honest size of the
+    18,915 findings — **1.2 % genuinely counted twice**, which is the honest size of the
     double-count. The other 25 share an origin and have diverged, so their findings are
     about different files even where the defect is the same. For the identical 6, fix
     upstream and both clear; for the diverged 25, each copy needs its own fix. Worth a

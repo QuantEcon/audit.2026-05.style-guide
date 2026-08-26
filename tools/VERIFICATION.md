@@ -127,6 +127,17 @@ reason to distrust the corpus totals.
   of them does not, and none of its apostrophes count. Removed 242 occurrences across 13
   lectures — `atkeson_1991` 71 (Math 5.0 → 9.5, HIGH → LOW), `tsyrennikov_2013` 50,
   `arellano` 31, `repeat_mh` 25 — with 0 added and all eight canary transposes intact.
+  **The first version of this gate covered only the bare-apostrophe branches**, so the
+  same next-period-state class survived in the `^\prime` spelling: `navy_captain` scored
+  6 on `\pi^{\prime}` and `z^{\prime}` in a file whose line 633 *defines* the prime as
+  the posterior after one more draw, and whose `\top` and `^T` counts are both zero.
+  `lprime` is now gated on the same flag and can also supply evidence for it. −8, and
+  the 230 legitimate `^\prime` hits in eight other files are untouched because those
+  files carry bare-apostrophe evidence.
+  Not extended: a `^\prime` on a `}` as *evidence*. A brace before it is usually a
+  subscript's closing brace rather than a transposed group, so `Q_{r}^\prime` — next
+  period's Q in `mccall_q` — falsely switched that file's branches back on and added a
+  hit. Measured, reverted, and left as a comment on `DELIM_PRIME`.
 - **The three `qe-math-002` branches still double-count the same site.** `x_t' R x_t` is
   reported once by the `prime` branch for `x_t'` and again by `prime_vec` for `t'`.
   `check_math_010` solved the same problem by having its branches mask each other after

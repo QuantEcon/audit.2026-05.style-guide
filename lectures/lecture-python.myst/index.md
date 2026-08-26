@@ -9,7 +9,7 @@ Style audit of the **lecture-python.myst** series.
 - **Average overall score:** 8.1 / 10
 - **Average per-category scores:** writing 5.9, math 7.2, code 8.5, figures 6.5, references 9.6, links 9.8, admon 10.0
 - **JAX:** out of scope — the `qe-jax-*` rules target `lecture-jax`.
-- **Judgment-review coverage:** **64 of 145 reviewed** — scores for the unreviewed 81 reflect the 41 measured rules only, so they are not directly comparable with the reviewed ones.
+- **Judgment-review coverage:** **66 of 145 reviewed** — scores for the unreviewed 79 reflect the 41 measured rules only, so they are not directly comparable with the reviewed ones.
 <!-- /qe:series-meta -->
 
 <!-- qe:series-narrative -->
@@ -102,15 +102,15 @@ that lecture. Click a lecture for its full report.
 | # | Lecture | Writing | Math | Code | Figures | References | Links | Admon | Overall | Priority |
 |---|---------|---|---|---|---|---|---|---|---------|----------|
 | 1 | [cross_product_trick](cross_product_trick.md) | 3.5 | 3 | — | — | — | 10 | — | **5.5** | HIGH |
-| 2 | [navy_captain](navy_captain.md) | 4.5 | 4.5 | 8.5 | 3 | — | 10 | — | **6.1** | HIGH |
-| 3 | [likelihood_ratio_process](likelihood_ratio_process.md) | 3 | 3 | 6 | 3.5 | 10 | 10 | 10 | **6.5** | HIGH |
-| 4 | [lagrangian_lqdp](lagrangian_lqdp.md) | 3 | 3 | 6.5 | — | 10 | 7.5 | 10 | **6.7** | HIGH |
-| 5 | [imp_sample](imp_sample.md) | 4.5 | 4 | 7.5 | 8 | — | 10 | — | **6.8** | HIGH |
-| 6 | [prob_matrix](prob_matrix.md) | 5 | 3 | 7.5 | 5 | — | 10 | 10 | **6.8** | HIGH |
-| 7 | [ifp_advanced](ifp_advanced.md) | 3 | 3 | 7 | 7 | 8.5 | 10 | 10 | **6.9** | HIGH |
-| 8 | [kalman_2](kalman_2.md) | 5 | 7.5 | 7.5 | 4.5 | — | 10 | — | **6.9** | MEDIUM |
-| 9 | [markov_asset](markov_asset.md) | 3 | 4.5 | 7.5 | 6.5 | 9 | 8 | 10 | **6.9** | HIGH |
-| 10 | [var_dmd](var_dmd.md) | 3 | 5 | — | — | 7.5 | 9 | 10 | **6.9** | HIGH |
+| 2 | [navy_captain](navy_captain.md) | 3 | 6.5 | 6.5 | 3 | — | 10 | — | **5.8** | HIGH |
+| 3 | [prob_matrix](prob_matrix.md) | 3 | 3 | 5.5 | 5 | — | 10 | 10 | **6.1** | HIGH |
+| 4 | [likelihood_ratio_process](likelihood_ratio_process.md) | 3 | 3 | 6 | 3.5 | 10 | 10 | 10 | **6.5** | HIGH |
+| 5 | [lagrangian_lqdp](lagrangian_lqdp.md) | 3 | 3 | 6.5 | — | 10 | 7.5 | 10 | **6.7** | HIGH |
+| 6 | [imp_sample](imp_sample.md) | 4.5 | 4 | 7.5 | 8 | — | 10 | — | **6.8** | HIGH |
+| 7 | [var_dmd](var_dmd.md) | 3 | 4.5 | — | — | 7.5 | 9 | 10 | **6.8** | HIGH |
+| 8 | [ifp_advanced](ifp_advanced.md) | 3 | 3 | 7 | 7 | 8.5 | 10 | 10 | **6.9** | HIGH |
+| 9 | [kalman_2](kalman_2.md) | 5 | 7.5 | 7.5 | 4.5 | — | 10 | — | **6.9** | MEDIUM |
+| 10 | [markov_asset](markov_asset.md) | 3 | 4.5 | 7.5 | 6.5 | 9 | 8 | 10 | **6.9** | HIGH |
 | 11 | [finite_markov](finite_markov.md) | 3 | 3.5 | 8 | 6.5 | 10 | 9 | 10 | **7.1** | HIGH |
 | 12 | [linear_models](linear_models.md) | 3 | 3 | 10 | 7.5 | — | 9 | 10 | **7.1** | HIGH |
 | 13 | [lq_inventories](lq_inventories.md) | 3 | 3 | 7 | 7 | 10 | 10 | 10 | **7.1** | HIGH |
@@ -205,19 +205,19 @@ that lecture. Click a lecture for its full report.
 | 102 | [career](career.md) | 6 | 9.5 | 8.5 | 6.5 | 10 | 10 | 10 | **8.6** | NONE |
 | 103 | [exchange_rate_learning](exchange_rate_learning.md) | 5 | 9.5 | 10 | 5.5 | 10 | 10 | 10 | **8.6** | NONE |
 | 104 | [lq_bewley_complete_markets](lq_bewley_complete_markets.md) | 6 | 10 | 8.5 | 6 | 10 | 10 | 10 | **8.6** | NONE |
-| 105 | [mccall_q](mccall_q.md) | 7 | 8.5 | 10 | 7 | 9 | 10 | — | **8.6** | NONE |
-| 106 | [mccall_risk](mccall_risk.md) | 10 | 6.5 | 8 | 7 | — | 10 | 10 | **8.6** | NONE |
-| 107 | [os_numerical](os_numerical.md) | 6 | 10 | 10 | 5.5 | — | 10 | 10 | **8.6** | NONE |
-| 108 | [phillips_learning](phillips_learning.md) | 9 | 8.5 | 10 | 6 | 7 | 10 | 10 | **8.6** | NONE |
-| 109 | [rational_expectations](rational_expectations.md) | 7 | 5.5 | 8.5 | 10 | 9 | 10 | 10 | **8.6** | NONE |
-| 110 | [sir_model](sir_model.md) | 6.5 | 8 | 10 | 8.5 | — | 10 | — | **8.6** | NONE |
-| 111 | [wealth_dynamics](wealth_dynamics.md) | 4.5 | 10 | 9.5 | 6.5 | 10 | 10 | 10 | **8.6** | NONE |
-| 112 | [genetic_classifier](genetic_classifier.md) | 5.5 | 10 | 8.5 | 7 | 10 | 10 | 10 | **8.7** | NONE |
-| 113 | [ls_learning](ls_learning.md) | 8.5 | 6.5 | 10 | 6 | 10 | 10 | 10 | **8.7** | NONE |
-| 114 | [mccall_model_with_separation](mccall_model_with_separation.md) | 7 | 8.5 | 7 | 8.5 | 10 | 10 | 10 | **8.7** | NONE |
-| 115 | [olg_adaptive_money](olg_adaptive_money.md) | 7 | 8.5 | 10 | 5.5 | 10 | 10 | 10 | **8.7** | NONE |
-| 116 | [robust_permanent_income](robust_permanent_income.md) | 7.5 | 10 | 7.5 | 6 | 10 | 10 | 10 | **8.7** | NONE |
-| 117 | [harrison_kreps](harrison_kreps.md) | 6.5 | 8 | 8.5 | — | 10 | 10 | 10 | **8.8** | NONE |
+| 105 | [mccall_risk](mccall_risk.md) | 10 | 6.5 | 8 | 7 | — | 10 | 10 | **8.6** | NONE |
+| 106 | [os_numerical](os_numerical.md) | 6 | 10 | 10 | 5.5 | — | 10 | 10 | **8.6** | NONE |
+| 107 | [phillips_learning](phillips_learning.md) | 9 | 8.5 | 10 | 6 | 7 | 10 | 10 | **8.6** | NONE |
+| 108 | [rational_expectations](rational_expectations.md) | 7 | 5.5 | 8.5 | 10 | 9 | 10 | 10 | **8.6** | NONE |
+| 109 | [sir_model](sir_model.md) | 6.5 | 8 | 10 | 8.5 | — | 10 | — | **8.6** | NONE |
+| 110 | [wealth_dynamics](wealth_dynamics.md) | 4.5 | 10 | 9.5 | 6.5 | 10 | 10 | 10 | **8.6** | NONE |
+| 111 | [genetic_classifier](genetic_classifier.md) | 5.5 | 10 | 8.5 | 7 | 10 | 10 | 10 | **8.7** | NONE |
+| 112 | [ls_learning](ls_learning.md) | 8.5 | 6.5 | 10 | 6 | 10 | 10 | 10 | **8.7** | NONE |
+| 113 | [mccall_model_with_separation](mccall_model_with_separation.md) | 7 | 8.5 | 7 | 8.5 | 10 | 10 | 10 | **8.7** | NONE |
+| 114 | [olg_adaptive_money](olg_adaptive_money.md) | 7 | 8.5 | 10 | 5.5 | 10 | 10 | 10 | **8.7** | NONE |
+| 115 | [robust_permanent_income](robust_permanent_income.md) | 7.5 | 10 | 7.5 | 6 | 10 | 10 | 10 | **8.7** | NONE |
+| 116 | [harrison_kreps](harrison_kreps.md) | 6.5 | 8 | 8.5 | — | 10 | 10 | 10 | **8.8** | NONE |
+| 117 | [mccall_q](mccall_q.md) | 7 | 10 | 10 | 7 | 9 | 10 | — | **8.8** | NONE |
 | 118 | [newton_method](newton_method.md) | 8 | 10 | 9 | 6 | — | 10 | 10 | **8.8** | NONE |
 | 119 | [phillips_priors](phillips_priors.md) | 9 | 10 | 10 | 5.5 | 7 | 10 | 10 | **8.8** | NONE |
 | 120 | [theil_1](theil_1.md) | 9 | 7.5 | 8.5 | 6.5 | 10 | 10 | 10 | **8.8** | NONE |

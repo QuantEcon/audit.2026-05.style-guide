@@ -121,10 +121,10 @@ that lecture. Click a lecture for its full report.
 | 14 | [amss](amss.md) | 3.5 | 3.5 | 8 | 6 | 10 | 10 | 10 | **7.3** | HIGH |
 | 15 | [calvo_machine_learn](calvo_machine_learn.md) | 4 | 3 | 6 | 8 | 10 | 10 | 10 | **7.3** | HIGH |
 | 16 | [lq_inventories](lq_inventories.md) | 4 | 3 | 7 | 7 | 10 | 10 | 10 | **7.3** | HIGH |
-| 17 | [mccall_q](mccall_q.md) | 3 | 8 | 7 | 7 | 9 | 10 | — | **7.3** | HIGH |
-| 18 | [rs_inventory_q](rs_inventory_q.md) | 5 | 6.5 | 10 | 5 | — | 10 | — | **7.3** | LOW |
-| 19 | [tax_smoothing_2](tax_smoothing_2.md) | 9 | 4 | 8.5 | 4 | 8.5 | 10 | — | **7.3** | HIGH |
-| 20 | [perm_income](perm_income.md) | 3.5 | 4.5 | 10 | 6 | 8.5 | 10 | 10 | **7.5** | HIGH |
+| 17 | [rs_inventory_q](rs_inventory_q.md) | 5 | 6.5 | 10 | 5 | — | 10 | — | **7.3** | LOW |
+| 18 | [tax_smoothing_2](tax_smoothing_2.md) | 9 | 4 | 8.5 | 4 | 8.5 | 10 | — | **7.3** | HIGH |
+| 19 | [perm_income](perm_income.md) | 3.5 | 4.5 | 10 | 6 | 8.5 | 10 | 10 | **7.5** | HIGH |
+| 20 | [mccall_q](mccall_q.md) | 3 | 9.5 | 7 | 7 | 9 | 10 | — | **7.6** | HIGH |
 | 21 | [amss3](amss3.md) | 3.5 | 9 | 8.5 | 5.5 | 7.5 | 10 | 10 | **7.7** | HIGH |
 | 22 | [chang_ramsey](chang_ramsey.md) | 3 | 10 | 8.5 | 6 | 8.5 | 10 | — | **7.7** | HIGH |
 | 23 | [lqramsey](lqramsey.md) | 6.5 | 3 | 7.5 | 7 | 10 | 10 | 10 | **7.7** | HIGH |
