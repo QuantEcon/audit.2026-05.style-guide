@@ -483,6 +483,52 @@ hits with the surname dropped from the reason list — `'Original Wecker Method'
 (Wecker, Method)` becomes `(Method)`, still a finding because `Method` should be lowercase.
 The fix narrows the reason; it does not clear the heading.
 
+### `qe-code-002` only ever saw a Greek name that stood completely alone
+
+The largest single correction in this pass, and the one most often reported: five overlays
+raised it independently, `hansen_richard_1987`'s at length. `GREEK_RE` ended in `(?![\w])`,
+so only a Greek word that was a *whole* identifier counted. In this corpus a Greek name
+almost never stands alone — it carries a subscript or a plural. `hansen_richard_1987` writes
+`mu_m`, `mu_vec`, `mu_low`, `mu_unc`, `alphas`, `alphas_dynamic` and was reported clean on
+all of them while the same file writes `σ_m`, `σ`, `βs`, `αs` and `δ, γ`; line 426 is
+`mu_m = -0.5 * σ_m**2`, one Greek letter spelled out and the other in unicode inside a single
+expression. `kalman_2.md:511` is the same thing in one line of arguments:
+`mu_0=μ_sim_0, Sigma_0=Σ_sim_0`.
+
+`GREEK_RE` now consumes an optional `s` or `_<suffix>`. **307 → 700 occurrences, reach
+38 → 57**: 400 added across 32 lectures, 7 removed.
+
+Consuming the suffix rather than merely allowing it is what makes the rest work: `m.end()`
+becomes the end of the whole identifier, so the existing keyword-argument test sees `mu_0=`
+where before it saw `mu` followed by `_0=`. Three exemptions had to come with it, and each
+was measured:
+
+- **The 7 removals are the fix working.** They are all `beta=β` on a *continuation* line —
+  `qe.nnash(A, B1, …,` / `M2, beta=β)` in `markov_perf`, `LQ(econ.Q, …,` /
+  `econ.C, N=econ.W, beta=econ.beta)` in `gorman_heterogeneous_households`. The rule already
+  meant to exempt a library's own parameter name, but `_enclosing_callee` was given a single
+  line, and a continuation line contains no callee. It is now given the whole cell and this
+  line's offset into it.
+- **A Greek word is also a distribution's name.** `sargent_surico` defines `beta_prior`
+  returning `stats.beta(...)`, `gamma_prior` returning `stats.gamma(...)`, and `beta_np` /
+  `gamma_np` returning `dist.Beta(...)` / `dist.Gamma(...)`. `γ_np` would be a
+  mistranslation, not a fix. 24 such additions are gated on the cell actually calling a
+  distribution of that name from a stats namespace, rather than on the name alone — and a
+  blanket "Greek word used as a function name" exemption was rejected, because it would have
+  cost `market_diffusion.md:159`'s `def mu(self, a)`, which is a real finding.
+- **`chi2` is not `chi` with a subscript.** A trailing digit is excluded from the suffix, so
+  scipy's chi-squared does not become a Greek variable.
+- **The import-shadowing carve-out is for the bare name only.** `lln_clt`'s
+  `beta_dist = beta(2, 2)` does not shadow the imported `beta`; it stores its result under a
+  different name, and that name is a distribution's.
+
+Twelve unit cases pin the behaviour, including the two that pull in opposite directions:
+`def beta_prior(m, s): return stats.beta(m, s)` is exempt, `def sigma_star(x)` is not.
+
+**Known limitation.** A lecture that imports `beta` or `gamma` from `scipy.stats` *and* uses
+`beta_*` for its own discount factor would have that name exempted. Two occurrences changed
+hands on this test, both correctly; the exposure is small and the direction is conservative.
+
 ### The build's warnings: 478 down to 23
 
 Almost all of them were one thing. Reviewer prose and the detectors' own sample text quote

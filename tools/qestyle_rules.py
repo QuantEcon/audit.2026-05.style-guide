@@ -838,7 +838,15 @@ GREEK_WORDS = ["alpha", "beta", "gamma", "delta", "epsilon", "zeta", "eta",
                # capitalised forms name matrices and should also be unicode
                "Gamma", "Delta", "Theta", "Lambda", "Xi", "Sigma", "Upsilon",
                "Phi", "Psi", "Omega"]
-GREEK_RE = re.compile(r"(?<![\w.])(" + "|".join(GREEK_WORDS) + r")(?![\w])")
+# A Greek name almost never stands alone in this corpus: it carries a subscript or a
+# plural — ``mu_0``, ``phi_pi``, ``Sigma_x``, ``alphas``, ``sigmas``. The old trailing
+# ``(?![\\w])`` counted only the bare word, so a lecture writing ``mu_0=μ_sim_0`` on one
+# line was reported clean. The suffix is consumed rather than merely allowed, so
+# ``m.end()`` is the end of the whole identifier and the kwarg tests below still work.
+# ``chi2`` is deliberately left out: a trailing digit is not a subscript here, it is
+# scipy's chi-squared.
+GREEK_RE = re.compile(r"(?<![\w.])(" + "|".join(GREEK_WORDS) +
+                      r")(?:s|_[A-Za-z0-9_]+)?(?![A-Za-z0-9])")
 
 # ``alpha=`` in a drawing call is matplotlib's opacity, not a model parameter.
 STYLE_KWARG = re.compile(
@@ -983,9 +991,27 @@ def check_code_002(doc: Doc):
     # ``check_code_003`` already strips per cell; this now matches it. ``_strip_py``
     # preserves line structure, so the stripped body lines up with the raw one.
     masked_code = {}
+    # A call's opening paren is often on an earlier line than the keyword argument, so the
+    # callee lookup below needs the whole cell and this line's offset into it. Without that,
+    # ``LinearStateSpace(A, C, G, H,`` / ``mu_0=np.zeros(1), Sigma_0=...)`` presented the
+    # lookup with a continuation line that contains no callee at all.
+    cell_ctx = {}
+    # A Greek word is also the name of a standard distribution. ``beta_prior`` returning
+    # ``stats.beta(...)`` and ``gamma_np`` returning ``dist.Gamma(...)`` name the Beta and
+    # Gamma *distributions* in English; ``γ_np`` would be a mistranslation, not a fix. The
+    # exemption is evidenced per cell rather than assumed from the name.
+    dist_cell = {}
+    DIST_CALL = re.compile(r"\b(?:stats|dist|distributions|sps?|st)\."
+                           r"(?:beta|gamma|chi2?|invgamma|Beta|Gamma|Chi2?|InverseGamma)\b")
     for start, lines in _code_cells(doc):
-        for off, ml in enumerate(_strip_py("\n".join(lines)).split("\n")):
+        masked = _strip_py("\n".join(lines))
+        is_dist = bool(DIST_CALL.search(masked))
+        pos = 0
+        for off, ml in enumerate(masked.split("\n")):
             masked_code[start + off] = ml
+            cell_ctx[start + off] = (masked, pos)
+            dist_cell[start + off] = is_dist
+            pos += len(ml) + 1
     for l in doc.lines:
         if l.kind != "code":
             continue
@@ -1005,16 +1031,24 @@ def check_code_002(doc: Doc):
             # already uses ``β`` for its own variable and passes it to LQ's ``beta=``.
             # Exempt only when the callee is imported — a lecture's own
             # ``def f(alpha=0.5)`` is still its own naming choice, and so is counted.
+            if word in ("beta", "gamma", "chi", "Gamma") and dist_cell.get(l.no):
+                continue
             if assigned:
-                callee = _enclosing_callee(s, m.start())
+                ctx, base = cell_ctx.get(l.no, (s, 0))
+                callee = _enclosing_callee(ctx, base + m.start())
                 if callee and (callee in imported
                                or callee.split(".")[0] in imported):
                     continue
             # An imported name used as a value is the library object, not a variable the
             # lecture chose to spell out — unless a statement-level assignment shadows it,
             # as ``likelihood_ratio_process.md:541`` does with ``beta = np.array(...)``.
+            # The shadowing carve-out applies only to the bare name. ``beta_dist = beta(2, 2)``
+            # in ``lln_clt`` does not shadow the imported ``beta``; it stores its result under
+            # a different name, and the name it stores it under is a distribution's, not a
+            # variable's.
             if word in imported and not (
-                    assigned and re.fullmatch(r"\s*", s[:m.start()])):
+                    assigned and m.group(0) == word
+                    and re.fullmatch(r"\s*", s[:m.start()])):
                 continue
             hits.append(Hit("qe-code-002", l.no, f"spelled-out `{word}`"))
     return hits
