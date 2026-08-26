@@ -37,10 +37,10 @@ category.
 |---|--------|----------|---|---|---|---|---|---|---|-------------|------|--------|-----|------|
 | 1 | [lecture-python-advanced.myst](lecture-python-advanced.myst/index.md) | 68 | **4.6** | 5.9 | 7.5 | 6.3 | 9.2 | 9.2 | 10.0 | **7.5** | 44 | 0 | 19 | 5 |
 | 2 | [lecture-dp](lecture-dp/index.md) | 52 | **5.6** | 6.8 | 8.4 | 6.4 | 9.3 | 9.5 | 10.0 | **7.9** | 28 | 0 | 11 | 13 |
-| 3 | [lecture-python.myst](lecture-python.myst/index.md) | 145 | **5.5** | 7.2 | 8.3 | 6.5 | 9.6 | 9.8 | 10.0 | **8.0** | 60 | 1 | 36 | 48 |
+| 3 | [lecture-python.myst](lecture-python.myst/index.md) | 145 | **5.5** | 7.2 | 8.3 | 6.5 | 9.6 | 9.8 | 10.0 | **8.0** | 61 | 1 | 35 | 48 |
 | 4 | [lecture-python-programming](lecture-python-programming/index.md) | 27 | **4.1** | 9.0 | 8.5 | 7.3 | N/A | 9.8 | 9.9 | **8.1** | 19 | 0 | 5 | 3 |
 | 5 | [lecture-python-intro](lecture-python-intro/index.md) | 56 | **6.3** | 8.7 | 8.3 | 6.5 | 9.3 | 9.7 | 10.0 | **8.4** | 12 | 0 | 20 | 24 |
-|   | **TOTAL / corpus average** | **348** | **5.4** | **7.2** | **8.2** | **6.5** | **9.4** | **9.6** | **10.0** | **8.0** | **163** | **1** | **91** | **93** |
+|   | **TOTAL / corpus average** | **348** | **5.4** | **7.2** | **8.2** | **6.5** | **9.4** | **9.6** | **10.0** | **8.0** | **164** | **1** | **90** | **93** |
 <!-- /qe:full-scoreboard -->
 
 See the [charts](charts.md) for the visual version.
@@ -105,8 +105,8 @@ reach. Rules tagged **(proposed)** are documented in the style guide but not yet
 ### 17. `qe-fig-002` — Prefer code-generated figures (38 / 348 lectures, 104 occurrences)
 - `lecture-python-advanced.myst` 12 / 68 · `lecture-python.myst` 10 / 145 · `lecture-python-intro` 6 / 56 · `lecture-dp` 5 / 52 · `lecture-python-programming` 5 / 27
 
-### 18. `qe-math-011` (proposed) — Distribution names in plain letters, not \mathcal / \mathbb (35 / 348 lectures, 142 occurrences)
-- `lecture-python-advanced.myst` 18 / 68 · `lecture-python.myst` 11 / 145 · `lecture-dp` 5 / 52 · `lecture-python-intro` 1 / 56
+### 18. `qe-math-011` (proposed) — Distribution names in plain letters, not \mathcal / \mathbb (34 / 348 lectures, 134 occurrences)
+- `lecture-python-advanced.myst` 18 / 68 · `lecture-python.myst` 10 / 145 · `lecture-dp` 5 / 52 · `lecture-python-intro` 1 / 56
 
 ### 19. `qe-math-004` — Do not use bold face for matrices or vectors (33 / 348 lectures, 584 occurrences)
 - `lecture-python.myst` 18 / 145 · `lecture-python-advanced.myst` 6 / 68 · `lecture-dp` 5 / 52 · `lecture-python-intro` 4 / 56
@@ -215,6 +215,7 @@ HIGH lecture was triggered by the category floor; none has an overall at or belo
 | dp | [smoothing](lecture-dp/smoothing.md) | 6.5 | 3.0 | 10.0 | 5.0 | 10.0 | 7.5 | — | **7.0** | 3.0 |
 | advanced | [cagan_rational_expectations](lecture-python-advanced.myst/cagan_rational_expectations.md) | 5.5 | 3.0 | 6.5 | 5.5 | 8.5 | 10.0 | 10.0 | **7.0** | 3.0 |
 | advanced | [smoothing_tax](lecture-python-advanced.myst/smoothing_tax.md) | 4.0 | 4.5 | 7.5 | 4.0 | 10.0 | 9.0 | 10.0 | **7.0** | 4.0 |
+| python.myst | [ols](lecture-python.myst/ols.md) | 3.0 | 7.0 | 7.5 | 5.0 | 7.5 | 9.0 | 10.0 | **7.0** | 3.0 |
 | python.myst | [perm_income](lecture-python.myst/perm_income.md) | 3.0 | 4.0 | 7.5 | 6.0 | 8.5 | 10.0 | 10.0 | **7.0** | 3.0 |
 | python.myst | [phillips_lost_conquest](lecture-python.myst/phillips_lost_conquest.md) | 3.5 | 6.0 | 7.5 | 4.5 | 7.5 | 10.0 | 10.0 | **7.0** | 3.5 |
 | python.myst | [wald_friedman_2](lecture-python.myst/wald_friedman_2.md) | 3.0 | 6.0 | 7.5 | 5.0 | 9.0 | 8.5 | 10.0 | **7.0** | 3.0 |
@@ -249,7 +250,6 @@ HIGH lecture was triggered by the category floor; none has an overall at or belo
 | python.myst | [imp_sample](lecture-python.myst/imp_sample.md) | 4.5 | 4.0 | 10.0 | 8.0 | — | 10.0 | — | **7.3** | 4.0 |
 | python.myst | [mccall_model](lecture-python.myst/mccall_model.md) | 3.0 | 7.0 | 7.0 | 6.0 | 10.0 | 8.0 | 10.0 | **7.3** | 3.0 |
 | python.myst | [opt_transport](lecture-python.myst/opt_transport.md) | 3.0 | 3.0 | 7.0 | 8.0 | 10.0 | 10.0 | 10.0 | **7.3** | 3.0 |
-| python.myst | [svd_intro](lecture-python.myst/svd_intro.md) | 3.0 | 7.0 | 7.5 | 6.5 | — | 10.0 | 10.0 | **7.3** | 3.0 |
 | python.myst | [von_neumann_model](lecture-python.myst/von_neumann_model.md) | 3.0 | 5.0 | 7.5 | 7.0 | 8.5 | 10.0 | 10.0 | **7.3** | 3.0 |
 | dp | [calvo_machine_learn](lecture-dp/calvo_machine_learn.md) | 4.0 | 3.0 | 6.5 | 8.0 | 10.0 | 10.0 | 10.0 | **7.4** | 3.0 |
 | dp | [lq_inventories](lecture-dp/lq_inventories.md) | 4.0 | 3.0 | 7.5 | 7.0 | 10.0 | 10.0 | 10.0 | **7.4** | 3.0 |
@@ -299,6 +299,7 @@ HIGH lecture was triggered by the category floor; none has an overall at or belo
 | python.myst | [ar1_turningpts](lecture-python.myst/ar1_turningpts.md) | 3.0 | 7.5 | 8.5 | 8.0 | 10.0 | 10.0 | — | **7.8** | 3.0 |
 | python.myst | [back_prop](lecture-python.myst/back_prop.md) | 3.0 | 7.5 | 7.5 | 9.0 | — | 10.0 | 10.0 | **7.8** | 3.0 |
 | python.myst | [likelihood_bayes](lecture-python.myst/likelihood_bayes.md) | 5.5 | 4.0 | 7.5 | 7.5 | 10.0 | 10.0 | 10.0 | **7.8** | 4.0 |
+| python.myst | [svd_intro](lecture-python.myst/svd_intro.md) | 3.0 | 9.5 | 7.5 | 6.5 | — | 10.0 | 10.0 | **7.8** | 3.0 |
 | python.myst | [var_dmd](lecture-python.myst/var_dmd.md) | 3.0 | 9.5 | — | — | 7.5 | 9.0 | 10.0 | **7.8** | 3.0 |
 | dp | [ifp_egm_transient_shocks](lecture-dp/ifp_egm_transient_shocks.md) | 3.5 | 9.5 | 7.5 | 5.5 | 9.0 | 10.0 | 10.0 | **7.9** | 3.5 |
 | dp | [mccall_model](lecture-dp/mccall_model.md) | 4.0 | 7.0 | 10.0 | 6.0 | 10.0 | 8.0 | 10.0 | **7.9** | 4.0 |
@@ -387,7 +388,7 @@ needs a reading pass; the third is small and structural.
     appear in both series, but only **6 are byte-identical** at this snapshot:
     `cross_product_trick`, `ifp_discrete`, `ifp_opi`, `lq_inventories`,
     `mccall_model_with_separation`, `os_numerical`. Those 6 account for 218 of the corpus's
-    18,653 findings — **1.2 % genuinely counted twice**, which is the honest size of the
+    18,645 findings — **1.2 % genuinely counted twice**, which is the honest size of the
     double-count. The other 25 share an origin and have diverged, so their findings are
     about different files even where the defect is the same. For the identical 6, fix
     upstream and both clear; for the diverged 25, each copy needs its own fix. Worth a

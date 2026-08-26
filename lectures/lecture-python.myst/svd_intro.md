@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.3 / 10
+- **Overall score:** 7.8 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-006` ×8; `qe-writing-004` ×9; `qe-writing-001` ×7, +5 more. |
-| Math         | 7/10  | `qe-math-011` (proposed) ×8; `qe-math-009` ×1. |
+| Math         | 9.5/10 | `qe-math-009` ×1. |
 | Code         | 7.5/10 | `qe-code-001` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6.5/10 | `qe-fig-003` ×6; `qe-fig-008` ×4; `qe-fig-001` ×2. |
@@ -29,7 +29,6 @@ _None found._
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 6. *Lines:* 300, 310, 431, 505, 908, 957. *Example:* `compare_pca_svd` reads attributes that do not exist: the class stores `self.\ud835\udf06` (U+1D706 MATHEMATICAL ITALIC SMALL LAMDA) at 872, `self.\ud835\udf0e` (U+1D70E) at 898 and `self.\ud835\udf16` (U+1D716) at 881, while 957-958, 975 and 978 read `da.\u03bb`, `da.\u03c3` and `da.\u03b5` - the ordinary Greek code points U+03BB / U+03C3 / U+03B5. Two visually identical but distinct identifiers per letter; the function would raise `AttributeError` on its first line of output, which is consistent with it never having been run. On top of that: `V` names numpy's third return value at 300, 430 and 492 even though `np.linalg.svd` returns $V^\top$ - the class itself gets this right and calls it `VT` at 891 - so 319 prints the *untransposed* matrix under the label `"V.T:"`; `np.linalg.svd(A,full_matrices=True)` omits the space after the comma at 300, 430, 431, 492 and 493; `SShat=np.diag(Shat)` at 505 has no spaces around `=`; 908 writes `self.\ud835\udf0e ** 2` with spaces around the exponentiation operator, which the rule asks be written `a**b`; 431 and 493 leave one space before an inline comment where 430 uses two; `import numpy as np` is repeated mid-file at 428 and 490 after the import cell at 280-284; and `diag_sign` is defined at 936, after the class that calls it at 874 and 900, with a single-quoted docstring at 937 where every other docstring in the file is tripled.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 6. *Lines:* 963, 965, 968, 974, 976, 979. *Example:* .suptitle.
-- **[qe-math-011 (proposed)]** — Distribution names in plain letters, not \mathcal / \mathbb. *Count:* 8. *Lines:* 135, 139, 198, 236, 248, 250, 273, 274. *Example:* decorated distribution `{\mathcal N}`.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 7. *Lines:* 136, 138, 140, 474, 557, 595, 614. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 5. *Lines:* 57, 349, 557, 585, 991. *Example:* 57 is a 46-word sentence with three nested "in which" clauses before its main clause ("In the $m > > n$ case in which there are many more attributes $m$ than individuals $n$ and when we are in a time-series setting in which $n$ equals the number of time periods covered in the data set $X$, we'll proceed in a different way"); 585 is 36 words joined by a comma splice ("Then because we want to extract the relationships between variables rather than just their magnitude, in other words, we want to know how they can explain each other, we compute the covariance matrix of $B$"); 557 says the same thing twice in one sentence - "to help better visualize patterns in data, using statistical tools to capture the most important patterns in data" - and hides the content behind "apply certain steps"; 991 reads "the $ (X^\top X) $ matrix is not not invertible"; and 349 both mis-states the theorem it is summarising and takes 40 words to do it - the Eckart-Young approximant $\hat X_r$ of `` {eq}`eq:Ekart` `` is an $m \times n$ matrix of rank $r$, not "a full rank $p \times p$ matrix", and "that in not full rank" is a typo for "that is not".
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 9. *Lines:* 29, 115, 353, 403, 479, 622, 1041. *Example:* mid-sentence 'Vector'.

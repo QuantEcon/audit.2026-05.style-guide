@@ -289,7 +289,7 @@ lecture-python.myst,navy_captain,3.0,6.5,7.5,out-of-scope,3.0,N/A,10.0,N/A,6.0,H
 lecture-python.myst,newton_method,8.0,10.0,9.0,out-of-scope,6.0,N/A,10.0,10.0,8.8,NONE
 lecture-python.myst,odu,5.0,10.0,10.0,out-of-scope,5.0,9.0,8.5,10.0,8.2,LOW
 lecture-python.myst,olg_adaptive_money,7.0,8.5,10.0,out-of-scope,5.5,10.0,10.0,10.0,8.7,NONE
-lecture-python.myst,ols,7.5,7.5,10.0,out-of-scope,5.0,7.5,9.0,10.0,8.1,LOW
+lecture-python.myst,ols,3.0,7.0,7.5,out-of-scope,5.0,7.5,9.0,10.0,7.0,HIGH
 lecture-python.myst,opt_transport,3.0,3.0,7.0,out-of-scope,8.0,10.0,10.0,10.0,7.3,HIGH
 lecture-python.myst,organization_capital,7.5,7.5,10.0,out-of-scope,9.0,10.0,10.0,10.0,9.1,NONE
 lecture-python.myst,os,7.0,10.0,10.0,out-of-scope,8.0,10.0,10.0,10.0,9.3,NONE
@@ -330,7 +330,7 @@ lecture-python.myst,sir_model,6.5,8.0,10.0,out-of-scope,8.5,N/A,10.0,N/A,8.6,NON
 lecture-python.myst,stats_examples,3.0,4.5,7.0,out-of-scope,6.5,N/A,10.0,10.0,6.8,HIGH
 lecture-python.myst,status,10.0,N/A,9.0,out-of-scope,N/A,N/A,10.0,N/A,9.7,NONE
 lecture-python.myst,survival_recursive_preferences,9.0,10.0,9.0,out-of-scope,4.5,10.0,10.0,10.0,8.9,NONE
-lecture-python.myst,svd_intro,3.0,7.0,7.5,out-of-scope,6.5,N/A,10.0,10.0,7.3,HIGH
+lecture-python.myst,svd_intro,3.0,9.5,7.5,out-of-scope,6.5,N/A,10.0,10.0,7.8,HIGH
 lecture-python.myst,theil_1,9.0,7.5,9.0,out-of-scope,6.5,10.0,10.0,10.0,8.9,NONE
 lecture-python.myst,theil_2,7.5,8.0,9.0,out-of-scope,8.5,10.0,10.0,10.0,9.0,NONE
 lecture-python.myst,troubleshooting,6.0,N/A,N/A,out-of-scope,9.0,N/A,9.0,N/A,8.0,LOW

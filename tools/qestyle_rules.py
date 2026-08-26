@@ -706,10 +706,23 @@ def check_math_011(doc: Doc):
     pat = re.compile(r"\\mathcal\s*\{\s*(N|U)\s*\}|\{\s*\\cal\s*(N|U)\s*\}"
                      r"|\{\s*\\mathcal\s+(N|U)\s*\}"
                      r"|\\mathbb\s*\{\s*(N|U)\s*\}|\\mathcal\s+(N|U)\b")
+    # A parameter list has more than one parameter. ``{\mathcal N}(X)`` is the null
+    # space of a matrix — ``svd_intro`` line 129 says so outright, "let ${\mathcal C}$
+    # denote a column space, ${\mathcal N}$ denote a null space" — and every one of its
+    # eight hits had a single argument, while all 134 genuine distribution sites in the
+    # corpus carry a comma (``{\cal N}(0,I)``, ``\mathcal N(\mu, \sigma^2)``).
+    # A name introduced by ``\sim`` needs no parameters at all and is unaffected.
+    ARGS = re.compile(r"^\s*(?:\\left)?\s*(\((?:[^()]|\([^()]*\))*\))")
     for no, src in _math_spans(doc):
         for m in pat.finditer(src):
             before, after = src[:m.start()], src[m.end():]
-            if not (DIST_BEFORE.search(before) or DIST_AFTER.match(after)):
+            if DIST_BEFORE.search(before):
+                pass                            # named after ``\sim``
+            elif DIST_AFTER.match(after):
+                args = ARGS.match(after)
+                if args and "," not in args.group(1):
+                    continue                    # one argument: an operator, not a law
+            else:
                 continue        # not being used as a distribution name here
             hits.append(Hit("qe-math-011", no,
                             f"decorated distribution `{m.group(0).strip()}`"))

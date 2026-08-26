@@ -5,16 +5,16 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.1 / 10
-- **Priority:** LOW
+- **Overall score:** 7.0 / 10
+- **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 7.5/10 | `qe-writing-006` ×2. |
-| Math         | 7.5/10 | `qe-math-002` ×4. |
-| Code         | 10/10 | no mechanical violations detected. |
+| Writing      | 3/10  | `qe-writing-006` ×2; `qe-writing-005` ×5; `qe-writing-002` ×5, +2 more. |
+| Math         | 7/10  | `qe-math-002` ×4; `qe-math-009` ×4. |
+| Code         | 7.5/10 | `qe-code-001` ×8. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5/10  | `qe-fig-005` ×5; `qe-fig-003` ×3; `qe-fig-006` ×4, +2 more. |
 | References   | 7.5/10 | `qe-ref-001` ×5. |
@@ -27,9 +27,12 @@
 _None found._
 
 ### High severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 8. *Lines:* 155, 163, 194, 288, 289, 347, 350, 431. *Example:* 163-164 and 435-436 put a backslash line continuation *inside a string literal* - `ax.set_title('Figure 2: OLS relationship between expropriation \` then a line beginning with four spaces - so the four leading spaces are silently concatenated into the rendered title ("expropriation     risk and income"); 194-195 uses a backslash continuation inside parentheses that already permit the wrap; 155-157 and 427-429 indent the continuation one space past the opening paren (`ax.plot(np.unique(X),` / `         np.poly1d(...)`), and 289-290 and 294-295 indent theirs to a flat 8 columns matching neither the paren nor a 4-space hanging indent; 347 writes a module-level assignment as `info_dict={...}` with no spaces round `=` and puts a space *before* the dict colon (`'R-squared' : lambda x:`); 350 drops the spaces after commas in `results=[reg1,reg2,reg3]` while 352 adds spaces round a keyword `=` in `stars = True` in the same call where `float_format=` and `info_dict=` have none; 159-160 and 431-432 write `set_xlim([3.3,10.5])`, `set_ylim([4,10.5])`; and 288 binds the figure to a misspelled `fix` in `fix, ax = plt.subplots()`.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 60, 102, 136, 281, 411. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 4. *Lines:* 651, 658, 665. *Example:* apostrophe transpose `}'`.
 - **[qe-ref-001]** — Use correct citation style. *Count:* 5. *Lines:* 80, 314, 398, 444, 544. *Example:* `` {cite} `` in narrative flow: '`` {cite} ``'.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 5. *Lines:* 226, 406, 440, 519, 539. *Example:* 226 has a full stop in the middle of a clause - "The positive $\hat{\beta}_1$ parameter estimate implies that. institutional quality has a positive effect" - which stops the reader on the one bullet that states the paper's result; 539-542 is a 39-word sentence carrying the lecture's conclusion ("Given that we now have consistent and unbiased estimates, we can infer from the model we have estimated that institutional differences (stemming from institutions set up during colonization) can help to explain ...") with a redundant "from the model we have estimated"; 544-547 is 38 words joining the marginal effect, the Chile-Nigeria comparison, the 7-fold figure and a closing judgment; 406-409 is 34 words doing the scatterplot, the correlation, the hypothesis and the first instrument condition in one breath; and 519-521 is a comma splice ("our standard errors are not and for this reason, computing 2SLS 'manually' ... is not recommended").
+- **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 5. *Lines:* 82, 128, 172, 455, 491. *Example:* the lecture mostly gets bold-for-definitions right (**omitted variable bias** 310, **multivariate regression model** 312, **endogeneity** 371, **two-stage least squares (2SLS) regression** 384, **instrument** 395, **Hausman test** 564) which makes the exceptions stand out. Line 82 italicises the two terms the lecture is about - "How do we measure *institutional differences* and *economic outcomes*?" - and then defines both in the list at 86-87, so a definition is introduced in italic; 128 does the same for the *marginal effect*. Conversely 172 bolds **the sum of squared residuals** as emphasis inside a sentence whose actual defined term, Ordinary Least Squares (OLS) at 168-169, is left plain. And 455 and 491 use bold as section headings - a bare `**First stage**` / `**Second stage**` paragraph - where `###` headings would put them in the table of contents.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 2. *Lines:* 78, 304. *Example:* H2 Title Case: 'Simple Linear Regression' (Linear, Regression).
 
 ### Medium severity
@@ -37,6 +40,9 @@ _None found._
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 4. *Lines:* 161, 162, 433, 434. *Example:* axis label `Average Expropriation Risk 1985-95`.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 155, 427. *Example:* plot() without lw=.
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 1. *Lines:* 638. *Example:* raw link to python-programming.quantecon.org.
+- **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 4. *Lines:* 120, 265, 572, 582. *Example:* the regressors are typeset as their pandas column names inside math - `{logpgp95}_i`, `{avexpr}_i`, `{logem4}_i`, `\widehat{avexpr}_i` (120, 240, 265, 271-278, 388, 464, 469, 497, 502) - so each renders as a product of italic letters rather than a symbol, and the braces are applied inconsistently: present at 120 and 240, absent for the same objects at 310, 312, 568, 589. Line 264-265 goes further and puts a Python identifier into math with an escaped underscore, `${avexpr}_i = mean\_expr$`. Line 582 writes the first-stage error as `\upsilon_i`, which is visually indistinguishable from the `v_i` used for the same object at 469, and 572-573 sets English words in italic math as `\quad (no\ endogeneity)` and `\quad (endogeneity)`. Plain $y_i$, $x_i$, $z_i$ with a one-line legend - or `\text{avexpr}_i` if the column names must be kept - is simpler and also correct.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 4. *Lines:* 141, 243, 582, 606. *Example:* line 249 says 7.07 is "the average for the dataset", but the `mean_expr` computed at 254 averages `df1_subset`, which 141 restricted to `baseco == 1` under the comment "Use only 'base sample' for plotting purposes" - the number the prediction at 259 and 268 is built on comes from a subset created for a figure. Line 243 says "as shown in Figure 2" and 133-134 says "the following plot (Figure 2 in `` {cite}`Acemoglu2001` ``)", so the same label names both the paper's figure and the lecture's own, and since the figure carries no `name:` there is nothing to click. Exercise 1 restates the first-stage regression already derived at 469 ($\delta_0 + \delta_1 {logem4}_i + v_i$) as $\pi_0 + \pi_1 logem4_i + \upsilon_i$ at 582, so it reads as a new equation; and 606 reloads `maketable4.dta` without the `baseco == 1` filter that 479 applies, so the Hausman test is run on a different sample than the 2SLS it is testing. `reg1` also means three different things across the lecture - an unfitted model on `df1` at 194, a fitted result on `df2` at 337, a first-stage fit on `df4` at 612.
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 3. *Lines:* 214, 368, 516. *Example:* the lecture uses no admonition anywhere outside `{exercise}`/`{solution}`, yet three of its most important asides are written as plain "Note that ..." paragraphs: 214-216 (an observation was mistakenly dropped in the original paper, so the coefficients here differ), 519-521 (the manually staged 2SLS standard errors are wrong) and 526-528 (`IV2SLS` splits exogenous and instrument arguments differently) - each is exactly the "important note" the rule asks to be a `{note}` or `{warning}`. Second, the identification argument at 368-409 and 440-450 is entirely about which arrows exist between settler mortality, institutions and income, and which one must be absent; it is carried by three bullet lists and no diagram. Third, 516-517 claims the 2SLS result "suggests a stronger positive relationship than what the OLS results indicated" and leaves the reader to compare two `print(...summary())` dumps (510, 536) for it - both fitted lines could be drawn on the scatter of 102 in four lines of code.
 
 ### Low severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 1. *Lines:* 68. *Example:* style override.
@@ -44,18 +50,20 @@ _None found._
 
 ## Strengths
 
-- Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The replication follows the paper's own argument in order and loads each data file exactly where the corresponding table is being reproduced - `maketable1.dta` for the bivariate OLS (94), `maketable2.dta` for the extended models labelled "Table 2" (326, 363), `maketable4.dta` for the instrumented estimates (478) - so a reader with the paper open can follow both at once.
+- The regression output is read out one item at a time at 222-234 (intercept, slope, sign, p-value, $R^2$, each with its number) and then reassembled into an explicit fitted equation at 239-241, which is then actually used: 259 evaluates it by hand and 268 gets the same thing from `.predict()`, with 263 stating why the second is better.
+- 2SLS is deliberately done twice - manually in two stages at 476-511 so the mechanics are visible, then in one call at 530-536 - and the lecture says at 519-521 why the manual version's standard errors cannot be trusted, rather than leaving the reader to discover that the two outputs disagree.
+- The two conditions for a valid instrument are stated as a numbered list at 390-393 and then discharged one at a time: the correlation condition by the first-stage scatter at 411-438, the exclusion condition by the malaria/yellow-fever argument at 440-450.
+- The known discrepancy with the published results is disclosed instead of quietly absorbed - 214-216 points at the note in `maketable2.do` on Acemoglu's webpage that explains why an observation was dropped and the coefficients differ slightly.
+- The scatter at 136-166 replaces markers with country codes (149-152), which turns the figure into something a reader can check against the paper's Figure 2 country by country instead of a cloud of dots.
+- Exercise 2 makes the reader re-derive $\hat{\beta} = (X'X)^{-1}X'y$ in numpy and the solution uses unicode `β_hat` (690-694), matching qe-code-002, and prefers `np.linalg.solve` to `np.linalg.inv` with the reason given at 697-699.
 
 ## Recommended actions
 
-1. `qe-writing-006` — Capitalize lecture titles properly (2 occurrences).
-2. `qe-math-002` — Use \top for transpose notation (4 occurrences).
-3. `qe-ref-001` — Use correct citation style (5 occurrences).
-4. `qe-fig-005` — Descriptive figure names for cross-referencing (5 occurrences).
-5. `qe-fig-003` — No matplotlib embedded titles (3 occurrences).
-6. `qe-fig-006` — Lowercase axis labels (4 occurrences).
-7. `qe-link-002` — Use doc links for cross-series references (1 occurrence).
+1. Fix the two backslash continuations inside title string literals at 163-164 and 435-436 - they concatenate the next line's four leading spaces into the rendered title - and while there, move those two titles and the one at 298 into `mystnb: figure: caption` metadata with `name:` fields (qe-fig-003, qe-fig-005), so "Figure 2" at 243 can become a real `{numref}` reference.
+2. Reconcile the sample behind the 7.07 average: 254 averages `df1_subset`, which 141 narrowed to `baseco == 1` "for plotting purposes", while 249 calls it the average for the dataset - and make exercise 1 match the body by applying at 606 the same `baseco == 1` filter 479 applies.
+3. Rewrite exercise 1's first-stage equation at 582 in the notation already established at 469 ($\delta$, $v_i$ rather than $\pi$, `\upsilon_i`), and replace `\quad (no\ endogeneity)` at 572-573 with `\text{}`.
+4. Promote `**First stage**` (455) and `**Second stage**` (491) to `###` headings, turn the three "Note that ..." paragraphs at 214, 519 and 526 into `{note}` admonitions, and switch the italicised definitions at 82 and 128 to bold.
+5. Settle the column-name maths one way - `\text{avexpr}_i` throughout, or plain $y_i$, $x_i$, $z_i$ with a legend - because 120 and 240 brace the names while 310, 312, 568 and 589 do not, and drop `mean\_expr` from math at 265.
+6. Clear the mechanical sweep: sentence case for the two H2s at 78 and 304 (qe-writing-006), lowercase the four axis labels at 161, 162, 433 and 434 (qe-fig-006), add `lw=2` at 155 and 427 (qe-fig-008), replace the four apostrophe transposes at 651, 658 and 665 with `\top` (qe-math-002), and make 638 a `{doc}` link (qe-link-002).
+7. Fix the PEP8 items above plus the stray full stop at 226 ("implies that. institutional quality"), the `fix`/`fig` typo at 288, and "eg."/"ie." at 319, 391 and 545; then plot the OLS and 2SLS fitted lines on one set of axes to support the claim at 516-517.

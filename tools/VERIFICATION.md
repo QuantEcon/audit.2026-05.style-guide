@@ -152,6 +152,23 @@ reason to distrust the corpus totals.
   alone would delete them. The real fix is author-name detection, which is the upstream
   definition question in `contributions/issues/06-…`.
 
+### `qe-math-011` flagged the null space as a distribution
+
+All 8 hits in `svd_intro` were `{\mathcal N}(X)`, the null space of a matrix, and line 129
+says so outright: *"let ${\mathcal C}$ denote a column space, ${\mathcal N}$ denote a null
+space, and ${\mathcal R}$ denote a row space"*. The `DIST_AFTER` gate accepted any `(` as a
+parameter list, so an operator applied to a matrix looked like a law applied to parameters.
+
+A declaration override was available — the mechanism `qe-math-002` uses — but the data
+suggested something better. Splitting every hit in the corpus by argument shape is a clean
+partition: all 8 comma-less arguments are `svd_intro`'s null space, and all 134 genuine
+distribution sites carry a comma (`{\cal N}(0,I)`, `\mathcal N(\mu, \sigma^2)`). So a
+parameter list now has to have more than one parameter. A name introduced by `\sim` needs no
+parameters at all and is unaffected.
+
+That generalises where a declaration would not: any lecture using `\mathcal N` for a null
+space is now handled, whether or not it says so. 8 removed, reach 35 → 34, nothing added.
+
 ### `qe-code-002` counted other people's parameter names
 
 `qe.LQ(Q, R, A, B, C, beta=β, T=T)` was reported as a spelled-out Greek variable. It is a
