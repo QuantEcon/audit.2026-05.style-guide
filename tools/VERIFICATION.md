@@ -152,6 +152,41 @@ reason to distrust the corpus totals.
   alone would delete them. The real fix is author-name detection, which is the upstream
   definition question in `contributions/issues/06-…`.
 
+### An author's stated convention beats the heuristic
+
+`var_dmd` scored 28 `qe-math-002` findings and line 75 says, in prose, *"here $'$ is part of
+the name of the matrix $X'$ and does not indicate matrix transposition"*. Line 120 settles
+it beyond argument — `\hat A = X' X^\top (X X^\top)^{-1}` uses the prime as a name and
+`\top` as the transpose on one line — and the file uses `\top` 92 times.
+
+The per-file evidence gate could not see this: `FOLLOWING_FACTOR` cannot tell a transposed
+matrix in a product from a prime-*named* matrix in a product, so `X' X^+` at line 97 read as
+evidence. A ratio test would have been the wrong instrument — `linear_algebra` has 114 prime
+hits against a single `\top` and its primes really are violations.
+
+So a *declaration* now overrides the heuristic. `PRIME_NOT_TRANSPOSE` looks for the author
+saying it: "does not indicate … transpose", "part of the name", "denotes a next period".
+Three lectures in the corpus declare one — `var_dmd`, `arellano` and `opt_tax_recur` — and
+the last two were already handled by the evidence rule. Effect: `var_dmd` 28 → 0, and not
+one other file moved.
+
+### `qe-code-002` and imported names
+
+A name the lecture *imports* is not a variable it chose to spell out: `from scipy.stats
+import beta` binds a distribution, `from sympy import Lambda` binds a class, and renaming
+either to `β`/`Λ` breaks the import and means something else. This was reported six separate
+times before being fixed. Names bound by an `import` in the file are now exempt: **105
+occurrences removed across 21 lectures**, reach 106 → 88. Sampled across `lln_clt`,
+`bayes_intro`, `scipy`, `imp_sample` and `equalizing_difference` — every one a library call,
+and several of those files already use `β`/`γ` correctly for their own variables.
+
+The reviewer argued the exemption "cannot produce a false negative". At *name* scope that is
+true; at *file* scope it is not, and the corpus contains exactly one counterexample:
+`likelihood_ratio_process.md:541` writes `beta = np.array(...)` for a type-II error
+probability, shadowing the import with a variable that genuinely should be `β`. The
+exemption therefore does not apply on a line that *assigns* the name, which keeps that one
+finding. 105 false positives out of, 1 true positive kept.
+
 ### Two fixes that were verified, then rejected
 
 Both came from reviewer doubts, both reproduced exactly, and both were rejected because

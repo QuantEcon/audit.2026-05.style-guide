@@ -61,6 +61,7 @@ already holds to.
 
 <!-- qe:series-clean -->
 - **`qe-admon-002`** — Use dropdown class for solutions
+- **`qe-code-002`** — Use Unicode symbols for Greek letters in code
 - **`qe-code-005`** — Use quantecon timeit for benchmarking
 - **`qe-fig-004`** — Caption formatting conventions
 - **`qe-fig-010`** — Plotly figures require latex directive
@@ -115,9 +116,9 @@ that lecture. Click a lecture for its full report.
 | 6 | [numpy](numpy.md) | 3 | 8 | 7 | 7 | — | 10 | 10 | **7.5** | HIGH |
 | 7 | [matplotlib](matplotlib.md) | 4 | 10 | 7 | 4.5 | — | 10 | 10 | **7.6** | HIGH |
 | 8 | [numba](numba.md) | 3 | 7.5 | 8.5 | 7.5 | — | 9 | 10 | **7.6** | HIGH |
-| 9 | [scipy](scipy.md) | 3 | 7.5 | 7 | 8 | — | 10 | 10 | **7.6** | HIGH |
-| 10 | [names](names.md) | 3 | — | 8.5 | 7 | — | 10 | 10 | **7.7** | HIGH |
-| 11 | [workspace](workspace.md) | 4.5 | — | 8.5 | 5.5 | — | 10 | 10 | **7.7** | LOW |
+| 9 | [names](names.md) | 3 | — | 8.5 | 7 | — | 10 | 10 | **7.7** | HIGH |
+| 10 | [workspace](workspace.md) | 4.5 | — | 8.5 | 5.5 | — | 10 | 10 | **7.7** | LOW |
+| 11 | [scipy](scipy.md) | 3 | 7.5 | 8.5 | 8 | — | 10 | 10 | **7.8** | HIGH |
 | 12 | [getting_started](getting_started.md) | 3 | — | 10 | 7 | — | 10 | 10 | **8.0** | HIGH |
 | 13 | [python_oop](python_oop.md) | 3 | 10 | 7.5 | 7.5 | — | 10 | 10 | **8.0** | HIGH |
 | 14 | [autodiff](autodiff.md) | 7 | 7.5 | 7.5 | 6.5 | — | 10 | 10 | **8.1** | LOW |

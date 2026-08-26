@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.8 / 10
+- **Overall score:** 8.0 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 4.5/10 | `qe-writing-003` ×2; `qe-writing-002` ×4; `qe-writing-006` ×1, +4 more. |
 | Math         | 6.5/10 | `qe-math-010` (proposed) ×1; `qe-math-006` ×1; `qe-math-005` ×1, +1 more. |
-| Code         | 7/10  | `qe-code-002` ×4; `qe-code-001` ×4. |
+| Code         | 8.5/10 | `qe-code-001` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6.5/10 | `qe-fig-003` ×3; `qe-fig-005` ×3; `qe-fig-001` ×4. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -34,7 +34,6 @@ _None found._
 
 ### Medium severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 4. *Lines:* 174, 493, 495, 498. *Example:* line 174 spaces the same exponentiation two ways inside one expression - `x** (a-1)` with a space on only one side of `**`, then `(1 - x) ** (b-1)` - and lines 493, 495 and 498 under-indent continuation lines to 24 spaces against a visual-indent target of 28 (E128).
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 4. *Lines:* 56, 173. *Example:* spelled-out `gamma`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 4. *Lines:* 185, 274, 438, 473. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 3. *Lines:* 443, 448, 499. *Example:* .set_title.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 166, 268, 433. *Example:* code-cell figure without mystnb figure metadata.

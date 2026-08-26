@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.7 / 10
+- **Overall score:** 8.9 / 10
 - **Priority:** NONE
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 8/10  | `qe-writing-006` ×1; `qe-writing-008` ×2. |
 | Math         | 9.5/10 | `qe-math-009` ×1. |
-| Code         | 7/10  | `qe-code-002` ×3; `qe-code-001` ×3. |
+| Code         | 8.5/10 | `qe-code-001` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6.5/10 | `qe-fig-005` ×6; `qe-fig-001` ×5; `qe-fig-008` ×3, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -33,7 +33,6 @@ _None found._
 
 ### Medium severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 3. *Lines:* 168, 410, 485. *Example:* line 485 writes `i, j  = qe.random.draw(F), qe.random.draw(G)` with two spaces before the `=` (pycodestyle E221); the identical line at 414 has one. Line 168 `np.zeros(n+1)` and line 179 `list(range(0, n+1))` omit the spaces around `+` that the rest of the file uses (`k + a`, `n - k + b` at 170). Line 410 is the substantive one: inside `gen_path` the branch reads `elif greedy_star[i, j] == 2` - the module-level array - where the sibling branch at 407 reads the `optimal_policy` parameter, so the function silently ignores its own argument.
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 3. *Lines:* 55, 170. *Example:* spelled-out `beta`.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 179, 423, 424. *Example:* plot() without lw=.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 2. *Lines:* 70, 275. *Example:* 2 spaces.
 

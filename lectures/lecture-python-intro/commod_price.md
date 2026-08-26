@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 9.0 / 10
+- **Overall score:** 9.2 / 10
 - **Priority:** NONE
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 7.5/10 | `qe-writing-003` ×2; `qe-writing-005` ×1; `qe-writing-007` ×1. |
 | Math         | 10/10 | no mechanical violations detected. |
-| Code         | 7.5/10 | `qe-code-002` ×2; `qe-code-001` ×1. |
+| Code         | 9/10  | `qe-code-001` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8/10  | `qe-fig-005` ×3; `qe-fig-008` ×2. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -30,7 +30,6 @@ _None found._
 _None found._
 
 ### Medium severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 2. *Lines:* 53, 360. *Example:* spelled-out `beta`.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 66, 352, 410. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 71, 429. *Example:* plot() without lw=.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 240, 362. *Example:* two breaks. (a) The central functional equation appears at lines 240-246 with no introducing sentence: line 236 says only 'we seek a p such that ... hold', then the display defines p* and line 248 picks up with 'where'. The reader is handed the defining equation without being told it is the candidate. (b) Line 190 defines P as the inverse demand function D^{-1}, but line 362 sets `D = P = lambda x: 1.0 / x`, silently relying on 1/x being its own inverse; nothing in the text says so, so the code appears to contradict the definition.

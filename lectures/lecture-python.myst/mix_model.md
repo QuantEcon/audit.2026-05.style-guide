@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 10/10 | no mechanical violations detected. |
 | Math         | 10/10 | no mechanical violations detected. |
-| Code         | 7/10  | `qe-code-002` ×9; `qe-code-003` ×1. |
+| Code         | 7/10  | `qe-code-002` ×5; `qe-code-003` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6.5/10 | `qe-fig-006` ×2; `qe-fig-005` ×3; `qe-fig-004` ×1. |
 | References   | N/A   | no citations in this lecture. |
@@ -27,7 +27,7 @@
 _None found._
 
 ### High severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 9. *Lines:* 138, 158, 469, 485, 592, 746, 747. *Example:* spelled-out `gamma`.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 5. *Lines:* 469, 485, 592, 746, 747. *Example:* spelled-out `alpha`.
 
 ### Medium severity
 - **[qe-code-003]** — Package installation at lecture top. *Count:* 1. *Lines:* 20. *Example:* non-Anaconda import with no install cell: ['jax'].
@@ -48,7 +48,7 @@ _None found._
 
 ## Recommended actions
 
-1. `qe-code-002` — Use Unicode symbols for Greek letters in code (9 occurrences).
+1. `qe-code-002` — Use Unicode symbols for Greek letters in code (5 occurrences).
 2. `qe-fig-006` — Lowercase axis labels (2 occurrences).
 3. `qe-fig-005` — Descriptive figure names for cross-referencing (3 occurrences).
 4. `qe-code-003` — Package installation at lecture top (1 occurrence).

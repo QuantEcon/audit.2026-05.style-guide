@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.6 / 10
+- **Overall score:** 7.8 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 5.5/10 | `qe-writing-005` ×4; `qe-writing-003` ×3; `qe-writing-002` ×4, +2 more. |
 | Math         | 4/10  | `qe-math-010` (proposed) ×31; `qe-math-015` (proposed) ×4; `qe-math-014` (proposed) ×4. |
-| Code         | 6.5/10 | `qe-code-001` ×5; `qe-code-002` ×4. |
+| Code         | 7.5/10 | `qe-code-001` ×5. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7.5/10 | `qe-fig-005` ×6; `qe-fig-001` ×1. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -33,7 +33,6 @@ _None found._
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 65. *Lines:* 96, 105, 107, 143, 229, 230, 242, 262, 271, 274, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 4. *Lines:* 56, 152. *Example:* spelled-out `gamma`.
 - **[qe-math-014 (proposed)]** *(reviewer)* — Braces \{…\} for events, parentheses (…) for sets. *Count:* 4. *Lines:* 247, 288, 446, 669. *Example:* the lecture states the convention itself and then breaks it. 236-242 defines the events with braces - `A = \{q=f\}`, `B = \{w^{t+1}\}` - and says outright "where braces $\{\cdot\}$ are our shorthand for 'event'". Five lines later 247 writes `{\rm Prob}(q=f |w^{t+1})` with parentheses around exactly that event, and the same parenthesised form recurs at 288, 300, 446, 472 and 669, plus `\pi_0 = {\rm Prob}(q=f|\emptyset)` at 217-218. The one place the braces survive is inside `{\rm Prob}({a = f | w_0})` at 669, where they are typed inside the parentheses rather than replacing them. Written as `\mathbb{P}\{q = f \mid w^{t+1}\}` throughout, the notation would match the convention the lecture announces at 242.
 - **[qe-math-015 (proposed)]** *(reviewer)* — Lowercase for densities/PMFs, uppercase for CDFs. *Count:* 4. *Lines:* 637, 678, 946, 1037. *Example:* from section 623 onward the lecture switches to uppercase $F$ and $G$ for the two objects it has called densities $f$ and $g$ for six hundred lines - "successive draws of his wage are drawn from either $F$ or $G$" (637), "the probability that $w_{t+1}$ is being drawn from distribution $F$" (678), "pushes the subjective distribution to draw from $F$ more frequently" (946), "almost sure that $w_t$ is drawn from $F$, or is almost sure it is drawn from $G$" (1037) - while the surrounding mathematics keeps using $f(w_0)$, $g(w_0)$, $\ell(w_t) = f(w_t)/g(w_t)$ and the code keeps using `F_a, F_b` as beta parameters of the *density*. Neither $F$ nor $G$ is ever a CDF anywhere in the lecture, so the uppercase is not the case distinction proposed qe-math-015 (proposed) reserves it for; 669-678 has both forms four lines apart.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 4. *Lines:* 331, 467, 618, 640. *Example:* 331-334 repeats 274-279 almost word for word and says so ("As mentioned above, formula `` {eq}`eq_Bayeslaw1033` `` shows the key role that the likelihood ratio process ... plays in determining the posterior probability $\pi_{t+1}$"), so two consecutive sentences appear twice fifty lines apart; 618-621 states the same forward reference twice in a row ("This topic is taken up in `` {doc}`mix_model` ``" then "We explore how to learn the true mixing parameter $x$ in the exercise of `` {doc}`mix_model` ``"); 640 announces its own redundancy ("We'll review and reiterate and rearrange some formulas that we have encountered above"); and 467 is a single 47-word sentence carrying a negation, an equation reference and a restatement of the alternative timing protocol. The closing section at 1039-1042 also repeats line 46 verbatim.

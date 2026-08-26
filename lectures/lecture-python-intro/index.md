@@ -7,7 +7,7 @@ Style audit of the **lecture-python-intro** series.
 - **Corpus snapshot:** `a12d17c0ef`
 - **Lectures audited:** 56
 - **Average overall score:** 8.4 / 10
-- **Average per-category scores:** writing 6.3, math 8.7, code 8.2, figures 6.5, references 9.3, links 9.7, admon 10.0
+- **Average per-category scores:** writing 6.3, math 8.7, code 8.3, figures 6.5, references 9.3, links 9.7, admon 10.0
 - **JAX:** out of scope — the `qe-jax-*` rules target `lecture-jax`.
 - **Judgment-review coverage:** **33 of 56 reviewed** — scores for the unreviewed 23 reflect the 41 measured rules only, so they are not directly comparable with the reviewed ones.
 <!-- /qe:series-meta -->
@@ -33,8 +33,8 @@ notation debt to work through.
 |----------|-------|---|
 | HIGH     | 12    | 21.4% |
 | MEDIUM   | 0     | 0.0% |
-| LOW      | 21    | 37.5% |
-| NONE     | 23    | 41.1% |
+| LOW      | 20    | 35.7% |
+| NONE     | 24    | 42.9% |
 <!-- /qe:series-priority -->
 
 ## Top systemic issues across the series
@@ -105,34 +105,34 @@ that lecture. Click a lecture for its full report.
 | 6 | [heavy_tails](heavy_tails.md) | 6 | 5.5 | 6.5 | 5 | 10 | 9 | 10 | **7.4** | LOW |
 | 7 | [inflation_history](inflation_history.md) | 3 | 10 | 6 | 4.5 | 8.5 | 10 | 10 | **7.4** | HIGH |
 | 8 | [markov_chains_I](markov_chains_I.md) | 6 | 3 | 7 | 7.5 | 9 | 9 | 10 | **7.4** | HIGH |
-| 9 | [equalizing_difference](equalizing_difference.md) | 5 | 8 | 6 | 5.5 | 9 | 10 | 10 | **7.6** | LOW |
-| 10 | [greek_square](greek_square.md) | 4 | 7.5 | 7 | 6.5 | 9 | 10 | 10 | **7.7** | HIGH |
-| 11 | [bivariate_dist](bivariate_dist.md) | 6.5 | 5.5 | 7.5 | 5 | 10 | 10 | 10 | **7.8** | LOW |
-| 12 | [inequality](inequality.md) | 4 | 9 | 6.5 | 5 | 10 | 10 | 10 | **7.8** | HIGH |
-| 13 | [intro_supply_demand](intro_supply_demand.md) | 4.5 | 10 | 7.5 | 6.5 | — | 8 | 10 | **7.8** | LOW |
-| 14 | [lln_clt](lln_clt.md) | 8 | 4 | 7.5 | 8 | — | 9 | 10 | **7.8** | HIGH |
-| 15 | [long_run_growth](long_run_growth.md) | 5 | — | 7.5 | 6 | 8.5 | 10 | 10 | **7.8** | LOW |
-| 16 | [ar1_processes](ar1_processes.md) | 6 | 7.5 | 6 | 7 | 9 | 10 | 10 | **7.9** | LOW |
-| 17 | [complex_and_trig](complex_and_trig.md) | 3 | 9.5 | 7 | 5.5 | 10 | 10 | 10 | **7.9** | HIGH |
-| 18 | [laffer_adaptive](laffer_adaptive.md) | 4 | 10 | 7 | 6 | 8.5 | 10 | 10 | **7.9** | HIGH |
-| 19 | [lake_model](lake_model.md) | 4.5 | 10 | 7.5 | 5.5 | — | 10 | 10 | **7.9** | LOW |
-| 20 | [networks](networks.md) | 6 | 6.5 | 9 | 5.5 | 8.5 | 10 | 10 | **7.9** | LOW |
+| 9 | [greek_square](greek_square.md) | 4 | 7.5 | 7 | 6.5 | 9 | 10 | 10 | **7.7** | HIGH |
+| 10 | [bivariate_dist](bivariate_dist.md) | 6.5 | 5.5 | 7.5 | 5 | 10 | 10 | 10 | **7.8** | LOW |
+| 11 | [inequality](inequality.md) | 4 | 9 | 6.5 | 5 | 10 | 10 | 10 | **7.8** | HIGH |
+| 12 | [intro_supply_demand](intro_supply_demand.md) | 4.5 | 10 | 7.5 | 6.5 | — | 8 | 10 | **7.8** | LOW |
+| 13 | [lln_clt](lln_clt.md) | 8 | 4 | 7.5 | 8 | — | 9 | 10 | **7.8** | HIGH |
+| 14 | [long_run_growth](long_run_growth.md) | 5 | — | 7.5 | 6 | 8.5 | 10 | 10 | **7.8** | LOW |
+| 15 | [complex_and_trig](complex_and_trig.md) | 3 | 9.5 | 7 | 5.5 | 10 | 10 | 10 | **7.9** | HIGH |
+| 16 | [equalizing_difference](equalizing_difference.md) | 5 | 8 | 7.5 | 5.5 | 9 | 10 | 10 | **7.9** | LOW |
+| 17 | [laffer_adaptive](laffer_adaptive.md) | 4 | 10 | 7 | 6 | 8.5 | 10 | 10 | **7.9** | HIGH |
+| 18 | [lake_model](lake_model.md) | 4.5 | 10 | 7.5 | 5.5 | — | 10 | 10 | **7.9** | LOW |
+| 19 | [networks](networks.md) | 6 | 6.5 | 9 | 5.5 | 8.5 | 10 | 10 | **7.9** | LOW |
+| 20 | [ar1_processes](ar1_processes.md) | 6 | 7.5 | 6.5 | 7 | 9 | 10 | 10 | **8.0** | LOW |
 | 21 | [lp_intro](lp_intro.md) | 3.5 | 6.5 | 7.5 | 8.5 | 10 | 10 | 10 | **8.0** | HIGH |
 | 22 | [cons_smooth](cons_smooth.md) | 4.5 | 10 | 7.5 | 6 | 9 | 10 | 10 | **8.1** | LOW |
 | 23 | [time_series_with_matrices](time_series_with_matrices.md) | 5 | 6.5 | 10 | 7 | 10 | 8 | 10 | **8.1** | LOW |
 | 24 | [cagan_adaptive](cagan_adaptive.md) | 5 | 10 | 7 | 6.5 | 9 | 10 | 10 | **8.2** | LOW |
 | 25 | [mle](mle.md) | 5 | 10 | 7 | 7.5 | — | 10 | 10 | **8.2** | LOW |
-| 26 | [bayes_intro](bayes_intro.md) | 7.5 | 9.5 | 7.5 | 5.5 | — | 10 | 10 | **8.3** | LOW |
-| 27 | [eigen_II](eigen_II.md) | 4.5 | 9.5 | 7.5 | — | 9 | 10 | 10 | **8.4** | LOW |
-| 28 | [input_output](input_output.md) | 7.5 | 10 | 6.5 | 6 | 8.5 | 10 | 10 | **8.4** | LOW |
-| 29 | [markov_chains_II](markov_chains_II.md) | 6.5 | 10 | 7.5 | 6.5 | 8.5 | 10 | 10 | **8.4** | LOW |
-| 30 | [mobility](mobility.md) | 7 | 7.5 | 10 | 7.5 | 7 | 10 | 10 | **8.4** | LOW |
-| 31 | [monte_carlo](monte_carlo.md) | 8 | 5.5 | 9 | 8 | — | 10 | 10 | **8.4** | LOW |
-| 32 | [about](about.md) | 8 | — | — | — | — | 9 | — | **8.5** | LOW |
-| 33 | [cagan_ree](cagan_ree.md) | 4 | 10 | 8.5 | 7 | 10 | 10 | 10 | **8.5** | HIGH |
-| 34 | [unpleasant](unpleasant.md) | 5.5 | 8.5 | 10 | 6 | 10 | 10 | 10 | **8.6** | NONE |
-| 35 | [money_inflation](money_inflation.md) | 7 | 8 | 10 | 6 | 10 | 10 | 10 | **8.7** | NONE |
-| 36 | [money_inflation_nonlinear](money_inflation_nonlinear.md) | 4.5 | 10 | 10 | 6.5 | 10 | 10 | 10 | **8.7** | NONE |
+| 26 | [eigen_II](eigen_II.md) | 4.5 | 9.5 | 7.5 | — | 9 | 10 | 10 | **8.4** | LOW |
+| 27 | [input_output](input_output.md) | 7.5 | 10 | 6.5 | 6 | 8.5 | 10 | 10 | **8.4** | LOW |
+| 28 | [markov_chains_II](markov_chains_II.md) | 6.5 | 10 | 7.5 | 6.5 | 8.5 | 10 | 10 | **8.4** | LOW |
+| 29 | [mobility](mobility.md) | 7 | 7.5 | 10 | 7.5 | 7 | 10 | 10 | **8.4** | LOW |
+| 30 | [monte_carlo](monte_carlo.md) | 8 | 5.5 | 9 | 8 | — | 10 | 10 | **8.4** | LOW |
+| 31 | [about](about.md) | 8 | — | — | — | — | 9 | — | **8.5** | LOW |
+| 32 | [cagan_ree](cagan_ree.md) | 4 | 10 | 8.5 | 7 | 10 | 10 | 10 | **8.5** | HIGH |
+| 33 | [unpleasant](unpleasant.md) | 5.5 | 8.5 | 10 | 6 | 10 | 10 | 10 | **8.6** | NONE |
+| 34 | [money_inflation](money_inflation.md) | 7 | 8 | 10 | 6 | 10 | 10 | 10 | **8.7** | NONE |
+| 35 | [money_inflation_nonlinear](money_inflation_nonlinear.md) | 4.5 | 10 | 10 | 6.5 | 10 | 10 | 10 | **8.7** | NONE |
+| 36 | [bayes_intro](bayes_intro.md) | 7.5 | 9.5 | 10 | 5.5 | — | 10 | 10 | **8.8** | NONE |
 | 37 | [prob_dist](prob_dist.md) | 9.5 | 7.5 | 7.5 | 8.5 | — | 10 | 10 | **8.8** | NONE |
 | 38 | [simple_linear_regression](simple_linear_regression.md) | 7.5 | 9 | 10 | 6.5 | — | 10 | 9.5 | **8.8** | NONE |
 | 39 | [supply_demand_multiple_goods](supply_demand_multiple_goods.md) | 6.5 | 10 | 8.5 | 7.5 | — | 10 | 10 | **8.8** | NONE |
@@ -140,12 +140,12 @@ that lecture. Click a lecture for its full report.
 | 41 | [solow](solow.md) | 7.5 | 8.5 | 10 | 7.5 | — | 10 | 10 | **8.9** | NONE |
 | 42 | [tax_smooth](tax_smooth.md) | 6 | 10 | 10 | 6 | 10 | 10 | 10 | **8.9** | NONE |
 | 43 | [cobweb](cobweb.md) | 7.5 | 10 | 9 | 6.5 | 10 | 10 | 10 | **9.0** | NONE |
-| 44 | [commod_price](commod_price.md) | 7.5 | 10 | 7.5 | 8 | 10 | 10 | 10 | **9.0** | NONE |
-| 45 | [pv](pv.md) | 7 | 10 | 10 | 7 | — | 10 | 10 | **9.0** | NONE |
-| 46 | [fitting_distributions](fitting_distributions.md) | 6.5 | 10 | 10 | 8 | — | 10 | 10 | **9.1** | NONE |
-| 47 | [msy_fishery](msy_fishery.md) | 7.5 | 10 | 10 | 6.5 | 10 | 10 | 10 | **9.1** | NONE |
-| 48 | [olg](olg.md) | 9.5 | 10 | 10 | 6.5 | 10 | 8 | 10 | **9.1** | NONE |
-| 49 | [scalar_dynam](scalar_dynam.md) | 7.5 | 10 | 8.5 | 8.5 | — | 10 | 10 | **9.1** | NONE |
+| 44 | [pv](pv.md) | 7 | 10 | 10 | 7 | — | 10 | 10 | **9.0** | NONE |
+| 45 | [fitting_distributions](fitting_distributions.md) | 6.5 | 10 | 10 | 8 | — | 10 | 10 | **9.1** | NONE |
+| 46 | [msy_fishery](msy_fishery.md) | 7.5 | 10 | 10 | 6.5 | 10 | 10 | 10 | **9.1** | NONE |
+| 47 | [olg](olg.md) | 9.5 | 10 | 10 | 6.5 | 10 | 8 | 10 | **9.1** | NONE |
+| 48 | [scalar_dynam](scalar_dynam.md) | 7.5 | 10 | 8.5 | 8.5 | — | 10 | 10 | **9.1** | NONE |
+| 49 | [commod_price](commod_price.md) | 7.5 | 10 | 9 | 8 | 10 | 10 | 10 | **9.2** | NONE |
 | 50 | [observed_distributions](observed_distributions.md) | 8.5 | 10 | 10 | 7 | 10 | 10 | 10 | **9.4** | NONE |
 | 51 | [supply_demand_heterogeneity](supply_demand_heterogeneity.md) | 9 | 10 | 8.5 | — | — | 10 | 10 | **9.5** | NONE |
 | 52 | [schelling](schelling.md) | 9.5 | 10 | 10 | 8.5 | 10 | 9 | 10 | **9.6** | NONE |

@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.6 / 10
+- **Overall score:** 7.9 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 5/10  | `qe-writing-002` ×5; `qe-writing-005` ×2; `qe-writing-008` ×42, +1 more. |
 | Math         | 8/10  | `qe-math-001` ×2. |
-| Code         | 6/10  | `qe-code-002` ×9; `qe-code-001` ×5. |
+| Code         | 7.5/10 | `qe-code-001` ×5. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5.5/10 | `qe-fig-006` ×5; `qe-fig-005` ×7; `qe-fig-008` ×8. |
 | References   | 9/10  | `qe-ref-001` ×1. |
@@ -28,7 +28,6 @@ _None found._
 
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 5. *Lines:* 190, 316, 565, 569, 611. *Example:* the closing `):` of `create_edm` at 190 and of `create_edm_π` at 316 is indented three columns short of the visually-aligned arguments above it; the exercise solutions pad assignments and arguments to align them - `gaps_free   = [...]` / `gaps_costly = [...]` at 565-566, `ax.plot(T_arr, gaps_free,   'o-', ...)` at 569-570, `gap_plus  = ...` / `dϕ_dR_fd  = ...` at 611-613 - which PEP8 rules out (multiple spaces before an operator, multiple spaces after a comma) and which the body of the lecture does not do.
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 9. *Lines:* 54, 384, 391, 398, 424, 439, 456, 471, 486. *Example:* spelled-out `Lambda`.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 7. *Lines:* 233, 249, 268, 345, 512, 562, 648. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 5. *Lines:* 522, 572, 573, 656, 657. *Example:* axis label `College wage premium $\phi$`.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 8. *Lines:* 238, 254, 273, 350, 519, 569, 570, 654. *Example:* plot() without lw=.

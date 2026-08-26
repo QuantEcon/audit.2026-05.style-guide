@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, links  *(JAX out of scope)*
-- **Overall score:** 6.8 / 10
+- **Overall score:** 7.3 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 4.5/10 | `qe-writing-002` ×5; `qe-writing-005` ×3; `qe-writing-003` ×3, +2 more. |
 | Math         | 4/10  | `qe-math-010` (proposed) ×7; `qe-math-001` ×3; `qe-math-009` ×38. |
-| Code         | 7.5/10 | `qe-code-002` ×9. |
+| Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8/10  | `qe-fig-003` ×1; `qe-fig-004` ×1; `qe-fig-001` ×1. |
 | References   | N/A   | no citations in this lecture. |
@@ -27,7 +27,6 @@
 _None found._
 
 ### High severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 9. *Lines:* 48, 101, 104, 221, 274, 275, 534, 536, 538. *Example:* spelled-out `beta`.
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 38. *Lines:* 31, 58, 61, 68, 71, 74, 76, 80, 147, 151, …. *Example:* `\left(\omega\right)` is used in place of plain `(\omega)` on 38 lines - `\ell \left(\omega_t\right)`, `f\left(\omega\right)`, `L\left(\omega^t\right)` - where the argument is a single symbol and the delimiters have nothing to size themselves to. It roughly doubles the length of every expression in the file, and it is not even self-consistent: line 196 writes `\ell\left(\omega\right)` and `\ell(\omega)` in the same display, and line 501 does the same with `\frac{g(\omega)}{f(\omega)}` against `\frac{g\left(\omega_i^f\right)}{f\left(\omega_i^f\right)}`.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 7. *Lines:* 74, 76, 155, 231, 300, 318, 494. *Example:* bare expectation `E \left[`.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 5. *Lines:* 27, 82, 155, 157, 484. *Example:* line 155 is a 52-word sentence chaining four steps of the Monte Carlo procedure ("would repeatedly draw ... form the product ... for each such sequence, then average these products across independently drawn sequences") and reads as a paragraph compressed into one line; 157 is 45 words and pads with "in order to do a good job of approximating"; 27 is 41 words with a parenthetical aside plus a trailing relative clause; 484 is 48 words carrying three separate claims (the median falls, the variance is infinite, a different seed moves the mean); and 82 has its adverbs in the wrong place - "makes it difficult efficiently and accurately to estimate the mean".

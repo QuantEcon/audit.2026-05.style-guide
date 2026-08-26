@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 6.5 / 10
+- **Overall score:** 6.6 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-004` ×7; `qe-writing-001` ×4; `qe-writing-005` ×4, +5 more. |
 | Math         | 3/10  | `qe-math-010` (proposed) ×56; `qe-math-004` ×3; `qe-math-014` (proposed) ×4, +1 more. |
-| Code         | 6/10  | `qe-code-002` ×7; `qe-code-001` ×5. |
+| Code         | 7/10  | `qe-code-001` ×5; `qe-code-002` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 3.5/10 | `qe-fig-003` ×9; `qe-fig-005` ×7; `qe-fig-006` ×4, +2 more. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -28,7 +28,6 @@ _None found._
 
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 5. *Lines:* 145, 486, 708, 1299, 1424. *Example:* 145 is internally inconsistent about exponent spacing in one expression - `r * x** (a-1) * (1 - x) ** (b-1)` - where the rule's own guidance is that `a**b` needs no spaces; 486 and 582 use mutable list literals as default arguments (`time_points=[1, 7, 14, 21]`, `t_values=[1, 5, 9, 13]`); 708 binds a lambda to a name (E731); 1299 puts a top-level statement immediately after a `return` with no blank line (E305), so `C_fg, ϕ_optimal = compute_chernoff_entropy(f, g)` reads as part of the function; and 1424 has two spaces after `=` in `cor_data =  {`. 1681 also runs to 88 characters (E501), 546-551 returns the same array under two keys (`'alpha'` and `'PFA'`) of which only one is used, and 1169 and 1173 evaluate `f(w)` and `g(w)` twice per call.
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 7. *Lines:* 59, 62, 144, 541, 548. *Example:* spelled-out `gamma`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 12. *Lines:* 192, 488, 555, 589, 776, 1018, 1119, 1198, 1224, 1311, …. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 9. *Lines:* 198, 510, 560, 603, 656, 808, 822, 1464, 1670. *Example:* plt.title.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 7. *Lines:* 225, 344, 354, 642, 754, 1116, 1306. *Example:* code-cell figure without mystnb figure metadata.
@@ -49,6 +48,7 @@ _None found._
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 4. *Lines:* 121, 872, 927, 1244. *Example:* 121 italicises a term as it is coined ("satisfies the *recursion*") where the companion lecture `likelihood_bayes` bolds the same term at 128; **likelihood ratio process** is bolded four separate times (94, 109, 927, 933), the last two being restatements of the first; and bold is used for pure emphasis at 872 and 876 ("flips a coin only **once**", "flips a coin **often**") and at 1244-1246 ("just **one** decision", "**all** individuals", "**many** decisions"), which the rule assigns to italic - the lecture's own correct italics are at 390 (*best*), 449 (*should*) and 308 (*different*).
 
 ### Low severity
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 541. *Example:* spelled-out `beta`.
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 1. *Lines:* 1681. *Example:* `compute_markov_selection_error` (1681-1703) computes the model-selection error probability for the two Markov chains across a range of $T$ - the Markov analogue of the central result of section 941-1054 and of the Chernoff comparison at 1306-1325 - and it is never called. No cell invokes it, no figure shows its output, and the Markov section ends at 1722 with only the log-likelihood-ratio path plot. The function exists, the transition matrices exist (1714-1720), and one plot of the error against $T$ with $e^{-h_{KL}T}$ overlaid would close the section the same way 1306-1325 closes the IID case.
 
 

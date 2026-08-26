@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.9 / 10
+- **Overall score:** 8.1 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 5.5/10 | `qe-writing-001` ×6; `qe-writing-009` (proposed) ×4; `qe-writing-008` ×80. |
 | Math         | 10/10 | no mechanical violations detected. |
-| Code         | 8.5/10 | `qe-code-002` ×4. |
+| Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 4/10  | `qe-fig-005` ×13; `qe-fig-003` ×4; `qe-fig-006` ×4, +2 more. |
 | References   | 7.5/10 | `qe-ref-001` ×5. |
@@ -34,7 +34,6 @@ _None found._
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 80. *Lines:* 54, 246, 402, 408, 410, 412, 418, 421, 422, 429, …. *Example:* 3 spaces.
 
 ### Medium severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 4. *Lines:* 64, 145. *Example:* spelled-out `gamma`.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 4. *Lines:* 651, 739, 746, 788. *Example:* .set_title.
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 4. *Lines:* 650, 659, 719, 786. *Example:* axis label `Likelihood ratio $l_t$`.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 647, 657. *Example:* plot() without lw=.
@@ -46,7 +45,7 @@ _None found._
 
 ## Strengths
 
-- Math, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- Math, Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
 - No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
 - No `qe-admon-003` violations — Use tick count management for nested directives.
 - No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
@@ -60,4 +59,4 @@ _None found._
 4. `qe-fig-003` — No matplotlib embedded titles (4 occurrences).
 5. `qe-writing-009` (proposed) — Write "IID" — not "i.i.d." or "iid" (4 occurrences).
 6. `qe-fig-006` — Lowercase axis labels (4 occurrences).
-7. `qe-code-002` — Use Unicode symbols for Greek letters in code (4 occurrences).
+7. `qe-writing-008` — Remove excessive whitespace between words (80 occurrences).

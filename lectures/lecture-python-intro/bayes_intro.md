@@ -5,8 +5,8 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.3 / 10
-- **Priority:** LOW
+- **Overall score:** 8.8 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 7.5/10 | `qe-writing-005` ×3; `qe-writing-003` ×1; `qe-writing-007` ×1. |
 | Math         | 9.5/10 | `qe-math-014` (proposed) ×2. |
-| Code         | 7.5/10 | `qe-code-002` ×8. |
+| Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5.5/10 | `qe-fig-005` ×10; `qe-fig-003` ×2; `qe-fig-001` ×3. |
 | References   | N/A   | no citations in this lecture. |
@@ -27,7 +27,6 @@
 _None found._
 
 ### High severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 8. *Lines:* 73, 240, 314, 347, 350, 539, 674, 829. *Example:* spelled-out `beta`.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 10. *Lines:* 31, 233, 343, 398, 418, 456, 538, 661, 738, 778. *Example:* code-cell figure without mystnb figure metadata.
 
 ### Medium severity

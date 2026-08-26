@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `ceec881028`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.6 / 10
+- **Overall score:** 7.8 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-006` ×8; `qe-writing-001` ×2; `qe-writing-005` ×2, +4 more. |
 | Math         | 7.5/10 | `qe-math-010` (proposed) ×2. |
-| Code         | 7/10  | `qe-code-002` ×4; `qe-code-001` ×4. |
+| Code         | 8.5/10 | `qe-code-001` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8/10  | `qe-fig-005` ×4; `qe-fig-008` ×2. |
 | References   | N/A   | no citations in this lecture. |
@@ -32,7 +32,6 @@ _None found._
 
 ### Medium severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 4. *Lines:* 215, 521, 580, 628. *Example:* `f = lambda x: np.sin(4 * (x - 1/4)) + x + x**20 - 1` binds a lambda to a name where PEP8 asks for a `def` (215, and again in the exercise solution at 628) - and this is the lecture's central test function, referenced by `{eq}`root_f`` throughout; trailing whitespace after `y_grid = g(x_grid)` (521) and `P = β**n * np.mean(return_draws)` (580).
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 4. *Lines:* 131, 134, 174, 179. *Example:* spelled-out `beta`.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 130, 173, 214, 511. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 219, 524. *Example:* plot() without lw=.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 457, 482. *Example:* 2 sentences in one paragraph.

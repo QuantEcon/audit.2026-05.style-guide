@@ -1,7 +1,7 @@
 series,lecture,rule,count,proposed,build_risk
 lecture-python-intro,about,qe-link-002,1,0,0
 lecture-python-intro,about,qe-writing-001,2,0,0
-lecture-python-intro,ar1_processes,qe-code-002,10,0,0
+lecture-python-intro,ar1_processes,qe-code-002,8,0,0
 lecture-python-intro,ar1_processes,qe-fig-001,1,0,0
 lecture-python-intro,ar1_processes,qe-fig-005,6,0,0
 lecture-python-intro,ar1_processes,qe-fig-008,9,0,0
@@ -10,7 +10,6 @@ lecture-python-intro,ar1_processes,qe-ref-001,1,0,0
 lecture-python-intro,ar1_processes,qe-writing-001,3,0,0
 lecture-python-intro,ar1_processes,qe-writing-008,1,0,0
 lecture-python-intro,ar1_processes,qe-writing-009,1,1,0
-lecture-python-intro,bayes_intro,qe-code-002,8,0,0
 lecture-python-intro,bayes_intro,qe-fig-001,3,0,0
 lecture-python-intro,bayes_intro,qe-fig-003,2,0,0
 lecture-python-intro,bayes_intro,qe-fig-005,10,0,0
@@ -45,7 +44,6 @@ lecture-python-intro,cobweb,qe-fig-001,2,0,0
 lecture-python-intro,cobweb,qe-fig-003,1,0,0
 lecture-python-intro,cobweb,qe-fig-005,2,0,0
 lecture-python-intro,cobweb,qe-fig-008,7,0,0
-lecture-python-intro,commod_price,qe-code-002,2,0,0
 lecture-python-intro,commod_price,qe-fig-005,3,0,0
 lecture-python-intro,commod_price,qe-fig-008,2,0,0
 lecture-python-intro,complex_and_trig,qe-fig-001,3,0,0
@@ -75,7 +73,6 @@ lecture-python-intro,eigen_II,qe-ref-001,1,0,0
 lecture-python-intro,eigen_II,qe-writing-001,1,0,0
 lecture-python-intro,eigen_II,qe-writing-004,2,0,0
 lecture-python-intro,eigen_II,qe-writing-008,1,0,0
-lecture-python-intro,equalizing_difference,qe-code-002,9,0,0
 lecture-python-intro,equalizing_difference,qe-fig-005,7,0,0
 lecture-python-intro,equalizing_difference,qe-fig-006,5,0,0
 lecture-python-intro,equalizing_difference,qe-fig-008,8,0,0
@@ -450,7 +447,6 @@ lecture-python-programming,python_oop,qe-fig-008,2,0,0
 lecture-python-programming,python_oop,qe-writing-004,4,0,0
 lecture-python-programming,python_oop,qe-writing-006,8,0,0
 lecture-python-programming,python_oop,qe-writing-008,16,0,0
-lecture-python-programming,scipy,qe-code-002,4,0,0
 lecture-python-programming,scipy,qe-fig-005,4,0,0
 lecture-python-programming,scipy,qe-fig-008,2,0,0
 lecture-python-programming,scipy,qe-math-010,2,1,0
@@ -604,7 +600,6 @@ lecture-python.myst,cross_product_trick,qe-math-013,1,1,0
 lecture-python.myst,cross_product_trick,qe-writing-006,2,0,0
 lecture-python.myst,cross_product_trick,qe-writing-008,24,0,0
 lecture-python.myst,cross_product_trick,qe-writing-009,1,1,0
-lecture-python.myst,divergence_measures,qe-code-002,4,0,0
 lecture-python.myst,divergence_measures,qe-fig-001,4,0,0
 lecture-python.myst,divergence_measures,qe-fig-003,3,0,0
 lecture-python.myst,divergence_measures,qe-fig-005,3,0,0
@@ -632,7 +627,6 @@ lecture-python.myst,exchange_rate_learning,qe-fig-001,4,0,0
 lecture-python.myst,exchange_rate_learning,qe-fig-003,5,0,0
 lecture-python.myst,exchange_rate_learning,qe-fig-004,2,0,0
 lecture-python.myst,exchange_rate_learning,qe-fig-008,1,0,0
-lecture-python.myst,exchangeable,qe-code-002,4,0,0
 lecture-python.myst,exchangeable,qe-fig-001,3,0,0
 lecture-python.myst,exchangeable,qe-fig-003,1,0,0
 lecture-python.myst,exchangeable,qe-fig-005,1,0,0
@@ -733,7 +727,6 @@ lecture-python.myst,ifp_opi,qe-fig-005,2,0,0
 lecture-python.myst,ifp_opi,qe-fig-008,3,0,0
 lecture-python.myst,ifp_opi,qe-link-002,1,0,0
 lecture-python.myst,ifp_opi,qe-writing-006,5,0,0
-lecture-python.myst,imp_sample,qe-code-002,9,0,0
 lecture-python.myst,imp_sample,qe-fig-001,1,0,0
 lecture-python.myst,imp_sample,qe-fig-003,1,0,0
 lecture-python.myst,imp_sample,qe-fig-004,1,0,0
@@ -818,12 +811,11 @@ lecture-python.myst,learning_approximation,qe-fig-004,1,0,0
 lecture-python.myst,learning_approximation,qe-fig-005,1,0,0
 lecture-python.myst,learning_approximation,qe-fig-008,1,0,0
 lecture-python.myst,learning_approximation,qe-math-010,1,1,0
-lecture-python.myst,likelihood_bayes,qe-code-002,4,0,0
 lecture-python.myst,likelihood_bayes,qe-fig-001,1,0,0
 lecture-python.myst,likelihood_bayes,qe-fig-005,6,0,0
 lecture-python.myst,likelihood_bayes,qe-math-010,31,1,0
 lecture-python.myst,likelihood_bayes,qe-writing-008,65,0,0
-lecture-python.myst,likelihood_ratio_process,qe-code-002,7,0,0
+lecture-python.myst,likelihood_ratio_process,qe-code-002,1,0,0
 lecture-python.myst,likelihood_ratio_process,qe-fig-001,12,0,0
 lecture-python.myst,likelihood_ratio_process,qe-fig-003,9,0,0
 lecture-python.myst,likelihood_ratio_process,qe-fig-005,7,0,0
@@ -835,7 +827,6 @@ lecture-python.myst,likelihood_ratio_process,qe-writing-001,4,0,0
 lecture-python.myst,likelihood_ratio_process,qe-writing-004,7,0,0
 lecture-python.myst,likelihood_ratio_process,qe-writing-006,1,0,0
 lecture-python.myst,likelihood_ratio_process,qe-writing-008,31,0,0
-lecture-python.myst,likelihood_ratio_process_2,qe-code-002,4,0,0
 lecture-python.myst,likelihood_ratio_process_2,qe-fig-001,14,0,0
 lecture-python.myst,likelihood_ratio_process_2,qe-fig-003,4,0,0
 lecture-python.myst,likelihood_ratio_process_2,qe-fig-005,13,0,0
@@ -872,7 +863,7 @@ lecture-python.myst,linear_models,qe-math-010,4,1,0
 lecture-python.myst,linear_models,qe-writing-001,2,0,0
 lecture-python.myst,linear_models,qe-writing-006,25,0,0
 lecture-python.myst,linear_models,qe-writing-008,30,0,0
-lecture-python.myst,lln_clt,qe-code-002,9,0,0
+lecture-python.myst,lln_clt,qe-code-002,3,0,0
 lecture-python.myst,lln_clt,qe-fig-001,6,0,0
 lecture-python.myst,lln_clt,qe-fig-005,6,0,0
 lecture-python.myst,lln_clt,qe-fig-008,1,0,0
@@ -1012,7 +1003,6 @@ lecture-python.myst,measurement_models,qe-math-011,1,1,0
 lecture-python.myst,measurement_models,qe-writing-001,2,0,0
 lecture-python.myst,measurement_models,qe-writing-004,12,0,0
 lecture-python.myst,measurement_models,qe-writing-008,20,0,0
-lecture-python.myst,merging_of_opinions,qe-code-002,2,0,0
 lecture-python.myst,merging_of_opinions,qe-fig-001,8,0,0
 lecture-python.myst,merging_of_opinions,qe-fig-003,4,0,0
 lecture-python.myst,merging_of_opinions,qe-math-011,4,1,0
@@ -1032,7 +1022,7 @@ lecture-python.myst,misspecified_recovery,qe-math-004,49,0,0
 lecture-python.myst,misspecified_recovery,qe-math-010,16,1,0
 lecture-python.myst,misspecified_recovery,qe-writing-004,3,0,0
 lecture-python.myst,misspecified_recovery,qe-writing-006,4,0,0
-lecture-python.myst,mix_model,qe-code-002,9,0,0
+lecture-python.myst,mix_model,qe-code-002,5,0,0
 lecture-python.myst,mix_model,qe-code-003,1,0,0
 lecture-python.myst,mix_model,qe-fig-004,1,0,0
 lecture-python.myst,mix_model,qe-fig-005,3,0,0
@@ -1071,7 +1061,6 @@ lecture-python.myst,multivariate_normal,qe-writing-001,2,0,0
 lecture-python.myst,multivariate_normal,qe-writing-004,1,0,0
 lecture-python.myst,multivariate_normal,qe-writing-008,7,0,0
 lecture-python.myst,multivariate_normal,qe-writing-009,3,1,0
-lecture-python.myst,navy_captain,qe-code-002,4,0,0
 lecture-python.myst,navy_captain,qe-fig-001,6,0,0
 lecture-python.myst,navy_captain,qe-fig-003,20,0,0
 lecture-python.myst,navy_captain,qe-fig-005,19,0,0
@@ -1087,7 +1076,6 @@ lecture-python.myst,newton_method,qe-fig-003,1,0,0
 lecture-python.myst,newton_method,qe-fig-005,6,0,0
 lecture-python.myst,newton_method,qe-fig-008,8,0,0
 lecture-python.myst,newton_method,qe-writing-001,2,0,0
-lecture-python.myst,odu,qe-code-002,8,0,0
 lecture-python.myst,odu,qe-fig-001,7,0,0
 lecture-python.myst,odu,qe-fig-003,3,0,0
 lecture-python.myst,odu,qe-fig-005,5,0,0
@@ -1453,7 +1441,6 @@ lecture-python.myst,util_rand_resp,qe-ref-001,1,0,0
 lecture-python.myst,util_rand_resp,qe-writing-006,5,0,0
 lecture-python.myst,util_rand_resp,qe-writing-008,13,0,0
 lecture-python.myst,var_dmd,qe-link-002,1,0,0
-lecture-python.myst,var_dmd,qe-math-002,28,0,0
 lecture-python.myst,var_dmd,qe-ref-001,6,0,0
 lecture-python.myst,var_dmd,qe-writing-004,16,0,0
 lecture-python.myst,var_dmd,qe-writing-006,5,0,0
@@ -1478,7 +1465,6 @@ lecture-python.myst,von_neumann_model,qe-writing-001,15,0,0
 lecture-python.myst,von_neumann_model,qe-writing-004,4,0,0
 lecture-python.myst,von_neumann_model,qe-writing-006,7,0,0
 lecture-python.myst,von_neumann_model,qe-writing-008,5,0,0
-lecture-python.myst,wald_friedman,qe-code-002,5,0,0
 lecture-python.myst,wald_friedman,qe-fig-001,5,0,0
 lecture-python.myst,wald_friedman,qe-fig-002,1,0,0
 lecture-python.myst,wald_friedman,qe-fig-003,5,0,0
@@ -1490,7 +1476,6 @@ lecture-python.myst,wald_friedman,qe-writing-001,3,0,0
 lecture-python.myst,wald_friedman,qe-writing-004,4,0,0
 lecture-python.myst,wald_friedman,qe-writing-006,1,0,0
 lecture-python.myst,wald_friedman,qe-writing-008,80,0,0
-lecture-python.myst,wald_friedman_2,qe-code-002,4,0,0
 lecture-python.myst,wald_friedman_2,qe-fig-001,4,0,0
 lecture-python.myst,wald_friedman_2,qe-fig-002,1,0,0
 lecture-python.myst,wald_friedman_2,qe-fig-003,5,0,0
@@ -1984,7 +1969,6 @@ lecture-python-advanced.myst,smoothing_tax,qe-math-010,5,1,0
 lecture-python-advanced.myst,smoothing_tax,qe-writing-001,1,0,0
 lecture-python-advanced.myst,smoothing_tax,qe-writing-004,1,0,0
 lecture-python-advanced.myst,smoothing_tax,qe-writing-008,60,0,0
-lecture-python-advanced.myst,stationary_densities,qe-code-002,4,0,0
 lecture-python-advanced.myst,stationary_densities,qe-fig-001,2,0,0
 lecture-python-advanced.myst,stationary_densities,qe-fig-002,2,0,0
 lecture-python-advanced.myst,stationary_densities,qe-fig-004,1,0,0
@@ -2112,7 +2096,6 @@ lecture-dp,calvo_machine_learn,qe-math-004,4,0,0
 lecture-dp,calvo_machine_learn,qe-math-013,1,1,0
 lecture-dp,calvo_machine_learn,qe-writing-001,1,0,0
 lecture-dp,calvo_machine_learn,qe-writing-008,193,0,0
-lecture-dp,career,qe-code-002,3,0,0
 lecture-dp,career,qe-fig-001,5,0,0
 lecture-dp,career,qe-fig-002,1,0,0
 lecture-dp,career,qe-fig-005,6,0,0
@@ -2313,7 +2296,6 @@ lecture-dp,mccall_q,qe-writing-001,1,0,0
 lecture-dp,mccall_q,qe-writing-004,1,0,0
 lecture-dp,mccall_q,qe-writing-006,5,0,0
 lecture-dp,mccall_q,qe-writing-008,83,0,0
-lecture-dp,odu,qe-code-002,8,0,0
 lecture-dp,odu,qe-fig-001,7,0,0
 lecture-dp,odu,qe-fig-003,3,0,0
 lecture-dp,odu,qe-fig-005,5,0,0

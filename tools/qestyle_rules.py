@@ -398,6 +398,18 @@ DELIM_PRIME = re.compile(r"(?:\)|\}|\])'(?!')")
 # A prime on the repeat of the symbol just before it: ``CC'``, ``U_t U_t'``.
 REPEATED_PRIME = re.compile(r"(?<![A-Za-z0-9\\])([A-Za-z])(?:_\{[^}]*\}|_[A-Za-z0-9])?"
                             r"\s*\1(?:_\{[^}]*\}|_[A-Za-z0-9])?'(?!')")
+# Some lectures say outright that the prime is not a transpose — ``var_dmd`` line 75,
+# "here $'$ is part of the name of the matrix $X'$ and does not indicate matrix
+# transposition", and ``arellano`` line 147, "a prime denotes a next period value". An
+# author's stated convention beats any heuristic, so a declaration switches the
+# bare-prime branches off for that lecture. Three lectures in the corpus declare one.
+PRIME_NOT_TRANSPOSE = re.compile(
+    r"(?:'|\bprime\b|\\prime)[^.\n]{0,120}?"
+    r"(?:not\s+(?:indicate|denote|mean)\w*\s+(?:a\s+)?(?:matrix\s+)?transpos"
+    r"|part\s+of\s+the\s+name"
+    r"|denotes?\s+(?:a\s+)?next[- ]period)", re.IGNORECASE)
+
+
 # The factor a transpose is juxtaposed with: ``x_t' R x_t``, ``B'\lambda``.
 FOLLOWING_FACTOR = re.compile(r"\s*(?:[A-Za-z\[]|\\(?!(?:" + NOT_A_PRODUCT_PRIME + r")\b)[A-Za-z]+)")
 
@@ -486,7 +498,9 @@ def check_math_002(doc: Doc):
     # next period's belief in ``navy_captain``, whose line 633 defines it as the posterior
     # after one more draw — so it is gated on the same evidence, and can also supply it.
     spans = list(_math_spans(doc))
-    evident = any(
+    declared = bool(PRIME_NOT_TRANSPOSE.search(
+        "\n".join(l.raw for l in doc.lines if l.kind == "text")))
+    evident = not declared and any(
         DELIM_PRIME.search(src) or REPEATED_PRIME.search(src)
         or any(FOLLOWING_FACTOR.match(src, m.end())
                for m in list(prime.finditer(src)) + list(lprime.finditer(src)))
@@ -857,6 +871,19 @@ def check_code_002(doc: Doc):
     for start, lines in _code_cells(doc):
         if PLOT_CALL.search(_strip_py("\n".join(lines))):
             drawing_lines.update(range(start, start + len(lines)))
+    # A name the lecture *imports* is not a variable it chose to spell out — ``from math
+    # import gamma`` binds the gamma function, and renaming it to ``γ`` breaks the import
+    # and means something else. Six lectures were flagged for exactly this. Collecting the
+    # bound names cannot cause a false negative: a spelled-out Greek *variable* is never
+    # also an imported name.
+    imported = set()
+    for l in doc.lines:
+        if l.kind != "code":
+            continue
+        for m in re.finditer(r"^\s*(?:from\s+[\w.]+\s+)?import\s+(.+)$", l.raw):
+            for part in m.group(1).split(","):
+                part = part.strip().split()[0] if part.strip() else ""
+                imported.add(part.rsplit(".", 1)[-1])
     for l in doc.lines:
         if l.kind != "code":
             continue
@@ -865,6 +892,12 @@ def check_code_002(doc: Doc):
         for m in GREEK_RE.finditer(s):
             word = m.group(1)
             if word == "alpha" and drawing and re.match(r"\s*=", s[m.end():]):
+                continue
+            # ...unless this line *assigns* it, in which case the lecture has shadowed the
+            # import with a variable of its own and the rule does apply:
+            # ``likelihood_ratio_process.md:541`` writes ``beta = np.array(...)`` for a
+            # type-II error probability, the one such site in the corpus.
+            if word in imported and not re.match(r"\s*=(?!=)", s[m.end():]):
                 continue
             hits.append(Hit("qe-code-002", l.no, f"spelled-out `{word}`"))
     return hits

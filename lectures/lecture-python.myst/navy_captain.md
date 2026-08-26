@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, links  *(JAX out of scope)*
-- **Overall score:** 5.8 / 10
+- **Overall score:** 6.0 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-006` ×7; `qe-writing-005` ×5; `qe-writing-003` ×6, +4 more. |
 | Math         | 6.5/10 | `qe-math-010` (proposed) ×4; `qe-math-009` ×5. |
-| Code         | 6.5/10 | `qe-code-001` ×7; `qe-code-002` ×4. |
+| Code         | 7.5/10 | `qe-code-001` ×7. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 3/10  | `qe-fig-003` ×20; `qe-fig-005` ×19; `qe-fig-006` ×4, +2 more. |
 | References   | N/A   | no citations in this lecture. |
@@ -41,7 +41,6 @@ _None found._
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 32. *Lines:* 46, 51, 64, 70, 80, 86, 91, 94, 95, 102, …. *Example:* 3 spaces.
 
 ### Medium severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 4. *Lines:* 33, 115. *Example:* spelled-out `gamma`.
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 4. *Lines:* 323, 324, 1028, 1048. *Example:* axis label `Probability of false alarm`.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 73. *Example:* 3 sentences in one paragraph.
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 3. *Lines:* 823, 875, 935. *Example:* the figure that answers the question in the section title "Was the Navy Captain's Hunch Correct?" (815-828) is the least labelled in the lecture - neither panel gets a title, the left panel's two series are distinguished only by legend, and the right panel's sole label is `'$diff$'` (823). Second, the continuation region $B \leq \pi \leq A$ is the whole content of the Bayesian rule (600-605), but it is only ever shown as two annotations on the value-function plot (582-586) and two `vlines` at 687-690; the belief paths that actually wander inside it are computed at 935-936 and then immediately collapsed to a mean and a variance (942-956), so the reader never sees one $\pi_t$ path crossing a cutoff even though the data is in hand. Third, the file contains no admonition of any kind, and the two results it exists to deliver - 833 "It is always positive" and 875-876 "the Bayesian rule decides **earlier** ... and **later**" - are bare paragraphs using bold to do the work a `{note}` would do.

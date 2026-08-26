@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 6.8 / 10
+- **Overall score:** 7.8 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -13,7 +13,7 @@
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-006` ×5; `qe-writing-004` ×16; `qe-writing-005` ×8, +5 more. |
-| Math         | 4.5/10 | `qe-math-002` ×28; `qe-math-009` ×4. |
+| Math         | 9.5/10 | `qe-math-009` ×4. |
 | Code         | N/A   | no executable code cells. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | N/A   | no figures or plotting code. |
@@ -27,7 +27,6 @@
 _None found._
 
 ### High severity
-- **[qe-math-002]** — Use \top for transpose notation. *Count:* 28. *Lines:* 72, 75, 79, 81, 97, 120, 160, 181, 196, 253, …. *Example:* apostrophe transpose `X'`.
 - **[qe-ref-001]** — Use correct citation style. *Count:* 6. *Lines:* 272, 443, 455, 518, 598, 726. *Example:* `` {cite} `` in narrative flow: 'and `` {cite} ``'.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 6. *Lines:* 126, 154, 168, 206, 283, 289. *Example:* 154 and 212 are the same sentence verbatim, 58 lines apart: "The $i$th row of $\hat A$ is an $m\times1$ vector of regression coefficients of $X_{i,t+1}$ on $X_{j,t}, j = 1,\ldots,m$". The case descriptions are also written twice - 87 at 108 and 88 at 135, word for word except that "variables" becomes "attributes". 168-171 announces its own repetition ("To reiterate, in the **tall-skinny** case ... we want to fit equation `` {eq}`eq:VARfirstorder` ``") of 44 and 133-165. 283-296 gives the same guidance in two consecutive bold-headed paragraphs, "**Guide to three representations:** In practice, we'll mainly be interested in Representation 3" and "**Guide to impatient reader:** In our applications, we'll be using Representation 3". 287 and 289 are the same statement twice ("we'll use only a small subset of **DMD modes** to approximate dynamics" / "We use such a small subset of DMD modes to construct a reduced-rank approximation to $A$"). 124 and 126 also say one thing twice, and 126 misspells it ("It is used to estimate vector autorgressions"). Two sentences are ungrammatical: 206 ("we'll use efficient algorithms to constructing a **reduced-rank approximation**") and 811 ("or use compute a decoded $\hat X_{t+j}$"); 585 has "matix".
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 6. *Lines:* 238, 270, 377, 642, 766, 783. *Example:* 238 names the wrong identity: the string of equalities at 229-233 goes from $(V\Sigma U^\top U \Sigma V^\top)^{-1}$ to $(V\Sigma\Sigma V^\top)^{-1}$, which cancels $U^\top U$, but the parenthetical says "Since we are in the $m>>n$ case in which $V^\top V = I_{p\times p}$ in a reduced SVD". 270 ends its sentence with a comma - "Dynamic mode decomposition was introduced by `` {cite}`schmid2010` ``," - and the next paragraph starts fresh. 377-383 contradicts itself: (a) says "for a full SVD $UU^\top = I_{m\times m}$ and $U^\top U = I_{p\times p}$ are both identity matrices" (for a full SVD $U$ is $m\times m$, so the second is $I_{m\times m}$, not $I_{p\times p}$), (b) says "for a reduced SVD of $X$, $U^\top U$ is not an identity matrix", and 383 then says "requirements (a) and (b) are both satisfied" - (b) is the negation of half of (a), so they cannot both be. The H3 at 642, "Decoder of $\check b$ as a linear projection", names the wrong direction: what the section derives is $\check b_t = \Phi^+ X_t$ (665, 678), which 423-432 would call the *encoder*; the decoder is $\check X = \Phi\check b$ at 685. 766 misquotes its own equation - "Recall that from equation `` {eq}`eq:tildeAverify` ``, $\tilde A = \tilde U^\top X' \tilde V \tilde\Sigma^{-1}$" - where 523-524 has a trailing $\tilde U^\top$. And the chain at 777-783 cannot hold as written: 777 gives $\hat b_1 = \tilde W \Lambda \check b_1$ and 783 then says "Consequently, $\hat b_1 = (\tilde W\Lambda)^{-1}\tilde b_1$", inverting the same factor and substituting $\tilde b_1$ for $\check b_1$ in one step, with $\hat b_1$ on the left of both.

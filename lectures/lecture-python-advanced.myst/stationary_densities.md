@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 6.9 / 10
+- **Overall score:** 7.1 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 4/10  | `qe-writing-002` ×5; `qe-writing-001` ×4; `qe-writing-005` ×3, +3 more. |
 | Math         | 6/10  | `qe-math-010` (proposed) ×5; `qe-math-009` ×3. |
-| Code         | 6/10  | `qe-code-001` ×10; `qe-code-002` ×4. |
+| Code         | 7/10  | `qe-code-001` ×10. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-005` ×6; `qe-fig-004` ×1; `qe-fig-002` ×2, +1 more. |
 | References   | 9/10  | `qe-ref-001` ×1. |
@@ -35,7 +35,6 @@ _None found._
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 12. *Lines:* 67, 244, 354, 385, 395, 445, 639, 660, 677, 678, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 4. *Lines:* 77, 476, 879, 915. *Example:* spelled-out `beta`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 908, 1026. *Example:* figsize=.
 - **[qe-fig-002]** — Prefer code-generated figures. *Count:* 2. *Lines:* 696, 794. *Example:* static image .png.
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 3. *Lines:* 314, 639, 644. *Example:* the set of densities on $S$ is written `\mathscr D` at 314, 639 and 644, where a plain $D$ would carry exactly as much information - the symbol appears only three times, is never manipulated, and nothing else in the lecture competes for the letter $D$. The neighbouring notation is otherwise plain ($S$, $P$, $p$, $\psi$, $\phi$), so the script letter is the one piece of decoration in the file.

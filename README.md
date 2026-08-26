@@ -34,9 +34,9 @@ drill-down report for every audited lecture.
 | lecture-python-advanced.myst | 68 | 7.4 | 44 | Writing (4.6) |
 | lecture-dp | 52 | 7.9 | 28 | Writing (5.6) |
 | lecture-python-programming | 27 | 8.1 | 19 | Writing (4.1) |
-| lecture-python.myst | 145 | 8.1 | 54 | Writing (5.9) |
+| lecture-python.myst | 145 | 8.1 | 55 | Writing (5.8) |
 | lecture-python-intro | 56 | 8.4 | 12 | Writing (6.3) |
-| **Corpus** | **348** | **8.0** | **157** | Writing (5.5) |
+| **Corpus** | **348** | **8.0** | **158** | Writing (5.5) |
 <!-- /qe:readme-scoreboard -->
 
 Every HIGH-priority lecture in this pass is HIGH because of a single weak category
