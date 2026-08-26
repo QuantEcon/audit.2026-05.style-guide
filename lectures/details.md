@@ -36,11 +36,11 @@ category.
 | # | Series | Lectures | Writing | Math | Code | Figures | References | Links | Admon | **Overall** | HIGH | MEDIUM | LOW | NONE |
 |---|--------|----------|---|---|---|---|---|---|---|-------------|------|--------|-----|------|
 | 1 | [lecture-python-advanced.myst](lecture-python-advanced.myst/index.md) | 68 | **4.6** | 5.9 | 7.6 | 6.3 | 9.2 | 9.2 | 10.0 | **7.5** | 44 | 0 | 19 | 5 |
-| 2 | [lecture-python.myst](lecture-python.myst/index.md) | 145 | **4.8** | 7.1 | 7.9 | 6.5 | 9.6 | 9.8 | 10.0 | **7.8** | 79 | 1 | 39 | 26 |
-| 3 | [lecture-dp](lecture-dp/index.md) | 52 | **5.6** | 6.9 | 8.5 | 6.4 | 9.3 | 9.5 | 10.0 | **8.0** | 28 | 0 | 10 | 14 |
+| 2 | [lecture-python.myst](lecture-python.myst/index.md) | 145 | **4.7** | 7.1 | 7.9 | 6.5 | 9.6 | 9.8 | 10.0 | **7.8** | 79 | 1 | 41 | 24 |
+| 3 | [lecture-dp](lecture-dp/index.md) | 52 | **5.5** | 6.9 | 8.4 | 6.4 | 9.3 | 9.5 | 10.0 | **7.9** | 28 | 0 | 10 | 14 |
 | 4 | [lecture-python-programming](lecture-python-programming/index.md) | 27 | **4.1** | 9.0 | 8.5 | 7.3 | N/A | 9.8 | 9.9 | **8.1** | 19 | 0 | 5 | 3 |
 | 5 | [lecture-python-intro](lecture-python-intro/index.md) | 56 | **5.9** | 8.7 | 8.0 | 6.5 | 9.3 | 9.7 | 10.0 | **8.3** | 18 | 0 | 19 | 19 |
-|   | **TOTAL / corpus average** | **348** | **5.0** | **7.2** | **8.0** | **6.5** | **9.4** | **9.6** | **10.0** | **7.9** | **188** | **1** | **92** | **67** |
+|   | **TOTAL / corpus average** | **348** | **5.0** | **7.1** | **8.0** | **6.5** | **9.4** | **9.6** | **10.0** | **7.9** | **188** | **1** | **94** | **65** |
 <!-- /qe:full-scoreboard -->
 
 See the [charts](charts.md) for the visual version.
@@ -175,6 +175,7 @@ HIGH lecture was triggered by the category floor; none has an overall at or belo
 | advanced | [hs_recursive_models](lecture-python-advanced.myst/hs_recursive_models.md) | 3.0 | 3.0 | — | — | 8.5 | 8.0 | — | **5.6** | 3.0 |
 | dp | [cross_product_trick](lecture-dp/cross_product_trick.md) | 4.0 | 3.0 | — | — | — | 10.0 | — | **5.7** | 3.0 |
 | python.myst | [qr_decomp](lecture-python.myst/qr_decomp.md) | 3.0 | 3.0 | 7.5 | — | — | 10.0 | — | **5.9** | 3.0 |
+| dp | [smoothing](lecture-dp/smoothing.md) | 3.0 | 3.0 | 7.5 | 5.0 | 10.0 | 7.5 | — | **6.0** | 3.0 |
 | advanced | [smoothing](lecture-python-advanced.myst/smoothing.md) | 3.0 | 3.0 | 7.5 | 5.0 | 10.0 | 7.5 | — | **6.0** | 3.0 |
 | python.myst | [navy_captain](lecture-python.myst/navy_captain.md) | 3.0 | 6.5 | 7.5 | 3.0 | — | 10.0 | — | **6.0** | 3.0 |
 | python.myst | [likelihood_var](lecture-python.myst/likelihood_var.md) | 4.5 | 3.5 | 7.5 | 5.0 | — | 10.0 | — | **6.1** | 3.5 |
@@ -213,7 +214,6 @@ HIGH lecture was triggered by the category floor; none has an overall at or belo
 | python.myst | [misspecified_recovery](lecture-python.myst/misspecified_recovery.md) | 3.0 | 3.0 | 6.0 | 6.5 | 10.0 | 10.0 | 10.0 | **6.9** | 3.0 |
 | python.myst | [multi_hyper](lecture-python.myst/multi_hyper.md) | 3.5 | 6.5 | 7.5 | 7.0 | — | 10.0 | — | **6.9** | 3.5 |
 | python.myst | [pandas_panel](lecture-python.myst/pandas_panel.md) | 3.5 | — | 7.5 | 4.5 | — | 9.0 | 10.0 | **6.9** | 3.5 |
-| dp | [smoothing](lecture-dp/smoothing.md) | 6.5 | 3.0 | 10.0 | 5.0 | 10.0 | 7.5 | — | **7.0** | 3.0 |
 | advanced | [smoothing_tax](lecture-python-advanced.myst/smoothing_tax.md) | 4.0 | 4.5 | 7.5 | 4.0 | 10.0 | 9.0 | 10.0 | **7.0** | 4.0 |
 | python.myst | [ols](lecture-python.myst/ols.md) | 3.0 | 7.0 | 7.5 | 5.0 | 7.5 | 9.0 | 10.0 | **7.0** | 3.0 |
 | python.myst | [perm_income](lecture-python.myst/perm_income.md) | 3.0 | 4.0 | 7.5 | 6.0 | 8.5 | 10.0 | 10.0 | **7.0** | 3.0 |

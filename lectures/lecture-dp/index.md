@@ -6,10 +6,10 @@ Style audit of the **lecture-dp** series.
 - **Audit date:** 2026-08-07
 - **Corpus snapshot:** `c30490a2f4`
 - **Lectures audited:** 52
-- **Average overall score:** 8.0 / 10
-- **Average per-category scores:** writing 5.6, math 6.9, code 8.5, figures 6.4, references 9.3, links 9.5, admon 10.0
+- **Average overall score:** 7.9 / 10
+- **Average per-category scores:** writing 5.5, math 6.9, code 8.4, figures 6.4, references 9.3, links 9.5, admon 10.0
 - **JAX:** out of scope — the `qe-jax-*` rules target `lecture-jax`.
-- **Judgment-review coverage:** **31 of 52 reviewed** — scores for the unreviewed 21 reflect the 41 measured rules only, so they are not directly comparable with the reviewed ones.
+- **Judgment-review coverage:** **32 of 52 reviewed** — scores for the unreviewed 20 reflect the 41 measured rules only, so they are not directly comparable with the reviewed ones.
 <!-- /qe:series-meta -->
 
 <!-- qe:series-narrative -->
@@ -106,12 +106,12 @@ that lecture. Click a lecture for its full report.
 | # | Lecture | Writing | Math | Code | Figures | References | Links | Admon | Overall | Priority |
 |---|---------|---|---|---|---|---|---|---|---------|----------|
 | 1 | [cross_product_trick](cross_product_trick.md) | 4 | 3 | — | — | — | 10 | — | **5.7** | HIGH |
-| 2 | [markov_jump_lq](markov_jump_lq.md) | 5 | 3 | 7.5 | 5.5 | 8.5 | 9 | — | **6.4** | HIGH |
-| 3 | [cons_news](cons_news.md) | 3 | 4.5 | 8.5 | 6 | 10 | 7.5 | — | **6.6** | HIGH |
-| 4 | [lagrangian_lqdp](lagrangian_lqdp.md) | 3 | 3 | 7 | — | 10 | 7.5 | 10 | **6.8** | HIGH |
-| 5 | [dyn_stack](dyn_stack.md) | 4 | 5 | 7.5 | 4.5 | 10 | 7.5 | 10 | **6.9** | HIGH |
-| 6 | [ifp_advanced](ifp_advanced.md) | 3 | 3 | 6.5 | 7 | 8.5 | 10 | 10 | **6.9** | HIGH |
-| 7 | [smoothing](smoothing.md) | 6.5 | 3 | 10 | 5 | 10 | 7.5 | — | **7.0** | HIGH |
+| 2 | [smoothing](smoothing.md) | 3 | 3 | 7.5 | 5 | 10 | 7.5 | — | **6.0** | HIGH |
+| 3 | [markov_jump_lq](markov_jump_lq.md) | 5 | 3 | 7.5 | 5.5 | 8.5 | 9 | — | **6.4** | HIGH |
+| 4 | [cons_news](cons_news.md) | 3 | 4.5 | 8.5 | 6 | 10 | 7.5 | — | **6.6** | HIGH |
+| 5 | [lagrangian_lqdp](lagrangian_lqdp.md) | 3 | 3 | 7 | — | 10 | 7.5 | 10 | **6.8** | HIGH |
+| 6 | [dyn_stack](dyn_stack.md) | 4 | 5 | 7.5 | 4.5 | 10 | 7.5 | 10 | **6.9** | HIGH |
+| 7 | [ifp_advanced](ifp_advanced.md) | 3 | 3 | 6.5 | 7 | 8.5 | 10 | 10 | **6.9** | HIGH |
 | 8 | [discrete_dp](discrete_dp.md) | 4 | 7 | 6.5 | 6 | 9 | 7 | 10 | **7.1** | HIGH |
 | 9 | [lqcontrol](lqcontrol.md) | 4 | 3 | 10 | 4.5 | 10 | 8 | 10 | **7.1** | HIGH |
 | 10 | [calvo](calvo.md) | 3 | 5.5 | 8.5 | 7 | 8.5 | 8 | 10 | **7.2** | HIGH |
