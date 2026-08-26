@@ -137,11 +137,13 @@ python3 tools/qestyle_check.py --root lectures --data lectures/data --corpus $CO
 ```
 
 5. **Build**, then commit and push to the same branch.
-6. **Re-arm.** If coverage is not finished, `send_later` the next resume before ending the
-   turn, pointing at this file again. If it *is* finished — the front-page caveat will say
-   so itself, having switched to "every one of the 348 lectures has been through the
-   judgment layer" — then open the PR against `main`. The user has asked for it once the
-   pass is ready, and not before: it should describe a finished pass.
+6. **Re-arm only if a session limit is what stopped you.** The `send_later` trigger exists
+   to carry the work across a credit window, not to keep a standing appointment — one was
+   set for a wall-clock time and deleted again once that was clear. If the session simply
+   ran out, schedule the next resume pointing back at this file. If a human is present and
+   the session is live, just carry on. There is **no audit trigger scheduled** as of
+   `2026-08-26`; the four Routines on the account are pre-existing weekly translation and
+   PR-review jobs and have nothing to do with this pass.
 
 ## What is still open when coverage lands
 
