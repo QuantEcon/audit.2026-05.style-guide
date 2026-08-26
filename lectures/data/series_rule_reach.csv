@@ -21,7 +21,7 @@ lecture-dp,qe-math-008,2,2
 lecture-dp,qe-math-010,18,108
 lecture-dp,qe-math-011,5,5
 lecture-dp,qe-math-013,3,3
-lecture-dp,qe-ref-001,22,49
+lecture-dp,qe-ref-001,20,45
 lecture-dp,qe-writing-001,23,44
 lecture-dp,qe-writing-004,14,28
 lecture-dp,qe-writing-006,22,141
@@ -34,7 +34,7 @@ lecture-python-advanced.myst,qe-code-005,1,3
 lecture-python-advanced.myst,qe-fig-001,47,215
 lecture-python-advanced.myst,qe-fig-002,12,35
 lecture-python-advanced.myst,qe-fig-003,36,149
-lecture-python-advanced.myst,qe-fig-004,10,15
+lecture-python-advanced.myst,qe-fig-004,8,13
 lecture-python-advanced.myst,qe-fig-005,54,203
 lecture-python-advanced.myst,qe-fig-006,15,83
 lecture-python-advanced.myst,qe-fig-007,2,13
@@ -52,10 +52,10 @@ lecture-python-advanced.myst,qe-math-008,1,1
 lecture-python-advanced.myst,qe-math-010,31,525
 lecture-python-advanced.myst,qe-math-011,18,95
 lecture-python-advanced.myst,qe-math-013,2,2
-lecture-python-advanced.myst,qe-ref-001,36,99
+lecture-python-advanced.myst,qe-ref-001,35,93
 lecture-python-advanced.myst,qe-writing-001,42,155
 lecture-python-advanced.myst,qe-writing-004,24,109
-lecture-python-advanced.myst,qe-writing-006,9,11
+lecture-python-advanced.myst,qe-writing-006,8,10
 lecture-python-advanced.myst,qe-writing-008,53,2223
 lecture-python-advanced.myst,qe-writing-009,10,26
 lecture-python-intro,qe-admon-002,1,1
@@ -134,7 +134,7 @@ lecture-python.myst,qe-math-010,58,666
 lecture-python.myst,qe-math-011,11,41
 lecture-python.myst,qe-math-012,1,3
 lecture-python.myst,qe-math-013,1,1
-lecture-python.myst,qe-ref-001,37,102
+lecture-python.myst,qe-ref-001,35,96
 lecture-python.myst,qe-writing-001,63,161
 lecture-python.myst,qe-writing-004,43,148
 lecture-python.myst,qe-writing-006,77,418

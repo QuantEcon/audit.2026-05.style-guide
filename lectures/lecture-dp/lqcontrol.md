@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 6.6 / 10
+- **Overall score:** 6.7 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -17,7 +17,7 @@
 | Code         | 7.5/10 | `qe-code-002` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 4.5/10 | `qe-fig-005` ×10; `qe-fig-006` ×4; `qe-fig-008` ×18, +2 more. |
-| References   | 9/10  | `qe-ref-001` ×1. |
+| References   | 10/10 | no mechanical violations detected. |
 | Links        | 8/10  | `qe-link-002` ×2. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
@@ -44,7 +44,7 @@ _None found._
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 262. *Example:* 3 sentences in one paragraph.
 
 ### Low severity
-- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 262. *Example:* {cite} in narrative flow: 'See {cite}`'.
+_None found._
 
 
 ## Strengths

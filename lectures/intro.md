@@ -18,7 +18,7 @@ are LOW or NONE.
 <!-- qe:focus -->
 | Attention | Series | Score | Needs work | Weakest categories |
 |-----------|--------|-------|-----------|--------------------|
-| 🔴 **High** | [lecture-python-advanced.myst](lecture-python-advanced.myst/index.md) | 7.5 | 44 / 68 | Writing (4.9), Math (6.0) |
+| 🔴 **High** | [lecture-python-advanced.myst](lecture-python-advanced.myst/index.md) | 7.4 | 44 / 68 | Writing (4.6), Math (5.9) |
 | 🔴 **High** | [lecture-dp](lecture-dp/index.md) | 7.9 | 28 / 52 | Writing (5.6), Figures (6.4) |
 | 🔴 **High** | [lecture-python-programming](lecture-python-programming/index.md) | 8.1 | 19 / 27 | Writing (4.1), Figures (7.3) |
 | 🟠 **Some** | [lecture-python.myst](lecture-python.myst/index.md) | 8.1 | 55 / 145 | Writing (5.9), Figures (6.5) |
@@ -45,9 +45,9 @@ Fix one of these *once* and it lifts dozens of lectures. Ordered by reach.
 | **Figure sizes** | Drop `figsize=` overrides — let the site defaults apply | **224** | 🔧 |
 | **Line widths** | Pass `lw=2` on line plots for consistent weight | **216** | 🔧 |
 | **Plot titles → captions** | Move `ax.set_title(...)` out of the plot into the figure caption | **165** | ✋ |
-| **Heading capitalization** | Section headings → sentence case (first word + proper nouns only) | **146** | 🔧 |
+| **Heading capitalization** | Section headings → sentence case (first word + proper nouns only) | **145** | 🔧 |
 | **Expectation notation** *(proposed)* | Use `\mathbb{E}` / `\mathbb{P}` / `\mathbb{V}` with braces | **118** | 🔧 |
-| **Narrative citations** | Use `{cite:t}` where the author name is part of the sentence | **110** | ✋ |
+| **Greek letters in code** | Use `α`, `β`, `γ` instead of `alpha`, `beta`, `gamma` | **106** | 🔧 |
 
 Reach is out of 348 lectures. 🔧 = scriptable sweep · ✋ = needs a human pass.
 <!-- /qe:wins -->
@@ -127,10 +127,10 @@ violation was measured in it*, not that a human declared it perfect.
 ```{warning}
 <!-- qe:review-coverage -->
 **Review coverage is incomplete in this pass, and it moves the scores.** The judgment
-layer has reached **209 of the 348 lectures**; a lecture assessed against more rules
+layer has reached **219 of the 348 lectures**; a lecture assessed against more rules
 scores lower — not because it is worse, but because more of it was looked at. The gap is
-large enough to matter: the 209 reviewed average **7.69** with 62 % HIGH, the 139
-unreviewed **8.47** with 20 % HIGH.
+large enough to matter: the 219 reviewed average **7.72** with 59 % HIGH, the 129
+unreviewed **8.43** with 22 % HIGH.
 <!-- /qe:review-coverage -->
 
 So **the cross-series comparison below is provisional** wherever coverage differs between

@@ -61,6 +61,33 @@ One sentence in `references.md` saying which of these is wanted:
 Either is mechanically checkable and we will implement whichever is chosen. What is not
 checkable is the current text, which leaves the commonest case in the corpus undetermined.
 
+## A second reason the definition matters: the wrapped-line case
+
+Our checker examines one source line at a time, and treats a citation at the start of a
+line as sentence-initial. In a wrapped paragraph that is often wrong about the *mechanism*
+while being right about the *answer*. 167 citations corpus-wide are line-initial, across 80
+lectures; for **90** of them the previous line does not end a sentence. Two examples:
+
+> `…appropriately adapting an argument of Abreu, Pearce, and Stachetti`
+> `{cite}`APS1990` to describe key features of…`
+
+> `…Chang uses the insights of Kydland and Prescott`
+> `{cite}`kydland1980dynamic` together with a method based on…`
+
+Both should be `{cite:t}` — the authors are named in the sentence — and both are currently
+flagged, but only because the line break happens to look like a sentence break. Meanwhile:
+
+> `…created by Abreu {cite}`Abreu`, {cite}`chari1990sustainable``
+> `{cite}`stokey1989reputation`, and Stokey {cite}`Stokey1991`.`
+
+is a parenthetical list, and is flagged by the same accident.
+
+We are deliberately **not** fixing this, because the fix depends on your answer above. If
+name-in-the-sentence wins, the right change is author-name detection, which gets the first
+two cases right for the right reason and drops the third. If position wins, the right change
+is to join wrapped lines before testing. Repairing the line-break heuristic on its own would
+delete the two true findings along with the false one.
+
 ## A corpus bug found on the way
 
 Four lines carry a stray `)` immediately after a citation role, which also happens to trip our

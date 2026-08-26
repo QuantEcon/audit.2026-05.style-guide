@@ -5,16 +5,16 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.8 / 10
-- **Priority:** NONE
+- **Overall score:** 8.2 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 7/10  | `qe-writing-001` ×2; `qe-writing-004` ×1. |
+| Writing      | 5/10  | `qe-writing-001` ×2; `qe-writing-005` ×3; `qe-writing-003` ×3, +2 more. |
 | Math         | 10/10 | no mechanical violations detected. |
-| Code         | 9/10  | `qe-code-003` ×1. |
+| Code         | 7/10  | `qe-code-001` ×8; `qe-code-003` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6.5/10 | `qe-fig-005` ×4; `qe-fig-003` ×1; `qe-fig-002` ×2, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -27,7 +27,7 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 8. *Lines:* 366, 371, 377, 382, 387, 409, 421, 484. *Example:* top-level definitions in the main cell are separated by a single blank line throughout - 365/366, 370/371, 376/377, 381/382, 386/387, 408/409, 420/421, 483/484 - where PEP8 asks for two, and the file is inconsistent with itself since 502-504 does leave two before the class. Separately, the four region predicates use single-quoted one-line docstrings (`"Determine whether (n1, n2) is in the set DLL"` at 368, and 373, 379, 384) rather than triple quotes, unlike every other docstring in the file; and three continuation lines are under-indented rather than aligned to their opening delimiter - 486 (`maxiter, npers, npts):` at 8 spaces under a `def` whose arguments start at column 34), 629 and 641.
 
 ### Medium severity
 - **[qe-code-003]** — Package installation at lecture top. *Count:* 1. *Lines:* 1. *Example:* non-Anaconda import with no install cell: ['ipywidgets'].
@@ -37,7 +37,10 @@ _None found._
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 656, 709, 721, 741. *Example:* {figure} without :name:.
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 1. *Lines:* 336. *Example:* raw link to python-programming.quantecon.org.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 790, 797. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 3. *Lines:* 216, 314, 324. *Example:* $N_{j,t}^c$ and $N_{j,t}^m$ are used in the display at 216 ($M_{j,t} := N_{j,t}^c + N_{j,t}^m/\theta$) and only defined afterwards, at 219 ("The symbols $N_{j,t}^c$ and $N_{j,t}^m$ will denote the measures of $\Omega^c$ and $\Omega^m$"), so the reader meets the composite before either of its parts. Second, 310-314 promises the root and never shows it: "Since we know $h_j(n_k) > 0$ then we can just solve the quadratic equation and return the positive root" followed by "This gives us" - and what follows at 317 is the quadratic itself, not its root; the closed form only ever appears as `root = (-b + np.sqrt(b*b - 4*a*c)) / (2*a)` at 362. Third, the whole simulation section turns on whether cycles "synchronize" (324-329, 689-692, 706, 713), but the criterion is never stated in the prose - it lives only in a docstring and a code branch (427-431, 470-480: $|n_{1,t} - n_{2,t}| < 10^{-8}$ sustained for `npers` consecutive periods), so a reader of the rendered page cannot say what the dark regions of the figure mean.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 27. *Example:* mid-sentence 'Innovation'.
+- **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 3. *Lines:* 54, 157, 183. *Example:* the lecture contains no bold and no italic anywhere, yet it names and defines several terms in narrative: "coupled oscillators" at 54, which 56 then calls the paper's technical contribution; the "iceberg trade cost $\tau_{j,k}$" at 157; and $\rho$ at 183-184, "a proxy for the degree of globalization", which is the single parameter the rest of the lecture varies (713, 763-766, 824). None is marked, so nothing on the page distinguishes the sentence that introduces a term from the sentences that use it.
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 2. *Lines:* 277, 750. *Example:* the law of motion at 273-284 is piecewise over four regions of the unit square - $D_{LL}$, $D_{HH}$, $D_{HL}$, $D_{LH}$, defined at 288-295 by the cutoff $s_1(\rho)$ and the implicit curve $h_j(n_k)$ - and that partition is never drawn, even though the lecture already plots on exactly that square (`pcolormesh(unitrange, unitrange, ...)` at 750). One panel showing the two curves cutting $[0,1]^2$ into four labelled regions would make both the `cases` display and the four-branch `if/elif` chain at 394-405 legible at a glance; without it the reader has to hold four inequalities in their head. Second, the attraction-basis figures (709, 741-787) carry no axis labels at all, so nothing says the axes are the initial conditions $n_{1,0}$ and $n_{2,0}$ - and 706 describes the encoding as "dark colors indicate synchronization, while light colors indicate failure" while the colorbar at 773-774 is actually a periods-to-synchronize scale with no label of its own.
 
 ### Low severity
 _None found._
@@ -45,18 +48,20 @@ _None found._
 
 ## Strengths
 
-- Math, Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The mechanism is told in plain words before any algebra appears: 66-84 walks innovation to temporary monopoly to imitation to strategic complementarity to obsolescence, one step per sentence, and 88-94 adds the coupling that trade introduces - so the 200 lines of model that follow read as formalisation of something already understood rather than as the source of it.
+- The lecture is explicit about the scope it has chosen: 100 flags the treatment as "relatively terse" and links the original paper for the full derivation, and 52-54 names the three antecedents ({cite}`Judd1985`, {cite}`Deneckere1992`, {cite}`Helpman1985`) plus the technical import, so a reader knows which gaps are deliberate.
+- The two-panel figure at 656-687 isolates the phenomenon by changing exactly one thing: `plot_timeseries(0.15, 0.35, ...)` and `plot_timeseries(0.4, 0.3, ...)` at 681-682 share every parameter and differ only in the initial condition, and 689-692 says precisely that.
+- The docstrings carry modelling content rather than types: 519-530 says what each of $s_1$, $\theta$, $\delta$, $\rho$ means economically, and 427-431 (repeated at 599-603) explains the non-obvious reason synchronization is tested over `npers` consecutive periods - that asymmetric countries can share a measure of firms without being synchronized.
+- The interactive material is handled so it neither breaks the build nor misleads the reader: both widget cells are tagged `skip-execution` (802, 821), the `{note}` at 796-799 tells the static-site reader why nothing appears and what to do instead, and 719-723 shows a snapshot so the page is not simply blank there.
+- Every paragraph in the model section is a single sentence, and each display is bracketed by one sentence saying what it is for and one saying how to read it - 112-113 then 119-123 around the final-good technology, 125 then 131-136 around the composite, 140 then 146-150 around demand.
 
 ## Recommended actions
 
-1. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
-2. `qe-fig-005` — Descriptive figure names for cross-referencing (4 occurrences).
-3. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (1 occurrence).
-4. `qe-link-002` — Use doc links for cross-series references (1 occurrence).
-5. `qe-fig-003` — No matplotlib embedded titles (1 occurrence).
-6. `qe-code-003` — Package installation at lecture top (1 occurrence).
-7. `qe-fig-002` — Prefer code-generated figures (2 occurrences).
+1. Fix the bracket in the fourth branch of $F$ at 281: `\big( \delta (\theta h_1(n_{2, t}) + (1-\theta) n_{1, t}, \delta n_{2, t} \big)` opens a parenthesis after $\delta$ that is never closed, so it reads as $\delta$ multiplying the whole pair - compare the correct third branch at 280, where the closing paren sits before the comma.
+2. Add a figure partitioning $[0,1]^2$ into $D_{LL}$, $D_{HH}$, $D_{HL}$, $D_{LH}$ with the cutoff $s_1(\rho)$ and the curves $h_j(n_k)$ drawn on it, placed with the `cases` display at 273-284; the same axes are already plotted at 750.
+3. State the synchronization criterion in the prose near 324-329 - $|n_{1,t}-n_{2,t}| < 10^{-8}$ held for `npers` consecutive periods, per 470-480 - so the dark regions of the attraction-basis figures have a stated meaning on the rendered page.
+4. Move the definition of $N_{j,t}^c$ and $N_{j,t}^m$ at 219 above the display at 214-217 that first uses them, and settle the sub-scripting of $\Omega$, which is $\Omega_t^c$ at 136, $\Omega_{j,t}$ at 185 and a bare $\Omega^c$ at 187 and 219.
+5. Display the positive root of the quadratic that 312 promises, either in place of or beneath {eq}-style at 317, so the closed form the code uses at 362 appears in the text.
+6. Label the attraction-basis axes as $n_{1,0}$ and $n_{2,0}$ and label the colorbar at 773-774 with what it measures, and either recolor or reword 706 so the stated dark/light encoding matches the periods-to-sync scale actually plotted.
+7. Clean the PEP8 items: two blank lines between the eight top-level definitions listed above, triple-quoted docstrings at 368, 373, 379 and 384, and aligned continuations at 486, 629 and 641.
+8. Sweep the remaining measured items: add the `ipywidgets` install cell at the top (the lecture imports it at 47 and it is not in Anaconda), give the two static figures at 709 and 721 `:name:` targets and the two code-cell figures at 656 and 741 `mystnb` figure metadata, move the `set(title=...)` at 673 into a caption, drop the `figsize` overrides at 679, 755 and 806, replace the raw programming-lecture URL at 336 with a `{doc}` link, and split the two-sentence paragraphs at 790 and 797.

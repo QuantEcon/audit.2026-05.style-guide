@@ -17,7 +17,7 @@
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | N/A   | no figures or plotting code. |
-| References   | 8.5/10 | `qe-ref-001` ×4. |
+| References   | 8.5/10 | `qe-ref-001` ×2. |
 | Links        | 8/10  | `qe-link-002` ×3. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
@@ -33,7 +33,7 @@ _None found._
 
 ### Medium severity
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 3. *Lines:* 43. *Example:* raw link to python-intro.quantecon.org.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 4. *Lines:* 345, 602, 724, 1007. *Example:* {cite} in narrative flow: 'see {cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 602, 724. *Example:* {cite} in narrative flow: 'in {cite}`'.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 52, 938. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 3. *Lines:* 210, 240, 384. *Example:* line 210-212 is a 44-word sentence that names both halves of an orthogonal decomposition, the space each lies in, and defines "orthogonal complement" on the way past; 240-241 is 38 words of forward reference before the point of the example arrives; 384-388 is 41 words with the covariance-stationarity qualification nested inside the claim it qualifies.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 973. *Example:* mid-sentence 'Prediction'.

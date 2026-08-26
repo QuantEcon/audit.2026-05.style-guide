@@ -5,16 +5,16 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 9.2 / 10
+- **Overall score:** 8.6 / 10
 - **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 10/10 | no mechanical violations detected. |
+| Writing      | 8/10  | `qe-writing-002` ×3; `qe-writing-007` ×2. |
 | Math         | 10/10 | no mechanical violations detected. |
-| Code         | 8.5/10 | `qe-code-002` ×3. |
+| Code         | 6.5/10 | `qe-code-001` ×9; `qe-code-002` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-003` ×4; `qe-fig-005` ×3; `qe-fig-008` ×10, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -27,6 +27,7 @@
 _None found._
 
 ### High severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 9. *Lines:* 614, 618, 765, 803, 844, 480, 495, 1158, 1214. *Example:* compound statements are used systematically to build the state-space blocks - `B = np.zeros((n, 1)); B[0, 0] = 1.0` at 614 and the same pattern at 615, 620, 621, 765-770, 797, 799, 800, 805, 806 and 844, seventeen lines in all - and 618 and 803 pack three statements including a `return` onto one line (`e = np.zeros(n); e[k - 1] = 1.0; return e`), which PEP8 asks to be split. Top-level `def`s are separated by a single blank line rather than two throughout (480, 488, 495, 505, 592, and the same at 439, 669, 761, 792, 1158), while the one-line docstrings at 481, 489, 496, 506, 587, 670, 762, 793 and 1159 use single double-quotes against the triple quotes of the multi-line docstring at 593-601. `make_ar_price` at 1158 declares a parameter `nX_extra=0` that its body never uses. And 1214 rebinds the module-level `scale` set at 514, inside an exercise solution, so a reader who runs the exercises and then re-runs an earlier cell gets different numbers.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 10. *Lines:* 529, 530, 697, 699, 701, 703, 1039, 1040, 1046, 1047. *Example:* plot() without lw=.
 
 ### Medium severity
@@ -34,6 +35,8 @@ _None found._
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 527, 695, 1038. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 4. *Lines:* 532, 706, 1041, 1048. *Example:* .set_title.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 526, 694, 1026. *Example:* code-cell figure without mystnb figure metadata.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 3. *Lines:* 890, 1104, 1110. *Example:* the lecture's two conclusions are each stated three or four times, twice in near-identical words. "Today's suppliers and today's demanders both react to supply *and* demand shocks, through their common effect on the prospective path of prices" (891-893) reappears 210 lines later as "Today's suppliers and today's demanders each react to supply *and* demand shocks, through their common effect on the expected future path of prices" (1104-1105), and the same point was already made in full in its own subsection at 321-334. The shock-invertibility conclusion likewise appears at 948-952, at 1064-1065, again in the `{admonition}` at 1067-1078, and a fourth time at 1112-1118 - where 1110 introduces it as "Finally, an aside" although it is one of the four things the Overview promises at 40-43. A Summary that restates is legitimate; three of these four are not in the Summary.
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 2. *Lines:* 447, 966. *Example:* the lecture computes roots four times and never draws them. The supplier's two roots (203-204), the demander's eight (278-281) and the market operator's eight (447-448) are the geometric heart of the whole construction - four reciprocal pairs $(\lambda_i, \beta/\lambda_i)$ split by the circle of radius $\sqrt\beta$ - and every one of them reaches the reader only as a printed list of moduli (206-208, 283-284, 457). One complex-plane scatter with the unit circle and the $\sqrt\beta$ circle drawn would make "collect the four stable roots" (253, 387) visible instead of arithmetic. Second, and more consequential: 963-966 asserts that "some of the zeros do lie inside" the unit circle, which is the single fact the entire second half of the lecture rests on, and the zeros of $G_z(I - A_F L)^{-1}C$ are never computed, printed or plotted - the reader is asked to take the invertibility failure on trust and then shown its consequences at 988-1053.
 
 ### Low severity
 _None found._
@@ -41,16 +44,23 @@ _None found._
 
 ## Strengths
 
-- Writing, Math, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The Overview commits to four deliverables as a bulleted list (31-43) and the lecture delivers them in that order and says so as it goes - the two dynamic curves at 167-334, the Big-$X$-little-$x$ recasting at 719-756, and the vector-autoregression difficulty at 897-1078 - with 45-46 naming the organising distinction (representations *outside* and *inside* a rational expectations equilibrium) that the Summary at 1085-1095 then closes on.
+- The solution method is stated once, as an indented block quote, before it is used three times: 175-177 says factor the characteristic operator, solve the stable root backwards into a feedback on lags and the unstable root forwards into a geometric sum - and then that recipe is visibly applied to $\phi_s$ (183-238), to $\phi_d$ (242-319) and to $\psi$ (381-428) with the same vocabulary each time.
+- The market Euler equation is derived in four explicitly numbered steps (348, 367, 385, 402), and the one step that could look like a trick is flagged as temporary and then undone: Step 1 says "temporarily erase the operator $E_t$" and Step 4 is titled "reinstate $E_t$ in front of the continuation shocks", so the reader is never left wondering where the expectation went.
+- The same equilibrium is computed twice by genuinely different routes and the agreement is checked numerically rather than asserted: 683-686 prints the maximum discrepancy in both the feedback coefficients and the impulse responses, 689-690 explains the residual (the ridge at 628), and 694-711 overlays the two sets of responses as lines and markers so the reader can see them coincide.
+- The Big-$X$-little-$x$ fixed point is verified rather than described: 841-849 evaluates the supplier's price-taking best response on the equilibrium state and prints its distance from the equilibrium rule, and exercise 3 (1239-1268) asks the reader to repeat the check for the demander with its four own lags.
+- The exercises test the two claims a sceptical reader would want tested. Exercise 1 (1122-1174) checks that the own-lag feedback $\delta_s/\beta$ is invariant to the price process by feeding the regulator three AR(1) prices, and explains the invariance from certainty equivalence before the code runs. Exercise 2 (1183-1225) sweeps $g_s \in \{0.1, 1, 10, 50, 100\}$ and measures the fraction of the supply-shock response arriving at lag zero, with the direction predicted at 1203-1211 and the mechanism confirmed at 1227-1234.
+- Two paragraphs at 149-152 name the one parameter choice that drives the entire second half - $g_s = 10$ is a hundred times $g_d = 0.1$, so quantity adjusts sluggishly - and 1058-1062 then reads that same asymmetry off the whitener's impulse responses, so the numerical result at 1046-1051 is traced back to a parameter the reader was warned about 900 lines earlier.
+- The `{admonition}` at 1067-1078 states the moral in a form that generalises past this model: a vector autoregression always recovers some fundamental noise for the data, and Sims's accounting always produces a tidy decomposition, but the data's fundamental noise need not be the agents' - which is the reusable lesson rather than a summary of the example.
 
 ## Recommended actions
 
-1. `qe-fig-003` — No matplotlib embedded titles (4 occurrences).
-2. `qe-fig-005` — Descriptive figure names for cross-referencing (3 occurrences).
-3. `qe-code-002` — Use Unicode symbols for Greek letters in code (3 occurrences).
-4. `qe-fig-008` — Use lw=2 for line charts (10 occurrences).
-5. `qe-fig-001` — Do not set figure size unless necessary (3 occurrences).
+1. Plot the eight roots of $z^4\psi(z)$ in the complex plane with the unit circle and the circle of radius $\sqrt\beta$, next to the factorization at 389-397 - `roots` and `λ` are already computed at 447-448, and the same figure would serve the supplier's two roots (203-204) and the demander's eight (278-281).
+2. Compute and exhibit the zeros of $G_z(I - A_F L)^{-1}C$ that 963-966 says lie inside the unit circle; the claim is the pivot of the second half of the lecture and is currently the one assertion in it that is neither derived nor checked numerically.
+3. Cut the duplicated conclusions: 890-893 and 1104-1105 are the same sentence, and the invertibility moral is stated at 948-952, 1064-1065, 1067-1078 and 1112-1118 - keep the Summary statements and drop the mid-lecture repeats, and reword 1110 ("Finally, an aside") since the Overview at 40-43 presents this as one of the lecture's four purposes.
+4. Split the seventeen compound statements (614, 615, 618, 620, 621, 765-770, 797, 799, 800, 803, 805, 806, 844), including the two three-statement lines with an inline `return` at 618 and 803.
+5. Give the eleven top-level `def`s two blank lines, triple-quote the nine one-line docstrings, and drop the unused `nX_extra` parameter at 1158.
+6. Rename the `scale` rebound at 1214 so the exercise solution does not overwrite the module-level value set at 514.
+7. Write the expectations as `\mathbb{E}` throughout - $E_0$ at 88 and 98, $E_t$ at 112, 117, 228, 294, 326, 410, 421, 469, 565, 755, 786, 863, and $E$ at 146, 911 and 927.
+8. Sweep the figures: `lw=2` on the ten `plot` calls (529, 530, 697, 699, 701, 703, 1039, 1040, 1046, 1047), move the four `set_title` calls (532, 706, 1041, 1048) into `mystnb: figure: caption/name` metadata on the three figure cells (526, 694, 1026), add y-axis labels to all three, and drop the `figsize=(12, 4)` overrides at 527, 695 and 1038.
+9. Document the coupling between `q_response(M, T=27)` at 495 and `p_response(q, s_path, T=25)` at 505 - the latter reads `q[t + 1]` up to `q[25]`, so the two magic lengths have to stay two apart, and nothing in the code says so.

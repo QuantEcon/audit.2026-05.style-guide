@@ -6,10 +6,10 @@ Style audit of the **lecture-python-advanced.myst** series.
 - **Audit date:** 2026-08-19
 - **Corpus snapshot:** `b83d6da399`
 - **Lectures audited:** 68
-- **Average overall score:** 7.5 / 10
-- **Average per-category scores:** writing 4.9, math 6.0, code 7.6, figures 6.3, references 9.2, links 9.2, admon 10.0
+- **Average overall score:** 7.4 / 10
+- **Average per-category scores:** writing 4.6, math 5.9, code 7.3, figures 6.3, references 9.2, links 9.2, admon 10.0
 - **JAX:** out of scope — the `qe-jax-*` rules target `lecture-jax`.
-- **Judgment-review coverage:** **56 of 68 reviewed** — scores for the unreviewed 12 reflect the 41 measured rules only, so they are not directly comparable with the reviewed ones.
+- **Judgment-review coverage:** **66 of 68 reviewed** — scores for the unreviewed 2 reflect the 41 measured rules only, so they are not directly comparable with the reviewed ones.
 <!-- /qe:series-meta -->
 
 <!-- qe:series-narrative -->
@@ -35,8 +35,8 @@ this series stops being the outlier.
 |----------|-------|---|
 | HIGH     | 44    | 64.7% |
 | MEDIUM   | 0     | 0.0% |
-| LOW      | 12    | 17.6% |
-| NONE     | 12    | 17.6% |
+| LOW      | 19    | 27.9% |
+| NONE     | 5     | 7.4% |
 <!-- /qe:series-priority -->
 
 ## Top systemic issues across the series
@@ -50,7 +50,7 @@ Ranked by how many of the series' lectures each rule reaches.
 4. **`qe-fig-008`** — Use lw=2 for line charts — **43 / 68** lectures, 360 occurrences.
 5. **`qe-writing-001`** — Use one sentence per paragraph — **42 / 68** lectures, 155 occurrences.
 6. **`qe-fig-003`** — No matplotlib embedded titles — **36 / 68** lectures, 149 occurrences.
-7. **`qe-ref-001`** — Use correct citation style — **36 / 68** lectures, 99 occurrences.
+7. **`qe-ref-001`** — Use correct citation style — **35 / 68** lectures, 93 occurrences.
 8. **`qe-math-010`** *(proposed)* — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces — **31 / 68** lectures, 525 occurrences.
 9. **`qe-link-002`** — Use doc links for cross-series references — **26 / 68** lectures, 94 occurrences.
 10. **`qe-writing-004`** — Avoid unnecessary capitalization in narrative text — **24 / 68** lectures, 109 occurrences.
@@ -144,27 +144,27 @@ that lecture. Click a lecture for its full report.
 | 42 | [tsyrennikov_2013](tsyrennikov_2013.md) | 4.5 | 5.5 | 7.5 | 5 | 10 | 10 | 10 | **7.5** | LOW |
 | 43 | [amss2](amss2.md) | 3.5 | 10 | 7.5 | 6 | 8.5 | 10 | — | **7.6** | HIGH |
 | 44 | [calvo_abreu](calvo_abreu.md) | 4 | 8.5 | 5.5 | 9 | 8.5 | 10 | — | **7.6** | HIGH |
-| 45 | [doubts_or_variability](doubts_or_variability.md) | 4 | 3 | 8.5 | 8.5 | 9 | 10 | 10 | **7.6** | HIGH |
+| 45 | [doubts_or_variability](doubts_or_variability.md) | 4 | 3 | 8.5 | 9 | 9 | 10 | 10 | **7.6** | HIGH |
 | 46 | [dovis_accounting_mf](dovis_accounting_mf.md) | 4 | 4.5 | 10 | 4.5 | 10 | 10 | 10 | **7.6** | HIGH |
 | 47 | [hansen_richard_1987](hansen_richard_1987.md) | 3 | 4 | 6.5 | 9.5 | 10 | 10 | 10 | **7.6** | HIGH |
 | 48 | [cattle_cycles](cattle_cycles.md) | 7 | 7 | 9 | 5 | 8.5 | 10 | — | **7.8** | LOW |
 | 49 | [lu_tricks](lu_tricks.md) | 3 | 6.5 | 8.5 | 8.5 | 10 | 8 | 10 | **7.8** | HIGH |
 | 50 | [info_projection](info_projection.md) | 4.5 | 5 | 8.5 | 8 | 9 | 10 | 10 | **7.9** | LOW |
 | 51 | [repeat_mh](repeat_mh.md) | 4 | 6 | 7 | 8.5 | 10 | 10 | 10 | **7.9** | HIGH |
-| 52 | [arellano](arellano.md) | 5.5 | 8.5 | 6.5 | 7 | 9 | 10 | 10 | **8.1** | LOW |
-| 53 | [coase](coase.md) | 6 | 9 | 6 | 7 | 8.5 | 10 | 10 | **8.1** | LOW |
-| 54 | [atkeson_1991](atkeson_1991.md) | 5.5 | 9.5 | 7 | 5.5 | 10 | 10 | 10 | **8.2** | LOW |
-| 55 | [chang_credible](chang_credible.md) | 3 | 10 | 8.5 | 9.5 | 10 | 10 | — | **8.5** | HIGH |
-| 56 | [muth_kalman](muth_kalman.md) | 8.5 | 6.5 | 10 | 5.5 | 10 | 9 | 10 | **8.5** | LOW |
-| 57 | [estspec](estspec.md) | 7.5 | 10 | 10 | 5 | 9 | 10 | 10 | **8.8** | NONE |
-| 58 | [matsuyama](matsuyama.md) | 7 | 10 | 9 | 6.5 | 10 | 9 | 10 | **8.8** | NONE |
-| 59 | [troubleshooting](troubleshooting.md) | 8.5 | — | — | 9 | — | 9 | — | **8.8** | NONE |
-| 60 | [mcmc](mcmc.md) | 8.5 | 6 | 10 | 7.5 | 10 | 10 | 10 | **8.9** | NONE |
-| 61 | [rosen_schooling_model](rosen_schooling_model.md) | 7.5 | 10 | 10 | 6 | 9 | 10 | 10 | **8.9** | NONE |
-| 62 | [un_insure](un_insure.md) | 8 | 10 | 10 | 5.5 | 9 | 10 | 10 | **8.9** | NONE |
-| 63 | [hansen_jagannathan_1991](hansen_jagannathan_1991.md) | 10 | 5 | 10 | 9 | 10 | 10 | 10 | **9.1** | NONE |
-| 64 | [supply_demand_var](supply_demand_var.md) | 10 | 10 | 8.5 | 6 | 10 | 10 | 10 | **9.2** | NONE |
-| 65 | [lucas_model](lucas_model.md) | 10 | 10 | 10 | 7.5 | 10 | 8 | 10 | **9.4** | NONE |
+| 52 | [un_insure](un_insure.md) | 4.5 | 9.5 | 7.5 | 5.5 | 9 | 10 | 10 | **8.0** | LOW |
+| 53 | [arellano](arellano.md) | 5.5 | 8.5 | 6.5 | 7 | 9 | 10 | 10 | **8.1** | LOW |
+| 54 | [coase](coase.md) | 6 | 9 | 6 | 7 | 8.5 | 10 | 10 | **8.1** | LOW |
+| 55 | [estspec](estspec.md) | 5 | 9.5 | 7.5 | 5 | 10 | 10 | 10 | **8.1** | LOW |
+| 56 | [muth_kalman](muth_kalman.md) | 6 | 6 | 10 | 5.5 | 10 | 9 | 10 | **8.1** | LOW |
+| 57 | [atkeson_1991](atkeson_1991.md) | 5.5 | 9.5 | 7 | 5.5 | 10 | 10 | 10 | **8.2** | LOW |
+| 58 | [matsuyama](matsuyama.md) | 5 | 10 | 7 | 6.5 | 10 | 9 | 10 | **8.2** | LOW |
+| 59 | [hansen_jagannathan_1991](hansen_jagannathan_1991.md) | 6.5 | 5 | 7.5 | 9 | 10 | 10 | 10 | **8.3** | LOW |
+| 60 | [mcmc](mcmc.md) | 7 | 5.5 | 7.5 | 8 | 10 | 10 | 10 | **8.3** | LOW |
+| 61 | [rosen_schooling_model](rosen_schooling_model.md) | 5.5 | 10 | 7.5 | 6 | 9 | 10 | 10 | **8.3** | LOW |
+| 62 | [lucas_model](lucas_model.md) | 6 | 9.5 | 7.5 | 7.5 | 10 | 8 | 10 | **8.4** | LOW |
+| 63 | [chang_credible](chang_credible.md) | 3 | 10 | 8.5 | 9.5 | 10 | 10 | — | **8.5** | HIGH |
+| 64 | [supply_demand_var](supply_demand_var.md) | 8 | 10 | 6.5 | 6 | 10 | 10 | 10 | **8.6** | NONE |
+| 65 | [troubleshooting](troubleshooting.md) | 8.5 | — | — | 9 | — | 9 | — | **8.8** | NONE |
 | 66 | [intro](intro.md) | 10 | — | — | — | — | 10 | — | **10.0** | NONE |
 | 67 | [status](status.md) | 10 | — | — | — | — | 10 | — | **10.0** | NONE |
 | 68 | [zreferences](zreferences.md) | 10 | — | — | — | — | 10 | — | **10.0** | NONE |

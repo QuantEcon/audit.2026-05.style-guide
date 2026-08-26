@@ -51,7 +51,8 @@ PROPER_NOUNS = {
     "bayesian", "kalman", "phelps", "riccati", "pareto", "laffer", "keynes",
     "keynesian", "blackwell", "phillips", "wold", "lucas", "gini", "neumann",
     "solow", "hamiltonian", "hamilton", "samuelson", "nash", "dubins", "cagan",
-    "sargent", "sims", "hansen", "jacobi", "newton", "raphson", "taylor",
+    "sargent", "sims", "hansen", "jagannathan", "jacobi", "newton", "raphson", "taylor",
+    "student",                      # Gosset's pen name: "Student-t", "Student's t"
     "cauchy", "schwarz", "hilbert", "banach", "lyapunov", "sylvester", "cholesky",
     "frobenius", "perron", "chebyshev", "bernoulli", "poisson", "cobb", "douglas",
     "koopmans", "cass", "diamond", "arrow", "debreu", "walras", "walrasian",
@@ -170,7 +171,11 @@ def _is_proper(word: str) -> bool:
     if lw in PROPER_NOUNS or lw in STOP_SMALL:
         return True
     parts = [x for x in re.split(r"[-\u2013\u2014]", lw) if x]
-    return len(parts) > 1 and all(x in PROPER_NOUNS or x in STOP_SMALL for x in parts)
+    # A single letter in a hyphenated name is a mathematical label, not a word that
+    # should have been lowercased: ``Student-t``, ``F-test``, ``p-value``. Requiring it
+    # to be allowlisted would mean listing every letter.
+    return len(parts) > 1 and all(
+        len(x) == 1 or x in PROPER_NOUNS or x in STOP_SMALL for x in parts)
 
 
 def check_writing_006(doc: Doc):
@@ -1307,9 +1312,14 @@ def check_ref_001(doc: Doc):
             after = s[m.end():]
             if re.match(r"[^`]*`\s*[.,;:)]", after):
                 continue
-            # "include {cite}`a` and {cite}`b`." is a list, not an author position.
+            # "include {cite}`a` and {cite}`b`." is a list, not an author position;
+            # neither is "see {cite}`x`". The cue word can be the lead word the match
+            # itself consumed, so the text tested has to include it — ``s[:m.start()]``
+            # cut the cue off and this exemption could only ever fire via the
+            # ``[.!?]\s+`` alternative.
+            lead = s[:m.start()] + m.group(0)[:-len("{cite}`")]
             if re.search(r"\b(?:include|includes|including|see|e\.g\.|cf\.)\s*$",
-                         s[:m.start() + 1], re.IGNORECASE):
+                         lead, re.IGNORECASE):
                 continue
             flagged.setdefault(m.start(),
                                f"{{cite}} in narrative flow: {m.group(0)[:48]!r}")

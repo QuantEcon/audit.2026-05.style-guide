@@ -17,7 +17,7 @@
 | Code         | 6.5/10 | `qe-code-002` ×2; `qe-code-001` ×3; `qe-code-003` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7/10  | `qe-fig-005` ×3; `qe-fig-003` ×1; `qe-fig-001` ×3. |
-| References   | 8.5/10 | `qe-ref-001` ×3. |
+| References   | 8.5/10 | `qe-ref-001` ×2. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
@@ -40,7 +40,7 @@ _None found._
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 638, 719, 796. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-math-004]** — Do not use bold face for matrices or vectors. *Count:* 3. *Lines:* 203, 220, 232. *Example:* \mathbf.
 - **[qe-math-007]** — Use automatic equation numbering, not manual tags. *Count:* 1. *Lines:* 158. *Example:* \label{ — use $$ … $$ (label) numbering.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 3. *Lines:* 50, 168, 224. *Example:* {cite} in narrative flow: '{cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 50, 168. *Example:* {cite} in narrative flow: '{cite}`'.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 781, 784. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 3. *Lines:* 508, 513, 670. *Example:* line 508 instructs 'Set `num_households=50_000, T=500`', but every call in the lecture passes `num_households=200_000` (646, 743, 820) - the sentence and the four paragraphs around it (501-514) are copied verbatim from {doc}`ifp_egm` lines 811-824 and were not updated, so the reader is told a number the code contradicts. Line 513-514 is part of that copy and still ends without a full stop, with a double space in 'pair `c_vec`  and `a_vec`'. Line 670 reads 'Lets' look at wealth inequality by computing some standard measures of this phenomenon' - misplaced apostrophe, and the trailing six words say nothing the first six did not.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 253, 490. *Example:* line 253 opens 'In the study of that model we found that it was possible to further accelerate time iteration' - there is no 'that model'. The preceding section (226-249) is about the convergence properties of $K$ in this lecture's own model; the optimal growth model the sentence means is not named until line 258, five lines later. Second, the Implementation section builds up to `a_star, σ_star = solve_model(ifp, a_init, σ_init)` at 490 and the timed re-solve at 496-498, and then simply stops - neither result is printed, plotted or referred to again. The Simulation section at 639-645 re-creates the model and re-solves it from scratch under new names, so the reader who has just followed 190 lines of algorithm never sees what it produced.

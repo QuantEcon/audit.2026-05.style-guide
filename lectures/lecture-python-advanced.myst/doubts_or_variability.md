@@ -16,7 +16,7 @@
 | Math         | 3/10  | `qe-math-010` (proposed) ×128; `qe-math-011` (proposed) ×24; `qe-math-004` ×6, +1 more. |
 | Code         | 8.5/10 | `qe-code-001` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 8.5/10 | `qe-fig-004` ×1; `qe-fig-001` ×9. |
+| Figures      | 9/10  | `qe-fig-001` ×9. |
 | References   | 9/10  | `qe-ref-001` ×1. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -41,7 +41,6 @@ _None found._
 - **[qe-writing-009 (proposed)]** — Write "IID" — not "i.i.d." or "iid". *Count:* 3. *Lines:* 984, 2861, 3013. *Example:* iid.
 
 ### Low severity
-- **[qe-fig-004]** — Caption formatting conventions. *Count:* 1. *Lines:* 339. *Example:* Title Case caption (Hansen-Jagannathan).
 - **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 52. *Example:* {cite} in narrative flow: '{cite}`'.
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 1. *Lines:* 502. *Example:* the 780 lines from 403 to 1180 carry no figure at all, and the passage that most needs one is the four-agent taxonomy at 502-558: four bullet lists of parameters followed by two prose sentences (541, 543) asserting which types are observationally equivalent to which, in what sense, and for which objects - a small table (type, parameters, penalty vs constraint, equivalence) or a diagram of the equivalences would carry the whole section, which the rest of the lecture then depends on.
 

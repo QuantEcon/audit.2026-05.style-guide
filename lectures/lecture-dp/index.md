@@ -55,9 +55,9 @@ Ranked by how many of the series' lectures each rule reaches.
 4. **`qe-fig-001`** — Do not set figure size unless necessary — **31 / 52** lectures, 102 occurrences.
 5. **`qe-fig-003`** — No matplotlib embedded titles — **30 / 52** lectures, 105 occurrences.
 6. **`qe-writing-001`** — Use one sentence per paragraph — **23 / 52** lectures, 44 occurrences.
-7. **`qe-ref-001`** — Use correct citation style — **22 / 52** lectures, 49 occurrences.
-8. **`qe-writing-006`** — Capitalize lecture titles properly — **22 / 52** lectures, 141 occurrences.
-9. **`qe-code-002`** — Use Unicode symbols for Greek letters in code — **21 / 52** lectures, 56 occurrences.
+7. **`qe-writing-006`** — Capitalize lecture titles properly — **22 / 52** lectures, 141 occurrences.
+8. **`qe-code-002`** — Use Unicode symbols for Greek letters in code — **21 / 52** lectures, 56 occurrences.
+9. **`qe-ref-001`** — Use correct citation style — **20 / 52** lectures, 45 occurrences.
 10. **`qe-math-010`** *(proposed)* — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces — **18 / 52** lectures, 108 occurrences.
 <!-- /qe:series-systemic -->
 
@@ -108,8 +108,8 @@ that lecture. Click a lecture for its full report.
 | 1 | [cross_product_trick](cross_product_trick.md) | 4 | 3 | — | — | — | 10 | — | **5.7** | HIGH |
 | 2 | [markov_jump_lq](markov_jump_lq.md) | 5 | 3 | 6 | 5.5 | 8.5 | 9 | — | **6.2** | HIGH |
 | 3 | [cons_news](cons_news.md) | 3 | 4.5 | 7 | 6 | 10 | 7.5 | — | **6.3** | HIGH |
-| 4 | [lqcontrol](lqcontrol.md) | 4 | 3 | 7.5 | 4.5 | 9 | 8 | 10 | **6.6** | HIGH |
-| 5 | [lagrangian_lqdp](lagrangian_lqdp.md) | 3 | 3 | 6.5 | — | 10 | 7.5 | 10 | **6.7** | HIGH |
+| 4 | [lagrangian_lqdp](lagrangian_lqdp.md) | 3 | 3 | 6.5 | — | 10 | 7.5 | 10 | **6.7** | HIGH |
+| 5 | [lqcontrol](lqcontrol.md) | 4 | 3 | 7.5 | 4.5 | 10 | 8 | 10 | **6.7** | HIGH |
 | 6 | [dyn_stack](dyn_stack.md) | 4 | 5 | 7 | 4.5 | 10 | 7.5 | 10 | **6.9** | HIGH |
 | 7 | [ifp_advanced](ifp_advanced.md) | 3 | 3 | 6.5 | 7 | 8.5 | 10 | 10 | **6.9** | HIGH |
 | 8 | [smoothing](smoothing.md) | 6.5 | 3 | 10 | 5 | 10 | 7.5 | — | **7.0** | HIGH |
@@ -129,15 +129,15 @@ that lecture. Click a lecture for its full report.
 | 22 | [chang_ramsey](chang_ramsey.md) | 3 | 10 | 8.5 | 6 | 8.5 | 10 | — | **7.7** | HIGH |
 | 23 | [lqramsey](lqramsey.md) | 6.5 | 3 | 7.5 | 7 | 10 | 10 | 10 | **7.7** | HIGH |
 | 24 | [amss2](amss2.md) | 3.5 | 10 | 8.5 | 6 | 8.5 | 10 | — | **7.8** | HIGH |
-| 25 | [ifp_egm_transient_shocks](ifp_egm_transient_shocks.md) | 3.5 | 9.5 | 7.5 | 5.5 | 8.5 | 10 | 10 | **7.8** | HIGH |
-| 26 | [ifp_opi](ifp_opi.md) | 5 | 10 | 6.5 | 6 | — | 9 | 10 | **7.8** | LOW |
-| 27 | [odu](odu.md) | 5 | 10 | 7.5 | 5 | 9 | 8 | 10 | **7.8** | LOW |
-| 28 | [calvo_abreu](calvo_abreu.md) | 4 | 9 | 7 | 9 | 8.5 | 10 | — | **7.9** | HIGH |
-| 29 | [ifp_egm](ifp_egm.md) | 3.5 | 9 | 7.5 | 6.5 | 9 | 10 | 10 | **7.9** | HIGH |
-| 30 | [mccall_model](mccall_model.md) | 4 | 7 | 10 | 6 | 10 | 8 | 10 | **7.9** | HIGH |
-| 31 | [smoothing_tax](smoothing_tax.md) | 7 | 5 | 10 | 4 | 10 | 9 | 10 | **7.9** | HIGH |
-| 32 | [jv](jv.md) | 3.5 | 9.5 | 7.5 | 6.5 | 9 | 10 | 10 | **8.0** | HIGH |
-| 33 | [mccall_model_with_sep_markov](mccall_model_with_sep_markov.md) | 5 | 10 | 7.5 | 5.5 | — | 10 | 10 | **8.0** | LOW |
+| 25 | [ifp_opi](ifp_opi.md) | 5 | 10 | 6.5 | 6 | — | 9 | 10 | **7.8** | LOW |
+| 26 | [odu](odu.md) | 5 | 10 | 7.5 | 5 | 9 | 8 | 10 | **7.8** | LOW |
+| 27 | [calvo_abreu](calvo_abreu.md) | 4 | 9 | 7 | 9 | 8.5 | 10 | — | **7.9** | HIGH |
+| 28 | [ifp_egm_transient_shocks](ifp_egm_transient_shocks.md) | 3.5 | 9.5 | 7.5 | 5.5 | 9 | 10 | 10 | **7.9** | HIGH |
+| 29 | [mccall_model](mccall_model.md) | 4 | 7 | 10 | 6 | 10 | 8 | 10 | **7.9** | HIGH |
+| 30 | [smoothing_tax](smoothing_tax.md) | 7 | 5 | 10 | 4 | 10 | 9 | 10 | **7.9** | HIGH |
+| 31 | [jv](jv.md) | 3.5 | 9.5 | 7.5 | 6.5 | 9 | 10 | 10 | **8.0** | HIGH |
+| 32 | [mccall_model_with_sep_markov](mccall_model_with_sep_markov.md) | 5 | 10 | 7.5 | 5.5 | — | 10 | 10 | **8.0** | LOW |
+| 33 | [ifp_egm](ifp_egm.md) | 3.5 | 9 | 7.5 | 6.5 | 10 | 10 | 10 | **8.1** | HIGH |
 | 34 | [mccall_fitted_vfi](mccall_fitted_vfi.md) | 7 | 8 | 7.5 | 5.5 | 9 | 10 | 10 | **8.1** | LOW |
 | 35 | [opt_tax_recur](opt_tax_recur.md) | 7 | 6 | 10 | 4.5 | 9 | 10 | 10 | **8.1** | LOW |
 | 36 | [os_stochastic](os_stochastic.md) | 4.5 | 7.5 | 9.5 | 7.5 | 10 | 8 | 10 | **8.1** | LOW |

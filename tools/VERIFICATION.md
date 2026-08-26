@@ -12,7 +12,7 @@ Verified against the 2026-08 snapshot (`lectures/data/snapshot.json`).
 
 | Rule | Verdict before fix | FP / TP sampled | What was wrong, and the fix |
 |------|--------------------|-----------------|------------------------------|
-| `qe-writing-006` | needs-fix | 52 / 40 | Possessives (`Newton's`) and hyphenated surnames (`Gram-Schmidt`, `Metropolis-Hastings`) defeated the proper-noun lookup; country names were missing. Added `_is_proper()` (strips possessives, splits hyphens, treats any `X's` as a name) and extended the list. Also added the rule's other half — an H1 that is *not* Title Case. |
+| `qe-writing-006` | needs-fix | 52 / 40 | Possessives (`Newton's`) and hyphenated surnames (`Gram-Schmidt`, `Metropolis-Hastings`) defeated the proper-noun lookup; country names were missing. Added `_is_proper()` (strips possessives, splits hyphens, treats any `X's` as a name) and extended the list. Also added the rule's other half — an H1 that is *not* Title Case.. **A later review found two residual false-positive shapes:** `_is_proper` required *every* hyphen-part to be allowlisted, so `Student-t` failed on the bare `t`, and `jagannathan` was missing while `hansen` was present. A single letter in a hyphenated name is a mathematical label, not a word that should have been lowercased, so single-letter parts are now accepted — which also covers `F-test` and `p-value` — and both surnames were added. Removed exactly 3 occurrences (`qe-writing-006` 1, `qe-fig-004` 2: the `Student-t` heading and caption in `mcmc`, the `Hansen-Jagannathan` caption in `doubts_or_variability`) with no collateral: `First-Order Conditions`, `Back-of-the-Envelope Calculations` and `Multi-Step-Forward` are still flagged |
 | `qe-writing-008` | broken | 12 / 28 | Masking inline code and maths with single spaces manufactured double spaces out of correctly-spaced prose. The lexer now masks with NUL, and cross-line inline maths is resolved before masking. |
 | `qe-writing-009` | needs-fix | 3 / 12 | Fired on MyST anchor definitions (`(iid-theorem)=`) and on role targets (``{ref}`IID <iid-theorem>` ``). Anchors are skipped and inline code is masked. |
 | `qe-writing-001` | added after | — | Not present at review time; added as a paragraph-block sentence counter with an abbreviation list. |
@@ -45,7 +45,7 @@ Verified against the 2026-08 snapshot (`lectures/data/snapshot.json`).
 | `qe-fig-010` | sound | 0 / 4 | — |
 | `qe-link-001` | needs-fix | 2 / 21 | A PDF under `/_static/` is a downloadable asset, not a sibling lecture. Asset paths are skipped. |
 | `qe-link-002` | needs-fix | 0 / 25 | Missed hosts that occur in the corpus. Added `python-intro`, `dp`, `networks` and `dle` to the known series domains. |
-| `qe-ref-001` | broken | 11 / 29 | `and` was treated as an author-position verb, so a list of parenthetical citations was flagged twice over. Removed, list contexts (`include`, `see`) exempted, and findings de-duplicated to one per citation site. |
+| `qe-ref-001` | broken, and the fix was **dead code** | 11 / 29 | `and` was treated as an author-position verb, so a list of parenthetical citations was flagged twice over. Removed, list contexts (`include`, `see`) exempted, and findings de-duplicated to one per citation site. **A later review found the exemption never fired.** It tested `s[:m.start() + 1]`, but `NARRATIVE_LEAD` *consumes* the cue word — for `"…reading, see {cite}`x`"` the slice was `'…reading, s'`, so `see\s*$` could not match, and the exemption only worked via the `[.!?]\s+` alternative. Now tested against `s[:m.start()] + m.group(0)` minus the role, which includes the cue. Removed 16 occurrences across 5 lectures, 0 added; every one read as a genuine `see {cite}` reference pointer (`estspec.md:51`, `lqcontrol.md:262` "See {cite}`HansenSargent2008` for details", the two `knowing_forecasts_of_others` footnotes). |
 | `qe-fig-009` | broken | 13 / 0 | Counted `:scale:`, which is relative to the image's own pixel size — a screenshot at `:scale: 50` says nothing about how wide it renders, and every one of the 13 hits was a scaled-down screenshot. Restricted to `:width:` as a percentage, which *is* a share of the text width. The corpus has exactly one such value (`100%`), so the rule is now correctly silent. |
 | `qe-fig-011` | sound | 0 / 0 | Exhaustively checked: the only nestings in the corpus are `{image}` inside `{prf:example}`, which is what the rule asks for. |
 | `qe-admon-001` | broken | 4 / 0 | Counted plain ```` ```python ```` display blocks, which are shown rather than run. The rule is about *executable* cells, so the check now requires a `{code-cell}`. All four hits were display blocks. |
@@ -131,6 +131,15 @@ reason to distrust the corpus totals.
   reported once by the `prime` branch for `x_t'` and again by `prime_vec` for `t'`.
   `check_math_010` solved the same problem by having its branches mask each other after
   each pass; `check_math_002` should do the same.
+
+- **`qe-ref-001` treats a line-initial citation as sentence-initial.** The check runs per
+  source line, so `^\s*\{cite\}` fires on a wrapped paragraph continuation. 167 citations
+  are line-initial across 80 lectures; for 90 the previous line does not end a sentence.
+  Not fixed, and deliberately: many of those 90 are *correct* findings reached by the wrong
+  mechanism — `chang_ramsey.md:581` wraps mid-sentence after "the insights of Kydland and
+  Prescott", so the citation genuinely wants `{cite:t}`. Repairing the line-break heuristic
+  alone would delete them. The real fix is author-name detection, which is the upstream
+  definition question in `contributions/issues/06-…`.
 
 ### Two fixes that were verified, then rejected
 

@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.9 / 10
+- **Overall score:** 8.0 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -17,7 +17,7 @@
 | Code         | 7.5/10 | `qe-code-001` ×4; `qe-code-004` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5.5/10 | `qe-fig-005` ×7; `qe-fig-003` ×3; `qe-fig-008` ×10, +1 more. |
-| References   | 8.5/10 | `qe-ref-001` ×2. |
+| References   | 9/10  | `qe-ref-001` ×1. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
@@ -35,12 +35,12 @@ _None found._
 ### Medium severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 4. *Lines:* 267, 656, 730, 848. *Example:* line 267 closes a hanging-indent signature with `    ) -> np.ndarray:` at 4 spaces, leaving arguments at body indent (E121/E125); the pattern recurs at 331, 435, 516, 713, 758 and 849. Line 656 puts a space before the comma in `+ y_bar(k) , label=label` (E203). Lines 730 and 774 bind lambdas to names where PEP8 asks for `def` (E731), and 770 and 774 are dead locals into the bargain. Line 848 writes the annotated default without spaces, `p: float=0.01` (E252). Trailing whitespace at 309, 473, 638, 639 and 862.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 3. *Lines:* 805, 940, 947. *Example:* .set(xlabel='assets', title=.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 686, 1017. *Example:* {cite} in narrative flow: 'see {cite}`'.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 3. *Lines:* 34, 129, 816. *Example:* the lecture tells the reader at 66-67 to consult {doc}`ifp_egm` for the extensive discussion, and then reproduces that lecture's EGM derivation almost verbatim at 129-171 - 'To do so we use the EGM', 'We begin with an exogenous savings grid', 'We fix a current guess of the policy function', the boundary case, the endogenous grid, the interpolation - which is ifp_egm.md:273-320 with the integral added. Line 34 reads 'we continue extend the IFP' and line 816 'Lets' look at wealth inequality by computing some standard measures of this phenomenon', both carried over from sibling lectures with their defects.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 2. *Lines:* 570, 706. *Example:* 2 spaces.
 
 ### Low severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 1. *Lines:* 934. *Example:* figsize=.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 1017. *Example:* {cite} in narrative flow: '{cite}`'.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 1. *Lines:* 968. *Example:* exercise `ifp_egm_ex1` instructs the reader to 'Step `r` through `np.linspace(0, 0.016, 4)`' (968), and its own solution uses `np.linspace(0, 0.04, 4)` with a comment justifying the different upper bound (983-984). A reader who follows the exercise as written produces a different figure from the one shown.
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 1. *Lines:* 809. *Example:* the lecture's whole contribution over {doc}`ifp_egm` is the transient shock, and its effect is described in words rather than shown: 'As was the case in {doc}`ifp_egm`, the wealth distribution looks implausible. While we have at least gained a nontrivial right tail, we still have a left skew' (809-811). The right tail that was gained is exactly what a two-panel comparison of the two models' wealth histograms - or the two consumption policies - would display, and the lecture already draws seven figures.
 

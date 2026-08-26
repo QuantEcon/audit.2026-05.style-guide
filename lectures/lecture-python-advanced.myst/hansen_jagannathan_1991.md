@@ -5,16 +5,16 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 9.1 / 10
-- **Priority:** NONE
+- **Overall score:** 8.3 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 10/10 | no mechanical violations detected. |
+| Writing      | 6.5/10 | `qe-writing-005` ×3; `qe-writing-003` ×4; `qe-writing-007` ×2. |
 | Math         | 5/10  | `qe-math-010` (proposed) ×39. |
-| Code         | 10/10 | no mechanical violations detected. |
+| Code         | 7.5/10 | `qe-code-001` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 9/10  | `qe-fig-001` ×6. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -27,11 +27,14 @@
 _None found._
 
 ### High severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 6. *Lines:* 152, 180, 470, 642, 1038, 1265. *Example:* 152 is a whitespace-only line inside `crra_points_from_consumption`, immediately followed by a blank one. 180 puts two imports on one line (`import json, urllib.request`), which PEP8 asks to be split - and does so in a mid-lecture cell rather than the import cell at 69-76. 470 writes `ones  = np.ones(n)` with two spaces before the operator. 642-645 breaks the `np.sqrt(max(...))` call so that the inner expression is indented to the same column as the `max(` that opens it, leaving the continuation visually detached from its call. 1038-1039 writes the slices `s_γ[1:T+1]`, `c_γ[2:T+2]` and `c_γ[1:T+1]` unspaced while the same file writes `T + 2` and `T + 1` at 1022-1026. And the exercise solution names its variables `alpha_star` and `Mxx` (1264-1266) where the whole lecture otherwise uses unicode Greek (`α`, `μ_x`, `σ_c`, `γ`, `Σ`) and the corresponding display at 269 writes $\alpha^*$.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 6. *Lines:* 541, 668, 717, 866, 1053, 1157. *Example:* figsize=.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 39. *Lines:* 56, 99, 107, 121, 139, 169, 260, 278, 282, 285, …. *Example:* bare expectation `E(`.
 
 ### Medium severity
-_None found._
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 4. *Lines:* 129, 39, 396, 1220. *Example:* the sign convention on $\gamma$ reverses between the body and the exercises with nothing said. 129-137 sets $U(c) = c^{1+\gamma}/(1+\gamma)$ for $\gamma < 0$, calls $-\gamma > 0$ the coefficient of relative risk aversion and writes $m = \beta(c_{t+1}/c_t)^\gamma$; `crra_points_from_consumption` follows it (`γ_grid = -np.arange(31)`, `m = β * growth ** γ`, 147-155), as do 911, 921 and 933-935 ($\gamma \approx -11$). But `simulate_economy` writes `m_true = δ * gc ** (-γ)` (1220) and `crra_imrs_moments` writes `E_m = δ * np.exp(-γ * μ_c + ...)` (1233), both assuming $\gamma > 0$, and the exercise then says "Using `simulate_economy` with $\gamma = 5$" (1242) - which under the body's convention is negative risk aversion. Second, $m$ is used six times in the Overview (39, 42, 49, 53, 56, 57) before it is bound to anything; 33-36 names the intertemporal marginal rate of substitution but never assigns it a symbol, and $m$ is first defined at 88-95. Third, $\|\cdot\|$ appears at 396 with no definition and is glossed only in passing at 400 ("the smallest norm (second moment)"), four lines after the display that uses it three times. Fourth, the discount factor is $\beta$ in every display (133, 921, 980) and in `crra_points_from_consumption` (144), but `δ` in `simulate_economy` (1200), `crra_imrs_moments` (1232) and `simulate_nonseparable_imrs` (1016).
+- **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 3. *Lines:* 738, 757, 940. *Example:* three bolds are emphasis rather than definition, where the rule asks for italic: **nonnegative** at 738 ("the minimum variance **nonnegative** $m$"), **convex** at 757 ("$S^+$ is **convex**") and **positivity-restricted** at 940. The lecture's other bolds are all correct definitional use - **volatility bounds** (41), **equity premium puzzle** (60), **variance decomposition** (295), **Hansen-Jagannathan bound** (447), **European call (or put) option** (745), **local durability** / **habit persistence** (973-974) - and 748 already uses italic for exactly this kind of emphasis ("$\tilde\alpha^v$ is *not* the same coefficient vector"), so the file has the distinction and drops it three times.
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 2. *Lines:* 545, 1068. *Example:* the first figure (541-569) plots the CRRA points as 31 unlabelled squares and the reciprocal stock return as an unlabelled cross, with no legend at all - the reader is told what they are only in prose at 575-583, and there is nothing to say which square is which $\gamma$. That matters because the lecture's headline number is a specific $\gamma$: 933-935 computes that $|\gamma| \approx 11$ is needed, and nothing on the figure marks it, so the claim at 579-580 that "only at high values of $|\gamma|$ do the squares enter the admissible region" cannot be read off the picture. The monthly figure at 1046-1088 has the same problem one level down: it legends the three $\theta$ values but not the $\gamma$ ordering along each set of markers, while 1091-1093 describes them as tracing pairs "as $|\gamma|$ increases" without saying from which end. Annotating three or four $\gamma$ values on each series, and marking $\gamma = -11$ on the annual figure, would let both figures carry their own captions' claims.
 
 ### Low severity
 _None found._
@@ -39,14 +42,23 @@ _None found._
 
 ## Strengths
 
-- Writing, Code, Figures, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
-- Citations distinguish `{cite}` from `{cite:t}` correctly (1 parenthetical, 1 in-text).
+- The Overview poses the question in one sentence (38-39: "what can asset market data alone tell us about $m$, without committing to any particular model?") and gives the answer as a three-step construction at 47-54, which the lecture then executes in that exact order: the projection at 256-301, the duality at 371-449, and the positivity tightening at 730-763.
+- The two hypotheses are named and numbered once (104-114, **Restriction 1** and **Restriction 2**) and thereafter referred to by name rather than by equation number - 116, 118, 258, 734, 739 - so a reader 700 lines later still knows which assumption is in play without scrolling.
+- The variance decomposition is derived and its load-bearing condition is stated at the moment it is used: 294 notes that subtracting $(Em)^2 = (Em^*)^2$ requires $Em = Em^*$, and the very next section (316-334) is devoted to what happens when that fails - which is exactly why the bound stops being a number and becomes a curve.
+- The `{note}` at 451-460 does three things in five lines: names the alternative Cauchy-Schwarz derivation from the paper's footnote 4, points at {doc}`doubts_or_variability` as the lecture that takes that route, and states which sections of the paper (III and III.C) this one follows.
+- Every place the replication departs from the paper is declared with what was substituted and what still holds: 989-996 (the Gallant-Tauchen consumption process is not bundled, so monthly stock and bill returns are used), 1100-1109 (2 base payoffs instead of the paper's 8, with the qualitative pattern that survives named explicitly) and 1145-1148 (a FRED proxy rather than CRSP bill data, with levels differing but features matching).
+- Data provenance is given at series-code granularity (231-240) - Shiller's chapter-26 workbook for the annual panel, and TB3MS, CPIAUCSL, DNDGRG3M086SBEA, DSERRG3M086SBEA, POPTHM from FRED - so the panel is reconstructible rather than merely cited.
+- The positivity-restricted frontier is solved as the exact sample truncation problem rather than approximated (762-763), and the implementation shows the care that takes: an analytic Jacobian is supplied (813-816), each $v$ is warm-started from the previous solution as a second candidate (784, 800-803, 848), and degenerate cases are returned as `nan` and filtered at plot time (792-795, 840-843, 870).
+- The exercise turns the lecture's three algebraic claims into three numbers: 1258-1273 checks $E(x m^*) = \mu_q$, and 1278-1292 prints $\mathrm{Var}(m)$ against $\mathrm{Var}(m^*) + \mathrm{Var}(m-m^*)$ and $E[(m-m^*)m^*]$ in one table, so the projection argument of 272-299 is verified rather than believed.
 
 ## Recommended actions
 
-1. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (39 occurrences).
-2. `qe-fig-001` — Do not set figure size unless necessary (6 occurrences).
+1. Settle the sign of $\gamma$: the body and `crra_points_from_consumption` treat $\gamma < 0$ with risk aversion $-\gamma$, while `simulate_economy`, `crra_imrs_moments` and the exercise text at 1242 treat $\gamma > 0$ - one of the two has to change, and until it does a reader cannot carry the $\gamma \approx -11$ result of 933-935 into the exercise.
+2. Bind $m$ to the IMRS in the Overview, at 33-36 where the IMRS is first named, so that the six uses at 39-57 refer to something already defined; and define $\|\cdot\|$ at or before 396 rather than glossing it at 400.
+3. Add a legend to the annual figure (541-569) naming the squares and the cross, annotate a few $\gamma$ values along the CRRA series, and mark $\gamma = -11$ so the figure carries the claim that 579-580 and 933-935 make about it; do the same for the $\gamma$ ordering on the monthly figure at 1058-1077.
+4. Use one name for the discount factor - $\beta$ in the displays and `β` in `crra_points_from_consumption`, but `δ` in `simulate_economy` (1200), `crra_imrs_moments` (1232) and `simulate_nonseparable_imrs` (1016).
+5. Write the 39 bare expectations as `\mathbb{E}` (qe-math-010 (proposed), proposed) - `E(xm)`, `Eq`, `E(m)`, `Exx^\top`, `Em^*` and the rest, starting at 56, 91, 99 and 107.
+6. Italicise the three emphatic bolds at 738, 757 and 940, matching the italic already used for the same purpose at 748.
+7. Clean the PEP8 items: the whitespace-only line at 152, the comma import at 180 (and move it to the import cell at 69-76), the double space at 470, the continuation indent at 642-645, the slice spacing at 1038-1039, and the ASCII `alpha_star` at 1265.
+8. Replace the `{doc}` roles used as grammatical subjects at 118 ("{doc}`hansen_richard_1987` show that no-arbitrage implies...") and 399 with `{cite:t}` plus a separate `{doc}` link, so the sentence reads as a citation rather than as a cross-reference doing duty as a name.
+9. Drop the six `figsize=(8, 5)` overrides (541, 668, 717, 866, 1053, 1157) and add the missing article at 940 ("for the **positivity-restricted** frontier").

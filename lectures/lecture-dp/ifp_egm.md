@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.9 / 10
+- **Overall score:** 8.1 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -17,7 +17,7 @@
 | Code         | 7.5/10 | `qe-code-001` ×3; `qe-code-004` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6.5/10 | `qe-fig-005` ×5; `qe-fig-003` ×1; `qe-fig-008` ×8. |
-| References   | 9/10  | `qe-ref-001` ×1. |
+| References   | 10/10 | no mechanical violations detected. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
@@ -41,7 +41,6 @@ _None found._
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 3. *Lines:* 49, 823. *Example:* 2 spaces.
 
 ### Low severity
-- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 761. *Example:* {cite} in narrative flow: 'see {cite}`'.
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 1. *Lines:* 279. *Example:* the Solution Method section (251-322) is 70 lines describing a construction that is entirely geometric - an exogenous savings grid $s_0 < \cdots < s_m$, the consumption values $c_{ij}$ read off the Euler equation, the endogenous asset grid $a_{ij} = c_{ij} + s_i$, the anchor at the origin, and a piecewise-linear interpolant through $\{(a_{0j}, c_{0j}), \ldots\}$ - and it carries no figure. The one picture that would make EGM click, the interpolation points sitting on an unevenly spaced asset grid with the policy drawn through them, appears nowhere; every other section of this lecture gets a panel.
 
 

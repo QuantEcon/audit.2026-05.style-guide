@@ -699,7 +699,7 @@ lecture-python.myst,ifp_advanced,qe-fig-005,3,0,0
 lecture-python.myst,ifp_advanced,qe-math-004,3,0,0
 lecture-python.myst,ifp_advanced,qe-math-007,1,0,0
 lecture-python.myst,ifp_advanced,qe-math-010,10,1,0
-lecture-python.myst,ifp_advanced,qe-ref-001,3,0,0
+lecture-python.myst,ifp_advanced,qe-ref-001,2,0,0
 lecture-python.myst,ifp_advanced,qe-writing-001,2,0,0
 lecture-python.myst,ifp_advanced,qe-writing-006,9,0,0
 lecture-python.myst,ifp_advanced,qe-writing-008,1,0,0
@@ -714,7 +714,6 @@ lecture-python.myst,ifp_egm,qe-code-004,6,0,0
 lecture-python.myst,ifp_egm,qe-fig-003,1,0,0
 lecture-python.myst,ifp_egm,qe-fig-005,5,0,0
 lecture-python.myst,ifp_egm,qe-fig-008,8,0,0
-lecture-python.myst,ifp_egm,qe-ref-001,1,0,0
 lecture-python.myst,ifp_egm,qe-writing-006,9,0,0
 lecture-python.myst,ifp_egm,qe-writing-008,3,0,0
 lecture-python.myst,ifp_egm_transient_shocks,qe-code-004,6,0,0
@@ -722,7 +721,7 @@ lecture-python.myst,ifp_egm_transient_shocks,qe-fig-001,1,0,0
 lecture-python.myst,ifp_egm_transient_shocks,qe-fig-003,3,0,0
 lecture-python.myst,ifp_egm_transient_shocks,qe-fig-005,7,0,0
 lecture-python.myst,ifp_egm_transient_shocks,qe-fig-008,10,0,0
-lecture-python.myst,ifp_egm_transient_shocks,qe-ref-001,2,0,0
+lecture-python.myst,ifp_egm_transient_shocks,qe-ref-001,1,0,0
 lecture-python.myst,ifp_egm_transient_shocks,qe-writing-006,8,0,0
 lecture-python.myst,ifp_egm_transient_shocks,qe-writing-008,2,0,0
 lecture-python.myst,ifp_opi,qe-code-002,2,0,0
@@ -926,7 +925,6 @@ lecture-python.myst,lqcontrol,qe-fig-005,8,0,0
 lecture-python.myst,lqcontrol,qe-fig-006,3,0,0
 lecture-python.myst,lqcontrol,qe-fig-008,13,0,0
 lecture-python.myst,lqcontrol,qe-math-010,15,1,0
-lecture-python.myst,lqcontrol,qe-ref-001,1,0,0
 lecture-python.myst,lqcontrol,qe-writing-001,1,0,0
 lecture-python.myst,lqcontrol,qe-writing-008,12,0,0
 lecture-python.myst,ls_learning,qe-fig-001,8,0,0
@@ -1307,7 +1305,7 @@ lecture-python.myst,rand_resp,qe-writing-006,3,0,0
 lecture-python.myst,rand_resp,qe-writing-008,49,0,0
 lecture-python.myst,rational_expectations,qe-code-002,4,0,0
 lecture-python.myst,rational_expectations,qe-math-002,14,0,0
-lecture-python.myst,rational_expectations,qe-ref-001,2,0,0
+lecture-python.myst,rational_expectations,qe-ref-001,1,0,0
 lecture-python.myst,rational_expectations,qe-writing-001,1,0,0
 lecture-python.myst,rational_expectations,qe-writing-006,1,0,0
 lecture-python.myst,rational_expectations,qe-writing-008,30,0,0
@@ -1458,7 +1456,7 @@ lecture-python.myst,util_rand_resp,qe-writing-006,5,0,0
 lecture-python.myst,util_rand_resp,qe-writing-008,13,0,0
 lecture-python.myst,var_dmd,qe-link-002,1,0,0
 lecture-python.myst,var_dmd,qe-math-002,28,0,0
-lecture-python.myst,var_dmd,qe-ref-001,7,0,0
+lecture-python.myst,var_dmd,qe-ref-001,6,0,0
 lecture-python.myst,var_dmd,qe-writing-004,16,0,0
 lecture-python.myst,var_dmd,qe-writing-006,5,0,0
 lecture-python.myst,var_dmd,qe-writing-008,180,0,0
@@ -1675,7 +1673,7 @@ lecture-python-advanced.myst,chang_ramsey,qe-writing-008,26,0,0
 lecture-python-advanced.myst,classical_filtering,qe-link-002,3,0,0
 lecture-python-advanced.myst,classical_filtering,qe-math-002,17,0,0
 lecture-python-advanced.myst,classical_filtering,qe-math-003,5,0,0
-lecture-python-advanced.myst,classical_filtering,qe-ref-001,4,0,0
+lecture-python-advanced.myst,classical_filtering,qe-ref-001,2,0,0
 lecture-python-advanced.myst,classical_filtering,qe-writing-001,2,0,0
 lecture-python-advanced.myst,classical_filtering,qe-writing-004,1,0,0
 lecture-python-advanced.myst,classical_filtering,qe-writing-008,40,0,0
@@ -1710,7 +1708,6 @@ lecture-python-advanced.myst,discrete_dp,qe-ref-001,1,0,0
 lecture-python-advanced.myst,discrete_dp,qe-writing-001,1,0,0
 lecture-python-advanced.myst,discrete_dp,qe-writing-008,4,0,0
 lecture-python-advanced.myst,doubts_or_variability,qe-fig-001,9,0,0
-lecture-python-advanced.myst,doubts_or_variability,qe-fig-004,1,0,0
 lecture-python-advanced.myst,doubts_or_variability,qe-math-004,6,0,0
 lecture-python-advanced.myst,doubts_or_variability,qe-math-010,128,1,0
 lecture-python-advanced.myst,doubts_or_variability,qe-math-011,24,1,0
@@ -1753,7 +1750,6 @@ lecture-python-advanced.myst,estspec,qe-fig-003,1,0,0
 lecture-python-advanced.myst,estspec,qe-fig-005,7,0,0
 lecture-python-advanced.myst,estspec,qe-fig-006,2,0,0
 lecture-python-advanced.myst,estspec,qe-fig-008,1,0,0
-lecture-python-advanced.myst,estspec,qe-ref-001,1,0,0
 lecture-python-advanced.myst,estspec,qe-writing-001,2,0,0
 lecture-python-advanced.myst,estspec,qe-writing-008,4,0,0
 lecture-python-advanced.myst,five_preferences,qe-fig-001,19,0,0
@@ -1804,7 +1800,7 @@ lecture-python-advanced.myst,hs_recursive_models,qe-link-002,2,0,0
 lecture-python-advanced.myst,hs_recursive_models,qe-math-002,154,0,0
 lecture-python-advanced.myst,hs_recursive_models,qe-math-010,26,1,0
 lecture-python-advanced.myst,hs_recursive_models,qe-math-011,3,1,0
-lecture-python-advanced.myst,hs_recursive_models,qe-ref-001,3,0,0
+lecture-python-advanced.myst,hs_recursive_models,qe-ref-001,2,0,0
 lecture-python-advanced.myst,hs_recursive_models,qe-writing-001,15,0,0
 lecture-python-advanced.myst,hs_recursive_models,qe-writing-004,28,0,0
 lecture-python-advanced.myst,hs_recursive_models,qe-writing-006,2,0,0
@@ -1825,7 +1821,7 @@ lecture-python-advanced.myst,knowing_forecasts_of_others,qe-link-002,3,0,0
 lecture-python-advanced.myst,knowing_forecasts_of_others,qe-math-003,26,0,0
 lecture-python-advanced.myst,knowing_forecasts_of_others,qe-math-010,4,1,0
 lecture-python-advanced.myst,knowing_forecasts_of_others,qe-math-011,3,1,0
-lecture-python-advanced.myst,knowing_forecasts_of_others,qe-ref-001,9,0,0
+lecture-python-advanced.myst,knowing_forecasts_of_others,qe-ref-001,7,0,0
 lecture-python-advanced.myst,knowing_forecasts_of_others,qe-writing-001,8,0,0
 lecture-python-advanced.myst,knowing_forecasts_of_others,qe-writing-004,4,0,0
 lecture-python-advanced.myst,knowing_forecasts_of_others,qe-writing-008,144,0,0
@@ -1886,11 +1882,9 @@ lecture-python-advanced.myst,matsuyama,qe-link-002,1,0,0
 lecture-python-advanced.myst,matsuyama,qe-writing-001,2,0,0
 lecture-python-advanced.myst,matsuyama,qe-writing-004,1,0,0
 lecture-python-advanced.myst,mcmc,qe-fig-001,1,0,0
-lecture-python-advanced.myst,mcmc,qe-fig-004,1,0,0
 lecture-python-advanced.myst,mcmc,qe-fig-005,2,0,0
 lecture-python-advanced.myst,mcmc,qe-math-005,3,0,0
 lecture-python-advanced.myst,mcmc,qe-math-010,2,1,0
-lecture-python-advanced.myst,mcmc,qe-writing-006,1,0,0
 lecture-python-advanced.myst,muth_kalman,qe-fig-003,3,0,0
 lecture-python-advanced.myst,muth_kalman,qe-fig-005,4,0,0
 lecture-python-advanced.myst,muth_kalman,qe-fig-006,3,0,0
@@ -2185,7 +2179,7 @@ lecture-dp,ifp_advanced,qe-fig-005,3,0,0
 lecture-dp,ifp_advanced,qe-math-004,3,0,0
 lecture-dp,ifp_advanced,qe-math-007,1,0,0
 lecture-dp,ifp_advanced,qe-math-010,10,1,0
-lecture-dp,ifp_advanced,qe-ref-001,3,0,0
+lecture-dp,ifp_advanced,qe-ref-001,2,0,0
 lecture-dp,ifp_advanced,qe-writing-001,2,0,0
 lecture-dp,ifp_advanced,qe-writing-006,9,0,0
 lecture-dp,ifp_advanced,qe-writing-008,1,0,0
@@ -2200,7 +2194,6 @@ lecture-dp,ifp_egm,qe-code-004,6,0,0
 lecture-dp,ifp_egm,qe-fig-003,1,0,0
 lecture-dp,ifp_egm,qe-fig-005,5,0,0
 lecture-dp,ifp_egm,qe-fig-008,8,0,0
-lecture-dp,ifp_egm,qe-ref-001,1,0,0
 lecture-dp,ifp_egm,qe-writing-006,9,0,0
 lecture-dp,ifp_egm,qe-writing-008,3,0,0
 lecture-dp,ifp_egm_transient_shocks,qe-code-004,6,0,0
@@ -2208,7 +2201,7 @@ lecture-dp,ifp_egm_transient_shocks,qe-fig-001,1,0,0
 lecture-dp,ifp_egm_transient_shocks,qe-fig-003,3,0,0
 lecture-dp,ifp_egm_transient_shocks,qe-fig-005,7,0,0
 lecture-dp,ifp_egm_transient_shocks,qe-fig-008,10,0,0
-lecture-dp,ifp_egm_transient_shocks,qe-ref-001,2,0,0
+lecture-dp,ifp_egm_transient_shocks,qe-ref-001,1,0,0
 lecture-dp,ifp_egm_transient_shocks,qe-writing-006,8,0,0
 lecture-dp,ifp_egm_transient_shocks,qe-writing-008,2,0,0
 lecture-dp,ifp_opi,qe-code-002,2,0,0
@@ -2265,7 +2258,6 @@ lecture-dp,lqcontrol,qe-link-002,2,0,0
 lecture-dp,lqcontrol,qe-math-002,85,0,0
 lecture-dp,lqcontrol,qe-math-003,17,0,0
 lecture-dp,lqcontrol,qe-math-010,15,1,0
-lecture-dp,lqcontrol,qe-ref-001,1,0,0
 lecture-dp,lqcontrol,qe-writing-001,1,0,0
 lecture-dp,lqcontrol,qe-writing-006,13,0,0
 lecture-dp,lqcontrol,qe-writing-008,12,0,0

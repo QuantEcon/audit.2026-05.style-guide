@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.8 / 10
+- **Overall score:** 7.9 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -17,7 +17,7 @@
 | Code         | 7.5/10 | `qe-code-001` ×4; `qe-code-004` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5.5/10 | `qe-fig-005` ×7; `qe-fig-003` ×3; `qe-fig-008` ×10, +1 more. |
-| References   | 8.5/10 | `qe-ref-001` ×2. |
+| References   | 9/10  | `qe-ref-001` ×1. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
@@ -35,7 +35,6 @@ _None found._
 ### Medium severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 4. *Lines:* 656, 842, 848, 862. *Example:* line 656 writes `+ y_bar(k) , label=label` with a space before the comma (E203); line 842 writes `jnp.arange(1, n+1)` unspaced while line 843 directly below writes `(n + 1) / n` spaced; line 848 writes `p: float=0.01`, which needs spaces around `=` on an annotated parameter (E252), where 514 in the same file gets it right; line 862 leaves trailing whitespace after `return wealth_top / wealth_total` (W291, also at 309, 473, 638-639).
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 3. *Lines:* 805, 940, 947. *Example:* .set(xlabel='assets', title=.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 686, 1017. *Example:* {cite} in narrative flow: 'see {cite}`'.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 4. *Lines:* 34, 104, 616, 816. *Example:* line 34 reads 'we continue extend the IFP' - a verb is missing; line 104 ends 'where $a_y, b_y$ are positive constants' with no full stop and a trailing space; line 816 has 'Lets'' for 'Let's' plus four words of padding ('some standard measures of this phenomenon'). The fourth is duplication: the figure cell at 616-623 is byte-identical to the one at 365-373, labels included, and both plot `a_vec`/`c_vec` - the NumPy solution from line 358 - so the JAX section's only policy figure is a second printing of the NumPy section's. The prose around it (426-427 repeating 234-235 verbatim, the identical operator docstrings at 268-275 and 436-443, 'Let's road test the EGM code' at both 349 and 544) has the same copy-forward character.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 556, 968. *Example:* lines 556-570 present a verification that cannot work as described. `create_ifp` is defined twice - at 210 with `β=0.96` and again at 401 with `β=0.94` - so `ifp_numpy` (352) and `ifp` (547) are different models, yet 567-568 concludes 'These numbers confirm that we are computing essentially the same policy'. Line 570 then diagnoses the gap as 'mainly due to different Monte Carlo integration outcomes over relatively small samples', which is a specific wrong answer: both constructors draw 100 standard normals from the same seed, and the discount factor is what differs. Second, exercise `ifp_egm_ex1` at 968 says to step `r` through `np.linspace(0, 0.016, 4)` and its own solution at 984 uses `np.linspace(0, 0.04, 4)`, justified by a comment ('With β=0.96, we need R*β < 1, so r < 0.0416') that names a discount factor the model in scope does not have.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 2. *Lines:* 570, 706. *Example:* 2 spaces.
@@ -43,6 +42,7 @@ _None found._
 ### Low severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 1. *Lines:* 934. *Example:* figsize=.
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 1. *Lines:* 99. *Example:* `\mathsf Z` at line 99 for the Markov chain's state support - the one decorative letter left in this file, and the same object the code calls `z_grid`. Plain $Z$ would do, and would also settle the disagreement across the series, where {doc}`ifp_egm` writes `\mathsf S`/`\mathsf Z` and {doc}`ifp_advanced` writes `\mathbf S` and `\mathscr C` for the same family of objects.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 1017. *Example:* {cite} in narrative flow: '{cite}`'.
 
 
 ## Strengths

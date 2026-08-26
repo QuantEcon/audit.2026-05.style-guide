@@ -17,7 +17,7 @@
 | Code         | 7/10  | `qe-code-002` ×2; `qe-code-001` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7/10  | `qe-fig-005` ×3; `qe-fig-003` ×1; `qe-fig-001` ×3. |
-| References   | 8.5/10 | `qe-ref-001` ×3. |
+| References   | 8.5/10 | `qe-ref-001` ×2. |
 | Links        | 10/10 | no mechanical violations detected. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
 
@@ -39,7 +39,7 @@ _None found._
 - **[qe-math-004]** — Do not use bold face for matrices or vectors. *Count:* 3. *Lines:* 203, 220, 232. *Example:* \mathbf.
 - **[qe-math-007]** — Use automatic equation numbering, not manual tags. *Count:* 1. *Lines:* 158. *Example:* \label{ — use $$ … $$ (label) numbering.
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 3. *Lines:* 117, 166, 203. *Example:* three sets get three different exotic fonts in one lecture: $\mathsf Z$ for the Markov chain's state space (117, 305), $\mathscr C$ for the class of candidate policies (166, 170, 172, 200, 219, 223, 228, 241-245) and $\mathbf S$ for the state space (203, 220, 232). Plain $Z$, $C$ and $S$ would carry the same meaning; as it stands the reader has to keep three typefaces apart, and the bold one additionally violates qe-math-004.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 3. *Lines:* 50, 168, 224. *Example:* {cite} in narrative flow: '{cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 50, 168. *Example:* {cite} in narrative flow: '{cite}`'.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 781, 784. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 3. *Lines:* 305, 670, 672. *Example:* line 305 says 'we held $z \in \mathsf Z$ in the discussion above' with the word 'fixed' missing, so the sentence does not state the assumption it is making. Line 670 opens the inequality section with 'Lets' look at wealth inequality by computing some standard measures of this phenomenon' - misplaced apostrophe, and 'of this phenomenon' adds nothing. Line 672 promises to 'examine how inequality varies with the interest rate', but both exercises vary the *volatility* of returns and of labour income (`a_r`, `a_y`), never the level of the return.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 100, 253. *Example:* the lecture names two different predecessors: line 40 says it continues 'the income fluctuation problem described in {doc}`ifp_egm`', while line 100 says 'the only difference from {doc}`ifp_egm_transient_shocks` is that $\{R_t\}$ ... is allowed to be stochastic'. Line 253 then opens '### Using an Endogenous Grid' with 'In the study of that model we found that it was possible to further accelerate time iteration' - 'that model' has no antecedent in this lecture, and the model meant (the optimal growth model of {doc}`os_egm`) is not named until 258.
