@@ -37,9 +37,9 @@ _None found._
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 364, 529. *Example:* figsize=.
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 2. *Lines:* 219, 398. *Example:* caption of 10 words.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 457, 524. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 4. *Lines:* 23, 49, 51. *Example:* {cite} in narrative flow: 'by  {cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 4. *Lines:* 23, 49, 51. *Example:* `` {cite} `` in narrative flow: 'by  `` {cite} ``'.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 33. *Example:* 2 sentences in one paragraph.
-- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 158, 261. *Example:* 158-160 describes both sides of the same equation the same way - "The left side of {eq}`eq:ada_steadypi` is steady state revenue raised by printing money" followed by "The right side ... is the quantity of time $t$ goods that the government raises by printing money" - when the right side is $g$, defined at 68 as the part of government *expenditure* financed by printing money; and the initial condition changes index between sections without comment: the claims at 126-130 are stated for $p_0$ and $m_1 - p_0 = -\alpha\bar\pi$, while 261-266 and the code compute $p_{-1} = m_0 + \alpha\pi^*$, and the figure caption at 402 calls the same object $\pi_0$.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 158, 261. *Example:* 158-160 describes both sides of the same equation the same way - "The left side of `` {eq}`eq:ada_steadypi` `` is steady state revenue raised by printing money" followed by "The right side ... is the quantity of time $t$ goods that the government raises by printing money" - when the right side is $g$, defined at 68 as the part of government *expenditure* financed by printing money; and the initial condition changes index between sections without comment: the claims at 126-130 are stated for $p_0$ and $m_1 - p_0 = -\alpha\bar\pi$, while 261-266 and the code compute $p_{-1} = m_0 + \alpha\pi^*$, and the figure caption at 402 calls the same object $\pi_0$.
 
 ### Low severity
 _None found._
@@ -55,9 +55,9 @@ _None found._
 
 ## Recommended actions
 
-1. Convert the author-position citations to `{cite:t}` (20, 23, 42, 49, 51) - "the adaptive expectations assumption used by {cite:t}`Cagan` and {cite:t}`Friedman1956`".
-2. Fix the mislabelled seigniorage curve at 242: the legend string reads `exp(-αx) - exp(-(1-α)x)` while `compute_seign` (228-229) and {eq}`eq:ada_steadypi` both use $1+\alpha$.
-3. Rewrite 158-160 so the two sides of {eq}`eq:ada_steadypi` are described differently, and settle on one time index for the initial condition across 126-130, 261-266 and the caption at 402.
+1. Convert the author-position citations to `{cite:t}` (20, 23, 42, 49, 51) - "the adaptive expectations assumption used by `` {cite:t}`Cagan` `` and `` {cite:t}`Friedman1956` ``".
+2. Fix the mislabelled seigniorage curve at 242: the legend string reads `exp(-αx) - exp(-(1-α)x)` while `compute_seign` (228-229) and `` {eq}`eq:ada_steadypi` `` both use $1+\alpha$.
+3. Rewrite 158-160 so the two sides of `` {eq}`eq:ada_steadypi` `` are described differently, and settle on one time index for the initial condition across 126-130, 261-266 and the caption at 402.
 4. Strip the 31 runs of double spaces - they are dense enough in the Overview (14, 18, 20, 22, 23, 31, 33, 37, 44, 46) to be a pattern rather than typos - and split the two-sentence paragraph at 33.
 5. Add `mystnb: figure: caption/name` metadata to the three un-named figures (360, 457, 524); the steady-state comparison in exercise 1 is a headline result and currently cannot be cross-referenced.
 6. Fix the code items above - raw strings for the LaTeX labels, `def` instead of the two named lambdas, and no alignment padding before `=` - and set `lw=2` on the seven line plots.

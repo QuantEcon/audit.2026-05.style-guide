@@ -46,7 +46,7 @@ _None found._
 ## Strengths
 
 - Twelve display equations are labelled and re-cited by name (eq:caganmd, eq:ree, eq:cagan, eq:pieq, eq:fisctheory1, eq:eq101, eq:mcum, eq:fisctheory2, eq:piterm, eq:pformula2, eq:pfiscaltheory2, eq:eqnmoneyjump), and the exercise solutions at lines 765 and 886 cite them back to the derivation they check.
-- The theory is anchored to named sources and named episodes - Sargent and Wallace's 'Unpleasant Monetarist Arithmetic' at lines 27-28, Cochrane at 32, Cagan at 48, Sargent's four big inflations at 50 - with three {doc} links to the inflation_history data lecture at 34, 612 and 618.
+- The theory is anchored to named sources and named episodes - Sargent and Wallace's 'Unpleasant Monetarist Arithmetic' at lines 27-28, Cochrane at 32, Cagan at 48, Sargent's four big inflations at 50 - with three `` {doc} `` links to the inflation_history data lecture at 34, 612 and 618.
 - Line 621 states the limit of its own evidence: the informal comparison between model paths and the four hyperinflations 'should be supplemented with a more formal structural statistical analysis', rather than letting eyeballed pattern-matching stand as proof.
 - All four exercises verify something the lecture asserts rather than extending it decoratively - the anticipation effect against alpha, the matrix solution against the closed-form discounted sum (agreeing to machine precision, line 765), gradual against sudden stabilization, and the real-balance path implied by eq:caganmd.
 - The namedtuple at lines 245-251 documents each of its five fields with an inline comment, so the model parameters are self-describing where they are defined rather than only in the prose above.

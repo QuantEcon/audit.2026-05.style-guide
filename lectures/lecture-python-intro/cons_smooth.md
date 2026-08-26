@@ -40,7 +40,7 @@ _None found._
 
 ### Low severity
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 1. *Lines:* 1023. *Example:* axis label `Welfare`.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 183. *Example:* {cite} in author position: '{cite}`Hall1978` showed'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 183. *Example:* `` {cite} `` in author position: '`` {cite}`Hall1978` `` showed'.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 1. *Lines:* 92. *Example:* lines 92-105 walk the reader through an iterative procedure - guess a consumption path, compute wealth, check the terminal condition, and 'if the candidate consumption path is not budget feasible, propose a less greedy consumption path and start over'. The lecture never implements it: section 201 computes c_0 in closed form from eq:conssmoothing and no search ever happens, so the reader has been taught an algorithm the lecture abandons.
 
 

@@ -40,7 +40,7 @@ _None found._
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 3. *Lines:* 29, 136, 332. *Example:* 2 spaces.
 
 ### Low severity
-- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 27. *Example:* {cite} in narrative flow: '{cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 27. *Example:* `` {cite} `` in narrative flow: '`` {cite} ``'.
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 1. *Lines:* 343. *Example:* 343 sets **persistence of the demand shock** in bold as emphasis ("Now investigate how the **persistence of the demand shock** matters") where the rule asks for italic - and the same exercise uses italic correctly for emphasis three times, at 353 (*why*), 377 (*survives the $k$ periods of schooling*) and 385 (*no*), so the bold is the odd one out rather than a consistent house style.
 
 

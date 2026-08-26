@@ -48,7 +48,7 @@ _None found._
 - Every claim in the narrative is followed by a printed check rather than left as an assertion: the two limits at 339-342, the arbitrage rest point at 391-400, the early-versus-late volatility windows at 548-554, and the zero-frequency dip tested as a boolean at 608-613.
 - The two economies' parameters are kept apart as named `Params` instances - Sargent's `kw` at 183, Arifovic's `arifovic` at 455 - with the rational expectations saving rate derived as a property (177-180) rather than restated as a literal.
 - The three exercises each attack a distinct claim the lecture made (whole-initial-condition dependence, the election operator's destabilising role, the near-unit-root coefficient), all gated with exercise-start/exercise-end and dropdown solutions.
-- {eq}`xr_utility` and {eq}`xr_prices` are labelled once and then cited by reference at every reuse (142, 200, 425, 446, 449, 764) - the lecture never says 'the equation above'.
+- `` {eq}`xr_utility` `` and `` {eq}`xr_prices` `` are labelled once and then cited by reference at every reuse (142, 200, 425, 446, 449, 764) - the lecture never says 'the equation above'.
 
 ## Recommended actions
 
@@ -57,5 +57,5 @@ _None found._
 3. Figure hygiene, the largest mechanical block: move the five embedded titles at 310, 318, 324, 591 and 595 into the cells' captions (qe-fig-003), shorten the two captions at 351 and 562 (qe-fig-004), drop `figsize=` at 306, 361, 534 and 588 (qe-fig-001), and set `lw=2` on the plot at 362 (qe-fig-008).
 4. Rename the Hessian estimate so that $R$ and $R_1, R_2$ no longer share a letter, in both the math (203-217) and the code (265, 282-283).
 5. Break the eight 40-plus-word sentences listed above into the one-idea-per-sentence form the rest of the file already uses.
-6. Give '## Evidence from the laboratory' an exhibit - the experimental path if it can be reproduced from {cite:t}`Arifovic1996`, otherwise a note admonition stating the band and the trend - and attribute the block quote at 409-410 with a {cite} and a page, since it opens with 'Put differently' and currently stands without a source.
+6. Give '## Evidence from the laboratory' an exhibit - the experimental path if it can be reproduced from `` {cite:t}`Arifovic1996` ``, otherwise a note admonition stating the band and the trend - and attribute the block quote at 409-410 with a `` {cite} `` and a page, since it opens with 'Put differently' and currently stands without a source.
 7. Rename the `lam` variables to `λ` for consistency with `κ` (257), `μ`, `φ` (802) and `λ0_grid` (358), move the code-organisation paragraph at 166-168 next to its cell, and replace the placeholder-free f-strings at 186, 397 and 398 with plain strings.

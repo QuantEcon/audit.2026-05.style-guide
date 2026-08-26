@@ -46,16 +46,16 @@ _None found._
 ## Strengths
 
 - All three figure-producing cells in the body carry full `mystnb: figure: caption/name` metadata (160-166, 266-272, 389-395), so every figure a reader meets in the narrative is captioned and cross-referenceable; the three qe-fig-005 hits are confined to the exercise solutions.
-- Equations are referred to only through {eq} labels, never by number, and the references are dense enough to hold the argument together - eq:pi-crep is recalled at 125 and 143, eq:varspread at 261 and again in the exercise at 456, and eq:kernel with eq:cmdebt are both cited at 375-376 where the verification step needs them.
+- Equations are referred to only through `` {eq} `` labels, never by number, and the references are dense enough to hold the argument together - eq:pi-crep is recalled at 125 and 143, eq:varspread at 261 and again in the exercise at 456, and eq:kernel with eq:cmdebt are both cited at 375-376 where the verification step needs them.
 - The simulations verify the analytics rather than merely decorating them: the theoretical variance path $t\cdot h h^\top$ is overlaid on the simulated one (184-189), and the Bewley market-clearing claim is checked by tracking the cross-section mean online across 10,000 agents (284-294).
 - All three exercises use gated `exercise-start`/`exercise-end` with `solution-start :class: dropdown`, and each solution closes with a paragraph of economic interpretation (503-505, 554-556, 612-614) rather than stopping at the plot.
-- The lecture states its place in the four-lecture LQ permanent-income sequence up front with {doc} links (42, 50, 52) and returns to them at the close (442-444), so a reader always knows what has been assumed and what comes next.
+- The lecture states its place in the four-lecture LQ permanent-income sequence up front with `` {doc} `` links (42, 50, 52) and returns to them at the close (442-444), so a reader always knows what has been assumed and what comes next.
 
 ## Recommended actions
 
 1. Delete the four `.set_title` calls (305, 311, 421, 429) - each of those cells already has a mystnb caption, so the title is duplicated inside the image (qe-fig-003, 4 occurrences).
 2. Add `mystnb: figure: caption/name` metadata to the three solution-cell figures (481, 531, 584) so the exercise figures match the body figures (qe-fig-005, 3 occurrences).
-3. Split line 218 into two sentences - one for why the permanent component has no stationary distribution, one for the initial draws used in the simulation - and replace the second and third restatements of $h$ (146, 230) with a reference to {eq}`eq:pi-crep`.
+3. Split line 218 into two sentences - one for why the permanent component has no stationary distribution, one for the initial draws used in the simulation - and replace the second and third restatements of $h$ (146, 230) with a reference to `` {eq}`eq:pi-crep` ``.
 4. Repair the mid-sentence line breaks that leave orphan words at the start of a paragraph (252 'The', 255-256, 263 'Initial', 213-214, 220-221) and delete the whitespace-only line at 258; the source currently wraps in the middle of clauses although every paragraph is a single sentence.
 5. Rewrite line 446 so it does not appeal to 'the rule above' - either state that the robust rule is derived in lq_robust_bewley, or drop the sentence.
 6. Change the three emphasis-bolds to italic (211, 379, 437), fix the double space in the caption at 393 and the three narrative double spaces at 130, 149, 437 (qe-writing-008, 3 occurrences).

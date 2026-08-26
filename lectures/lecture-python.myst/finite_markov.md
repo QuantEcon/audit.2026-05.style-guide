@@ -52,11 +52,11 @@ _None found._
 
 ## Strengths
 
-- Cross-referencing is the lecture's strongest feature: named anchors at 65, 134, 171, 346, 418, 465, 673, 707, 866, 871 and 892 are pulled back in by {ref} at 445, 474, 525, 726, 795, 836, 874, 1011 and 1181, so a 1377-line lecture stays navigable and never says 'as discussed earlier' without a link.
-- Every equation that is reused carries a label and is cited by {eq}: `fin_mc_fr` (387) at 396 and 660, `mdfmc2` (413) at 428, 432 and 974, `mc_cce2` (957) at 976, `llnfmc0` (852) at 867 and 869, `p_unempemp` (152) at 488, `eq:eqpsifixed` (764) at 768 and 774.
+- Cross-referencing is the lecture's strongest feature: named anchors at 65, 134, 171, 346, 418, 465, 673, 707, 866, 871 and 892 are pulled back in by `` {ref} `` at 445, 474, 525, 726, 795, 836, 874, 1011 and 1181, so a 1377-line lecture stays navigable and never says 'as discussed earlier' without a link.
+- Every equation that is reused carries a label and is cited by `` {eq} ``: `fin_mc_fr` (387) at 396 and 660, `mdfmc2` (413) at 428, 432 and 974, `mc_cce2` (957) at 976, `llnfmc0` (852) at 867 and 869, `p_unempemp` (152) at 488, `eq:eqpsifixed` (764) at 768 and 774.
 - Probability events are written with braces throughout - $\mathbb P \{X_{t+1} = y \mid X_t\}$ (99-100), $\mathbb P \{X_{t+1} = y \mid X_t = x\}$ (110), the total-probability decomposition (368-370), $\mathbb P \{X_{t+m} = y \mid X_t = x\}$ (437) - so the proposed qe-math-014 (proposed) convention holds without exception.
 - The homemade simulator at 248-270 is checked against `qe.MarkovChain` on the same matrix (287-306) and then timed against it (311-317), so 'roll our own first' ends in a measured comparison rather than an assertion.
-- Both theorems point at real proofs rather than waving - Brouwer or EDTC theorem 4.3.5 at 691, {cite}`haggstrom2002finite` theorem 5.2 at 713 - and the footnote at 1377 gives the induction argument for the claim made at 79.
+- Both theorems point at real proofs rather than waving - Brouwer or EDTC theorem 4.3.5 at 691, `` {cite}`haggstrom2002finite` `` theorem 5.2 at 713 - and the footnote at 1377 gives the induction argument for the claim made at 79.
 - The code uses unicode `ψ`, `α`, `β` (237, 249, 807, 1059) so the simulation reads like the mathematics (0 qe-code-002 violations).
 
 ## Recommended actions
@@ -67,4 +67,4 @@ _None found._
 4. Convert the six `\left(\begin{array}{...}...\right)` displays at 156, 179, 457, 548, 923 and 1016 to `bmatrix` (qe-math-003).
 5. Turn the two bold '**Theorem.**' paragraphs at 687 and 708 into `{prf:theorem}` directives with labels, so the convergence theorem the text refers back to at 795 is a real target rather than an anchor placed above it.
 6. Fix the defective sentences and notation: 79, 697 and 760 as quoted above; the missing set braces at 221 ($S = 0,\ldots,n-1$) and 1315 (`${u_t}$`, which renders without braces); the mismatched delimiters at 992-996 (`[ ... \Bigr]`); and the typos 'cummulative' (238), 'distibution' (491) and 'Horizonal' (1070).
-7. Replace the two `%time` calls at 312 and 316 with `quantecon.Timer` (qe-code-004), make the raw python-programming.quantecon.org link at 309 a {doc} reference (qe-link-002), drop `figsize=` at 809 and 1067 and add `lw=2` at 1079 and 1081 (qe-fig-001, qe-fig-008), sweep the 35 double-space runs (71, 174, 225, 227, 229, 340, 374, 376, 447, 472, ...), split the two-sentence paragraphs at 227 and 1377, and change `reverse=1` to `reverse=True` at 1296.
+7. Replace the two `%time` calls at 312 and 316 with `quantecon.Timer` (qe-code-004), make the raw python-programming.quantecon.org link at 309 a `` {doc} `` reference (qe-link-002), drop `figsize=` at 809 and 1067 and add `lw=2` at 1079 and 1081 (qe-fig-001, qe-fig-008), sweep the 35 double-space runs (71, 174, 225, 227, 229, 340, 374, 376, 447, 472, ...), split the two-sentence paragraphs at 227 and 1377, and change `reverse=1` to `reverse=True` at 1296.

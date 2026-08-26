@@ -39,7 +39,7 @@ _None found._
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 2. *Lines:* 229, 1277. *Example:* 2 spaces.
 
 ### Low severity
-- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 1307. *Example:* {cite} in author position: '{cite}`DiaconisFreedman1986` study'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 1307. *Example:* `` {cite} `` in author position: '`` {cite}`DiaconisFreedman1986` `` study'.
 
 
 ## Strengths

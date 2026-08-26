@@ -46,7 +46,7 @@ _None found._
 - The second PyMC model differs from the first by exactly one line (337), the prose says so at 340, and the note at 342-348 draws the consequence explicitly - "any difference between the two posteriors comes entirely from this one term".
 - The mechanism behind the result is spelled out step by step at 404-416 rather than asserted: extreme $y_0$, low stationary likelihood, Bayes' law seeking parameters that make it plausible, $\rho \to 1$ inflating $\sigma_x^2/(1-\rho^2)$.
 - The PyMC and NumPyro posteriors are overlaid at 557-567 as an explicit cross-library check, matching the promise made at line 107.
-- The Hurwicz small-sample bias is named and cited ({cite:t}`hurwicz1950least`, {cite}`Orcutt_Winokur_69`) rather than left as an unexplained gap between the posterior mode and the true 0.5.
+- The Hurwicz small-sample bias is named and cited (`` {cite:t}`hurwicz1950least` ``, `` {cite}`Orcutt_Winokur_69` ``) rather than left as an unexplained gap between the posterior mode and the true 0.5.
 
 ## Recommended actions
 

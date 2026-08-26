@@ -41,7 +41,7 @@ _None found._
 
 ### Low severity
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 1. *Lines:* 849. *Example:* axis label `Time`.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 79. *Example:* {cite} in narrative flow: '{cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 79. *Example:* `` {cite} `` in narrative flow: '`` {cite} ``'.
 
 
 ## Strengths

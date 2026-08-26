@@ -46,9 +46,9 @@ _None found._
 
 ## Strengths
 
-- The three continuation values are coded for a single state first (`_B` at 224-232, with `# I`, `# II`, `# III` marking the correspondence to {eq}`eyes`) and only then vectorised with two `jax.vmap` calls at 244-245 - the code sits next to the equation instead of next to the array shapes, and lines 220-221 say that is the intent.
+- The three continuation values are coded for a single state first (`_B` at 224-232, with `# I`, `# II`, `# III` marking the correspondence to `` {eq}`eyes` ``) and only then vectorised with two `jax.vmap` calls at 244-245 - the code sits next to the equation instead of next to the array shapes, and lines 220-221 say that is the intent.
 - The Bellman operator and the greedy policy are derived from the same `B(v, cw)` array as its max and argmax (259-268), so the policy cannot drift out of step with the value function.
-- The note at 300-309 justifies the choice of JAX for a problem that does not need it, and points at the specific place where the choice pays off ({ref}`career_ex2`, 25,000 simulated careers).
+- The note at 300-309 justifies the choice of JAX for a problem that does not need it, and points at the specific place where the choice pays off (`` {ref}`career_ex2` ``, 25,000 simulated careers).
 - `solve_model` returns the iteration count and the final error alongside the value function (278-297) and line 318 prints them, so convergence is visible rather than assumed.
 - The optimal-policy contour plot is annotated in place with `ax.text` naming the three regions (343-345), and the prose at 349-359 reads the figure back to the reader region by region.
 

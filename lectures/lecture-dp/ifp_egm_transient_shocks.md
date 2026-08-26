@@ -41,8 +41,8 @@ _None found._
 
 ### Low severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 1. *Lines:* 934. *Example:* figsize=.
-- **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 1. *Lines:* 99. *Example:* `\mathsf Z` at line 99 for the Markov chain's state support - the one decorative letter left in this file, and the same object the code calls `z_grid`. Plain $Z$ would do, and would also settle the disagreement across the series, where {doc}`ifp_egm` writes `\mathsf S`/`\mathsf Z` and {doc}`ifp_advanced` writes `\mathbf S` and `\mathscr C` for the same family of objects.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 1017. *Example:* {cite} in narrative flow: '{cite}`'.
+- **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 1. *Lines:* 99. *Example:* `\mathsf Z` at line 99 for the Markov chain's state support - the one decorative letter left in this file, and the same object the code calls `z_grid`. Plain $Z$ would do, and would also settle the disagreement across the series, where `` {doc}`ifp_egm` `` writes `\mathsf S`/`\mathsf Z` and `` {doc}`ifp_advanced` `` writes `\mathbf S` and `\mathscr C` for the same family of objects.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 1017. *Example:* `` {cite} `` in narrative flow: '`` {cite} ``'.
 
 
 ## Strengths
@@ -50,7 +50,7 @@ _None found._
 - The Monte Carlo step is written into the math before it appears in code: equation `cfequmc` at 248-256 restates `cfequ_ts` with the integral replaced by $\frac{1}{m}\sum_{\ell=1}^m$, and line 258 says each $\eta_\ell$ is a standard normal draw - so `η_draws` in the constructor at 418 is implementing something the reader has already seen defined.
 - Every level of the three-deep JAX operator (458-481) carries a one-line docstring naming exactly what it returns, down to the innermost `∫ u'(σ(R s_i + y(z_k, η'), z_k)) φ(η') dη'` at 462 - the nesting is followable without re-deriving it, and the same structure is mirrored by the explicit quadruple loop in the NumPy version at 292-315.
 - `y_bar` is honest about being an approximation: the docstring at 638-644 gives the double sum it computes, and the display at 673-675 writes the same thing in math as $\bar y(z) := \sum_{z'} \frac{1}{m}\sum_\ell y(z', \eta_\ell)\Pi(z, z')$ rather than as an idealised expectation, with line 677 saying so in words.
-- The lecture reports its own failure and traces it: the wealth distribution is called implausible at 809-811, the Gini and top-share numbers are 'a long way out' at 875, calibration is ruled out as the explanation at 882-887 in favour of a structural impossibility result, and the reader is pointed forward to {doc}`ifp_advanced`.
+- The lecture reports its own failure and traces it: the wealth distribution is called implausible at 809-811, the Gini and top-share numbers are 'a long way out' at 875, calibration is ruled out as the explanation at 882-887 in favour of a structural impossibility result, and the reader is pointed forward to `` {doc}`ifp_advanced` ``.
 - The interest-rate experiment at 903-958 states the limit of what it shows - 'the differences are minor and we cannot increase $r$ much more without violating the stability constraint' - instead of stopping at the direction of the effect.
 - Density and CDF conventions are followed and made explicit: line 124 introduces $\phi$ as 'the density of the shock $\eta_t$ (standard normal)' in lowercase, and every subsequent $\phi(\eta')d\eta'$ in 116-117, 147-148 and the code comments at 295 and 473 uses it consistently (qe-math-015 (proposed) clean).
 

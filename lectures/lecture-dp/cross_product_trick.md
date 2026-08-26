@@ -37,7 +37,7 @@ _None found._
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 2. *Lines:* 74, 145. *Example:* bold used for emphasis where italic is wanted: line 74 'an **equivalent** problem without cross-products' and line 145 'the original problem **with non-zero covariance** between shocks'. Neither is a definition - both are stressing a contrast with the preceding paragraph. The bold on **duality** at 94 is correct, since that sentence is where the term enters the lecture.
 
 ### Low severity
-- **[qe-math-013 (proposed)]** — Reference equations via {eq}`label`. *Count:* 1. *Lines:* 133. *Example:* malformed {eq} reference `{eq}`eq:Kalman102}`.
+- **[qe-math-013 (proposed)]** — Reference equations via `` {eq}`label` ``. *Count:* 1. *Lines:* 133. *Example:* malformed `` {eq} `` reference `{eq}`eq:Kalman102}`.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 1. *Lines:* 135. *Example:* the algorithm's first step contradicts the formula it points at. Lines 135-136 say to 'compute $\Sigma, K^*$ using the ordinary Kalman filtering formula with $BF' = 0$', but the displayed system at 140-143 is not the ordinary formula with $BF'=0$ - it is the ordinary formula with $A$ replaced by $A^*$ and $BB'$ by $B^*{B^*}'$, the transformed matrices defined at 126-129. A reader who follows 135 literally substitutes into 119-120 and gets $A$, not $A^*$, so the step as written does not produce the state it claims.
 - **[qe-writing-009 (proposed)]** — Write "IID" — not "i.i.d." or "iid". *Count:* 1. *Lines:* 110. *Example:* i.i.d..
 
@@ -53,7 +53,7 @@ _None found._
 
 1. Replace the 52 apostrophe transposes with `^\top` (qe-math-002) - at 52 occurrences in a 175-line file this is the dominant fix, and it touches nearly every display block plus the duality table at 162-167.
 2. Convert the 5 bare `\begin{align*}` blocks at 82, 104, 118, 126 and 140 into `$$ ... \begin{aligned} ... \end{aligned} ... $$` (qe-math-006, build risk). While doing 118-121, note that the label is currently attached as `\end{align*} (eq:Kalman102)`, which will not survive the conversion - move it to the `$$ ... $$ (eq:Kalman102)` form.
-3. Fix the malformed cross-reference at line 133: `` {eq}`eq:Kalman102} `` closes with a brace instead of a backtick, so the reference does not resolve (qe-math-013 (proposed), proposed).
+3. Fix the malformed cross-reference at line 133: `` `` {eq}`eq:Kalman102} ` ``` closes with a brace instead of a backtick, so the reference does not resolve (qe-math-013 (proposed), proposed).
 4. Reconcile the algorithm step at 135-136 with the formulas at 140-143 - say that $A^*$ and $B^*{B^*}'$ from 126-129 are substituted into the ordinary formula, rather than that $BF'$ is set to zero.
 5. Sentence-case the two H2 headings at 33 and 92 ('Undiscounted dynamic programming problem', 'Kalman filter') and write IID at line 110 in place of 'i.i.d.' (qe-writing-006 x2, qe-writing-009 (proposed) proposed x1).
 6. Break the 55-60 word sentences at 80 and 94 into one idea each, and fix the four typos along the way: 'between between' (95), 'measurments' (95), 'distibuted' (110), 'tranformed' (124) and 'reconstrution' (151).

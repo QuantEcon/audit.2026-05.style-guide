@@ -40,7 +40,7 @@ _None found._
 
 ### Low severity
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 1. *Lines:* 1254. *Example:* axis label `Initial Government Debt`.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 55. *Example:* {cite} in narrative flow: 'of {cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 55. *Example:* `` {cite} `` in narrative flow: 'of `` {cite} ``'.
 
 
 ## Strengths

@@ -52,7 +52,7 @@ _None found._
 ## Recommended actions
 
 1. Repair line 460: it names the wrong row, the wrong symbol ($p_o$ for $p_p$) and is missing the noun after 'of'.
-2. Either call `price_pessimistic_beliefs` (474-495) or delete it - as the lecture stands, the function written to solve {eq}`HarrKrep4` is never used, and the $p_p$ row is instead obtained from `price_single_beliefs` with the permanently-pessimistic matrix at 583-593.
+2. Either call `price_pessimistic_beliefs` (474-495) or delete it - as the lecture stands, the function written to solve `` {eq}`HarrKrep4` `` is never used, and the $p_p$ row is instead obtained from `price_single_beliefs` with the permanently-pessimistic matrix at 583-593.
 3. Add a figure: plot the six price functions of the summary table across the two states, and optionally a simulated state path with the marginal investor's type marked, so the resale-option argument at 368-402 has a picture.
 4. Cut the restatements at 155 and at 185-188, which repeat 97-101 and 129-151 respectively.
 5. Fix the math typography: `\max` instead of `$max$` at 323, one row separator inside `bmatrix` (`\\` at 114-125 versus `\cr` at 253-267), `s_t \in S = \{0,1\}` instead of `$S \in \{0, 1\}$` at 84, and braces on `\mathbb P` at 106 (qe-math-010 (proposed), proposed).

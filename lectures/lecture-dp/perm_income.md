@@ -37,7 +37,7 @@ _None found._
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 494, 511, 826. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 833. *Example:* .set_title.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 474, 510, 803. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 3. *Lines:* 858, 898. *Example:* {cite} in narrative flow: 'of {cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 3. *Lines:* 858, 898. *Example:* `` {cite} `` in narrative flow: 'of `` {cite} ``'.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 4. *Lines:* 173, 222, 997, 1005. *Example:* 2 sentences in one paragraph.
 
 ### Low severity

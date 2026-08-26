@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import argparse
 import os
+import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -183,7 +184,7 @@ def summarise_hits(hits_by_rule):
         rule: {
             "count": len(hs),
             "lines": sorted({h.line for h in hs}),
-            "samples": [h.detail for h in hs[:4]],
+            "samples": [escape_roles(h.detail) for h in hs[:4]],
         }
         for rule, hs in hits_by_rule.items()
     }
@@ -195,6 +196,19 @@ JUDGMENT_RULES = {
 }
 
 
+# A MyST role quoted in prose — ``{cite}`Hall1978```, ``{doc}`ifp_egm``` — is *sample text*
+# here, not a live cross-reference, and the cited work is not in this book. Left bare, Sphinx
+# tries to resolve every one: 615 of them across the reports, and 478 of the build's warnings.
+# Wrapped in a space-padded double-backtick span they render literally and resolve nothing.
+# The padding matters: ``` ``{doc}`x``` ``` closes on a run of three and does not parse.
+ROLE_RE = re.compile(r"(?<!`)(\{(?:cite|cite:t|eq|doc|numref|ref|term|abbr)\}(?:`[^`\n]*`)?)")
+
+
+def escape_roles(text: str) -> str:
+    """Render a MyST role in prose as literal text rather than a cross-reference."""
+    return ROLE_RE.sub(r"`` \1 ``", text)
+
+
 def tag_proposed(text: str) -> str:
     """Add the (proposed) tag to a bare proposed-rule citation in reviewer prose.
 
@@ -202,10 +216,9 @@ def tag_proposed(text: str) -> str:
     tag the conventions require. Normalising here keeps the convention without
     asking a reviewer to remember it.
     """
-    import re as _re
     for rule in sorted(PROPOSED, reverse=True):
-        text = _re.sub(
-            _re.escape(rule) + r"`?(?! ?\(proposed\))(?!`? ?\*\(proposed\)\*)",
+        text = re.sub(
+            re.escape(rule) + r"`?(?! ?\(proposed\))(?!`? ?\*\(proposed\)\*)",
             lambda m: m.group(0) + " (proposed)", text)
     return text
 
@@ -247,7 +260,7 @@ def draft_report(series, stem, path, titles):
             "lines": [int(x) for x in (f.get("lines") or [])][:24],
             # Reviewers cite other rules inside a finding's prose too, not just in
             # Strengths and Actions — so the tag has to be normalised here as well.
-            "samples": [tag_proposed(f.get("detail", ""))],
+            "samples": [escape_roles(tag_proposed(f.get("detail", "")))],
         }
     violations.update(reviewed)
     applies = applicability(doc)
@@ -325,7 +338,7 @@ def draft_report(series, stem, path, titles):
 
     # --- reviewer prose, with a measured fallback -------------------------
     out += ["", "## Strengths", ""]
-    strengths = [tag_proposed(s) for s in review.get("strengths", []) if s.strip()]
+    strengths = [escape_roles(tag_proposed(s)) for s in review.get("strengths", []) if s.strip()]
     if strengths:
         out += [f"- {s.rstrip('.')}." for s in strengths]
     else:
@@ -344,7 +357,7 @@ def draft_report(series, stem, path, titles):
             out.append("- No mechanical violations of note.")
 
     out += ["", "## Recommended actions", ""]
-    actions = [tag_proposed(a) for a in review.get("actions", []) if a.strip()]
+    actions = [escape_roles(tag_proposed(a)) for a in review.get("actions", []) if a.strip()]
     if actions:
         out += [f"{i}. {a.rstrip('.')}." for i, a in enumerate(actions, 1)]
     else:
@@ -398,7 +411,9 @@ def main():
 
     rules_dir = ARGS.rules or os.path.join(
         ARGS.corpus, "action-style-guide", "style_checker", "rules")
-    titles = load_rule_titles(rules_dir)
+    # A rule title can itself quote a role — qe-math-013 is "Reference equations via
+    # ``{eq}`label```" — so titles are escaped once, at load.
+    titles = {k: escape_roles(v) for k, v in load_rule_titles(rules_dir).items()}
 
     import subprocess
     ARGS.snapshot = {}

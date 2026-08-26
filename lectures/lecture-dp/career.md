@@ -58,4 +58,4 @@ _None found._
 4. Drop the 5 hand-set `figsize=` arguments (176, 318, 335, 420, 529) and add `lw=2` to the 3 default-width line plots (179, 423, 424) (qe-fig-001 x5, qe-fig-008 x3).
 5. Rename the Roman-numeral continuation values to $v_1$, $v_2$, $v_3$ at 113, 121-124, 128 and 219-220, matching the `v1`/`v2`/`v3` already used in the code.
 6. Sentence-case the H3 at line 60 ('Model features'), and clear the 2 double spaces at 70 and 275 (qe-writing-006 x1, qe-writing-008 x2).
-7. Small cleanups: 'the maximum of {eq}`exw` overall feasible (career, job) policies' at 107 should read 'over all'; the `\nonumber` markers at 123 and 124 do nothing inside an `aligned` block in a labelled `{math}` directive; the `Axes3D` import at 56 is unused with current matplotlib; and even out the operator spacing at 168, 179 and 485.
+7. Small cleanups: 'the maximum of `` {eq}`exw` `` overall feasible (career, job) policies' at 107 should read 'over all'; the `\nonumber` markers at 123 and 124 do nothing inside an `aligned` block in a labelled `{math}` directive; the `Axes3D` import at 56 is unused with current matplotlib; and even out the operator spacing at 168, 179 and 485.

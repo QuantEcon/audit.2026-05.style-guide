@@ -41,13 +41,13 @@ _None found._
 - **[qe-writing-009 (proposed)]** — Write "IID" — not "i.i.d." or "iid". *Count:* 3. *Lines:* 984, 2861, 3013. *Example:* iid.
 
 ### Low severity
-- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 52. *Example:* {cite} in narrative flow: '{cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 52. *Example:* `` {cite} `` in narrative flow: '`` {cite} ``'.
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 1. *Lines:* 502. *Example:* the 780 lines from 403 to 1180 carry no figure at all, and the passage that most needs one is the four-agent taxonomy at 502-558: four bullet lists of parameters followed by two prose sentences (541, 543) asserting which types are observationally equivalent to which, in what sense, and for which objects - a small table (type, parameters, penalty vs constraint, equivalence) or a diagram of the equivalences would carry the whole section, which the rest of the lecture then depends on.
 
 
 ## Strengths
 
-- All eleven exercises use `{exercise}` with a labelled `{solution-start}` / `{solution-end}` pair and `:class: dropdown`, and the body of the lecture hands work to them by label at the point it skips a step - line 619 says "{ref}`Exercise 3 <dov_ex3>` asks you to verify this step" instead of leaving a gap.
+- All eleven exercises use `{exercise}` with a labelled `{solution-start}` / `{solution-end}` pair and `:class: dropdown`, and the body of the lecture hands work to them by label at the point it skips a step - line 619 says "`` {ref}`Exercise 3 <dov_ex3>` `` asks you to verify this step" instead of leaving a gap.
 - Every generated figure carries `mystnb: figure: caption/name` metadata with a stable naming scheme (`fig-bhs-1` through `fig-bhs-6`, plus `fig-bhs-fear`, `fig-bhs-sdf-decomp`, `fig-bhs-contour`), so the figures are addressable even though the prose does not yet use `{numref}`.
 - The two consumption models are carried as parallel dictionaries (`rw` and `ts` at 144-145) and every later computation indexes both through the same code path - e.g. `θ_rw_from_η` / `θ_ts_from_η` at 1862-1866 - so the random-walk and trend-stationary results cannot drift apart.
 - Historical and naming asides are parked in `{note}` blocks (42-48, 59-62, 505-510) rather than spliced into the argument, which keeps the main line of the Overview readable despite the density of citations.

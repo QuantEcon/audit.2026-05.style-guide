@@ -47,14 +47,14 @@ _None found._
 ## Strengths
 
 - The `prf:definition` at 143-156 does more than state the fixed point: it unpacks both words of the name, saying what 'Markov' restricts (dependence on the current state only) and what 'Perfect' buys (optimizing behaviour at all future states), and then makes the point that this includes states never reached on the equilibrium path.
-- The equilibrium is verified rather than asserted: F2 is substituted into player 1's transformed problem {eq}`eq_mpe_p1p`-{eq}`eq_mpe_p1d`, re-solved with the general-purpose LQ class, and compared with `np.allclose` (452-465) - a real best-response check on the output of `nnash`, not a restatement of it.
+- The equilibrium is verified rather than asserted: F2 is substituted into player 1's transformed problem `` {eq}`eq_mpe_p1p` ``-`` {eq}`eq_mpe_p1d` ``, re-solved with the general-purpose LQ class, and compared with `np.allclose` (452-465) - a real best-response check on the output of `nnash`, not a restatement of it.
 - The general coupled-regulator setup lists the dimension of every one of the eight matrices before any of them is used (220-227), and the three substitution shorthands $\Lambda_{it}$, $\Pi_{it}$, $\Gamma_{it}$ are defined at 264-266 exactly where the substitution creates them, so the transformed problem reads as an ordinary single-agent LQ problem.
 - The MPE is given economic content by matching it against a monopoly benchmark with deliberately comparable initial conditions - $q_0 = 2.0$ for the monopolist to mirror $q_{10} = q_{20} = 1.0$ in the duopoly (515) - so the output and price comparison at 517 means something.
 - Exercise 2 poses a genuine modelling task, Judd's two-good inventory duopoly, gives the full list of variables and cost functions (659-714), and supplies target figures for both $\delta = 0.02$ and $\delta = 0.05$ so the reader can check the comparative static as well as the level.
 
 ## Recommended actions
 
-1. Fix {eq}`eq_mpe_cle` at 424: the closed loop is $x_{t+1} = (A - B_1 F_1 - B_2 F_2)x_t$, not $A - B_1F_1 - B_1F_2$ - the code at 481 and 569 uses `B2 @ F2`, and 472 and 477 tell the reader the code implements this equation.
+1. Fix `` {eq}`eq_mpe_cle` `` at 424: the closed loop is $x_{t+1} = (A - B_1 F_1 - B_2 F_2)x_t$, not $A - B_1F_1 - B_1F_2$ - the code at 481 and 569 uses `B2 @ F2`, and 472 and 477 tell the reader the code implements this equation.
 2. Replace every apostrophe transpose with `^\top` - 35 occurrences concentrated in the coupled-Riccati algebra at 202-206, 248-250, 264-266 and 276-310, where they sit next to primed matrices and are hardest to read (qe-math-002, a very-high-weight rule).
 3. Lower-case the eight Title Case section headings (91, 177, 188, 229, 326, 332, 351, 427) - only the H1 takes title case (qe-writing-006, 8 occurrences, very-high weight).
 4. Generate the three static PNGs in code (509, 730, 740) and give all six figures descriptive names (480, 509, 629, 730, 740, 839); the $\delta = 0.05$ image at 740 is currently a result no cell in the lecture can reproduce (qe-fig-002 x3, qe-fig-005 x6).

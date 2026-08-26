@@ -38,7 +38,7 @@ _None found._
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 474, 521, 819. *Example:* figsize=.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 437, 494, 816, 836. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-math-011 (proposed)]** — Distribution names in plain letters, not \mathcal / \mathbb. *Count:* 1. *Lines:* 142. *Example:* decorated distribution `{\cal N}`.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 3. *Lines:* 32, 35, 41. *Example:* {cite} in narrative flow: 'by  {cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 3. *Lines:* 32, 35, 41. *Example:* `` {cite} `` in narrative flow: 'by  `` {cite} ``'.
 
 ### Low severity
 _None found._

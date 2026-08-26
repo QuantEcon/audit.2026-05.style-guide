@@ -29,7 +29,7 @@ _None found._
 ### High severity
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 6. *Lines:* 377, 378, 390, 391, 504, 505. *Example:* axis label `Time`.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 11. *Lines:* 262. *Example:* apostrophe transpose `x_t'`.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 9. *Lines:* 41, 43, 61, 63, 82, 123, 132, 175. *Example:* {cite} in narrative flow: 'by  {cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 9. *Lines:* 41, 43, 61, 63, 82, 123, 132, 175. *Example:* `` {cite} `` in narrative flow: 'by  `` {cite} ``'.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 36. *Lines:* 30, 41, 47, 52, 53, 60, 61, 82, 83, 123, …. *Example:* 3 spaces.
 
 ### Medium severity

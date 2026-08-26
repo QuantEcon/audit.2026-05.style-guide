@@ -35,7 +35,7 @@ _None found._
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 423, 544, 638. *Example:* plot() without lw=.
 
 ### Low severity
-- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 723. *Example:* {cite} in narrative flow: 'of {cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 723. *Example:* `` {cite} `` in narrative flow: 'of `` {cite} ``'.
 
 
 ## Strengths

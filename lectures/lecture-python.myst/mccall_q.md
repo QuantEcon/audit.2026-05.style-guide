@@ -38,7 +38,7 @@ _None found._
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 344. *Example:* mid-sentence 'Law'.
 
 ### Low severity
-- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 20. *Example:* {cite} in narrative flow: '{cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 20. *Example:* `` {cite} `` in narrative flow: '`` {cite} ``'.
 
 
 ## Strengths

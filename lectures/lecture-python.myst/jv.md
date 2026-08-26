@@ -42,13 +42,13 @@ _None found._
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 3. *Lines:* 72, 83, 182. *Example:* 2 spaces.
 
 ### Low severity
-- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 45. *Example:* {cite} in narrative flow: 'and {cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 45. *Example:* `` {cite} `` in narrative flow: 'and `` {cite} ``'.
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 1. *Lines:* 143. *Example:* "### Back-of-the-Envelope Calculations" (143-184) is the analytical heart of the lecture and it has no figure. It evaluates the two returns at $x = 0.05$ (0.5 from search against 0.23 from investment) and at $x = 0.4$ (0.5 against 0.8), then states as a prediction that the ranking flips somewhere in between. That is one two-line plot - the flat $\pi(1)\mathbb{E}u = 0.5$ against the increasing $g(x, 1) = A x^{\alpha}$, with the crossing marked - and the crossing point is precisely what the policy figure at 398 is later asked to confirm, so the reader has no picture to compare it against.
 
 
 ## Strengths
 
-- The vectorization is written to be read: `_B` at 267 handles one state and one action pair so that it lines up term by term with {eq}`defw`, and the three stacked `jax.vmap` calls at 298-300 replace a triple loop with the argument-order comment at 297 sitting directly above the matching `in_axes` tuples - the extra alignment spaces there earn their PEP8 exemption.
+- The vectorization is written to be read: `_B` at 267 handles one state and one action pair so that it lines up term by term with `` {eq}`defw` ``, and the three stacked `jax.vmap` calls at 298-300 replace a triple loop with the argument-order comment at 297 sitting directly above the matching `in_axes` tuples - the extra alignment spaces there earn their PEP8 exemption.
 - Every display equation that is reused later is labelled and then actually cited: `jd` (94) at 103 and 429, `jvbell` (107) at 247, `defw` (251) at 264 - and the two internal targets work the same way, with `(jvboecalc)=` (143) referenced at 415 and `(jv_policies)=` (387) referenced at 521, so the lecture closes the loop between its informal predictions and its computed policies.
 - The probability at 430 is written `\mathbb{P}\{b_{t+1} = 1\} = \pi(s_t)`, with braces around the event as proposed qe-math-014 (proposed) asks, and $f$ stays lowercase for the offer distribution throughout (83, 132, 202) per proposed qe-math-015 (proposed).
 - The `{note}` at 370-378 states plainly that these grids would run fine in NumPy and gives the actual reason for JAX (finer grids, more state variables, GPU) instead of implying the model requires it.

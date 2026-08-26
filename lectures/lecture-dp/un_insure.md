@@ -38,7 +38,7 @@ _None found._
 
 ### Low severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 835. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 317. *Example:* {cite} in narrative flow: 'Following  {cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 317. *Example:* `` {cite} `` in narrative flow: 'Following  `` {cite} ``'.
 
 
 ## Strengths

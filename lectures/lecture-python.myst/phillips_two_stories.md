@@ -34,7 +34,7 @@ _None found._
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 2. *Lines:* 331, 337. *Example:* H2 Title Case: 'Ignoring the Lucas Critique' (Critique).
 
 ### Medium severity
-- **[qe-ref-001]** — Use correct citation style. *Count:* 4. *Lines:* 301, 402, 430, 463. *Example:* {cite} in author position: '{cite}`SamuelsonSolow1960` found'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 4. *Lines:* 301, 402, 430, 463. *Example:* `` {cite} `` in author position: '`` {cite}`SamuelsonSolow1960` `` found'.
 
 ### Low severity
 _None found._

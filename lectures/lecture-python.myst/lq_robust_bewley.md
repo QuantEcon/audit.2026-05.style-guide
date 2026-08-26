@@ -56,5 +56,5 @@ _None found._
 3. Add a figure of the locus: $\hat\beta(\sigma)$ against $\sigma$ on $(\underline\sigma, 0]$, with $\underline\sigma$ and the four computed types marked - the lecture's organising object is currently visible only as algebra and a printed table.
 4. Turn the cross-section check at 505-509 into a plot of the simulated variance against $t\alpha^2$, matching the figure that makes the same point in lq_bewley_complete_markets.
 5. Drop the two `set_title` calls at 448 and 462 - the cell's mystnb caption already names both panels - and drop `figsize=(11, 4)` at 441 unless the aspect ratio is deliberate (qe-fig-003 x2, qe-fig-001 x1).
-6. Settle the subscript on the marginal-utility state: {eq}`eq:rbew-zeta` writes both $\mu_{s,t+1}^i$ and $\mu_{st}^i$ inside the same display (220), and 215 and 227 differ again - pick one form and use it in all four places.
+6. Settle the subscript on the marginal-utility state: `` {eq}`eq:rbew-zeta` `` writes both $\mu_{s,t+1}^i$ and $\mu_{st}^i$ inside the same display (220), and 215 and 227 differ again - pick one form and use it in all four places.
 7. Split the two long sentences at 188 and 199, change the two emphasis-bolds at 46 and 404 to italic, and give the six one-line docstrings triple quotes.

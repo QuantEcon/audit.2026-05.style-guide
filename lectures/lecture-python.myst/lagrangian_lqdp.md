@@ -56,7 +56,7 @@ _None found._
 - `stable_solution` is written with numerical care: 607-608 computes $V_{21}V_{11}^{-1}$ through `np.linalg.solve` on transposes with a comment saying it avoids forming the inverse, and `sort_fun` (542, 593) tests `abs(x) < 1 - tol` rather than `abs(x) < 1`, so an eigenvalue sitting numerically on the unit circle is not silently counted as stable.
 - The `stable_dim != n` guard at 598-601 turns the half-inside-half-outside eigenvalue condition - the assumption the whole method rests on, stated at 443-444 - into a runtime check whose message reports both the expected and the found count.
 - The claim at 674 that the method is not limited to optimization problems is then demonstrated rather than left standing: `stable_solution` is applied unchanged to the rational-expectations $H$ matrix at 682-696, which is exactly the case 446-450 says has no underlying optimum problem.
-- Both `{note}` blocks supply something the next display actually needs: 100-104 gives the three matrix-differentiation rules used immediately at 107, and 868-870 gives the partitioned-inverse formula that verifies {eq}`eqn:twofeedbackloops`.
+- Both `{note}` blocks supply something the next display actually needs: 100-104 gives the three matrix-differentiation rules used immediately at 107, and 868-870 gives the partitioned-inverse formula that verifies `` {eq}`eqn:twofeedbackloops` ``.
 
 ## Recommended actions
 

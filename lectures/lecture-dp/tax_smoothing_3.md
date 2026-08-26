@@ -37,7 +37,7 @@ _None found._
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 4. *Lines:* 276, 279, 317, 320. *Example:* axis label `Time`.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 4. *Lines:* 274, 277, 315, 318. *Example:* plot() without lw=.
 - **[qe-math-011 (proposed)]** — Distribution names in plain letters, not \mathcal / \mathbb. *Count:* 1. *Lines:* 97. *Example:* decorated distribution `{\cal N}`.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 32, 35. *Example:* {cite} in narrative flow: 'of  {cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 32, 35. *Example:* `` {cite} `` in narrative flow: 'of  `` {cite} ``'.
 
 ### Low severity
 _None found._

@@ -38,7 +38,7 @@ _None found._
 
 ### Low severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 1. *Lines:* 46. *Example:* style override.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 335. *Example:* {cite} in narrative flow: 'by {cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 335. *Example:* `` {cite} `` in narrative flow: 'by `` {cite} ``'.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 1. *Lines:* 447. *Example:* exercise ar1p_ex2 (lines 447-490) asks the reader to build a kernel density estimator and test it on three beta distributions; nothing connects it to AR(1) processes, and its real purpose - supplying the KDE class that exercise ar1p_ex3 needs at line 628 - is never stated.
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 1. *Lines:* 288. *Example:* line 288 is a definition sentence - 'A stationary distribution is a distribution that is a "fixed point" of the update rule' - with the defined term left unbolded, four lines before the same lecture correctly bolds **stationary** at line 292.
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 1. *Lines:* 310. *Example:* the Ergodicity section (lines 310-359) asserts that time-series averages converge to expectations under the stationary distribution and never plots it, although the neighbouring stability claims each get a figure (lines 171, 209, 228, 263).
@@ -48,7 +48,7 @@ _None found._
 
 ## Strengths
 
-- Every labelled display equation is actually used: can_ar1, ar1_ma, dyn_tm, mu_sig_star and ar1_ergo are each cited later with {eq}, so no label is dead weight.
+- Every labelled display equation is actually used: can_ar1, ar1_ma, dyn_tm, mu_sig_star and ar1_ergo are each cited later with `` {eq} ``, so no label is dead weight.
 - The stability argument is built visually in four steps - the ten-period density sequence at line 171, the forty-period sequence at line 209, the same sequence from a different initial condition at line 228, then the analytical limit psi-star overlaid on it at line 263.
 - Side remarks are parked in parenthetical one-line paragraphs (lines 74-75, 150, 203, 303-304) rather than being spliced into the main argument.
 - All three exercises use gated {exercise} / {solution-start} ... {solution-end} syntax with `:class: dropdown`, so solutions are hidden by default.

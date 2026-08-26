@@ -33,7 +33,7 @@ _None found._
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 9. *Lines:* 175, 220, 326, 327, 334, 422, 423, 509, 515. *Example:* plot() without lw=.
 
 ### Medium severity
-- **[qe-ref-001]** — Use correct citation style. *Count:* 4. *Lines:* 40, 95, 476, 526. *Example:* {cite} in narrative flow: 'of {cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 4. *Lines:* 40, 95, 476, 526. *Example:* `` {cite} `` in narrative flow: 'of `` {cite} ``'.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 265. *Example:* mid-sentence 'Theorem'.
 
 ### Low severity

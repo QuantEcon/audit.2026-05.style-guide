@@ -32,7 +32,7 @@ _None found._
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 6. *Lines:* 124, 1049, 1050, 1134, 1214, 1215. *Example:* axis label `Millions of livres`.
 - **[qe-fig-007]** — Keep figure box and spines. *Count:* 30. *Lines:* 119, 120, 164, 165, 249, 250, 295, 296, 440, 441, …. *Example:* spine removal.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 28. *Lines:* 244, 585, 586, 745, 749, 752, 800, 803, 806, 831, …. *Example:* plot() without lw=.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 5. *Lines:* 39, 313, 340, 405, 981. *Example:* {cite} in narrative flow: '     {cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 5. *Lines:* 39, 313, 340, 405, 981. *Example:* `` {cite} `` in narrative flow: '     `` {cite} ``'.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 5. *Lines:* 57, 80, 342, 979, 990. *Example:* H2 Title Case: 'Data Sources' (Sources).
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 89. *Lines:* 19, 22, 24, 30, 32, 34, 36, 43, 45, 47, …. *Example:* 2 spaces.
 

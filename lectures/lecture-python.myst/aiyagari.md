@@ -48,7 +48,7 @@ _None found._
 
 ## Strengths
 
-- Each piece of the model is followed immediately by the function that implements it, with the equation label and the code side by side - {eq}`aiy_rgk` at 179-183 then `r_given_k` at 186, {eq}`aiy_wgr` at 198-202 then `r_to_w` at 205 - so the reader never has to hold an equation in mind across a section boundary.
+- Each piece of the model is followed immediately by the function that implements it, with the equation label and the code side by side - `` {eq}`aiy_rgk` `` at 179-183 then `r_given_k` at 186, `` {eq}`aiy_wgr` `` at 198-202 then `r_to_w` at 205 - so the reader never has to hold an equation in mind across a section boundary.
 - The reshape comments in `B` (291-299) annotate every broadcast with its before-and-after index pattern (`a[i] -> a[i, j, ip]`, `Π[j, jp] -> Π[i, j, ip, jp]`), which is the one thing that makes a 4-D vectorised Bellman operator readable.
 - The equilibrium algorithm is stated as five numbered steps (466-470), then compressed to $K_{n+1} = G(K_n)$ (474-480), then written as the function `G` (485-494) - three views of the same object, in that order.
 - `ψ_a.sum()` at 447 is a deliberate sanity check with the expectation stated in the prose above it ("The distribution should sum to one"), rather than a silently-trusted intermediate.

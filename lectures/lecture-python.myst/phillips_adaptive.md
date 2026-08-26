@@ -33,7 +33,7 @@ _None found._
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 133, 302, 445. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 308. *Example:* .set_title.
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 2. *Lines:* 114, 295. *Example:* caption of 11 words.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 84, 399. *Example:* {cite} in narrative flow: '{cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 84, 399. *Example:* `` {cite} `` in narrative flow: '`` {cite} ``'.
 
 ### Low severity
 - **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 219. *Example:* spelled-out `beta`.

@@ -30,7 +30,7 @@ _None found._
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 6. *Lines:* 606, 633, 669, 701, 736, 813. *Example:* figsize=.
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 5. *Lines:* 597, 624, 662, 694, 729. *Example:* caption of 11 words.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 1. *Lines:* 318. *Example:* non-blackboard `\operatorname{Prob}`.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 17. *Lines:* 186, 189, 194, 220, 267, 313, 330, 375, 377, 394, …. *Example:* {cite} in narrative flow: '{cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 17. *Lines:* 186, 189, 194, 220, 267, 313, 330, 375, 377, 394, …. *Example:* `` {cite} `` in narrative flow: '`` {cite} ``'.
 
 ### Medium severity
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 682. *Example:* .suptitle.

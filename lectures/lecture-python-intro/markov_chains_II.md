@@ -34,7 +34,7 @@ _None found._
 
 ### Medium severity
 - **[qe-fig-002]** — Prefer code-generated figures. *Count:* 3. *Lines:* 79, 116, 296. *Example:* static image .png.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 158, 404. *Example:* {cite} in narrative flow: 'of {cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 158, 404. *Example:* `` {cite} `` in narrative flow: 'of `` {cite} ``'.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 2. *Lines:* 351, 406. *Example:* the eight-state Benhabib matrix is printed three times within thirty lines - as a `bmatrix` (406-418), as a Python literal inside the exercise (429-438), and as the same literal again in the solution (458-465); and the six-state political-institutions matrix is printed twice more here (351-361, 372-377) on top of the three copies it already has in markov_chains_I. Referring back to the labelled matrix in the earlier lecture would carry the same information.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 3. *Lines:* 189, 202, 208. *Example:* three cross-references do not connect to what they claim. Line 208 reads `{ref}`discussed before <mc_eg1-1>`` but no label `mc_eg1-1` exists in either Markov lecture - markov_chains_I defines `mc_eg1` and this file defines `mc_eg1-2`, so the reference is broken. Line 189 says "The result in [theorem 4.3](llnfmc0)", which hard-codes a theorem number and then links to the *equation* label `llnfmc0` rather than the theorem's own label `stationary` (169). Line 202 links `[not IID](iid_violation)` to a target defined in lln_clt.md (line 406), which a bare markdown link cannot resolve across documents.
 

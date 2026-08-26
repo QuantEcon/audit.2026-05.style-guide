@@ -40,7 +40,7 @@ _None found._
 
 ### Low severity
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 413. *Example:* plot() without lw=.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 60. *Example:* {cite} in narrative flow: 'in {cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 60. *Example:* `` {cite} `` in narrative flow: 'in `` {cite} ``'.
 
 
 ## Strengths

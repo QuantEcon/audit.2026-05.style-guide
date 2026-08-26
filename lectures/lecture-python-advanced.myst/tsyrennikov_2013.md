@@ -58,7 +58,7 @@ _None found._
 - `create_model` validates each parameter against the domain the theory requires, with a separate message per condition (789-802), so a reader experimenting with $\nu \geq 1$ or $Y_1 \geq Y_2$ gets told which assumption they broke rather than a silent wrong answer.
 - The policy-function figure is built to be compared with the paper's Figure 3 line for line: 1857-1872 sets the paper's own axis limits and tick positions per panel, 1841-1845 says so and explains the $\times 10$ rescaling of panel F before the reader can misread the scale, and both figures carry `mystnb` captions and `fig-tsy-*` names.
 - The crisis simulation reports the probability of the path it plots: 2081-2084 prints $\prod_t (1-\lambda(I_t))$ for each of the three economies, which is exactly the caveat an eight-period all-low-output path needs, and it also makes the point of the section - the MH economy's own investment collapse is what makes that path likely.
-- The three exercises target the three results the main text uses without deriving - the default thresholds behind {eq}`eq:tsyrennikov_enforcement`, the discounting wedge behind the drift, and the envelope condition cited at 577 - and each solution derives it, with ex3 identifying exactly which two terms of the Lagrangian depend on $n$ and why every other term contributes zero (2315-2332).
+- The three exercises target the three results the main text uses without deriving - the default thresholds behind `` {eq}`eq:tsyrennikov_enforcement` ``, the discounting wedge behind the drift, and the envelope condition cited at 577 - and each solution derives it, with ex3 identifying exactly which two terms of the Lagrangian depend on $n$ and why every other term contributes zero (2315-2332).
 
 ## Recommended actions
 

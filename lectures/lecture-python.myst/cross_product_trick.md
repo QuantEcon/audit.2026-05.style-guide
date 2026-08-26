@@ -38,7 +38,7 @@ _None found._
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 2. *Lines:* 74, 145. *Example:* bold is used for emphasis rather than definition in both places it appears outside a heading: **equivalent** at line 74 stresses a word in an ordinary sentence, and **with non-zero covariance** at line 145 stresses a qualifying phrase; neither is a term being defined, so both should be italic.
 
 ### Low severity
-- **[qe-math-013 (proposed)]** — Reference equations via {eq}`label`. *Count:* 1. *Lines:* 133. *Example:* malformed {eq} reference `{eq}`eq:Kalman102}`.
+- **[qe-math-013 (proposed)]** — Reference equations via `` {eq}`label` ``. *Count:* 1. *Lines:* 133. *Example:* malformed `` {eq} `` reference `{eq}`eq:Kalman102}`.
 - **[qe-writing-009 (proposed)]** — Write "IID" — not "i.i.d." or "iid". *Count:* 1. *Lines:* 110. *Example:* i.i.d..
 
 
@@ -53,7 +53,7 @@ _None found._
 
 1. Replace every apostrophe transpose with `^\top` - 52 occurrences, and by far the largest single fix in this lecture (qe-math-002).
 2. Convert the five bare `\begin{align*}` blocks at 82, 104, 118, 126 and 140 into `$$ ... \begin{aligned} ... $$`; as written they fail the PDF build, and it is why the `(eq:Kalman102)` label at line 121 never attaches to an equation (qe-math-006).
-3. Fix the malformed cross-reference at line 133 - `` {eq}`eq:Kalman102} `` closes with a brace instead of a backtick - once the equation at 118-121 is a labelled `$$` block (qe-math-013 (proposed), proposed).
+3. Fix the malformed cross-reference at line 133 - `` `` {eq}`eq:Kalman102} ` ``` closes with a brace instead of a backtick - once the equation at 118-121 is a labelled `$$` block (qe-math-013 (proposed), proposed).
 4. Rewrite the two overlong sentences at 80 and 94-95, and fix the typos they carry: "between between" (95), "measurments" (95), "distibuted" (110), "tranformed" (124), "reconstrution" (151), "non zero" (133).
 5. Disambiguate $F$: the LQ feedback matrix and the Kalman measurement-noise matrix share the symbol, and the duality table uses both senses; rename one of them or annotate the table rows.
 6. Fill in the empty `{code-cell}` at 173-175 with the numerical check the Algorithm section implies, or delete the cell - an empty cell renders as an empty input box on the site.

@@ -39,7 +39,7 @@ _None found._
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 469, 599. *Example:* the symbol rho is used at line 469 (exercise ca_ex1, part b: 'print rho') before it exists - the lecture body writes the same quantity only as an unnamed absolute-value expression at line 377 and never names it. Exercise ca_ex3 then states at line 599 that 'the lecture derives that ... pi_{t+1} = rho pi_t' and supplies the definition itself; the derivation at lines 382-386 stops one step short of that reduction and never makes it for constant mu.
 
 ### Low severity
-- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 82. *Example:* {cite} in narrative flow: 'by {cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 82. *Example:* `` {cite} `` in narrative flow: 'by `` {cite} ``'.
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 1. *Lines:* 587. *Example:* line 587 uses bold for emphasis - 'the public systematically **over-predicts** inflation' - two lines after line 585 correctly uses italic for the same job ('falls *below* expected inflation').
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 1. *Lines:* 372. *Example:* the stability section (lines 372-394) presents the condition |(lambda - alpha(1-lambda))/(1 - alpha(1-lambda))| < 1, a region in (lambda, alpha) space, and then just prints one number at line 393. Line 390 invites the reader to 'study outcomes in examples that violate condition' with nothing to look at; a plot of the stable region, or of rho against lambda for a few alpha, would carry the whole section.
 

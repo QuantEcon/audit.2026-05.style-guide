@@ -55,7 +55,7 @@ _None found._
 ## Recommended actions
 
 1. Replace the 10 bare `time()` readings with the `qe.Timer` context manager (312, 314, 322, 325, 332, 335, 499, 502, 509, 512) - the largest single item, and it removes six near-identical `start = time()` / `... = time() - start` pairs (qe-code-004 x10).
-2. Settle on one symbol for the value function: either state at 130 that $v$ is the $V$ of {eq}`eqvfs`, or write the Bellman equation in $V$. While there, cite `eqvfs` somewhere (it is currently a labelled equation with no reference) and either use or delete the `(prgm:create-consumption-model)=` anchor at 156, which nothing links to.
+2. Settle on one symbol for the value function: either state at 130 that $v$ is the $V$ of `` {eq}`eqvfs` ``, or write the Bellman equation in $V$. While there, cite `eqvfs` somewhere (it is currently a labelled equation with no reference) and either use or delete the `(prgm:create-consumption-model)=` anchor at 156, which nothing links to.
 3. Replace `\mathsf Y` and `\mathsf S` with $Y$ and $S$ at 106, 110 and 113, and write the income sequence with curly brackets - `$\{y_t\}_{t \geq 0}$` at 106, matching `$\{c_t\}_{t \geq 0}$` at 89 (qe-math-009 x3, qe-math-005 x1).
 4. Replace the two Unicode `β` characters inside display math at 132 and 145 with `\beta`, as the surrounding math already does at 92 and 120 (qe-math-001 x2).
 5. Fix the prose slips that survive into the published page: 'the encapsulate the right hand side' at 148 (should be 'to encapsulate', and the fragment needs joining to the display above it), 'Your are invited' at 191, 'i.e,' at 531, and the stale comment at 211 which names the variable `z` where the code calls it `y`.

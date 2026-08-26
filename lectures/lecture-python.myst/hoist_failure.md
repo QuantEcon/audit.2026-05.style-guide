@@ -48,7 +48,7 @@ _None found._
 
 - All eight figure cells carry mystnb `caption` and `name` metadata (206-212, 235-241, 250-256, 314-320, 420-426, 442-448, 672-678), so every exhibit is addressable.
 - Every approximation is checked against something independent: the discretised density against a 25,000-draw histogram (314-333), the discretised mean against $e^{\mu+\sigma^2/2}$ (335-343), and both convolutions against their sample histograms and theoretical means (420-478).
-- The final answer is validated against the source: the CDF is presented as a counterpart to Figure 5 of {cite:t}`Greenfield_Sargent_1993` (670) and the quantiles against its Table 11 (699-716), with an explicit list of why small discrepancies remain (718-721).
+- The final answer is validated against the source: the CDF is presented as a counterpart to Figure 5 of `` {cite:t}`Greenfield_Sargent_1993` `` (670) and the quantiles against its Table 11 (699-716), with an explicit list of why small discrepancies remain (718-721).
 - Both timing comparisons use the `quantecon.Timer` context manager (400-409, 662-667, 767) rather than `time.time()` - the convention `qe-code-004` asks for, and rare in this corpus.
 - The `{note}` at 75-80 pre-empts the standard confusion between a lognormal's parameters and its moments, and the `{warning}` at 117-119 states the single fact that motivates the whole lecture: the product of lognormals is lognormal, the sum is not.
 - Densities and mass functions are lowercase throughout - $f$, $g$, $h$, $f_j$, $g_j$, $h_n$ (125-177) - with the cumulative object kept in prose and code as `cdf`, so the proposed qe-math-015 (proposed) case convention holds.

@@ -41,7 +41,7 @@ _None found._
 
 ### Low severity
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 569. *Example:* plot() without lw=.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 64. *Example:* {cite} in narrative flow: 'of {cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 64. *Example:* `` {cite} `` in narrative flow: 'of `` {cite} ``'.
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 1. *Lines:* 258. *Example:* the endogenous grid - the one idea the lecture exists to teach - is never drawn. Section "The EGM operator" (256-308) explains in a three-step recipe that the exogenous $a'$ grid is mapped back to an *irregular* implied grid $a_{ij} = (c_{ij} + a_i - w z_j)/(1+r)$ and then interpolated back onto the regular grid, and step 3 mentions "handling the borrowing constraint where it binds"; a plot of `a_endo` against `a_grid`, or of the $(a_{endo}, c_{endo})$ points before and after interpolation, would show both the irregular spacing and the binding region that lines 298-303 handle in code.
 
 
@@ -57,7 +57,7 @@ _None found._
 
 1. Move the ten embedded matplotlib titles into figure captions - `ax.set_title` at 383, 393, 574, 609 and 619 (qe-fig-003, 5 occurrences) - and add `mystnb: figure: caption/name` metadata to the three code-cell figures at 367, 549 and 597 (qe-fig-005, 3 occurrences).
 2. Add a figure showing the endogenous grid against the exogenous grid; without it the lecture's title method is described but never seen.
-3. Write solutions for the four exercises at 671-713, or mark them as unsolved deliberately - every other lecture in the series pairs `{exercise}` with `{solution-start}`, and exercise 1 in particular asks the reader to time EGM against the VFI code from {doc}`aiyagari`, which is not available in this notebook.
+3. Write solutions for the four exercises at 671-713, or mark them as unsolved deliberately - every other lecture in the series pairs `{exercise}` with `{solution-start}`, and exercise 1 in particular asks the reader to time EGM against the VFI code from `` {doc}`aiyagari` ``, which is not available in this notebook.
 4. Fix `\mathbb{E_z}` at line 126: the subscript is inside the braces, so the whole token `E_z` renders in blackboard bold; it should be `\mathbb{E}_z`.
 5. Reconcile the math with the code: either write the Euler equation at 133-136 in terms of the consumption policy the code implements, or say explicitly that $\sigma$ is consumption while $s$ was savings.
 6. Cut the summary at 629-667 down to the parts that are not already in the overview, and fix the claim at 649 - the standard Aiyagari lecture solves the household problem by `argmax` over a discretised grid, not by root-finding.

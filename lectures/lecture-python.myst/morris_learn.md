@@ -31,7 +31,7 @@ _None found._
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 48. *Lines:* 40, 49, 54, 55, 56, 58, 104, 105, 128, 140, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 158, 620. *Example:* {cite} in author position: '{cite}`harsanyi1968games3` argued'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 158, 620. *Example:* `` {cite} `` in author position: '`` {cite}`harsanyi1968games3` `` argued'.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 2. *Lines:* 151, 220. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 154. *Example:* mid-sentence 'Priors'.
 - **[qe-writing-009 (proposed)]** — Write "IID" — not "i.i.d." or "iid". *Count:* 2. *Lines:* 82, 104. *Example:* i.i.d..

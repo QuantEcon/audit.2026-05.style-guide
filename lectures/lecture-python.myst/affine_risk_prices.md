@@ -44,7 +44,7 @@ _None found._
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 4. *Lines:* 51, 54, 653, 680. *Example:* 2 spaces.
 
 ### Low severity
-- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 63. *Example:* {cite} in narrative flow: 'and {cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 63. *Example:* `` {cite} `` in narrative flow: 'and `` {cite} ``'.
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 1. *Lines:* 1068. *Example:* "Risk-neutral probabilities" (1031-1167) is the one section built on an inherently visual operation - multiplying a conditional density by a likelihood ratio to shift its mean from $\mu + \phi z_t$ to $\mu - C\lambda_0 + (\phi - C\lambda_z) z_t$ (1068-1086) - and it has no figure; two overlaid normal densities, or the two conditional means as a function of $z_t$, would show the twist that the whole section describes in words. What the section does produce is a four-row printed table of Monte Carlo versus analytic bond prices (1156-1163), which validates the algebra but does not illustrate the measure change.
 - **[qe-writing-009 (proposed)]** — Write "IID" — not "i.i.d." or "iid". *Count:* 1. *Lines:* 110. *Example:* i.i.d..
 

@@ -37,7 +37,7 @@ _None found._
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 3. *Lines:* 89, 401, 786. *Example:* Title Case caption (Aircraft, Network).
 - **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 3. *Lines:* 549, 605, 618. *Example:* pmatrix environment.
 - **[qe-math-004]** — Do not use bold face for matrices or vectors. *Count:* 3. *Lines:* 1034, 1037, 1049. *Example:* \mathbf.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 3. *Lines:* 695, 1146, 1151. *Example:* {cite} in narrative flow: '{cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 3. *Lines:* 695, 1146, 1151. *Example:* `` {cite} `` in narrative flow: '`` {cite} ``'.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 87. *Example:* mid-sentence 'Data'.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 3. *Lines:* 262, 660, 931. *Example:* 2 spaces.
 

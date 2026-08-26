@@ -31,7 +31,7 @@ _None found._
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 5. *Lines:* 175, 277, 305, 372. *Example:* caption of 9 words.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 5. *Lines:* 183, 188, 286, 319, 320. *Example:* plot() without lw=.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 5. *Lines:* 221, 346, 347, 354. *Example:* missing braces: `\mathbb E`.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 6. *Lines:* 54, 57, 87, 206, 420. *Example:* {cite} in narrative flow: '{cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 6. *Lines:* 54, 57, 87, 206, 420. *Example:* `` {cite} `` in narrative flow: '`` {cite} ``'.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 2. *Lines:* 301, 334. *Example:* H2 Title Case: 'Why the Fed was slow: a counterfactual' (Fed).
 
 ### Medium severity

@@ -38,8 +38,8 @@ _None found._
 - **[qe-code-003]** — Package installation at lecture top. *Count:* 2. *Lines:* 22, 30. *Example:* non-Anaconda import with no install cell: ['packaging'].
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 4. *Lines:* 110, 810, 890, 910. *Example:* figsize=.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 538, 701, 786, 871. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 4. *Lines:* 69, 646, 668, 672. *Example:* {cite} in narrative flow: 'of {cite}`'.
-- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 164, 454. *Example:* 164-174 announces {numref}`lrpl_lg`, then describes what it shows (166), then interrupts with a note about logarithms (168) and an unrelated sentence about 1914 (172) before the figure finally appears at 174; and line 452 promises "We'll see similar patterns in the next three episodes that we'll study now", but the Hungary, Poland and Germany sections (454-630) contain six figures and not one sentence of interpretation - the reader gets no commentary again until 632.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 4. *Lines:* 69, 646, 668, 672. *Example:* `` {cite} `` in narrative flow: 'of `` {cite} ``'.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 164, 454. *Example:* 164-174 announces `` {numref}`lrpl_lg` ``, then describes what it shows (166), then interrupts with a note about logarithms (168) and an unrelated sentence about 1914 (172) before the figure finally appears at 174; and line 452 promises "We'll see similar patterns in the next three episodes that we'll study now", but the Hungary, Poland and Germany sections (454-630) contain six figures and not one sentence of interpretation - the reader gets no commentary again until 632.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 2. *Lines:* 502. *Example:* mid-sentence 'Price'.
 
 ### Low severity
@@ -50,7 +50,7 @@ _None found._
 
 - The two plotting helpers `pe_plot` and `pr_plot` (297-351) are defined once and reused across all four country sections, so the eight country figures are guaranteed to share axes, log scaling and date formatting.
 - Every figure that has a caption also has a `name`, and the prose actually cites them with `{numref}` (126, 166, 197, 446).
-- Data provenance is unusually careful: each country section names the source table and page from {cite}`sargent2013rational`, and the note at 501 documents exactly how the three Polish price series were spliced.
+- Data provenance is unusually careful: each country section names the source table and page from `` {cite}`sargent2013rational` ``, and the note at 501 documents exactly how the three Polish price series were spliced.
 - `{note}` and `{tip}` admonitions are used well to park side material (the warehouse-certificate aside at 78, the treasury-bill aside at 660, the PPP pointer at 640) instead of interrupting the narrative.
 - The three exercises added at 678-937 are genuine quantitative follow-ups on the lecture's own claims, each with a gated dropdown solution that re-uses the lecture's dataframes.
 
@@ -60,6 +60,6 @@ _None found._
 2. Fix the formula at line 403: the prose defines the plotted series as $(p_{t-1} + p_t + p_{t+1})/3$, but `pr_plot` (334-338) computes a three-period rolling mean of $\Delta \log p_t$; write the moving average of the log-difference.
 3. Lower-case the nine axis labels ('Index  1913 = 100', 'Year', 'Price level', 'Exchange rate', 'Inflation rate', and the four in the exercise solutions) and shorten the nine over-long figure captions.
 4. Add `mystnb: figure: caption/name` metadata to the four un-named figures (538, 701, 786, 871) - the Poland price/exchange-rate figure at 538 is the only one of the eight country figures that cannot be cross-referenced.
-5. Convert the four narrative-position citations to `{cite:t}` (69, 646, 668, 672) - "Chapter 3 of {cite:t}`sargent2002big`" rather than `{cite}`.
+5. Convert the four narrative-position citations to `{cite:t}` (69, 646, 668, 672) - "Chapter 3 of `` {cite:t}`sargent2002big` ``" rather than `{cite}`.
 6. Break the seven over-long sentences listed above, split the five multi-sentence paragraphs (79, 227, 502, 661, 765) and strip the six runs of double spaces.
 7. Add a paragraph of interpretation to each of the Hungary, Poland and Germany sections, in the manner of the Austria discussion at 446-450, and italicise the emphasis at 153.

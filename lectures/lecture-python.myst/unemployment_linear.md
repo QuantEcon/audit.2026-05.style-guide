@@ -35,7 +35,7 @@ _None found._
 
 ### Low severity
 - **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 320. *Example:* spelled-out `phi`.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 82. *Example:* {cite} in narrative flow: 'of {cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 82. *Example:* `` {cite} `` in narrative flow: 'of `` {cite} ``'.
 
 
 ## Strengths

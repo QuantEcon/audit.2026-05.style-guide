@@ -45,7 +45,7 @@ _None found._
 
 ### Low severity
 - **[qe-math-008]** — Explain special notation (vectors/matrices). *Count:* 1. *Lines:* 1001. *Example:* ones vector `\mathbf{1}` used 1x with no 'vector of ones' explanation in the prose.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 152. *Example:* {cite} in narrative flow: 'of {cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 152. *Example:* `` {cite} `` in narrative flow: 'of `` {cite} ``'.
 
 
 ## Strengths

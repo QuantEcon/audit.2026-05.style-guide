@@ -40,7 +40,7 @@ _None found._
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 2. *Lines:* 38, 244. *Example:* bold used where italic is called for: **Wealth of Nations** at 38 is a book title, and **waiting** at 244 is emphasis ("must rise to compensate a prospective high school student for **waiting** to start receiving income") - neither is a definition, while the genuine definitions **equalizing difference** (130) and **free college** (160) use the same weight.
 
 ### Low severity
-- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 25. *Example:* {cite} in narrative flow: 'of {cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 25. *Example:* `` {cite} `` in narrative flow: 'of `` {cite} ``'.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 1. *Lines:* 428. *Example:* "Thus, as with our earlier graph, we find that raising $R$ increases the initial college wage premium $\phi$" sits directly under the cells at 417-425, which compute and evaluate $\partial\phi/\partial D$, not $\partial\phi/\partial R$ - the $R$ derivative is not computed until 480 and is correctly discussed at 490, so the reader meets the conclusion 60 lines before its evidence.
 
 

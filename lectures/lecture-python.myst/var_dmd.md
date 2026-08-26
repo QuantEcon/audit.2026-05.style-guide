@@ -28,7 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 28. *Lines:* 72, 75, 79, 81, 97, 120, 160, 181, 196, 253, …. *Example:* apostrophe transpose `X'`.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 6. *Lines:* 272, 443, 455, 518, 598, 726. *Example:* {cite} in narrative flow: 'and {cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 6. *Lines:* 272, 443, 455, 518, 598, 726. *Example:* `` {cite} `` in narrative flow: 'and `` {cite} ``'.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 16. *Lines:* 106, 133, 265, 272, 275, 283, 285, 294, 369, 487, …. *Example:* mid-sentence 'Case'.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 5. *Lines:* 23, 261, 720, 821, 836. *Example:* H2 Title Case: 'First-Order Vector Autoregressions' (Vector, Autoregressions).
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 180. *Lines:* 16, 32, 33, 40, 47, 53, 55, 63, 75, 77, …. *Example:* 2 spaces.

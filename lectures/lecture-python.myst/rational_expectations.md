@@ -36,7 +36,7 @@ _None found._
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 973. *Example:* 3 sentences in one paragraph.
 
 ### Low severity
-- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 978. *Example:* {cite} in narrative flow: 'and {cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 978. *Example:* `` {cite} `` in narrative flow: 'and `` {cite} ``'.
 
 
 ## Strengths

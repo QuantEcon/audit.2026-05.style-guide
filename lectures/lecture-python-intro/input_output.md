@@ -35,8 +35,8 @@ _None found._
 ### Medium severity
 - **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 2. *Lines:* 89, 593. *Example:* spelled-out `beta`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 38, 87. *Example:* style override.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 373, 608. *Example:* {cite} in author position: '{cite}`DoSSo` argue'.
-- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 2. *Lines:* 366, 506. *Example:* the production possibility frontier is the section's whole subject and ends in the concrete line $10d_1 + 500d_2 = x_0$ (366) that is never plotted, even though the lecture already draws the feasible set for the primal constraints at 197; and the demand-shock decomposition $\Delta x = \Delta d + A\Delta d + A^2\Delta d + \cdots$ (506) describes successive rounds of propagation through the very network drawn in {numref}`us_15sectors`, with no figure showing the rounds decaying.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 373, 608. *Example:* `` {cite} `` in author position: '`` {cite}`DoSSo` `` argue'.
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 2. *Lines:* 366, 506. *Example:* the production possibility frontier is the section's whole subject and ends in the concrete line $10d_1 + 500d_2 = x_0$ (366) that is never plotted, even though the lecture already draws the feasible set for the primal constraints at 197; and the demand-shock decomposition $\Delta x = \Delta d + A\Delta d + A^2\Delta d + \cdots$ (506) describes successive rounds of propagation through the very network drawn in `` {numref}`us_15sectors` ``, with no figure showing the rounds decaying.
 
 ### Low severity
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 1. *Lines:* 595. *Example:* axis label `Output multipliers`.
@@ -56,7 +56,7 @@ _None found._
 1. Resolve the notation collision in the demand-shock section: $x_0$ and $d_0, d_1$ at 499-501 denote a pre-shock output vector and two demand vectors, but $x_0$ is the exogenous labor input everywhere else in the lecture (125, 191, 320, 326, 366, 623) and $d_1, x_1$ are the first components of $d$ and $x$ (189, 366, 691) - rename the shock-era objects.
 2. Add `mystnb: figure: caption/name` metadata to the five un-named figures (147, 197, 453, 539, 586); as it stands only the opening network graph can be cross-referenced, and the two bar charts are referred to as "the above figure" (552) and "the following figure" (583).
 3. Plot the production possibility frontier (366) and, in the demand-shock section, the decaying rounds of $A^k \Delta d$ - both sections currently describe a picture in prose.
-4. Convert the two author-position citations to `{cite:t}`: "{cite:t}`DoSSo` argue" (373) and "{cite:t}`DoSSo` Chapter 9 discusses" (608).
+4. Convert the two author-position citations to `{cite:t}`: "`` {cite:t}`DoSSo` `` argue" (373) and "`` {cite:t}`DoSSo` `` Chapter 9 discusses" (608).
 5. Set `lw=2` on the seven constraint lines (206, 207, 208, 222, 462, 463, 477), lower-case the axis label at 595, and drop the `figsize=` at 87 unless the tall aspect ratio is deliberate.
 6. Replace the spelled-out `beta=False` keyword arguments (89, 593) and remaining Latin Greek names (543) with Unicode where they stand for Greek symbols, and clean up the nine PEP8 spacing items listed above.
-7. Fix the stray capital $X$ at 253 (the solution of {eq}`eq:inout_2` is $x$, not $X$), settle on "Leontief inverse" in lower case (249 and 487 currently write "Leontief Inverse"), and strip the 12 runs of double spaces.
+7. Fix the stray capital $X$ at 253 (the solution of `` {eq}`eq:inout_2` `` is $x$, not $X$), settle on "Leontief inverse" in lower case (249 and 487 currently write "Leontief Inverse"), and strip the 12 runs of double spaces.

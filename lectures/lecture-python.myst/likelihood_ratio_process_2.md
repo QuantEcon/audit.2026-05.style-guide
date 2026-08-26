@@ -29,7 +29,7 @@ _None found._
 ### High severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 14. *Lines:* 638, 730, 761, 1153, 1510, 1514, 1549, 1553, 1615, 1629, …. *Example:* figsize=.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 13. *Lines:* 637, 708, 760, 1199, 1213, 1279, 1284, 1614, 1628, 1639, …. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 5. *Lines:* 37, 412, 838. *Example:* {cite} in narrative flow: '{cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 5. *Lines:* 37, 412, 838. *Example:* `` {cite} `` in narrative flow: '`` {cite} ``'.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 6. *Lines:* 421, 667, 669, 671, 838, 1664. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 80. *Lines:* 54, 246, 402, 408, 410, 412, 418, 421, 422, 429, …. *Example:* 3 spaces.
 

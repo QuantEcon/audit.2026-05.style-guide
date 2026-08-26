@@ -39,7 +39,7 @@ _None found._
 
 ### Low severity
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 1. *Lines:* 447. *Example:* $\psi \in \mathscr{D}(S)$ at 447 reaches for a script alphabet for the set of distributions on $S$ - the only decorative symbol in a lecture that otherwise uses plain letters - and the symbol is never defined here or linked to where it is defined.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 443. *Example:* {cite} in narrative flow: 'in {cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 443. *Example:* `` {cite} `` in narrative flow: 'in `` {cite} ``'.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 1. *Lines:* 266. *Example:* 2 spaces.
 
 

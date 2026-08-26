@@ -48,10 +48,10 @@ _None found._
 ## Strengths
 
 - The Euler equation is implemented once and reused for both countries (216-222), with the prose at 213 saying explicitly why that works - "they have the same form but use different variables" - rather than duplicating the function with starred arguments.
-- Every steady-state condition gets its own equation label and is then cited by name: {eq}`eq:steady_k_bar`, {eq}`eq:steady_k_star`, {eq}`eq:steady_c_k_bar` and {eq}`eq:steady_c_kB` are all defined at 237-253 and 255 reads two of them back as "feasibility" and "trade balance".
+- Every steady-state condition gets its own equation label and is then cited by name: `` {eq}`eq:steady_k_bar` ``, `` {eq}`eq:steady_k_star` ``, `` {eq}`eq:steady_c_k_bar` `` and `` {eq}`eq:steady_c_kB` `` are all defined at 237-253 and 255 reads two of them back as "feasibility" and "trade balance".
 - The economics of Experiment 1 is narrated as a causal chain in eight short paragraphs (476-494) - announcement, consumption smoothing, extra saving, the open-economy alternative to domestic capital, no-arbitrage synchronisation, capital build-up, drawdown, current-account deficit - one step per paragraph.
 - The portfolio-indeterminacy problem is not swept aside: 121-127 states that domestic capital, foreign capital and loans bear the same return, that portfolios are therefore indeterminate, and that setting foreign capital holdings to zero is a *choice* made to reduce the number of initial conditions.
-- The exercise at 556-562 asks the reader to swap one panel of an existing figure and reproduce a published figure from {cite}`Ljungqvist2012`, and the solution reuses `plot_global_results` and `compute_η_path` rather than rebuilding the plot.
+- The exercise at 556-562 asks the reader to swap one panel of an existing figure and reproduce a published figure from `` {cite}`Ljungqvist2012` ``, and the solution reuses `plot_global_results` and `compute_η_path` rather than rebuilding the plot.
 
 ## Recommended actions
 

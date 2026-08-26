@@ -51,7 +51,7 @@ _None found._
 
 - Every symbolic claim in the lecture is checked with sympy rather than asserted: the angle-sum identities at lines 410-419, the double-angle identities at 581-596, the product identities at 656-668, and the full 3x3 orthogonality table at 713-724.
 - The polar diagram at lines 122-159 labels z, r, x, y and theta directly on the plot, so the three forms of a complex number introduced at line 53 become a single picture the reader can point at.
-- The Overview says what the lecture is for and where it is used next - Samuelson's multiplier-accelerator, with a {doc} link at line 36 - and explicitly offers itself as a stand-alone trigonometry refresher.
+- The Overview says what the lecture is for and where it is used next - Samuelson's multiplier-accelerator, with a `` {doc} `` link at line 36 - and explicitly offers itself as a stand-alone trigonometry refresher.
 - Example 3 carries the complex-conjugate machinery through to a concrete second-order difference equation and then solves for omega and p numerically with `nsolve` at lines 296-318, so the algebra ends in a number and a plot.
 - The final exercise closes the loop on why any of this matters: line 728 explains that orthogonality is what makes Fourier decomposition possible, rather than leaving the integral table as an isolated result.
 

@@ -1306,7 +1306,7 @@ def check_ref_001(doc: Doc):
         # One finding per citation site, whichever pattern spotted it.
         flagged = {}
         for m in NARRATIVE_TRAIL.finditer(s):
-            flagged[m.start()] = f"{{cite}} in author position: {m.group(0)[:48]!r}"
+            flagged[m.start()] = f"{{cite}} in author position: {m.group(0)[:48].rstrip(chr(96))!r}"
         for m in NARRATIVE_LEAD.finditer(s):
             # A parenthetical citation at the end of a clause is correct.
             after = s[m.end():]
@@ -1322,7 +1322,7 @@ def check_ref_001(doc: Doc):
                          lead, re.IGNORECASE):
                 continue
             flagged.setdefault(m.start(),
-                               f"{{cite}} in narrative flow: {m.group(0)[:48]!r}")
+                               f"{{cite}} in narrative flow: {m.group(0)[:48].rstrip(chr(96))!r}")
         for pos, detail in sorted(flagged.items()):
             hits.append(Hit("qe-ref-001", l.no, detail))
     return hits

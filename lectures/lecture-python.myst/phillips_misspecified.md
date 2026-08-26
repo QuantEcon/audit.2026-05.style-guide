@@ -34,7 +34,7 @@ _None found._
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 2. *Lines:* 286, 317. *Example:* caption of 13 words.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 384, 414. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 2. *Lines:* 419, 421. *Example:* plot() without lw=.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 54, 189. *Example:* {cite} in narrative flow: 'with {cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 54, 189. *Example:* `` {cite} `` in narrative flow: 'with `` {cite} ``'.
 
 ### Low severity
 _None found._

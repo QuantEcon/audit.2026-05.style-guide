@@ -29,7 +29,7 @@ _None found._
 ### High severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 60, 102, 136, 281, 411. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 4. *Lines:* 651, 658, 665. *Example:* apostrophe transpose `}'`.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 5. *Lines:* 80, 314, 398, 444, 544. *Example:* {cite} in narrative flow: '{cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 5. *Lines:* 80, 314, 398, 444, 544. *Example:* `` {cite} `` in narrative flow: '`` {cite} ``'.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 2. *Lines:* 78, 304. *Example:* H2 Title Case: 'Simple Linear Regression' (Linear, Regression).
 
 ### Medium severity

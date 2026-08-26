@@ -41,7 +41,7 @@ _None found._
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 2. *Lines:* 187, 288. *Example:* the lecture contains no bold at all and exactly one italic, at 288 - "An *equilibrium* is" - which italicises a term at its point of definition, the reverse of the rule; and the definition of the lecture's central action at 187, "Defaulting means declining to repay all of its current obligations", carries no emphasis on the defined term either.
 
 ### Low severity
-- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 317. *Example:* {cite} in narrative flow: 'to {cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 317. *Example:* `` {cite} `` in narrative flow: 'to `` {cite} ``'.
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 1. *Lines:* 198. *Example:* the default/exclusion/reentry structure - pay or default at 181-196, output falling from $y$ to $h(y)$ on default, loss of market access, then reentry each period with probability $\theta$ at 200-201 - is a three-state timing diagram and is given entirely in prose bullets. Every other mechanism in the lecture gets a picture (bond price schedule, value functions, default-probability heat map, simulated series), which makes this the one unillustrated piece of the model.
 
 

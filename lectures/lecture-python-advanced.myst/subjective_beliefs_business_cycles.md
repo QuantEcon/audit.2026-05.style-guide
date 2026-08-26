@@ -46,7 +46,7 @@ _None found._
 ### Low severity
 - **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 1836. *Example:* spelled-out `tau`.
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 1. *Lines:* 894. *Example:* caption of 8 words.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 1745. *Example:* {cite} in narrative flow: '{cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 1745. *Example:* `` {cite} `` in narrative flow: '`` {cite} ``'.
 - **[qe-writing-009 (proposed)]** — Write "IID" — not "i.i.d." or "iid". *Count:* 1. *Lines:* 498. *Example:* i.i.d..
 
 

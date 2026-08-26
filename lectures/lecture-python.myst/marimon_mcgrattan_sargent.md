@@ -33,7 +33,7 @@ _None found._
 ### Medium severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 964, 992. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 4. *Lines:* 969, 975, 1009, 1015. *Example:* .set_title.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 34, 259. *Example:* {cite} in author position: '{cite}`KiyotakiWright1989` studied'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 34, 259. *Example:* `` {cite} `` in author position: '`` {cite}`KiyotakiWright1989` `` studied'.
 
 ### Low severity
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 996. *Example:* plot() without lw=.

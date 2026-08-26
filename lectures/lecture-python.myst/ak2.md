@@ -46,7 +46,7 @@ _None found._
 
 ## Strengths
 
-- The fixed-point solver is validated against the closed form before it is trusted with anything new: line 1131 says so explicitly and the run at 1133-1156 reproduces the {ref}`exp-tax-cut` experiment with the lump-sum taxes muted.
+- The fixed-point solver is validated against the closed form before it is trusted with anything new: line 1131 says so explicitly and the run at 1133-1156 reproduces the `` {ref}`exp-tax-cut` `` experiment with the lump-sum taxes muted.
 - `simulate` takes `τ_pol`, `D_pol` and `G_pol` and requires exactly two of the three, computing the remaining one from the government budget constraint (583-594, 617-631) - so a policy experiment is specified by naming which instrument is residual, and the prose at 529-535 says that is the design.
 - Every experiment is set up as a numbered list of policy commitments before any code runs (694-696, 795-797, 837-841), and each is followed by an interpretation in terms of who gains and who loses (822-828, 857-861, 1272-1280).
 - `verbose=True` plots the price and tax-rate paths at every iteration of the fixed point (1022-1032), turning the convergence of the algorithm into something the reader can watch rather than take on faith.
@@ -55,7 +55,7 @@ _None found._
 ## Recommended actions
 
 1. Collapse the five copies of the nine-panel plotting block into one function: 649-679 (`ClosedFormTrans.plot`), 757-786, 1092-1122 (`AK2.plot`), 1176-1204 and 1241-1269 are the same 30 lines with only the labels changed. Both `plot` methods also read the globals `T` and `init_ss` (660-661, 1103-1104) instead of instance state, so a `plot()` call silently depends on whatever `T` happens to be bound to at the time.
-2. Fix the four mathematical errors: {eq}`eq:firmfonc` at 225 gives $r_t = \alpha K_t^{\alpha} L_t^{1-\alpha}$ where the exponent must be $\alpha - 1$ (the code at 444 has it right); {eq}`eq:Klawclosed` at 365 subtracts $D_t$ where the code at 610-611 subtracts $D_{t+1}$, and the line ends with a stray `\\`; $\delta_{ot}$ appears in the $t=0$ and $t+1$ budget constraints at 256 and 281 where $\delta_{o0}$ and $\delta_{o,t+1}$ belong; and line 309 writes `C_{0t+1}` with a zero for the letter o.
+2. Fix the four mathematical errors: `` {eq}`eq:firmfonc` `` at 225 gives $r_t = \alpha K_t^{\alpha} L_t^{1-\alpha}$ where the exponent must be $\alpha - 1$ (the code at 444 has it right); `` {eq}`eq:Klawclosed` `` at 365 subtracts $D_t$ where the code at 610-611 subtracts $D_{t+1}$, and the line ends with a stray `\\`; $\delta_{ot}$ appears in the $t=0$ and $t+1$ budget constraints at 256 and 281 where $\delta_{o0}$ and $\delta_{o,t+1}$ belong; and line 309 writes `C_{0t+1}` with a zero for the letter o.
 3. Collapse the 197 double and triple spaces (qe-writing-008, 197 occurrences) - by far the largest mechanical item in the lecture - and sentence-case the two Title Case H2s at 176 and 1210.
 4. Set `lw=2` on the 27 plot calls that lack it (660, 668, 676, 763, 764, 772, 773, 781, 782, 817, and 17 more) and drop the six `figsize=` overrides at 655, 758, 1012, 1098, 1177 and 1242 (qe-fig-008 27 occurrences, qe-fig-001 6 occurrences).
 5. Reconcile the two definitions of competitive equilibrium (324-328 and 885-895) into one, and either add the shooting method promised at line 40 or drop the promise.

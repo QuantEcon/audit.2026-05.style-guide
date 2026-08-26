@@ -38,7 +38,7 @@ _None found._
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 4. *Lines:* 185, 274, 438, 473. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 3. *Lines:* 443, 448, 499. *Example:* .set_title.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 166, 268, 433. *Example:* code-cell figure without mystnb figure metadata.
-- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 4. *Lines:* 217, 250, 290, 319. *Example:* results already established are restated: the KL-cross-entropy identity is displayed as {eq}`eq:KLcross` (127-129) and proved (134-140), then given again as a bullet at 217; $H(f)$ is defined and named the entropy at 81-84 and then defined a third time at 319. Line 250 ends the asymmetry discussion with 'and vice versa', which undoes the point the sentence exists to make - $D_{KL}(f\|g)$ penalises exactly one of the two directions. The bullet at 290 is one 49-word sentence carrying the mutual-information characterisation, the Bernoulli source variable and both of its branches.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 4. *Lines:* 217, 250, 290, 319. *Example:* results already established are restated: the KL-cross-entropy identity is displayed as `` {eq}`eq:KLcross` `` (127-129) and proved (134-140), then given again as a bullet at 217; $H(f)$ is defined and named the entropy at 81-84 and then defined a third time at 319. Line 250 ends the asymmetry discussion with 'and vice versa', which undoes the point the sentence exists to make - $D_{KL}(f\|g)$ penalises exactly one of the two directions. The bullet at 290 is one 49-word sentence carrying the mutual-information characterisation, the Bernoulli source variable and both of its branches.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 510, 527. *Example:* '## KL divergence and maximum-likelihood estimation' (510) opens after 'Comparing divergence measures' (366-508) has synthesised all three measures and reads as the close of the lecture; it then introduces empirical distributions and the Dirac delta with no transition, and it is the only section with no code. Inside it, the bullet block at 526-528 introduces $\langle X \rangle_{p_e}$ and $\bar{\mu}$, neither of which appears anywhere else in the lecture, and neither is needed for the derivation at 531-554.
 
 ### Low severity
@@ -52,10 +52,10 @@ _None found._
 ## Strengths
 
 - Density case discipline is exact: lowercase $f$, $g$, $m$, $p_e$, $p_\theta$ for every density and mass function (67, 204, 261, 515, 531), with uppercase reserved for the functionals $H$, $D_{KL}$ and $C$ - the proposed qe-math-015 (proposed) convention holds without exception.
-- The primer at 63-145 builds surprisal, entropy, cross-entropy and KL divergence in dependency order and then proves the identity {eq}`eq:KLcross` that the rest of the lecture reuses, citing Shannon and Kullback-Leibler at the point each concept is introduced.
+- The primer at 63-145 builds surprisal, entropy, cross-entropy and KL divergence in dependency order and then proves the identity `` {eq}`eq:KLcross` `` that the rest of the lecture reuses, citing Shannon and Kullback-Leibler at the point each concept is introduced.
 - One pair of Beta densities is fixed at 166-197 and reused for all three measures (228, 298, 343), so KL, JS and Chernoff entropy are compared on the same picture rather than on three separate examples.
 - The comparison table at 370-427 is computed by the same functions the text defines, sorted by JS divergence, so the co-movement claim at 429 can be read straight off it instead of being asserted.
-- Every forward reference is a {doc} link to the lecture that actually uses the tool - likelihood_ratio_process and wald_friedman at 223-224, likelihood_ratio_process at 338, and the three at 560-562.
+- Every forward reference is a `` {doc} `` link to the lecture that actually uses the tool - likelihood_ratio_process and wald_friedman at 223-224, likelihood_ratio_process at 338, and the three at 560-562.
 
 ## Recommended actions
 

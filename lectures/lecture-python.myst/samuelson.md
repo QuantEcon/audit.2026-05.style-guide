@@ -40,7 +40,7 @@ _None found._
 ### Low severity
 - **[qe-fig-007]** — Keep figure box and spines. *Count:* 1. *Lines:* 436. *Example:* spine removal.
 - **[qe-link-001]** — Use markdown style links for lectures in same lecture series. *Count:* 1. *Lines:* 387. *Example:* full URL to own series (python.quantecon.org).
-- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 403. *Example:* {cite} in narrative flow: 'of {cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 403. *Example:* `` {cite} `` in narrative flow: 'of `` {cite} ``'.
 
 
 ## Strengths

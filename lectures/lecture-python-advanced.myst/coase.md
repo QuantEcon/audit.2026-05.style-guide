@@ -36,7 +36,7 @@ _None found._
 ### Medium severity
 - **[qe-fig-002]** — Prefer code-generated figures. *Count:* 2. *Lines:* 145, 165. *Example:* static image .png.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 537, 555, 638. *Example:* plot() without lw=.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 3. *Lines:* 306, 354, 381. *Example:* {cite} in narrative flow: 'In {cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 3. *Lines:* 306, 354, 381. *Example:* `` {cite} `` in narrative flow: 'In `` {cite} ``'.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 4. *Lines:* 89, 278, 570, 622. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 3. *Lines:* 105, 173, 213. *Example:* line 173 is a 45-word sentence that states the recursive structure and its one qualification in a single breath; line 105 is 39 words carrying the pyramid analogy plus its cost implication; line 213 is 35 words joining the free-entry assumption to its zero-profit consequence - each splits cleanly into two sentences (the quotation at 89-91 is 50 words but is a direct quote from Coase and should stay intact).
 
@@ -46,7 +46,7 @@ _None found._
 
 ## Strengths
 
-- The verbal Coase quotation introduced at 89-91 is deliberately closed at 399-405: the same passage is re-quoted right after the marginal conditions {eq}`coase_env` and {eq}`coase_foc` are derived, so the reader sees the model reproduce the prose argument.
+- The verbal Coase quotation introduced at 89-91 is deliberately closed at 399-405: the same passage is re-quoted right after the marginal conditions `` {eq}`coase_env` `` and `` {eq}`coase_foc` `` are derived, so the reader sees the model reproduce the prose argument.
 - Bold is reserved for the six formal definitions the lecture actually needs - allocation (233), feasible (241), equilibrium (268), Coase-Euler equation (417), value added (598), plus the two cost concepts at 184 and 192 - and italic carries the emphasis (39, 71, 97-98, 169, 204).
 - Every labelled equation is genuinely used: `coase_env` and `coase_foc` are combined at 407, `coase_deft` is cited at 431, `coase_ralloc` at 352 - no label is dead weight.
 - The formal-definition section is explicitly marked skippable on first reading (line 231), which lets the informal three-condition definition at 221-225 carry the narrative.

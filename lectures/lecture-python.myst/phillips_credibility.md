@@ -33,7 +33,7 @@ _None found._
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 4. *Lines:* 220, 285, 396, 504. *Example:* figsize=.
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 3. *Lines:* 213, 278, 387. *Example:* caption of 15 words.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 4. *Lines:* 236, 238, 288, 297. *Example:* plot() without lw=.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 3. *Lines:* 34, 75, 367. *Example:* {cite} in narrative flow: 'by {cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 3. *Lines:* 34, 75, 367. *Example:* `` {cite} `` in narrative flow: 'by `` {cite} ``'.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 36. *Example:* mid-sentence 'Critique'.
 
 ### Low severity

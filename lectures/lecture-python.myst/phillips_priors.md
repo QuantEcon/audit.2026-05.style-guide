@@ -29,7 +29,7 @@ _None found._
 ### High severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 5. *Lines:* 328, 366, 397, 553, 655. *Example:* figsize=.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 5. *Lines:* 329, 376, 398, 656, 657. *Example:* plot() without lw=.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 10. *Lines:* 40, 57, 444, 446, 448, 587, 599, 668. *Example:* {cite} in narrative flow: 'of {cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 10. *Lines:* 40, 57, 444, 446, 448, 587, 599, 668. *Example:* `` {cite} `` in narrative flow: 'of `` {cite} ``'.
 
 ### Medium severity
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 3. *Lines:* 372, 379, 564. *Example:* .set_title.

@@ -44,7 +44,7 @@ _None found._
 
 ### Low severity
 - **[qe-fig-002]** — Prefer code-generated figures. *Count:* 1. *Lines:* 254. *Example:* static image .png.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 764. *Example:* {cite} in narrative flow: '{cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 764. *Example:* `` {cite} `` in narrative flow: '`` {cite} ``'.
 
 
 ## Strengths

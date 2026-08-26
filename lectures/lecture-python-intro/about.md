@@ -47,6 +47,6 @@ _None found._
 ## Recommended actions
 
 1. Split the two-sentence paragraphs at lines 48-51 and 55-57 so each sentence is its own paragraph (qe-writing-001, 2 occurrences).
-2. Turn the raw URL to python-programming.quantecon.org at lines 45-46 into a {doc} cross-reference (qe-link-002, 1 occurrence).
+2. Turn the raw URL to python-programming.quantecon.org at lines 45-46 into a `` {doc} `` cross-reference (qe-link-002, 1 occurrence).
 3. Rewrap the source so no paragraph opens with a word orphaned by the previous wrap: line 36 begins 'The' alone, line 48 begins 'In' alone.
 4. Strip the trailing double-space hard line breaks at lines 8, 19, 22, 31, 39, 46 and 51 - each sits at the end of a paragraph, where the forced line break has no rendered effect and only makes the source noisy.

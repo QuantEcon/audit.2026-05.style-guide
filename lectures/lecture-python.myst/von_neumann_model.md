@@ -36,7 +36,7 @@ _None found._
 ### Medium severity
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 2. *Lines:* 949, 954. *Example:* .suptitle.
 - **[qe-math-001]** — Prefer UTF-8 unicode for simple parameter mentions, be consistent. *Count:* 1. *Lines:* 38. *Example:* unicode `β` inside a math environment.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 859. *Example:* {cite} in narrative flow: '. {cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 859. *Example:* `` {cite} `` in narrative flow: '. `` {cite} ``'.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 4. *Lines:* 733, 985, 992, 1024. *Example:* mid-sentence 'Theorem'.
 
 ### Low severity

@@ -45,7 +45,7 @@ _None found._
 
 - Every labelled equation is referred to later, and the references are what carry the derivation: bell2_mccall is cited at 170, 219, 237 and 407, bell1_mccall at 195, 200, 237 and 442, defh_mm at 348, 407, 420 and 436, and v_e_closed at 485 and 523 - there is not a single dead label in the lecture.
 - The scalar reduction is not just derived but tested: the simplified solver is run against the two-vector solver on the same model and the two reservation wages are printed side by side with their difference (587-594).
-- The note at 185-193 pre-empts the objection that {eq}`bell1_mccall` is not a Bellman equation because it contains no max, and says why the name is kept anyway.
+- The note at 185-193 pre-empts the objection that `` {eq}`bell1_mccall` `` is not a Bellman equation because it contains no max, and says why the name is kept anyway.
 - `Model` is a `NamedTuple` with a default and a one-line comment for each of the six fields (263-269), and every function unpacks it with the identical `α, β, γ, c, w, q = model` line, so the parameter set is declared in exactly one place.
 - The three comparative-statics figures are generated inside the exercise solutions and pulled into the narrative with `glue` (612, 628, 641 against 690, 708, 726), and line 603 tells the reader that is what is happening - the result is shown first, then set as the exercise.
 

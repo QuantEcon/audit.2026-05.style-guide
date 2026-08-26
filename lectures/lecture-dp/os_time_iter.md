@@ -37,7 +37,7 @@ _None found._
 
 ### Low severity
 - **[qe-code-004]** — Use quantecon Timer context manager. *Count:* 1. *Lines:* 562. *Example:* %%time.
-- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 194. *Example:* {cite} in narrative flow: '{cite}`'.
+- **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 194. *Example:* `` {cite} `` in narrative flow: '`` {cite} ``'.
 
 
 ## Strengths
