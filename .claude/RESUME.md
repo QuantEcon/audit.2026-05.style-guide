@@ -49,11 +49,17 @@ rejected. Two things carried forward from it:
   match the cited entry, so the prescribed fix would misdate the sentence. That was first
   written up as unverifiable for want of a bibliography — **wrong**: the `.bib` is not absent,
   only unchecked-out, and `git -C <corpus>/lecture-python-advanced.myst sparse-checkout add
-  '/lectures/_static/*.bib'` produces it. Both false positives are now confirmed against the
-  real entries. **This is the top follow-up.** The work is to write the branch the filed patch
-  never contained, gate it on the in-text year equalling the entry's year, and handle the
-  possessive (`Ryoo and Rosen's (2004)`, where `{cite:t}` cannot emit "'s") and markup
-  (`**Black-Litterman** (1992)`, a model name) classes.
+  '/lectures/_static/*.bib'` produces it. **This is the top follow-up**, and the year question
+  is now closed: 36 of 39 additions match their entry, 3 mismatch, 0 unresolved. Four
+  conditions to adopt, not two — the last two were found by re-running the lenses that died:
+  gate on the in-text year equalling the entry's `year`; require the matched capital token to
+  be a bare word (excluding `**Black-Litterman** (1992)`, a model name, and the possessive
+  `Ryoo and Rosen's (2004)`, where `{cite:t}` cannot emit "'s"); **skip a match whose author
+  phrase continues on the previous source line** — `ak2:29-30` splits "Auerbach and /
+  Kotlikoff (1987)", so the fix as prescribed renders "Auerbach and Auerbach and Kotlikoff
+  (1987)", printing the name twice; and quote the **whole** hand-written phrase in the detail,
+  not the fragment that matched. The `cited` de-duplication set in the filed patch is dead
+  code — 0 firings across 348 lectures.
 
 ## The one thing to understand about this pass
 

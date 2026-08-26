@@ -840,10 +840,61 @@ so "Gallatin (1807)" against a 1837 entry renders two different years; and
 `@Article{Blanchard_Khan, author={Blanchard, … and Kahn, Charles M}, year=1980}`, so the
 lecture's "Blanchard and Khan (1981)" differs in both the year and the spelling.
 
-So the rule is **unblocked, not unverifiable**. The remaining work is to write the branch the
-patch never contained, gate it on the in-text year equalling the cited entry's year, and
-handle the possessive and markup classes. The underlying defect is real in at least 34 of the
-39 sites and it is the cleanest addition this rule has left.
+So the rule is **unblocked, not unverifiable**.
+
+Two of the nine lenses died before reporting, both on this patch, and were re-run once the
+bibliography was available. Re-running an adversarial lens against an *already rejected* patch
+looked like it could only confirm the verdict — a refutation lens is prompted to refute, so it
+cannot reverse one — and that reasoning was right about the verdict and wrong about the value.
+The re-run resolved the year question completely and found two defects nobody had seen.
+
+**The year question is closed: 36 of 39 match, 3 mismatch, 0 unresolved.** Every addition was
+resolved against its own series' `quant-econ.bib`, and the mismatches are only the two shapes
+already recorded (`smoothing_tax:87` in both series, `re_with_feedback:68`). Two further *name*
+disagreements exist that a year gate cannot see: `BCG_incomplete_mkts:79` writes "Clemente"
+against `author = {Bisin, Alberto and Gian Luca Clementi and Piero Gottardi}`, and
+`hs_recursive_models:2197` writes "Hansen, Sargent, and Roberts (1991)" against
+`sargent1991observable`, whose author order is `Sargent, Thomas and Hansen, Lars Peter and
+Roberts, Will` — so with `bibtex_reference_style: author_year` the prescribed fix would rename
+who comes first.
+
+**The wrapped author list — the fix would print the name twice.** This is the finding that
+matters, and no earlier pass saw it. Where the hand-written author phrase straddles a source
+line break, the pattern matches only the tail surname. `ak2.md:29-30` reads
+
+```
+We'll present the version  that was   analyzed  in chapter 2 of Auerbach and
+Kotlikoff (1987) {cite}`auerbach1987dynamic`.
+```
+
+so the finding quotes `'Kotlikoff (1987) {cite}'` and acting on it leaves *"in chapter 2 of
+Auerbach and {cite:t}`auerbach1987dynamic`"*, which renders **"in chapter 2 of Auerbach and
+Auerbach and Kotlikoff (1987)"** — the fix creating the duplication the rule exists to remove.
+Three occurrences (`ak2` twice, `BCG_incomplete_mkts` once, where it leaves a dangling "used by
+Bisin,"). The patch's own comment discloses the *mirror* of this case,
+`black_litterman:545-546`, and calls it "measured and left out": the guard separates the two
+only by which fragment lands on which line, and it admits the three whose message is wrong
+while excluding the one that is accidentally right.
+
+**The one mechanism the patch does spell out is dead code.** The `cited` set works on a
+synthetic line but fires **0 times across all 348 lectures** — no `AUTHOR_YEAR_CITE` role
+offset coincides with a `NARRATIVE_TRAIL` or `NARRATIVE_LEAD` one. An unexercised guard is
+exactly the failure already recorded against this same rule, whose `see`/`include` exemption
+was dead code until a later review caught it.
+
+Counting every addition whose message is wrong or whose premise fails — 3 year/name mismatch,
+3 wrapped, 2 possessive, 1 markup, 3 given-name-only — gives **12 of 39**, and 3 of the 10
+newly-reached lectures are reached *only* by a defective finding. Interaction with the two
+patches that landed the same day was checked by AST-level reference extraction and is empty:
+`check_ref_001` touches only `NARRATIVE_LEAD` and `NARRATIVE_TRAIL`.
+
+**What would make it adoptable**, now four conditions rather than two: gate on the in-text year
+equalling the entry's `year`; require the matched capital token to be a bare word, so `**` and
+a possessive `'s`/`’s` are excluded; skip a match whose preceding text — on the same line *or
+the previous one* — continues the author phrase; and write a detail that quotes the **whole**
+hand-written phrase it asks the contributor to delete, not the fragment that happened to match.
+The underlying defect is real in 27 of the 39 sites and it is still the cleanest addition this
+rule has left.
 
 ### The build's warnings: 478 down to 23
 
