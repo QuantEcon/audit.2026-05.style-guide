@@ -53,7 +53,7 @@ _None found._
 
 ## Recommended actions
 
-1. Convert the six `\begin`` {array}` matrix displays at 258, 262, 266, 272, 277 and 299 to ` ``bmatrix` (qe-math-003, 6 occurrences) and replace the `h'` transpose-style prime at 246 with explicit derivative notation (qe-math-002).
+1. Convert the six `\begin{array}` matrix displays at 258, 262, 266, 272, 277 and 299 to `bmatrix` (qe-math-003, 6 occurrences) and replace the `h'` transpose-style prime at 246 with explicit derivative notation (qe-math-002).
 2. Fix the four mathematical errors in the derivation, which currently make it unfollowable: `w_i x_i + bI` at line 96 should be `w_i x_i + b_i`; the composition at 134 repeats `l_1` where `l_{N-1}` belongs; the differential at 252 has `+ b_i` where it needs `+ db_i`; and `e_N` at 305 is used with no definition.
 3. Write prose into the fourteen bare code cells at 328-470 tying `L` (415), `D` (418) and `dxs_la` (420) back to the matrices named at 262-282, and say what each of the two verification cells (423, 433) is checking.
 4. Add a diagram of the width-one depth-$N$ network, and plot the three activation functions at 101-119 - a lecture that introduces neural networks currently shows the reader no network.

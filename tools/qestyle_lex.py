@@ -380,6 +380,13 @@ def lex(path: str, series: str) -> Doc:
                 ams_buf = []
             continue
 
+        # A non-code directive's body was never accumulated — only the ``if in_code_fence``
+        # branch above appended to it — so ``doc.blocks`` carried an empty body for all 144
+        # ``{figure}`` and ``{image}`` directives in the corpus. That is where a MyST figure
+        # caption normally lives, and ``qe-fig-004`` could see none of them.
+        if open_blocks:
+            open_blocks[-1][4].append(raw)
+
         # --- directive option lines -----------------------------------------
         if re.match(r"^\s*:[A-Za-z0-9_-]+:", raw) and stack:
             doc.lines.append(Line(no, raw, "option", tuple(f.directive for f in stack),

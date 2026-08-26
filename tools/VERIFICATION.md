@@ -611,6 +611,67 @@ the two series' copies of a shared lecture; the pipeline counts series-lecture p
 `lw=1` at 60 rather than 66, and the deliberate split at 101/130 rather than 119/112. **Every
 one of those five numbers was wrong, and the gate caught all five on its first run.**
 
+### `qe-fig-004` could not see where a MyST figure keeps its caption
+
+The check read `:caption:`, and **not one** of the 144 `{figure}` and `{image}` directives in
+this corpus uses it. A MyST figure's caption is the directive *body*:
+
+```
+```{figure} /_static/.../poverty_trap_1.png
+:name: poverty_trap_1
+
+Poverty Trap
+```
+```
+
+The cause was one line in the lexer. `open_blocks[-1][4].append(raw)` sat inside the
+`if in_code_fence:` branch, so a directive body was accumulated only when the directive was a
+code cell — `doc.blocks` carried an empty body for every figure in the corpus. Accumulating
+it for the other directives too changed **no other check's count**, measured across all 41.
+
+`qe-fig-004` now takes the first paragraph after the option lines: **179 → 189 occurrences**,
+10 added, 0 removed. Among them the three `networks` captions the lecture's own reviewer had
+flagged by hand — `poverty_trap_1` and `poverty_trap_2` both read "Poverty Trap", which is
+why `` {numref}`poverty_trap_1` `` and `` {numref}`poverty_trap_2` `` render
+indistinguishably — and four `entropy` captions running to 13, 29 and 31 words.
+
+Body captions are longer and more sentence-like than option captions, which exposed three
+false positives in the Title-Case half of the check that had never had the chance to fire:
+
+- **A sentence's first word is capitalised because it opens a sentence.** `entropy` 526 is two
+  sentences over 31 words, and "Under" opened the second.
+- **Exempt by position, not by spelling.** A first attempt exempted every *occurrence* of a
+  word that opens a sentence somewhere, which let "Price of Gold" off in `french_rev`'s
+  "Price Level and Price of Gold" — the caption's own first word is the same word.
+- **The full stop has to survive an abbreviation.** "U.S. Treasury yields" is one sentence, so
+  `Treasury` is a real finding. The existing `ABBREV` list and a single-letter test cover it.
+
+And then the same trap that had just been fixed in `_count_sentences`, in a second place:
+inline maths was replaced by a **one-character** placeholder, so the full stop after
+`$g \geq 0$` looked like it followed an initial and stopped ending its sentence. Two letters.
+That is twice now that a single-character stand-in has broken sentence detection — the lesson
+is in the code at both sites.
+
+Eight cases pin the behaviour, including the `:caption:` form that still has to work and the
+legend after a second blank line that is not the caption.
+
+### One more escaping trap: a bounded target is what keeps a generic role safe
+
+Broadening `escape_roles` to any role name (for `{prf:theorem}`) had a failure that only
+appeared in the build. `perm_income_cons`'s reviewer prose quotes inline maths *inside* a code
+span — ``` `c_0 = (1-\beta) E_0 \sum_{t=0}^\infty \beta^j y_{t}` ``` — and `{t}` matched as
+a role name whose target ran from that code span's closing backtick to the next backtick 90
+characters later, swallowing a real `` {eq}`old12` `` on the way and emitting
+`` {eq}` ``old12` `` into the page. Four build warnings, in four lectures.
+
+A role's target is a *label*: `[^`\n\s$]{1,80}`. Bounding it that way makes the runaway
+match impossible, and requiring at least two characters in the generic role name keeps
+`$x_{it}$` out of reach as well. The regression is in the test suite as the real string.
+
+**Build warnings: 6 → 2.** The two that remain are `cross_product_trick`'s malformed
+`` {eq}`eq:Kalman102} `` in both series' copies — a corpus defect the report quotes and
+already reports upstream.
+
 ### The build's warnings: 478 down to 23
 
 Almost all of them were one thing. Reviewer prose and the detectors' own sample text quote

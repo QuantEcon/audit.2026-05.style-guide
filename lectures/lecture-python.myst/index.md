@@ -7,9 +7,9 @@ Style audit of the **lecture-python.myst** series.
 - **Corpus snapshot:** `e25fdf2345`
 - **Lectures audited:** 145
 - **Average overall score:** 7.8 / 10
-- **Average per-category scores:** writing 4.5, math 7.1, code 7.7, figures 6.5, references 9.6, links 9.8, admon 10.0
+- **Average per-category scores:** writing 4.5, math 7.1, code 7.6, figures 6.5, references 9.6, links 9.8, admon 10.0
 - **JAX:** out of scope — the `qe-jax-*` rules target `lecture-jax`.
-- **Judgment-review coverage:** **143 of 145 reviewed** — scores for the unreviewed 2 reflect the 41 measured rules only, so they are not directly comparable with the reviewed ones.
+- **Judgment-review coverage:** all lectures reviewed.
 <!-- /qe:series-meta -->
 
 <!-- qe:series-narrative -->
@@ -240,10 +240,10 @@ that lecture. Click a lecture for its full report.
 | 137 | [harrison_kreps](harrison_kreps.md) | 6.5 | 8 | 8.5 | — | 10 | 10 | 10 | **8.8** | NONE |
 | 138 | [mccall_model_with_separation](mccall_model_with_separation.md) | 7 | 8.5 | 7.5 | 8.5 | 10 | 10 | 10 | **8.8** | NONE |
 | 139 | [os](os.md) | 5.5 | 9.5 | 8.5 | 8 | 10 | 10 | 10 | **8.8** | NONE |
-| 140 | [inventory_dynamics](inventory_dynamics.md) | 5.5 | 10 | 9.5 | 7 | 10 | 10 | 10 | **8.9** | NONE |
-| 141 | [prospects_bounded_rationality](prospects_bounded_rationality.md) | 10 | 10 | 9 | 8.5 | 10 | 10 | — | **9.6** | NONE |
-| 142 | [status](status.md) | 10 | — | 9 | — | — | 10 | — | **9.7** | NONE |
-| 143 | [unemployment_shocks](unemployment_shocks.md) | 10 | 10 | 9 | 10 | — | 10 | 10 | **9.8** | NONE |
+| 140 | [prospects_bounded_rationality](prospects_bounded_rationality.md) | 6.5 | 10 | 7.5 | 8.5 | 10 | 10 | — | **8.8** | NONE |
+| 141 | [inventory_dynamics](inventory_dynamics.md) | 5.5 | 10 | 9.5 | 7 | 10 | 10 | 10 | **8.9** | NONE |
+| 142 | [unemployment_shocks](unemployment_shocks.md) | 6.5 | 9.5 | 7.5 | 10 | — | 10 | 10 | **8.9** | NONE |
+| 143 | [status](status.md) | 10 | — | 9 | — | — | 10 | — | **9.7** | NONE |
 | 144 | [intro](intro.md) | 10 | — | — | — | — | 10 | — | **10.0** | NONE |
 | 145 | [zreferences](zreferences.md) | 10 | — | — | — | — | 10 | — | **10.0** | NONE |
 <!-- /qe:series-ranked -->

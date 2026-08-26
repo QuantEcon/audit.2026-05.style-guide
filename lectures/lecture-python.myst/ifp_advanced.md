@@ -61,7 +61,7 @@ _None found._
 
 1. Plot the optimal consumption policy $\sigma^*(a, z)$ after the solve at 490 - it is the lecture's central object and currently never appears.
 2. Sentence-case the nine Title Case headings at 73, 77, 193, 198, 226, 251, 265, 668 and 675 (qe-writing-006).
-3. Fix the math markup: brace the six blackboard operators (85, 141, 150, 152, 157) (qe-math-010 (proposed)), replace the raw `\label`` {a:y0}` at 158 with MyST's ` ``$$ ... $$ (a:y0)` numbering (qe-math-007), drop the bold $\mathbf S$ (203, 220, 232) (qe-math-004), and make the three narrative citations at 50, 168 and 224 `{cite:t}` (qe-ref-001).
+3. Fix the math markup: brace the six blackboard operators (85, 141, 150, 152, 157) (qe-math-010 (proposed)), replace the raw `\label{a:y0}` at 158 with MyST's `$$ ... $$ (a:y0)` numbering (qe-math-007), drop the bold $\mathbf S$ (203, 220, 232) (qe-math-004), and make the three narrative citations at 50, 168 and 224 `{cite:t}` (qe-ref-001).
 4. Replace $\mathscr C$, $\mathbf S$ and $\mathsf Z$ with plain letters, so the lecture uses one typeface for its three sets.
 5. Figure hygiene: add mystnb name/caption metadata to the three figure cells at 638, 719 and 796 (qe-fig-005), move the embedded titles at 654, 756 and 833 into captions (qe-fig-003), and drop `figsize=` at 652, 752 and 829 (qe-fig-001).
 6. Code tidy: fix the closing-paren indent at 349, 394, 447, 519, 569 and 620; `p: float = 0.01` at 619; `def` instead of the lambda at 534; `μ` instead of `mu` at 413-414 (qe-code-002); either use or drop the unused `z` argument of `R` at 378, which the model at 107 says returns depend on; change the `python3` kernel name at 495 to `ipython3` like every other cell; and delete `gini_plot` at 649, which is computed and never used.

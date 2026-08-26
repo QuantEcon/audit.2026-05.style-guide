@@ -243,7 +243,7 @@ lecture-python-intro,msy_fishery,qe-writing-001,1,0,0
 lecture-python-intro,msy_fishery,qe-writing-006,1,0,0
 lecture-python-intro,networks,qe-fig-001,2,0,0
 lecture-python-intro,networks,qe-fig-002,5,0,0
-lecture-python-intro,networks,qe-fig-004,3,0,0
+lecture-python-intro,networks,qe-fig-004,6,0,0
 lecture-python-intro,networks,qe-fig-005,5,0,0
 lecture-python-intro,networks,qe-math-003,3,0,0
 lecture-python-intro,networks,qe-math-004,3,0,0
@@ -1660,6 +1660,7 @@ lecture-python-advanced.myst,dyn_stack,qe-math-002,25,0,0
 lecture-python-advanced.myst,dyn_stack,qe-writing-004,1,0,0
 lecture-python-advanced.myst,dyn_stack,qe-writing-008,30,0,0
 lecture-python-advanced.myst,entropy,qe-fig-002,4,0,0
+lecture-python-advanced.myst,entropy,qe-fig-004,4,0,0
 lecture-python-advanced.myst,entropy,qe-fig-005,1,0,0
 lecture-python-advanced.myst,entropy,qe-link-001,2,0,0
 lecture-python-advanced.myst,entropy,qe-math-002,15,0,0
@@ -1851,7 +1852,7 @@ lecture-python-advanced.myst,repeat_mh,qe-writing-004,5,0,0
 lecture-python-advanced.myst,risk_aversion_or_mistaken_beliefs,qe-code-002,1,0,0
 lecture-python-advanced.myst,risk_aversion_or_mistaken_beliefs,qe-fig-001,10,0,0
 lecture-python-advanced.myst,risk_aversion_or_mistaken_beliefs,qe-fig-002,3,0,0
-lecture-python-advanced.myst,risk_aversion_or_mistaken_beliefs,qe-fig-004,2,0,0
+lecture-python-advanced.myst,risk_aversion_or_mistaken_beliefs,qe-fig-004,4,0,0
 lecture-python-advanced.myst,risk_aversion_or_mistaken_beliefs,qe-fig-005,12,0,0
 lecture-python-advanced.myst,risk_aversion_or_mistaken_beliefs,qe-fig-006,19,0,0
 lecture-python-advanced.myst,risk_aversion_or_mistaken_beliefs,qe-math-010,34,1,0
@@ -1909,7 +1910,7 @@ lecture-python-advanced.myst,smoothing_tax,qe-writing-004,1,0,0
 lecture-python-advanced.myst,smoothing_tax,qe-writing-008,60,0,0
 lecture-python-advanced.myst,stationary_densities,qe-fig-001,2,0,0
 lecture-python-advanced.myst,stationary_densities,qe-fig-002,2,0,0
-lecture-python-advanced.myst,stationary_densities,qe-fig-004,1,0,0
+lecture-python-advanced.myst,stationary_densities,qe-fig-004,2,0,0
 lecture-python-advanced.myst,stationary_densities,qe-fig-005,6,0,0
 lecture-python-advanced.myst,stationary_densities,qe-link-002,7,0,0
 lecture-python-advanced.myst,stationary_densities,qe-math-010,5,1,0

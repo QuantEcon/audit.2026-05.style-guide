@@ -48,7 +48,7 @@ Ranked by how many of the series' lectures each rule reaches.
 4. **`qe-fig-001`** — Do not set figure size unless necessary — **30 / 56** lectures, 91 occurrences.
 5. **`qe-writing-001`** — Use one sentence per paragraph — **30 / 56** lectures, 54 occurrences.
 6. **`qe-writing-004`** — Avoid unnecessary capitalization in narrative text — **18 / 56** lectures, 40 occurrences.
-7. **`qe-fig-004`** — Caption formatting conventions — **17 / 56** lectures, 69 occurrences.
+7. **`qe-fig-004`** — Caption formatting conventions — **17 / 56** lectures, 72 occurrences.
 8. **`qe-fig-003`** — No matplotlib embedded titles — **15 / 56** lectures, 36 occurrences.
 9. **`qe-ref-001`** — Use correct citation style — **15 / 56** lectures, 48 occurrences.
 10. **`qe-writing-006`** — Capitalize lecture titles properly — **13 / 56** lectures, 31 occurrences.
@@ -100,8 +100,8 @@ that lecture. Click a lecture for its full report.
 |---|---------|---|---|---|---|---|---|---|---------|----------|
 | 1 | [geom_series](geom_series.md) | 3 | 8.5 | 7.5 | 4 | — | 10 | 10 | **7.2** | HIGH |
 | 2 | [linear_equations](linear_equations.md) | 5.5 | 6.5 | 7.5 | 6 | — | 7.5 | 10 | **7.2** | LOW |
-| 3 | [french_rev](french_rev.md) | 3 | 10 | 7.5 | 3 | 7.5 | 10 | 10 | **7.3** | HIGH |
-| 4 | [networks](networks.md) | 4 | 6 | 7 | 5.5 | 8.5 | 10 | 10 | **7.3** | HIGH |
+| 3 | [networks](networks.md) | 4 | 6 | 7 | 5 | 8.5 | 10 | 10 | **7.2** | HIGH |
+| 4 | [french_rev](french_rev.md) | 3 | 10 | 7.5 | 3 | 7.5 | 10 | 10 | **7.3** | HIGH |
 | 5 | [eigen_I](eigen_I.md) | 3.5 | 10 | 7.5 | 3.5 | — | 10 | 10 | **7.4** | HIGH |
 | 6 | [heavy_tails](heavy_tails.md) | 6 | 5.5 | 6 | 5 | 10 | 9 | 10 | **7.4** | LOW |
 | 7 | [inflation_history](inflation_history.md) | 3 | 10 | 6 | 4.5 | 8.5 | 10 | 10 | **7.4** | HIGH |

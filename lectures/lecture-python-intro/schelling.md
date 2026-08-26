@@ -57,7 +57,7 @@ _None found._
 1. Delete the `solution here` placeholder at 370.
 2. Label the figures in the language the model is described in: 247, 249 and 433 say `Type 0` and `Type 1` where 85 and 226-227 say orange and green.
 3. Plot the intermediate cycles in `run_simulation` as the exercise version already does at 463-465, so that "after several cycles" (321) and "how rapidly racial integration breaks down" (327) have evidence - and add a curve of the happy fraction (`count_happy`, 406-411) against cycle to make "rapidly" a number.
-4. Reconcile the off-by-one at 250 and 307: the final figure is titled `Cycle `` {count-1}` and the message below it says ` ``Converged after {count} iterations`.
+4. Reconcile the off-by-one at 250 and 307: the final figure is titled `Cycle {count-1}` and the message below it says `Converged after {count} iterations`.
 5. Say in the exercise solution what the type-flipping actually does (476): with `flip_prob = 0.01` the happy-count test at 466 need never succeed, so the run ends at the iteration bound rather than converging - that difference is the reason 357 asked for the change.
 6. Rename the `type` parameter at 176 (and `self.type` throughout) to `agent_type`, as the exercise version does at 425 - it currently shadows a builtin in the lecture's central class.
 7. Move *happy* (101), *unhappy* (103) and 'Nearest' (110) into bold as definitions, and *un*-bold **not** at 112.

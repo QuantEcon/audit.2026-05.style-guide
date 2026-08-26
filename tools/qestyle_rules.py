@@ -1315,18 +1315,68 @@ def check_fig_004(doc: Doc):
             captions.append((no, cap))
         elif name == "code-cell" and cap and "figure:" in opts.get("__raw__", ""):
             captions.append((no, cap))
+    # A MyST figure's caption normally lives in the directive *body*, not in a ``:caption:``
+    # option — all 144 ``{figure}``/``{image}`` directives in this corpus are written that
+    # way, and the check could see none of them. ``networks`` gives two different three-node
+    # graphs the identical body caption "Poverty Trap", which is both Title Case and the
+    # reason `` {numref}`poverty_trap_1` `` and `` {numref}`poverty_trap_2` `` render
+    # indistinguishably.
+    for start, end, name, arg, opts, body in doc.blocks:
+        if name not in ("figure", "image") or opts.get("caption"):
+            continue
+        # The body is option lines, then a blank line, then the caption. Take the first
+        # paragraph after the options and stop at the next blank line — a legend follows a
+        # second blank line and is not the caption.
+        para, seen_text = [], False
+        for l in body:
+            t = l.strip()
+            if re.match(r"^:[A-Za-z0-9_-]+:", t) or (not t and not seen_text):
+                continue
+            if not t:
+                break
+            seen_text = True
+            para.append(t)
+        if para:
+            captions.append((start, " ".join(para)))
     for no, cap in captions:
         if cap.strip() in ("|", ">", "|-", ">-"):
             continue        # a YAML block scalar; the body is not in the options
         # Inline maths is one token however many LaTeX commands it contains, and a
         # hyphenated compound is one word.
-        text = re.sub(r"\$[^$]*\$", " x ", cap).replace("\\n", " ")
+        # Two letters, not one, for the same reason ``_count_sentences`` needs two: a
+        # one-character placeholder reads as an initial, so the full stop after
+        # ``$g \geq 0$`` stopped ending its sentence and the next word was judged Title Case.
+        text = re.sub(r"\$[^$]*\$", " xx ", cap).replace("\\n", " ")
         words = re.findall(r"[A-Za-z][A-Za-z'’\-–]*", text)
         if len(words) > 6:
             hits.append(Hit("qe-fig-004", no, f"caption of {len(words)} words"))
-        offenders = [w for w in words[1:]
-                     if re.fullmatch(r"[A-Z][a-z'’]+(?:[-–][A-Za-z][a-z'’]*)*", w)
-                     and not _is_proper(w)]
+        # A word opening a sentence is capitalised because it opens a sentence, not because
+        # the caption is in Title Case. Body captions are often two sentences — ``entropy``
+        # 526 runs to 29 words over two — so the second sentence's first word has to be
+        # exempt as well as the caption's own first word.
+        #
+        # By position, not by spelling. Exempting every *occurrence* of a word that opens a
+        # sentence somewhere let "Price of Gold" off in ``french_rev``'s "Price Level and
+        # Price of Gold", whose first word happens to be the same word. And the full stop
+        # has to survive an abbreviation: "U.S. Treasury yields" is one sentence, so
+        # ``Treasury`` is not a sentence opener.
+        spans = list(re.finditer(r"[A-Za-z][A-Za-z'’\-–]*", text))
+
+        def _opens_sentence(i):
+            if i == 0:
+                return True
+            gap = text[spans[i - 1].end():spans[i].start()]
+            # ``\s*`` before the stop: substituting inline maths leaves ``xx . Under``, so
+            # the gap opens with a space rather than the full stop.
+            if not re.fullmatch(r"\s*[.?!][\"'’”)\]]?\s+", gap):
+                return False
+            prev = spans[i - 1].group(0)
+            return not (len(prev) == 1 or prev.lower() in ABBREV)
+
+        offenders = [m.group(0) for i, m in enumerate(spans)
+                     if i and not _opens_sentence(i)
+                     and re.fullmatch(r"[A-Z][a-z'’]+(?:[-–][A-Za-z][a-z'’]*)*", m.group(0))
+                     and not _is_proper(m.group(0))]
         if offenders:
             hits.append(Hit("qe-fig-004", no,
                             f"Title Case caption ({', '.join(offenders[:3])})"))

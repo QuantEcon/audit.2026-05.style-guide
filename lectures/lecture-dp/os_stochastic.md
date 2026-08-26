@@ -5,16 +5,16 @@
 - **Audit date:** 2026-08-26
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.1 / 10
-- **Priority:** LOW
+- **Overall score:** 7.7 / 10
+- **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 4.5/10 | `qe-writing-006` ×11; `qe-writing-004` ×1; `qe-writing-008` ×1. |
+| Writing      | 3/10  | `qe-writing-006` ×11; `qe-writing-005` ×2; `qe-writing-003` ×3, +3 more. |
 | Math         | 7.5/10 | `qe-math-010` (proposed) ×4. |
-| Code         | 9.5/10 | `qe-code-004` ×1. |
+| Code         | 8/10  | `qe-code-001` ×3; `qe-code-004` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7.5/10 | `qe-fig-005` ×5. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -32,8 +32,12 @@ _None found._
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 11. *Lines:* 74, 155, 249, 291, 329, 372, 443, 551, 596, 718, …. *Example:* H2 Title Case: 'The Model' (Model).
 
 ### Medium severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 3. *Lines:* 556, 567, 582. *Example:* (1) `T`'s annotation at 556 is `-> tuple[np.ndarray, np.ndarray]` and the function returns one array, `v_new` (572) - the signature states an interface the code does not have, and the caller at 738 uses it as a single array. (2) The two loops over the same grid, in adjacent functions, are written two ways: `for i in range(len(x_grid)): x = x_grid[i]` at 567-568 in `T`, and the idiomatic `for i, x in enumerate(model.x_grid)` at 586 in `get_greedy`, which is also what os_numerical uses in both places (265, 448). (3) Two docstrings are single-quoted one-liners padded with spaces - `" Compute the v-greedy policy on x_grid."` (582) and `" Solve by value function iteration. "` (731) - while 452, 501, 557, 634 and 644 in the same file use the triple-quoted form. Also `B` unpacks `μ` and `ν` at 529 and uses neither.
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 3. *Lines:* 167, 187, 273. *Example:* raw link to dp.quantecon.org.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 3. *Lines:* 329, 575, 834. *Example:* three breaks in the thread. (1) Two H3s in one page are both '### The Bellman Operator' (329 and 551), which gives the page two sections with the same name and the same generated anchor - the first is the definition of $T$, the second its implementation. (2) `get_greedy` (578-591) is introduced by the four words 'Here's the function:' (575) and sits under that second Bellman-operator heading, with no paragraph saying which function or why; greedy policies were last discussed 250 lines earlier at 291-323, and the sibling lecture os_numerical gives the same code a heading and three paragraphs of setup (411-437). (3) The exercise and its solution specify different utility functions: 814 asks for $u(c) = \frac{c^{1-\gamma}}{1-\gamma}$ and 835 implements `(c**(1 - γ) - 1) / (1 - γ)`. The extra $-1$ is harmless for the policy, which is presumably why it survived, but a reader checking the code against the exercise finds them different.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 320. *Example:* mid-sentence 'Theorem'.
+- **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 2. *Lines:* 264, 335. *Example:* the file bolds thirteen terms at their definitions - **production function** (96), **current savings** (104), **adapted** (146), **state** and **control** (150-151), **policy functions** (160), **feasible consumption policy** (173), **value function** (235), **optimal** (246), **Bellman equation** (251), **greedy** (296), **Bellman operator** (333), **value function iteration** (394) - and then italicises the fourteenth: 'This is a *functional equation in* $v$' (264), where the italic run also swallows the preposition. Line 335 goes the other way and bolds a word for emphasis rather than definition - '(The term **operator** is usually reserved for functions that send functions into functions!)' - two lines after the same word has already been bolded as the definition at 333.
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 2. *Lines:* 471, 849. *Example:* the lecture's whole point is that returns are now stochastic (32-43: 'wealth now evolves stochastically', 'stochastic returns, due to shocks to production') and not one of its five figures contains any randomness. All five plot deterministic functions of $x$: $Tv^*$ against $v^*$ (673-678), the 36 iterates (692-706), the converged value function (763-773), the policy (789-798) and the CRRA policy (850-854). The lognormal $\phi$ is specified at 471-475 and drawn at 509, and neither the shock distribution nor a simulated path $\{x_t\}$ under the computed policy is ever shown - which is also the one figure that would distinguish this lecture's output from os_numerical's. The exercise figure at 849-854 compounds it: it plots the CRRA policy alone, so the reader cannot see what raising $\gamma$ to 1.5 did relative to the log case plotted at 789-798.
 
 ### Low severity
 - **[qe-code-004]** — Use quantecon Timer context manager. *Count:* 1. *Lines:* 843. *Example:* %%time.
@@ -42,18 +46,23 @@ _None found._
 
 ## Strengths
 
-- Code, References, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- Every formal object is given a plain-language reading immediately after its display, in the same shape each time: $v_\sigma$ at 226-233 ('In other words, it is the lifetime value of following policy $\sigma$ forever'), $v^*$ at 240-244, $v$-greedy at 301-312, $T$ at 342-349, and the integral term at 267-271 broken into three bullets.
+- The fixed-point property is verified numerically before the algorithm is used: 660-681 applies $T$ to the exact $v^*$ and plots the two against each other, with the expectation stated in advance ('In theory, since $v^*$ is a fixed point, the resulting function should again be $v^*$. In practice, we expect some small numerical error').
+- The convergence figure at 688-706 shows 35 iterates in a colour ramp with the true $v^*$ overlaid in black, and 709-712 itemises what the reader is looking at rather than leaving the ramp to be decoded.
+- The Monte Carlo step is stated as an equation (540-542), its accuracy trade-off is acknowledged, and the reason it is preferred here is given with a citation - 'it preserves the contraction mapping property of the Bellman operator --- see, e.g., `` {cite}`pal2013` ``' (549).
+- Claims the lecture does not prove come with locatable pointers: three references with sections at 57-61, then Theorem 10.1.11 of EDTC for the greedy-policy theorem (320), Lemma 10.1.18 for the contraction property (384), Section 12.2 for the unbounded case (423) and Ljungqvist section 3.1.2 for the closed form (607).
+- The bounded-utility assumption is not quietly dropped: the H3 at 404-424 says the theory above assumes $u$ bounded, that the lecture will nonetheless use an unbounded $u$, and where to read about that case.
+- The one theorem is set in a `{prf:theorem}` directive (316-318) rather than as bold prose, which is what the admonition rules ask for.
 
 ## Recommended actions
 
-1. `qe-writing-006` — Capitalize lecture titles properly (11 occurrences).
-2. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (4 occurrences).
-3. `qe-fig-005` — Descriptive figure names for cross-referencing (5 occurrences).
-4. `qe-link-002` — Use doc links for cross-series references (3 occurrences).
-5. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (1 occurrence).
-6. `qe-writing-008` — Remove excessive whitespace between words (1 occurrence).
-7. `qe-code-004` — Use quantecon Timer context manager (1 occurrence).
+1. Rename one of the two '### The Bellman Operator' headings (329, 551) - the second is the implementation - so the page does not carry two identical H3s and two identical anchors.
+2. Write the paragraph that `get_greedy` is missing at 575: name the greedy policy, point back to `` {eq}`defgp20` ``, and give it its own heading as os_numerical does at 411-437.
+3. Make the CRRA exercise and its solution agree - either $u(c) = (c^{1-\gamma}-1)/(1-\gamma)$ at 814 or drop the `- 1` at 835 - and plot the CRRA policy against the log-utility policy so the exercise's figure shows the effect of $\gamma$.
+4. Add one figure with randomness in it: draws from the lognormal $\phi$ specified at 471-475, or a simulated path of $\{x_t\}$ under `v_greedy` using `model.shocks`, which is the element separating this lecture from os_numerical.
+5. Fix the code-level items: the return annotation at 556, `enumerate` at 567-568 to match 586, triple-quoted docstrings at 582 and 731, and the unused `μ`, `ν` unpacked at 529. While there, consider `np.interp` at 530 in place of SciPy's legacy `interp1d`, which is what os_numerical (241) and os_egm (233) already use.
+6. Add the braces to every blackboard letter in one pass: `\mathbb{E}` at 122, 203, 206 and 227 (the four qe-math-010 (proposed) findings) and `\mathbb{R}_+` at 83, 96, 180, 246, 261, 295, 308, 346 and 378, which is the same edit on a letter the rule does not name.
+7. Replace the three raw QuantEcon URLs with `{doc}` references (167, 273 to DP1; 187 to `stationary_densities`) - qe-link-002 x3 - and replace `%%time` at 843 with `qe.Timer()`, which os_egm already uses (qe-code-004).
+8. Bold 'functional equation' at 264 as the file's other thirteen definitions are, drop the emphasis bold at 335, lowercase 'Theorem' at 320 (qe-writing-004), sentence-case the eleven Title-Case headings (74, 155, 249, 291, 329, 372, 443, 551, 596, 718, 778), give the five code-cell figures mystnb `name`/`caption` metadata, and remove the double space at 818.
+9. Two prose repairs: 79 reads 'Here we described the new model and the optimization problem' (present tense - or delete, since '### Setup' follows immediately), and 101-106 ends a sentence at 'is **current savings**.' and then starts the next with 'and all variables are required to be nonnegative.'.
+10. The upstream twin `lecture-python.myst/lectures/os_stochastic.md` has already replaced `np.random.seed`/`randn` at 508-509 with `default_rng`/`standard_normal`; fix the rest upstream too so both copies clear at once.

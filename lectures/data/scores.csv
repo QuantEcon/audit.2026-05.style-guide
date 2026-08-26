@@ -35,10 +35,10 @@ lecture-dp,odu,3.0,9.0,7.5,out-of-scope,5.0,9.0,8.0,10.0,7.4,HIGH
 lecture-dp,opt_tax_recur,4.0,5.0,8.5,out-of-scope,4.5,9.0,10.0,10.0,7.3,HIGH
 lecture-dp,os,6.0,9.0,9.0,out-of-scope,8.0,10.0,10.0,10.0,8.9,NONE
 lecture-dp,os_egm,5.5,9.5,7.5,out-of-scope,9.0,10.0,10.0,10.0,8.8,NONE
-lecture-dp,os_egm_jax,10.0,10.0,7.5,out-of-scope,7.0,N/A,10.0,10.0,9.1,NONE
-lecture-dp,os_numerical,6.0,10.0,10.0,out-of-scope,5.5,N/A,10.0,10.0,8.6,NONE
-lecture-dp,os_stochastic,4.5,7.5,9.5,out-of-scope,7.5,10.0,8.0,10.0,8.1,LOW
-lecture-dp,os_time_iter,7.5,8.0,9.5,out-of-scope,8.0,9.0,10.0,10.0,8.9,NONE
+lecture-dp,os_egm_jax,7.0,10.0,6.5,out-of-scope,7.0,N/A,10.0,10.0,8.4,LOW
+lecture-dp,os_numerical,4.5,10.0,7.5,out-of-scope,5.5,N/A,10.0,10.0,7.9,LOW
+lecture-dp,os_stochastic,3.0,7.5,8.0,out-of-scope,7.5,10.0,8.0,10.0,7.7,HIGH
+lecture-dp,os_time_iter,5.5,7.5,8.0,out-of-scope,8.0,9.0,10.0,10.0,8.3,LOW
 lecture-dp,perm_income,3.0,4.0,7.5,out-of-scope,6.0,8.5,10.0,10.0,7.0,HIGH
 lecture-dp,perm_income_cons,3.0,4.0,7.5,out-of-scope,5.5,10.0,9.0,N/A,6.5,HIGH
 lecture-dp,rs_inventory_q,3.0,6.0,8.5,out-of-scope,5.0,N/A,10.0,N/A,6.5,HIGH
@@ -76,7 +76,7 @@ lecture-python-advanced.myst,discrete_dp,6.0,7.0,6.5,out-of-scope,6.0,9.0,7.0,10
 lecture-python-advanced.myst,doubts_or_variability,4.0,3.0,8.5,out-of-scope,9.0,9.0,10.0,10.0,7.6,HIGH
 lecture-python-advanced.myst,dovis_accounting_mf,5.0,4.5,7.0,out-of-scope,4.5,10.0,10.0,10.0,7.3,LOW
 lecture-python-advanced.myst,dyn_stack,3.5,4.0,7.5,out-of-scope,5.0,10.0,7.5,10.0,6.8,HIGH
-lecture-python-advanced.myst,entropy,3.0,3.0,N/A,out-of-scope,8.5,8.5,8.5,N/A,6.3,HIGH
+lecture-python-advanced.myst,entropy,3.0,3.0,N/A,out-of-scope,7.0,8.5,8.5,N/A,6.0,HIGH
 lecture-python-advanced.myst,estspec,5.0,9.5,7.5,out-of-scope,5.0,10.0,10.0,10.0,8.1,LOW
 lecture-python-advanced.myst,five_preferences,3.0,6.0,7.0,out-of-scope,4.0,7.0,10.0,N/A,6.2,HIGH
 lecture-python-advanced.myst,gorman_heterogeneous_households,3.0,8.0,5.0,out-of-scope,5.0,10.0,10.0,10.0,7.3,HIGH
@@ -108,7 +108,7 @@ lecture-python-advanced.myst,robustness,3.0,3.0,7.5,out-of-scope,6.5,10.0,7.5,10
 lecture-python-advanced.myst,rosen_schooling_model,5.5,10.0,7.5,out-of-scope,6.0,9.0,10.0,10.0,8.3,LOW
 lecture-python-advanced.myst,smoothing,3.0,3.0,7.5,out-of-scope,5.0,10.0,7.5,N/A,6.0,HIGH
 lecture-python-advanced.myst,smoothing_tax,4.0,5.5,7.5,out-of-scope,4.0,10.0,9.0,10.0,7.1,HIGH
-lecture-python-advanced.myst,stationary_densities,4.0,6.0,7.0,out-of-scope,6.0,9.0,7.5,10.0,7.1,HIGH
+lecture-python-advanced.myst,stationary_densities,4.0,6.0,7.0,out-of-scope,5.5,9.0,7.5,10.0,7.0,HIGH
 lecture-python-advanced.myst,status,10.0,N/A,N/A,out-of-scope,N/A,N/A,10.0,N/A,10.0,NONE
 lecture-python-advanced.myst,subjective_beliefs_business_cycles,3.0,3.0,8.5,out-of-scope,7.0,9.0,10.0,10.0,7.2,HIGH
 lecture-python-advanced.myst,supply_demand_var,8.0,8.5,7.5,out-of-scope,6.0,10.0,10.0,10.0,8.6,NONE
@@ -157,7 +157,7 @@ lecture-python-intro,money_inflation,4.5,9.5,7.5,out-of-scope,6.0,10.0,10.0,10.0
 lecture-python-intro,money_inflation_nonlinear,3.0,9.5,6.5,out-of-scope,6.5,10.0,10.0,10.0,7.9,HIGH
 lecture-python-intro,monte_carlo,5.5,5.0,7.5,out-of-scope,8.0,N/A,10.0,10.0,7.7,LOW
 lecture-python-intro,msy_fishery,3.5,10.0,6.0,out-of-scope,6.5,10.0,10.0,10.0,8.0,HIGH
-lecture-python-intro,networks,4.0,6.0,7.0,out-of-scope,5.5,8.5,10.0,10.0,7.3,HIGH
+lecture-python-intro,networks,4.0,6.0,7.0,out-of-scope,5.0,8.5,10.0,10.0,7.2,HIGH
 lecture-python-intro,observed_distributions,4.0,10.0,7.5,out-of-scope,7.0,10.0,10.0,10.0,8.4,HIGH
 lecture-python-intro,olg,4.5,9.5,7.0,out-of-scope,6.5,10.0,8.0,10.0,7.9,LOW
 lecture-python-intro,prob_dist,5.0,7.0,7.0,out-of-scope,9.0,N/A,10.0,10.0,8.0,LOW
@@ -315,7 +315,7 @@ lecture-python.myst,phillips_two_stories,3.0,10.0,8.5,out-of-scope,5.0,8.5,10.0,
 lecture-python.myst,pricing_information,5.5,4.5,5.0,out-of-scope,6.0,10.0,10.0,10.0,7.3,LOW
 lecture-python.myst,prob_matrix,3.0,3.0,5.5,out-of-scope,5.0,N/A,10.0,10.0,6.1,HIGH
 lecture-python.myst,prob_meaning,3.0,7.5,6.0,out-of-scope,4.5,N/A,10.0,10.0,6.8,HIGH
-lecture-python.myst,prospects_bounded_rationality,10.0,10.0,9.0,out-of-scope,8.5,10.0,10.0,N/A,9.6,NONE
+lecture-python.myst,prospects_bounded_rationality,6.5,10.0,7.5,out-of-scope,8.5,10.0,10.0,N/A,8.8,NONE
 lecture-python.myst,qr_decomp,3.0,3.0,7.5,out-of-scope,N/A,N/A,10.0,N/A,5.9,HIGH
 lecture-python.myst,rand_resp,3.5,9.5,7.5,out-of-scope,N/A,10.0,10.0,N/A,8.1,HIGH
 lecture-python.myst,rational_expectations,3.5,5.0,7.5,out-of-scope,10.0,9.0,10.0,10.0,7.9,HIGH
@@ -338,7 +338,7 @@ lecture-python.myst,two_auctions,3.0,4.5,6.5,out-of-scope,3.0,10.0,9.0,N/A,6.0,H
 lecture-python.myst,two_computation,5.5,3.0,7.5,out-of-scope,3.0,10.0,10.0,N/A,6.5,HIGH
 lecture-python.myst,uncertainty_traps,3.0,5.5,7.5,out-of-scope,6.5,9.0,10.0,10.0,7.4,HIGH
 lecture-python.myst,unemployment_linear,6.0,8.0,8.5,out-of-scope,8.5,9.0,10.0,10.0,8.6,NONE
-lecture-python.myst,unemployment_shocks,10.0,10.0,9.0,out-of-scope,10.0,N/A,10.0,10.0,9.8,NONE
+lecture-python.myst,unemployment_shocks,6.5,9.5,7.5,out-of-scope,10.0,N/A,10.0,10.0,8.9,NONE
 lecture-python.myst,util_rand_resp,4.0,4.0,7.5,out-of-scope,9.5,9.0,10.0,N/A,7.3,HIGH
 lecture-python.myst,var_dmd,3.0,9.5,N/A,out-of-scope,N/A,7.5,9.0,10.0,7.8,HIGH
 lecture-python.myst,var_subsets,6.5,7.0,5.0,out-of-scope,5.0,N/A,10.0,10.0,7.2,LOW

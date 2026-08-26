@@ -3,6 +3,7 @@
   "lecture": "zreferences",
   "judgment": [],
   "strengths": [
+    "**Not reviewable against the eight judgment rules, and the empty `judgment` list above is that finding, not an omission.** `zreferences.md` is 17 lines, of which 10 are jupytext front matter: the whole page is an anchor, an H1 and a single `{bibliography}` directive pointing at `_static/quant-econ.bib` (12-16). It contains no prose sentence, no code cell, no mathematics, no figure and no emphasis of any kind, so there is literally nothing for `qe-writing-002`, `qe-writing-003`, `qe-writing-005`, `qe-writing-007`, `qe-math-009`, `qe-code-001`, `qe-math-014` or `qe-math-015` to read - the rendered reference list is generated from the `{cite}` roles in the other 130 lectures. The drafted score of 10.0 is therefore correct but vacuous: it records that nothing violated a rule because nothing was there to violate one. The single action below is the only thing worth changing on the page.",
     "The entire page is one `{bibliography}` directive against `_static/quant-econ.bib` (15-16), so the reference list cannot drift out of step with the `{cite}` roles that populate it - there is no hand-maintained list to fall behind",
     "The `(references)=` anchor sits directly above the H1 (12-13), so cross-series links target the page rather than a heading inside it"
   ],

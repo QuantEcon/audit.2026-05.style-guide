@@ -201,6 +201,13 @@ JUDGMENT_RULES = {
 # tries to resolve every one: 615 of them across the reports, and 478 of the build's warnings.
 # Wrapped in a space-padded double-backtick span they render literally and resolve nothing.
 # The padding matters: ``` ``{doc}`x``` ``` closes on a run of three and does not parse.
+# A role's target is a label: no whitespace, no ``$``, and short. Without that bound the
+# generic branch below runs away. ``perm_income_cons``'s prose quotes
+# ``` `c_0 = ... \beta^j y_{t}` ``` — inline maths inside a code span — and ``{t}`` then
+# matched as a role name whose "target" ran from that code span's closing backtick all the
+# way to the next backtick 90 characters later, swallowing an ``{eq}`` role on the way.
+LABEL = r"[^`\n\s$]{1,80}"
+
 # Two branches, deliberately. A role from the known set is escaped even with no target —
 # a bare ``{eq}`` in prose is still a role. Any *other* role name is escaped only when it
 # carries a backticked target, because a generic ``\{[a-z]+\}`` with the target optional
@@ -209,13 +216,13 @@ JUDGMENT_RULES = {
 # must not gain a second layer.
 ROLE_RE = re.compile(
     r"(?<!`)(?<!`` )(\{(?:cite|cite:t|eq|doc|numref|ref|term|abbr|prf:ref)\}(?:`[^`\n]*`)?"
-    r"|\{[a-z][a-z0-9:_-]*\}`[^`\n]*`)")
+    r"|\{[a-z][a-z0-9:_-]+\}`" + LABEL + r"`)")
 
 # A reviewer reaching for the literal form and getting the backtick count wrong:
 # ``tax_smoothing_2`` wrote `` `{cite}`barro2003religion`` `` — one backtick opening, two
 # closing. ``ROLE_RE``'s ``(?<!`)`` then reads it as already-escaped and leaves the role for
 # Sphinx to resolve. Strip the stray backticks first and let the normal escape apply.
-MALFORMED_ROLE = re.compile(r"(?<!`)`(\{[a-z][a-z0-9:_-]*\}`[^`\n]*`)`+")
+MALFORMED_ROLE = re.compile(r"(?<!`)`(\{[a-z][a-z0-9:_-]*\}`" + LABEL + r"`)`+")
 
 
 def escape_roles(text: str) -> str:

@@ -47,7 +47,7 @@ _None found._
 - The duality table at 160-168 pairs each LQ matrix with its Kalman counterpart ($A \leftrightarrow A'$, $H \leftrightarrow FB'$, $P \leftrightarrow \Sigma$), so the two halves of the lecture are explicitly tied together instead of being left as two parallel derivations the reader has to align.
 - The LQ transformation at 82-88 is given as a complete five-line system - $A^*$, $R^*$, the Riccati equation in the starred matrices, $F^*$, and the recovery $F = F^* + Q^{-1}H$ - so a reader has every piece needed to implement it without going elsewhere.
 - Conformability is stated for every matrix as it is introduced (line 42 for the LQ 5-tuple, line 109 for the hidden Markov model), which makes the transposes in the displayed formulas checkable at a glance.
-- The forward pointer at line 28 uses the `{doc}` form with an explicit title (`` {doc}`Linear Control: Foundations <lqcontrol>` ``) rather than a bare URL, and it names exactly the lecture whose no-cross-product formulas the transformation is designed to reach.
+- The forward pointer at line 28 uses the `{doc}` form with an explicit title (`{doc}`Linear Control: Foundations <lqcontrol>``) rather than a bare URL, and it names exactly the lecture whose no-cross-product formulas the transformation is designed to reach.
 
 ## Recommended actions
 

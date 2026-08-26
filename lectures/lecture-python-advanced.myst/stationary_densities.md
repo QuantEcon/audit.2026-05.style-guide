@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-26
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.1 / 10
+- **Overall score:** 7.0 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -16,7 +16,7 @@
 | Math         | 6/10  | `qe-math-010` (proposed) ×5; `qe-math-009` ×3. |
 | Code         | 7/10  | `qe-code-001` ×10. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 6/10  | `qe-fig-005` ×6; `qe-fig-004` ×1; `qe-fig-002` ×2, +1 more. |
+| Figures      | 5.5/10 | `qe-fig-005` ×6; `qe-fig-004` ×2; `qe-fig-002` ×2, +1 more. |
 | References   | 9/10  | `qe-ref-001` ×1. |
 | Links        | 7.5/10 | `qe-link-002` ×7. |
 | Admonitions  | 10/10 | no mechanical violations detected. |
@@ -37,6 +37,7 @@ _None found._
 ### Medium severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 908, 1026. *Example:* figsize=.
 - **[qe-fig-002]** — Prefer code-generated figures. *Count:* 2. *Lines:* 696, 794. *Example:* static image .png.
+- **[qe-fig-004]** — Caption formatting conventions. *Count:* 2. *Lines:* 464, 696. *Example:* caption of 7 words.
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 3. *Lines:* 314, 639, 644. *Example:* the set of densities on $S$ is written `\mathscr D` at 314, 639 and 644, where a plain $D$ would carry exactly as much information - the symbol appears only three times, is never manipulated, and nothing else in the lecture competes for the letter $D$. The neighbouring notation is otherwise plain ($S$, $P$, $p$, $\psi$, $\phi$), so the script letter is the one piece of decoration in the file.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 4. *Lines:* 66, 244, 328, 353. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 4. *Lines:* 454, 606, 792, 975. *Example:* the Implementation section (441-457) discusses a class whose source is not in the lecture: 443 links out to `lae.py` on GitHub, then 445 explains "our use of the `__call__` method", 449 refers to "the data and stochastic kernel that it stores as its instance data", and 454 says "(This is the reason that we reshaped `X` and `y` inside the class --- to make vectorization work)" - a reference to a reshape that appears nowhere in the file, so "we" did something the reader cannot see. Second, exercise 1 gives away its own answer inside the exercise block: 792 announces "The next figure shows the result of such a computation", 794 shows it, 798 explains what the *solution* added to it ("The additional density (black line) ... added to the solution for illustration"), 802-803 states the conclusion ("the look-ahead estimator is a much tighter fit"), and only then does the dropdown solution at 810-856 appear. Third, 975 tells the reader that in the boxplot "the red line in the center is the median", but matplotlib has drawn the median in orange (`boxplot.medianprops.color: C1`) since 2.0, so the prose describes a figure the cell at 959-973 no longer produces. Fourth, the CDF machinery built in "Beyond densities" (522-596) is dropped one line into the next section - 604 says "We will, however, treat only the density case" and 606 promises "The general case is relatively similar --- references are given below", but the reference list at 675-682 is about stability in the density case and says nothing about the general case.
@@ -44,7 +45,6 @@ _None found._
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 3. *Lines:* 101, 522, 589. *Example:* the lecture's whole pedagogical device is a term-by-term translation of the finite case into the density case, and it is carried entirely in prose spread over 500 lines - stochastic matrix $P[i,j]$ (101) against family of densities $p(x, \cdot)$ (126), the sum $\sum_{i \in S} P[i,j]\psi_t[i]$ (293) against the integral $\int p(x,y)\psi_t(x)dx$ (306), stationary distribution against stationary density (610-621), and the $\psi P$ convention (314-332). A four-row two-column table would put the correspondence in front of the reader once instead of asking them to hold it. Second, "Beyond densities" (522-596) has neither a figure nor a code cell: its point is that $h(x) := x \mathbf 1\{0 \leq x \leq 1\} + \mathbf 1\{x > 1\}$ (557) puts atoms at 0 and 1 so no density exists, and a single plot of $G(x, \cdot)$ showing its two jumps would make that visible immediately, where the prose asks the reader to "think about it" (560). Its "Computation" subsection (589-596) recommends the empirical distribution function and shows neither code nor output, in a lecture that plots everything else.
 
 ### Low severity
-- **[qe-fig-004]** — Caption formatting conventions. *Count:* 1. *Lines:* 464. *Example:* caption of 7 words.
 - **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 678. *Example:* `` {cite} `` in narrative flow: 'and `` {cite} ``'.
 
 

@@ -57,7 +57,7 @@ _None found._
 
 ## Recommended actions
 
-1. Convert the 17 `\begin`` {array}` blocks used as matrices to ` ``bmatrix` - 549, 553, 557, 561, 565, 566, 576, 580, 584, 588 and 7 more - and drop the hand-written `\left[ \right]` delimiters (qe-math-003, 17 occurrences; this is the largest single fix in the file).
+1. Convert the 17 `\begin{array}` blocks used as matrices to `bmatrix` - 549, 553, 557, 561, 565, 566, 576, 580, 584, 588 and 7 more - and drop the hand-written `\left[ \right]` delimiters (qe-math-003, 17 occurrences; this is the largest single fix in the file).
 2. Reconcile the simulation with the text: 787-789 says both consumers are "always present[ed] with the same $\{y_t\}$ path", but 797 and 806 call `LSS1.simulate` and `LSS2.simulate` independently, so each figure is driven by its own random draw - implement the four steps described at 820-844 (build one $\{y_t\}$, derive $\{a_t\}$ from it, feed both decision rules) or drop the claim.
 3. Either add the code that section 814 and section 850 describe, or delete those two sections - as it stands the lecture ends with two sections of unexecuted plans and an unperformed verification.
 4. Switch the 21 emphasis bolds listed above to italic, keeping bold for the definitions at 115, 116, 120, 158, 269 and 279.

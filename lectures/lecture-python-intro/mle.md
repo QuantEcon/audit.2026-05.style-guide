@@ -56,4 +56,4 @@ _None found._
 4. Escape the currency signs at 369 (`\$500,000`) - as written the unescaped `$` opens a math span, the same way the histogram label at 110 correctly writes `r"unit: $\$100,000$"`.
 5. Run the code cells through a PEP8 formatter for the 14 spacing items above, and fix the comment typo "restrcting" at 97.
 6. Bold the three defined terms at their point of definition, cut the restatement at 442-445, and give the H3 at 440 a distinct heading.
-7. Put the two derivations at 218-223 and 227-235 in `aligned` environments - as written they use bare `\\` line breaks inside `$$`, and settle the `\hat`` {x_m}` versus ` ``\hat{x}_m` inconsistency at 304 and 306.
+7. Put the two derivations at 218-223 and 227-235 in `aligned` environments - as written they use bare `\\` line breaks inside `$$`, and settle the `\hat{x_m}` versus `\hat{x}_m` inconsistency at 304 and 306.

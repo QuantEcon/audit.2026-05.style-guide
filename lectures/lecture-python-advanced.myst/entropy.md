@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-26
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 6.3 / 10
+- **Overall score:** 6.0 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -16,7 +16,7 @@
 | Math         | 3/10  | `qe-math-002` ×15; `qe-math-011` (proposed) ×13; `qe-math-010` (proposed) ×2, +2 more. |
 | Code         | N/A   | no executable code cells. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
-| Figures      | 8.5/10 | `qe-fig-005` ×1; `qe-fig-002` ×4. |
+| Figures      | 7/10  | `qe-fig-004` ×4; `qe-fig-005` ×1; `qe-fig-002` ×4. |
 | References   | 8.5/10 | `qe-ref-001` ×3. |
 | Links        | 8.5/10 | `qe-link-001` ×2. |
 | Admonitions  | N/A   | no admonitions, exercises or solutions. |
@@ -37,8 +37,9 @@ _None found._
 
 ### Medium severity
 - **[qe-fig-002]** — Prefer code-generated figures. *Count:* 4. *Lines:* 115, 519, 526, 535. *Example:* static image .png.
+- **[qe-fig-004]** — Caption formatting conventions. *Count:* 4. *Lines:* 115, 519, 526, 535. *Example:* caption of 8 words.
 - **[qe-link-001]** — Use markdown style links for lectures in same lecture series. *Count:* 2. *Lines:* 33, 34. *Example:* full URL to own series (python-advanced.quantecon.org).
-- **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 3. *Lines:* 200, 341, 450. *Example:* a lecture whose subject is that one word names many objects reuses two letters for three objects each. $S$ is Gibbs thermodynamic entropy at 200-207, von Neumann entropy at 351, and the spectral density at 402, 407, 413, 429, 444, 462 and 475 - so $S$ appears in `` {eq}`eq:Gibbs` `` and in `` {eq}`eq:Shannon6` `` meaning unrelated things nine sections apart. $D$ is Kullback-Leibler divergence at 224-246 and 329, the von Neumann divergence at 341, and the Wold lag polynomial at 450-462 and 484, which puts $D(p|q)$ and $D(0)D(0)'$ in the same lecture. Separately the same two operators are spelled four ways: `\mathrm`` {trace}` (269, 289, 304, 311), ` ``\mathrm `` {trace}` (329), ` ``\textrm`` {trace}` (341, 351), and ` ``\mathrm {det }` with the space inside the braces (330, twice) beside plain `\det` (268, 310, 330, 462, 475, 484); and the matrix logarithm is `\ln` at 341 and 351 where every other logarithm in the lecture is `\log`.
+- **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 3. *Lines:* 200, 341, 450. *Example:* a lecture whose subject is that one word names many objects reuses two letters for three objects each. $S$ is Gibbs thermodynamic entropy at 200-207, von Neumann entropy at 351, and the spectral density at 402, 407, 413, 429, 444, 462 and 475 - so $S$ appears in `` {eq}`eq:Gibbs` `` and in `` {eq}`eq:Shannon6` `` meaning unrelated things nine sections apart. $D$ is Kullback-Leibler divergence at 224-246 and 329, the von Neumann divergence at 341, and the Wold lag polynomial at 450-462 and 484, which puts $D(p|q)$ and $D(0)D(0)'$ in the same lecture. Separately the same two operators are spelled four ways: `\mathrm{trace}` (269, 289, 304, 311), `\mathrm {trace}` (329), `\textrm{trace}` (341, 351), and `\mathrm {det }` with the space inside the braces (330, twice) beside plain `\det` (268, 310, 330, 462, 475, 484); and the matrix logarithm is `\ln` at 341 and 351 where every other logarithm in the lecture is `\log`.
 - **[qe-math-014 (proposed)]** *(reviewer)* — Braces \{…\} for events, parentheses (…) for sets. *Count:* 2. *Lines:* 44, 92. *Example:* both probability statements in the lecture write an event with parentheses: $p_i = \textrm{Prob}(X = x_i)$ at 44 and $p = {\rm Prob}(X=1)$ at 92. `X = x_i` is an event, not a named set, so the rule asks for braces; converting the Roman operator to `\mathbb{P}` (qe-math-010 (proposed)) and the parentheses to braces gives $\mathbb{P}\{X = x_i\}$ and fixes both rules in one edit. These are the lecture's only two probability expressions, so the whole of its use of the notation is affected.
 - **[qe-ref-001]** — Use correct citation style. *Count:* 3. *Lines:* 385, 471, 481. *Example:* `` {cite} `` in author position: '`` {cite}`Backus_Chernov_Zin` `` note'.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 4. *Lines:* 92, 128, 151, 338. *Example:* 92 defines the same letter twice inside one clause and misuses set membership: "Take a possibly unfair coin, so $X = \{0,1\}$ with $p = {\rm Prob}(X=1) = p \in [0,1]$" - $X$ takes values in $\{0,1\}$ rather than equalling the set, and the chain asserts $p = p$. 151 drops two words, "Entropy is not affected by events zero probability". 338 reads "A measure of the divergence between two $P$ and $Q$". 128 has "Among all dies, a fair die maximizes entropy", where 125-126 has already introduced the die correctly. 344 also leaves the matrix logarithm defined by a bare parenthesised URL, "where the log of a matrix is defined here  (https://en.wikipedia.org/wiki/Logarithm_of_a_matrix)", as does 197 for Gibbs.

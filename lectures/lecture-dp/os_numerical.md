@@ -5,16 +5,16 @@
 - **Audit date:** 2026-08-26
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.6 / 10
-- **Priority:** NONE
+- **Overall score:** 7.9 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 6/10  | `qe-writing-006` ×5; `qe-writing-008` ×1. |
+| Writing      | 4.5/10 | `qe-writing-006` ×5; `qe-writing-002` ×4; `qe-writing-008` ×1, +1 more. |
 | Math         | 10/10 | no mechanical violations detected. |
-| Code         | 10/10 | no mechanical violations detected. |
+| Code         | 7.5/10 | `qe-code-001` ×5. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5.5/10 | `qe-fig-005` ×6; `qe-fig-003` ×3; `qe-fig-008` ×7. |
 | References   | N/A   | no citations in this lecture. |
@@ -27,29 +27,36 @@
 _None found._
 
 ### High severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 5. *Lines:* 76, 259, 302, 542, 615. *Example:* five style deviations, each contradicted by the same file elsewhere. (1) Two copies of one subexpression are spaced two ways in adjacent functions: `(1 - β ** (1/γ))` at 76 and `(1 - β**(1 / γ))` at 81 - the same pair the `os` lecture carries at 240 and 299. (2) Three docstrings are single-quoted one-liners padded with spaces - `" The Bellman operator.  Updates the guess of the value function. "` (259), `" Compute the v-greedy policy on x_grid."` (444), `" The Bellman operator for the extended cake model. "` (556) - while five others in the same file use the PEP257 triple-quoted form (163, 197, 233, 536, 578). (3) Trailing whitespace on the code line at 302. (4) `extended_B(c, x, v, model)` at 542 reverses the first two parameters of `B(x, c, v, model)` at 227-232, so the two functions that the solution asks the reader to compare cannot be compared by eye - and the swap is uncommented. (5) `extended_get_greedy(model, v)` at 615 reverses `get_greedy(v, model)` at 440 in the same way.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 6. *Lines:* 287, 359, 376, 464, 572, 614. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 7. *Lines:* 362, 379, 380, 469, 470, 635, 636. *Example:* plot() without lw=.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 5. *Lines:* 55, 86, 106, 125, 411. *Example:* H2 Title Case: 'Reviewing the Model' (Model).
 
 ### Medium severity
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 3. *Lines:* 309, 365, 384. *Example:* .set_title.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 4. *Lines:* 511, 542, 573, 615. *Example:* the exercise asks for reuse and the solution copies instead. Line 511 is the instruction - 'Try to reuse as much code as possible' - and the solution then rewrites all four pieces of the body: `create_extended_model` (530-540) duplicates `create_cake_eating_model` (190-202) with one extra field, `extended_B` (542-549) duplicates `B` (227-244) with `vf(x - c)` becoming `vf((x - c)**α)`, `extended_T` (555-561) duplicates `T` (255-269), and `compute_value_function_extended` (573-598) duplicates `compute_value_function` (319-348) for 26 lines with only the operator name changed. `extended_get_greedy` (615-625) makes it five. The single substantive change is the exponent at 549; everything `B` needs to support both models is already in `model`, which is the argument it takes.
 
 ### Low severity
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 1. *Lines:* 388. *Example:* the lecture's one quantitative conclusion is the only thing it does not plot. Lines 388-392 say 'the quality of approximation is reasonably good for large $x$, but less so near the lower boundary' because the value function 'is very steep near the lower boundary', and the figure the reader is looking at (376-385) is two value functions in levels on a linear axis, where a boundary error of any size is invisible - the two curves sit on top of each other. The approximation error $v - v^*$ against $x$, or the same comparison on a log axis, would show the claim; the arrays are both in hand at 373-380. The same figure would motivate the nonlinear grid the note at 394-408 raises and declines to pursue.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 1. *Lines:* 142. *Example:* 2 spaces.
 
 
 ## Strengths
 
-- Math, Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The iteration is shown converging rather than asserted to converge: 287-310 plots twelve successive iterates in a colour ramp through `plt.cm.jet(i / n)` with the initial and final guesses labelled, so the reader sees $T^n v$ climbing to the fixed point before any convergence test is introduced.
+- Value function iteration is introduced three times at increasing precision, and each step is signposted - the informal three-step recipe at 92-102, then 'Let's write this a bit more mathematically' introducing the operator $T$ at 104-119, then the finite-grid version as a four-step algorithm at 140-152 - so the interpolation step arrives as a specific answer to the specific problem stated at 131-134.
+- The Bellman right-hand side is factored out as its own function $B(x, c, v)$ in both the mathematics (214-222) and the code (227-244), and both `T` (267) and `get_greedy` (450) then call `maximize(lambda c: B(x, c, v, model), x)` - one expression, two uses, and the greedy policy needs no new algebra.
+- Every numerical result is checked against the closed form from `os`: `c_star` and `v_star` at 74-81, the value function comparison at 372-385, the policy comparison at 464-475, and each is followed by a statement of how good the fit is and why (388-392, 478-486).
+- The `maximize` helper documents the trick it exists for - 'We use the fact that the maximizer of g on any interval is also the minimizer of -g' (166-167) - so the sign flips at 171 and 174 need no further explanation.
+- `compute_value_function` reports its own failure (343-346: 'Failed to converge!' versus 'Converged in {i} iterations.'), so a reader changing `tol` or `max_iter` is told which happened.
 
 ## Recommended actions
 
-1. `qe-writing-006` — Capitalize lecture titles properly (5 occurrences).
-2. `qe-fig-005` — Descriptive figure names for cross-referencing (6 occurrences).
-3. `qe-fig-003` — No matplotlib embedded titles (3 occurrences).
-4. `qe-fig-008` — Use lw=2 for line charts (7 occurrences).
-5. `qe-writing-008` — Remove excessive whitespace between words (1 occurrence).
+1. Rewrite the solution (514-648) around the existing functions as its own instruction at 511 asks: give `Model` an `α` field defaulting to 1, have `B` compute `vf((x - c)**α)`, and drop `extended_B`, `extended_T`, `compute_value_function_extended` and `extended_get_greedy` entirely - the exercise then also demonstrates the reuse it is asking for.
+2. Add the error figure the text at 388-392 describes: plot $v - v^*$ (or the two value functions on a log axis) so the boundary inaccuracy the paragraph and the note at 394-408 both discuss is visible.
+3. Sentence-case the five Title-Case headings: '## Reviewing the Model' (55), '## Value Function Iteration' (86), '### The Bellman Operator' (106), '### Fitted Value Function Iteration' (125), '### Policy Function' (411) (qe-writing-006 x5).
+4. Make the two argument orders agree - `extended_B(c, x, ...)` at 542 versus `B(x, c, ...)` at 227, and `extended_get_greedy(model, v)` at 615 versus `get_greedy(v, model)` at 440 - or delete both copies per the action above.
+5. Bring the code style into line with itself: `(1 - β**(1/γ))` written the same way at 76 and 81, triple-quoted docstrings at 259, 444 and 556 to match the file's other five, and no trailing whitespace at 302.
+6. Delete or use the orphan anchor `(pol_an)=` at 461 - it is defined in both copies of this lecture and referenced nowhere in the five-series corpus - and fix the typo at 316 ('It's task' -> 'Its task').
+7. Mechanical items from the draft: move the three embedded titles at 309, 365 and 384 into mystnb captions, add `name:` metadata to the six code-cell figures (287, 359, 376, 464, 572, 614), add `lw=2` to the seven plot calls at 362, 379, 380, 469, 470, 635 and 636, and drop the hand-set `fontsize=12` on the axis labels (307-308, 363-364, 381-382, 605-606, 638-639) while there. Remove the double space at 142.
+8. This file is byte-identical to `lecture-python.myst/lectures/os_numerical.md`, so every fix above should be made upstream once and re-synced; both copies then clear together.
