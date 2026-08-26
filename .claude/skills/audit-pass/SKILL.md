@@ -58,7 +58,7 @@ for r in lecture-python-intro lecture-python-programming lecture-python.myst \
   git clone --depth 1 --filter=blob:none --sparse \
       https://github.com/QuantEcon/$r $CORPUS/$r
   git -C $CORPUS/$r sparse-checkout set --no-cone '/lectures/*.md' \
-      '/lectures/_config.yml' '/style_checker/rules/*.md'
+      '/lectures/_config.yml' '/lectures/_static/*.bib' '/style_checker/rules/*.md'
 done
 ```
 
@@ -75,7 +75,8 @@ To add an **earlier** period to the trend (only needed when back-filling history
 git -C $CORPUS/$r fetch --unshallow --filter=blob:none
 SHA=$(git -C $CORPUS/$r log --until=YYYY-MM-DD -1 --format=%H)
 git -C $CORPUS/$r worktree add --no-checkout ../quantecon-YYYY-MM/$r $SHA
-git -C ../quantecon-YYYY-MM/$r sparse-checkout set --no-cone '/lectures/*.md'
+git -C ../quantecon-YYYY-MM/$r sparse-checkout set --no-cone '/lectures/*.md' \
+    '/lectures/_static/*.bib'
 git -C ../quantecon-YYYY-MM/$r checkout
 ```
 

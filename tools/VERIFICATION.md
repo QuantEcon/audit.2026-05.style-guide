@@ -888,13 +888,62 @@ newly-reached lectures are reached *only* by a defective finding. Interaction wi
 patches that landed the same day was checked by AST-level reference extraction and is empty:
 `check_ref_001` touches only `NARRATIVE_LEAD` and `NARRATIVE_TRAIL`.
 
-**What would make it adoptable**, now four conditions rather than two: gate on the in-text year
-equalling the entry's `year`; require the matched capital token to be a bare word, so `**` and
-a possessive `'s`/`’s` are excluded; skip a match whose preceding text — on the same line *or
-the previous one* — continues the author phrase; and write a detail that quotes the **whole**
-hand-written phrase it asks the contributor to delete, not the fragment that happened to match.
+The second re-run lens confirmed the mechanism — this is not one of the wrong-mechanism doubts,
+and adding only the missing branch reproduces 291 → 330 exactly — and then took the patch apart
+on *shape*. **Four of the five guard elements the comment justifies are dead code.** Stripped in
+turn over the whole corpus: the `(?<![A-Za-z0-9])` lookbehind, the `[a-z]?` year suffix, the
+1600–2099 range and the `cited` set each change the count by **nothing**. Only the two `\s*`
+are load-bearing. And the `[A-Z]` capital requirement — three sentences of the comment —
+suppresses **exactly one site, a true positive**. Bare `\(\d{4}\)\s*\{cite\}`` measures 331;
+a *correctly anchored* guard, `\b[A-Z][\w’'\-]*`, measures 329 **and** excludes the
+`**Black-Litterman**` false positive that the proposed regex admits. **The proposed guard is
+measurably worse than the guard it claims to be.**
+
+Why: `[^\s(]*` is unbounded and unanchored, and the lookbehind blocks only `[A-Za-z0-9]`, so
+the capital is taken from inside a token whenever punctuation or markup precedes it — a code
+span, inline maths, `_emphasis_`, a closing paren, a URL fragment, even a preceding cite key.
+`Equation (1979) {cite}` matches; the comment's own counter-example fails only in lowercase.
+
+Two further defects the first pass did not see:
+
+- **24 of 39 details would print a truncated author.** `[^\s(]*` cannot cross a space, so every
+  multi-author site matches the final surname only: `'Roberts (1991)'` for "Hansen, Sargent,
+  and Roberts (1991)", `'Gottardi (2018)'` for "Bisin, Clemente, and Gottardi (2018)". The
+  wrapped-line class above is the same defect at its worst, not a separate one — a reviewer
+  reads the sample as the finding.
+- **The de-duplication is one-directional and breaks on reorder.** `NARRATIVE_TRAIL` assigns
+  into `flagged` and never consults `cited`, so with the branches in the other order the
+  synthetic case reports twice; and when both do fire, the surviving message is TRAIL's, so the
+  comment's "the finding carries its own wording" fails in exactly the case the set exists for.
+  `ak2.md:335` is one verb away from exercising it.
+
+And one instance no branch catches at all: `muth_kalman.md:58` writes
+``Milton Friedman {cite}`Friedman1956` (1956) posited that`` — the same duplication with the
+year *after* the role.
+
+**What would make it adoptable**, now five conditions rather than two:
+
+1. Make it a **new rule**, not `qe-ref-001`. That check's docstring is role choice; this is
+   rendered duplication. Folding it in mixes two definitions inside one count that
+   `contributions/issues/06-…` quotes upstream, and silently decides 15 clause-end sites — 31
+   of the 39 sit after a governing preposition, the class already measured at +165 and rejected.
+2. Anchor the author guard (`\b[A-Z][\w’'\-]*`), which makes the lookbehind, the year range
+   and `[a-z]?` unnecessary rather than dead, and drops the markup false positive.
+3. Gate on the bibliography year — measured at **327 / reach 114, +36 / −0** with both bibs
+   available. The check must **raise** on a missing bib, never skip: a clone without it resolves
+   zero keys, and then a fail-closed gate reports no findings while a fail-open one reports all
+   of them, both silently.
+4. Skip a match whose author phrase continues before it, on the same line or the previous one,
+   and quote the **whole** hand-written phrase in the detail.
+5. Handle the possessive, the given name, the ampersand and the epigraph attribution — at nine
+   or more sites `{cite:t}` alone cannot express the fix at all.
+
 The underlying defect is real in 27 of the 39 sites and it is still the cleanest addition this
-rule has left.
+rule has left. **The runbook defect that fell out of this is fixed independently of it:**
+`UPDATE.md` and the pass skill cloned the corpus without `_static/*.bib` in four places, so a
+fresh clone by the documented procedure could not have verified any citation against the
+bibliography. Both snapshots now carry it, because a rule that reads the bib must read it in
+the previous period too or the trend row is meaningless.
 
 ### The build's warnings: 478 down to 23
 

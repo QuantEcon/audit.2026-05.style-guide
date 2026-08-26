@@ -59,7 +59,13 @@ rejected. Two things carried forward from it:
   Kotlikoff (1987)", so the fix as prescribed renders "Auerbach and Auerbach and Kotlikoff
   (1987)", printing the name twice; and quote the **whole** hand-written phrase in the detail,
   not the fragment that matched. The `cited` de-duplication set in the filed patch is dead
-  code — 0 firings across 348 lectures.
+  code, and one-directional besides: `NARRATIVE_TRAIL` never consults it, so the guard breaks
+  if the branches are reordered. Four of the five guard elements the filed comment justifies
+  measure **no change at all**, and its `[A-Z]` requirement suppresses exactly one site, a true
+  positive — an anchored `\b[A-Z][\w’'\-]*` measures 329 and drops the `**Black-Litterman**`
+  false positive the filed one admits. And it belongs in a **new rule**: `qe-ref-001`'s
+  docstring is role choice, this is rendered duplication, and folding it in silently decides
+  15 clause-end sites that `contributions/issues/06-…` refers upstream.
 
 ## The one thing to understand about this pass
 

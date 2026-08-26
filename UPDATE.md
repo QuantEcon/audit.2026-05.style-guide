@@ -56,7 +56,7 @@ for r in lecture-python-intro lecture-python-programming lecture-python.myst \
   git clone --depth 1 --filter=blob:none --sparse \
       https://github.com/QuantEcon/$r $CORPUS/$r
   git -C $CORPUS/$r sparse-checkout set --no-cone '/lectures/*.md' '/lectures/_config.yml' \
-      '/style_checker/rules/*.md'
+      '/lectures/_static/*.bib' '/style_checker/rules/*.md'
 done
 ```
 
@@ -67,7 +67,8 @@ point), add history and check the date out into a worktree:
 git -C $CORPUS/$r fetch --unshallow --filter=blob:none
 SHA=$(git -C $CORPUS/$r log --until=YYYY-MM-DD -1 --format=%H)
 git -C $CORPUS/$r worktree add --no-checkout ../quantecon-YYYY-MM/$r $SHA
-git -C ../quantecon-YYYY-MM/$r sparse-checkout set --no-cone '/lectures/*.md'
+git -C ../quantecon-YYYY-MM/$r sparse-checkout set --no-cone '/lectures/*.md' \
+    '/lectures/_static/*.bib'
 git -C ../quantecon-YYYY-MM/$r checkout
 ```
 
@@ -83,6 +84,14 @@ mechanics.
 > invokable skill, with the environment checks, the resumable review loop and the known
 > traps folded in. This file stays the reference; the skill is the procedure. Change one,
 > check the other.
+
+> **The `.bib` is part of the corpus, not an extra.** Any rule that checks a citation against
+> the bibliography — an in-text author-year against the entry's own `year`, say — needs
+> `_static/quant-econ.bib`, and a clone without it resolves *zero* keys. That fails silently in
+> both directions: a fail-closed check reports no findings and a fail-open one reports all of
+> them, and neither says why. It is carried for **both** snapshots, because a rule that reads
+> the bib must read it in the previous period too or the trend row is meaningless. The cost is
+> one file per series.
 
 ### Step 1 — Measure the corpus
 
