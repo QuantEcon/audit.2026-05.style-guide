@@ -152,6 +152,25 @@ reason to distrust the corpus totals.
   alone would delete them. The real fix is author-name detection, which is the upstream
   definition question in `contributions/issues/06-…`.
 
+### The `qe-math-002` evidence pass disagreed with its own counting pass
+
+`os_time_iter` scored 8 findings, all of them `u'` — the derivative of utility, composed
+with a policy as `(u' \circ \sigma^*)`. Its whole Math score rested on them.
+
+The per-file evidence gate asks whether a lecture uses the apostrophe as a transpose at all.
+One of its signals is `)'` on a closing delimiter. `os_time_iter`'s only such site is
+`(v^*)'(x)` at line 109 — which is precisely the shape `fn_paren` exists to exempt, because
+a parenthesised *function name* applied to an argument is a derivative. The counting pass
+applied that exemption; the evidence pass did not. So the gate opened on a site the counter
+would have thrown away, and every ordinary derivative prime in the file was then counted.
+
+The two passes now share the exemption. 16 occurrences removed — `os_time_iter` in both the
+series that carry it — reach 66 → 64, nothing added, and all nine canary lectures unchanged.
+
+The general lesson, which cost two other bugs today: **when a check has an evidence phase and
+a counting phase, they have to agree about what the evidence is.** A signal the counter
+rejects must not be allowed to unlock the counter.
+
 ### `qe-math-011` flagged the null space as a distribution
 
 All 8 hits in `svd_intro` were `{\mathcal N}(X)`, the null space of a matrix, and line 129

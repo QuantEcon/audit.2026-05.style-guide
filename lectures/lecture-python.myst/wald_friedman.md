@@ -5,16 +5,16 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.2 / 10
-- **Priority:** LOW
+- **Overall score:** 7.5 / 10
+- **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 5/10  | `qe-writing-004` ×4; `qe-writing-001` ×3; `qe-writing-006` ×1, +1 more. |
-| Math         | 9/10  | `qe-math-011` (proposed) ×1. |
-| Code         | 10/10 | no mechanical violations detected. |
+| Writing      | 3/10  | `qe-writing-003` ×5; `qe-writing-002` ×5; `qe-writing-004` ×4, +5 more. |
+| Math         | 8.5/10 | `qe-math-011` (proposed) ×1; `qe-math-009` ×4. |
+| Code         | 7.5/10 | `qe-code-001` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 4.5/10 | `qe-fig-003` ×5; `qe-fig-005` ×5; `qe-fig-006` ×1, +2 more. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -27,16 +27,22 @@
 _None found._
 
 ### High severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 6. *Lines:* 303, 319, 561, 594, 1113, 1366. *Example:* 147 of the file's code lines carry trailing whitespace (PEP8 W291/W293) - `awk` over the fenced blocks counts them, e.g. 319, 465, 514, 518, 521, 532, 536, 542-543, 547, 553, 556, 560, 565, 607, 612-617 - and 179 lines in the file overall. 303 writes `return r * x** (a-1) * (1 - x) ** (b-1)`, putting the space after `**` on one factor and around it on the other, where the rule asks explicitly for `a**b`. Eight `if` statements put the body on the same line as the condition (`if log_L >= logA: return 1, False` at 1113-1114, 1125-1126, 1288-1289, 1300-1301). Line 1366 joins two calls with a comma into a discarded tuple, `ax2.set_xticks(x), ax2.set_xticklabels(['Markov', 'VAR'])`. 561-564, 664-667, 858-859, 948-951 and 1281-1282 use backslash continuations where the surrounding parentheses already allow the wrap. And 597-602 is a second, byte-identical definition of an `@njit` function defined 120 lines earlier.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 5. *Lines:* 606, 801, 844, 1177, 1352. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 5. *Lines:* 621, 631, 655, 817, 889. *Example:* .set_title.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 326, 402, 738, 1162, 1336. *Example:* {figure} without :name:.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 5. *Lines:* 45, 363, 721, 729, 787. *Example:* line 45 is one 75-word sentence that also contains a disagreement and a tautology - "from the perspective of a statistician working within the Neyman-Pearson tradition of a frequentist statistician who thinks about testing hypotheses and consequently use laws of large numbers to investigate limiting properties of particular statistics under a given **hypothesis** ..." - and 49 (48 words) and 42 (39 words) are the same shape. Line 363 announces its own redundancy, "To repeat ourselves", before restating at 355-366 what 54-56 and 142-145 have already said twice. Line 721 is a paragraph consisting of "This makes sense." Line 729-730 misplaces the comma ("While, KL divergence is larger when two distributions differ more") and 732 drops a verb ("a symmetric measure of divergence that actually a metric"), as does 725 ("it should takes longer"). And 787 names the wrong quantity: "a clear negative correlation between relative entropy and mean stopping time" describes a scatter whose x-axis is the Jensen-Shannon distance.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 5. *Lines:* 259, 315, 513, 594, 961. *Example:* the lecture ships two different Jensen-Shannon implementations and uses the wrong one's name for the result. `compute_JS` (315-321) averages $KL(f, m)$ and $KL(g, m)$ and is never called; `js_dist` (739-746) averages $KL(m, f_0)$ and $KL(m, f_1)$ and takes a square root - the KL arguments are reversed and KL is not symmetric, so the two functions do not agree, and 762's comment on the call site says "# Compute KL divergence" while 780 labels the axis "Jensen-Shannon distance", 787 calls it "relative entropy" and 789 calls it "Jensen-Shannon divergence". `compute_wald_thresholds` is likewise defined twice, identically, at 472-477 and again at 597-602 inside a `hide-input` cell. `sprt_single_run` calls `np.random.seed(seed)` at 513 and is invoked from a `prange` loop at 537 and 926, so numba's per-thread generator is reseeded on every iteration of a parallel loop - the sample depends on thread scheduling, which is the one thing a seeded simulation is meant to rule out. The adjustment table at 961-983 opens with `(A_f, B_f) = (5.0, 0.5)`, which raises $A$ and lowers $B$, while the entire discussion at 990-998 covers only the opposite direction and then concludes that "as $A$ decreases and $B$ increases from their optimal Wald values, both Type I and Type II error rates increase" - a claim the first row of the table contradicts by construction. And two of the seven key ideas the overview promises are never delivered: **critical region** (59) is defined only inside a Wald quotation at 182, and **uniformly most powerful test** (60) gets one sentence at 259-260 saying that Wald goes on to discuss it.
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 1. *Lines:* 81. *Example:* H2 Title Case: 'Source of the Problem' (Problem).
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 80. *Lines:* 36, 37, 40, 44, 45, 47, 49, 79, 89, 121, …. *Example:* 2 spaces.
 
 ### Medium severity
+- **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 4. *Lines:* 285, 748, 1046, 1310. *Example:* $A$ and $B$ are Wald's decision thresholds from 285 to 998, but the Friedman quotation at 98 has already used A and B for the two projectile designs, and exercise 2 uses $A^{(0)}, A^{(1)}$ for the VAR coefficient matrices (1203-1216, 1338-1345) - so `run_var_sprt` at 1305-1310 holds `params.A_0` (a matrix) and `A, B, logA, logB = compute_wald_thresholds(...)` (a threshold) in one scope. $\beta$ is the type II error probability throughout (207, 366, 419, 466) while `beta`/`np.random.beta` is the beta distribution in the code (73, 516, 858), and 748 names a helper `generate_β_pairs` where the β means beta-distribution shape parameters, not the error rate that `params.β` carries in the same namedtuple. The likelihood ratio is $L_m$ in the body (383-397) and $\Lambda_t$ in exercise 1 (1046). And `p` is the beta density at 300 while `p_1, p_0` are transition probabilities at 1118.
 - **[qe-math-011 (proposed)]** — Distribution names in plain letters, not \mathcal / \mathbb. *Count:* 1. *Lines:* 1206. *Example:* decorated distribution `\mathcal{N}`.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 3. *Lines:* 36, 89, 129. *Example:* 2 sentences in one paragraph.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 4. *Lines:* 992, 996, 998. *Example:* mid-sentence 'Type'.
+- **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 4. *Lines:* 61, 148, 232, 586. *Example:* **power** and **size** are bolded as definitions at 57-58, bolded again as emphasis at 61 in the very next bullet, and then set in *italic* at 232-233 where they are actually defined ("the quantity $\alpha$ is called the *size* of the critical region, and the quantity $1-\beta$ is called the *power*") - so the same two terms take both formats and the definition gets the wrong one. The book title takes three forms: **Sequential Analysis** in bold at 148 and 408, *Sequential Analysis* in italic at 125, alongside *Two Lucky People* in italic at 83. And 586 bolds emphasis, "**lower** type I and type II error rates than the target values".
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 4. *Lines:* 251, 402, 708, 979. *Example:* the Neyman-Pearson section runs 150 lines (127-277) of block quotation with no figure at all, and the thing it is about - $\alpha$ and $\beta$ as the two tail areas of $f_0$ and $f_1$ on either side of the critical value $k$ in the display at 251 - is the most standard picture in statistics, drawable in five lines from the densities the lecture plots forty lines later at 326-337. The one picture of the SPRT's three-region structure is a static PNG at 402-404 with no caption and no name, and the lecture generates that same picture in code at 836-898 (`plot_likelihood_paths` draws $\log A$, $\log B$ and the paths between them), 430 lines further on. The three-way comparison at 707-717 emits three separate three-panel figures with no captions and no `{numref}` labels, so 719-725's conclusion asks the reader to hold three unlabelled images side by side. And the threshold experiment ends in a bare pandas frame at 979-983 that 986-998 then narrates in nine lines of prose, where plotting type I and type II error against the adjustment factors would show the frontier the prose is describing.
 
 ### Low severity
 - **[qe-fig-002]** — Prefer code-generated figures. *Count:* 1. *Lines:* 402. *Example:* static image .png.
@@ -46,18 +52,23 @@ _None found._
 
 ## Strengths
 
-- Math, Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The lecture lets Wald state the Neyman-Pearson theory in his own words across six block quotations (174-186, 190-207, 212-230, 238-243, 247-257, 264-277) and marks the single place it intervenes, inline and in the quotation itself: "[ here Wald applies law of large numbers by driving $M \rightarrow \infty$ (our comment, not Wald's) ]" at 226-228.
+- The anecdote is sourced rather than retold: Friedman's own account is quoted at 95-119, and the `{note}` at 88-91 sends the reader to Wallis's 1980 article with page numbers and to chapter 5 of Burns's biography, including Hotelling's contribution to formulating the problem that the main text does not use.
+- The algorithm is written as numbered pseudocode with both empirical error rates given as explicit formulas (484-505) before any code appears, so the `@njit` implementation at 507-548 can be checked against it step by step.
+- The simulation tests a prediction rather than illustrating a result: 583-586 derives from Wald's own remark at 433-440 that approximation `` {eq}`eq:Waldrule` `` should deliver error rates *below* target, and 578-580 prints the empirical $\hat\alpha$ and $\hat\beta$ next to the targets so the reader can verify it.
+- The three-way comparison at 696-717 holds $\alpha$, $\beta$, $N$ and the seed fixed and varies only the overlap of the two beta densities, and `plot_sprt_results` puts the shaded overlap, the stopping-time histogram and the confusion matrix in one row - so the cause and the consequence are visible together.
+- `plot_likelihood_paths` (836-898) is the figure that makes Wald's central point concrete: 100 background paths and 10 highlighted ones, coloured by which boundary they hit, plotted against $\log A$ and $\log B$ as dashed lines, one panel for each true distribution - the random stopping time of 284 becomes something you can see.
+- The threshold-adjustment table at 961-983 quantifies the trade-off instead of describing it, with the unadjusted Wald values `(1.0, 1.0)` sitting as one row among four alternatives so the cost of departing from them is legible.
+- The two exercises apply the same test to genuinely different likelihood structures - a 3-state Markov chain with the ratio written out including the stationary-distribution term (1043-1049) and a VAR(1) with the Gaussian log-likelihood split into an initial and a transition piece (1261-1271) - and the final figure at 1352-1369 compares stopping times and error rates across both against the α and β targets.
+- Density and CDF case discipline holds throughout (qe-math-015 (proposed)): $f_0$, $f_1$ and $p$ are lowercase for densities (161, 300, 381-383), $\pi^{(i)}$ is lowercase for the stationary mass function (1049), and the uppercase letters are reserved for matrices ($P^{(0)}$, $A^{(0)}$, $C^{(0)}$) and for the thresholds.
 
 ## Recommended actions
 
-1. `qe-fig-003` — No matplotlib embedded titles (5 occurrences).
-2. `qe-fig-005` — Descriptive figure names for cross-referencing (5 occurrences).
-3. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (4 occurrences).
-4. `qe-writing-001` — Use one sentence per paragraph (3 occurrences).
-5. `qe-writing-006` — Capitalize lecture titles properly (1 occurrence).
-6. `qe-writing-008` — Remove excessive whitespace between words (80 occurrences).
-7. `qe-math-011` (proposed) — Distribution names in plain letters, not \mathcal / \mathbb (1 occurrence).
+1. Reconcile the two Jensen-Shannon implementations - `compute_JS` (315-321) averages $KL(f, m)$ and $KL(g, m)$ and is dead code, `js_dist` (739-746) averages the reversed pair and takes a square root - then name the result the same way in the comment at 762, the axis label at 780 and the prose at 787 and 789.
+2. Move the seeding out of `sprt_single_run`: `np.random.seed(seed)` at 513 runs inside a `prange` loop (537, 926), so the simulation is thread-scheduling dependent rather than reproducible.
+3. Delete the duplicate `@njit compute_wald_thresholds` at 597-602 and either explain the `(A_f, B_f) = (5.0, 0.5)` row at 962 or drop it, since 990-998 discusses only the opposite direction and 998's conclusion contradicts that row.
+4. Deliver the two promised ideas: give **critical region** (59) a definition outside the Wald quotation at 182, and either explain **uniformly most powerful test** (60) or remove it from the overview list, since 259-260 only reports that Wald discusses it.
+5. Replace the static `wald_dec_rule.png` at 402 with a generated figure - `plot_likelihood_paths` (836-898) already draws exactly the three-region picture - and add the $\alpha$/$\beta$ tail-area diagram for the critical value $k$ of 251, which the 150-line Neyman-Pearson section currently has no figure for.
+6. Add `mystnb` figure `caption`/`name` metadata to all six figure-producing cells (326, 675, 707, 711, 715, 738, 793, 836, 1162, 1336) and move the five embedded titles into it (621, 631, 655, 817, 889); lowercase the axis label at 780 and reconsider the five `figsize` overrides (606, 801, 844, 1177, 1352).
+7. Break up the overview: 45 is a single 75-word sentence with a subject-verb disagreement, 49 is 48 words and 42 is 39; and delete 363-366, which the lecture itself introduces with "To repeat ourselves".
+8. Strip trailing whitespace from the 147 code lines that carry it and the 80 prose double spaces, put the eight one-line `if ...: return` bodies on their own lines (1113-1114, 1125-1126, 1288-1289, 1300-1301), split the comma-joined calls at 1366, write `x**(a-1)` at 303, spell `pi`/`pi_0` as `π`/`π_0` at 1083-1097 to match 1106-1145, make 348's full URL a `{doc}` link, write 1206's `\mathcal{N}` as plain $N$, and fix "it should takes" (725), "that actually a metric" (732) and the "parameters d d" comment at 765.

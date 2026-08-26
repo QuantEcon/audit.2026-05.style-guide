@@ -6,8 +6,8 @@ Style audit of the **lecture-dp** series.
 - **Audit date:** 2026-08-07
 - **Corpus snapshot:** `c30490a2f4`
 - **Lectures audited:** 52
-- **Average overall score:** 7.9 / 10
-- **Average per-category scores:** writing 5.6, math 6.8, code 8.4, figures 6.4, references 9.3, links 9.5, admon 10.0
+- **Average overall score:** 8.0 / 10
+- **Average per-category scores:** writing 5.6, math 6.9, code 8.4, figures 6.4, references 9.3, links 9.5, admon 10.0
 - **JAX:** out of scope — the `qe-jax-*` rules target `lecture-jax`.
 - **Judgment-review coverage:** **31 of 52 reviewed** — scores for the unreviewed 21 reflect the 41 measured rules only, so they are not directly comparable with the reviewed ones.
 <!-- /qe:series-meta -->
@@ -40,8 +40,8 @@ it has drifted from its upstream namesake, so it needs fixing here.
 |----------|-------|---|
 | HIGH     | 28    | 53.8% |
 | MEDIUM   | 0     | 0.0% |
-| LOW      | 11    | 21.2% |
-| NONE     | 13    | 25.0% |
+| LOW      | 10    | 19.2% |
+| NONE     | 14    | 26.9% |
 <!-- /qe:series-priority -->
 
 ## Top systemic issues across the series
@@ -58,7 +58,7 @@ Ranked by how many of the series' lectures each rule reaches.
 7. **`qe-writing-006`** — Capitalize lecture titles properly — **22 / 52** lectures, 141 occurrences.
 8. **`qe-ref-001`** — Use correct citation style — **20 / 52** lectures, 45 occurrences.
 9. **`qe-math-010`** *(proposed)* — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces — **18 / 52** lectures, 108 occurrences.
-10. **`qe-math-002`** — Use \top for transpose notation — **16 / 52** lectures, 424 occurrences.
+10. **`qe-link-002`** — Use doc links for cross-series references — **15 / 52** lectures, 53 occurrences.
 <!-- /qe:series-systemic -->
 
 ## Clean across the series
@@ -141,15 +141,15 @@ that lecture. Click a lecture for its full report.
 | 34 | [odu](odu.md) | 5 | 10 | 10 | 5 | 9 | 8 | 10 | **8.1** | LOW |
 | 35 | [opt_tax_recur](opt_tax_recur.md) | 7 | 6 | 10 | 4.5 | 9 | 10 | 10 | **8.1** | LOW |
 | 36 | [os_stochastic](os_stochastic.md) | 4.5 | 7.5 | 9.5 | 7.5 | 10 | 8 | 10 | **8.1** | LOW |
-| 37 | [os_time_iter](os_time_iter.md) | 7.5 | 5 | 9.5 | 8 | 9 | 10 | 10 | **8.4** | LOW |
-| 38 | [chang_credible](chang_credible.md) | 3 | 10 | 8.5 | 9.5 | 10 | 10 | — | **8.5** | HIGH |
-| 39 | [ifp_discrete](ifp_discrete.md) | 6 | 7 | 8 | 8.5 | 10 | 10 | 10 | **8.5** | LOW |
-| 40 | [mccall_model_with_separation](mccall_model_with_separation.md) | 6.5 | 8.5 | 7 | 8.5 | 10 | 10 | 10 | **8.6** | NONE |
-| 41 | [os_numerical](os_numerical.md) | 6 | 10 | 10 | 5.5 | — | 10 | 10 | **8.6** | NONE |
-| 42 | [tax_smoothing_3](tax_smoothing_3.md) | 9 | 9 | 10 | 5 | 8.5 | 10 | — | **8.6** | NONE |
-| 43 | [mccall_persist_trans](mccall_persist_trans.md) | 9.5 | 6.5 | 7 | 8 | 10 | 10 | 10 | **8.7** | NONE |
-| 44 | [career](career.md) | 8 | 9.5 | 8.5 | 6.5 | 10 | 10 | 10 | **8.9** | NONE |
-| 45 | [os](os.md) | 6 | 9 | 9 | 8 | 10 | 10 | 10 | **8.9** | NONE |
+| 37 | [chang_credible](chang_credible.md) | 3 | 10 | 8.5 | 9.5 | 10 | 10 | — | **8.5** | HIGH |
+| 38 | [ifp_discrete](ifp_discrete.md) | 6 | 7 | 8 | 8.5 | 10 | 10 | 10 | **8.5** | LOW |
+| 39 | [mccall_model_with_separation](mccall_model_with_separation.md) | 6.5 | 8.5 | 7 | 8.5 | 10 | 10 | 10 | **8.6** | NONE |
+| 40 | [os_numerical](os_numerical.md) | 6 | 10 | 10 | 5.5 | — | 10 | 10 | **8.6** | NONE |
+| 41 | [tax_smoothing_3](tax_smoothing_3.md) | 9 | 9 | 10 | 5 | 8.5 | 10 | — | **8.6** | NONE |
+| 42 | [mccall_persist_trans](mccall_persist_trans.md) | 9.5 | 6.5 | 7 | 8 | 10 | 10 | 10 | **8.7** | NONE |
+| 43 | [career](career.md) | 8 | 9.5 | 8.5 | 6.5 | 10 | 10 | 10 | **8.9** | NONE |
+| 44 | [os](os.md) | 6 | 9 | 9 | 8 | 10 | 10 | 10 | **8.9** | NONE |
+| 45 | [os_time_iter](os_time_iter.md) | 7.5 | 8 | 9.5 | 8 | 9 | 10 | 10 | **8.9** | NONE |
 | 46 | [un_insure](un_insure.md) | 8 | 10 | 10 | 5.5 | 9 | 10 | 10 | **8.9** | NONE |
 | 47 | [os_egm](os_egm.md) | 7 | 10 | 7.5 | 9 | 10 | 10 | 10 | **9.1** | NONE |
 | 48 | [os_egm_jax](os_egm_jax.md) | 10 | 10 | 7.5 | 7 | — | 10 | 10 | **9.1** | NONE |

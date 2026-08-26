@@ -1,15 +1,5 @@
 {
  "lecture-python.myst": [
-  "ols",
-  "os_stochastic",
-  "ross_recovery",
-  "uncertainty_traps",
-  "multi_hyper",
-  "odu",
-  "util_rand_resp",
-  "wald_friedman",
-  "long_run_risk_operator",
-  "os_time_iter",
   "phillips_drifts_volatilities",
   "phillips_two_stories",
   "pricing_information",

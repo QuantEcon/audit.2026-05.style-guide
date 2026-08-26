@@ -500,8 +500,20 @@ def check_math_002(doc: Doc):
     spans = list(_math_spans(doc))
     declared = bool(PRIME_NOT_TRANSPOSE.search(
         "\n".join(l.raw for l in doc.lines if l.kind == "text")))
+    def _delim_evidence(src):
+        """``)'`` as evidence — but not the ``(v^*)'(x)`` that ``fn_paren`` exempts.
+
+        The counting pass treats a parenthesised *function name* applied to an argument
+        as a derivative. The evidence pass did not, so a lecture whose only ``)'`` was
+        exactly that site was judged to use the apostrophe as a transpose, and all its
+        ordinary derivative primes were then counted: ``os_time_iter`` scored 8 for
+        ``u'`` in ``(u' \circ \sigma^*)``, which was its entire Math finding.
+        """
+        deriv = {m.start(1) for m in fn_paren.finditer(src)}
+        return any(m.start() not in deriv for m in DELIM_PRIME.finditer(src))
+
     evident = not declared and any(
-        DELIM_PRIME.search(src) or REPEATED_PRIME.search(src)
+        _delim_evidence(src) or REPEATED_PRIME.search(src)
         or any(FOLLOWING_FACTOR.match(src, m.end())
                for m in list(prime.finditer(src)) + list(lprime.finditer(src)))
         for _, src in spans)

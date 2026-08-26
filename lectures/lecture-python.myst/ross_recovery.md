@@ -5,16 +5,16 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.1 / 10
-- **Priority:** LOW
+- **Overall score:** 7.4 / 10
+- **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 6.5/10 | `qe-writing-004` ×9; `qe-writing-001` ×1. |
-| Math         | 5.5/10 | `qe-math-010` (proposed) ×3; `qe-math-011` (proposed) ×1; `qe-math-003` ×1. |
-| Code         | 8.5/10 | `qe-code-002` ×2. |
+| Writing      | 3.5/10 | `qe-writing-004` ×9; `qe-writing-005` ×4; `qe-writing-003` ×4, +3 more. |
+| Math         | 5.5/10 | `qe-math-010` (proposed) ×3; `qe-math-011` (proposed) ×1; `qe-math-003` ×1, +1 more. |
+| Code         | 6.5/10 | `qe-code-001` ×6; `qe-code-002` ×2. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-003` ×4; `qe-fig-005` ×4; `qe-fig-004` ×1, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -27,7 +27,9 @@
 _None found._
 
 ### High severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 6. *Lines:* 600, 668, 863, 921, 954, 1364. *Example:* 1364-1369 drops to the pyplot state machine - `plt.figure(figsize=(9, 5))`, `plt.plot`, `plt.xlabel`, `plt.title` - where all five other figures use the `fig, ax = plt.subplots()` object interface (795, 817, 849, 970); 863, 865 and 1366 write `f'$\\gamma={γ_val:.0f}$'` with doubled backslashes inside a single-quoted f-string where `rf'...'` is the idiomatic form; 668-669 pass the magic `tol=1000` to `np.real_if_close` and then re-test with `np.isreal` at 672, so the tolerance is both unexplained and redundant; 600-602 indents the continuation arguments of `np.linspace` one column past the opening paren; 921-922 opens `print(` on its own line and then closes the call on the argument line (`f"max |true ρ ...":.2e}")`), unlike the same construction at 758-759 and 709-711; and 954-956 defines the helper `tail_prob` in the middle of the one cell that carries `mystnb` figure metadata (945-951), so a function definition sits inside a captioned figure.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 5. *Lines:* 795, 817, 849, 970, 1364. *Example:* figsize=.
+- **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 5. *Lines:* 279, 561, 1023, 1062, 1262. *Example:* the lecture reuses four letters for two things each. $e$ is the vector of ones at 279 ("$F e = e$ where $e$ is the vector of ones") and again at 420, 426 and 432, while the same $e$ is the exponential base in the surrounding displays - $e^{-r(\theta_i)}$ at 121 and 137, $\beta = e^{-\rho T}$ at 505, $e^{-\gamma(s_j-s_i)}$ at 507 and 589 - so `$Pe = b e$` at 420 and `$p_{ij} = e^{-\rho T} e^{-\gamma(s_j-s_i)} f_{ij}$` at 589 spell the same glyph two ways. $c$ indexes the current state at 1020-1027 ("state prices at horizon $t$ observed from today's state $c$") where $c(\theta_j)$ is consumption at 197, 451 and 462. The natural probabilities carry three notations at once - $f(\theta_i,\theta_j)$ at 189, $f_{ij}$ at 368, $F$ at 216 - and then $\hat F_k$ at 1262 is a CDF, so $F$ names both an $m\times m$ matrix and a scalar CDF. Line 1062 subscripts English words inside math, $\mu_\text{excess}$ and $\sigma_\text{asset}$, in a lecture where $\sigma$ is already the volatility parameter (533) and $\sigma(M)$ the standard-deviation operator (1065). And 561 decorates the normal as `\mathcal{N}` where 532 writes the same distribution as a plain $N$.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 3. *Lines:* 485, 490. *Example:* bare expectation `E[`.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 9. *Lines:* 69, 339, 495, 515, 656, 890, 928, 1056, 1106. *Example:* mid-sentence 'Theorem'.
 
@@ -38,6 +40,10 @@ _None found._
 - **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 1. *Lines:* 1179. *Example:* pmatrix environment.
 - **[qe-math-011 (proposed)]** — Distribution names in plain letters, not \mathcal / \mathbb. *Count:* 1. *Lines:* 561. *Example:* decorated distribution `\mathcal{N}`.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 1198. *Example:* 2 sentences in one paragraph.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 4. *Lines:* 66, 224, 981, 1078. *Example:* 62-64 states the assumption precisely - transition independence - and then 66-67 restates it vaguely as "if some assumptions about the structure of the pricing kernel hold", subtracting the precision two lines after it was gained; the same vague hedge recurs at 73-74 ("when the assumption holds"), 1056 and 1077-1079 ("under the assumptions of the Recovery Theorem", twice inside twenty-five lines). Line 224 loses its article: "Transition independence restriction does the job, as we will see in the next section." And 981, "This is a simulation illustrating Ross's decomposition", carries nothing that 939 and 941-943 have not already said.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 4. *Lines:* 645, 854, 990, 1276. *Example:* 1276-1289 re-derives from scratch the twelve lines of eigendecomposition already run at 1218-1235, in a solution whose own exercise text at 1256-1257 says "Using the recovered $F$ ... from the exercise above" - so the two copies can silently diverge. Line 645 hard-codes the middle row as `P[5]` for the risk-free-rate print, where every other middle index in the lecture is computed (`len(states)//2` at 783, 854, 963, 1347), so the printed number becomes the wrong row the moment `n_states` changes from 11. The same quantity is then named four different ways across the lecture - `mid` (783), `mid_g` (854 and 1347), `mid_b` (963). And 990 defers the tail-risk conclusion with "We will say more in `` {ref}`rt_ex3` ``" 320 lines forward, where 1375-1377 then repeats 986-988 almost word for word ("in this CRRA simulation the risk-neutral crash probability rises faster with $\gamma$ than the recovered natural crash probability").
+- **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 4. *Lines:* 771, 890, 1109, 1174. *Example:* definitions are bold almost everywhere and the exceptions run both ways. 771 bolds emphasis - "the natural marginal density **first-order stochastically dominates** the risk-neutral density" - immediately before using italic correctly for the same purpose ("lies *below*", 772); 890 italicises a definition, "the *recovered subjective discount factor* $\beta$, which equals the Perron-Frobenius eigenvalue". Both formats are then used as headings: 1109, 1150 and 1160 are italic labels standing alone as paragraphs (`*Finite state space:*`, `*Transition independence:*`, `*Empirical estimation:*`) where `###` headings belong, and 1174, 1254 and 1316 open each exercise with a bold sentence (`**The Perron-Frobenius vector and the pricing kernel.**`) where the `{exercise}` directive takes a title argument.
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 4. *Lines:* 222, 753, 999, 1129. *Example:* the mechanism the whole lecture is about is a reweighting of one matrix into another, $F = \beta^{-1} D P D^{-1}$, and no figure ever shows a matrix: both $P$ and the recovered $F$ (and `F_true`) are in memory together at 753-759, where two side-by-side heatmaps would show the reweighting the six existing figures can only show one row of. The identification count at 214-222 ($m^2$ equations, $2m^2-m$ unknowns, a shortfall of $m^2-m$, cut to zero by transition independence) is arithmetic delivered in four prose paragraphs and would fit in a three-row table. The whole option-price bridge at 992-1052 - the Breeden-Litzenberger second derivative and the forward recursion $p_{t+1}(c) = p_t(c)P$ filling in the rows of $P$ - has no figure at all, in a section whose one warning is that the second derivative amplifies measurement error. And 1129-1140 gives the closed form $\lambda(\alpha)$ for the entire family of positive eigenfunctions $v_\alpha(s)=e^{\alpha s}$: a single plot of $\lambda$ against $\alpha$ would make the failure of uniqueness visible, which is the reason the finite grid exists. The lecture also carries no `{note}` or `{warning}` anywhere, though 577-580 (truncation is essential) and 1049-1052 (numerically delicate) are written as exactly that.
 
 ### Low severity
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 1. *Lines:* 945. *Example:* caption of 9 words.
@@ -45,19 +51,23 @@ _None found._
 
 ## Strengths
 
-- References, Links, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
-- Citations distinguish `{cite}` from `{cite:t}` correctly (1 parenthetical, 10 in-text).
+- The overview (31-69) lays the whole argument out in eleven one-sentence paragraphs that go state prices to risk-neutral probabilities to why those are not natural probabilities to the pricing kernel to why separating the two used to need preferences - and every term bolded there (**state prices**, **risk-neutral probabilities**, **natural probabilities**, **pricing kernel**, **transition independence**) is the term used for the remaining 1300 lines.
+- The identification problem is counted before it is solved: 214-222 sets $m^2$ equations against $m(m-1) + m^2$ unknowns and names the shortfall as $m^2-m$; 250-254 then shows transition independence cutting $\phi$ from $m^2$ free entries to $m$ and states that the system is now exactly identified - so the reader knows what the restriction buys before seeing it used.
+- The theorem is reduced rather than asserted: 279-291 turns the row-sum condition $Fe = e$ into the eigenvalue problem $Pz = \beta z$ in three lines, 293-295 says why only a strictly positive eigenvector is admissible, and the Perron-Frobenius statement the proof needs is quoted as its own `{prf:theorem}` at 299-308 with the imprimitive caveat at 310-311.
+- Each hypothesis of the Recovery Theorem is given a job at 323-337 before the theorem is stated at 342-352 - no-arbitrage for nonnegativity of $P$, irreducibility for uniqueness of the eigenvector, transition independence for the $\beta h(\theta_j)/h(\theta_i)$ factorisation - and the corollary at 417-437 then shows what recovery does when the riskless rate is state-independent, i.e. when there is nothing to recover.
+- `recover_natural_distribution` (659-716) refuses to return a wrong answer quietly: it walks the real eigenvalues in descending order, takes the first with a strictly positive vector, raises `ValueError` if the `for` loop exhausts (691-692), and then checks the recovered $F$ for negative entries (705) and for row sums within 1e-8 of one (708).
+- Recovery is validated against the ground truth it was built from: `true_lognormal_transition_matrix` (735-750) rebuilds the $F$ the state prices came from and 757-759 prints both $\max|F - F_{\text{true}}|$ and $\max|P - \beta(z_i/z_j)F|$, so both directions of $p_{ij} = \phi_{ij} f_{ij}$ are checked, not just one.
+- The $\gamma$ sweep at 845-879 is exactly the experiment the theory calls for - the left panel shows the relative kernel $1/z$ steepening and the right shows $f_{\text{nat}} - f_{\text{rn}}$ crossing zero once, with `axhline(0)` drawn at 872 - which is the single-crossing claim of 439-472 made visible.
+- The limitations are stated as mathematics, not caveats: 1114-1142 exhibits the whole family $v_\alpha(s) = e^{\alpha s}$ with its eigenvalue $\lambda(\alpha)$ to show why unbounded continuous recovery is not unique, explains that this is why truncation matters, and names the two repairs (`` {cite:t}`CarrYu2012` `` for a bounded diffusion, `` {cite:t}`BorovickaHansenScheinkman2016` `` for a kernel that is not transition independent).
+- Density and CDF case discipline (qe-math-015 (proposed)) holds throughout: lowercase $p$ for the state-price density (1003, 1014) and $p_T(s,s_T)$ (547), lowercase $n$ for the standard normal density (550, 556, 586, 592), lowercase $f_j$ and $q_j$ for the one-step marginals against uppercase $\hat F_k$ and $\hat Q_k$ for their CDFs (1259-1263).
 
 ## Recommended actions
 
-1. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (3 occurrences).
-2. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (9 occurrences).
-3. `qe-fig-003` — No matplotlib embedded titles (4 occurrences).
-4. `qe-fig-005` — Descriptive figure names for cross-referencing (4 occurrences).
-5. `qe-code-002` — Use Unicode symbols for Greek letters in code (2 occurrences).
-6. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
-7. `qe-math-011` (proposed) — Distribution names in plain letters, not \mathcal / \mathbb (1 occurrence).
+1. Delete the duplicated eigendecomposition at 1276-1289: exercise 2 asks the reader to use the $F$ recovered in exercise 1 and its solution recomputes it, so the two blocks are twelve lines that can drift apart.
+2. Replace `P[5]` at 645 with the computed middle index used everywhere else in the lecture - the printed middle-state risk-free rate is wrong for any `n_states` other than 11 - and settle on one name for that index instead of `mid`, `mid_g`, `mid_b` (783, 854, 963, 1347).
+3. Pick one symbol for the ones vector, `\mathbb{1}` per qe-math-008 or $\iota$, because $e$ is the ones vector at 279, 420, 426 and 432 and the exponential base at 121, 505, 507 and 589; and rename the current-state index $c$ at 1020-1027, which is consumption at 197, 451 and 462.
+4. Lowercase "theorem" in the nine flagged narrative mentions (69, 339, 495, 515, 656, 890, 928, 1056, 1106) so they match the lecture's own "the Perron-Frobenius theorem" at 297, 330 and 339 (qe-writing-004).
+5. Promote the three italic labels at 1109, 1150 and 1160 to `###` headings and the three bold exercise openers at 1174, 1254 and 1316 to `{exercise}` titles; un-bold the emphasis at 771 and bold the definition italicised at 890.
+6. Clear the math and figure sweep: `bmatrix` for the `pmatrix` at 1179, braces on the three bare `E[` at 485 and 490, plain $N$ at 561 to match 532, a caption of six words or fewer at 949, and `mystnb figure` name/caption metadata on the four bare figure cells (782, 813, 845, 1339) following the pattern the cell at 945 already sets.
+7. Add the two figures the argument needs: side-by-side heatmaps of $P$ and the recovered $F$ (both live at 753) to show the change of measure, and a plot of $\lambda(\alpha)$ from 1132-1140 to show the non-uniqueness that motivates truncation; mark the crossing point $v$ of 459-463 on the right panel at 864 while there.
+8. Finish the code items: rewrite 1364-1369 in the `fig, ax` style used by the other five figures, `rho` to `ρ` at 916-917 (qe-code-002), drop the magic `tol=1000` at 668-669, use raw f-strings for the `$\gamma$` labels at 863, 865 and 1366, move `tail_prob` (954) out of the captioned figure cell, reconsider the five `figsize` overrides (795, 817, 849, 970, 1364), and drop the hand-written `\square` at 435 that `{prf:proof}` supplies.
