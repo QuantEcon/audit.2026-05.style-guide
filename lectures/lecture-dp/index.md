@@ -55,7 +55,7 @@ Ranked by how many of the series' lectures each rule reaches.
 4. **`qe-fig-001`** — Do not set figure size unless necessary — **31 / 52** lectures, 102 occurrences.
 5. **`qe-fig-003`** — No matplotlib embedded titles — **30 / 52** lectures, 105 occurrences.
 6. **`qe-writing-001`** — Use one sentence per paragraph — **23 / 52** lectures, 44 occurrences.
-7. **`qe-writing-006`** — Capitalize lecture titles properly — **22 / 52** lectures, 141 occurrences.
+7. **`qe-writing-006`** — Capitalize lecture titles properly — **22 / 52** lectures, 146 occurrences.
 8. **`qe-ref-001`** — Use correct citation style — **20 / 52** lectures, 45 occurrences.
 9. **`qe-math-010`** *(proposed)* — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces — **18 / 52** lectures, 108 occurrences.
 10. **`qe-link-002`** — Use doc links for cross-series references — **15 / 52** lectures, 53 occurrences.
@@ -133,10 +133,10 @@ that lecture. Click a lecture for its full report.
 | 26 | [mccall_model](mccall_model.md) | 4 | 7 | 10 | 6 | 10 | 8 | 10 | **7.9** | HIGH |
 | 27 | [smoothing_tax](smoothing_tax.md) | 7 | 5 | 10 | 4 | 10 | 9 | 10 | **7.9** | HIGH |
 | 28 | [calvo_abreu](calvo_abreu.md) | 4 | 9 | 7.5 | 9 | 8.5 | 10 | — | **8.0** | HIGH |
-| 29 | [ifp_opi](ifp_opi.md) | 5 | 10 | 8 | 6 | — | 9 | 10 | **8.0** | LOW |
-| 30 | [jv](jv.md) | 3.5 | 9.5 | 7.5 | 6.5 | 9 | 10 | 10 | **8.0** | HIGH |
-| 31 | [mccall_model_with_sep_markov](mccall_model_with_sep_markov.md) | 5 | 10 | 7.5 | 5.5 | — | 10 | 10 | **8.0** | LOW |
-| 32 | [ifp_egm](ifp_egm.md) | 3.5 | 9 | 7.5 | 6.5 | 10 | 10 | 10 | **8.1** | HIGH |
+| 29 | [ifp_egm](ifp_egm.md) | 3 | 9 | 7.5 | 6.5 | 10 | 10 | 10 | **8.0** | HIGH |
+| 30 | [ifp_opi](ifp_opi.md) | 5 | 10 | 8 | 6 | — | 9 | 10 | **8.0** | LOW |
+| 31 | [jv](jv.md) | 3.5 | 9.5 | 7.5 | 6.5 | 9 | 10 | 10 | **8.0** | HIGH |
+| 32 | [mccall_model_with_sep_markov](mccall_model_with_sep_markov.md) | 5 | 10 | 7.5 | 5.5 | — | 10 | 10 | **8.0** | LOW |
 | 33 | [mccall_fitted_vfi](mccall_fitted_vfi.md) | 7 | 8 | 7.5 | 5.5 | 9 | 10 | 10 | **8.1** | LOW |
 | 34 | [odu](odu.md) | 5 | 10 | 10 | 5 | 9 | 8 | 10 | **8.1** | LOW |
 | 35 | [opt_tax_recur](opt_tax_recur.md) | 7 | 6 | 10 | 4.5 | 9 | 10 | 10 | **8.1** | LOW |

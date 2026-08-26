@@ -184,6 +184,43 @@ The general lesson, which cost two other bugs today: **when a check has an evide
 a counting phase, they have to agree about what the evidence is.** A signal the counter
 rejects must not be allowed to unlock the counter.
 
+### `qe-writing-006` never looked at the first word of a heading
+
+Sentence case allows the first word of a heading a capital, so `check_writing_006` skipped
+`words[0]`. That also skipped the capital *inside* a hyphenated first word: `## Set-Up`,
+`## Q-Learning`, `## Root-Finding in one dimension` all want a lowercase second part and
+none was flagged. This is a **false negative**, which makes it rarer than the false
+positives most of this file records, and more valuable.
+
+A hyphenated first word is now judged on its parts after the first — but only where the
+offending part is not itself a proper noun, which is what keeps `Non-Gorman heterogeneous
+households` and `Black-Litterman starting point` correct. Eleven surnames that appear only
+inside hyphenated compounds went into `PROPER_NOUNS` for the same reason: `_is_proper` can
+clear a compound only when *every* part is listed, so `Modigliani-Miller` failed on
+`miller`.
+
+Net: **8 genuine findings added** (`Set-Up` ×3, `Q-Learning` ×4, `Root-Finding`), **2 false
+positives cleared** (`Modigliani-Miller`, an unstable `Bray` feedback), and nothing else
+moved. It took three passes to get there — the first flagged all 39 hyphenated first words
+including every surname, the second cleared the listed surnames but still flagged
+`Non-Gorman`, and only the third asked whether the offending *part* was a name.
+
+### A reviewer disagreement worth recording, not resolving
+
+Two reviewers reached opposite conclusions about exempting `<capitalised common noun>
+<number>` from `qe-writing-004` — `Example 2`, `Step 3`, `Representation 3`. The first
+measured the exemption at 71 removals and **rejected** it, because `var_dmd` writes
+"Representation 3" capitalised eight times and lowercase eight times for the same three
+headings, which is the inconsistency the rule exists to find. The second measured a broader
+version at 339 → 260, read all 79 suppressed hits, and reported none as genuine.
+
+Both are right about the data, and the data does not settle it. `var_dmd`'s capitalised uses
+all refer to its own section headings `## Representation 1/2/3`; its lowercase uses are
+generic prose. Whether a reference to a numbered section takes a capital — "see Chapter 4"
+— is an editorial convention the style guide does not state. So this is a rule-definition
+question of the same kind as `qe-ref-001`'s narrative citations, not a detector defect, and
+it stays unfixed until the guide says which it wants.
+
 ### `qe-math-011` flagged the null space as a distribution
 
 All 8 hits in `svd_intro` were `{\mathcal N}(X)`, the null space of a matrix, and line 129

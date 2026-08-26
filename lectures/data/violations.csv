@@ -285,6 +285,7 @@ lecture-python-intro,scalar_dynam,qe-writing-008,1,0,0
 lecture-python-intro,schelling,qe-fig-003,1,0,0
 lecture-python-intro,schelling,qe-fig-008,3,0,0
 lecture-python-intro,schelling,qe-link-002,1,0,0
+lecture-python-intro,schelling,qe-writing-006,1,0,0
 lecture-python-intro,schelling,qe-writing-008,1,0,0
 lecture-python-intro,short_path,qe-fig-002,4,0,0
 lecture-python-intro,short_path,qe-fig-005,4,0,0
@@ -701,7 +702,7 @@ lecture-python.myst,ifp_egm,qe-code-004,6,0,0
 lecture-python.myst,ifp_egm,qe-fig-003,1,0,0
 lecture-python.myst,ifp_egm,qe-fig-005,5,0,0
 lecture-python.myst,ifp_egm,qe-fig-008,8,0,0
-lecture-python.myst,ifp_egm,qe-writing-006,9,0,0
+lecture-python.myst,ifp_egm,qe-writing-006,10,0,0
 lecture-python.myst,ifp_egm,qe-writing-008,3,0,0
 lecture-python.myst,ifp_egm_transient_shocks,qe-code-004,6,0,0
 lecture-python.myst,ifp_egm_transient_shocks,qe-fig-001,1,0,0
@@ -709,7 +710,7 @@ lecture-python.myst,ifp_egm_transient_shocks,qe-fig-003,3,0,0
 lecture-python.myst,ifp_egm_transient_shocks,qe-fig-005,7,0,0
 lecture-python.myst,ifp_egm_transient_shocks,qe-fig-008,10,0,0
 lecture-python.myst,ifp_egm_transient_shocks,qe-ref-001,1,0,0
-lecture-python.myst,ifp_egm_transient_shocks,qe-writing-006,8,0,0
+lecture-python.myst,ifp_egm_transient_shocks,qe-writing-006,9,0,0
 lecture-python.myst,ifp_egm_transient_shocks,qe-writing-008,2,0,0
 lecture-python.myst,ifp_opi,qe-code-004,14,0,0
 lecture-python.myst,ifp_opi,qe-code-005,1,0,0
@@ -745,7 +746,7 @@ lecture-python.myst,inventory_q,qe-fig-008,7,0,0
 lecture-python.myst,inventory_q,qe-math-005,3,0,0
 lecture-python.myst,inventory_q,qe-math-010,3,1,0
 lecture-python.myst,inventory_q,qe-writing-001,3,0,0
-lecture-python.myst,inventory_q,qe-writing-006,2,0,0
+lecture-python.myst,inventory_q,qe-writing-006,3,0,0
 lecture-python.myst,inventory_q,qe-writing-008,1,0,0
 lecture-python.myst,jv,qe-fig-001,3,0,0
 lecture-python.myst,jv,qe-fig-003,1,0,0
@@ -905,12 +906,10 @@ lecture-python.myst,lqcontrol,qe-math-010,15,1,0
 lecture-python.myst,lqcontrol,qe-writing-001,1,0,0
 lecture-python.myst,lqcontrol,qe-writing-008,12,0,0
 lecture-python.myst,ls_learning,qe-fig-001,8,0,0
-lecture-python.myst,ls_learning,qe-fig-004,1,0,0
 lecture-python.myst,ls_learning,qe-fig-005,3,0,0
 lecture-python.myst,ls_learning,qe-fig-006,2,0,0
 lecture-python.myst,ls_learning,qe-fig-008,2,0,0
 lecture-python.myst,ls_learning,qe-math-002,6,0,0
-lecture-python.myst,ls_learning,qe-writing-006,1,0,0
 lecture-python.myst,marimon_mcgrattan_sargent,qe-fig-001,2,0,0
 lecture-python.myst,marimon_mcgrattan_sargent,qe-fig-003,4,0,0
 lecture-python.myst,marimon_mcgrattan_sargent,qe-fig-008,1,0,0
@@ -1060,6 +1059,7 @@ lecture-python.myst,newton_method,qe-fig-003,1,0,0
 lecture-python.myst,newton_method,qe-fig-005,6,0,0
 lecture-python.myst,newton_method,qe-fig-008,8,0,0
 lecture-python.myst,newton_method,qe-writing-001,2,0,0
+lecture-python.myst,newton_method,qe-writing-006,1,0,0
 lecture-python.myst,odu,qe-fig-001,7,0,0
 lecture-python.myst,odu,qe-fig-003,3,0,0
 lecture-python.myst,odu,qe-fig-005,5,0,0
@@ -1306,7 +1306,7 @@ lecture-python.myst,rs_inventory_q,qe-fig-008,9,0,0
 lecture-python.myst,rs_inventory_q,qe-math-010,5,1,0
 lecture-python.myst,rs_inventory_q,qe-writing-001,2,0,0
 lecture-python.myst,rs_inventory_q,qe-writing-004,1,0,0
-lecture-python.myst,rs_inventory_q,qe-writing-006,3,0,0
+lecture-python.myst,rs_inventory_q,qe-writing-006,4,0,0
 lecture-python.myst,rs_inventory_q,qe-writing-008,1,0,0
 lecture-python.myst,samuelson,qe-fig-001,6,0,0
 lecture-python.myst,samuelson,qe-fig-003,3,0,0
@@ -1483,7 +1483,6 @@ lecture-python-advanced.myst,BCG_incomplete_mkts,qe-fig-008,13,0,0
 lecture-python-advanced.myst,BCG_incomplete_mkts,qe-fig-010,1,0,0
 lecture-python-advanced.myst,BCG_incomplete_mkts,qe-math-011,2,1,0
 lecture-python-advanced.myst,BCG_incomplete_mkts,qe-writing-001,7,0,0
-lecture-python-advanced.myst,BCG_incomplete_mkts,qe-writing-006,1,0,0
 lecture-python-advanced.myst,BCG_incomplete_mkts,qe-writing-008,41,0,0
 lecture-python-advanced.myst,additive_functionals,qe-fig-001,9,0,0
 lecture-python-advanced.myst,additive_functionals,qe-fig-003,11,0,0
@@ -2128,7 +2127,7 @@ lecture-dp,ifp_egm,qe-code-004,6,0,0
 lecture-dp,ifp_egm,qe-fig-003,1,0,0
 lecture-dp,ifp_egm,qe-fig-005,5,0,0
 lecture-dp,ifp_egm,qe-fig-008,8,0,0
-lecture-dp,ifp_egm,qe-writing-006,9,0,0
+lecture-dp,ifp_egm,qe-writing-006,10,0,0
 lecture-dp,ifp_egm,qe-writing-008,3,0,0
 lecture-dp,ifp_egm_transient_shocks,qe-code-004,6,0,0
 lecture-dp,ifp_egm_transient_shocks,qe-fig-001,1,0,0
@@ -2136,7 +2135,7 @@ lecture-dp,ifp_egm_transient_shocks,qe-fig-003,3,0,0
 lecture-dp,ifp_egm_transient_shocks,qe-fig-005,7,0,0
 lecture-dp,ifp_egm_transient_shocks,qe-fig-008,10,0,0
 lecture-dp,ifp_egm_transient_shocks,qe-ref-001,1,0,0
-lecture-dp,ifp_egm_transient_shocks,qe-writing-006,8,0,0
+lecture-dp,ifp_egm_transient_shocks,qe-writing-006,9,0,0
 lecture-dp,ifp_egm_transient_shocks,qe-writing-008,2,0,0
 lecture-dp,ifp_opi,qe-code-004,14,0,0
 lecture-dp,ifp_opi,qe-code-005,1,0,0
@@ -2153,7 +2152,7 @@ lecture-dp,inventory_q,qe-fig-008,7,0,0
 lecture-dp,inventory_q,qe-math-005,3,0,0
 lecture-dp,inventory_q,qe-math-010,3,1,0
 lecture-dp,inventory_q,qe-writing-001,3,0,0
-lecture-dp,inventory_q,qe-writing-006,2,0,0
+lecture-dp,inventory_q,qe-writing-006,3,0,0
 lecture-dp,inventory_q,qe-writing-008,1,0,0
 lecture-dp,jv,qe-fig-001,3,0,0
 lecture-dp,jv,qe-fig-003,1,0,0
@@ -2242,7 +2241,7 @@ lecture-dp,mccall_q,qe-fig-008,7,0,0
 lecture-dp,mccall_q,qe-ref-001,1,0,0
 lecture-dp,mccall_q,qe-writing-001,1,0,0
 lecture-dp,mccall_q,qe-writing-004,1,0,0
-lecture-dp,mccall_q,qe-writing-006,5,0,0
+lecture-dp,mccall_q,qe-writing-006,6,0,0
 lecture-dp,mccall_q,qe-writing-008,83,0,0
 lecture-dp,odu,qe-fig-001,7,0,0
 lecture-dp,odu,qe-fig-003,3,0,0
@@ -2323,7 +2322,7 @@ lecture-dp,rs_inventory_q,qe-fig-008,9,0,0
 lecture-dp,rs_inventory_q,qe-math-010,5,1,0
 lecture-dp,rs_inventory_q,qe-writing-001,2,0,0
 lecture-dp,rs_inventory_q,qe-writing-004,1,0,0
-lecture-dp,rs_inventory_q,qe-writing-006,3,0,0
+lecture-dp,rs_inventory_q,qe-writing-006,4,0,0
 lecture-dp,rs_inventory_q,qe-writing-008,1,0,0
 lecture-dp,short_path,qe-fig-002,4,0,0
 lecture-dp,short_path,qe-fig-005,4,0,0

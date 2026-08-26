@@ -5,14 +5,14 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.1 / 10
+- **Overall score:** 8.0 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 3.5/10 | `qe-writing-006` ×9; `qe-writing-003` ×2; `qe-writing-002` ×4, +2 more. |
+| Writing      | 3/10  | `qe-writing-006` ×10; `qe-writing-003` ×2; `qe-writing-002` ×4, +2 more. |
 | Math         | 9/10  | `qe-math-009` ×7. |
 | Code         | 7.5/10 | `qe-code-001` ×3; `qe-code-004` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
@@ -31,7 +31,7 @@ _None found._
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 476, 695, 710, 789, 906. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 8. *Lines:* 479, 480, 697, 698, 731, 733, 797, 798. *Example:* plot() without lw=.
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 7. *Lines:* 120, 145, 167, 211, 222, 322, 387. *Example:* `\mathsf Z` and `\mathsf S` used decoratively for the exogenous state support and the state space: 120, 145 (both symbols), 167, 211, 222, 322 and 387. Plain $Z$ and $S$ would carry the same meaning; neither sans-serif symbol reaches the code, where the same objects are `z_grid` and the `(a, z)` pair, and the lecture already writes $\mathbb{R}_+$, $\Pi$ and $\sigma$ without any face decoration.
-- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 9. *Lines:* 73, 165, 207, 251, 325, 340, 488, 495, 767. *Example:* H2 Title Case: 'The Household Problem' (Household, Problem).
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 10. *Lines:* 73, 80, 165, 207, 251, 325, 340, 488, 495, 767. *Example:* H2 Title Case: 'The Household Problem' (Household, Problem).
 
 ### Medium severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 3. *Lines:* 576, 731, 780. *Example:* line 576 has trailing whitespace after `compute_c(jnp.arange(1, len(s)))` (W291); line 731 writes `+ y_bar(k) , label=label` with a space before the comma (E203); line 780 writes `β ** (1/γ)` with spaces around the exponentiation operator, while line 784 two lines below writes `β**(1 / γ)` - the rule asks for the tight `a**b` form, and the two adjacent lines should at least agree with each other.

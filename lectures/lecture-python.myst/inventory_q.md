@@ -12,7 +12,7 @@
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 3/10  | `qe-writing-006` ×2; `qe-writing-001` ×3; `qe-writing-005` ×4, +4 more. |
+| Writing      | 3/10  | `qe-writing-006` ×3; `qe-writing-001` ×3; `qe-writing-005` ×4, +4 more. |
 | Math         | 6/10  | `qe-math-010` (proposed) ×3; `qe-math-005` ×3. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
@@ -29,7 +29,7 @@ _None found._
 ### High severity
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 7. *Lines:* 379, 684, 685, 691, 692, 730, 740. *Example:* plot() without lw=.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 3. *Lines:* 143, 415, 432. *Example:* missing braces: `\mathbb E`.
-- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 2. *Lines:* 76, 154. *Example:* H2 Title Case: 'The Model' (Model).
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 3. *Lines:* 76, 154, 394. *Example:* H2 Title Case: 'The Model' (Model).
 
 ### Medium severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 682, 721. *Example:* figsize=.

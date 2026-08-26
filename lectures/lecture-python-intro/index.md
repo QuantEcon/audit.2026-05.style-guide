@@ -7,9 +7,9 @@ Style audit of the **lecture-python-intro** series.
 - **Corpus snapshot:** `a12d17c0ef`
 - **Lectures audited:** 56
 - **Average overall score:** 8.4 / 10
-- **Average per-category scores:** writing 6.3, math 8.7, code 8.4, figures 6.5, references 9.3, links 9.7, admon 10.0
+- **Average per-category scores:** writing 6.2, math 8.7, code 8.3, figures 6.5, references 9.3, links 9.7, admon 10.0
 - **JAX:** out of scope — the `qe-jax-*` rules target `lecture-jax`.
-- **Judgment-review coverage:** **33 of 56 reviewed** — scores for the unreviewed 23 reflect the 41 measured rules only, so they are not directly comparable with the reviewed ones.
+- **Judgment-review coverage:** **35 of 56 reviewed** — scores for the unreviewed 21 reflect the 41 measured rules only, so they are not directly comparable with the reviewed ones.
 <!-- /qe:series-meta -->
 
 <!-- qe:series-narrative -->
@@ -31,9 +31,9 @@ notation debt to work through.
 <!-- qe:series-priority -->
 | Priority | Count | % |
 |----------|-------|---|
-| HIGH     | 12    | 21.4% |
+| HIGH     | 14    | 25.0% |
 | MEDIUM   | 0     | 0.0% |
-| LOW      | 20    | 35.7% |
+| LOW      | 18    | 32.1% |
 | NONE     | 24    | 42.9% |
 <!-- /qe:series-priority -->
 
@@ -49,9 +49,9 @@ Ranked by how many of the series' lectures each rule reaches.
 5. **`qe-writing-001`** — Use one sentence per paragraph — **30 / 56** lectures, 53 occurrences.
 6. **`qe-writing-004`** — Avoid unnecessary capitalization in narrative text — **18 / 56** lectures, 40 occurrences.
 7. **`qe-fig-004`** — Caption formatting conventions — **17 / 56** lectures, 69 occurrences.
-8. **`qe-fig-003`** — No matplotlib embedded titles — **15 / 56** lectures, 36 occurrences.
-9. **`qe-ref-001`** — Use correct citation style — **15 / 56** lectures, 48 occurrences.
-10. **`qe-writing-006`** — Capitalize lecture titles properly — **15 / 56** lectures, 33 occurrences.
+8. **`qe-writing-006`** — Capitalize lecture titles properly — **16 / 56** lectures, 34 occurrences.
+9. **`qe-fig-003`** — No matplotlib embedded titles — **15 / 56** lectures, 36 occurrences.
+10. **`qe-ref-001`** — Use correct citation style — **15 / 56** lectures, 48 occurrences.
 <!-- /qe:series-systemic -->
 
 ## Clean across the series
@@ -99,27 +99,27 @@ that lecture. Click a lecture for its full report.
 |---|---------|---|---|---|---|---|---|---|---------|----------|
 | 1 | [geom_series](geom_series.md) | 3 | 8.5 | 7.5 | 4 | — | 10 | 10 | **7.2** | HIGH |
 | 2 | [linear_equations](linear_equations.md) | 5.5 | 6.5 | 7.5 | 6 | — | 7.5 | 10 | **7.2** | LOW |
-| 3 | [french_rev](french_rev.md) | 3 | 10 | 7.5 | 3 | 7.5 | 10 | 10 | **7.3** | HIGH |
-| 4 | [business_cycle](business_cycle.md) | 6 | — | 6.5 | 7 | — | 10 | — | **7.4** | LOW |
-| 5 | [eigen_I](eigen_I.md) | 3.5 | 10 | 7.5 | 3.5 | — | 10 | 10 | **7.4** | HIGH |
-| 6 | [heavy_tails](heavy_tails.md) | 6 | 5.5 | 6.5 | 5 | 10 | 9 | 10 | **7.4** | LOW |
-| 7 | [inflation_history](inflation_history.md) | 3 | 10 | 6 | 4.5 | 8.5 | 10 | 10 | **7.4** | HIGH |
-| 8 | [markov_chains_I](markov_chains_I.md) | 6 | 3 | 7 | 7.5 | 9 | 9 | 10 | **7.4** | HIGH |
-| 9 | [greek_square](greek_square.md) | 4 | 7.5 | 7 | 6.5 | 9 | 10 | 10 | **7.7** | HIGH |
-| 10 | [bivariate_dist](bivariate_dist.md) | 6.5 | 5.5 | 7.5 | 5 | 10 | 10 | 10 | **7.8** | LOW |
-| 11 | [inequality](inequality.md) | 4 | 9 | 6.5 | 5 | 10 | 10 | 10 | **7.8** | HIGH |
-| 12 | [intro_supply_demand](intro_supply_demand.md) | 4.5 | 10 | 7.5 | 6.5 | — | 8 | 10 | **7.8** | LOW |
-| 13 | [lln_clt](lln_clt.md) | 8 | 4 | 7.5 | 8 | — | 9 | 10 | **7.8** | HIGH |
-| 14 | [long_run_growth](long_run_growth.md) | 5 | — | 7.5 | 6 | 8.5 | 10 | 10 | **7.8** | LOW |
-| 15 | [complex_and_trig](complex_and_trig.md) | 3 | 9.5 | 7 | 5.5 | 10 | 10 | 10 | **7.9** | HIGH |
-| 16 | [equalizing_difference](equalizing_difference.md) | 5 | 8 | 7.5 | 5.5 | 9 | 10 | 10 | **7.9** | LOW |
-| 17 | [laffer_adaptive](laffer_adaptive.md) | 4 | 10 | 7 | 6 | 8.5 | 10 | 10 | **7.9** | HIGH |
-| 18 | [lake_model](lake_model.md) | 4.5 | 10 | 7.5 | 5.5 | — | 10 | 10 | **7.9** | LOW |
-| 19 | [networks](networks.md) | 6 | 6.5 | 9 | 5.5 | 8.5 | 10 | 10 | **7.9** | LOW |
-| 20 | [ar1_processes](ar1_processes.md) | 6 | 7.5 | 6.5 | 7 | 9 | 10 | 10 | **8.0** | LOW |
-| 21 | [lp_intro](lp_intro.md) | 3.5 | 6.5 | 7.5 | 8.5 | 10 | 10 | 10 | **8.0** | HIGH |
-| 22 | [cons_smooth](cons_smooth.md) | 4.5 | 10 | 7.5 | 6 | 9 | 10 | 10 | **8.1** | LOW |
-| 23 | [time_series_with_matrices](time_series_with_matrices.md) | 5 | 6.5 | 10 | 7 | 10 | 8 | 10 | **8.1** | LOW |
+| 3 | [networks](networks.md) | 4 | 6 | 6.5 | 5.5 | 8.5 | 10 | 10 | **7.2** | HIGH |
+| 4 | [french_rev](french_rev.md) | 3 | 10 | 7.5 | 3 | 7.5 | 10 | 10 | **7.3** | HIGH |
+| 5 | [business_cycle](business_cycle.md) | 6 | — | 6.5 | 7 | — | 10 | — | **7.4** | LOW |
+| 6 | [eigen_I](eigen_I.md) | 3.5 | 10 | 7.5 | 3.5 | — | 10 | 10 | **7.4** | HIGH |
+| 7 | [heavy_tails](heavy_tails.md) | 6 | 5.5 | 6.5 | 5 | 10 | 9 | 10 | **7.4** | LOW |
+| 8 | [inflation_history](inflation_history.md) | 3 | 10 | 6 | 4.5 | 8.5 | 10 | 10 | **7.4** | HIGH |
+| 9 | [markov_chains_I](markov_chains_I.md) | 6 | 3 | 7 | 7.5 | 9 | 9 | 10 | **7.4** | HIGH |
+| 10 | [time_series_with_matrices](time_series_with_matrices.md) | 3 | 6 | 7.5 | 7 | 10 | 8 | 10 | **7.4** | HIGH |
+| 11 | [greek_square](greek_square.md) | 4 | 7.5 | 7 | 6.5 | 9 | 10 | 10 | **7.7** | HIGH |
+| 12 | [bivariate_dist](bivariate_dist.md) | 6.5 | 5.5 | 7.5 | 5 | 10 | 10 | 10 | **7.8** | LOW |
+| 13 | [inequality](inequality.md) | 4 | 9 | 6.5 | 5 | 10 | 10 | 10 | **7.8** | HIGH |
+| 14 | [intro_supply_demand](intro_supply_demand.md) | 4.5 | 10 | 7.5 | 6.5 | — | 8 | 10 | **7.8** | LOW |
+| 15 | [lln_clt](lln_clt.md) | 8 | 4 | 7.5 | 8 | — | 9 | 10 | **7.8** | HIGH |
+| 16 | [long_run_growth](long_run_growth.md) | 5 | — | 7.5 | 6 | 8.5 | 10 | 10 | **7.8** | LOW |
+| 17 | [complex_and_trig](complex_and_trig.md) | 3 | 9.5 | 7 | 5.5 | 10 | 10 | 10 | **7.9** | HIGH |
+| 18 | [equalizing_difference](equalizing_difference.md) | 5 | 8 | 7.5 | 5.5 | 9 | 10 | 10 | **7.9** | LOW |
+| 19 | [laffer_adaptive](laffer_adaptive.md) | 4 | 10 | 7 | 6 | 8.5 | 10 | 10 | **7.9** | HIGH |
+| 20 | [lake_model](lake_model.md) | 4.5 | 10 | 7.5 | 5.5 | — | 10 | 10 | **7.9** | LOW |
+| 21 | [ar1_processes](ar1_processes.md) | 6 | 7.5 | 6.5 | 7 | 9 | 10 | 10 | **8.0** | LOW |
+| 22 | [lp_intro](lp_intro.md) | 3.5 | 6.5 | 7.5 | 8.5 | 10 | 10 | 10 | **8.0** | HIGH |
+| 23 | [cons_smooth](cons_smooth.md) | 4.5 | 10 | 7.5 | 6 | 9 | 10 | 10 | **8.1** | LOW |
 | 24 | [cagan_adaptive](cagan_adaptive.md) | 5 | 10 | 7 | 6.5 | 9 | 10 | 10 | **8.2** | LOW |
 | 25 | [mle](mle.md) | 5 | 10 | 7 | 7.5 | — | 10 | 10 | **8.2** | LOW |
 | 26 | [eigen_II](eigen_II.md) | 4.5 | 9.5 | 7.5 | — | 9 | 10 | 10 | **8.4** | LOW |
@@ -147,8 +147,8 @@ that lecture. Click a lecture for its full report.
 | 48 | [commod_price](commod_price.md) | 7.5 | 10 | 9 | 8 | 10 | 10 | 10 | **9.2** | NONE |
 | 49 | [prob_dist](prob_dist.md) | 9.5 | 7.5 | 10 | 8.5 | — | 10 | 10 | **9.2** | NONE |
 | 50 | [observed_distributions](observed_distributions.md) | 8.5 | 10 | 10 | 7 | 10 | 10 | 10 | **9.4** | NONE |
-| 51 | [supply_demand_heterogeneity](supply_demand_heterogeneity.md) | 9 | 10 | 8.5 | — | — | 10 | 10 | **9.5** | NONE |
-| 52 | [schelling](schelling.md) | 9.5 | 10 | 10 | 8.5 | 10 | 9 | 10 | **9.6** | NONE |
+| 51 | [schelling](schelling.md) | 8 | 10 | 10 | 8.5 | 10 | 9 | 10 | **9.4** | NONE |
+| 52 | [supply_demand_heterogeneity](supply_demand_heterogeneity.md) | 9 | 10 | 8.5 | — | — | 10 | 10 | **9.5** | NONE |
 | 53 | [short_path](short_path.md) | 10 | 10 | 10 | 8 | — | 10 | 10 | **9.7** | NONE |
 | 54 | [intro](intro.md) | 10 | — | — | — | — | 10 | — | **10.0** | NONE |
 | 55 | [status](status.md) | 10 | — | — | — | — | 10 | — | **10.0** | NONE |

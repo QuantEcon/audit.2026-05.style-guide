@@ -12,7 +12,7 @@
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 3.5/10 | `qe-writing-006` ×8; `qe-writing-003` ×2; `qe-writing-002` ×4, +1 more. |
+| Writing      | 3.5/10 | `qe-writing-006` ×9; `qe-writing-003` ×2; `qe-writing-002` ×4, +1 more. |
 | Math         | 9.5/10 | `qe-math-009` ×1. |
 | Code         | 7.5/10 | `qe-code-001` ×4; `qe-code-004` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
@@ -30,7 +30,7 @@ _None found._
 - **[qe-code-004]** — Use quantecon Timer context manager. *Count:* 6. *Lines:* 590, 592, 595, 598, 601, 604. *Example:* time.time(.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 7. *Lines:* 365, 616, 631, 795, 933, 982, 1048. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 10. *Lines:* 368, 369, 618, 619, 656, 658, 937, 944, 994, 1068. *Example:* plot() without lw=.
-- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 8. *Lines:* 59, 174, 189, 377, 384, 814, 821, 894. *Example:* H2 Title Case: 'The Household Problem' (Household, Problem).
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 9. *Lines:* 59, 69, 174, 189, 377, 384, 814, 821, 894. *Example:* H2 Title Case: 'The Household Problem' (Household, Problem).
 
 ### Medium severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 4. *Lines:* 656, 842, 848, 862. *Example:* line 656 writes `+ y_bar(k) , label=label` with a space before the comma (E203); line 842 writes `jnp.arange(1, n+1)` unspaced while line 843 directly below writes `(n + 1) / n` spaced; line 848 writes `p: float=0.01`, which needs spaces around `=` on an annotated parameter (E252), where 514 in the same file gets it right; line 862 leaves trailing whitespace after `return wealth_top / wealth_total` (W291, also at 309, 473, 638-639).

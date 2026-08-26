@@ -29,7 +29,7 @@ _None found._
 ### High severity
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 5. *Lines:* 415, 481, 566, 571, 692. *Example:* plot() without lw=.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 1. *Lines:* 271. *Example:* `^T` transpose in `R^T`.
-- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 2. *Lines:* 78, 303. *Example:* H2 Title Case: 'Monetary-Fiscal Policy' (Policy).
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 2. *Lines:* 78, 303. *Example:* H2 Title Case: 'Monetary-Fiscal Policy' (Monetary-Fiscal, Policy).
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 31. *Lines:* 21, 24, 26, 28, 39, 41, 91, 115, 123, 153, …. *Example:* 2 spaces.
 
 ### Medium severity

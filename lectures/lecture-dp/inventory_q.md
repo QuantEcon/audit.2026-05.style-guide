@@ -12,7 +12,7 @@
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 4/10  | `qe-writing-006` ×2; `qe-writing-001` ×3; `qe-writing-005` ×4, +3 more. |
+| Writing      | 4/10  | `qe-writing-006` ×3; `qe-writing-001` ×3; `qe-writing-005` ×4, +3 more. |
 | Math         | 5.5/10 | `qe-math-010` (proposed) ×3; `qe-math-005` ×3; `qe-math-009` ×3. |
 | Code         | 7.5/10 | `qe-code-001` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
@@ -30,7 +30,7 @@ _None found._
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 6. *Lines:* 212, 218, 365, 376, 627, 660. *Example:* `X[t+1]` (365) and `n_steps=n+1` (660) omit the spaces around `+` that the same file uses in `K - x + 1` (246, 291, 576, 620), and `n[x, a] ** 0.51` (627) adds spaces around `**` where line 215 writes `(1 - p)**d` - PEP8 and this rule both prefer the tight form. The closing bracket of `create_sdd_inventory_model` sits at indent 4 against a hanging indent of 8 (212, E124), there is trailing whitespace at 218, and `plot_ts` (376-388) reads `σ_star` and `p` out of the module namespace rather than taking them as arguments, which is why the function cannot be reused for the snapshot policies and the panel loop at 736-742 duplicates it.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 7. *Lines:* 380, 685, 686, 692, 693, 730, 739. *Example:* plot() without lw=.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 3. *Lines:* 143, 416, 433. *Example:* missing braces: `\mathbb E`.
-- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 2. *Lines:* 76, 154. *Example:* H2 Title Case: 'The Model' (Model).
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 3. *Lines:* 76, 154, 395. *Example:* H2 Title Case: 'The Model' (Model).
 
 ### Medium severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 683, 722. *Example:* figsize=.

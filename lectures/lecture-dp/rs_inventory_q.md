@@ -12,7 +12,7 @@
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 5/10  | `qe-writing-006` ×3; `qe-writing-001` ×2; `qe-writing-004` ×1, +1 more. |
+| Writing      | 5/10  | `qe-writing-006` ×4; `qe-writing-001` ×2; `qe-writing-004` ×1, +1 more. |
 | Math         | 6.5/10 | `qe-math-010` (proposed) ×5. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
@@ -30,7 +30,7 @@ _None found._
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 7. *Lines:* 318, 323, 360, 692, 699, 727, 736. *Example:* .set_title.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 9. *Lines:* 312, 313, 358, 687, 688, 694, 695, 725, 734. *Example:* plot() without lw=.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 5. *Lines:* 66, 84, 418, 461, 479. *Example:* missing braces: `\mathbb E`.
-- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 3. *Lines:* 59, 124, 368. *Example:* H2 Title Case: 'The Model' (Model).
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 4. *Lines:* 59, 124, 368, 405. *Example:* H2 Title Case: 'The Model' (Model).
 
 ### Medium severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 4. *Lines:* 308, 348, 685, 717. *Example:* figsize=.
@@ -53,7 +53,7 @@ _None found._
 ## Recommended actions
 
 1. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (5 occurrences).
-2. `qe-writing-006` — Capitalize lecture titles properly (3 occurrences).
+2. `qe-writing-006` — Capitalize lecture titles properly (4 occurrences).
 3. `qe-fig-003` — No matplotlib embedded titles (7 occurrences).
 4. `qe-writing-001` — Use one sentence per paragraph (2 occurrences).
 5. `qe-fig-005` — Descriptive figure names for cross-referencing (4 occurrences).

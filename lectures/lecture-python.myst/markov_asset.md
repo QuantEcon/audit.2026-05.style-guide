@@ -31,7 +31,7 @@ _None found._
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 6. *Lines:* 313, 403, 617, 863, 1027, 1113. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 1. *Lines:* 377. *Example:* apostrophe transpose `)'`.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 19. *Lines:* 110, 115, 117, 133, 155, 163, 170, 188, 292, 346, …. *Example:* missing braces: `\mathbb E`.
-- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 18. *Lines:* 94, 119, 148, 177, 193, 206, 237, 270, 333, 433, …. *Example:* H3 Title Case: 'Risk-Neutral Pricing' (Pricing).
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 18. *Lines:* 94, 119, 148, 177, 193, 206, 237, 270, 333, 433, …. *Example:* H3 Title Case: 'Risk-Neutral Pricing' (Risk-Neutral, Pricing).
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 32. *Lines:* 56, 136, 140, 166, 168, 171, 202, 204, 341, 385, …. *Example:* 2 spaces.
 
 ### Medium severity

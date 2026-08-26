@@ -53,6 +53,10 @@ PROPER_NOUNS = {
     "solow", "hamiltonian", "hamilton", "samuelson", "nash", "dubins", "cagan",
     "sargent", "sims", "hansen", "jagannathan", "jacobi", "newton", "raphson", "taylor",
     "student",                      # Gosset's pen name: "Student-t", "Student's t"
+    # Surnames that appear only inside hyphenated compounds in headings, which
+    # ``_is_proper`` can clear only when *every* part is listed.
+    "modigliani", "miller", "litterman", "porteus", "tallarini", "backus", "chernov",
+    "bray", "savin", "eckart", "young",
     "cauchy", "schwarz", "hilbert", "banach", "lyapunov", "sylvester", "cholesky",
     "frobenius", "perron", "chebyshev", "bernoulli", "poisson", "cobb", "douglas",
     "koopmans", "cass", "diamond", "arrow", "debreu", "walras", "walrasian",
@@ -198,6 +202,17 @@ def check_writing_006(doc: Doc):
         offenders = []
         for seg in segments:
             words = re.findall(r"[A-Za-z][A-Za-z'\u2019\-]*", seg)
+            # Sentence case allows the *first* word a capital, so it is skipped — but
+            # that also skipped the capital *inside* a hyphenated first word.
+            # ``## Root-Finding in one dimension`` wants ``Root-finding``, and
+            # ``Set-Up`` and ``Q-Learning`` are the same shape. Only the parts after
+            # the first are judged, and only when the whole compound is not a name.
+            if words and not _is_proper(words[0]) and not words[0].isupper():
+                head = re.split(r"[-\u2013\u2014]", words[0])
+                if len(head) > 1 and any(
+                        re.fullmatch(r"[A-Z][a-z'\u2019]+", part) and not _is_proper(part)
+                        for part in head[1:]):
+                    offenders.append(words[0])
             for w in words[1:]:
                 if _is_proper(w) or w.isupper():
                     continue

@@ -5,14 +5,14 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 9.6 / 10
+- **Overall score:** 9.4 / 10
 - **Priority:** NONE
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 9.5/10 | `qe-writing-008` ×1. |
+| Writing      | 8/10  | `qe-writing-006` ×1; `qe-writing-008` ×1. |
 | Math         | 10/10 | no mechanical violations detected. |
 | Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
@@ -27,7 +27,7 @@
 _None found._
 
 ### High severity
-_None found._
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 1. *Lines:* 79. *Example:* H3 Title Case: 'Set-Up' (Set-Up).
 
 ### Medium severity
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 250. *Example:* .set_title.
@@ -40,7 +40,7 @@ _None found._
 
 ## Strengths
 
-- Writing, Math, Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- Math, Code, References, Links, Admonitions score 9 or above — no material violations measured in those categories.
 - No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
 - No `qe-admon-003` violations — Use tick count management for nested directives.
 - No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
@@ -48,7 +48,8 @@ _None found._
 
 ## Recommended actions
 
-1. `qe-link-002` — Use doc links for cross-series references (1 occurrence).
-2. `qe-fig-003` — No matplotlib embedded titles (1 occurrence).
-3. `qe-fig-008` — Use lw=2 for line charts (3 occurrences).
-4. `qe-writing-008` — Remove excessive whitespace between words (1 occurrence).
+1. `qe-writing-006` — Capitalize lecture titles properly (1 occurrence).
+2. `qe-link-002` — Use doc links for cross-series references (1 occurrence).
+3. `qe-fig-003` — No matplotlib embedded titles (1 occurrence).
+4. `qe-fig-008` — Use lw=2 for line charts (3 occurrences).
+5. `qe-writing-008` — Remove excessive whitespace between words (1 occurrence).

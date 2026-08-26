@@ -12,7 +12,7 @@
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 3/10  | `qe-writing-006` ×5; `qe-writing-002` ×5; `qe-writing-005` ×3, +5 more. |
+| Writing      | 3/10  | `qe-writing-006` ×6; `qe-writing-002` ×5; `qe-writing-005` ×3, +5 more. |
 | Math         | 9.5/10 | `qe-math-009` ×4. |
 | Code         | 7/10  | `qe-code-001` ×17. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
@@ -31,7 +31,7 @@ _None found._
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 5. *Lines:* 136, 225, 627, 648, 673. *Example:* figsize=.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 7. *Lines:* 137, 212, 628, 629, 649, 674, 685. *Example:* plot() without lw=.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 5. *Lines:* 42, 245, 264, 298, 459. *Example:* lines 42-51 spend five separate paragraphs establishing that what Q-learning learns is a Q-table, including 'But it is something that is closely affiliated with it' (47) and 'Sometimes a Q-function or Q-table is called a quality-function or quality-table' (51), before the definition arrives. Four sentences are broken as written: 'A **quality function** $Q$ map state-action pairs into optimal values. / They are tightly linked...' (245-247, singular subject, plural pronoun, missing verb agreement); 'equals the maximum value of that a previously unemployed worker' (264); 'This fact provides us with an / an alternative' (298-299, doubled word across the line break); 'Either draw a new state $w'$ if required or else take existing wage if and update the Q-table again' (459). Four words are misspelled: 'illegitmate' (329), 'previos' (477), 'prematurally' (734), 'algorthm' (749).
-- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 5. *Lines:* 85, 242, 316, 707, 747. *Example:* H2 Title Case: 'Review of McCall Model' (Model).
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 6. *Lines:* 85, 242, 316, 373, 707, 747. *Example:* H2 Title Case: 'Review of McCall Model' (Model).
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 83. *Lines:* 28, 33, 36, 38, 44, 51, 56, 58, 64, 66, …. *Example:* 2 spaces.
 
 ### Medium severity

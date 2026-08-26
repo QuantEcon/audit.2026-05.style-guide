@@ -12,7 +12,7 @@
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 4/10  | `qe-writing-006` ×8; `qe-writing-002` ×3; `qe-writing-003` ×1, +2 more. |
+| Writing      | 4/10  | `qe-writing-006` ×9; `qe-writing-002` ×3; `qe-writing-003` ×1, +2 more. |
 | Math         | 10/10 | no mechanical violations detected. |
 | Code         | 7.5/10 | `qe-code-001` ×4; `qe-code-004` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
@@ -30,7 +30,7 @@ _None found._
 - **[qe-code-004]** — Use quantecon Timer context manager. *Count:* 6. *Lines:* 590, 592, 595, 598, 601, 604. *Example:* time.time(.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 7. *Lines:* 365, 616, 631, 795, 933, 982, 1048. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 10. *Lines:* 368, 369, 618, 619, 656, 658, 937, 944, 994, 1068. *Example:* plot() without lw=.
-- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 8. *Lines:* 59, 174, 189, 377, 384, 814, 821, 894. *Example:* H2 Title Case: 'The Household Problem' (Household, Problem).
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 9. *Lines:* 59, 69, 174, 189, 377, 384, 814, 821, 894. *Example:* H2 Title Case: 'The Household Problem' (Household, Problem).
 
 ### Medium severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 4. *Lines:* 267, 656, 730, 848. *Example:* line 267 closes a hanging-indent signature with `    ) -> np.ndarray:` at 4 spaces, leaving arguments at body indent (E121/E125); the pattern recurs at 331, 435, 516, 713, 758 and 849. Line 656 puts a space before the comma in `+ y_bar(k) , label=label` (E203). Lines 730 and 774 bind lambdas to names where PEP8 asks for `def` (E731), and 770 and 774 are dead locals into the bargain. Line 848 writes the annotated default without spaces, `p: float=0.01` (E252). Trailing whitespace at 309, 473, 638, 639 and 862.

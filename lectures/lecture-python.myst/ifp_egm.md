@@ -12,7 +12,7 @@
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 3.5/10 | `qe-writing-006` ×9; `qe-writing-003` ×2; `qe-writing-002` ×3, +1 more. |
+| Writing      | 3/10  | `qe-writing-006` ×10; `qe-writing-003` ×2; `qe-writing-002` ×3, +1 more. |
 | Math         | 9.5/10 | `qe-math-009` ×2. |
 | Code         | 7.5/10 | `qe-code-001` ×4; `qe-code-004` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
@@ -30,7 +30,7 @@ _None found._
 - **[qe-code-004]** — Use quantecon Timer context manager. *Count:* 6. *Lines:* 669, 671, 674, 677, 680, 683. *Example:* time.time(.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 5. *Lines:* 476, 695, 710, 789, 906. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 8. *Lines:* 479, 480, 697, 698, 731, 733, 797, 798. *Example:* plot() without lw=.
-- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 9. *Lines:* 73, 165, 207, 251, 325, 340, 488, 495, 767. *Example:* H2 Title Case: 'The Household Problem' (Household, Problem).
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 10. *Lines:* 73, 80, 165, 207, 251, 325, 340, 488, 495, 767. *Example:* H2 Title Case: 'The Household Problem' (Household, Problem).
 
 ### Medium severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 4. *Lines:* 396, 408, 576, 731. *Example:* line 396 closes a hanging-indent signature with `    ) -> np.ndarray:` at 4 spaces, leaving the arguments at body indent (E121/E125); the pattern recurs at 442, 537, 597, 830 and 869. Lambdas are bound to names in eleven places, which PEP8 rules out in favour of `def` (408-410, 549-551, 713, 843-844, 885; E731). Line 576 leaves trailing whitespace, and line 731 puts a space before the comma in `+ y_bar(k) , label=label` (E203).

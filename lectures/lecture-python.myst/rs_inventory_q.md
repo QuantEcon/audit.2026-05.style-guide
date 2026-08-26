@@ -12,7 +12,7 @@
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 3/10  | `qe-writing-006` ×3; `qe-writing-005` ×8; `qe-writing-001` ×2, +5 more. |
+| Writing      | 3/10  | `qe-writing-006` ×4; `qe-writing-005` ×8; `qe-writing-001` ×2, +5 more. |
 | Math         | 6.5/10 | `qe-math-010` (proposed) ×5. |
 | Code         | 7.5/10 | `qe-code-001` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
@@ -32,7 +32,7 @@ _None found._
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 9. *Lines:* 312, 313, 358, 687, 688, 694, 695, 726, 736. *Example:* plot() without lw=.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 5. *Lines:* 66, 84, 418, 461, 479. *Example:* missing braces: `\mathbb E`.
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 8. *Lines:* 381, 387, 395, 434, 439, 517, 522, 533. *Example:* the file contains no bold definition at all and fourteen bold emphases. Eight are plain emphasis that the rule assigns to italic: **deterministic** (381), **revenue** (387), **caps the randomness of revenue** (395-396), **decreasing** (439), **minimum** (440), **positive** (517), **minimize** (518), **power** (522). Six more are whole-phrase bold used as pseudo-headings inside the prose and inside a numbered list: **Step 1.** (434), **Step 2.** (455), **Initialize** (533), **At each step:** (535), **Extract the greedy policy** (547), **Compare** (549). Meanwhile the terms actually being defined go unmarked - "certainty equivalent" (115, 120, 165), "Q-factor" (412), "optimistic initialization" (551), "risk-sensitivity parameter" (113) - and the one place the italic marker is used, 557 (*minimizes*, *below*), is correct emphasis, so the file has the two markers exactly the wrong way round.
-- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 3. *Lines:* 59, 124, 368. *Example:* H2 Title Case: 'The Model' (Model).
+- **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 4. *Lines:* 59, 124, 368, 405. *Example:* H2 Title Case: 'The Model' (Model).
 
 ### Medium severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 4. *Lines:* 308, 347, 685, 717. *Example:* figsize=.
