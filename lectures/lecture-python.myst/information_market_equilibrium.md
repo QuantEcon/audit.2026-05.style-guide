@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 4/10  | `qe-writing-005` ×5; `qe-writing-009` (proposed) ×2; `qe-writing-003` ×2, +4 more. |
 | Math         | 4/10  | `qe-math-010` (proposed) ×7; `qe-math-002` ×4; `qe-math-009` ×3. |
-| Code         | 7/10  | `qe-code-002` ×3; `qe-code-001` ×4. |
+| Code         | 7/10  | `qe-code-002` ×2; `qe-code-001` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7.5/10 | `qe-fig-005` ×3; `qe-fig-001` ×9. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -34,7 +34,7 @@ _None found._
 
 ### Medium severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 4. *Lines:* 1082, 1275, 1389, 1414. *Example:* 1082 pads `palette   = plt.cm.Blues(...)` with extra spaces before `=` to align with the line above (PEP8 E221); 1389 has two spaces after a comma inside a list literal, `[("Easy",  2.0, 1.2), ("Hard", 2.0, 1.8)]` (E241); 1414 leaves a trailing space after `fontsize=11` inside the `set_title` call; and 1275 re-imports `brentq` from `scipy.optimize` in an exercise-solution cell although it is already imported at 112, which is the only import statement in the file that is not in the opening cell.
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 3. *Lines:* 548, 702. *Example:* spelled-out `rho`.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 2. *Lines:* 702. *Example:* spelled-out `alpha`.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 1274, 1382, 1459. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 3. *Lines:* 762, 791, 1221. *Example:* three symbols carry unrelated meanings in the same lecture. $P$ is a subjective probability measure ($P^i$, 137), a probability ($P(\bar a = a_s \mid \tilde y = y)$, 192), a probability indexed by structure ($P_\lambda$, 768) and, at 759-762, "any measurable price set $P$" - while the set of realized prices is written $\mathcal{P}$ (286), so the lecture has a plain and a calligraphic $P$ both meaning sets of prices plus $P$ meaning probability. $\mu$ is the insider's posterior over states through the whole first half (186-441) and then, from 791 on, an equivalence class of structural parameters, with $\mu_1$ and $\mu_2$ at 933 being reduced forms rather than posteriors. $W$ is the endowment set $W(P)$ at 762 and agent wealth at 522 and 1221. Each of the three could be renamed once and the collision disappears.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 1367. *Example:* 2 sentences in one paragraph.

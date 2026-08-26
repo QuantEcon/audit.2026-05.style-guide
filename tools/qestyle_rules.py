@@ -884,10 +884,20 @@ def check_code_002(doc: Doc):
             for part in m.group(1).split(","):
                 part = part.strip().split()[0] if part.strip() else ""
                 imported.add(part.rsplit(".", 1)[-1])
+    # ``_strip_py`` must see a whole cell: the docstring regexes are multi-line, so an
+    # *interior* line of a triple-quoted string carries no quote characters and stripping
+    # it alone masks nothing. All 11 hits in ``von_neumann_model`` were English words in
+    # numpydoc prose, in a lecture whose code already uses ``α``/``β``/``γ``.
+    # ``check_code_003`` already strips per cell; this now matches it. ``_strip_py``
+    # preserves line structure, so the stripped body lines up with the raw one.
+    masked_code = {}
+    for start, lines in _code_cells(doc):
+        for off, ml in enumerate(_strip_py("\n".join(lines)).split("\n")):
+            masked_code[start + off] = ml
     for l in doc.lines:
         if l.kind != "code":
             continue
-        s = _strip_py(l.raw)
+        s = masked_code.get(l.no, _strip_py(l.raw))
         drawing = l.no in drawing_lines or bool(STYLE_KWARG.search(s))
         for m in GREEK_RE.finditer(s):
             word = m.group(1)

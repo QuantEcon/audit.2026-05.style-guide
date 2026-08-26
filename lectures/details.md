@@ -35,12 +35,12 @@ category.
 <!-- qe:full-scoreboard -->
 | # | Series | Lectures | Writing | Math | Code | Figures | References | Links | Admon | **Overall** | HIGH | MEDIUM | LOW | NONE |
 |---|--------|----------|---|---|---|---|---|---|---|-------------|------|--------|-----|------|
-| 1 | [lecture-python-advanced.myst](lecture-python-advanced.myst/index.md) | 68 | **4.6** | 5.9 | 7.3 | 6.3 | 9.2 | 9.2 | 10.0 | **7.4** | 44 | 0 | 19 | 5 |
+| 1 | [lecture-python-advanced.myst](lecture-python-advanced.myst/index.md) | 68 | **4.6** | 5.9 | 7.4 | 6.3 | 9.2 | 9.2 | 10.0 | **7.4** | 44 | 0 | 19 | 5 |
 | 2 | [lecture-dp](lecture-dp/index.md) | 52 | **5.6** | 6.8 | 8.1 | 6.4 | 9.3 | 9.5 | 10.0 | **7.9** | 28 | 0 | 12 | 12 |
 | 3 | [lecture-python-programming](lecture-python-programming/index.md) | 27 | **4.1** | 9.0 | 8.5 | 7.3 | N/A | 9.8 | 9.9 | **8.1** | 19 | 0 | 5 | 3 |
-| 4 | [lecture-python.myst](lecture-python.myst/index.md) | 145 | **5.8** | 7.2 | 8.5 | 6.5 | 9.6 | 9.8 | 10.0 | **8.1** | 55 | 1 | 43 | 46 |
+| 4 | [lecture-python.myst](lecture-python.myst/index.md) | 145 | **5.7** | 7.2 | 8.4 | 6.5 | 9.6 | 9.8 | 10.0 | **8.1** | 57 | 1 | 40 | 47 |
 | 5 | [lecture-python-intro](lecture-python-intro/index.md) | 56 | **6.3** | 8.7 | 8.3 | 6.5 | 9.3 | 9.7 | 10.0 | **8.4** | 12 | 0 | 20 | 24 |
-|   | **TOTAL / corpus average** | **348** | **5.5** | **7.2** | **8.2** | **6.5** | **9.4** | **9.6** | **10.0** | **8.0** | **158** | **1** | **99** | **90** |
+|   | **TOTAL / corpus average** | **348** | **5.4** | **7.2** | **8.1** | **6.5** | **9.4** | **9.6** | **10.0** | **8.0** | **160** | **1** | **96** | **91** |
 <!-- /qe:full-scoreboard -->
 
 See the [charts](charts.md) for the visual version.
@@ -84,8 +84,8 @@ reach. Rules tagged **(proposed)** are documented in the style guide but not yet
 ### 10. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (105 / 348 lectures, 339 occurrences)
 - `lecture-python.myst` 43 / 145 · `lecture-python-advanced.myst` 24 / 68 · `lecture-python-intro` 18 / 56 · `lecture-dp` 14 / 52 · `lecture-python-programming` 6 / 27
 
-### 11. `qe-code-002` — Use Unicode symbols for Greek letters in code (89 / 348 lectures, 475 occurrences)
-- `lecture-python.myst` 41 / 145 · `lecture-python-advanced.myst` 21 / 68 · `lecture-dp` 19 / 52 · `lecture-python-intro` 8 / 56
+### 11. `qe-code-002` — Use Unicode symbols for Greek letters in code (85 / 348 lectures, 447 occurrences)
+- `lecture-python.myst` 38 / 145 · `lecture-python-advanced.myst` 20 / 68 · `lecture-dp` 19 / 52 · `lecture-python-intro` 8 / 56
 
 ### 12. `qe-link-002` — Use doc links for cross-series references (73 / 348 lectures, 205 occurrences)
 - `lecture-python-advanced.myst` 26 / 68 · `lecture-python.myst` 20 / 145 · `lecture-dp` 15 / 52 · `lecture-python-intro` 9 / 56 · `lecture-python-programming` 3 / 27
@@ -190,10 +190,13 @@ HIGH lecture was triggered by the category floor; none has an overall at or belo
 | dp | [cons_news](lecture-dp/cons_news.md) | 3.0 | 4.5 | 7.0 | 6.0 | 10.0 | 7.5 | — | **6.3** | 3.0 |
 | advanced | [cons_news](lecture-python-advanced.myst/cons_news.md) | 3.0 | 4.5 | 7.0 | 6.0 | 10.0 | 7.5 | — | **6.3** | 3.0 |
 | advanced | [entropy](lecture-python-advanced.myst/entropy.md) | 3.0 | 3.0 | — | 8.5 | 8.5 | 8.5 | — | **6.3** | 3.0 |
-| advanced | [rob_markov_perf](lecture-python-advanced.myst/rob_markov_perf.md) | 3.5 | 4.0 | 6.0 | 8.0 | 9.0 | 7.5 | — | **6.3** | 3.5 |
 | advanced | [asset_pricing_lph](lecture-python-advanced.myst/asset_pricing_lph.md) | 3.0 | 3.0 | 5.5 | 7.5 | 8.5 | 7.5 | 10.0 | **6.4** | 3.0 |
+| advanced | [rob_markov_perf](lecture-python-advanced.myst/rob_markov_perf.md) | 3.5 | 4.0 | 6.5 | 8.0 | 9.0 | 7.5 | — | **6.4** | 3.5 |
 | python.myst | [perm_income_cons](lecture-python.myst/perm_income_cons.md) | 3.0 | 4.0 | 7.0 | 5.5 | 10.0 | 9.0 | — | **6.4** | 3.0 |
+| python.myst | [rs_inventory_q](lecture-python.myst/rs_inventory_q.md) | 3.0 | 6.5 | 7.5 | 5.0 | — | 10.0 | — | **6.4** | 3.0 |
+| python.myst | [two_computation](lecture-python.myst/two_computation.md) | 5.5 | 3.0 | 7.0 | 3.0 | 10.0 | 10.0 | — | **6.4** | 3.0 |
 | advanced | [black_litterman](lecture-python-advanced.myst/black_litterman.md) | 3.0 | 3.0 | 7.0 | 4.0 | 10.0 | 8.5 | 10.0 | **6.5** | 3.0 |
+| python.myst | [multivariate_normal](lecture-python.myst/multivariate_normal.md) | 3.0 | 3.0 | 7.5 | 5.5 | — | 10.0 | 10.0 | **6.5** | 3.0 |
 | advanced | [additive_functionals](lecture-python-advanced.myst/additive_functionals.md) | 5.5 | 3.5 | 7.0 | 3.5 | 9.0 | 7.5 | 10.0 | **6.6** | 3.5 |
 | advanced | [dyn_stack](lecture-python-advanced.myst/dyn_stack.md) | 3.5 | 4.0 | 6.5 | 4.5 | 10.0 | 7.5 | 10.0 | **6.6** | 3.5 |
 | python.myst | [likelihood_ratio_process](lecture-python.myst/likelihood_ratio_process.md) | 3.0 | 3.0 | 7.0 | 3.5 | 10.0 | 10.0 | 10.0 | **6.6** | 3.0 |
@@ -202,28 +205,33 @@ HIGH lecture was triggered by the category floor; none has an overall at or belo
 | advanced | [robustness](lecture-python-advanced.myst/robustness.md) | 3.0 | 3.0 | 7.0 | 6.5 | 10.0 | 7.5 | 10.0 | **6.7** | 3.0 |
 | python.myst | [lagrangian_lqdp](lecture-python.myst/lagrangian_lqdp.md) | 3.0 | 3.0 | 6.5 | — | 10.0 | 7.5 | 10.0 | **6.7** | 3.0 |
 | python.myst | [linear_models](lecture-python.myst/linear_models.md) | 3.0 | 3.0 | 7.5 | 7.5 | — | 9.0 | 10.0 | **6.7** | 3.0 |
+| python.myst | [stats_examples](lecture-python.myst/stats_examples.md) | 3.0 | 4.5 | 7.0 | 6.5 | — | 10.0 | 10.0 | **6.8** | 3.0 |
 | dp | [dyn_stack](lecture-dp/dyn_stack.md) | 4.0 | 5.0 | 7.0 | 4.5 | 10.0 | 7.5 | 10.0 | **6.9** | 4.0 |
 | dp | [ifp_advanced](lecture-dp/ifp_advanced.md) | 3.0 | 3.0 | 6.5 | 7.0 | 8.5 | 10.0 | 10.0 | **6.9** | 3.0 |
 | python.myst | [ifp_advanced](lecture-python.myst/ifp_advanced.md) | 3.0 | 3.0 | 7.0 | 7.0 | 8.5 | 10.0 | 10.0 | **6.9** | 3.0 |
 | python.myst | [linear_algebra](lecture-python.myst/linear_algebra.md) | 3.0 | 4.5 | 7.5 | 5.5 | 10.0 | 7.5 | 10.0 | **6.9** | 3.0 |
 | python.myst | [markov_asset](lecture-python.myst/markov_asset.md) | 3.0 | 4.5 | 7.5 | 6.5 | 9.0 | 8.0 | 10.0 | **6.9** | 3.0 |
+| python.myst | [misspecified_recovery](lecture-python.myst/misspecified_recovery.md) | 3.0 | 3.0 | 6.0 | 6.5 | 10.0 | 10.0 | 10.0 | **6.9** | 3.0 |
 | dp | [smoothing](lecture-dp/smoothing.md) | 6.5 | 3.0 | 10.0 | 5.0 | 10.0 | 7.5 | — | **7.0** | 3.0 |
 | advanced | [cagan_rational_expectations](lecture-python-advanced.myst/cagan_rational_expectations.md) | 5.5 | 3.0 | 6.5 | 5.5 | 8.5 | 10.0 | 10.0 | **7.0** | 3.0 |
 | advanced | [calvo](lecture-python-advanced.myst/calvo.md) | 3.0 | 5.5 | 7.0 | 7.0 | 8.5 | 8.0 | 10.0 | **7.0** | 3.0 |
 | advanced | [smoothing_tax](lecture-python-advanced.myst/smoothing_tax.md) | 4.0 | 4.5 | 7.5 | 4.0 | 10.0 | 9.0 | 10.0 | **7.0** | 4.0 |
+| python.myst | [perm_income](lecture-python.myst/perm_income.md) | 3.0 | 4.0 | 7.5 | 6.0 | 8.5 | 10.0 | 10.0 | **7.0** | 3.0 |
 | python.myst | [wald_friedman_2](lecture-python.myst/wald_friedman_2.md) | 3.0 | 6.0 | 7.5 | 5.0 | 9.0 | 8.5 | 10.0 | **7.0** | 3.0 |
 | dp | [calvo](lecture-dp/calvo.md) | 3.0 | 5.5 | 7.5 | 7.0 | 8.5 | 8.0 | 10.0 | **7.1** | 3.0 |
 | dp | [discrete_dp](lecture-dp/discrete_dp.md) | 4.0 | 7.0 | 6.5 | 6.0 | 9.0 | 7.0 | 10.0 | **7.1** | 4.0 |
 | advanced | [BCG_incomplete_mkts](lecture-python-advanced.myst/BCG_incomplete_mkts.md) | 3.0 | 7.5 | 7.5 | 4.5 | 10.0 | 10.0 | — | **7.1** | 3.0 |
 | advanced | [calvo_machine_learn](lecture-python-advanced.myst/calvo_machine_learn.md) | 3.5 | 3.0 | 5.5 | 8.0 | 10.0 | 10.0 | 10.0 | **7.1** | 3.0 |
 | advanced | [stationary_densities](lecture-python-advanced.myst/stationary_densities.md) | 4.0 | 6.0 | 7.0 | 6.0 | 9.0 | 7.5 | 10.0 | **7.1** | 4.0 |
-| advanced | [subjective_beliefs_business_cycles](lecture-python-advanced.myst/subjective_beliefs_business_cycles.md) | 3.0 | 3.0 | 7.5 | 7.0 | 9.0 | 10.0 | 10.0 | **7.1** | 3.0 |
 | programming | [about_py](lecture-python-programming/about_py.md) | 3.0 | — | 10.0 | 7.5 | — | 8.0 | — | **7.1** | 3.0 |
 | python.myst | [finite_markov](lecture-python.myst/finite_markov.md) | 3.0 | 3.5 | 8.0 | 6.5 | 10.0 | 9.0 | 10.0 | **7.1** | 3.0 |
 | python.myst | [lq_inventories](lecture-python.myst/lq_inventories.md) | 3.0 | 3.0 | 7.0 | 7.0 | 10.0 | 10.0 | 10.0 | **7.1** | 3.0 |
+| python.myst | [prob_meaning](lecture-python.myst/prob_meaning.md) | 3.0 | 7.5 | 7.5 | 4.5 | — | 10.0 | 10.0 | **7.1** | 3.0 |
+| python.myst | [sargent_surico](lecture-python.myst/sargent_surico.md) | 5.5 | 5.5 | 4.5 | 4.0 | 10.0 | 10.0 | 10.0 | **7.1** | 4.0 |
 | dp | [inventory_q](lecture-dp/inventory_q.md) | 4.0 | 5.5 | 7.5 | 6.0 | 10.0 | 10.0 | — | **7.2** | 4.0 |
 | advanced | [lucas_asset_pricing_dles](lecture-python-advanced.myst/lucas_asset_pricing_dles.md) | 5.5 | 4.0 | 8.5 | 7.0 | 8.5 | 10.0 | — | **7.2** | 4.0 |
 | advanced | [permanent_income_dles](lecture-python-advanced.myst/permanent_income_dles.md) | 4.0 | 7.5 | 7.5 | 8.0 | 8.5 | 8.0 | — | **7.2** | 4.0 |
+| advanced | [subjective_beliefs_business_cycles](lecture-python-advanced.myst/subjective_beliefs_business_cycles.md) | 3.0 | 3.0 | 8.5 | 7.0 | 9.0 | 10.0 | 10.0 | **7.2** | 3.0 |
 | intro | [geom_series](lecture-python-intro/geom_series.md) | 3.0 | 8.5 | 7.5 | 4.0 | — | 10.0 | 10.0 | **7.2** | 3.0 |
 | programming | [python_by_example](lecture-python-programming/python_by_example.md) | 3.0 | 9.0 | 7.5 | 6.5 | — | 10.0 | 7.5 | **7.2** | 3.0 |
 | dp | [amss](lecture-dp/amss.md) | 3.5 | 3.5 | 8.0 | 6.0 | 10.0 | 10.0 | 10.0 | **7.3** | 3.5 |
@@ -239,9 +247,8 @@ HIGH lecture was triggered by the category floor; none has an overall at or belo
 | python.myst | [ge_arrow](lecture-python.myst/ge_arrow.md) | 3.0 | 3.0 | 7.5 | 7.5 | 10.0 | 10.0 | 10.0 | **7.3** | 3.0 |
 | python.myst | [imp_sample](lecture-python.myst/imp_sample.md) | 4.5 | 4.0 | 10.0 | 8.0 | — | 10.0 | — | **7.3** | 4.0 |
 | python.myst | [mccall_model](lecture-python.myst/mccall_model.md) | 3.0 | 7.0 | 7.0 | 6.0 | 10.0 | 8.0 | 10.0 | **7.3** | 3.0 |
-| python.myst | [multivariate_normal](lecture-python.myst/multivariate_normal.md) | 5.5 | 3.0 | 10.0 | 5.5 | — | 10.0 | 10.0 | **7.3** | 3.0 |
-| python.myst | [two_computation](lecture-python.myst/two_computation.md) | 9.0 | 3.0 | 9.0 | 3.0 | 10.0 | 10.0 | — | **7.3** | 3.0 |
-| python.myst | [von_neumann_model](lecture-python.myst/von_neumann_model.md) | 3.0 | 5.5 | 7.0 | 7.0 | 8.5 | 10.0 | 10.0 | **7.3** | 3.0 |
+| python.myst | [opt_transport](lecture-python.myst/opt_transport.md) | 3.0 | 3.0 | 7.0 | 8.0 | 10.0 | 10.0 | 10.0 | **7.3** | 3.0 |
+| python.myst | [von_neumann_model](lecture-python.myst/von_neumann_model.md) | 3.0 | 5.0 | 7.5 | 7.0 | 8.5 | 10.0 | 10.0 | **7.3** | 3.0 |
 | advanced | [BCG_complete_mkts](lecture-python-advanced.myst/BCG_complete_mkts.md) | 3.0 | 7.5 | 7.0 | 6.0 | 10.0 | 8.0 | 10.0 | **7.4** | 3.0 |
 | advanced | [classical_filtering](lecture-python-advanced.myst/classical_filtering.md) | 4.5 | 3.5 | 10.0 | — | 8.5 | 8.0 | 10.0 | **7.4** | 3.5 |
 | advanced | [lqramsey](lecture-python-advanced.myst/lqramsey.md) | 4.0 | 3.0 | 7.5 | 7.0 | 10.0 | 10.0 | 10.0 | **7.4** | 3.0 |
@@ -262,7 +269,6 @@ HIGH lecture was triggered by the category floor; none has an overall at or belo
 | programming | [numpy](lecture-python-programming/numpy.md) | 3.0 | 8.0 | 7.0 | 7.0 | — | 10.0 | 10.0 | **7.5** | 3.0 |
 | python.myst | [information_market_equilibrium](lecture-python.myst/information_market_equilibrium.md) | 4.0 | 4.0 | 7.0 | 7.5 | 10.0 | 10.0 | 10.0 | **7.5** | 4.0 |
 | python.myst | [inventory_q](lecture-python.myst/inventory_q.md) | 3.0 | 6.0 | 10.0 | 6.0 | 10.0 | 10.0 | — | **7.5** | 3.0 |
-| python.myst | [perm_income](lecture-python.myst/perm_income.md) | 3.5 | 4.5 | 10.0 | 6.0 | 8.5 | 10.0 | 10.0 | **7.5** | 3.5 |
 | dp | [mccall_q](lecture-dp/mccall_q.md) | 3.0 | 9.5 | 7.0 | 7.0 | 9.0 | 10.0 | — | **7.6** | 3.0 |
 | advanced | [amss2](lecture-python-advanced.myst/amss2.md) | 3.5 | 10.0 | 7.5 | 6.0 | 8.5 | 10.0 | — | **7.6** | 3.5 |
 | advanced | [calvo_abreu](lecture-python-advanced.myst/calvo_abreu.md) | 4.0 | 8.5 | 5.5 | 9.0 | 8.5 | 10.0 | — | **7.6** | 4.0 |
@@ -272,9 +278,6 @@ HIGH lecture was triggered by the category floor; none has an overall at or belo
 | programming | [matplotlib](lecture-python-programming/matplotlib.md) | 4.0 | 10.0 | 7.0 | 4.5 | — | 10.0 | 10.0 | **7.6** | 4.0 |
 | programming | [numba](lecture-python-programming/numba.md) | 3.0 | 7.5 | 8.5 | 7.5 | — | 9.0 | 10.0 | **7.6** | 3.0 |
 | python.myst | [cass_fiscal](lecture-python.myst/cass_fiscal.md) | 3.0 | 9.0 | 7.5 | 4.0 | 10.0 | 10.0 | 10.0 | **7.6** | 3.0 |
-| python.myst | [misspecified_recovery](lecture-python.myst/misspecified_recovery.md) | 6.0 | 3.0 | 7.5 | 6.5 | 10.0 | 10.0 | 10.0 | **7.6** | 3.0 |
-| python.myst | [prob_meaning](lecture-python.myst/prob_meaning.md) | 3.5 | 7.5 | 10.0 | 4.5 | — | 10.0 | 10.0 | **7.6** | 3.5 |
-| python.myst | [sargent_surico](lecture-python.myst/sargent_surico.md) | 8.0 | 5.5 | 6.0 | 4.0 | 10.0 | 10.0 | 10.0 | **7.6** | 4.0 |
 | dp | [amss3](lecture-dp/amss3.md) | 3.5 | 9.0 | 8.5 | 5.5 | 7.5 | 10.0 | 10.0 | **7.7** | 3.5 |
 | dp | [chang_ramsey](lecture-dp/chang_ramsey.md) | 3.0 | 10.0 | 8.5 | 6.0 | 8.5 | 10.0 | — | **7.7** | 3.0 |
 | dp | [lqramsey](lecture-dp/lqramsey.md) | 6.5 | 3.0 | 7.5 | 7.0 | 10.0 | 10.0 | 10.0 | **7.7** | 3.0 |
@@ -282,7 +285,6 @@ HIGH lecture was triggered by the category floor; none has an overall at or belo
 | programming | [names](lecture-python-programming/names.md) | 3.0 | — | 8.5 | 7.0 | — | 10.0 | 10.0 | **7.7** | 3.0 |
 | python.myst | [back_prop](lecture-python.myst/back_prop.md) | 3.0 | 7.5 | 6.5 | 9.0 | — | 10.0 | 10.0 | **7.7** | 3.0 |
 | python.myst | [cass_koopmans_2](lecture-python.myst/cass_koopmans_2.md) | 3.0 | 9.5 | 8.5 | 6.0 | 10.0 | 7.0 | 10.0 | **7.7** | 3.0 |
-| python.myst | [hansen_singleton_1983](lecture-python.myst/hansen_singleton_1983.md) | 6.5 | 3.0 | 7.0 | 9.5 | 10.0 | 10.0 | — | **7.7** | 3.0 |
 | dp | [amss2](lecture-dp/amss2.md) | 3.5 | 10.0 | 8.5 | 6.0 | 8.5 | 10.0 | — | **7.8** | 3.5 |
 | advanced | [lu_tricks](lecture-python-advanced.myst/lu_tricks.md) | 3.0 | 6.5 | 8.5 | 8.5 | 10.0 | 8.0 | 10.0 | **7.8** | 3.0 |
 | intro | [inequality](lecture-python-intro/inequality.md) | 4.0 | 9.0 | 6.5 | 5.0 | 10.0 | 10.0 | 10.0 | **7.8** | 4.0 |
@@ -290,7 +292,6 @@ HIGH lecture was triggered by the category floor; none has an overall at or belo
 | programming | [scipy](lecture-python-programming/scipy.md) | 3.0 | 7.5 | 8.5 | 8.0 | — | 10.0 | 10.0 | **7.8** | 3.0 |
 | python.myst | [ar1_turningpts](lecture-python.myst/ar1_turningpts.md) | 3.0 | 7.5 | 8.5 | 8.0 | 10.0 | 10.0 | — | **7.8** | 3.0 |
 | python.myst | [likelihood_bayes](lecture-python.myst/likelihood_bayes.md) | 5.5 | 4.0 | 7.5 | 7.5 | 10.0 | 10.0 | 10.0 | **7.8** | 4.0 |
-| python.myst | [opt_transport](lecture-python.myst/opt_transport.md) | 4.5 | 3.0 | 9.0 | 8.0 | 10.0 | 10.0 | 10.0 | **7.8** | 3.0 |
 | python.myst | [svd_intro](lecture-python.myst/svd_intro.md) | 3.0 | 7.5 | 10.0 | 6.5 | — | 10.0 | 10.0 | **7.8** | 3.0 |
 | python.myst | [var_dmd](lecture-python.myst/var_dmd.md) | 3.0 | 9.5 | — | — | 7.5 | 9.0 | 10.0 | **7.8** | 3.0 |
 | dp | [calvo_abreu](lecture-dp/calvo_abreu.md) | 4.0 | 9.0 | 7.0 | 9.0 | 8.5 | 10.0 | — | **7.9** | 4.0 |
@@ -302,6 +303,7 @@ HIGH lecture was triggered by the category floor; none has an overall at or belo
 | intro | [laffer_adaptive](lecture-python-intro/laffer_adaptive.md) | 4.0 | 10.0 | 7.0 | 6.0 | 8.5 | 10.0 | 10.0 | **7.9** | 4.0 |
 | python.myst | [eig_circulant](lecture-python.myst/eig_circulant.md) | 3.0 | 7.5 | 10.0 | 7.0 | — | 10.0 | 10.0 | **7.9** | 3.0 |
 | python.myst | [exchangeable](lecture-python.myst/exchangeable.md) | 3.5 | 7.0 | 7.5 | 7.5 | 10.0 | 10.0 | 10.0 | **7.9** | 3.5 |
+| python.myst | [hansen_singleton_1983](lecture-python.myst/hansen_singleton_1983.md) | 6.5 | 3.0 | 8.5 | 9.5 | 10.0 | 10.0 | — | **7.9** | 3.0 |
 | python.myst | [lln_clt](lecture-python.myst/lln_clt.md) | 7.0 | 3.0 | 8.5 | 7.0 | 10.0 | 10.0 | 10.0 | **7.9** | 3.0 |
 | python.myst | [mle](lecture-python.myst/mle.md) | 7.0 | 3.0 | 10.0 | 5.5 | 10.0 | 10.0 | 10.0 | **7.9** | 3.0 |
 | dp | [jv](lecture-dp/jv.md) | 3.5 | 9.5 | 7.5 | 6.5 | 9.0 | 10.0 | 10.0 | **8.0** | 3.5 |
@@ -382,7 +384,7 @@ needs a reading pass; the third is small and structural.
     appear in both series, but only **6 are byte-identical** at this snapshot:
     `cross_product_trick`, `ifp_discrete`, `ifp_opi`, `lq_inventories`,
     `mccall_model_with_separation`, `os_numerical`. Those 6 account for 223 of the corpus's
-    18,783 findings — **1.2 % genuinely counted twice**, which is the honest size of the
+    18,755 findings — **1.2 % genuinely counted twice**, which is the honest size of the
     double-count. The other 25 share an origin and have diverged, so their findings are
     about different files even where the defect is the same. For the identical 6, fix
     upstream and both clear; for the diverged 25, each copy needs its own fix. Worth a

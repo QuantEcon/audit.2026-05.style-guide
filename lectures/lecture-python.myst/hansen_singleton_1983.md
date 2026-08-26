@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 7.7 / 10
+- **Overall score:** 7.9 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 6.5/10 | `qe-writing-002` ×4; `qe-writing-004` ×1; `qe-writing-008` ×22, +1 more. |
 | Math         | 3/10  | `qe-math-010` (proposed) ×33; `qe-math-004` ×143; `qe-math-009` ×2. |
-| Code         | 7/10  | `qe-code-002` ×3; `qe-code-001` ×3. |
+| Code         | 8.5/10 | `qe-code-001` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 9.5/10 | `qe-fig-001` ×1. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -33,7 +33,6 @@ _None found._
 
 ### Medium severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 3. *Lines:* 100, 1129, 1331. *Example:* lines 99-101 split a conditional expression across continuation lines at a 9-space indent matching neither the bracket nor a hanging indent (E128) - the same helper as in hansen_singleton_1982.md:85-87; line 1129 leaves trailing whitespace and then continues the expression at an under-indented 12 spaces (E128); and lines 1330-1331 use a backslash continuation with an over-indented second line (E127) where PEP8 asks for parentheses. The slice spacing at 412, 1351, 1352 and 1357 is correct for compound slice expressions and is left alone.
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 3. *Lines:* 471, 1317. *Example:* spelled-out `mu`.
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 2. *Lines:* 217, 1216. *Example:* $U$ is the period utility function at 124-134 and 199, and then $U_{i,t} := \log u_{it}$ at 217-222, with $\sigma_U^2$ at 311-314 belonging to the second meaning - so $U(c_t)$ and $U_{i,t}$ are unrelated objects on one letter. Similarly $R_t$ is the log return throughout while $R^2_R$ and $R^2_X$ at 1216-1229 are coefficients of determination subscripted by the same letters, giving expressions like $R_R^2$ whose two R's mean different things.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 4. *Lines:* 45, 53, 63, 1819. *Example:* the Overview carries four defects in twenty lines: 'They detect a defects in their model' (45), 'restrictions on a the joint distribution' (53), 'To keep lecture this lecture narrowly focused' (63), and the equity-premium attribution given twice, at 45 and again at 61. At the other end, '## Another approach' (1819-1825) is a two-paragraph section that repeats the hand-off to `` {doc}`hansen_singleton_1982` `` already made at 1794, and line 1788 reads 'departures from bell curve with fatter tails'.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 33. *Example:* mid-sentence 'Critique'.

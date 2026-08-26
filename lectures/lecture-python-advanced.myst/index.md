@@ -7,7 +7,7 @@ Style audit of the **lecture-python-advanced.myst** series.
 - **Corpus snapshot:** `b83d6da399`
 - **Lectures audited:** 68
 - **Average overall score:** 7.4 / 10
-- **Average per-category scores:** writing 4.6, math 5.9, code 7.3, figures 6.3, references 9.2, links 9.2, admon 10.0
+- **Average per-category scores:** writing 4.6, math 5.9, code 7.4, figures 6.3, references 9.2, links 9.2, admon 10.0
 - **JAX:** out of scope — the `qe-jax-*` rules target `lecture-jax`.
 - **Judgment-review coverage:** **66 of 68 reviewed** — scores for the unreviewed 2 reflect the 41 measured rules only, so they are not directly comparable with the reviewed ones.
 <!-- /qe:series-meta -->
@@ -110,8 +110,8 @@ that lecture. Click a lecture for its full report.
 | 8 | [tax_smoothing_2](tax_smoothing_2.md) | 5 | 3.5 | 6.5 | 4 | 8.5 | 10 | — | **6.2** | HIGH |
 | 9 | [cons_news](cons_news.md) | 3 | 4.5 | 7 | 6 | 10 | 7.5 | — | **6.3** | HIGH |
 | 10 | [entropy](entropy.md) | 3 | 3 | — | 8.5 | 8.5 | 8.5 | — | **6.3** | HIGH |
-| 11 | [rob_markov_perf](rob_markov_perf.md) | 3.5 | 4 | 6 | 8 | 9 | 7.5 | — | **6.3** | HIGH |
-| 12 | [asset_pricing_lph](asset_pricing_lph.md) | 3 | 3 | 5.5 | 7.5 | 8.5 | 7.5 | 10 | **6.4** | HIGH |
+| 11 | [asset_pricing_lph](asset_pricing_lph.md) | 3 | 3 | 5.5 | 7.5 | 8.5 | 7.5 | 10 | **6.4** | HIGH |
+| 12 | [rob_markov_perf](rob_markov_perf.md) | 3.5 | 4 | 6.5 | 8 | 9 | 7.5 | — | **6.4** | HIGH |
 | 13 | [black_litterman](black_litterman.md) | 3 | 3 | 7 | 4 | 10 | 8.5 | 10 | **6.5** | HIGH |
 | 14 | [additive_functionals](additive_functionals.md) | 5.5 | 3.5 | 7 | 3.5 | 9 | 7.5 | 10 | **6.6** | HIGH |
 | 15 | [dyn_stack](dyn_stack.md) | 3.5 | 4 | 6.5 | 4.5 | 10 | 7.5 | 10 | **6.6** | HIGH |
@@ -122,10 +122,10 @@ that lecture. Click a lecture for its full report.
 | 20 | [BCG_incomplete_mkts](BCG_incomplete_mkts.md) | 3 | 7.5 | 7.5 | 4.5 | 10 | 10 | — | **7.1** | HIGH |
 | 21 | [calvo_machine_learn](calvo_machine_learn.md) | 3.5 | 3 | 5.5 | 8 | 10 | 10 | 10 | **7.1** | HIGH |
 | 22 | [stationary_densities](stationary_densities.md) | 4 | 6 | 7 | 6 | 9 | 7.5 | 10 | **7.1** | HIGH |
-| 23 | [subjective_beliefs_business_cycles](subjective_beliefs_business_cycles.md) | 3 | 3 | 7.5 | 7 | 9 | 10 | 10 | **7.1** | HIGH |
-| 24 | [hs_invertibility_example](hs_invertibility_example.md) | 5.5 | 7 | 7.5 | 5 | 8.5 | 10 | — | **7.2** | LOW |
-| 25 | [lucas_asset_pricing_dles](lucas_asset_pricing_dles.md) | 5.5 | 4 | 8.5 | 7 | 8.5 | 10 | — | **7.2** | HIGH |
-| 26 | [permanent_income_dles](permanent_income_dles.md) | 4 | 7.5 | 7.5 | 8 | 8.5 | 8 | — | **7.2** | HIGH |
+| 23 | [hs_invertibility_example](hs_invertibility_example.md) | 5.5 | 7 | 7.5 | 5 | 8.5 | 10 | — | **7.2** | LOW |
+| 24 | [lucas_asset_pricing_dles](lucas_asset_pricing_dles.md) | 5.5 | 4 | 8.5 | 7 | 8.5 | 10 | — | **7.2** | HIGH |
+| 25 | [permanent_income_dles](permanent_income_dles.md) | 4 | 7.5 | 7.5 | 8 | 8.5 | 8 | — | **7.2** | HIGH |
+| 26 | [subjective_beliefs_business_cycles](subjective_beliefs_business_cycles.md) | 3 | 3 | 8.5 | 7 | 9 | 10 | 10 | **7.2** | HIGH |
 | 27 | [amss](amss.md) | 4 | 4 | 7 | 6 | 10 | 10 | 10 | **7.3** | HIGH |
 | 28 | [growth_in_dles](growth_in_dles.md) | 3 | 7.5 | 7.5 | 7 | 9 | 10 | — | **7.3** | HIGH |
 | 29 | [tax_smoothing_3](tax_smoothing_3.md) | 5.5 | 8.5 | 6.5 | 5 | 8.5 | 10 | — | **7.3** | LOW |

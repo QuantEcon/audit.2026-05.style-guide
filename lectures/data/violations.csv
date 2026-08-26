@@ -668,7 +668,6 @@ lecture-python.myst,hansen_singleton_1982,qe-fig-004,1,0,0
 lecture-python.myst,hansen_singleton_1982,qe-math-010,12,1,0
 lecture-python.myst,hansen_singleton_1982,qe-writing-008,1,0,0
 lecture-python.myst,hansen_singleton_1982,qe-writing-009,1,1,0
-lecture-python.myst,hansen_singleton_1983,qe-code-002,3,0,0
 lecture-python.myst,hansen_singleton_1983,qe-fig-001,1,0,0
 lecture-python.myst,hansen_singleton_1983,qe-math-004,143,0,0
 lecture-python.myst,hansen_singleton_1983,qe-math-010,33,1,0
@@ -734,7 +733,7 @@ lecture-python.myst,imp_sample,qe-math-001,3,0,0
 lecture-python.myst,imp_sample,qe-math-010,7,1,0
 lecture-python.myst,imp_sample,qe-writing-008,27,0,0
 lecture-python.myst,imp_sample,qe-writing-009,1,1,0
-lecture-python.myst,information_market_equilibrium,qe-code-002,3,0,0
+lecture-python.myst,information_market_equilibrium,qe-code-002,2,0,0
 lecture-python.myst,information_market_equilibrium,qe-fig-001,9,0,0
 lecture-python.myst,information_market_equilibrium,qe-fig-005,3,0,0
 lecture-python.myst,information_market_equilibrium,qe-math-002,4,0,0
@@ -863,7 +862,7 @@ lecture-python.myst,linear_models,qe-math-010,4,1,0
 lecture-python.myst,linear_models,qe-writing-001,2,0,0
 lecture-python.myst,linear_models,qe-writing-006,25,0,0
 lecture-python.myst,linear_models,qe-writing-008,30,0,0
-lecture-python.myst,lln_clt,qe-code-002,3,0,0
+lecture-python.myst,lln_clt,qe-code-002,2,0,0
 lecture-python.myst,lln_clt,qe-fig-001,6,0,0
 lecture-python.myst,lln_clt,qe-fig-005,6,0,0
 lecture-python.myst,lln_clt,qe-fig-008,1,0,0
@@ -905,7 +904,7 @@ lecture-python.myst,lq_robust_bewley,qe-fig-001,1,0,0
 lecture-python.myst,lq_robust_bewley,qe-fig-003,2,0,0
 lecture-python.myst,lq_robust_bewley,qe-math-002,1,0,0
 lecture-python.myst,lq_robust_bewley,qe-math-003,13,0,0
-lecture-python.myst,lq_robust_smoothing,qe-code-002,10,0,0
+lecture-python.myst,lq_robust_smoothing,qe-code-002,9,0,0
 lecture-python.myst,lq_robust_smoothing,qe-fig-001,1,0,0
 lecture-python.myst,lq_robust_smoothing,qe-fig-003,2,0,0
 lecture-python.myst,lq_robust_smoothing,qe-math-003,9,0,0
@@ -1331,7 +1330,6 @@ lecture-python.myst,rs_inventory_q,qe-writing-001,2,0,0
 lecture-python.myst,rs_inventory_q,qe-writing-004,1,0,0
 lecture-python.myst,rs_inventory_q,qe-writing-006,3,0,0
 lecture-python.myst,rs_inventory_q,qe-writing-008,1,0,0
-lecture-python.myst,samuelson,qe-code-002,6,0,0
 lecture-python.myst,samuelson,qe-fig-001,6,0,0
 lecture-python.myst,samuelson,qe-fig-003,3,0,0
 lecture-python.myst,samuelson,qe-fig-005,7,0,0
@@ -1341,7 +1339,7 @@ lecture-python.myst,samuelson,qe-link-001,1,0,0
 lecture-python.myst,samuelson,qe-link-002,1,0,0
 lecture-python.myst,samuelson,qe-ref-001,1,0,0
 lecture-python.myst,samuelson,qe-writing-008,2,0,0
-lecture-python.myst,sargent_surico,qe-code-002,89,0,0
+lecture-python.myst,sargent_surico,qe-code-002,87,0,0
 lecture-python.myst,sargent_surico,qe-code-004,8,0,0
 lecture-python.myst,sargent_surico,qe-code-005,1,0,0
 lecture-python.myst,sargent_surico,qe-fig-001,12,0,0
@@ -1453,7 +1451,6 @@ lecture-python.myst,var_subsets,qe-fig-004,3,0,0
 lecture-python.myst,var_subsets,qe-fig-005,1,0,0
 lecture-python.myst,var_subsets,qe-math-003,15,0,0
 lecture-python.myst,var_subsets,qe-writing-004,2,0,0
-lecture-python.myst,von_neumann_model,qe-code-002,11,0,0
 lecture-python.myst,von_neumann_model,qe-fig-001,1,0,0
 lecture-python.myst,von_neumann_model,qe-fig-003,2,0,0
 lecture-python.myst,von_neumann_model,qe-fig-005,1,0,0
@@ -1918,7 +1915,7 @@ lecture-python-advanced.myst,risk_aversion_or_mistaken_beliefs,qe-math-011,18,1,
 lecture-python-advanced.myst,risk_aversion_or_mistaken_beliefs,qe-writing-001,2,0,0
 lecture-python-advanced.myst,risk_aversion_or_mistaken_beliefs,qe-writing-008,5,0,0
 lecture-python-advanced.myst,risk_aversion_or_mistaken_beliefs,qe-writing-009,1,1,0
-lecture-python-advanced.myst,rob_markov_perf,qe-code-002,6,0,0
+lecture-python-advanced.myst,rob_markov_perf,qe-code-002,4,0,0
 lecture-python-advanced.myst,rob_markov_perf,qe-fig-001,3,0,0
 lecture-python-advanced.myst,rob_markov_perf,qe-fig-005,3,0,0
 lecture-python-advanced.myst,rob_markov_perf,qe-link-002,6,0,0
@@ -1978,7 +1975,6 @@ lecture-python-advanced.myst,stationary_densities,qe-math-010,5,1,0
 lecture-python-advanced.myst,stationary_densities,qe-ref-001,1,0,0
 lecture-python-advanced.myst,stationary_densities,qe-writing-001,4,0,0
 lecture-python-advanced.myst,stationary_densities,qe-writing-008,12,0,0
-lecture-python-advanced.myst,subjective_beliefs_business_cycles,qe-code-002,1,0,0
 lecture-python-advanced.myst,subjective_beliefs_business_cycles,qe-fig-001,5,0,0
 lecture-python-advanced.myst,subjective_beliefs_business_cycles,qe-fig-004,1,0,0
 lecture-python-advanced.myst,subjective_beliefs_business_cycles,qe-fig-005,2,0,0

@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 6.3 / 10
+- **Overall score:** 6.4 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 3.5/10 | `qe-writing-005` ×6; `qe-writing-003` ×6; `qe-writing-002` ×5, +3 more. |
 | Math         | 4/10  | `qe-math-002` ×46; `qe-math-003` ×1. |
-| Code         | 6/10  | `qe-code-002` ×6; `qe-code-001` ×8. |
+| Code         | 6.5/10 | `qe-code-001` ×8; `qe-code-002` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8/10  | `qe-fig-005` ×3; `qe-fig-001` ×3. |
 | References   | 9/10  | `qe-ref-001` ×1. |
@@ -28,7 +28,6 @@ _None found._
 
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 8. *Lines:* 559, 590, 628, 715, 791, 941. *Example:* 791 binds `n = 20` to the number of simulation periods, in a file where $n$ is the state dimension in the theory (141), in the docstring (505) and in the function body (567) - and where the loops that use it are written `range(n - 1)` (805, 817, 837). 559 and 788 build matrices with `np.asmatrix`, whose `np.matrix` type NumPy discourages and whose broadcasting rules are what let the dimension error at 828 pass silently. Four assignments have a double space after `=` (`D1P1 =  P1 + ...` at 590, 595, and `K1 =  P1 @ ...` at 827, 831). Five expressions use backslash continuations while a bracket is already open (604-605, 617-618, 619-620, 628-629, 941-944), and the two at 941-944 leave the continuation unindented at column 0 inside an open `print(...)`. 628-629 puts the continuation inside an f-string, so the raised message reads "Iteration limit of 1000             reached in nnash" - a twelve-space run, and the wrong function name inside `nnash_robust`. 715-721 pads the two `R` literals to align columns and mixes literal styles inside a single matrix: `0` beside `0.` and `-a0 / 2` beside `-a0 / 2.`. And the docstring's parameter block indents its descriptions at four different depths (504-541: 4, 8, 9 and 10 spaces).
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 6. *Lines:* 470, 495, 536, 736, 741, 797. *Example:* spelled-out `beta`.
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 6. *Lines:* 47, 64, 83, 90, 273, 320. *Example:* raw link to python-intro.quantecon.org.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 46. *Lines:* 122, 123, 124, 125, 126, 127, 157, 184, 185, 186, …. *Example:* apostrophe transpose `x_t'`.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 5. *Lines:* 68, 311, 490, 762, 900. *Example:* the two bullets at 68-69 are reproduced verbatim as the first two of the three at 76-80, eight lines later, so the characterisation of the equilibrium is half restated before the new third bullet arrives. Four sentences are broken: 309-311 "the function nnash_robust to compute a Markov perfect equilibrium ... with robust planers"; 490 "The player i also concerns about the model misspecification, and maximizes"; 762 "the firms' robust decision rules within the robust markov_perfect equilibrium", which leaks a label into prose; and 900 "firm 1's output path is substantially lower when firms are robust firms". The docstring at 476-496 also states a different problem from the lecture: it writes the matrices in lower case ($r_i$, $w_i$, $q_i$, $s_i$, $m_i$), calls the distortion $w_{it+1}$ where the lecture calls it $v_{it}$ (110, 142), puts a stray index on the state (`x_{it+1}`), and gives the entropy term as something the player *maximizes* with a positive sign, which as written is unbounded.
@@ -37,6 +36,7 @@ _None found._
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 55. *Lines:* 37, 39, 47, 61, 62, 65, 66, 69, 71, 77, …. *Example:* 2 spaces.
 
 ### Medium severity
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 4. *Lines:* 470, 736, 741, 797. *Example:* spelled-out `beta`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 858, 884, 949. *Example:* figsize=.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 857, 883, 947. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 1. *Lines:* 779. *Example:* pmatrix environment.

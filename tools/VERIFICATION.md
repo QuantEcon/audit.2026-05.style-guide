@@ -152,6 +152,26 @@ reason to distrust the corpus totals.
   alone would delete them. The real fix is author-name detection, which is the upstream
   definition question in `contributions/issues/06-…`.
 
+### `qe-code-002` was reading docstring prose as code
+
+`check_code_002` called `_strip_py(l.raw)` **one line at a time**. The docstring regexes are
+multi-line, so an *interior* line of a triple-quoted string carries no quote characters and
+stripping it in isolation masks nothing — the English and LaTeX inside numpydoc prose was
+being counted as spelled-out Greek variables. All 11 hits in `von_neumann_model` were of that
+kind, in a lecture whose code already uses `α`, `β` and `γ` correctly; `samuelson` was flagged
+for `Y_t = \alpha (1 + \beta) Y_{t-1}` written inside a docstring.
+
+`check_code_003` in the same file had always stripped per cell. This now matches it, mapping
+the stripped body back onto line numbers — safe because `_strip_py` preserves line structure,
+which is itself a fix from an earlier pass. Removed 28 occurrences across 9 lectures, reach
+89 → 85, and no other rule moved. `sargent_surico` went 89 → 87, keeping its real code hits
+(`def lucas_filter(x, beta=0.95)`).
+
+Worth noticing that this is the third distinct bug caused by looking at one line where the
+construct spans several — the others being the display-math state machine and the
+unbalanced-backtick masking. When a check consults `l.raw`, ask what the enclosing cell or
+paragraph looks like first.
+
 ### An author's stated convention beats the heuristic
 
 `var_dmd` scored 28 `qe-math-002` findings and line 75 says, in prose, *"here $'$ is part of

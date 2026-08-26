@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.1 / 10
+- **Overall score:** 7.2 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-004` ×8; `qe-writing-005` ×8; `qe-writing-002` ×5, +5 more. |
 | Math         | 3/10  | `qe-math-010` (proposed) ×38; `qe-math-002` ×40; `qe-math-009` ×3. |
-| Code         | 7.5/10 | `qe-code-001` ×2; `qe-code-002` ×1. |
+| Code         | 8.5/10 | `qe-code-001` ×2. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7/10  | `qe-fig-005` ×2; `qe-fig-004` ×1; `qe-fig-001` ×5. |
 | References   | 9/10  | `qe-ref-001` ×1. |
@@ -44,7 +44,6 @@ _None found._
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 3. *Lines:* 216, 1591, 1685. *Example:* "Role of firms' beliefs" (1591-1621) makes five quantitative claims with no figure and no code - inflation falls on impact, the inflation wedge is too small, wages fall by less, the perceived surplus stays larger, comovement weakens - in a lecture where every other claim gets its own panel, and where the machinery to show it already exists: the `irf` function (1418-1436) plus a second `NKModel` with the belief loadings on the inflation row zeroed would produce the comparison in six lines. "Extensions" (1685-1746) likewise reports thirteen numbers in running prose (0.85, 0.56, 1.49, 0.22, 0.20, 0.35, 0.51, 0.83, 0.79, 1.39, 0.77, 0.45, 0.13) where a five-row table indexed by variant would let a reader compare them. And the Carlson-Parkin inversion at 216-258 is the one step in the empirical section a reader is unlikely to have seen before - a normal cross-section of household forecasts cut by thresholds $\pm a$, with the observed shares as tail masses - and the single figure that would explain it, that density with the two cut points and the three shares shaded, is not drawn.
 
 ### Low severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 1836. *Example:* spelled-out `tau`.
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 1. *Lines:* 894. *Example:* caption of 8 words.
 - **[qe-ref-001]** — Use correct citation style. *Count:* 1. *Lines:* 1745. *Example:* `` {cite} `` in narrative flow: '`` {cite} ``'.
 - **[qe-writing-009 (proposed)]** — Write "IID" — not "i.i.d." or "iid". *Count:* 1. *Lines:* 498. *Example:* i.i.d..
