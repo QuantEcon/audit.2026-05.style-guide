@@ -1,0 +1,23 @@
+{
+  "series": "lecture-python.myst",
+  "lecture": "troubleshooting",
+  "judgment": [],
+  "strengths": [
+    "The page states its own scope in its first sentence (27, \"This page is for readers experiencing errors when running the code from the lectures\") and then states the assumption that makes troubleshooting possible at all as a two-item numbered list (31-34) - executed in a Jupyter notebook, on a machine with the latest Anaconda - so within four lines a reader can tell whether their situation is one this page addresses",
+    "The remedies are ordered by how likely each is to work, and the most likely one is named as such rather than left for the reader to infer: 38 says \"the most common source of problems for our readers is that their Anaconda distribution is not up to date\", then 40-41 links the article on updating, 43 gives the blunt fallback (\"simply remove Anaconda and reinstall\"), 45 moves on to the external libraries, 54 leaves the local machine entirely, and only 60 reaches reporting a bug",
+    "Every step is an action the reader can execute rather than a description of one, and the one distinction a beginner actually gets wrong is spelled out: 49-50 gives both forms of the upgrade command and says where each belongs - `pip install --upgrade quantecon` on the command line, `!pip install --upgrade quantecon` inside a notebook",
+    "The single image on the page (56) is the Launch Notebook icon, placed immediately after the sentence that tells the reader to click it (54) - a screenshot doing the one job prose cannot do, which is show what a button looks like",
+    "Both escalation paths point at something live rather than at an instruction to get in touch: 67 links the issue tracker of this series' own repository, and 72 is a working `mailto:` to contact@quantecon.org",
+    "The request for a bug report is specific enough to act on - 69-70 names the two things a maintainer needs (\"Tell us where the problem is and as much detail about your local set up as you can provide\") - rather than asking the reader to \"provide details\"",
+    "The prerequisite is linked at the point where a reader might be missing it (36) instead of assumed, and the register stays plain throughout: ten of the twelve content paragraphs are a single sentence, and the page carries no jargon, no math and no code cell it would have to keep working"
+  ],
+  "actions": [
+    "Lower-case the two H2 headings to sentence case per `qe-writing-006`: \"Fixing your local environment\" (29) and \"Reporting an issue\" (65)",
+    "Replace the raw URL at 36 with a `{doc}` link to the programming series' `getting_started` page, per `qe-link-002` - this is the page most likely to be reached by a reader whose environment is broken, so the cross-series link is worth having resolved rather than hard-coded",
+    "Give the `{image}` at 56 a `:name:` and `:alt:` - it is a screenshot of a button the preceding sentence tells the reader to click, so a reader using a screen reader currently gets nothing where the instruction is",
+    "Split the two sentences at 69-70 into separate paragraphs and remove the double space after \"possible.\", closing the one `qe-writing-001` and one `qe-writing-008` finding"
+  ],
+  "scanner_doubts": [
+    "No judgment findings, and this is a genuine zero rather than a light reading. All eight judgment rules were checked against this page: `qe-math-009`, `qe-math-014` and `qe-math-015` (proposed) have no site to fire on - the file contains no math environment and no `$...$` at all - and `qe-code-001` likewise has none, since there is no executable code cell (the two `pip` commands at 49-50 are inline code in a bullet list and are both correct). `qe-writing-005` is satisfied vacuously: the page introduces no term, so there is nothing that should be bold and nothing is emphasised in either weight. `qe-writing-002` and `qe-writing-003` hold on the merits - the ordering at 27-72 runs scope, assumption, most-likely cause, remedy, fallback, escape, escalate, with \"First\" and \"Second\" at 54 and 60 answering \"two things\" at 52, and every sentence carries information. On `qe-writing-007` I considered whether the key fact at 38 belongs in a `{note}` or `{important}` admonition, since the Admonitions category is `N/A` for this file; I decided against filing it - a 46-line support page whose one visual is a screenshot of the button its previous sentence names is using visual elements correctly, and turning a running sentence into an admonition here would be a preference, not a rule violation"
+  ]
+}
