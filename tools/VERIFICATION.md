@@ -72,6 +72,19 @@ would have corrupted several rules at once:
    every later directive look nested, and made `in_exercise` far too broad — which
    suppressed real `qe-fig-003` findings and invented `qe-admon-003` ones.
 6. **HTML comments were scanned.** Commented-out prose and maths never reach the page.
+8. **A `{code-cell}`'s YAML metadata block was typed as Python.** A cell may open with a
+   `---` … `---` mystnb block, and its body is options, not code:
+   `caption: Inflation spectra $f_{\pi\pi}(\omega,t)$` was scanned as Python and counted
+   as a spelled-out Greek variable. The `:key: value` option spelling was already typed
+   `option`; the block spelling was not. Fixed with a three-state flag while a code fence
+   is open. `qe-code-002` lost 41 occurrences across 13 lectures, reach 49 → 38, and no
+   other rule moved — every removal a `caption:` or `name:` line, with real code on
+   neighbouring lines kept (`robust_permanent_income` 5 → 3, `var_subsets` 38 → 37).
+
+   Note what this does *not* fix: a caption's mathematics is now in an `option` region, and
+   no math rule reads those. Six captions in that one lecture write a bare `E(...)` where
+   the prose writes `\mathbb{E}`. Whether the math rules should read caption text is a
+   scope question, not a bug, and is unresolved.
 7. **An inline-code span could run across a paragraph break.** `STREAM_CODE_RE` was
    written `` (`+)((?:[^`]|\n(?!\s*\n))*?)\1 `` — but `` [^`] `` matches a newline
    itself, so the `\n(?!\s*\n)` guard beside it was dead code and an unbalanced

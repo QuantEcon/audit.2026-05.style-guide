@@ -7,7 +7,7 @@ Style audit of the **lecture-python-intro** series.
 - **Corpus snapshot:** `a12d17c0ef`
 - **Lectures audited:** 56
 - **Average overall score:** 8.4 / 10
-- **Average per-category scores:** writing 6.3, math 8.7, code 8.3, figures 6.5, references 9.3, links 9.7, admon 10.0
+- **Average per-category scores:** writing 6.3, math 8.7, code 8.4, figures 6.5, references 9.3, links 9.7, admon 10.0
 - **JAX:** out of scope — the `qe-jax-*` rules target `lecture-jax`.
 - **Judgment-review coverage:** **33 of 56 reviewed** — scores for the unreviewed 23 reflect the 41 measured rules only, so they are not directly comparable with the reviewed ones.
 <!-- /qe:series-meta -->
@@ -133,19 +133,19 @@ that lecture. Click a lecture for its full report.
 | 34 | [money_inflation](money_inflation.md) | 7 | 8 | 10 | 6 | 10 | 10 | 10 | **8.7** | NONE |
 | 35 | [money_inflation_nonlinear](money_inflation_nonlinear.md) | 4.5 | 10 | 10 | 6.5 | 10 | 10 | 10 | **8.7** | NONE |
 | 36 | [bayes_intro](bayes_intro.md) | 7.5 | 9.5 | 10 | 5.5 | — | 10 | 10 | **8.8** | NONE |
-| 37 | [prob_dist](prob_dist.md) | 9.5 | 7.5 | 7.5 | 8.5 | — | 10 | 10 | **8.8** | NONE |
-| 38 | [simple_linear_regression](simple_linear_regression.md) | 7.5 | 9 | 10 | 6.5 | — | 10 | 9.5 | **8.8** | NONE |
-| 39 | [supply_demand_multiple_goods](supply_demand_multiple_goods.md) | 6.5 | 10 | 8.5 | 7.5 | — | 10 | 10 | **8.8** | NONE |
-| 40 | [troubleshooting](troubleshooting.md) | 8.5 | — | — | 9 | — | 9 | — | **8.8** | NONE |
-| 41 | [solow](solow.md) | 7.5 | 8.5 | 10 | 7.5 | — | 10 | 10 | **8.9** | NONE |
-| 42 | [tax_smooth](tax_smooth.md) | 6 | 10 | 10 | 6 | 10 | 10 | 10 | **8.9** | NONE |
-| 43 | [cobweb](cobweb.md) | 7.5 | 10 | 9 | 6.5 | 10 | 10 | 10 | **9.0** | NONE |
-| 44 | [pv](pv.md) | 7 | 10 | 10 | 7 | — | 10 | 10 | **9.0** | NONE |
-| 45 | [fitting_distributions](fitting_distributions.md) | 6.5 | 10 | 10 | 8 | — | 10 | 10 | **9.1** | NONE |
-| 46 | [msy_fishery](msy_fishery.md) | 7.5 | 10 | 10 | 6.5 | 10 | 10 | 10 | **9.1** | NONE |
-| 47 | [olg](olg.md) | 9.5 | 10 | 10 | 6.5 | 10 | 8 | 10 | **9.1** | NONE |
-| 48 | [scalar_dynam](scalar_dynam.md) | 7.5 | 10 | 8.5 | 8.5 | — | 10 | 10 | **9.1** | NONE |
-| 49 | [commod_price](commod_price.md) | 7.5 | 10 | 9 | 8 | 10 | 10 | 10 | **9.2** | NONE |
+| 37 | [simple_linear_regression](simple_linear_regression.md) | 7.5 | 9 | 10 | 6.5 | — | 10 | 9.5 | **8.8** | NONE |
+| 38 | [supply_demand_multiple_goods](supply_demand_multiple_goods.md) | 6.5 | 10 | 8.5 | 7.5 | — | 10 | 10 | **8.8** | NONE |
+| 39 | [troubleshooting](troubleshooting.md) | 8.5 | — | — | 9 | — | 9 | — | **8.8** | NONE |
+| 40 | [solow](solow.md) | 7.5 | 8.5 | 10 | 7.5 | — | 10 | 10 | **8.9** | NONE |
+| 41 | [tax_smooth](tax_smooth.md) | 6 | 10 | 10 | 6 | 10 | 10 | 10 | **8.9** | NONE |
+| 42 | [cobweb](cobweb.md) | 7.5 | 10 | 9 | 6.5 | 10 | 10 | 10 | **9.0** | NONE |
+| 43 | [pv](pv.md) | 7 | 10 | 10 | 7 | — | 10 | 10 | **9.0** | NONE |
+| 44 | [fitting_distributions](fitting_distributions.md) | 6.5 | 10 | 10 | 8 | — | 10 | 10 | **9.1** | NONE |
+| 45 | [msy_fishery](msy_fishery.md) | 7.5 | 10 | 10 | 6.5 | 10 | 10 | 10 | **9.1** | NONE |
+| 46 | [olg](olg.md) | 9.5 | 10 | 10 | 6.5 | 10 | 8 | 10 | **9.1** | NONE |
+| 47 | [scalar_dynam](scalar_dynam.md) | 7.5 | 10 | 8.5 | 8.5 | — | 10 | 10 | **9.1** | NONE |
+| 48 | [commod_price](commod_price.md) | 7.5 | 10 | 9 | 8 | 10 | 10 | 10 | **9.2** | NONE |
+| 49 | [prob_dist](prob_dist.md) | 9.5 | 7.5 | 10 | 8.5 | — | 10 | 10 | **9.2** | NONE |
 | 50 | [observed_distributions](observed_distributions.md) | 8.5 | 10 | 10 | 7 | 10 | 10 | 10 | **9.4** | NONE |
 | 51 | [supply_demand_heterogeneity](supply_demand_heterogeneity.md) | 9 | 10 | 8.5 | — | — | 10 | 10 | **9.5** | NONE |
 | 52 | [schelling](schelling.md) | 9.5 | 10 | 10 | 8.5 | 10 | 9 | 10 | **9.6** | NONE |

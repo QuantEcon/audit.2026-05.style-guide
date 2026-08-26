@@ -19,7 +19,7 @@ are LOW or NONE.
 | Attention | Series | Score | Needs work | Weakest categories |
 |-----------|--------|-------|-----------|--------------------|
 | 🔴 **High** | [lecture-python-advanced.myst](lecture-python-advanced.myst/index.md) | 7.5 | 44 / 68 | Writing (4.6), Math (5.9) |
-| 🟠 **Some** | [lecture-python.myst](lecture-python.myst/index.md) | 8.0 | 70 / 145 | Writing (5.3), Figures (6.5) |
+| 🟠 **Some** | [lecture-python.myst](lecture-python.myst/index.md) | 7.9 | 72 / 145 | Writing (5.2), Figures (6.5) |
 | 🔴 **High** | [lecture-dp](lecture-dp/index.md) | 8.0 | 28 / 52 | Writing (5.6), Figures (6.4) |
 | 🔴 **High** | [lecture-python-programming](lecture-python-programming/index.md) | 8.1 | 19 / 27 | Writing (4.1), Figures (7.3) |
 | 🟠 **Some** | [lecture-python-intro](lecture-python-intro/index.md) | 8.4 | 12 / 56 | Writing (6.3), Figures (6.5) |
@@ -91,8 +91,8 @@ of the lectures rather than of the method. See the
 [trend chart](charts.md#change-since-the-previous-pass) for every rule.
 
 The corpus grew from 300 to 348 lectures. Of the 35 rules measurable in both snapshots,
-**27 improved as a share of the corpus, 4 held level and 4 got worse.** The four largest
-improvements and all four regressions:
+**28 improved as a share of the corpus, 4 held level and 3 got worse.** The four largest
+improvements and all three regressions:
 
 | Direction | Rule | Share of corpus |
 |-----------|------|-----------------|
@@ -103,14 +103,11 @@ improvements and all four regressions:
 | 🔴 Worsening | `qe-fig-004` — caption formatting conventions | 9% → 19% |
 | 🔴 Worsening | `qe-fig-001` — do not set figure size unless necessary | 62% → 64% |
 | 🔴 Worsening | `qe-fig-003` — no matplotlib embedded titles | 46% → 47% |
-| 🔴 Worsening | `qe-code-002` — Unicode Greek letters in code | 13% → 14% |
 
-Three of the four regressions are in Figures, and for the same reason: new lectures add
-figures faster than the figure conventions are applied to them. Only `qe-fig-004` moved
-materially — it doubled because the newer lectures do add captions, which is progress, but
-write them in Title Case and over the six-word limit. The other two drifted by under three
-points, and `qe-code-002` by under one, which is inside the noise of a corpus that grew by
-48 lectures.
+All three regressions are in Figures, and for the same reason: new lectures add figures
+faster than the figure conventions are applied to them. Only `qe-fig-004` moved materially
+— it doubled because the newer lectures do add captions, which is progress, but write them
+in Title Case and over the six-word limit. The other two drifted by under three points.
 
 ---
 
@@ -130,10 +127,10 @@ violation was measured in it*, not that a human declared it perfect.
 ```{warning}
 <!-- qe:review-coverage -->
 **Review coverage is incomplete in this pass, and it moves the scores.** The judgment
-layer has reached **259 of the 348 lectures**; a lecture assessed against more rules
+layer has reached **269 of the 348 lectures**; a lecture assessed against more rules
 scores lower — not because it is worse, but because more of it was looked at. The gap is
-large enough to matter: the 259 reviewed average **7.65** with 64 % HIGH, the 89
-unreviewed **8.83** with 8 % HIGH.
+large enough to matter: the 269 reviewed average **7.66** with 62 % HIGH, the 79
+unreviewed **8.89** with 8 % HIGH.
 <!-- /qe:review-coverage -->
 
 So **the cross-series comparison below is provisional** wherever coverage differs between

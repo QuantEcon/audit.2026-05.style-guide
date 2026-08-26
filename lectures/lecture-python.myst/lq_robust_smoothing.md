@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.1 / 10
+- **Overall score:** 8.4 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 5.5/10 | `qe-writing-005` ×6; `qe-writing-002` ×4; `qe-writing-003` ×1, +1 more. |
 | Math         | 7.5/10 | `qe-math-003` ×9. |
-| Code         | 6.5/10 | `qe-code-002` ×9; `qe-code-001` ×3. |
+| Code         | 8.5/10 | `qe-code-001` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7.5/10 | `qe-fig-003` ×2; `qe-fig-001` ×1. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -27,7 +27,6 @@
 _None found._
 
 ### High severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 9. *Lines:* 551, 552, 553, 554, 739, 940. *Example:* spelled-out `beta`.
 - **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 9. *Lines:* 105, 107, 108, 110, 111, 133, 136, 222, 469. *Example:* pmatrix environment.
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 6. *Lines:* 189, 622, 768, 862, 1036, 1048. *Example:* bold is used for emphasis in places the lecture elsewhere italicises, and the clearest evidence is internal: line 491 writes *more persistent* in italic and line 1036 writes **more persistent** in bold, the same two words making the same point. The other five are **conditional means** (189), the whole bolded sentence at 622, the bolded question at 862, and **high-frequency** / **Low-frequency** (768, 772) and **do** (1048). The lecture's genuine definitions are bolded correctly and abundantly (75-77, 187, 191, 203, 292, 433, 473, 864, 866), and its emphases are italicised correctly eighteen times, so this is drift rather than a missing convention.
 

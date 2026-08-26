@@ -239,6 +239,7 @@ def lex(path: str, series: str) -> Doc:
                 doc.lines.append(Line(no, raw, "raw", tuple(f.directive for f in stack)))
                 if "-->" in raw:
                     in_html_comment = False
+                    cell_meta = None      # a ``{code-cell}``'s leading ``---`` YAML block
                 continue
             if "<!--" in raw and "-->" not in raw[raw.index("<!--"):]:
                 in_html_comment = True
@@ -297,6 +298,10 @@ def lex(path: str, series: str) -> Doc:
                 if directive:
                     open_blocks.append([no, name, arg, opts, []])
                 stack.append(fence)
+                # A ``{code-cell}`` may open with a ``---`` YAML metadata block. Its body
+                # is options, not Python: ``caption: … $f(\omega,t)$ …`` was being scanned
+                # as code and counted as a spelled-out Greek variable.
+                cell_meta = "pending" if body_kind(fence.directive) == "code" else None
                 doc.lines.append(Line(no, raw, "fence", tuple(f.directive for f in stack)))
                 continue
 
@@ -304,6 +309,14 @@ def lex(path: str, series: str) -> Doc:
             if open_blocks:
                 open_blocks[-1][4].append(raw)
             kind = body_kind(top.directive)
+            if cell_meta == "pending":
+                cell_meta = "in" if raw.strip() == "---" else None
+            elif cell_meta == "in" and raw.strip() == "---":
+                cell_meta = "closing"
+            if cell_meta in ("in", "closing"):
+                kind = "option"
+                if cell_meta == "closing":
+                    cell_meta = None
             if kind == "math":
                 math_dir_buf.append(raw)
             doc.lines.append(

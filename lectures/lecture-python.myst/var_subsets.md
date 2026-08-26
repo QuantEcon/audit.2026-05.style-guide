@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 6.5/10 | `qe-writing-004` ×2; `qe-writing-003` ×3; `qe-writing-007` ×3. |
 | Math         | 7/10  | `qe-math-003` ×15. |
-| Code         | 5/10  | `qe-code-002` ×38; `qe-code-001` ×6. |
+| Code         | 5/10  | `qe-code-002` ×37; `qe-code-001` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5/10  | `qe-fig-003` ×6; `qe-fig-004` ×3; `qe-fig-005` ×1, +1 more. |
 | References   | N/A   | no citations in this lecture. |
@@ -28,7 +28,7 @@ _None found._
 
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 6. *Lines:* 666, 673, 847, 851, 917, 1215. *Example:* `l` is the loop variable at 847, 863 and 1214 (`for l in range(P_lags + 1)`), one of the three single characters PEP8 names explicitly as never to use because it is indistinguishable from `1` - and here it sits inside slice arithmetic, `eps_sim[P_lags - l:T - l]`, which is exactly where the confusion bites. Exponentiation is spaced at 851, 867 and 893 (`((target - fit) ** 2)`, `(resid ** 2)`, `(e ** 2)`) where the rule asks for `a**b`. Assignments are padded to align at 666-667 and 670-671 (`S_r    = np.array(...)`, `mod_r    = VARSubsystem(...)`), which PEP8 lists under extraneous whitespace. The three `report` calls at 673, 675 and 677 unpack three values and use `_` for only one of them: `Gam_both` (673), `Psi_z` and `Gam_z` (677) are never read, while `Psi_both` and `Psi_r` are discarded and recomputed with a different horizon at 750 and 776. `Phi_r` is bound at 777 with `h_max = 25` and silently rebound at 917 with `h_max = 6`, so the same name holds a different array depending on which cells have run. Names for the same role drift - `target` at 848 versus `tgt` at 864, and `zz` at 1215 for the regressand. Seven code lines pass 79 characters (616, 617, 619, 624, 780, 984, 1221).
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 38. *Lines:* 520, 521, 522, 523, 528, 529, 534, 535, 537, 539, …. *Example:* spelled-out `Sigma`.
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 37. *Lines:* 520, 521, 522, 523, 528, 529, 534, 535, 537, 539, …. *Example:* spelled-out `Sigma`.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 6. *Lines:* 725, 758, 761, 788, 1020, 1027. *Example:* .set_title.
 - **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 15. *Lines:* 109, 117, 125, 131, 375, 435, 636, 637, 638, 645, …. *Example:* pmatrix environment.
 

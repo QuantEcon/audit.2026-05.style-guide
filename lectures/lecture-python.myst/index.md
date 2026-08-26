@@ -6,10 +6,10 @@ Style audit of the **lecture-python.myst** series.
 - **Audit date:** 2026-08-24
 - **Corpus snapshot:** `e25fdf2345`
 - **Lectures audited:** 145
-- **Average overall score:** 8.0 / 10
-- **Average per-category scores:** writing 5.3, math 7.2, code 8.2, figures 6.5, references 9.6, links 9.8, admon 10.0
+- **Average overall score:** 7.9 / 10
+- **Average per-category scores:** writing 5.2, math 7.2, code 8.1, figures 6.5, references 9.6, links 9.8, admon 10.0
 - **JAX:** out of scope — the `qe-jax-*` rules target `lecture-jax`.
-- **Judgment-review coverage:** **103 of 145 reviewed** — scores for the unreviewed 42 reflect the 41 measured rules only, so they are not directly comparable with the reviewed ones.
+- **Judgment-review coverage:** **113 of 145 reviewed** — scores for the unreviewed 32 reflect the 41 measured rules only, so they are not directly comparable with the reviewed ones.
 <!-- /qe:series-meta -->
 
 <!-- qe:series-narrative -->
@@ -36,10 +36,10 @@ lectures, the largest single count anywhere in the corpus.
 <!-- qe:series-priority -->
 | Priority | Count | % |
 |----------|-------|---|
-| HIGH     | 69    | 47.6% |
+| HIGH     | 71    | 49.0% |
 | MEDIUM   | 1     | 0.7% |
-| LOW      | 27    | 18.6% |
-| NONE     | 48    | 33.1% |
+| LOW      | 31    | 21.4% |
+| NONE     | 42    | 29.0% |
 <!-- /qe:series-priority -->
 
 ## Top systemic issues across the series
@@ -139,108 +139,108 @@ that lecture. Click a lecture for its full report.
 | 36 | [imp_sample](imp_sample.md) | 4.5 | 4 | 10 | 8 | — | 10 | — | **7.3** | HIGH |
 | 37 | [mccall_model](mccall_model.md) | 3 | 7 | 7 | 6 | 10 | 8 | 10 | **7.3** | HIGH |
 | 38 | [opt_transport](opt_transport.md) | 3 | 3 | 7 | 8 | 10 | 10 | 10 | **7.3** | HIGH |
-| 39 | [von_neumann_model](von_neumann_model.md) | 3 | 5 | 7.5 | 7 | 8.5 | 10 | 10 | **7.3** | HIGH |
-| 40 | [blackwell_kihlstrom](blackwell_kihlstrom.md) | 3.5 | 3 | 8.5 | 7.5 | 9 | 10 | 10 | **7.4** | HIGH |
-| 41 | [likelihood_ratio_process_2](likelihood_ratio_process_2.md) | 3 | 9.5 | 7.5 | 4 | 7.5 | 10 | 10 | **7.4** | HIGH |
-| 42 | [lqcontrol](lqcontrol.md) | 4.5 | 5 | 7.5 | 5 | 10 | 10 | 10 | **7.4** | LOW |
-| 43 | [markov_perf](markov_perf.md) | 4 | 5 | 7 | 6 | 10 | 10 | 10 | **7.4** | HIGH |
-| 44 | [odu](odu.md) | 3 | 9 | 7.5 | 5 | 9 | 8.5 | 10 | **7.4** | HIGH |
-| 45 | [ross_recovery](ross_recovery.md) | 3.5 | 5.5 | 6.5 | 6 | 10 | 10 | 10 | **7.4** | HIGH |
-| 46 | [uncertainty_traps](uncertainty_traps.md) | 3 | 5.5 | 7.5 | 6.5 | 9 | 10 | 10 | **7.4** | HIGH |
-| 47 | [information_market_equilibrium](information_market_equilibrium.md) | 4 | 4 | 7 | 7.5 | 10 | 10 | 10 | **7.5** | HIGH |
+| 39 | [pricing_information](pricing_information.md) | 5.5 | 4.5 | 5 | 6 | 10 | 10 | 10 | **7.3** | LOW |
+| 40 | [von_neumann_model](von_neumann_model.md) | 3 | 5 | 7.5 | 7 | 8.5 | 10 | 10 | **7.3** | HIGH |
+| 41 | [blackwell_kihlstrom](blackwell_kihlstrom.md) | 3.5 | 3 | 8.5 | 7.5 | 9 | 10 | 10 | **7.4** | HIGH |
+| 42 | [likelihood_ratio_process_2](likelihood_ratio_process_2.md) | 3 | 9.5 | 7.5 | 4 | 7.5 | 10 | 10 | **7.4** | HIGH |
+| 43 | [lqcontrol](lqcontrol.md) | 4.5 | 5 | 7.5 | 5 | 10 | 10 | 10 | **7.4** | LOW |
+| 44 | [markov_perf](markov_perf.md) | 4 | 5 | 7 | 6 | 10 | 10 | 10 | **7.4** | HIGH |
+| 45 | [odu](odu.md) | 3 | 9 | 7.5 | 5 | 9 | 8.5 | 10 | **7.4** | HIGH |
+| 46 | [ross_recovery](ross_recovery.md) | 3.5 | 5.5 | 6.5 | 6 | 10 | 10 | 10 | **7.4** | HIGH |
+| 47 | [uncertainty_traps](uncertainty_traps.md) | 3 | 5.5 | 7.5 | 6.5 | 9 | 10 | 10 | **7.4** | HIGH |
 | 48 | [inventory_q](inventory_q.md) | 3 | 6 | 10 | 6 | 10 | 10 | — | **7.5** | HIGH |
 | 49 | [wald_friedman](wald_friedman.md) | 3 | 8.5 | 7.5 | 4.5 | 10 | 9 | 10 | **7.5** | HIGH |
 | 50 | [ak_aiyagari](ak_aiyagari.md) | 5 | 10 | 8 | 4 | 8.5 | 10 | — | **7.6** | HIGH |
 | 51 | [cass_fiscal](cass_fiscal.md) | 3 | 9 | 7.5 | 4 | 10 | 10 | 10 | **7.6** | HIGH |
 | 52 | [measurement_models](measurement_models.md) | 3 | 5 | 6 | 9.5 | 10 | 10 | 10 | **7.6** | HIGH |
 | 53 | [os_stochastic](os_stochastic.md) | 3 | 7 | 7.5 | 7.5 | 10 | 8 | 10 | **7.6** | HIGH |
-| 54 | [cass_koopmans_2](cass_koopmans_2.md) | 3 | 9.5 | 8.5 | 6 | 10 | 7 | 10 | **7.7** | HIGH |
-| 55 | [kalman](kalman.md) | 5 | 4.5 | 8.5 | 7 | 9 | 10 | 10 | **7.7** | LOW |
-| 56 | [long_run_risk_operator](long_run_risk_operator.md) | 3 | 7 | 7.5 | 6.5 | 10 | 10 | 10 | **7.7** | HIGH |
-| 57 | [ar1_turningpts](ar1_turningpts.md) | 3 | 7.5 | 8.5 | 8 | 10 | 10 | — | **7.8** | HIGH |
-| 58 | [back_prop](back_prop.md) | 3 | 7.5 | 7.5 | 9 | — | 10 | 10 | **7.8** | HIGH |
-| 59 | [ifp_opi](ifp_opi.md) | 5 | 10 | 7 | 6 | — | 9 | 10 | **7.8** | LOW |
-| 60 | [likelihood_bayes](likelihood_bayes.md) | 5.5 | 4 | 7.5 | 7.5 | 10 | 10 | 10 | **7.8** | HIGH |
-| 61 | [svd_intro](svd_intro.md) | 3 | 9.5 | 7.5 | 6.5 | — | 10 | 10 | **7.8** | HIGH |
-| 62 | [var_dmd](var_dmd.md) | 3 | 9.5 | — | — | 7.5 | 9 | 10 | **7.8** | HIGH |
-| 63 | [eig_circulant](eig_circulant.md) | 3 | 7.5 | 10 | 7 | — | 10 | 10 | **7.9** | HIGH |
-| 64 | [exchangeable](exchangeable.md) | 3.5 | 7 | 7.5 | 7.5 | 10 | 10 | 10 | **7.9** | HIGH |
-| 65 | [hansen_singleton_1983](hansen_singleton_1983.md) | 6.5 | 3 | 8.5 | 9.5 | 10 | 10 | — | **7.9** | HIGH |
-| 66 | [lake_model](lake_model.md) | 5.5 | 6.5 | 7.5 | 5.5 | 10 | 10 | 10 | **7.9** | LOW |
-| 67 | [mccall_fitted_vfi](mccall_fitted_vfi.md) | 6 | 8 | 7 | 5.5 | 9 | 10 | 10 | **7.9** | LOW |
-| 68 | [aiyagari_egm](aiyagari_egm.md) | 3 | 8.5 | 10 | 5.5 | 9 | 10 | 10 | **8.0** | HIGH |
-| 69 | [cass_koopmans_1](cass_koopmans_1.md) | 3 | 9.5 | 8.5 | 6 | 10 | 9 | 10 | **8.0** | HIGH |
-| 70 | [divergence_measures](divergence_measures.md) | 4.5 | 6.5 | 8.5 | 6.5 | 10 | 10 | 10 | **8.0** | LOW |
-| 71 | [ifp_egm_transient_shocks](ifp_egm_transient_shocks.md) | 4 | 10 | 7.5 | 5.5 | 9 | 10 | 10 | **8.0** | HIGH |
-| 72 | [jv](jv.md) | 3 | 10 | 7.5 | 6.5 | 9 | 10 | 10 | **8.0** | HIGH |
-| 73 | [kalman_filter_var](kalman_filter_var.md) | 5.5 | 7.5 | 6.5 | 6.5 | 10 | 10 | 10 | **8.0** | LOW |
-| 74 | [mccall_model_with_sep_markov](mccall_model_with_sep_markov.md) | 5.5 | 10 | 7 | 5.5 | — | 10 | 10 | **8.0** | LOW |
-| 75 | [troubleshooting](troubleshooting.md) | 6 | — | — | 9 | — | 9 | — | **8.0** | LOW |
-| 76 | [ak2](ak2.md) | 3.5 | 10 | 8.5 | 5 | 10 | 10 | 10 | **8.1** | HIGH |
-| 77 | [cass_fiscal_2](cass_fiscal_2.md) | 4 | 10 | 7.5 | 5.5 | 10 | 10 | 10 | **8.1** | HIGH |
-| 78 | [chow_business_cycles](chow_business_cycles.md) | 5.5 | 6.5 | 8.5 | 6 | 10 | 10 | 10 | **8.1** | LOW |
-| 79 | [ifp_egm](ifp_egm.md) | 3.5 | 9.5 | 7.5 | 6.5 | 10 | 10 | 10 | **8.1** | HIGH |
-| 80 | [learning_approximation](learning_approximation.md) | 5.5 | 8 | 7 | 6 | 10 | 10 | 10 | **8.1** | LOW |
-| 81 | [lq_robust_bewley](lq_robust_bewley.md) | 6.5 | 5.5 | 7.5 | 7.5 | 10 | 10 | 10 | **8.1** | LOW |
-| 82 | [lq_robust_smoothing](lq_robust_smoothing.md) | 5.5 | 7.5 | 6.5 | 7.5 | 10 | 10 | 10 | **8.1** | LOW |
-| 83 | [os_time_iter](os_time_iter.md) | 4.5 | 7.5 | 7.5 | 8 | 9 | 10 | 10 | **8.1** | LOW |
-| 84 | [aiyagari](aiyagari.md) | 4.5 | 8.5 | 8.5 | 7 | 10 | 9 | 10 | **8.2** | LOW |
-| 85 | [bayes_nonconj](bayes_nonconj.md) | 5 | 10 | 8.5 | 6.5 | — | 9 | 10 | **8.2** | LOW |
-| 86 | [endogenous_lake](endogenous_lake.md) | 5.5 | 7.5 | 8.5 | 6 | 10 | 10 | 10 | **8.2** | LOW |
-| 87 | [hansen_singleton_1982](hansen_singleton_1982.md) | 7 | 5 | 7 | 8.5 | 10 | 10 | 10 | **8.2** | LOW |
-| 88 | [market_diffusion](market_diffusion.md) | 6.5 | 7 | 6 | 8 | 10 | 10 | 10 | **8.2** | LOW |
-| 89 | [house_auction](house_auction.md) | 3 | 10 | 7 | — | 10 | 10 | 10 | **8.3** | HIGH |
-| 90 | [lq_permanent_income](lq_permanent_income.md) | 5.5 | 7.5 | 8.5 | 6.5 | 10 | 10 | 10 | **8.3** | LOW |
-| 91 | [hoist_failure](hoist_failure.md) | 5.5 | 6.5 | 8.5 | 8 | 10 | 10 | 10 | **8.4** | LOW |
-| 92 | [ifp_discrete](ifp_discrete.md) | 5.5 | 7 | 7.5 | 8.5 | 10 | 10 | 10 | **8.4** | LOW |
-| 93 | [kesten_processes](kesten_processes.md) | 5.5 | 5 | 10 | 8 | 10 | 10 | 10 | **8.4** | LOW |
-| 94 | [phillips_drifts_volatilities](phillips_drifts_volatilities.md) | 6 | 10 | 8 | 4.5 | 10 | 10 | 10 | **8.4** | LOW |
-| 95 | [phillips_two_stories](phillips_two_stories.md) | 5.5 | 10 | 10 | 5 | 8.5 | 10 | 10 | **8.4** | LOW |
-| 96 | [pricing_information](pricing_information.md) | 10 | 5.5 | 7 | 6 | 10 | 10 | 10 | **8.4** | LOW |
-| 97 | [re_with_feedback](re_with_feedback.md) | 3.5 | 9 | 10 | 6 | 10 | 10 | 10 | **8.4** | HIGH |
-| 98 | [ar1_bayes](ar1_bayes.md) | 7 | 10 | 7.5 | 8 | 10 | 8 | 10 | **8.6** | NONE |
-| 99 | [bounded_rationality](bounded_rationality.md) | 5.5 | 10 | 8.5 | 6.5 | 10 | 10 | 10 | **8.6** | NONE |
-| 100 | [career](career.md) | 6 | 9.5 | 8.5 | 6.5 | 10 | 10 | 10 | **8.6** | NONE |
-| 101 | [exchange_rate_learning](exchange_rate_learning.md) | 5 | 9.5 | 10 | 5.5 | 10 | 10 | 10 | **8.6** | NONE |
-| 102 | [lq_bewley_complete_markets](lq_bewley_complete_markets.md) | 6 | 10 | 8.5 | 6 | 10 | 10 | 10 | **8.6** | NONE |
-| 103 | [mccall_risk](mccall_risk.md) | 10 | 6.5 | 8 | 7 | — | 10 | 10 | **8.6** | NONE |
-| 104 | [merging_of_opinions](merging_of_opinions.md) | 6 | 8 | 10 | 7.5 | 9 | 10 | 10 | **8.6** | NONE |
-| 105 | [os_numerical](os_numerical.md) | 6 | 10 | 10 | 5.5 | — | 10 | 10 | **8.6** | NONE |
-| 106 | [phillips_learning](phillips_learning.md) | 9 | 8.5 | 10 | 6 | 7 | 10 | 10 | **8.6** | NONE |
-| 107 | [samuelson](samuelson.md) | 9.5 | 10 | 10 | 5 | 9 | 8 | — | **8.6** | NONE |
-| 108 | [sir_model](sir_model.md) | 6.5 | 8 | 10 | 8.5 | — | 10 | — | **8.6** | NONE |
+| 54 | [samuelson](samuelson.md) | 6.5 | 9.5 | 7.5 | 5 | 9 | 8 | — | **7.6** | LOW |
+| 55 | [cass_koopmans_2](cass_koopmans_2.md) | 3 | 9.5 | 8.5 | 6 | 10 | 7 | 10 | **7.7** | HIGH |
+| 56 | [information_market_equilibrium](information_market_equilibrium.md) | 4 | 4 | 8.5 | 7.5 | 10 | 10 | 10 | **7.7** | HIGH |
+| 57 | [kalman](kalman.md) | 5 | 4.5 | 8.5 | 7 | 9 | 10 | 10 | **7.7** | LOW |
+| 58 | [long_run_risk_operator](long_run_risk_operator.md) | 3 | 7 | 7.5 | 6.5 | 10 | 10 | 10 | **7.7** | HIGH |
+| 59 | [phillips_learning](phillips_learning.md) | 5 | 7.5 | 8.5 | 6 | 7 | 10 | 10 | **7.7** | LOW |
+| 60 | [ar1_turningpts](ar1_turningpts.md) | 3 | 7.5 | 8.5 | 8 | 10 | 10 | — | **7.8** | HIGH |
+| 61 | [back_prop](back_prop.md) | 3 | 7.5 | 7.5 | 9 | — | 10 | 10 | **7.8** | HIGH |
+| 62 | [ifp_opi](ifp_opi.md) | 5 | 10 | 7 | 6 | — | 9 | 10 | **7.8** | LOW |
+| 63 | [likelihood_bayes](likelihood_bayes.md) | 5.5 | 4 | 7.5 | 7.5 | 10 | 10 | 10 | **7.8** | HIGH |
+| 64 | [mccall_risk](mccall_risk.md) | 6.5 | 6 | 7 | 7 | — | 10 | 10 | **7.8** | LOW |
+| 65 | [os_numerical](os_numerical.md) | 4.5 | 9.5 | 7.5 | 5.5 | — | 10 | 10 | **7.8** | LOW |
+| 66 | [re_with_feedback](re_with_feedback.md) | 3 | 8.5 | 7 | 6 | 10 | 10 | 10 | **7.8** | HIGH |
+| 67 | [sir_model](sir_model.md) | 4.5 | 7.5 | 8.5 | 8.5 | — | 10 | — | **7.8** | LOW |
+| 68 | [svd_intro](svd_intro.md) | 3 | 9.5 | 7.5 | 6.5 | — | 10 | 10 | **7.8** | HIGH |
+| 69 | [var_dmd](var_dmd.md) | 3 | 9.5 | — | — | 7.5 | 9 | 10 | **7.8** | HIGH |
+| 70 | [eig_circulant](eig_circulant.md) | 3 | 7.5 | 10 | 7 | — | 10 | 10 | **7.9** | HIGH |
+| 71 | [exchangeable](exchangeable.md) | 3.5 | 7 | 7.5 | 7.5 | 10 | 10 | 10 | **7.9** | HIGH |
+| 72 | [hansen_singleton_1983](hansen_singleton_1983.md) | 6.5 | 3 | 8.5 | 9.5 | 10 | 10 | — | **7.9** | HIGH |
+| 73 | [lake_model](lake_model.md) | 5.5 | 6.5 | 7.5 | 5.5 | 10 | 10 | 10 | **7.9** | LOW |
+| 74 | [mccall_fitted_vfi](mccall_fitted_vfi.md) | 6 | 8 | 7 | 5.5 | 9 | 10 | 10 | **7.9** | LOW |
+| 75 | [phillips_drifts_volatilities](phillips_drifts_volatilities.md) | 3 | 9.5 | 8 | 4.5 | 10 | 10 | 10 | **7.9** | HIGH |
+| 76 | [phillips_two_stories](phillips_two_stories.md) | 3 | 10 | 8.5 | 5 | 8.5 | 10 | 10 | **7.9** | HIGH |
+| 77 | [aiyagari_egm](aiyagari_egm.md) | 3 | 8.5 | 10 | 5.5 | 9 | 10 | 10 | **8.0** | HIGH |
+| 78 | [cass_koopmans_1](cass_koopmans_1.md) | 3 | 9.5 | 8.5 | 6 | 10 | 9 | 10 | **8.0** | HIGH |
+| 79 | [divergence_measures](divergence_measures.md) | 4.5 | 6.5 | 8.5 | 6.5 | 10 | 10 | 10 | **8.0** | LOW |
+| 80 | [ifp_egm_transient_shocks](ifp_egm_transient_shocks.md) | 4 | 10 | 7.5 | 5.5 | 9 | 10 | 10 | **8.0** | HIGH |
+| 81 | [jv](jv.md) | 3 | 10 | 7.5 | 6.5 | 9 | 10 | 10 | **8.0** | HIGH |
+| 82 | [kalman_filter_var](kalman_filter_var.md) | 5.5 | 7.5 | 6.5 | 6.5 | 10 | 10 | 10 | **8.0** | LOW |
+| 83 | [mccall_model_with_sep_markov](mccall_model_with_sep_markov.md) | 5.5 | 10 | 7 | 5.5 | — | 10 | 10 | **8.0** | LOW |
+| 84 | [troubleshooting](troubleshooting.md) | 6 | — | — | 9 | — | 9 | — | **8.0** | LOW |
+| 85 | [ak2](ak2.md) | 3.5 | 10 | 8.5 | 5 | 10 | 10 | 10 | **8.1** | HIGH |
+| 86 | [cass_fiscal_2](cass_fiscal_2.md) | 4 | 10 | 7.5 | 5.5 | 10 | 10 | 10 | **8.1** | HIGH |
+| 87 | [chow_business_cycles](chow_business_cycles.md) | 5.5 | 6.5 | 8.5 | 6 | 10 | 10 | 10 | **8.1** | LOW |
+| 88 | [ifp_egm](ifp_egm.md) | 3.5 | 9.5 | 7.5 | 6.5 | 10 | 10 | 10 | **8.1** | HIGH |
+| 89 | [learning_approximation](learning_approximation.md) | 5.5 | 8 | 7 | 6 | 10 | 10 | 10 | **8.1** | LOW |
+| 90 | [lq_robust_bewley](lq_robust_bewley.md) | 6.5 | 5.5 | 7.5 | 7.5 | 10 | 10 | 10 | **8.1** | LOW |
+| 91 | [merging_of_opinions](merging_of_opinions.md) | 4.5 | 7 | 8.5 | 7.5 | 9 | 10 | 10 | **8.1** | LOW |
+| 92 | [os_time_iter](os_time_iter.md) | 4.5 | 7.5 | 7.5 | 8 | 9 | 10 | 10 | **8.1** | LOW |
+| 93 | [aiyagari](aiyagari.md) | 4.5 | 8.5 | 8.5 | 7 | 10 | 9 | 10 | **8.2** | LOW |
+| 94 | [bayes_nonconj](bayes_nonconj.md) | 5 | 10 | 8.5 | 6.5 | — | 9 | 10 | **8.2** | LOW |
+| 95 | [endogenous_lake](endogenous_lake.md) | 5.5 | 7.5 | 8.5 | 6 | 10 | 10 | 10 | **8.2** | LOW |
+| 96 | [hansen_singleton_1982](hansen_singleton_1982.md) | 7 | 5 | 7 | 8.5 | 10 | 10 | 10 | **8.2** | LOW |
+| 97 | [market_diffusion](market_diffusion.md) | 6.5 | 7 | 6 | 8 | 10 | 10 | 10 | **8.2** | LOW |
+| 98 | [house_auction](house_auction.md) | 3 | 10 | 7 | — | 10 | 10 | 10 | **8.3** | HIGH |
+| 99 | [lq_permanent_income](lq_permanent_income.md) | 5.5 | 7.5 | 8.5 | 6.5 | 10 | 10 | 10 | **8.3** | LOW |
+| 100 | [hoist_failure](hoist_failure.md) | 5.5 | 6.5 | 8.5 | 8 | 10 | 10 | 10 | **8.4** | LOW |
+| 101 | [ifp_discrete](ifp_discrete.md) | 5.5 | 7 | 7.5 | 8.5 | 10 | 10 | 10 | **8.4** | LOW |
+| 102 | [kesten_processes](kesten_processes.md) | 5.5 | 5 | 10 | 8 | 10 | 10 | 10 | **8.4** | LOW |
+| 103 | [lq_robust_smoothing](lq_robust_smoothing.md) | 5.5 | 7.5 | 8.5 | 7.5 | 10 | 10 | 10 | **8.4** | LOW |
+| 104 | [ar1_bayes](ar1_bayes.md) | 7 | 10 | 7.5 | 8 | 10 | 8 | 10 | **8.6** | NONE |
+| 105 | [bounded_rationality](bounded_rationality.md) | 5.5 | 10 | 8.5 | 6.5 | 10 | 10 | 10 | **8.6** | NONE |
+| 106 | [career](career.md) | 6 | 9.5 | 8.5 | 6.5 | 10 | 10 | 10 | **8.6** | NONE |
+| 107 | [exchange_rate_learning](exchange_rate_learning.md) | 5 | 9.5 | 10 | 5.5 | 10 | 10 | 10 | **8.6** | NONE |
+| 108 | [lq_bewley_complete_markets](lq_bewley_complete_markets.md) | 6 | 10 | 8.5 | 6 | 10 | 10 | 10 | **8.6** | NONE |
 | 109 | [wealth_dynamics](wealth_dynamics.md) | 4.5 | 10 | 9.5 | 6.5 | 10 | 10 | 10 | **8.6** | NONE |
 | 110 | [genetic_classifier](genetic_classifier.md) | 5.5 | 10 | 8.5 | 7 | 10 | 10 | 10 | **8.7** | NONE |
 | 111 | [ls_learning](ls_learning.md) | 8.5 | 6.5 | 10 | 6 | 10 | 10 | 10 | **8.7** | NONE |
 | 112 | [mccall_model_with_separation](mccall_model_with_separation.md) | 7 | 8.5 | 7 | 8.5 | 10 | 10 | 10 | **8.7** | NONE |
 | 113 | [olg_adaptive_money](olg_adaptive_money.md) | 7 | 8.5 | 10 | 5.5 | 10 | 10 | 10 | **8.7** | NONE |
-| 114 | [robust_permanent_income](robust_permanent_income.md) | 7.5 | 10 | 7.5 | 6 | 10 | 10 | 10 | **8.7** | NONE |
-| 115 | [harrison_kreps](harrison_kreps.md) | 6.5 | 8 | 8.5 | — | 10 | 10 | 10 | **8.8** | NONE |
-| 116 | [mccall_q](mccall_q.md) | 7 | 10 | 10 | 7 | 9 | 10 | — | **8.8** | NONE |
-| 117 | [newton_method](newton_method.md) | 8 | 10 | 9 | 6 | — | 10 | 10 | **8.8** | NONE |
-| 118 | [phillips_priors](phillips_priors.md) | 9 | 10 | 10 | 5.5 | 7 | 10 | 10 | **8.8** | NONE |
-| 119 | [rational_expectations](rational_expectations.md) | 7 | 5.5 | 10 | 10 | 9 | 10 | 10 | **8.8** | NONE |
-| 120 | [inventory_dynamics](inventory_dynamics.md) | 5.5 | 10 | 9.5 | 7 | 10 | 10 | 10 | **8.9** | NONE |
-| 121 | [marimon_mcgrattan_sargent](marimon_mcgrattan_sargent.md) | 6 | 10 | 10 | 7.5 | 8.5 | 10 | 10 | **8.9** | NONE |
-| 122 | [mix_model](mix_model.md) | 10 | 10 | 7 | 6.5 | — | 10 | 10 | **8.9** | NONE |
-| 123 | [phillips_escaping_nash](phillips_escaping_nash.md) | 9 | 10 | 10 | 4.5 | 8.5 | 10 | 10 | **8.9** | NONE |
-| 124 | [survival_recursive_preferences](survival_recursive_preferences.md) | 9 | 10 | 9 | 4.5 | 10 | 10 | 10 | **8.9** | NONE |
-| 125 | [theil_1](theil_1.md) | 9 | 7.5 | 9 | 6.5 | 10 | 10 | 10 | **8.9** | NONE |
-| 126 | [phillips_credible_policies](phillips_credible_policies.md) | 8.5 | 10 | 10 | 5.5 | 10 | 9 | 10 | **9.0** | NONE |
-| 127 | [theil_2](theil_2.md) | 7.5 | 8 | 9 | 8.5 | 10 | 10 | 10 | **9.0** | NONE |
-| 128 | [morris_learn](morris_learn.md) | 5 | 10 | 10 | 10 | 8.5 | 10 | 10 | **9.1** | NONE |
-| 129 | [organization_capital](organization_capital.md) | 7.5 | 7.5 | 10 | 9 | 10 | 10 | 10 | **9.1** | NONE |
-| 130 | [rational_learning_re](rational_learning_re.md) | 10 | 8.5 | 8.5 | 7 | 10 | 10 | 10 | **9.1** | NONE |
-| 131 | [unemployment_linear](unemployment_linear.md) | 9 | 8.5 | 9 | 8.5 | 9 | 10 | 10 | **9.1** | NONE |
-| 132 | [mccall_persist_trans](mccall_persist_trans.md) | 10 | 6.5 | 10 | 8 | 10 | 10 | 10 | **9.2** | NONE |
-| 133 | [os_egm](os_egm.md) | 7 | 10 | 8.5 | 9 | 10 | 10 | 10 | **9.2** | NONE |
-| 134 | [os_egm_jax](os_egm_jax.md) | 10 | 10 | 8.5 | 7 | — | 10 | 10 | **9.2** | NONE |
-| 135 | [phillips_credibility](phillips_credibility.md) | 9 | 10 | 10 | 7 | 8.5 | 10 | 10 | **9.2** | NONE |
-| 136 | [os](os.md) | 7 | 10 | 10 | 8 | 10 | 10 | 10 | **9.3** | NONE |
-| 137 | [phillips_adaptive](phillips_adaptive.md) | 10 | 10 | 10 | 6.5 | 8.5 | 10 | 10 | **9.3** | NONE |
-| 138 | [phillips_misspecified](phillips_misspecified.md) | 10 | 10 | 10 | 6.5 | 8.5 | 10 | 10 | **9.3** | NONE |
-| 139 | [rand_resp](rand_resp.md) | 6.5 | 10 | 10 | — | 10 | 10 | — | **9.3** | NONE |
-| 140 | [phillips_self_confirming](phillips_self_confirming.md) | 10 | 10 | 10 | 6 | 10 | 10 | 10 | **9.4** | NONE |
+| 114 | [harrison_kreps](harrison_kreps.md) | 6.5 | 8 | 8.5 | — | 10 | 10 | 10 | **8.8** | NONE |
+| 115 | [mccall_q](mccall_q.md) | 7 | 10 | 10 | 7 | 9 | 10 | — | **8.8** | NONE |
+| 116 | [newton_method](newton_method.md) | 8 | 10 | 9 | 6 | — | 10 | 10 | **8.8** | NONE |
+| 117 | [phillips_priors](phillips_priors.md) | 9 | 10 | 10 | 5.5 | 7 | 10 | 10 | **8.8** | NONE |
+| 118 | [rational_expectations](rational_expectations.md) | 7 | 5.5 | 10 | 10 | 9 | 10 | 10 | **8.8** | NONE |
+| 119 | [inventory_dynamics](inventory_dynamics.md) | 5.5 | 10 | 9.5 | 7 | 10 | 10 | 10 | **8.9** | NONE |
+| 120 | [marimon_mcgrattan_sargent](marimon_mcgrattan_sargent.md) | 6 | 10 | 10 | 7.5 | 8.5 | 10 | 10 | **8.9** | NONE |
+| 121 | [phillips_escaping_nash](phillips_escaping_nash.md) | 9 | 10 | 10 | 4.5 | 8.5 | 10 | 10 | **8.9** | NONE |
+| 122 | [robust_permanent_income](robust_permanent_income.md) | 7.5 | 10 | 8.5 | 6 | 10 | 10 | 10 | **8.9** | NONE |
+| 123 | [theil_1](theil_1.md) | 9 | 7.5 | 9 | 6.5 | 10 | 10 | 10 | **8.9** | NONE |
+| 124 | [phillips_credible_policies](phillips_credible_policies.md) | 8.5 | 10 | 10 | 5.5 | 10 | 9 | 10 | **9.0** | NONE |
+| 125 | [morris_learn](morris_learn.md) | 5 | 10 | 10 | 10 | 8.5 | 10 | 10 | **9.1** | NONE |
+| 126 | [organization_capital](organization_capital.md) | 7.5 | 7.5 | 10 | 9 | 10 | 10 | 10 | **9.1** | NONE |
+| 127 | [survival_recursive_preferences](survival_recursive_preferences.md) | 9 | 10 | 10 | 4.5 | 10 | 10 | 10 | **9.1** | NONE |
+| 128 | [theil_2](theil_2.md) | 7.5 | 8 | 10 | 8.5 | 10 | 10 | 10 | **9.1** | NONE |
+| 129 | [mccall_persist_trans](mccall_persist_trans.md) | 10 | 6.5 | 10 | 8 | 10 | 10 | 10 | **9.2** | NONE |
+| 130 | [mix_model](mix_model.md) | 10 | 10 | 9 | 6.5 | — | 10 | 10 | **9.2** | NONE |
+| 131 | [os_egm](os_egm.md) | 7 | 10 | 8.5 | 9 | 10 | 10 | 10 | **9.2** | NONE |
+| 132 | [os_egm_jax](os_egm_jax.md) | 10 | 10 | 8.5 | 7 | — | 10 | 10 | **9.2** | NONE |
+| 133 | [phillips_credibility](phillips_credibility.md) | 9 | 10 | 10 | 7 | 8.5 | 10 | 10 | **9.2** | NONE |
+| 134 | [os](os.md) | 7 | 10 | 10 | 8 | 10 | 10 | 10 | **9.3** | NONE |
+| 135 | [phillips_adaptive](phillips_adaptive.md) | 10 | 10 | 10 | 6.5 | 8.5 | 10 | 10 | **9.3** | NONE |
+| 136 | [phillips_misspecified](phillips_misspecified.md) | 10 | 10 | 10 | 6.5 | 8.5 | 10 | 10 | **9.3** | NONE |
+| 137 | [rand_resp](rand_resp.md) | 6.5 | 10 | 10 | — | 10 | 10 | — | **9.3** | NONE |
+| 138 | [unemployment_linear](unemployment_linear.md) | 9 | 8.5 | 10 | 8.5 | 9 | 10 | 10 | **9.3** | NONE |
+| 139 | [phillips_self_confirming](phillips_self_confirming.md) | 10 | 10 | 10 | 6 | 10 | 10 | 10 | **9.4** | NONE |
+| 140 | [rational_learning_re](rational_learning_re.md) | 10 | 8.5 | 10 | 7 | 10 | 10 | 10 | **9.4** | NONE |
 | 141 | [status](status.md) | 10 | — | 9 | — | — | 10 | — | **9.7** | NONE |
 | 142 | [prospects_bounded_rationality](prospects_bounded_rationality.md) | 10 | 10 | 10 | 8.5 | 10 | 10 | — | **9.8** | NONE |
 | 143 | [unemployment_shocks](unemployment_shocks.md) | 10 | 10 | 9 | 10 | — | 10 | 10 | **9.8** | NONE |

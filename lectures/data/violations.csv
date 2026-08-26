@@ -268,7 +268,6 @@ lecture-python-intro,olg,qe-fig-008,11,0,0
 lecture-python-intro,olg,qe-link-001,1,0,0
 lecture-python-intro,olg,qe-link-002,1,0,0
 lecture-python-intro,olg,qe-writing-008,3,0,0
-lecture-python-intro,prob_dist,qe-code-002,8,0,0
 lecture-python-intro,prob_dist,qe-fig-005,1,0,0
 lecture-python-intro,prob_dist,qe-fig-008,4,0,0
 lecture-python-intro,prob_dist,qe-math-010,3,1,0
@@ -727,7 +726,6 @@ lecture-python.myst,imp_sample,qe-math-001,3,0,0
 lecture-python.myst,imp_sample,qe-math-010,7,1,0
 lecture-python.myst,imp_sample,qe-writing-008,27,0,0
 lecture-python.myst,imp_sample,qe-writing-009,1,1,0
-lecture-python.myst,information_market_equilibrium,qe-code-002,2,0,0
 lecture-python.myst,information_market_equilibrium,qe-fig-001,9,0,0
 lecture-python.myst,information_market_equilibrium,qe-fig-005,3,0,0
 lecture-python.myst,information_market_equilibrium,qe-math-002,4,0,0
@@ -895,7 +893,6 @@ lecture-python.myst,lq_robust_bewley,qe-fig-001,1,0,0
 lecture-python.myst,lq_robust_bewley,qe-fig-003,2,0,0
 lecture-python.myst,lq_robust_bewley,qe-math-002,1,0,0
 lecture-python.myst,lq_robust_bewley,qe-math-003,13,0,0
-lecture-python.myst,lq_robust_smoothing,qe-code-002,9,0,0
 lecture-python.myst,lq_robust_smoothing,qe-fig-001,1,0,0
 lecture-python.myst,lq_robust_smoothing,qe-fig-003,2,0,0
 lecture-python.myst,lq_robust_smoothing,qe-math-003,9,0,0
@@ -979,7 +976,6 @@ lecture-python.myst,mccall_q,qe-ref-001,1,0,0
 lecture-python.myst,mccall_q,qe-writing-001,1,0,0
 lecture-python.myst,mccall_q,qe-writing-004,1,0,0
 lecture-python.myst,mccall_q,qe-writing-008,79,0,0
-lecture-python.myst,mccall_risk,qe-code-002,1,0,0
 lecture-python.myst,mccall_risk,qe-code-003,1,0,0
 lecture-python.myst,mccall_risk,qe-fig-005,2,0,0
 lecture-python.myst,mccall_risk,qe-fig-006,2,0,0
@@ -1011,7 +1007,6 @@ lecture-python.myst,misspecified_recovery,qe-math-004,49,0,0
 lecture-python.myst,misspecified_recovery,qe-math-010,16,1,0
 lecture-python.myst,misspecified_recovery,qe-writing-004,3,0,0
 lecture-python.myst,misspecified_recovery,qe-writing-006,4,0,0
-lecture-python.myst,mix_model,qe-code-002,5,0,0
 lecture-python.myst,mix_model,qe-code-003,1,0,0
 lecture-python.myst,mix_model,qe-fig-004,1,0,0
 lecture-python.myst,mix_model,qe-fig-005,3,0,0
@@ -1181,7 +1176,6 @@ lecture-python.myst,phillips_credible_policies,qe-fig-005,1,0,0
 lecture-python.myst,phillips_credible_policies,qe-fig-008,3,0,0
 lecture-python.myst,phillips_credible_policies,qe-link-002,1,0,0
 lecture-python.myst,phillips_credible_policies,qe-writing-006,1,0,0
-lecture-python.myst,phillips_drifts_volatilities,qe-code-002,4,0,0
 lecture-python.myst,phillips_drifts_volatilities,qe-code-004,3,0,0
 lecture-python.myst,phillips_drifts_volatilities,qe-fig-001,13,0,0
 lecture-python.myst,phillips_drifts_volatilities,qe-fig-003,4,0,0
@@ -1279,7 +1273,6 @@ lecture-python.myst,rational_expectations,qe-ref-001,1,0,0
 lecture-python.myst,rational_expectations,qe-writing-001,1,0,0
 lecture-python.myst,rational_expectations,qe-writing-006,1,0,0
 lecture-python.myst,rational_expectations,qe-writing-008,30,0,0
-lecture-python.myst,rational_learning_re,qe-code-002,3,0,0
 lecture-python.myst,rational_learning_re,qe-fig-001,6,0,0
 lecture-python.myst,rational_learning_re,qe-fig-004,1,0,0
 lecture-python.myst,rational_learning_re,qe-fig-005,3,0,0
@@ -1291,7 +1284,7 @@ lecture-python.myst,re_with_feedback,qe-math-004,1,0,0
 lecture-python.myst,re_with_feedback,qe-writing-001,3,0,0
 lecture-python.myst,re_with_feedback,qe-writing-006,12,0,0
 lecture-python.myst,re_with_feedback,qe-writing-008,33,0,0
-lecture-python.myst,robust_permanent_income,qe-code-002,5,0,0
+lecture-python.myst,robust_permanent_income,qe-code-002,3,0,0
 lecture-python.myst,robust_permanent_income,qe-fig-001,3,0,0
 lecture-python.myst,robust_permanent_income,qe-fig-003,5,0,0
 lecture-python.myst,robust_permanent_income,qe-fig-005,1,0,0
@@ -1346,7 +1339,6 @@ lecture-python.myst,stats_examples,qe-math-010,12,1,0
 lecture-python.myst,stats_examples,qe-writing-006,5,0,0
 lecture-python.myst,stats_examples,qe-writing-008,29,0,0
 lecture-python.myst,status,qe-code-003,1,0,0
-lecture-python.myst,survival_recursive_preferences,qe-code-002,1,0,0
 lecture-python.myst,survival_recursive_preferences,qe-fig-001,8,0,0
 lecture-python.myst,survival_recursive_preferences,qe-fig-003,6,0,0
 lecture-python.myst,survival_recursive_preferences,qe-fig-004,5,0,0
@@ -1366,7 +1358,6 @@ lecture-python.myst,theil_1,qe-fig-004,1,0,0
 lecture-python.myst,theil_1,qe-fig-005,1,0,0
 lecture-python.myst,theil_1,qe-math-010,3,1,0
 lecture-python.myst,theil_1,qe-writing-001,1,0,0
-lecture-python.myst,theil_2,qe-code-002,1,0,0
 lecture-python.myst,theil_2,qe-fig-001,5,0,0
 lecture-python.myst,theil_2,qe-fig-005,1,0,0
 lecture-python.myst,theil_2,qe-math-004,3,0,0
@@ -1410,7 +1401,6 @@ lecture-python.myst,uncertainty_traps,qe-ref-001,1,0,0
 lecture-python.myst,uncertainty_traps,qe-writing-001,4,0,0
 lecture-python.myst,uncertainty_traps,qe-writing-006,2,0,0
 lecture-python.myst,uncertainty_traps,qe-writing-008,5,0,0
-lecture-python.myst,unemployment_linear,qe-code-002,1,0,0
 lecture-python.myst,unemployment_linear,qe-fig-005,2,0,0
 lecture-python.myst,unemployment_linear,qe-math-010,1,1,0
 lecture-python.myst,unemployment_linear,qe-ref-001,1,0,0
@@ -1427,7 +1417,7 @@ lecture-python.myst,var_dmd,qe-writing-004,16,0,0
 lecture-python.myst,var_dmd,qe-writing-006,5,0,0
 lecture-python.myst,var_dmd,qe-writing-008,180,0,0
 lecture-python.myst,var_dmd,qe-writing-009,1,1,0
-lecture-python.myst,var_subsets,qe-code-002,38,0,0
+lecture-python.myst,var_subsets,qe-code-002,37,0,0
 lecture-python.myst,var_subsets,qe-fig-001,4,0,0
 lecture-python.myst,var_subsets,qe-fig-003,6,0,0
 lecture-python.myst,var_subsets,qe-fig-004,3,0,0
@@ -1575,7 +1565,6 @@ lecture-python-advanced.myst,black_litterman,qe-math-011,16,1,0
 lecture-python-advanced.myst,black_litterman,qe-writing-001,10,0,0
 lecture-python-advanced.myst,black_litterman,qe-writing-004,3,0,0
 lecture-python-advanced.myst,black_litterman,qe-writing-008,7,0,0
-lecture-python-advanced.myst,cagan_rational_expectations,qe-code-002,3,0,0
 lecture-python-advanced.myst,cagan_rational_expectations,qe-fig-001,2,0,0
 lecture-python-advanced.myst,cagan_rational_expectations,qe-fig-003,1,0,0
 lecture-python-advanced.myst,cagan_rational_expectations,qe-fig-004,2,0,0

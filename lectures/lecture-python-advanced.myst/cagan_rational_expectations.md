@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.0 / 10
+- **Overall score:** 7.1 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 5.5/10 | `qe-writing-005` ×3; `qe-writing-003` ×4; `qe-writing-002` ×4, +2 more. |
 | Math         | 3/10  | `qe-math-002` ×5; `qe-math-010` (proposed) ×4; `qe-math-003` ×2, +1 more. |
-| Code         | 6.5/10 | `qe-code-001` ×8; `qe-code-002` ×3. |
+| Code         | 7.5/10 | `qe-code-001` ×8. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5.5/10 | `qe-fig-006` ×2; `qe-fig-004` ×2; `qe-fig-003` ×1, +2 more. |
 | References   | 8.5/10 | `qe-ref-001` ×2. |
@@ -32,7 +32,6 @@ _None found._
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 4. *Lines:* 205, 209, 225, 270. *Example:* bare expectation `E_t(`.
 
 ### Medium severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 3. *Lines:* 455, 1432, 1461. *Example:* spelled-out `alpha`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 1440, 1476. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 1. *Lines:* 1482. *Example:* .set_title.
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 2. *Lines:* 451, 1178. *Example:* caption of 7 words.

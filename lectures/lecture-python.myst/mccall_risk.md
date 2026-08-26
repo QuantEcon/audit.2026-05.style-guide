@@ -5,16 +5,16 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.6 / 10
-- **Priority:** NONE
+- **Overall score:** 7.8 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 10/10 | no mechanical violations detected. |
-| Math         | 6.5/10 | `qe-math-010` (proposed) ×4; `qe-math-001` ×1. |
-| Code         | 8/10  | `qe-code-003` ×1; `qe-code-002` ×1. |
+| Writing      | 6.5/10 | `qe-writing-003` ×4; `qe-writing-002` ×3; `qe-writing-007` ×3. |
+| Math         | 6/10  | `qe-math-010` (proposed) ×4; `qe-math-001` ×1; `qe-math-009` ×3. |
+| Code         | 7/10  | `qe-code-001` ×8; `qe-code-003` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7/10  | `qe-fig-006` ×2; `qe-fig-005` ×2. |
 | References   | N/A   | no citations in this lecture. |
@@ -27,6 +27,7 @@
 _None found._
 
 ### High severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 8. *Lines:* 538, 470, 525, 579, 700, 220, 412, 756. *Example:* `σ` is used for two unrelated objects. Through the static section it is the standard deviation - `σ_vals`, `σ_grid`, `σ` in 157-176, 291-322, and $\sigma$ in the mathematics at 110, 136, 271 - and then at 538 it becomes the policy, `σ = accept >= reject`, carried on to `σ_star` (578), `σ` (602, 738) and the `σ:` parameter of `get_reservation_wage` (547, 552). Both spellings are house conventions; using them in one file is what makes it a problem. The reservation wage has three names for one quantity: `w_bar` at 579, `w_star` at 653, 700 and 739, and `w*` in the docstring at 710 - and no symbol at all in the mathematics. Two lambdas are assigned to names, `vf = lambda x: jnp.interp(x, w_grid, v)` at 470 and again at 525 (flake8 E731; the rule's own guidance is to use `def`), and the two are byte-identical seven-line blocks (472-478 and 527-533) that could be one function. Two lines exceed 79 characters, 700 at 91 and 756 at 89. Eight blank-line violations inside single cells (E302 at 220, 304, 412, 598; E305 at 226, 316, 607, 746), including `def create_mccall_model` at 412 one blank line after `class Model`. Not counted: the E121/E125 continuation-indent hits at 422 and 494 are in pycodestyle's default ignore set, and `T` (465) is a legitimate capital for the Bellman operator.
 - **[qe-math-010 (proposed)]** — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces. *Count:* 4. *Lines:* 339. *Example:* non-blackboard `\text{Var}`.
 
 ### Medium severity
@@ -34,24 +35,32 @@ _None found._
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 287, 651. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-006]** — Lowercase axis labels. *Count:* 2. *Lines:* 615, 754. *Example:* axis label `Reservation wage`.
 - **[qe-math-001]** — Prefer UTF-8 unicode for simple parameter mentions, be consistent. *Count:* 1. *Lines:* 460. *Example:* unicode `β` inside a math environment.
+- **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 3. *Lines:* 190, 339, 460. *Example:* the Beta distribution is named four different ways in seventy lines: `Beta$(a, b)$` with the name outside the math at 190, `Beta$(2,2)$` at 196, plain `Beta(2,2)` in running text at 246, and `\text{Beta}(2, 2)` inside math at 263 - where qe-math-011 (proposed) asks for `\mathrm{Beta}`. Variance is written `\text{Var}(\cdot)` four times on line 339 where the same lecture writes expectation as `\mathbb{E}` throughout (91, 99, 114, 122, 197, 235, 345, 378, 387), so the two operators of the same family are set in two different fonts one line apart; qe-math-010 (proposed) counts these four already. And 460 mixes notations inside a single inline formula, `$v_e(w) ≥ u(c) + β(P_\theta v_u)(w)$`, with a Unicode `≥` and a Unicode `β` next to a LaTeX `\theta` - three conventions in eleven characters.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 3. *Lines:* 252, 700, 34. *Example:* the conclusion that a risk-averse agent values an uncertain payoff below its mean is stated four times in near-identical words: 252-253 ("a more risk-averse agent values the uncertain payoff $Y$ less than its expected value"), 350-352 ("the risk averse agent is not compensated for bearing additional risk. This is why the valuation of the random payoff goes down"), 628-631 ("a more risk-averse agent values the certain income from employment more highly relative to the uncertain future prospects") and 762-766. Second, the docstring of `compute_unemployment_rate` (701-714) describes a steady state the function does not compute - "Employed workers lose jobs at rate α; Unemployed workers find acceptable jobs at rate (1 - F(w*))" - where $F$ is never defined in the lecture and the body simply simulates 5,000 agents for 200 periods and takes a cross-section, so the docstring's analytics are decoration a reader has to discard. Third, 34-40 spends three paragraphs saying that the lecture is an introduction to risk-sensitive preferences and that motivation follows.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 4. *Lines:* 444, 213, 220, 42. *Example:* the displayed Bellman equations and the code they are said to implement disagree about the flow utility. 442-456 writes $v_e(w) = \frac{1}{1-\beta(1-\alpha)}(u(w) + \alpha\beta(P_\theta v_u)(w))$ and $v_u(w) = \max\{\ldots, u(c) + \beta(P_\theta v_u)(w)\}$, and the Bellman operator at 480-483 implements them as `accept = d * (w_grid + α * β * P_θ_v)` and `reject = c + β * P_θ_v` - i.e. $u$ is silently the identity. That choice is deliberate and is the point of the lecture (53 says previous lectures "inserted some degree of risk aversion by adding a concave flow utility function $u$" and 60-63 says this one takes a different route), which makes it exactly the thing that has to be said out loud; as written, a reader implementing 444 from the page gets a different program. Second, `θ_grid` is bound twice to different grids inside *figure* cells - `jnp.linspace(-2, -0.1, 100)` at 213 and `jnp.linspace(-3.0, -0.1, 25)` at 595 - and the exercise solution at 747 depends on whichever ran last, while 638-639 tells the reader to "use the parameters from the previous section" rather than passing them. `mc_size` is likewise 1_000_000 at 212 and 290 but 1000 as `create_mccall_model`'s default at 420, so the same name means two sample sizes a thousand-fold apart. Third, `compute_e_θ` and `compute_e_θ_vec` are each defined twice with different arguments - taking $\theta$ at 220-226, taking $\sigma$ at 304-316 - so the exercise solution overwrites a function from the body of the lecture. Fourth, the front matter is split across two headings, `## Overview` (32-40) which says only "Some motivation is given below" and `## Outline` (42-65) which is the actual overview; every other lecture in the series carries one.
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 3. *Lines:* 577, 546, 612. *Example:* the lecture solves a dynamic program and never shows its solution. 577-578 computes `v_star` and `σ_star`, and neither the value function $v_u$ nor the policy is ever plotted - so the object that defines the reservation wage, the crossing of $v_e(w)$ with $u(c) + \beta(P_\theta v_u)(w)$ described at 460, is invisible. One panel with the two branches of 449-456 drawn against $w$ and their intersection marked would make the reservation wage a thing the reader can see rather than a number printed at 580, and everything needed is already in memory. Second, `get_reservation_wage` (546-566) reads the reservation wage off a boolean array with `jnp.argmax(σ)`, so it can only ever return a point of `w_grid`, a 100-point Tauchen grid (429-430); `` {numref}`fig-mcr-reservation` `` then plots 25 such values against $\theta$ with `marker='o'` and the result is necessarily a staircase, which nothing in the text acknowledges and no figure of the grid makes visible. Third, the two Monte Carlo figures at 287-330 and 651-760 carry no `mystnb` metadata (qe-fig-005 counts both), so neither can be cross-referenced with `{numref}` the way the three that do carry it are; and the acceptance rule at 460 - the lecture's operational definition - is a bare unpunctuated sentence where display math or a `{prf:definition}` belongs.
 
 ### Low severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 208. *Example:* spelled-out `beta`.
+_None found._
 
 
 ## Strengths
 
-- Writing, Links, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The lecture makes its case for the construction before using it: 44-63 explains why adding a concave $u$ is the wrong instrument (it changes consumption-smoothing preferences too), states what is wanted instead, and only then introduces the entropic risk-adjusted expectation - so the reader knows what problem $e_\theta$ is solving before meeting the formula.
+- The static section derives the Gaussian case in full (109-137) and lands on $e_\theta = \mu + \theta\sigma^2/2$, from which both comparative statics are read off in two sentences at 139-144 - and then 183-199 does the non-Gaussian case by Monte Carlo, so the reader sees the analytic result and the method that generalises it side by side.
+- `` {numref}`fig-mcr-beta` `` (203-239) is the right figure and is annotated to make its point checkable: $e_\theta$ against $\theta$ with a dashed line at $\mathbb{E}[Y] = 0.5$, so the claim at 244-248 that $e_\theta \to \mathbb{E}[Y]$ as $\theta \to 0$ can be verified by eye rather than taken on trust.
+- The mean-preserving-spread exercise (260-279) is the right test of the construction, and its solution proves that the spread really is mean preserving rather than asserting it: 338-346 computes both $\text{Var}(X)$ and $\mathbb{E}[X]$ symbolically before pointing at the figure.
+- `Model` is a `NamedTuple` with a commented field per parameter (402-410) built by a keyword-only factory (412-432), and every function unpacks it in the same order on its first line (467, 522, 558, 658) - so the parameter set is defined once and the eight-way unpack reads identically in four places.
+- The JAX is idiomatic rather than decorative: `lax.while_loop` for the VFI so the solver can be `@jax.jit`-ed whole (489-513), `jax.vmap` for the four parameter sweeps (226, 316, 607, 746), explicit key splitting for the two independent sample sets in the exercise (294-301), and a cross-sectional simulation of 5,000 agents in place of one long time series, with the reason given in the docstring (703-706).
+- 'IID' is written correctly at 370, satisfying qe-writing-009 (proposed), and the lecture has no citations to get wrong - References is legitimately N/A rather than a missed category.
 
 ## Recommended actions
 
-1. `qe-math-010` (proposed) — Blackboard \mathbb{P}, \mathbb{E}, \mathbb{V} with braces (4 occurrences).
-2. `qe-fig-006` — Lowercase axis labels (2 occurrences).
-3. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
-4. `qe-math-001` — Prefer UTF-8 unicode for simple parameter mentions, be consistent (1 occurrence).
-5. `qe-code-003` — Package installation at lecture top (1 occurrence).
-6. `qe-code-002` — Use Unicode symbols for Greek letters in code (1 occurrence).
+1. Say that $u$ is the identity, or put it in the code: the Bellman equations at 442-456 carry $u(w)$ and $u(c)$ and the operator at 480-483 uses `w_grid` and `c` directly. One sentence after 456 ('we take $u(w) = w$, so that risk aversion comes only through $\theta$') would close the gap and would also underline the lecture's own point at 53-63.
+2. Add `jax` to the install cell at 72: it currently reads `!pip install quantecon` while the lecture imports `jax`, `jax.numpy` and `jax.lax` at 78-80. The sibling lecture this one extends, `mccall_fitted_vfi`, writes `!pip install quantecon jax` - so this is a one-word divergence from the lecture next door, and it is what qe-code-003 is reporting at 69.
+3. Plot the value function and the two branches of the max at 449-456 against $w$ with their crossing marked: `v_star` and `σ_star` are already computed at 577-578, and the reservation wage is currently only a printed number (580).
+4. Rename the policy: `σ` at 538, 547, 552, 578, 602 and 738 collides with `σ` the standard deviation at 157-176 and 291-322 in the same file. `policy` or `accept_flag` costs nothing here since the mathematics gives the policy no symbol.
+5. Give `θ_grid` and `mc_size` one meaning each: `θ_grid` is rebound at 213 and 595 inside figure cells and consumed by the exercise solution at 747; `mc_size` is 1_000_000 at 212 and 290 but 1000 as a model default at 420. Rename the second `compute_e_θ`/`compute_e_θ_vec` pair (304, 316), which overwrites the definitions at 220 and 226.
+6. Replace the two `vf = lambda x: ...` assignments (470, 525) with a `def`, and factor the identical seven-line expectation block out of `T` (472-478) and `get_greedy` (527-533).
+7. Settle the notation: one spelling for Beta (190, 196, 246, 263 - `\mathrm{Beta}` inside math), `\mathbb{V}` for the four `\text{Var}` sites on 339 to match the `\mathbb{E}` used everywhere else, and rewrite 460 as display math with `\geq` and `\beta` instead of the Unicode `≥` and `β`.
+8. Sweep the mechanical items: `mystnb` caption and name metadata for the two bare figure cells (287, 651), lower-case axis labels at 615 ('Reservation wage') and 754 ('Long-run unemployment rate (%)') (qe-fig-006), the embedded titles at 324 and 755, the two long lines (700, 756), the eight E302/E305 blank-line items, the thirteen lines ending in trailing whitespace - eight of which (38, 94, 192, 196, 246, 334, 342, 765) end a paragraph in two spaces, which MyST turns into a hard line break - the two-space paragraph continuations at 245-246 and 629, and the five sentences with no full stop (192, 196, 460, 623, 769).

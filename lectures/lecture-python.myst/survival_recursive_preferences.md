@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.9 / 10
+- **Overall score:** 9.1 / 10
 - **Priority:** NONE
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 9/10  | `qe-writing-001` ×1. |
 | Math         | 10/10 | no mechanical violations detected. |
-| Code         | 9/10  | `qe-code-002` ×1. |
+| Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 4.5/10 | `qe-fig-003` ×6; `qe-fig-004` ×5; `qe-fig-005` ×1, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -35,7 +35,6 @@ _None found._
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 158. *Example:* 2 sentences in one paragraph.
 
 ### Low severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 903. *Example:* spelled-out `gamma`.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 794. *Example:* code-cell figure without mystnb figure metadata.
 
 
@@ -54,5 +53,4 @@ _None found._
 2. `qe-fig-004` — Caption formatting conventions (5 occurrences).
 3. `qe-writing-001` — Use one sentence per paragraph (1 occurrence).
 4. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
-5. `qe-code-002` — Use Unicode symbols for Greek letters in code (1 occurrence).
-6. `qe-fig-001` — Do not set figure size unless necessary (8 occurrences).
+5. `qe-fig-001` — Do not set figure size unless necessary (8 occurrences).

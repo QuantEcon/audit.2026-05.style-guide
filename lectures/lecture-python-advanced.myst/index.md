@@ -7,7 +7,7 @@ Style audit of the **lecture-python-advanced.myst** series.
 - **Corpus snapshot:** `b83d6da399`
 - **Lectures audited:** 68
 - **Average overall score:** 7.5 / 10
-- **Average per-category scores:** writing 4.6, math 5.9, code 7.5, figures 6.3, references 9.2, links 9.2, admon 10.0
+- **Average per-category scores:** writing 4.6, math 5.9, code 7.6, figures 6.3, references 9.2, links 9.2, admon 10.0
 - **JAX:** out of scope — the `qe-jax-*` rules target `lecture-jax`.
 - **Judgment-review coverage:** **66 of 68 reviewed** — scores for the unreviewed 2 reflect the 41 measured rules only, so they are not directly comparable with the reviewed ones.
 <!-- /qe:series-meta -->
@@ -116,9 +116,9 @@ that lecture. Click a lecture for its full report.
 | 14 | [cons_news](cons_news.md) | 3 | 4.5 | 8.5 | 6 | 10 | 7.5 | — | **6.6** | HIGH |
 | 15 | [dyn_stack](dyn_stack.md) | 3.5 | 4 | 7 | 4.5 | 10 | 7.5 | 10 | **6.6** | HIGH |
 | 16 | [robustness](robustness.md) | 3 | 3 | 7.5 | 6.5 | 10 | 7.5 | 10 | **6.8** | HIGH |
-| 17 | [cagan_rational_expectations](cagan_rational_expectations.md) | 5.5 | 3 | 6.5 | 5.5 | 8.5 | 10 | 10 | **7.0** | HIGH |
-| 18 | [smoothing_tax](smoothing_tax.md) | 4 | 4.5 | 7.5 | 4 | 10 | 9 | 10 | **7.0** | HIGH |
-| 19 | [BCG_incomplete_mkts](BCG_incomplete_mkts.md) | 3 | 7.5 | 7.5 | 4.5 | 10 | 10 | — | **7.1** | HIGH |
+| 17 | [smoothing_tax](smoothing_tax.md) | 4 | 4.5 | 7.5 | 4 | 10 | 9 | 10 | **7.0** | HIGH |
+| 18 | [BCG_incomplete_mkts](BCG_incomplete_mkts.md) | 3 | 7.5 | 7.5 | 4.5 | 10 | 10 | — | **7.1** | HIGH |
+| 19 | [cagan_rational_expectations](cagan_rational_expectations.md) | 5.5 | 3 | 7.5 | 5.5 | 8.5 | 10 | 10 | **7.1** | HIGH |
 | 20 | [calvo](calvo.md) | 3 | 5.5 | 7.5 | 7 | 8.5 | 8 | 10 | **7.1** | HIGH |
 | 21 | [stationary_densities](stationary_densities.md) | 4 | 6 | 7 | 6 | 9 | 7.5 | 10 | **7.1** | HIGH |
 | 22 | [calvo_machine_learn](calvo_machine_learn.md) | 3.5 | 3 | 6 | 8 | 10 | 10 | 10 | **7.2** | HIGH |

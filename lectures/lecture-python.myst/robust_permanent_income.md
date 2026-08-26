@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.7 / 10
+- **Overall score:** 8.9 / 10
 - **Priority:** NONE
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 7.5/10 | `qe-writing-001` ×5. |
 | Math         | 10/10 | no mechanical violations detected. |
-| Code         | 7.5/10 | `qe-code-002` ×5. |
+| Code         | 8.5/10 | `qe-code-002` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-003` ×5; `qe-fig-005` ×1; `qe-fig-001` ×3. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -27,11 +27,11 @@
 _None found._
 
 ### High severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 5. *Lines:* 363, 675, 676. *Example:* spelled-out `sigma`.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 5. *Lines:* 179, 193, 516, 832, 838. *Example:* .set_title.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 5. *Lines:* 126, 332, 339, 598, 693. *Example:* 2 sentences in one paragraph.
 
 ### Medium severity
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 3. *Lines:* 675, 676. *Example:* spelled-out `mu`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 173, 509, 821. *Example:* figsize=.
 
 ### Low severity
@@ -51,6 +51,6 @@ _None found._
 
 1. `qe-writing-001` — Use one sentence per paragraph (5 occurrences).
 2. `qe-fig-003` — No matplotlib embedded titles (5 occurrences).
-3. `qe-code-002` — Use Unicode symbols for Greek letters in code (5 occurrences).
+3. `qe-code-002` — Use Unicode symbols for Greek letters in code (3 occurrences).
 4. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
 5. `qe-fig-001` — Do not set figure size unless necessary (3 occurrences).

@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.9 / 10
+- **Overall score:** 9.2 / 10
 - **Priority:** NONE
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 10/10 | no mechanical violations detected. |
 | Math         | 10/10 | no mechanical violations detected. |
-| Code         | 7/10  | `qe-code-002` ×5; `qe-code-003` ×1. |
+| Code         | 9/10  | `qe-code-003` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6.5/10 | `qe-fig-006` ×2; `qe-fig-005` ×3; `qe-fig-004` ×1. |
 | References   | N/A   | no citations in this lecture. |
@@ -27,7 +27,7 @@
 _None found._
 
 ### High severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 5. *Lines:* 469, 485, 592, 746, 747. *Example:* spelled-out `alpha`.
+_None found._
 
 ### Medium severity
 - **[qe-code-003]** — Package installation at lecture top. *Count:* 1. *Lines:* 20. *Example:* non-Anaconda import with no install cell: ['jax'].
@@ -40,7 +40,7 @@ _None found._
 
 ## Strengths
 
-- Writing, Math, Links, Admonitions score 9 or above — no material violations measured in those categories.
+- Writing, Math, Code, Links, Admonitions score 9 or above — no material violations measured in those categories.
 - No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
 - No `qe-admon-003` violations — Use tick count management for nested directives.
 - No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
@@ -48,8 +48,7 @@ _None found._
 
 ## Recommended actions
 
-1. `qe-code-002` — Use Unicode symbols for Greek letters in code (5 occurrences).
-2. `qe-fig-006` — Lowercase axis labels (2 occurrences).
-3. `qe-fig-005` — Descriptive figure names for cross-referencing (3 occurrences).
-4. `qe-code-003` — Package installation at lecture top (1 occurrence).
-5. `qe-fig-004` — Caption formatting conventions (1 occurrence).
+1. `qe-fig-006` — Lowercase axis labels (2 occurrences).
+2. `qe-fig-005` — Descriptive figure names for cross-referencing (3 occurrences).
+3. `qe-code-003` — Package installation at lecture top (1 occurrence).
+4. `qe-fig-004` — Caption formatting conventions (1 occurrence).

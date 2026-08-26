@@ -5,16 +5,16 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 8.6 / 10
-- **Priority:** NONE
+- **Overall score:** 7.6 / 10
+- **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 9.5/10 | `qe-writing-008` ×2. |
-| Math         | 10/10 | no mechanical violations detected. |
-| Code         | 10/10 | no mechanical violations detected. |
+| Writing      | 6.5/10 | `qe-writing-003` ×3; `qe-writing-002` ×3; `qe-writing-008` ×2, +1 more. |
+| Math         | 9.5/10 | `qe-math-009` ×3. |
+| Code         | 7.5/10 | `qe-code-001` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5/10  | `qe-fig-005` ×7; `qe-fig-003` ×3; `qe-fig-007` ×1, +2 more. |
 | References   | 9/10  | `qe-ref-001` ×1. |
@@ -27,6 +27,7 @@
 _None found._
 
 ### High severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 6. *Lines:* 977, 1047, 1060, 556, 970, 58. *Example:* 977-979 is the most consequential item and it is invisible to every linter. The `Samuelson` class docstring is a plain triple-quoted string containing `Y_t = \alpha (1 + \beta) Y_{t-1} - \alpha \beta Y_{t-2}`, and in a non-raw string `\a` is BEL and `\b` is backspace, so the stored docstring is `Y_t = \x07lpha (1 + \x08eta) Y_{t-1} - \x07lpha \x08eta Y_{t-2}` - I confirmed this by compiling the string in Python. flake8's W605 cannot warn here precisely because `\a` and `\b` are *valid* escapes, so nothing flags it; the fix is an `r` prefix on line 968. Then: two comparisons to `True` with `==` (1047 `if self.root_less_than_one() == True:`, 1296 `if stationary == True:`, E712) and one to `None` with `!=` (1060 `if self.duration != None:`, E711), where PEP8 asks for `is`/truthiness. Twenty-two blank lines carry trailing whitespace (W293 at 556, 559, 562, 566, 573, 596, 603, 606, 611, 626, 631, 633, 809, 814, 885, 890, 938, 943, 1015, 1276, 1280, 1284) and eight code lines end in whitespace (W291 at 970, 974, 1032, 1036, 1262, 1311, 1312). 628 writes `y_t[t-1]` and `y_t[t-2]` unspaced on a line that spaces every other operator (E226). And the second import cell (58-65) imports `cmath`, then `math`, then `from cmath import sqrt`, so `sqrt` in the module body is `cmath.sqrt` while `math` is also in scope - three ways to reach a square root, one of which silently shadows the real-valued one. Separately, the code's `g_t` is the *date* of the government-spending shock (998-999, 1009) while the mathematics writes $G_t$ for the *level* of government spending at $t$ (113-114, 215, 397), so the two most similar names in the lecture mean unrelated things.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 6. *Lines:* 413, 653, 1068, 1196, 1310, 1333. *Example:* figsize=.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 7. *Lines:* 405, 1143, 1155, 1169, 1358, 1363, 1368. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 8. *Lines:* 430, 431, 432, 654, 1069, 1200, 1316, 1337. *Example:* plot() without lw=.
@@ -34,6 +35,10 @@ _None found._
 ### Medium severity
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 3. *Lines:* 1201, 1317, 1341. *Example:* .set(title=.
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 1. *Lines:* 41. *Example:* raw link to python-programming.quantecon.org.
+- **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 3. *Lines:* 336, 274, 1379. *Example:* 336-337 writes the period as $\check p = \frac{2\pi}{\omega}$, and the check mark is doing nothing: no plain $p$ is in use anywhere in the lecture, so the decoration exists only to be typed, and the code that computes the same quantity calls it `cycle_period` without any mark. $r$ is given two different names for one symbol: 274 calls it "the *amplitude* of the complex number" and 337 calls it the "*damping factor*", 60 lines apart, with no sentence connecting the two readings. And 1379's $b$ for the accelerator coefficient is a third symbol for an object that already has $\beta$ in the mathematics and `β` in the code.
+- **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 3. *Lines:* 357, 391, 339. *Example:* "Things this lecture does" (357-399) is 43 lines that describe code the reader is about to see, sentence by sentence, and adds nothing the code does not say more precisely - nine of its paragraphs begin "We" or "The function". 391 is a 43-word sentence that names its subject twice: "the eigenvalues of the matrix $A$ that we use to form the instance of the `LinearStateSpace` class for the Samuelson model equal the roots of the characteristic polynomial `` {eq}`polynomial` `` for the Samuelson multiplier accelerator model". And there are four small breakages of the register: 339 says the cosine wave "goes through exactly one complete cycles"; 341 is a parenthetical instruction with the politeness at the wrong end, "(Draw a cosine function to convince yourself of this please)"; 82 puts the comma inside the emphasis, `*aggregate demand,*`; and the file uses three different dash conventions in prose - `--` at 113 and 249, `---` at 200 and 201.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 3. *Lines:* 977, 1379, 357. *Example:* the class docstring states a different model from the class. 979 writes $Y_t = \alpha(1+\beta)Y_{t-1} - \alpha\beta Y_{t-2}$, while the lecture's own reduction at 177 sets $\rho_1 = (\alpha+\beta)$ and $\rho_2 = -\beta$ and the code implements exactly that, `ρ1 = α + β` and `ρ2 = -β` at 554-555. The two parameterisations are not equal for any nontrivial $(\alpha,\beta)$, so a reader who takes the docstring at face value has the wrong difference equation for the class they are about to instantiate. Second, 1379 says "Let's shut down the accelerator by setting $b=0$" - the accelerator coefficient is $\beta$ throughout the lecture (77, 122, 155, 177) and the code on the next line writes `β=0`, so $b$ appears once, undefined. Third, the lecture states its plan twice: 43-47 gives three objectives in the Overview, and then "Things this lecture does" (357-399) restates them as nine consecutive sentences of implementation narration ("We write a function ... The function requires ... The function checks ... The function also tells us ... If the roots ... We use our function ... We have written the function ...") before any code appears.
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 3. *Lines:* 343, 405, 1385. *Example:* a 1,415-line lecture contains no admonition of any kind - the Admonitions category is `N/A` for want of material, not because the file is clean - and there are two places where the author clearly wanted one: 343 and 352 both open with an italic run-in `*Remark:*` label, exactly what `{note}` or `{prf:remark}` exists for, and 85, 287 and 106 park background reading in bare parenthesised asides. Second, seven of the lecture's figures carry no `mystnb` caption or name metadata (405, 1143, 1155, 1169, 1358, 1363, 1368), so the parameter-region diagram from page 189 of `` {cite}`Sargent1987` `` - the single most useful picture in the lecture, and the one the whole discussion of root types at 518-530 refers to - cannot be cross-referenced from the text at all, and 1148's section heading "Using the graph" has to name it in prose instead. Third, the closing "Pure multiplier model" section (1377-1403) is six consecutive one-line code cells that assign `pure_multiplier` twice with different $\alpha$ (1386, 1394) and plot each in turn; the point being made - that switching the accelerator off removes the cycles - is a comparison, and it is spread over three separate figures with the first parameterisation discarded after one plot.
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 2. *Lines:* 315, 352. *Example:* 2 spaces.
 
 ### Low severity
@@ -44,18 +49,22 @@ _None found._
 
 ## Strengths
 
-- Writing, Math, Code, References score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- The model is built up in the order a reader needs it: the three behavioural components in words (69-79), the accounting identity and the two behavioural equations as displayed equations, the reduction to $Y_t = \rho_1 Y_{t-1} + \rho_2 Y_{t-2}$ with $\rho_1 = \alpha+\beta$, $\rho_2 = -\beta$ stated explicitly at 177, and only then the characteristic polynomial.
+- The complex-root case is worked all the way through rather than quoted: 302-333 goes from $Y_t = c_1\lambda_1^t + c_2\lambda_2^t$ to $2 v r^t \cos(\omega t + \theta)$ in two displayed derivations, and 315-317 supplies the step a reader would otherwise have to guess - that $Y_t$ can be real for every $t$ only if $c_1$ and $c_2$ are complex conjugates.
+- The parameter-region diagram reproduced from page 189 of `` {cite}`Sargent1987` `` (405-440) is the organising picture for everything that follows, and `categorize_solution` (535-548) turns the same regions into code with one branch per region, so the classification a reader reads off the chart and the classification the program prints are the same classification.
+- Reverse-engineering is the right pedagogical move and the lecture makes it twice: 720-781 solves for the $(\alpha, \beta)$ that deliver a chosen damping factor and cycle period, and 821-845 then feeds those values back through the simulation, so the reader can specify the business cycle they want to see and watch the model produce it.
+- The OOP arc is declared before it is walked: 377-385 says the model is being used 'as a laboratory to make a simple OOP example', explains why the two-lag state needs 'a little more bookkeeping than is required in the Solow model class', and then the lecture does exactly that - three progressively extended functions (`y_nonstochastic`, `y_stochastic`, `y_stochastic_g`), a `Samuelson` class, and a `SamuelsonLSS` class that inherits from `LinearStateSpace`.
+- The claim that the two representations agree is verified rather than asserted: 391 promises that the eigenvalues of $A$ equal the roots of the characteristic polynomial, and the `LinearStateSpace` section (1160-1230) computes both and shows them side by side.
+- `Samuelson` carries a full numpydoc parameter block (981-1004) that documents every argument including the admissible values of `duration` and the constraint linking `g_t` to it, and `__init__` then validates the arguments rather than trusting them.
+- Bold is reserved for the six terms the lecture defines - **business cycles** (89), **stochastic linear difference equation** (103), **marginal propensity to consume** (155), **steady state** (196), **characteristic polynomial** (238), **zeros**/**roots** (249) - so qe-writing-005 has nothing to report despite 24 italic spans doing the emphasis.
 
 ## Recommended actions
 
-1. `qe-fig-005` — Descriptive figure names for cross-referencing (7 occurrences).
-2. `qe-fig-003` — No matplotlib embedded titles (3 occurrences).
-3. `qe-link-002` — Use doc links for cross-series references (1 occurrence).
-4. `qe-ref-001` — Use correct citation style (1 occurrence).
-5. `qe-link-001` — Use markdown style links for lectures in same lecture series (1 occurrence).
-6. `qe-fig-007` — Keep figure box and spines (1 occurrence).
-7. `qe-fig-008` — Use lw=2 for line charts (8 occurrences).
+1. Make the class docstring a raw string and fix the equation it states: `class Samuelson:` at 967 opens a plain `\"\"\"` docstring whose `\alpha` and `\beta` compile to BEL and backspace characters, so `help(Samuelson)` prints control codes - add an `r` prefix at 968. Then correct 979, which writes $Y_t = \alpha(1+\beta)Y_{t-1} - \alpha\beta Y_{t-2}$ where the lecture (177) and the code (554-555) both use $\rho_1 = \alpha+\beta$, $\rho_2 = -\beta$.
+2. Fix the two broken displays: 280 and 284 write `r (cos (\omega) + i \sin (\omega))` with `cos` unescaped next to a correctly escaped `\sin`, so `cos` renders as three italic variables multiplied together; and 327-329 uses `& = &` inside `aligned`, which adds a spurious column - 307-311 gets the same construction right with a single `& =`.
+3. Replace `== True` with truthiness at 1047 and 1296 and `!= None` with `is not None` at 1060, then strip the 22 whitespace-only blank lines and 8 trailing-whitespace line endings, and space `y_t[t - 1]`/`y_t[t - 2]` at 628.
+4. Give the accelerator one symbol: 1379's $b$ should be $\beta$, matching 77, 122, 155, 177 and the `β=0` on the next line. And rename the code's `g_t` (the date of the shock) so it does not read as the mathematics' $G_t$ (the level of government spending at $t$).
+5. Tidy the imports at 58-65: `cmath`, `math` and `from cmath import sqrt` are all imported, so the bare `sqrt` in the module body is the complex one while `math` sits unused alongside it - and `numpy` is already imported at 53. Fold what is needed into the first import cell.
+6. Cut 'Things this lecture does' (357-399) down to the two or three facts a reader cannot get from the code, and delete the duplication with the objectives at 43-47. Split the 43-word sentence at 391, fix 'one complete cycles' at 339, move the 'please' in 341, and settle on one dash convention (`--` at 113 and 249 against `---` at 200-201).
+7. Convert the two `*Remark:*` paragraphs (343, 352) to `{note}` or `{prf:remark}` blocks - they are the only two remarks in a 1,415-line lecture with no admonition anywhere - and put the three parenthesised background asides (85, 106, 287) into notes as well.
+8. Sweep the mechanical items: `mystnb` caption and name metadata for the seven bare figure cells (405, 1143, 1155, 1169, 1358, 1363, 1368) starting with the page-189 parameter diagram the text keeps pointing at, the six `figsize` overrides (413, 653, 1068, 1196, 1310, 1333), the eight `plot()` calls without `lw=2` (430, 431, 432, 654, 1069, 1200, 1316, 1337), the three embedded titles (1201, 1317, 1341), the spine removal at 436 (qe-fig-007), the raw cross-series URL at 41 and the raw same-series URL at 387 (use `{doc}` and a markdown link), the `{cite}` at 403 that wants `{cite:t}`, and the double spaces at 315 and 352.
