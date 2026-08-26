@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.7 / 10
+- **Overall score:** 7.8 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-006` ×5; `qe-writing-003` ×2; `qe-writing-002` ×3, +4 more. |
 | Math         | 7.5/10 | `qe-math-003` ×6. |
-| Code         | 6.5/10 | `qe-code-001` ×6; `qe-code-003` ×1; `qe-code-004` ×1. |
+| Code         | 7.5/10 | `qe-code-001` ×6; `qe-code-004` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 9/10  | `qe-fig-010` ×1. |
 | References   | N/A   | no citations in this lecture. |
@@ -33,7 +33,6 @@ _None found._
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 42. *Lines:* 59, 60, 69, 74, 78, 80, 84, 90, 121, 123, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-code-003]** — Package installation at lecture top. *Count:* 1. *Lines:* 21. *Example:* non-Anaconda import with no install cell: ['jax'].
 - **[qe-fig-010]** — Plotly figures require latex directive. *Count:* 1. *Lines:* 1. *Example:* plotly used with no {only} latex directive.
 - **[qe-writing-001]** — Use one sentence per paragraph. *Count:* 1. *Lines:* 33. *Example:* 3 sentences in one paragraph.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 3. *Lines:* 78, 156, 231. *Example:* line 78 defines width as "the number of right hand side variables on the right hand side of the function being approximated" - the same phrase twice in one clause; lines 156-162 restate the model that 92-151 has just built ("As mentioned above, for a given input $x_1$, our approximating function $\hat f$ evaluated at $x_1$ equals the 'output' $x_{N+1}$ ... computed by iterating on $x_{i+1}=h_i(w_i x_i + b_i)$" is `` {eq}`eq:recursion` `` again in words); and line 231 is a one-word paragraph ("Here goes.") followed by five blank lines.

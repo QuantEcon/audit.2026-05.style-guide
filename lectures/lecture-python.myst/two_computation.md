@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 6.4 / 10
+- **Overall score:** 6.5 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 5.5/10 | `qe-writing-005` ×3; `qe-writing-003` ×4; `qe-writing-002` ×4, +2 more. |
 | Math         | 3/10  | `qe-math-002` ×15; `qe-math-010` (proposed) ×6; `qe-math-004` ×2, +2 more. |
-| Code         | 7/10  | `qe-code-001` ×7; `qe-code-003` ×1. |
+| Code         | 7.5/10 | `qe-code-001` ×7. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 3/10  | `qe-fig-003` ×28; `qe-fig-006` ×46; `qe-fig-005` ×5, +3 more. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -37,7 +37,6 @@ _None found._
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 7. *Lines:* 51, 91, 133, 229, 341, 380. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-code-003]** — Package installation at lecture top. *Count:* 1. *Lines:* 1. *Example:* non-Anaconda import with no install cell: ['jax'].
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 2. *Lines:* 1143, 1571. *Example:* caption of 10 words.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 4. *Lines:* 601, 605, 708, 1160. *Example:* plot() without lw=.
 - **[qe-math-004]** — Do not use bold face for matrices or vectors. *Count:* 2. *Lines:* 459, 472. *Example:* \mathbf.

@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 7.4 / 10
+- **Overall score:** 7.6 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 5/10  | `qe-writing-005` ×3; `qe-writing-003` ×3; `qe-writing-002` ×4, +2 more. |
 | Math         | 10/10 | no mechanical violations detected. |
-| Code         | 7/10  | `qe-code-001` ×4; `qe-code-003` ×1; `qe-code-004` ×3. |
+| Code         | 8/10  | `qe-code-001` ×4; `qe-code-004` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 4/10  | `qe-fig-003` ×18; `qe-fig-005` ×8; `qe-fig-008` ×19, +1 more. |
 | References   | 8.5/10 | `qe-ref-001` ×3. |
@@ -35,7 +35,6 @@ _None found._
 
 ### Medium severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 4. *Lines:* 456, 565, 1019, 1259. *Example:* ten code lines exceed 79 characters, the worst being 104 at line 565 and 86 at 742 and 959 (742, 959, 1094, 1142, 1192, 1243, 1249, 1324, 1407 are the rest); three places use backslash line continuations where parentheses are the PEP8 preference (1019-1021, 1045-1046, 1123-1124); and four continuation lines are indented one column off their opening bracket (457, 730, 1260, 1425). Line 1302 also carries trailing whitespace.
-- **[qe-code-003]** — Package installation at lecture top. *Count:* 1. *Lines:* 1. *Example:* non-Anaconda import with no install cell: ['jax'].
 - **[qe-code-004]** — Use quantecon Timer context manager. *Count:* 3. *Lines:* 519, 557, 742. *Example:* %time.
 - **[qe-ref-001]** — Use correct citation style. *Count:* 3. *Lines:* 33, 34, 35. *Example:* `` {cite} `` in narrative flow: 'in   `` {cite} ``'.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 4. *Lines:* 91, 145, 159, 265. *Example:* the environment is described three times over. Line 91 ("An agent's effective labor supply depends on a life-cycle efficiency profile and an idiosyncratic stochastic process") adds nothing to 87-89 immediately above it; lines 141-145 restate 87-89 again under a new heading; and "Key features" (155-171) restates the Overview bullets at 39-44. Line 159 also states something the model does not contain - "asset holdings typically follow a lifecycle pattern of accumulation during working years and decumulation during retirement" - when every agent supplies labour for all 50 periods and $l(j) = 0.5 + 0.05j - 0.0008j^2$ is still 1.03 at $j = 49$. Line 265 is a 34-word sentence that begins "For a candidate sequence of prices interest rates $r_t$ and wages $w_t$".

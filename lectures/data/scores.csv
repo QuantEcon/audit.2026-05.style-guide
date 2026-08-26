@@ -206,10 +206,10 @@ lecture-python.myst,affine_risk_prices,4.5,4.0,8.5,out-of-scope,5.0,9.0,10.0,10.
 lecture-python.myst,aiyagari,4.5,8.5,8.5,out-of-scope,7.0,10.0,9.0,10.0,8.2,LOW
 lecture-python.myst,aiyagari_egm,3.0,8.5,10.0,out-of-scope,5.5,9.0,10.0,10.0,8.0,HIGH
 lecture-python.myst,ak2,3.5,10.0,8.5,out-of-scope,5.0,10.0,10.0,10.0,8.1,HIGH
-lecture-python.myst,ak_aiyagari,5.0,10.0,7.0,out-of-scope,4.0,8.5,10.0,N/A,7.4,HIGH
+lecture-python.myst,ak_aiyagari,5.0,10.0,8.0,out-of-scope,4.0,8.5,10.0,N/A,7.6,HIGH
 lecture-python.myst,ar1_bayes,7.0,10.0,6.0,out-of-scope,8.0,10.0,8.0,10.0,8.4,LOW
 lecture-python.myst,ar1_turningpts,3.0,7.5,8.5,out-of-scope,8.0,10.0,10.0,N/A,7.8,HIGH
-lecture-python.myst,back_prop,3.0,7.5,6.5,out-of-scope,9.0,N/A,10.0,10.0,7.7,HIGH
+lecture-python.myst,back_prop,3.0,7.5,7.5,out-of-scope,9.0,N/A,10.0,10.0,7.8,HIGH
 lecture-python.myst,bayes_nonconj,5.0,10.0,8.5,out-of-scope,6.5,N/A,9.0,10.0,8.2,LOW
 lecture-python.myst,blackwell_kihlstrom,3.5,3.0,8.5,out-of-scope,7.5,9.0,10.0,10.0,7.4,HIGH
 lecture-python.myst,bounded_rationality,5.5,10.0,8.5,out-of-scope,6.5,10.0,10.0,10.0,8.6,NONE
@@ -335,7 +335,7 @@ lecture-python.myst,theil_1,9.0,7.5,8.5,out-of-scope,6.5,10.0,10.0,10.0,8.8,NONE
 lecture-python.myst,theil_2,7.5,8.0,8.5,out-of-scope,8.5,10.0,10.0,10.0,8.9,NONE
 lecture-python.myst,troubleshooting,6.0,N/A,N/A,out-of-scope,9.0,N/A,9.0,N/A,8.0,LOW
 lecture-python.myst,two_auctions,3.0,4.5,7.5,out-of-scope,3.0,10.0,9.0,N/A,6.2,HIGH
-lecture-python.myst,two_computation,5.5,3.0,7.0,out-of-scope,3.0,10.0,10.0,N/A,6.4,HIGH
+lecture-python.myst,two_computation,5.5,3.0,7.5,out-of-scope,3.0,10.0,10.0,N/A,6.5,HIGH
 lecture-python.myst,uncertainty_traps,5.5,6.0,10.0,out-of-scope,6.5,9.0,10.0,10.0,8.1,LOW
 lecture-python.myst,unemployment_linear,9.0,8.5,9.0,out-of-scope,8.5,9.0,10.0,10.0,9.1,NONE
 lecture-python.myst,unemployment_shocks,10.0,10.0,9.0,out-of-scope,10.0,N/A,10.0,10.0,9.8,NONE

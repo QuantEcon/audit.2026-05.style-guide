@@ -152,6 +152,30 @@ reason to distrust the corpus totals.
   alone would delete them. The real fix is author-name detection, which is the upstream
   definition question in `contributions/issues/06-…`.
 
+### `qe-code-003` could not see the install cell it asks about
+
+`_python_blocks` dropped every non-executing cell, on the reasoning that illustrative code
+is not a dependency. But `!pip install jax` under `:tags: [skip-execution]` is the standard
+idiom in the GPU lectures — the cell is skipped *because the build image already has the
+package* — so the rule reported "no install cell" for the three lectures that use it
+(`two_computation`, `ak_aiyagari`, `back_prop`).
+
+Getting this right took two corrections, and both are worth recording because each was a
+new false positive rather than a miss:
+
+1. Including skipped cells made the rule then demand `hide-output` on them. A cell that
+   never runs has no output to hide, so that requirement is now waived for
+   `skip-execution` / `no-execute`.
+2. Including *all* non-executing cells pulled in `:class: no-execute` blocks, and
+   `getting_started` — the installation tutorial — uses those to show the reader how to
+   install QuantEcon.py. The rule reported them as install cells "not near the top" of a
+   585-line file. They are not this lecture's dependencies at all.
+
+So the two spellings are now distinguished, because they mean different things:
+`skip-execution` on a `{code-cell}` is *this lecture's* install, deferred; `no-execute` on a
+`{code-block}` is example code for the reader. Only the first is ever an install cell.
+Result: 3 occurrences removed, reach 32 → 29, nothing added, no other rule moved.
+
 ### `qe-code-002` was reading docstring prose as code
 
 `check_code_002` called `_strip_py(l.raw)` **one line at a time**. The docstring regexes are

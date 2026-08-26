@@ -823,11 +823,24 @@ def _code_cells(doc: Doc):
     return cells
 
 
-def _python_blocks(doc: Doc):
+def _python_blocks(doc: Doc, include_skipped: bool = False):
     """Directive blocks whose body is Python: (start_line, options, body_text).
 
     A ``{code-block} java`` sample is not this lecture's Python, and treating it as
     such made ``qe-code-003`` report ``java`` as an uninstalled dependency.
+
+    Non-executing cells are dropped by default: their *imports* are not dependencies.
+    But the two spellings mean different things, and only one of them is ever the
+    lecture's own install cell:
+
+    * ``:tags: [skip-execution]`` on a ``{code-cell}`` means "this is my install, the
+      build image already has the package" — ``!pip install jax`` in the GPU lectures.
+      ``include_skipped`` brings these back, because otherwise the very cell
+      ``qe-code-003`` is asking about is invisible to it.
+    * ``:class: no-execute`` on a ``{code-block}`` means "example code for the reader".
+      ``getting_started`` shows the reader how to install QuantEcon.py that way, and
+      counting it as this lecture's install cell reports it as "not near the top" —
+      which is the false positive the first version of this fix introduced.
     """
     out = []
     for start, end, name, arg, opts, body in doc.blocks:
@@ -837,9 +850,10 @@ def _python_blocks(doc: Doc):
         lang = info.split()[0].lower() if info else ""
         if lang not in PY_LANGS:
             continue
-        if "no-execute" in str(opts.get("class", "")) or \
-                "skip-execution" in opts.get("__raw__", ""):
-            continue        # illustrative code, not a dependency of the lecture
+        if "no-execute" in str(opts.get("class", "")):
+            continue        # example code for the reader, never a dependency
+        if not include_skipped and "skip-execution" in opts.get("__raw__", ""):
+            continue        # not executed here, so not a dependency of this lecture
         out.append((start, opts, "\n".join(body)))
     return out
 
@@ -935,7 +949,7 @@ def check_code_003(doc: Doc):
     extra = {i for i in imported if i not in ANACONDA and i not in local}
 
     installs = []          # (line, packages, options)
-    for start, opts, body in blocks:
+    for start, opts, body in _python_blocks(doc, include_skipped=True):
         for m in re.finditer(r"!\s*(?:pip|conda)\s+install\s+([^\n]*)", body):
             pkgs = {w for w in re.split(r"\s+", m.group(1))
                     if w and not w.startswith("-")}
@@ -956,7 +970,11 @@ def check_code_003(doc: Doc):
                             f"install cell at line {line} of {doc.n_lines} "
                             f"(not near the top)"))
         tags = str(opts.get("tags", "")) + opts.get("__raw__", "")
-        if "hide-output" not in tags:
+        # A cell tagged ``skip-execution`` never runs, so it has no output to hide and
+        # ``hide-output`` would be noise. Asking for it there is the false positive the
+        # first version of this fix introduced.
+        if "hide-output" not in tags and "skip-execution" not in tags \
+                and "no-execute" not in tags:
             hits.append(Hit("qe-code-003", line,
                             "install cell missing the hide-output tag"))
     return hits
