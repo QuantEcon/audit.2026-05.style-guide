@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 6.0 / 10
+- **Overall score:** 6.3 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 5/10  | `qe-writing-003` ×8; `qe-writing-002` ×4; `qe-writing-009` (proposed) ×1, +2 more. |
 | Math         | 3/10  | `qe-math-002` ×47; `qe-math-010` (proposed) ×2; `qe-math-011` (proposed) ×1, +1 more. |
-| Code         | 5/10  | `qe-code-001` ×40; `qe-code-002` ×8. |
+| Code         | 7/10  | `qe-code-001` ×40. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5.5/10 | `qe-fig-003` ×6; `qe-fig-005` ×2; `qe-fig-008` ×12. |
 | References   | 8.5/10 | `qe-ref-001` ×3. |
@@ -28,7 +28,6 @@ _None found._
 
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 40. *Lines:* 319, 411, 506, 673, 766. *Example:* 40 items in four countable classes. (i) Eight statements end in a semicolon to suppress notebook output - `ex1_a.stationary_values();` at 411, 510, 520, 537, 579, 603, 648, 704 - which PEP8 rules out (E703); assigning the result or calling it in its own cell does the same job. (ii) Fourteen lines write a binary minus with no surrounding spaces inside the transition matrices, `np.array([[1-λ, λ], [λ, 1-λ]])` at 506-507, 516-517, 533-534, 575-576, 599-600, 644-645 and 700-701. (iii) Eight dictionary literals omit the space after the colon, `{"f1_vals":[0.5, 1.]}` at 766, 776, 895, 901, 907, 913, 919, 925. (iv) 319 and 844 write `f1_vals=[1. ,1.]`, with the space before the comma rather than after. Beyond the count: both `construct_arrays` functions take mutable lists as default arguments (319-321, 844-849); 341-342 and 866-867 write `- f1_vals[i] / 2` with a space after the unary minus; 673-675 concatenate label strings with unspaced `+`; 683 writes `min(k_star)+(max(k_star)-min(k_star))/20`; 505 and 515 use a single space before an inline comment; and quote style alternates between `'3d'` (611, 710) and `"b"`/`"r"` (613-615) throughout. 447 also hard-codes `ax.scatter([0.5, 0.5], [0.5, 0.5])` for the fixed point that `k_star` already holds and that line 448 reads from `k_star[0]`.
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 8. *Lines:* 409, 509, 519, 536, 578, 602, 647, 703. *Example:* spelled-out `beta`.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 6. *Lines:* 488, 550, 619, 660, 682, 716. *Example:* .set_title.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 12. *Lines:* 443, 444, 448, 451, 485, 545, 546, 655, 656, 672, …. *Example:* plot() without lw=.
 - **[qe-math-002]** — Use \top for transpose notation. *Count:* 47. *Lines:* 81, 94, 108, 114, 115, 122, 128, 169, 191, 197, …. *Example:* apostrophe transpose `x_t'`.

@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 7.2 / 10
+- **Overall score:** 7.4 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 8.5/10 | `qe-writing-008` ×36. |
 | Math         | 4.5/10 | `qe-math-002` ×11; `qe-math-011` (proposed) ×1. |
-| Code         | 7.5/10 | `qe-code-002` ×2; `qe-code-003` ×1. |
+| Code         | 9/10  | `qe-code-003` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-006` ×6; `qe-fig-005` ×3; `qe-fig-008` ×3. |
 | References   | 7.5/10 | `qe-ref-001` ×9. |
@@ -33,7 +33,6 @@ _None found._
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 36. *Lines:* 30, 41, 47, 52, 53, 60, 61, 82, 83, 123, …. *Example:* 3 spaces.
 
 ### Medium severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 2. *Lines:* 327, 478. *Example:* spelled-out `beta`.
 - **[qe-code-003]** — Package installation at lecture top. *Count:* 1. *Lines:* 158. *Example:* install cell at line 158 of 508 (not near the top).
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 372, 385, 498. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 376, 389, 503. *Example:* plot() without lw=.
@@ -46,7 +45,7 @@ _None found._
 
 ## Strengths
 
-- Links score 9 or above — no material violations measured in those categories.
+- Code, Links score 9 or above — no material violations measured in those categories.
 - No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
 - No `qe-admon-003` violations — Use tick count management for nested directives.
 - No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
@@ -58,6 +57,6 @@ _None found._
 2. `qe-ref-001` — Use correct citation style (9 occurrences).
 3. `qe-fig-006` — Lowercase axis labels (6 occurrences).
 4. `qe-fig-005` — Descriptive figure names for cross-referencing (3 occurrences).
-5. `qe-code-002` — Use Unicode symbols for Greek letters in code (2 occurrences).
-6. `qe-writing-008` — Remove excessive whitespace between words (36 occurrences).
-7. `qe-math-011` (proposed) — Distribution names in plain letters, not \mathcal / \mathbb (1 occurrence).
+5. `qe-writing-008` — Remove excessive whitespace between words (36 occurrences).
+6. `qe-math-011` (proposed) — Distribution names in plain letters, not \mathcal / \mathbb (1 occurrence).
+7. `qe-link-002` — Use doc links for cross-series references (1 occurrence).

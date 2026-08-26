@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.7 / 10
+- **Overall score:** 7.8 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 5/10  | `qe-writing-006` ×5; `qe-writing-002` ×3; `qe-writing-007` ×1. |
 | Math         | 10/10 | no mechanical violations detected. |
-| Code         | 6/10  | `qe-code-002` ×2; `qe-code-001` ×3; `qe-code-004` ×14, +1 more. |
+| Code         | 7/10  | `qe-code-001` ×3; `qe-code-004` ×14; `qe-code-005` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-003` ×3; `qe-fig-005` ×2; `qe-fig-008` ×3, +1 more. |
 | References   | N/A   | no citations in this lecture. |
@@ -32,7 +32,6 @@ _None found._
 
 ### Medium severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 3. *Lines:* 96, 124, 133. *Example:* line 96 closes the `create_consumption_model` signature with `    ):` at 4 spaces, leaving the arguments at the same indent as the body (E121/E125). Line 124 pads before `=` to align with the line above (E221), and the two staged-`vmap` blocks pad both before `=` and inside the `in_axes` tuples (133-135 and 194-195; E221, E241).
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 2. *Lines:* 102. *Example:* spelled-out `rho`.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 3. *Lines:* 361, 369, 408. *Example:* .set(xlabel='current assets', ylabel='next period assets', title=.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 353, 401. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 359, 367, 403. *Example:* plot() without lw=.

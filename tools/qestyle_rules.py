@@ -876,6 +876,21 @@ def _strip_py(src: str) -> str:
     return src
 
 
+def _enclosing_callee(s: str, pos: int) -> str:
+    """The name whose argument list contains *pos*, or "" if pos is not in a call."""
+    depth = 0
+    for i in range(pos - 1, -1, -1):
+        c = s[i]
+        if c == ")":
+            depth += 1
+        elif c == "(":
+            if depth == 0:
+                m = re.search(r"([A-Za-z_][\w.]*)\s*$", s[:i])
+                return m.group(1) if m else ""
+            depth -= 1
+    return ""
+
+
 def check_code_002(doc: Doc):
     """Unicode Greek letters in code, not spelled-out names."""
     hits = []
@@ -896,8 +911,12 @@ def check_code_002(doc: Doc):
             continue
         for m in re.finditer(r"^\s*(?:from\s+[\w.]+\s+)?import\s+(.+)$", l.raw):
             for part in m.group(1).split(","):
-                part = part.strip().split()[0] if part.strip() else ""
-                imported.add(part.rsplit(".", 1)[-1])
+                toks = part.strip().split()
+                if not toks:
+                    continue
+                imported.add(toks[0].rsplit(".", 1)[-1])
+                if len(toks) == 3 and toks[1] == "as":      # ``import quantecon as qe``
+                    imported.add(toks[2])
     # ``_strip_py`` must see a whole cell: the docstring regexes are multi-line, so an
     # *interior* line of a triple-quoted string carries no quote characters and stripping
     # it alone masks nothing. All 11 hits in ``von_neumann_model`` were English words in
@@ -921,7 +940,22 @@ def check_code_002(doc: Doc):
             # import with a variable of its own and the rule does apply:
             # ``likelihood_ratio_process.md:541`` writes ``beta = np.array(...)`` for a
             # type-II error probability, the one such site in the corpus.
-            if word in imported and not re.match(r"\s*=(?!=)", s[m.end():]):
+            assigned = bool(re.match(r"\s*=(?!=)", s[m.end():]))
+            # A keyword argument names a parameter of somebody else's callable, which the
+            # author cannot rename: ``qe.LQ(Q, R, A, B, C, beta=β, T=T)`` in ``lqcontrol``
+            # already uses ``β`` for its own variable and passes it to LQ's ``beta=``.
+            # Exempt only when the callee is imported — a lecture's own
+            # ``def f(alpha=0.5)`` is still its own naming choice, and so is counted.
+            if assigned:
+                callee = _enclosing_callee(s, m.start())
+                if callee and (callee in imported
+                               or callee.split(".")[0] in imported):
+                    continue
+            # An imported name used as a value is the library object, not a variable the
+            # lecture chose to spell out — unless a statement-level assignment shadows it,
+            # as ``likelihood_ratio_process.md:541`` does with ``beta = np.array(...)``.
+            if word in imported and not (
+                    assigned and re.fullmatch(r"\s*", s[:m.start()])):
                 continue
             hits.append(Hit("qe-code-002", l.no, f"spelled-out `{word}`"))
     return hits

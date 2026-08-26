@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 7.1 / 10
+- **Overall score:** 7.2 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 4.5/10 | `qe-writing-006` ×12; `qe-writing-008` ×19. |
 | Math         | 4.5/10 | `qe-math-002` ×8; `qe-math-010` (proposed) ×2. |
-| Code         | 9/10  | `qe-code-002` ×1. |
+| Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5.5/10 | `qe-fig-005` ×6; `qe-fig-003` ×3; `qe-fig-008` ×12, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -40,7 +40,7 @@ _None found._
 - **[qe-link-002]** — Use doc links for cross-series references. *Count:* 1. *Lines:* 163. *Example:* raw link to python-advanced.quantecon.org.
 
 ### Low severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 396. *Example:* spelled-out `beta`.
+_None found._
 
 
 ## Strengths

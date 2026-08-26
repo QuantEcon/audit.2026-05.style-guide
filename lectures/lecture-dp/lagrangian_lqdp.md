@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 6.7 / 10
+- **Overall score:** 6.8 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-006` ×7; `qe-writing-002` ×5; `qe-writing-004` ×3, +5 more. |
 | Math         | 3/10  | `qe-math-002` ×69; `qe-math-003` ×6; `qe-math-009` ×4. |
-| Code         | 6.5/10 | `qe-code-001` ×5; `qe-code-002` ×1; `qe-code-005` ×2. |
+| Code         | 7/10  | `qe-code-001` ×5; `qe-code-005` ×2. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | N/A   | no figures or plotting code. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -45,7 +45,7 @@ _None found._
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 2. *Lines:* 50, 528. *Example:* this is a lecture about where eigenvalues sit relative to the unit circle - reciprocal pairs (50, 302-303), all eigenvalues of $W_{22}$ exceeding 1 in modulus and all of $W_{11}$ below it (323-324, 534-535), 'the eigenvalues of $M$ split half inside and half outside the unit circle' (443-444) - and it contains no figures at all. Line 528 already computes the eigenvalues of $M$ and line 529 prints them as a bare Python list; plotting those four numbers in the complex plane against the unit circle would make the reciprocal-pairs property, the stable/unstable split and the effect of the $\beta^{1/2}$ rescaling visible in one panel. The same figure would carry the 'Other Applications' section at 672-697, where $H$ is a 2x2 whose eigenvalue split is the whole point.
 
 ### Low severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 476. *Example:* spelled-out `beta`.
+_None found._
 
 
 ## Strengths

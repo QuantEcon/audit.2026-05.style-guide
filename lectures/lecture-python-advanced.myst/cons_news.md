@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 6.3 / 10
+- **Overall score:** 6.6 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-005` ×21; `qe-writing-004` ×8; `qe-writing-002` ×7, +4 more. |
 | Math         | 4.5/10 | `qe-math-003` ×17; `qe-math-010` (proposed) ×4. |
-| Code         | 7/10  | `qe-code-002` ×2; `qe-code-001` ×3. |
+| Code         | 8.5/10 | `qe-code-001` ×3. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-003` ×4; `qe-fig-005` ×4; `qe-fig-008` ×11. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -38,7 +38,6 @@ _None found._
 
 ### Medium severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 3. *Lines:* 618, 731, 770. *Example:* inline comments at 618 (`1e-12]]) # put penalty on debt`) and 731 (`J = 5 # Number of coefficients that we want`) are preceded by one space where PEP8 asks for two; line 770 writes `[0, J-1]` without spaces round the subtraction while the same cell spaces every other operator.
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 2. *Lines:* 631, 660. *Example:* spelled-out `beta`.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 4. *Lines:* 747, 767, 801, 810. *Example:* plt.title.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 746, 766, 796, 805. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 820, 869. *Example:* the last code cell in the lecture is at 805, but two sections after it promise computations that never run: 820-844 lays out a four-step procedure for building a single shared $\{y_t\}$ realization and using it to evaluate both decision rules, and 852-870 derives $a_{t+1}$ from the $\epsilon$ history and then says "We can verify that we recover the same $\{a_t\}$ sequence computed earlier" - no verification, and no simulation of the shared path, appears anywhere in the file.

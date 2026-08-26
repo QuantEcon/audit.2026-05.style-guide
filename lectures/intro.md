@@ -18,10 +18,10 @@ are LOW or NONE.
 <!-- qe:focus -->
 | Attention | Series | Score | Needs work | Weakest categories |
 |-----------|--------|-------|-----------|--------------------|
-| 🔴 **High** | [lecture-python-advanced.myst](lecture-python-advanced.myst/index.md) | 7.4 | 44 / 68 | Writing (4.6), Math (5.9) |
+| 🔴 **High** | [lecture-python-advanced.myst](lecture-python-advanced.myst/index.md) | 7.5 | 44 / 68 | Writing (4.6), Math (5.9) |
 | 🔴 **High** | [lecture-dp](lecture-dp/index.md) | 7.9 | 28 / 52 | Writing (5.6), Figures (6.4) |
+| 🟠 **Some** | [lecture-python.myst](lecture-python.myst/index.md) | 8.0 | 61 / 145 | Writing (5.5), Figures (6.5) |
 | 🔴 **High** | [lecture-python-programming](lecture-python-programming/index.md) | 8.1 | 19 / 27 | Writing (4.1), Figures (7.3) |
-| 🟠 **Some** | [lecture-python.myst](lecture-python.myst/index.md) | 8.1 | 58 / 145 | Writing (5.7), Figures (6.5) |
 | 🟠 **Some** | [lecture-python-intro](lecture-python-intro/index.md) | 8.4 | 12 / 56 | Writing (6.3), Figures (6.5) |
 <!-- /qe:focus -->
 
@@ -103,7 +103,7 @@ improvements and all four regressions:
 | 🔴 Worsening | `qe-fig-004` — caption formatting conventions | 9% → 19% |
 | 🔴 Worsening | `qe-fig-001` — do not set figure size unless necessary | 62% → 64% |
 | 🔴 Worsening | `qe-fig-003` — no matplotlib embedded titles | 46% → 47% |
-| 🔴 Worsening | `qe-code-002` — Unicode Greek letters in code | 24% → 24% |
+| 🔴 Worsening | `qe-code-002` — Unicode Greek letters in code | 13% → 14% |
 
 Three of the four regressions are in Figures, and for the same reason: new lectures add
 figures faster than the figure conventions are applied to them. Only `qe-fig-004` moved
@@ -130,10 +130,10 @@ violation was measured in it*, not that a human declared it perfect.
 ```{warning}
 <!-- qe:review-coverage -->
 **Review coverage is incomplete in this pass, and it moves the scores.** The judgment
-layer has reached **239 of the 348 lectures**; a lecture assessed against more rules
+layer has reached **249 of the 348 lectures**; a lecture assessed against more rules
 scores lower — not because it is worse, but because more of it was looked at. The gap is
-large enough to matter: the 239 reviewed average **7.65** with 62 % HIGH, the 109
-unreviewed **8.67** with 10 % HIGH.
+large enough to matter: the 249 reviewed average **7.66** with 63 % HIGH, the 99
+unreviewed **8.76** with 7 % HIGH.
 <!-- /qe:review-coverage -->
 
 So **the cross-series comparison below is provisional** wherever coverage differs between

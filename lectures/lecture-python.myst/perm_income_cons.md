@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 6.4 / 10
+- **Overall score:** 6.5 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-006` ×12; `qe-writing-003` ×6; `qe-writing-002` ×5, +3 more. |
 | Math         | 4/10  | `qe-math-002` ×8; `qe-math-010` (proposed) ×2; `qe-math-009` ×4. |
-| Code         | 7/10  | `qe-code-001` ×6; `qe-code-002` ×1. |
+| Code         | 7.5/10 | `qe-code-001` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5.5/10 | `qe-fig-005` ×6; `qe-fig-003` ×3; `qe-fig-008` ×12, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -46,7 +46,7 @@ _None found._
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 4. *Lines:* 137, 568, 646, 776. *Example:* the six figures come from three functions called twice each, and the titles are hardcoded inside those functions - "Nonfinancial Income, Consumption, and Debt" (568), "Consumption/Debt over time" (609), "Cointegration of Assets and Consumption" (711) - so the transient economy's figures (630, 636, 717) and the Bewley economy's figures (764, 770, 789) are pixel-for-pixel identically labelled and nothing on the page says which is which. That matters because 776-784 asks the reader to compare them ("Unlike before, the average level of debt stays at zero") across 150 lines of intervening text, with no side-by-side panel and no marker on either figure. 646 and 674 describe the transient in words - "$y_t$ starts far below its stationary mean $\mu_{y,\infty}$ and rises early in each simulation" - without drawing $\mu_{y,\infty}$ on the income panel, although `μ_y` is already computed at 347. 137-163 presents a four-way variable dictionary between two models as four long bulleted sentences where a two-column table is the natural form and is the section's entire content. And the file has no admonition at all, though 303-314 introduces a deliberate approximation - a penalty $\epsilon$ standing in for the no-Ponzi condition, "a (hopefully) small approximation error" - which is exactly what a `{note}` is for.
 
 ### Low severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 396. *Example:* spelled-out `beta`.
+_None found._
 
 
 ## Strengths

@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.3 / 10
+- **Overall score:** 7.4 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 4/10  | `qe-writing-005` ×5; `qe-writing-002` ×6; `qe-writing-003` ×2, +2 more. |
 | Math         | 3/10  | `qe-math-002` ×13; `qe-math-004` ×4; `qe-math-013` (proposed) ×1, +1 more. |
-| Code         | 6/10  | `qe-code-003` ×4; `qe-code-001` ×4; `qe-code-002` ×1, +1 more. |
+| Code         | 6.5/10 | `qe-code-003` ×4; `qe-code-001` ×4; `qe-code-004` ×2. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8/10  | `qe-fig-005` ×4; `qe-fig-008` ×3. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -44,7 +44,6 @@ _None found._
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 383, 843. *Example:* line 383 sends the reader to a formula that does not exist: 'where $\tilde \theta_t, \ t = 0, 1, \ldots, T-1$ satisfies formula (1)'. Nothing in this lecture is numbered (1) - its equations carry labels (`eq_grad_old1`, `eq:inflation101`, `eq:Ramseyvalue`, `eq:valueformula101`), and the intended target is presumably `` {eq}`eq:inflation101` ``. Second, the truncated objective is written two incompatible ways within the same lecture: at 379-380 the tail term is $(h_0 + h_1\bar\mu + h_2\bar\mu^2 - \frac{c}{2}\bar\mu^2)$, while at 841-845 the same tail is $(h_0 + h_1\theta_T + h_2\theta_T^2 - \frac{c}{2}\mu_T^2)$; then 860, 865, 870 and 878 equate infinite sums $\sum_{t=0}^\infty$ to finite $(T+1)$-dimensional quadratic forms. A reader following the affine-quadratic derivation - the whole point of the second, 'less lazy' approach - has to guess which convention is in force at each step.
 
 ### Low severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 454. *Example:* spelled-out `beta`.
 - **[qe-math-013 (proposed)]** — Reference equations via `` {eq}`label` ``. *Count:* 1. *Lines:* 383. *Example:* manual reference 'formula (1)'.
 
 

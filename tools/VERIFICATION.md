@@ -152,6 +152,29 @@ reason to distrust the corpus totals.
   alone would delete them. The real fix is author-name detection, which is the upstream
   definition question in `contributions/issues/06-…`.
 
+### `qe-code-002` counted other people's parameter names
+
+`qe.LQ(Q, R, A, B, C, beta=β, T=T)` was reported as a spelled-out Greek variable. It is a
+keyword argument of QuantEcon.py's `LQ`, and the author cannot rename it — they are already
+passing `β`, having complied with the rule for their own variable. The same shape appears as
+`qe.LQMarkov(..., beta=β)` and `qe.tauchen(rho=ρ, sigma=ν)`.
+
+The reviewer's diagnosis of the *mechanism* was wrong, and checking it was what found the
+real one. It blamed the imported-name exemption being switched off by its own `=` guard, but
+in `lqcontrol` `beta` is never imported — `LQ` is. The exemption was not misfiring; it simply
+did not apply, and no rule covered the case. Applying the reviewer's fix as described changed
+nothing at all: 0 files, measured.
+
+The exemption is therefore **callee-based**: a Greek name used as a keyword argument is
+exempt when the enclosing callee is an imported name. A lecture's own `def f(alpha=0.5)` is
+still its own naming choice and still counts. Removed 99 occurrences across 42 lectures,
+reach 85 → 49, with `likelihood_ratio_process.md:541`'s real `beta = np.array(...)` intact.
+
+The callee lookup is per line, so a keyword argument on a continuation line of a multi-line
+call has no visible `(` and is not exempted — `dyn_stack` keeps 1 of its 4 hits for that
+reason. That is the conservative direction (a retained false positive, not a lost finding),
+and it is the fourth instance of the single-line/multi-line hazard recorded here.
+
 ### `qe-code-003` could not see the install cell it asks about
 
 `_python_blocks` dropped every non-executing cell, on the reasoning that illustrative code

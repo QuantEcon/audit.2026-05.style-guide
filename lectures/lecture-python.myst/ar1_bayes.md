@@ -5,8 +5,8 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.4 / 10
-- **Priority:** LOW
+- **Overall score:** 8.6 / 10
+- **Priority:** NONE
 
 ## Score breakdown
 
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 7/10  | `qe-writing-003` ×3; `qe-writing-002` ×3. |
 | Math         | 10/10 | no mechanical violations detected. |
-| Code         | 6/10  | `qe-code-002` ×8; `qe-code-001` ×5. |
+| Code         | 7.5/10 | `qe-code-001` ×5. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8/10  | `qe-fig-005` ×3; `qe-fig-001` ×1. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -28,7 +28,6 @@ _None found._
 
 ### High severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 5. *Lines:* 470, 485, 522, 525, 537. *Example:* five code lines exceed the PEP8 79-character limit, two of them badly: `numpyro.infer.MCMC(NUTS_kernel, num_samples=50000, num_warmup=10000, progress_bar=False)` is 95 characters at line 485 and 96 at line 537, and the `numpyro.sample(...)` calls at 470, 522 and 525 run to 82-84; none of the five is close to a mathematical expression, so nothing here overrides PEP8.
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 8. *Lines:* 244, 250, 327, 334, 337. *Example:* spelled-out `sigma`.
 
 ### Medium severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 220, 383, 557. *Example:* code-cell figure without mystnb figure metadata.

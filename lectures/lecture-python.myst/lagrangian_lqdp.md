@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 6.7 / 10
+- **Overall score:** 6.8 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-006` ×7; `qe-writing-002` ×5; `qe-writing-004` ×3, +5 more. |
 | Math         | 3/10  | `qe-math-002` ×69; `qe-math-003` ×6; `qe-math-009` ×3. |
-| Code         | 6.5/10 | `qe-code-001` ×5; `qe-code-002` ×1; `qe-code-005` ×2. |
+| Code         | 7/10  | `qe-code-001` ×5; `qe-code-005` ×2. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | N/A   | no figures or plotting code. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -44,7 +44,6 @@ _None found._
 - **[qe-writing-005]** *(reviewer)* — Use bold for definitions, italic for emphasis. *Count:* 3. *Lines:* 53, 146, 245. *Example:* 53 bolds **states** and **costates** for emphasis in the middle of a long sentence and 197-198 then bolds **costate** and **state** again where they are actually defined, so the reader sees the marker twice and the definition second; 146 bolds "**gradient of the value function**", which is not a term the lecture coins but an object it computes; and 245 bolds the adjective in "a **stable** solution", pure emphasis where the rule asks for italic. 58 also bolds its own full stop ("**invariant subspaces.**").
 
 ### Low severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 476. *Example:* spelled-out `beta`.
 - **[qe-link-001]** — Use markdown style links for lectures in same lecture series. *Count:* 1. *Lines:* 676. *Example:* full URL to own series (python.quantecon.org).
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 1. *Lines:* 258. *Example:* the lecture has no figures at all, and the one it most needs is already computed. "## Reciprocal Pairs Property" (258-324) establishes the organising fact of the whole lecture - the eigenvalues of the symplectic $M$ come in reciprocal pairs, so exactly half lie inside the unit circle - and then 527-530 computes those eigenvalues and prints them as a bare Python list, while 562-570 prints the diagonals of $W_{11}$ and $W_{22}$ as two more lists. One scatter of `np.linalg.eigvals(M)` in the complex plane with the unit circle drawn, stable and unstable eigenvalues marked differently, shows the reciprocal pairing, the half-in-half-out split, and why `sort_fun` at 542 can separate them - all from data the notebook already holds.
 

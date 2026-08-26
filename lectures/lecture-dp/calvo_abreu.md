@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 7.9 / 10
+- **Overall score:** 8.0 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 4/10  | `qe-writing-005` ×7; `qe-writing-002` ×6; `qe-writing-003` ×2, +3 more. |
 | Math         | 9/10  | `qe-math-004` ×1. |
-| Code         | 7/10  | `qe-code-001` ×3; `qe-code-003` ×1; `qe-code-002` ×1. |
+| Code         | 7.5/10 | `qe-code-001` ×3; `qe-code-003` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 9/10  | `qe-fig-008` ×2; `qe-fig-001` ×1. |
 | References   | 8.5/10 | `qe-ref-001` ×2. |
@@ -41,7 +41,6 @@ _None found._
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 213, 679. *Example:* line 213 contains two broken links in one clause: 'described in equation `` {eq}`eq_old6` `` in quantecon lecture `` {cite}`Calvo1978` ``'. `eq_old6` is a label in calvo.md and does not exist in this file (its labels are `eq_old1_new`, `eq_old2_new`, `eq_old3_new`, `eq_old10`, `eq_old100a`, `eq_old11`), so the reference resolves to nothing - and per spec §5 a broken `{eq}` ref is Critical. The same sentence then uses a bibliography citation, `{cite}`Calvo1978``, where the text plainly means the quantecon lecture, i.e. `` {doc}`calvo` ``. The government's one-period return function is the object the entire enforcement argument rests on, and the reader cannot reach its definition. Second, the lecture stops mid-section: lines 679-687 are a summary ('We have also computed **credible plans** for a government or sequence of governments...') sitting under the heading 'Whose plan is it?', with no conclusion heading and nothing after it, so a conceptual discussion ends by summarising a different part of the lecture.
 
 ### Low severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 422. *Example:* spelled-out `beta`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 1. *Lines:* 571. *Example:* figsize=.
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 1. *Lines:* 262. *Example:* lines 255-271 describe a branching structure and then its collapse, entirely in prose: credible plans 'come in pairs' (one continuation if the government confirms, one if it disappoints), 'each credible plan itself consists of two credible plans', 'therefore, the number of plans underlying one plan is unbounded' - and then Abreu's insight is that a single self-enforcing plan can stand in for the whole tree. That is a binary tree collapsing to a loop, and it is the conceptual pivot of the lecture. The file's one figure (571-584) plots $\theta^A$, $\mu^A$ and $V^A$ paths; the structure that makes those paths meaningful is never drawn.
 

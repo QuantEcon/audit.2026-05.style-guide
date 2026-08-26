@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.0 / 10
+- **Overall score:** 7.1 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-002` ×5; `qe-writing-004` ×4; `qe-writing-001` ×2, +4 more. |
 | Math         | 5.5/10 | `qe-math-002` ×10. |
-| Code         | 7/10  | `qe-code-001` ×6; `qe-code-002` ×1. |
+| Code         | 7.5/10 | `qe-code-001` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7/10  | `qe-fig-003` ×2; `qe-fig-001` ×5; `qe-fig-008` ×1. |
 | References   | 8.5/10 | `qe-ref-001` ×3. |
@@ -44,7 +44,6 @@ _None found._
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 3. *Lines:* 369, 1027, 1263. *Example:* the three timing protocols are the spine of the lecture and are laid out entirely in prose across fifty lines (369-419): the three distinguishing dimensions are named at 373-378 (*what* is chosen, *when*, what is *assumed* about expectations), then restated as two paragraphs at 380-389, then as a three-item list at 396-405, then as three separate one-line sentences at 408-412, then extended by a `{note}` about a fourth protocol at 415-419 - where one table with the three protocols as rows and those same three dimensions as columns would replace all of it, and the lecture already has table machinery (`generate_table`, 1287-1300). Second, `hide-input` is applied to some figure cells and not others: 1027, 1350, 1382 and 1439 hide their plotting code while 1388, 1397, 1412, 1499, 1510 and 1524 - which call the same helpers - show theirs, so a reader scrolling the comparative-statics section meets alternating walls of code and clean figures. Third, the two embedded titles at 1263 and 1463 carry the parameter values that distinguish the panels (`fr'$\beta$={clq.β}, $c$={clq.c}'`), so they are the one piece of information a reader needs to tell the three panels apart, and the `qe-fig-003` fix has to move them into a caption rather than delete them.
 
 ### Low severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 931. *Example:* spelled-out `beta`.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 1454. *Example:* plot() without lw=.
 
 

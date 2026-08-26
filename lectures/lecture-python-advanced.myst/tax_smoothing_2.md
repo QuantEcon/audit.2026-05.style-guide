@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 6.2 / 10
+- **Overall score:** 6.4 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 5/10  | `qe-writing-003` ×7; `qe-writing-002` ×5; `qe-writing-008` ×19, +1 more. |
 | Math         | 3.5/10 | `qe-math-002` ×59; `qe-math-011` (proposed) ×1; `qe-math-009` ×2. |
-| Code         | 6.5/10 | `qe-code-001` ×8; `qe-code-002` ×3. |
+| Code         | 7.5/10 | `qe-code-001` ×8. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 4/10  | `qe-fig-003` ×9; `qe-fig-006` ×9; `qe-fig-005` ×4, +2 more. |
 | References   | 8.5/10 | `qe-ref-001` ×3. |
@@ -37,7 +37,6 @@ _None found._
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 19. *Lines:* 29, 32, 41, 44, 66, 292, 321, 488, 490, 491, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 3. *Lines:* 466, 514, 809. *Example:* spelled-out `beta`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 474, 521, 819. *Example:* figsize=.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 437, 494, 816, 836. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 2. *Lines:* 138, 403. *Example:* 138 uses $\sim$, which the same display uses two lines earlier in its ordinary sense ($w_{t+1} \sim {\cal N}(0,I)$ at 142), to mean "are functions of": a column vector of five objects $\sim \textrm{functions of Markov state with transition matrix } \Pi$. A sentence would say it, and would not put a distributional symbol between a matrix and an English phrase. Separately, 22 inter-equation separators are hard-coded as `\hspace{2mm}` (18 occurrences, e.g. 403, 415, 421, 559, 579) and `\hspace{5mm}` (4, e.g. 637, 697), so the same visual separator has two widths and neither is `\quad`; 617 and 620 also write $Ug$ where every other appearance of the same matrix is $U_g$ (403) or $U_{g,s_t}$ (130).

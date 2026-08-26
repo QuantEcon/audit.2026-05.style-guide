@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.1 / 10
+- **Overall score:** 7.2 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 3.5/10 | `qe-writing-002` ×12; `qe-writing-005` ×9; `qe-writing-003` ×4, +3 more. |
 | Math         | 3/10  | `qe-math-002` ×13; `qe-math-004` ×4; `qe-math-013` (proposed) ×1, +1 more. |
-| Code         | 5.5/10 | `qe-code-001` ×6; `qe-code-003` ×4; `qe-code-002` ×1, +1 more. |
+| Code         | 6/10  | `qe-code-001` ×6; `qe-code-003` ×4; `qe-code-004` ×2. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8/10  | `qe-fig-005` ×4; `qe-fig-008` ×3. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -45,7 +45,6 @@ _None found._
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 3. *Lines:* 664, 1201, 1221. *Example:* the three regressions that are the point of the lecture print full `statsmodels` OLS summaries (1201, 1247, 1290) - about twenty-five lines each of dependent-variable headers, F-statistics, AIC, BIC, skew, kurtosis and Durbin-Watson - when what the text then quotes is four coefficients and the $R^2$ of unity (1347-1361, 1389); a three-row table of coefficient, standard error and $R^2$ would carry the argument and leave the condition-number warning that 1297-1300 discusses visible instead of buried. Second, the comparisons against the sister lecture's `ChangLQ` baseline are scattered across six bare cells that print a norm - 602, 669, 673, 677, 710, 719, 1111 - four of them consecutive and with no prose between them (664-678), so the reader meets four unexplained numbers in a row; one table of the three methods against $\bar\mu$, $V$ and the deviation would do the whole job. Third, only one of the five figures is named (`continuation_values`, 1121) and it is the only one the text can cross-reference with `{numref}` (1142); the three regression figures at 1221, 1262 and 1308 carry the punchline and cannot be referenced at all.
 
 ### Low severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 454. *Example:* spelled-out `beta`.
 - **[qe-math-013 (proposed)]** — Reference equations via `` {eq}`label` ``. *Count:* 1. *Lines:* 383. *Example:* manual reference 'formula (1)'.
 
 

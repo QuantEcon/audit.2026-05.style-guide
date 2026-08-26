@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 9.1 / 10
+- **Overall score:** 9.3 / 10
 - **Priority:** NONE
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 10/10 | no mechanical violations detected. |
 | Math         | 10/10 | no mechanical violations detected. |
-| Code         | 9/10  | `qe-code-002` ×1. |
+| Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6.5/10 | `qe-fig-004` ×2; `qe-fig-003` ×1; `qe-fig-005` ×1, +1 more. |
 | References   | 8.5/10 | `qe-ref-001` ×2. |
@@ -36,7 +36,6 @@ _None found._
 - **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 84, 399. *Example:* `` {cite} `` in narrative flow: '`` {cite} ``'.
 
 ### Low severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 219. *Example:* spelled-out `beta`.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 438. *Example:* code-cell figure without mystnb figure metadata.
 
 
@@ -54,5 +53,4 @@ _None found._
 2. `qe-fig-004` — Caption formatting conventions (2 occurrences).
 3. `qe-fig-003` — No matplotlib embedded titles (1 occurrence).
 4. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
-5. `qe-code-002` — Use Unicode symbols for Greek letters in code (1 occurrence).
-6. `qe-fig-001` — Do not set figure size unless necessary (3 occurrences).
+5. `qe-fig-001` — Do not set figure size unless necessary (3 occurrences).

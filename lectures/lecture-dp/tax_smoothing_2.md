@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 7.3 / 10
+- **Overall score:** 7.6 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 9/10  | `qe-writing-008` ×19. |
 | Math         | 4/10  | `qe-math-002` ×59; `qe-math-011` (proposed) ×1. |
-| Code         | 8.5/10 | `qe-code-002` ×3. |
+| Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 4/10  | `qe-fig-003` ×9; `qe-fig-006` ×9; `qe-fig-005` ×4, +2 more. |
 | References   | 8.5/10 | `qe-ref-001` ×3. |
@@ -34,7 +34,6 @@ _None found._
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 19. *Lines:* 29, 32, 41, 44, 66, 292, 321, 488, 490, 491, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 3. *Lines:* 466, 514, 809. *Example:* spelled-out `beta`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 474, 521, 819. *Example:* figsize=.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 437, 494, 816, 836. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-math-011 (proposed)]** — Distribution names in plain letters, not \mathcal / \mathbb. *Count:* 1. *Lines:* 142. *Example:* decorated distribution `{\cal N}`.
@@ -46,7 +45,7 @@ _None found._
 
 ## Strengths
 
-- Writing, Links score 9 or above — no material violations measured in those categories.
+- Writing, Code, Links score 9 or above — no material violations measured in those categories.
 - No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
 - No `qe-admon-003` violations — Use tick count management for nested directives.
 - No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
@@ -59,5 +58,5 @@ _None found._
 3. `qe-fig-006` — Lowercase axis labels (9 occurrences).
 4. `qe-ref-001` — Use correct citation style (3 occurrences).
 5. `qe-fig-005` — Descriptive figure names for cross-referencing (4 occurrences).
-6. `qe-code-002` — Use Unicode symbols for Greek letters in code (3 occurrences).
-7. `qe-math-011` (proposed) — Distribution names in plain letters, not \mathcal / \mathbb (1 occurrence).
+6. `qe-math-011` (proposed) — Distribution names in plain letters, not \mathcal / \mathbb (1 occurrence).
+7. `qe-writing-008` — Remove excessive whitespace between words (19 occurrences).

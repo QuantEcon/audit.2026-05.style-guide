@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 7.6 / 10
+- **Overall score:** 7.8 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 4/10  | `qe-writing-005` ×5; `qe-writing-002` ×6; `qe-writing-003` ×3, +3 more. |
 | Math         | 8.5/10 | `qe-math-004` ×1; `qe-math-009` ×2. |
-| Code         | 5.5/10 | `qe-code-001` ×17; `qe-code-003` ×1; `qe-code-002` ×1. |
+| Code         | 6.5/10 | `qe-code-001` ×17; `qe-code-003` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 9/10  | `qe-fig-008` ×2; `qe-fig-001` ×1. |
 | References   | 8.5/10 | `qe-ref-001` ×2. |
@@ -43,7 +43,6 @@ _None found._
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 2. *Lines:* 117, 185. *Example:* the within-period/between-period timing protocol at 185-208 is a branching structure - forecasts brought into $t$, then the confirm branch continuing with $\{\tilde\mu_{t+j+1}\}$ versus the disappoint branch restarting at $\vec\mu^A$ - and it is only ever set out as prose bullets, where a two-branch tree diagram would carry the whole mechanism; the lecture also has no admonitions at all, so the emphasised aside at 117 ("**Insight:**") and the reminders at 86 and 311 are typeset as bold labels and bare parentheticals instead of `{note}` blocks.
 
 ### Low severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 422. *Example:* spelled-out `beta`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 1. *Lines:* 571. *Example:* figsize=.
 
 

@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `a12d17c0ef`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.4 / 10
+- **Overall score:** 8.5 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 7.5/10 | `qe-writing-008` ×12; `qe-writing-005` ×1; `qe-writing-007` ×2. |
 | Math         | 10/10 | no mechanical violations detected. |
-| Code         | 6.5/10 | `qe-code-001` ×9; `qe-code-002` ×2. |
+| Code         | 7.5/10 | `qe-code-001` ×9. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-005` ×5; `qe-fig-006` ×1; `qe-fig-008` ×7, +1 more. |
 | References   | 8.5/10 | `qe-ref-001` ×2. |
@@ -33,7 +33,6 @@ _None found._
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 12. *Lines:* 109, 118, 136, 230, 249, 253, 335, 337, 404, 405, …. *Example:* 2 spaces.
 
 ### Medium severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 2. *Lines:* 89, 593. *Example:* spelled-out `beta`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 2. *Lines:* 38, 87. *Example:* style override.
 - **[qe-ref-001]** — Use correct citation style. *Count:* 2. *Lines:* 373, 608. *Example:* `` {cite} `` in author position: '`` {cite}`DoSSo` `` argue'.
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 2. *Lines:* 366, 506. *Example:* the production possibility frontier is the section's whole subject and ends in the concrete line $10d_1 + 500d_2 = x_0$ (366) that is never plotted, even though the lecture already draws the feasible set for the primal constraints at 197; and the demand-shock decomposition $\Delta x = \Delta d + A\Delta d + A^2\Delta d + \cdots$ (506) describes successive rounds of propagation through the very network drawn in `` {numref}`us_15sectors` ``, with no figure showing the rounds decaying.

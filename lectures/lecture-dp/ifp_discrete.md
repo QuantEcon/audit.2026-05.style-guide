@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.4 / 10
+- **Overall score:** 8.5 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 6/10  | `qe-writing-006` ×2; `qe-writing-003` ×2. |
 | Math         | 7/10  | `qe-math-001` ×2; `qe-math-005` ×1; `qe-math-009` ×3. |
-| Code         | 7/10  | `qe-code-002` ×2; `qe-code-004` ×10; `qe-code-001` ×1. |
+| Code         | 8/10  | `qe-code-004` ×10; `qe-code-001` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8.5/10 | `qe-fig-005` ×1; `qe-fig-008` ×1. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -31,7 +31,6 @@ _None found._
 - **[qe-writing-006]** — Capitalize lecture titles properly. *Count:* 2. *Lines:* 87, 353. *Example:* H2 Title Case: 'Set Up' (Up).
 
 ### Medium severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 2. *Lines:* 182. *Example:* spelled-out `rho`.
 - **[qe-math-001]** — Prefer UTF-8 unicode for simple parameter mentions, be consistent. *Count:* 2. *Lines:* 132, 145. *Example:* unicode `β` inside a math environment.
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 3. *Lines:* 106, 110, 113. *Example:* `\mathsf` used decoratively where plain letters would do: $\mathsf Y$ for the income support at 106, $\mathsf S := \mathbb{R}_+ \times \mathsf Y$ at 110, and $V \colon \mathsf S \to \mathbb{R}$ at 113. Both symbols appear only in these three lines and neither reaches the code, so nothing is gained by the sans-serif face - $Y$ and $S$ carry the same meaning and match how the lecture writes every other set and space.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 130, 412. *Example:* line 113 defines the value function as $V$ and equation `eqvfs` at 118 states it in $V$; then the Bellman equation at 130 switches to lowercase $v$ and everything downstream - the display at 145, the operator $T$ at 232, `B`, `T`, `get_greedy` and every code cell - stays lowercase. The switch is never mentioned, $V$ is never used again, and `eqvfs` is never cited, so the reader has to guess that $v$ and $V$ are the same object. Separately, exercise step 2 at line 412 says to 'use staged vmap as shown in earlier examples' - there are no earlier vmap examples in this lecture; the staged-vmap idiom first appears in this file at 447-449, inside the solution to that very exercise.

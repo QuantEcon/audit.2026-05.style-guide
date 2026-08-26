@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 6.7 / 10
+- **Overall score:** 6.8 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-005` ×10; `qe-writing-002` ×6; `qe-writing-001` ×2, +4 more. |
 | Math         | 3/10  | `qe-math-002` ×117; `qe-math-004` ×13; `qe-math-010` (proposed) ×1, +1 more. |
-| Code         | 7/10  | `qe-code-001` ×5; `qe-code-002` ×1. |
+| Code         | 7.5/10 | `qe-code-001` ×5. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6.5/10 | `qe-fig-006` ×2; `qe-fig-005` ×4; `qe-fig-002` ×3, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -47,7 +47,6 @@ _None found._
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 3. *Lines:* 98, 1072, 1129. *Example:* the three figures that carry the lecture's central idea - the value-entropy correspondence - are static PNGs with empty `{figure}` bodies, no caption and no name (98, 122, 1120), so nothing labels which axis is which or which band is which policy; the prose has to do it in words at 108-113 and again at 946 ("with blue being for the robust policy"). The one generated figure (1072-1115) has no legend either, despite drawing two red curves and two shaded bands whose whole meaning is red-versus-blue, and it plots four dataframes without labelling any of them. Second, the Nash structure at 356-645 - agent 1 picks $F$, agent 2 best responds with $K(F,\theta)$, agent 1 best responds with $\Phi(K(F,\theta))$, iterate to the fixed point $\hat F$ - is stated three times in prose (626-636, 640-643) and never drawn, where a two-box cycle would settle it at a glance. Third, the appendix (1129-1195) asks the reader to accept "Although it involves a substantial amount of algebra, it can be shown that the latter is just $\hat P$" (1190-1191) with a `{hint}` admonition as the only support; the numerical check that $\hat P = \mathcal B(\mathcal D(\hat P))$ is two lines of the code already imported.
 
 ### Low severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 1051. *Example:* spelled-out `beta`.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 1107. *Example:* plot() without lw=.
 
 

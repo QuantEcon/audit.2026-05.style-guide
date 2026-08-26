@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.1 / 10
+- **Overall score:** 7.2 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-006` ×2; `qe-writing-001` ×4; `qe-writing-005` ×4, +4 more. |
 | Math         | 3/10  | `qe-math-002` ×15; `qe-math-003` ×17. |
-| Code         | 7/10  | `qe-code-001` ×7; `qe-code-002` ×1. |
+| Code         | 7.5/10 | `qe-code-001` ×7. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7/10  | `qe-fig-003` ×4; `qe-fig-008` ×10; `qe-fig-001` ×1. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -42,7 +42,6 @@ _None found._
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 4. *Lines:* 56, 62, 432, 507. *Example:* 2 spaces.
 
 ### Low severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 278. *Example:* spelled-out `beta`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 1. *Lines:* 304. *Example:* figsize=.
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 1. *Lines:* 304. *Example:* all twelve figures in the lecture come from one hard-coded four-panel layout inside `SmoothingExample.simulate` (304-340), the same four panels whatever the example is about, and none of them is captioned or named. The prose is therefore forced to navigate by position - 'The figures above' (391), 'The lower right panel' (404), 'The bottom right panel' (481), 'the following figures confirm' (595) - and Example 4's point, that inventories run down without limit, has to be found in one panel of a 15x10 grid. Example 6 then prints four more of the same four-panel figures (681, 689, 694, 699) that differ only in the initial season, with nothing in or around them saying which is which.
 

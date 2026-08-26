@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 6.1 / 10
+- **Overall score:** 6.3 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 4/10  | `qe-writing-005` ×5; `qe-writing-002` ×6; `qe-writing-003` ×4, +2 more. |
 | Math         | 4.5/10 | `qe-math-002` ×11; `qe-math-011` (proposed) ×1. |
-| Code         | 5.5/10 | `qe-code-001` ×6; `qe-code-002` ×2; `qe-code-003` ×1. |
+| Code         | 7/10  | `qe-code-001` ×6; `qe-code-003` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-006` ×6; `qe-fig-005` ×3; `qe-fig-008` ×3. |
 | References   | 7.5/10 | `qe-ref-001` ×9. |
@@ -36,7 +36,6 @@ _None found._
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 36. *Lines:* 30, 41, 47, 52, 53, 60, 61, 82, 83, 123, …. *Example:* 3 spaces.
 
 ### Medium severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 2. *Lines:* 327, 478. *Example:* spelled-out `beta`.
 - **[qe-code-003]** — Package installation at lecture top. *Count:* 1. *Lines:* 158. *Example:* install cell at line 158 of 508 (not near the top).
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 372, 385, 498. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 3. *Lines:* 376, 389, 503. *Example:* plot() without lw=.

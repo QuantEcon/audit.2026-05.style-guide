@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.1 / 10
+- **Overall score:** 7.2 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-005` ×8; `qe-writing-002` ×6; `qe-writing-004` ×4, +4 more. |
 | Math         | 5.5/10 | `qe-math-002` ×10. |
-| Code         | 7.5/10 | `qe-code-001` ×4; `qe-code-002` ×1. |
+| Code         | 8.5/10 | `qe-code-001` ×4. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7/10  | `qe-fig-003` ×2; `qe-fig-001` ×5; `qe-fig-008` ×1. |
 | References   | 8.5/10 | `qe-ref-001` ×3. |
@@ -43,7 +43,6 @@ _None found._
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 4. *Lines:* 67, 193, 765, 817. *Example:* mid-sentence 'Control'.
 
 ### Low severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 931. *Example:* spelled-out `beta`.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 1454. *Example:* plot() without lw=.
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 1. *Lines:* 371. *Example:* 'Three timing protocols' (369-412) distinguishes three models along three stated dimensions - *what* a policymaker chooses, *when* it chooses, and what it *assumes* about how its choice affects expectations - and then delivers the nine resulting cells as three separate prose passages (373-378, 380-389, 396-412). The reader has to build the grid mentally, and the payoff of the whole lecture depends on holding it. A three-by-three table would do it in one block, and the lecture already renders LaTeX tables from pandas (`generate_table`, 1287-1300), so the machinery is present.
 

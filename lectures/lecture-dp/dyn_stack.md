@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 4/10  | `qe-writing-005` ×7; `qe-writing-002` ×5; `qe-writing-003` ×2, +2 more. |
 | Math         | 5/10  | `qe-math-002` ×25. |
-| Code         | 7/10  | `qe-code-002` ×4; `qe-code-001` ×3. |
+| Code         | 7.5/10 | `qe-code-001` ×3; `qe-code-002` ×1. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 4.5/10 | `qe-fig-003` ×6; `qe-fig-005` ×6; `qe-fig-008` ×13, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -38,13 +38,12 @@ _None found._
 
 ### Medium severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 3. *Lines:* 1005, 1097, 1098. *Example:* line 1005 writes `π_matrix = (R + F. T @ Q @ F)` - a space between `F.` and `T`. It is legal Python and it works, but it is plainly a typo for `F.T`, and every other transpose in the same block is written tight (`yt[:, t].T` at 1008, `z[:, t].T` at 1421, `yt_tilde[:, t].T` at 1422). Line 1097 and 1099 write `(- F @ yt).flatten()` with a space after the unary minus. Lines 1098 and 1100 indent the continuation of `axes[0].plot(...)` by four spaces instead of aligning it with the opening delimiter (E128), where the parallel calls at 1105-1111 keep their arguments on one line.
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 4. *Lines:* 987, 1144, 1340, 1398. *Example:* spelled-out `beta`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 1027, 1095, 1361. *Example:* figsize=.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 685, 1447. *Example:* line 685 says 'We'll report results of implementing this code soon' - no code has been shown at that point. The duopoly section has been pure algebra since line 58, and the first cell that builds $A$, $B$, $R$, $Q$ and calls the LQ solver is roughly 300 lines further on (around 980-1013), so 'this code' has no referent for a reader who has just been handed the matrices at 640-683. Second, the lecture ends on an uninterpreted number: the final cell (1445-1447) evaluates `vt_leader[0] + vt_follower[0] - 2 * vt_MPE[0]` with a comment saying it is 'the difference in total value between the Stackelberg and the MPE', and then the file stops. Nothing states what sign to expect or what the comparison establishes, although 1406-1411 promised it would be 'enlightening to compare equilibrium values for firms 1 and 2 under two alternative settings'.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 1. *Lines:* 323. *Example:* mid-sentence 'Programming'.
 
 ### Low severity
-_None found._
+- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 1340. *Example:* spelled-out `beta`.
 
 
 ## Strengths

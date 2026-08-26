@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 9.3 / 10
+- **Overall score:** 9.4 / 10
 - **Priority:** NONE
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 10/10 | no mechanical violations detected. |
 | Math         | 10/10 | no mechanical violations detected. |
-| Code         | 9/10  | `qe-code-002` ×1. |
+| Code         | 10/10 | no mechanical violations detected. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-005` ×2; `qe-fig-004` ×4; `qe-fig-008` ×6, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -35,7 +35,7 @@ _None found._
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 2. *Lines:* 540, 577. *Example:* code-cell figure without mystnb figure metadata.
 
 ### Low severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 312. *Example:* spelled-out `beta`.
+_None found._
 
 
 ## Strengths
@@ -50,6 +50,5 @@ _None found._
 
 1. `qe-fig-005` — Descriptive figure names for cross-referencing (2 occurrences).
 2. `qe-fig-004` — Caption formatting conventions (4 occurrences).
-3. `qe-code-002` — Use Unicode symbols for Greek letters in code (1 occurrence).
-4. `qe-fig-008` — Use lw=2 for line charts (6 occurrences).
-5. `qe-fig-001` — Do not set figure size unless necessary (6 occurrences).
+3. `qe-fig-008` — Use lw=2 for line charts (6 occurrences).
+4. `qe-fig-001` — Do not set figure size unless necessary (6 occurrences).

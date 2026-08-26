@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links  *(JAX out of scope)*
-- **Overall score:** 6.3 / 10
+- **Overall score:** 6.6 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 3/10  | `qe-writing-005` ×23; `qe-writing-004` ×8; `qe-writing-002` ×5, +4 more. |
 | Math         | 4.5/10 | `qe-math-003` ×17; `qe-math-010` (proposed) ×4. |
-| Code         | 7/10  | `qe-code-002` ×2; `qe-code-001` ×2. |
+| Code         | 8.5/10 | `qe-code-001` ×2. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-003` ×4; `qe-fig-005` ×4; `qe-fig-008` ×11. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -38,7 +38,6 @@ _None found._
 
 ### Medium severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 2. *Lines:* 618, 731. *Example:* line 618 writes `[0, 0, 1e-12]]) # put penalty on debt` and line 731 writes `J = 5 # Number of coefficients that we want` - both inline comments need two spaces before the `#` (pycodestyle E261). The multi-space alignment inside the matrix literals at 655 and 624-626 is a different case and should stay: it lines the matrix columns up, which is the 'closer to mathematical notation' latitude the rule allows.
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 2. *Lines:* 631, 660. *Example:* spelled-out `beta`.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 4. *Lines:* 747, 767, 801, 810. *Example:* plt.title.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 4. *Lines:* 746, 766, 796, 805. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 2. *Lines:* 820, 869. *Example:* the last three sections describe computations the lecture never performs. Section 'Simulating income process and two associated shock processes' (814-848) lays out a precise four-step procedure - draw $\{\epsilon_t\}$ with $y_0 = 100$, build $\{a_t\}$ from the given formula, discard the first $S$ observations, then 'evaluate and simulate the decision rules for $c_t, b_t$ that Python has computed for us above' - and no code follows: the file's last code cell ends at line 812. Section 'Calculating innovations in another way' (850-870) then says 'Here we use formula `` {eq}`eqn_3` `` above to compute $a_{t+1}$' and closes with 'We can verify that we recover the same $\{a_t\}$ sequence computed earlier' (869-870) - but nothing is computed and nothing is verified. A reader following the lecture reaches the experiment it was built to run and finds it missing.

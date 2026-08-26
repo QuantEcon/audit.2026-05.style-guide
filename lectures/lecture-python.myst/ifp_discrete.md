@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.2 / 10
+- **Overall score:** 8.4 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 5.5/10 | `qe-writing-006` ×2; `qe-writing-002` ×2; `qe-writing-007` ×2. |
 | Math         | 7/10  | `qe-math-001` ×2; `qe-math-005` ×1; `qe-math-009` ×2. |
-| Code         | 6.5/10 | `qe-code-002` ×2; `qe-code-001` ×3; `qe-code-004` ×10. |
+| Code         | 7.5/10 | `qe-code-001` ×3; `qe-code-004` ×10. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 8.5/10 | `qe-fig-005` ×1; `qe-fig-008` ×1. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -32,7 +32,6 @@ _None found._
 
 ### Medium severity
 - **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 3. *Lines:* 176, 210, 447. *Example:* line 176 closes a hanging-indent signature with `    ):` at 4 spaces, leaving the arguments at the same indent as the body (E121/E125). Lines 210-211 pad before `=` to align the three reshape assignments (E221), 438 does the same (`a, y, ap  = ...`), and 447-449 pad both before `=` and inside the `in_axes` tuples (E221, E241).
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 2. *Lines:* 182. *Example:* spelled-out `rho`.
 - **[qe-math-001]** — Prefer UTF-8 unicode for simple parameter mentions, be consistent. *Count:* 2. *Lines:* 132, 145. *Example:* unicode `β` inside a math environment.
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 2. *Lines:* 110, 113. *Example:* the value function is $V$ where it is defined (113, 118) and $v$ everywhere it is used (130, 132, 145) and in the code, so one object carries two symbols eighteen lines apart. And both sets are set in sans-serif for no reason - $\mathsf Y$ for the finite income set (106, 110) and $\mathsf S$ for the state space (110, 113) - where plain $Y$ and $S$ would read the same and match the $Q$, $R$, $B$ used around them.
 - **[qe-writing-002]** *(reviewer)* — Keep writing clear, concise, and valuable. *Count:* 2. *Lines:* 148, 191. *Example:* line 148 reads 'the encapsulate the right hand side of the Bellman equation' - the sentence introducing $B$, the function the whole implementation is built around, does not parse. Line 191 reads 'Your are invited to explore an alternative style based around `jax.vmap` in the Exercises'.

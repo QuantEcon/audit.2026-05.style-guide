@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.0 / 10
+- **Overall score:** 8.1 / 10
 - **Priority:** LOW
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 5.5/10 | `qe-writing-005` ×4; `qe-writing-003` ×2; `qe-writing-002` ×3, +1 more. |
 | Math         | 8/10  | `qe-math-010` (proposed) ×1; `qe-math-009` ×3. |
-| Code         | 6.5/10 | `qe-code-001` ×20; `qe-code-002` ×1. |
+| Code         | 7/10  | `qe-code-001` ×20. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-003` ×2; `qe-fig-005` ×1; `qe-fig-004` ×1, +2 more. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -40,7 +40,6 @@ _None found._
 - **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 2. *Lines:* 700, 822. *Example:* two of the lecture's central claims are about the shape of a curve that is only ever tabulated. 700-712 asks the reader to see that the sup-norm error "falls at first but then rises again" across degrees 0 to 5 while the ergodic RMS "falls monotonically and then flattens" - two error paths, six points each, presented as a rounded DataFrame - and 822-838 does the same across five bandwidths and then asserts "There is an interior optimum". Plotting the two error measures against degree, and against $\log h$, would make both claims visible at a glance and would show the U-shape the bias-variance discussion at 840-852 describes. The lecture is otherwise willing to plot: exercise lae_ex3 even draws the fitted rules at 827-835 without drawing the error curve that is the point of the exercise.
 
 ### Low severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 190. *Example:* spelled-out `mu`.
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 1. *Lines:* 598. *Example:* caption of 7 words.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 827. *Example:* code-cell figure without mystnb figure metadata.
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 1. *Lines:* 607. *Example:* plot() without lw=.

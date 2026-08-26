@@ -5,16 +5,16 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `e25fdf2345`
 - **Categories audited:** writing, math, code, figures, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.8 / 10
+- **Overall score:** 7.2 / 10
 - **Priority:** LOW
 
 ## Score breakdown
 
 | Category     | Score | One-line note |
 |--------------|-------|---------------|
-| Writing      | 8/10  | `qe-writing-004` ×2. |
+| Writing      | 6.5/10 | `qe-writing-004` ×2; `qe-writing-003` ×3; `qe-writing-007` ×3. |
 | Math         | 7/10  | `qe-math-003` ×15. |
-| Code         | 7/10  | `qe-code-002` ×38. |
+| Code         | 5/10  | `qe-code-002` ×38; `qe-code-001` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 5/10  | `qe-fig-003` ×6; `qe-fig-004` ×3; `qe-fig-005` ×1, +1 more. |
 | References   | N/A   | no citations in this lecture. |
@@ -27,6 +27,7 @@
 _None found._
 
 ### High severity
+- **[qe-code-001]** *(reviewer)* — Follow PEP8 unless closer to mathematical notation. *Count:* 6. *Lines:* 666, 673, 847, 851, 917, 1215. *Example:* `l` is the loop variable at 847, 863 and 1214 (`for l in range(P_lags + 1)`), one of the three single characters PEP8 names explicitly as never to use because it is indistinguishable from `1` - and here it sits inside slice arithmetic, `eps_sim[P_lags - l:T - l]`, which is exactly where the confusion bites. Exponentiation is spaced at 851, 867 and 893 (`((target - fit) ** 2)`, `(resid ** 2)`, `(e ** 2)`) where the rule asks for `a**b`. Assignments are padded to align at 666-667 and 670-671 (`S_r    = np.array(...)`, `mod_r    = VARSubsystem(...)`), which PEP8 lists under extraneous whitespace. The three `report` calls at 673, 675 and 677 unpack three values and use `_` for only one of them: `Gam_both` (673), `Psi_z` and `Gam_z` (677) are never read, while `Psi_both` and `Psi_r` are discarded and recomputed with a different horizon at 750 and 776. `Phi_r` is bound at 777 with `h_max = 25` and silently rebound at 917 with `h_max = 6`, so the same name holds a different array depending on which cells have run. Names for the same role drift - `target` at 848 versus `tgt` at 864, and `zz` at 1215 for the regressand. Seven code lines pass 79 characters (616, 617, 619, 624, 780, 984, 1221).
 - **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 38. *Lines:* 520, 521, 522, 523, 528, 529, 534, 535, 537, 539, …. *Example:* spelled-out `Sigma`.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 6. *Lines:* 725, 758, 761, 788, 1020, 1027. *Example:* .set_title.
 - **[qe-math-003]** — Use square brackets for matrix notation. *Count:* 15. *Lines:* 109, 117, 125, 131, 375, 435, 636, 637, 638, 645, …. *Example:* pmatrix environment.
@@ -34,7 +35,9 @@ _None found._
 ### Medium severity
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 4. *Lines:* 89, 752, 1011, 1101. *Example:* style override.
 - **[qe-fig-004]** — Caption formatting conventions. *Count:* 3. *Lines:* 741, 769, 1002. *Example:* caption of 7 words.
+- **[qe-writing-003]** *(reviewer)* — Maintain logical flow. *Count:* 3. *Lines:* 197, 369, 622. *Example:* 368-369 says "partition $Y_t = (y_t^\top, \tilde y_t^\top)^\top$ as before", but this is the partition's first appearance - it is introduced at 432, sixty lines later, and the block notation $A_k^{yy}$, $A_k^{y\tilde y}$ that 375 immediately uses is defined at 435-437, so the backward reference points at nothing. The heading at 197, "Four representations", covers seven `###` subsections (199, 220, 233, 271, 282, 347, 386): four are representations, three are commentary and identities, so a reader counting against the heading gets a different number and cannot tell which four were meant. And the comment at 622 reads `# the sum in (SS) is infinite`, where `(SS)` is a label that appears nowhere in the file - the equation being truncated is `` {eq}`eq:vs_varloss` `` at 404.
 - **[qe-writing-004]** — Avoid unnecessary capitalization in narrative text. *Count:* 2. *Lines:* 1063, 1188. *Example:* mid-sentence 'Example'.
+- **[qe-writing-007]** *(reviewer)* — Use visual elements to enhance understanding. *Count:* 3. *Lines:* 317, 603, 886. *Example:* the section at 882-904 is the payoff of the whole lecture - how much of each past shock the small econometrician has managed to learn - and it is delivered as a printed 4x2 grid from a nested loop (885-895), after which the prose at 897-904 has to walk the reader through the rows one at a time ("The interesting row is $\varepsilon_{t-1}$"). A small bar chart of $R^2$ by lag, grouped by shock, shows the whole pattern at once and would make 900-904 a caption rather than a narration. Second, the conceptual core at 317-342 - two nested information sets, $H(y^{t-1})$ inside the span of $Y^{t-1}$, and the part of a past shock the small econometrician has not yet learned - is carried entirely in symbols; the lecture has five figures and all five are coefficient plots, none about the information sets that the argument turns on. Third, `report` (603-628) prints eight diagnostic lines and is called five times (673, 675, 677, 970, 972); the claim at 680, "Every identity holds to machine precision", asks the reader to verify a 5x8 comparison across five separate text blocks that one table would carry.
 
 ### Low severity
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 1. *Lines:* 1088. *Example:* code-cell figure without mystnb figure metadata.
@@ -42,18 +45,22 @@ _None found._
 
 ## Strengths
 
-- Links, Admonitions score 9 or above — no material violations measured in those categories.
-- No `qe-math-006` violations — Use aligned environment correctly for PDF compatibility.
-- No `qe-admon-003` violations — Use tick count management for nested directives.
-- No `qe-math-007` violations — Use automatic equation numbering, not manual tags.
-- No `qe-admon-004` violations — Use prf prefix for proof directives.
+- `qe-writing-001` is measured at zero across 1234 lines - one sentence per paragraph holds everywhere, including inside the `{note}` at 178-187, the `{prf:proof}` at 454-463 and the four solution blocks, which is unusual at this length.
+- Bold and italic are used exactly as `qe-writing-005` asks, in both directions: bold appears only on the four definitions (**infinite-order** 69, **one-sided distributed lag** 70, **companion form** 112, **block exogenous** 443), and every one of the sixteen emphases is italic (*some* 47, *no* 65, *cannot* 73, *entire* 296, *large* 317, *not yet* 333, *are* 428, *is* 461, *not* 465, *not* 654, *structural* 839, *observations* 842, *completely* 903, *only* 931, *not* 950, *exactly* 992). Not one bolded emphasis in the file.
+- Every analytical claim is checked numerically and the check is named as such: `report` (603-628) prints the Riccati residual, $|\Gamma_0 - S_y|$, the factorization residual $|\Phi - \Psi * \Gamma|$ and $|\Omega - \sum_j \Gamma_j V \Gamma_j^\top|$ for every example, and 399 says outright of `` {eq}`eq:vs_factor` `` that "It is a sharp numerical check on everything above, and we use it as one".
+- The hardest passage in the lecture is handled by raising the reader's objection first: 299 says "The second term deserves a pause, because at first sight it looks impossible", 301-305 states the apparent contradiction, `` {eq}`eq:vs_orth` `` at 309-315 writes both conflicting facts as equations, 320-339 resolves them by projecting onto $H(y^{t-1})$, and 341-342 then restates the resolution in one plain sentence - "A shock that happened three quarters ago can still be news today, if the only series you watch has not finished revealing it".
+- Both propositions are tested on simulated data in the way that could falsify them, not merely illustrated: 845-859 regresses $a_t$ on current and lagged structural shocks and recovers the population $\Gamma_j$ to machine precision, and 861-871 regresses the same $a_t$ on eight lags of $y$ and reports an $R^2$ of essentially zero - the two halves of `` {eq}`eq:vs_orth` ``, measured.
+- Potential confusions are pre-empted where they arise rather than left to the reader: 128-129 states that $A$ without a subscript is the companion matrix and $A_1, \ldots, A_m$ with subscripts are the VAR coefficients; 149-150 notes that $S_y$ need not select coordinates; and the `{note}` at 178-187 answers the objection that $\Sigma$ is singular before anyone can raise it, by pointing out that only $G \Sigma G^\top$ has to be invertible.
+- Sixteen of the twenty-one labelled equations are cited later, several of them repeatedly - `eq:vs_bigvar` and `eq:vs_companion` three times each, `eq:vs_split` three times, `eq:vs_innovrep`, `eq:vs_var`, `eq:vs_gamma`, `eq:vs_phi`, `eq:vs_gamma1_block` and `eq:vs_factor` twice each - and the two propositions are cross-referenced by `{prf:ref}` at 383, 465, 685, 688, 800, 975 and 1120 rather than by name.
+- Four of the five figures carry `mystnb` caption and name metadata (711-717, 741-747, 769-775, 1002-1008), every line plot sets `lw=2` (756, 780-784, 1102, 1105), and the figure at 1011-1029 is a genuine two-by-two comparison whose left column is the block-exogenous null case - so the reader sees the proposition's prediction and its failure side by side.
 
 ## Recommended actions
 
-1. `qe-math-003` — Use square brackets for matrix notation (15 occurrences).
-2. `qe-code-002` — Use Unicode symbols for Greek letters in code (38 occurrences).
-3. `qe-fig-003` — No matplotlib embedded titles (6 occurrences).
-4. `qe-writing-004` — Avoid unnecessary capitalization in narrative text (2 occurrences).
-5. `qe-fig-004` — Caption formatting conventions (3 occurrences).
-6. `qe-fig-005` — Descriptive figure names for cross-referencing (1 occurrence).
-7. `qe-fig-001` — Do not set figure size unless necessary (4 occurrences).
+1. Fix the two dangling references: rewrite "as before" at 369 (the partition first appears at 432 - either move 432-438 up to 368 or drop the phrase), and replace `(SS)` in the comment at 622 with the equation it means, `` {eq}`eq:vs_varloss` ``.
+2. Rename `l` to `lag` in the three comprehensions at 847, 863 and 1214, and close the `** 2` spacing at 851, 867 and 893.
+3. Convert the fifteen `pmatrix` displays to `bmatrix` (109, 117, 125, 131, 375, 435, 636-638, 645-647, 934-947, 1067-1068, 1136) - `qe-math-003` is a High-weight rule and this is the single largest mechanical item in the file.
+4. Plot the learning table at 885-895 as a bar chart of $R^2$ by lag and shock, so 897-904 can point at it instead of reading it out; consider a small diagram of the two information sets for 317-342.
+5. Tidy the `report` unpackings: `Gam_both` (673), `Psi_z` and `Gam_z` (677) are unused, and `Psi_both` / `Psi_r` are recomputed at 750 / 776, so those three calls can drop to `_`; and give the second `Phi_r` at 917 its own name to avoid rebinding 777.
+6. Either cite or drop the five labels that are never referenced - `eq:vs_riccati` (168), `eq:vs_innov` (195), `eq:vs_pred` (330), `eq:vs_unlearned` (339), `eq:vs_gamma_alt` (355).
+7. Sweep the figure items: six embedded titles (725, 758, 761, 788, 1020, 1027) move into the existing `mystnb` captions, the three captions at 741, 769 and 1002 are trimmed to the caption convention, `figsize` is dropped at 752, 1011 and 1101 and the `plt.rcParams['figure.figsize']` override at 89 with them, and the solution figure at 1088-1101 gains caption and name metadata like the other four.
+8. Rename the ASCII Greek identifiers to Unicode per `qe-code-002` (38 sites from 520 on: `Sigma`, `Omega`, `Psi`, `Gamma`, `Phi`, `eps`, `rho_z`, `theta`), and lower-case "Example" mid-sentence at 1063 and 1188.

@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `b83d6da399`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 8.6 / 10
+- **Overall score:** 8.8 / 10
 - **Priority:** NONE
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 8/10  | `qe-writing-002` ×3; `qe-writing-007` ×2. |
 | Math         | 10/10 | no mechanical violations detected. |
-| Code         | 6.5/10 | `qe-code-001` ×9; `qe-code-002` ×3. |
+| Code         | 7.5/10 | `qe-code-001` ×9. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 6/10  | `qe-fig-003` ×4; `qe-fig-005` ×3; `qe-fig-008` ×10, +1 more. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -31,7 +31,6 @@ _None found._
 - **[qe-fig-008]** — Use lw=2 for line charts. *Count:* 10. *Lines:* 529, 530, 697, 699, 701, 703, 1039, 1040, 1046, 1047. *Example:* plot() without lw=.
 
 ### Medium severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 3. *Lines:* 632, 775, 812. *Example:* spelled-out `beta`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 3. *Lines:* 527, 695, 1038. *Example:* figsize=.
 - **[qe-fig-003]** — No matplotlib embedded titles. *Count:* 4. *Lines:* 532, 706, 1041, 1048. *Example:* .set_title.
 - **[qe-fig-005]** — Descriptive figure names for cross-referencing. *Count:* 3. *Lines:* 526, 694, 1026. *Example:* code-cell figure without mystnb figure metadata.

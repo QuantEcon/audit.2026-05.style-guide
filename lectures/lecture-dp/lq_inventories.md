@@ -5,7 +5,7 @@
 - **Audit date:** 2026-08-25
 - **Corpus snapshot:** `c30490a2f4`
 - **Categories audited:** writing, math, code, figures, references, links, admonitions  *(JAX out of scope)*
-- **Overall score:** 7.3 / 10
+- **Overall score:** 7.4 / 10
 - **Priority:** HIGH
 
 ## Score breakdown
@@ -14,7 +14,7 @@
 |--------------|-------|---------------|
 | Writing      | 4/10  | `qe-writing-006` ×2; `qe-writing-001` ×4; `qe-writing-003` ×3, +2 more. |
 | Math         | 3/10  | `qe-math-002` ×15; `qe-math-003` ×17; `qe-math-009` ×1. |
-| Code         | 7/10  | `qe-code-001` ×6; `qe-code-002` ×1. |
+| Code         | 7.5/10 | `qe-code-001` ×6. |
 | JAX          | out of scope | JAX rules target `lecture-jax`. |
 | Figures      | 7/10  | `qe-fig-003` ×4; `qe-fig-008` ×10; `qe-fig-001` ×1. |
 | References   | 10/10 | no mechanical violations detected. |
@@ -41,7 +41,6 @@ _None found._
 - **[qe-writing-008]** — Remove excessive whitespace between words. *Count:* 4. *Lines:* 56, 62, 432, 507. *Example:* 2 spaces.
 
 ### Low severity
-- **[qe-code-002]** — Use Unicode symbols for Greek letters in code. *Count:* 1. *Lines:* 278. *Example:* spelled-out `beta`.
 - **[qe-fig-001]** — Do not set figure size unless necessary. *Count:* 1. *Lines:* 304. *Example:* figsize=.
 - **[qe-math-009]** *(reviewer)* — Choose simplicity in mathematical notation. *Count:* 1. *Lines:* 144. *Example:* the derivation of $R$, $Q$ and $N$ from the profit function is a single display 30 lines long (144-173) whose last step nests three `\underset{\equiv R}{\underbrace{\left[\begin{array}...\end{array}\right]}}` groups, plus three more `array` blocks for the vectors, inside one `aligned` (150-171). Splitting it into three short displays - one per matrix, each with the term of the profit function it comes from - would say the same thing, would let each matrix be labelled and cited, and would remove most of the 17 `array` environments that qe-math-003 is reporting.
 
