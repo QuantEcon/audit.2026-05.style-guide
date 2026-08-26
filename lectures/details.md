@@ -37,10 +37,10 @@ category.
 |---|--------|----------|---|---|---|---|---|---|---|-------------|------|--------|-----|------|
 | 1 | [lecture-python-advanced.myst](lecture-python-advanced.myst/index.md) | 68 | **4.6** | 5.8 | 7.4 | 6.3 | 9.2 | 9.2 | 10.0 | **7.4** | 43 | 0 | 20 | 5 |
 | 2 | [lecture-python.myst](lecture-python.myst/index.md) | 145 | **4.5** | 7.0 | 7.6 | 6.5 | 9.5 | 9.8 | 10.0 | **7.7** | 81 | 1 | 46 | 17 |
-| 3 | [lecture-dp](lecture-dp/index.md) | 52 | **4.8** | 6.6 | 7.8 | 6.4 | 9.3 | 9.5 | 10.0 | **7.7** | 34 | 0 | 8 | 10 |
+| 3 | [lecture-dp](lecture-dp/index.md) | 52 | **4.7** | 6.6 | 7.7 | 6.4 | 9.3 | 9.5 | 10.0 | **7.7** | 34 | 0 | 9 | 9 |
 | 4 | [lecture-python-programming](lecture-python-programming/index.md) | 27 | **4.1** | 9.0 | 8.4 | 7.3 | N/A | 9.8 | 9.9 | **8.0** | 20 | 0 | 5 | 2 |
 | 5 | [lecture-python-intro](lecture-python-intro/index.md) | 56 | **5.2** | 8.6 | 7.3 | 6.5 | 9.3 | 9.7 | 10.0 | **8.1** | 19 | 0 | 28 | 9 |
-|   | **TOTAL / corpus average** | **348** | **4.6** | **7.0** | **7.6** | **6.5** | **9.4** | **9.6** | **10.0** | **7.8** | **197** | **1** | **107** | **43** |
+|   | **TOTAL / corpus average** | **348** | **4.6** | **7.0** | **7.6** | **6.5** | **9.4** | **9.6** | **10.0** | **7.8** | **197** | **1** | **108** | **42** |
 <!-- /qe:full-scoreboard -->
 
 See the [charts](charts.md) for the visual version.

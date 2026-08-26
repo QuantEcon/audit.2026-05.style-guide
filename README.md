@@ -33,7 +33,7 @@ drill-down report for every audited lecture.
 |--------|---------:|--------:|-----:|------------------|
 | lecture-python-advanced.myst | 68 | 7.4 | 43 | Writing (4.6) |
 | lecture-python.myst | 145 | 7.7 | 81 | Writing (4.5) |
-| lecture-dp | 52 | 7.7 | 34 | Writing (4.8) |
+| lecture-dp | 52 | 7.7 | 34 | Writing (4.7) |
 | lecture-python-programming | 27 | 8.0 | 20 | Writing (4.1) |
 | lecture-python-intro | 56 | 8.1 | 19 | Writing (5.2) |
 | **Corpus** | **348** | **7.8** | **197** | Writing (4.6) |

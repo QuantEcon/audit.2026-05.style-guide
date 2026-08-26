@@ -449,21 +449,50 @@ def block_review_coverage(rows, data_dir):
         return sum(vals) / len(vals), 100.0 * high / len(group)
 
     n, k = len(scores), len(have)
+    # What follows the headline sentence is part of the same block on purpose. Whether the
+    # cross-series comparison is provisional *is* a fact about coverage, so it cannot be
+    # left as hand-written prose beside a generated number — at full coverage the standing
+    # "provisional until coverage evens out" paragraph became false while the generated
+    # sentence above it was already correct.
+    # The admonition itself is emitted here, not written around the markers in ``intro.md``.
+    # Which admonition is right is also a fact about coverage: a warning at full coverage
+    # reads as a caveat that no longer applies, and nothing outside this function knows
+    # whether it applies.
+    def _admonition(kind, body):
+        return "```{" + kind + "}\n" + _wrap(body) + "\n```"
+
     if not lack:
-        return _wrap(f"**Every one of the {n} lectures has been through the judgment "
-                f"layer**, so the scores below are comparable across series.")
+        return _admonition("note",
+            f"**Every one of the {n} lectures has been through the judgment layer**, so "
+            f"the scores below are comparable across series and the cross-series "
+            f"comparison stands on its own. Per-series coverage is still published on each "
+            f"series' Summary page, and the *within-series* ranking and the rule-reach "
+            f"numbers were always sound — those are measured over the whole corpus by the "
+            f"same code. This retires the caveat tracked in "
+            f"[#5](https://github.com/QuantEcon/audit.2026-05.style-guide/issues/5)."
+        )
     if not have:
-        return _wrap("**No lecture has been through the judgment layer yet**, so every "
-                "score below reflects the measured rules only.")
+        return _admonition("warning",
+            "**No lecture has been through the judgment layer yet**, so every score below "
+            "reflects the measured rules only, and the cross-series comparison is a "
+            "ranking of the deterministic evidence alone. Tracked in "
+            "[#5](https://github.com/QuantEcon/audit.2026-05.style-guide/issues/5)."
+        )
 
     a, b = stats(have), stats(lack)
-    return _wrap(
+    return _admonition("warning",
         f"**Review coverage is incomplete in this pass, and it moves the scores.** "
         f"The judgment layer has reached **{k} of the {n} lectures**; a lecture "
         f"assessed against more rules scores lower — not because it is worse, but "
         f"because more of it was looked at. The gap is large enough to matter: the "
         f"{k} reviewed average **{a[0]:.2f}** with {a[1]:.0f} % HIGH, the {n - k} "
-        f"unreviewed **{b[0]:.2f}** with {b[1]:.0f} % HIGH."
+        f"unreviewed **{b[0]:.2f}** with {b[1]:.0f} % HIGH. So **the cross-series "
+        f"comparison below is provisional** wherever coverage differs between series, and "
+        f"the per-series coverage is published on each series' Summary page. Treat the "
+        f"*within-series* ranking and the rule-reach numbers as sound — those are measured "
+        f"over the whole corpus by the same code — and treat a small gap between two "
+        f"series' overall scores as noise until coverage evens out. Tracked in "
+        f"[#5](https://github.com/QuantEcon/audit.2026-05.style-guide/issues/5)."
     )
 
 

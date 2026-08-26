@@ -7,9 +7,9 @@ Style audit of the **lecture-dp** series.
 - **Corpus snapshot:** `c30490a2f4`
 - **Lectures audited:** 52
 - **Average overall score:** 7.7 / 10
-- **Average per-category scores:** writing 4.8, math 6.6, code 7.8, figures 6.4, references 9.3, links 9.5, admon 10.0
+- **Average per-category scores:** writing 4.7, math 6.6, code 7.7, figures 6.4, references 9.3, links 9.5, admon 10.0
 - **JAX:** out of scope — the `qe-jax-*` rules target `lecture-jax`.
-- **Judgment-review coverage:** **51 of 52 reviewed** — scores for the unreviewed 1 reflect the 41 measured rules only, so they are not directly comparable with the reviewed ones.
+- **Judgment-review coverage:** all lectures reviewed.
 <!-- /qe:series-meta -->
 
 <!-- qe:series-narrative -->
@@ -40,8 +40,8 @@ it has drifted from its upstream namesake, so it needs fixing here.
 |----------|-------|---|
 | HIGH     | 34    | 65.4% |
 | MEDIUM   | 0     | 0.0% |
-| LOW      | 8     | 15.4% |
-| NONE     | 10    | 19.2% |
+| LOW      | 9     | 17.3% |
+| NONE     | 9     | 17.3% |
 <!-- /qe:series-priority -->
 
 ## Top systemic issues across the series
@@ -142,17 +142,17 @@ that lecture. Click a lecture for its full report.
 | 35 | [jv](jv.md) | 3.5 | 9.5 | 7.5 | 6.5 | 9 | 10 | 10 | **8.0** | HIGH |
 | 36 | [mccall_model_with_sep_markov](mccall_model_with_sep_markov.md) | 5 | 10 | 7.5 | 5.5 | — | 10 | 10 | **8.0** | LOW |
 | 37 | [tax_smoothing_3](tax_smoothing_3.md) | 6 | 8.5 | 10 | 5 | 8.5 | 10 | — | **8.0** | LOW |
-| 38 | [mccall_fitted_vfi](mccall_fitted_vfi.md) | 7 | 8 | 7.5 | 5.5 | 9 | 10 | 10 | **8.1** | LOW |
-| 39 | [os_time_iter](os_time_iter.md) | 5.5 | 7.5 | 8 | 8 | 9 | 10 | 10 | **8.3** | LOW |
-| 40 | [os_egm_jax](os_egm_jax.md) | 7 | 10 | 6.5 | 7 | — | 10 | 10 | **8.4** | LOW |
-| 41 | [chang_credible](chang_credible.md) | 3 | 10 | 8.5 | 9.5 | 10 | 10 | — | **8.5** | HIGH |
-| 42 | [ifp_discrete](ifp_discrete.md) | 6 | 7 | 8 | 8.5 | 10 | 10 | 10 | **8.5** | LOW |
-| 43 | [mccall_persist_trans](mccall_persist_trans.md) | 9.5 | 6.5 | 6 | 8 | 10 | 10 | 10 | **8.6** | NONE |
-| 44 | [mccall_model_with_separation](mccall_model_with_separation.md) | 6.5 | 8.5 | 7.5 | 8.5 | 10 | 10 | 10 | **8.7** | NONE |
-| 45 | [os_egm](os_egm.md) | 5.5 | 9.5 | 7.5 | 9 | 10 | 10 | 10 | **8.8** | NONE |
-| 46 | [career](career.md) | 8 | 9.5 | 8.5 | 6.5 | 10 | 10 | 10 | **8.9** | NONE |
-| 47 | [os](os.md) | 6 | 9 | 9 | 8 | 10 | 10 | 10 | **8.9** | NONE |
-| 48 | [un_insure](un_insure.md) | 8 | 10 | 10 | 5.5 | 9 | 10 | 10 | **8.9** | NONE |
+| 38 | [un_insure](un_insure.md) | 4.5 | 9.5 | 7.5 | 5.5 | 9 | 10 | 10 | **8.0** | LOW |
+| 39 | [mccall_fitted_vfi](mccall_fitted_vfi.md) | 7 | 8 | 7.5 | 5.5 | 9 | 10 | 10 | **8.1** | LOW |
+| 40 | [os_time_iter](os_time_iter.md) | 5.5 | 7.5 | 8 | 8 | 9 | 10 | 10 | **8.3** | LOW |
+| 41 | [os_egm_jax](os_egm_jax.md) | 7 | 10 | 6.5 | 7 | — | 10 | 10 | **8.4** | LOW |
+| 42 | [chang_credible](chang_credible.md) | 3 | 10 | 8.5 | 9.5 | 10 | 10 | — | **8.5** | HIGH |
+| 43 | [ifp_discrete](ifp_discrete.md) | 6 | 7 | 8 | 8.5 | 10 | 10 | 10 | **8.5** | LOW |
+| 44 | [mccall_persist_trans](mccall_persist_trans.md) | 9.5 | 6.5 | 6 | 8 | 10 | 10 | 10 | **8.6** | NONE |
+| 45 | [mccall_model_with_separation](mccall_model_with_separation.md) | 6.5 | 8.5 | 7.5 | 8.5 | 10 | 10 | 10 | **8.7** | NONE |
+| 46 | [os_egm](os_egm.md) | 5.5 | 9.5 | 7.5 | 9 | 10 | 10 | 10 | **8.8** | NONE |
+| 47 | [career](career.md) | 8 | 9.5 | 8.5 | 6.5 | 10 | 10 | 10 | **8.9** | NONE |
+| 48 | [os](os.md) | 6 | 9 | 9 | 8 | 10 | 10 | 10 | **8.9** | NONE |
 | 49 | [short_path](short_path.md) | 7.5 | 10 | 8.5 | 8 | — | 10 | 10 | **9.0** | NONE |
 | 50 | [intro](intro.md) | 10 | — | — | — | — | 10 | — | **10.0** | NONE |
 | 51 | [status](status.md) | 10 | — | — | — | — | 10 | — | **10.0** | NONE |

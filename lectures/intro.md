@@ -20,7 +20,7 @@ are LOW or NONE.
 |-----------|--------|-------|-----------|--------------------|
 | 🔴 **High** | [lecture-python-advanced.myst](lecture-python-advanced.myst/index.md) | 7.4 | 43 / 68 | Writing (4.6), Math (5.8) |
 | 🔴 **High** | [lecture-python.myst](lecture-python.myst/index.md) | 7.7 | 82 / 145 | Writing (4.5), Figures (6.5) |
-| 🔴 **High** | [lecture-dp](lecture-dp/index.md) | 7.7 | 34 / 52 | Writing (4.8), Figures (6.4) |
+| 🔴 **High** | [lecture-dp](lecture-dp/index.md) | 7.7 | 34 / 52 | Writing (4.7), Figures (6.4) |
 | 🔴 **High** | [lecture-python-programming](lecture-python-programming/index.md) | 8.0 | 20 / 27 | Writing (4.1), Figures (7.3) |
 | 🟠 **Some** | [lecture-python-intro](lecture-python-intro/index.md) | 8.1 | 19 / 56 | Writing (5.2), Figures (6.5) |
 <!-- /qe:focus -->
@@ -124,22 +124,16 @@ why they are separate; [§9](spec.md) lists exactly which rules fall where.
 That matters for reading the numbers: a category scoring 10 means *no mechanical
 violation was measured in it*, not that a human declared it perfect.
 
-```{warning}
 <!-- qe:review-coverage -->
-**Review coverage is incomplete in this pass, and it moves the scores.** The judgment
-layer has reached **347 of the 348 lectures**; a lecture assessed against more rules
-scores lower — not because it is worse, but because more of it was looked at. The gap is
-large enough to matter: the 347 reviewed average **7.75** with 57 % HIGH, the 1
-unreviewed **8.90** with 0 % HIGH.
-<!-- /qe:review-coverage -->
-
-So **the cross-series comparison below is provisional** wherever coverage differs between
-series, and the per-series coverage is published in each series' Summary page. Treat the
-*within-series* ranking and the rule-reach numbers as sound — those are measured over the
-whole corpus by the same code — and treat a small gap between two series' overall scores
-as noise until coverage evens out. Tracked in
+```{note}
+**Every one of the 348 lectures has been through the judgment layer**, so the scores
+below are comparable across series and the cross-series comparison stands on its own.
+Per-series coverage is still published on each series' Summary page, and the
+*within-series* ranking and the rule-reach numbers were always sound — those are
+measured over the whole corpus by the same code. This retires the caveat tracked in
 [#5](https://github.com/QuantEcon/audit.2026-05.style-guide/issues/5).
 ```
+<!-- /qe:review-coverage -->
 
 ---
 
