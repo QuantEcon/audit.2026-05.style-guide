@@ -24,6 +24,14 @@ Living document for the QuantEcon lecture style-audit project. Tracks strategic 
 
 ## 1. Strategic shift — from disposable to durable
 
+> [!NOTE]
+> **Superseded (2026-08-31).** The interim decision below was not what happened. The
+> 2026-08 pass did **not** publish a new dated repo: the standing record is the ledger,
+> [`QuantEcon/compliance-lecture-style`](https://github.com/QuantEcon/compliance-lecture-style),
+> and this repository is the frozen May-2026 record. The reasoning in §1–§2 is kept as the
+> analysis that led there — it is history, not instructions. See [#2](https://github.com/QuantEcon/audit.2026-05.style-guide/issues/2)
+> for the decision and [#7](https://github.com/QuantEcon/audit.2026-05.style-guide/issues/7) for the migration.
+
 > **Decision (2026-05, interim).** Keep the dated `audit.YYYY-MM.{topic}` convention — the date in the repo name is a useful at-a-glance freshness signal. On each re-run (per [`UPDATE.md`](UPDATE.md)) publish a **new dated repo** for the period (e.g. `audit.2026-08.style-guide`) and archive the prior one — *not* an in-place rename, which would break the published Pages URL and the already-posted issue links. The durable single-repo analysis in §1–§2 below is retained as reference for if/when audits become frequent enough to justify one persistent home; it is **not** the current plan.
 
 The original framing treated each audit as a **time-bounded, disposable artifact**: one repo per audit, archive when stale, the date prefix signaling freshness. That convention made sense when audits were assumed to be infrequent and ad-hoc.
@@ -183,8 +191,9 @@ Two findings should be filed as issues against `QuantEcon/lecture-python.myst` r
 - ✅ Published to GitHub Pages via `.github/workflows/deploy.yml` → https://quantecon.github.io/audit.2026-05.style-guide/
 - Follow-ups for a future pass: externalise chart data to `data/scores.csv`; bump `actions/deploy-pages` past the Node 20 deprecation; consider a landing/overview page distinct from the synthesis.
 
-### Phase 2 — Repo naming (interim decision: keep the dated convention)
-- **Resolved for now:** keep `audit.YYYY-MM.{topic}`; on each re-run stand up a new dated repo for the period (per `UPDATE.md` § Starting a new audit period) and archive the prior one.
+### Phase 2 — Repo naming ✅ settled 2026-08-31 (superseded)
+- **Outcome:** neither a rename nor a new dated repo per re-run. This repository keeps its name and is archived; the standing record was assembled as [`compliance-lecture-style`](https://github.com/QuantEcon/compliance-lecture-style), a repository of a new type. The bullet below is the interim decision it replaced.
+- ~~**Resolved for now:** keep `audit.YYYY-MM.{topic}`; on each re-run stand up a new dated repo for the period and archive the prior one.~~
 - Revisit the durable single-repo options (§2) only if audits become frequent enough to justify it.
 
 ### Phase 3 — Establish monthly cadence
@@ -208,7 +217,7 @@ Two findings should be filed as issues against `QuantEcon/lecture-python.myst` r
 - **Subagent sandbox permissions** — the v2 extension was blocked once when run outside auto-mode (subagents limited to `claude-code/` subtree). Mitigation: document the auto-mode requirement, or restructure so subagents only need local-scope access.
 - **Audit cost at scale** — running every rule × every lecture via LLM is non-trivial ($24–116 per full pass at current per-rule architecture). Phase 4.3 deterministic checkers + sampling strategies make monthly cadence affordable.
 - **Lecture content evolves** — violation counts go stale immediately after each pass. Monthly cadence is the right answer; time-series visibility is the win.
-- **Repo naming** — resolved interim (keep the dated convention; a new dated repo per re-run; see §1). A move to a durable single repo is deferred until audits are frequent enough to warrant it; renaming the current repo is specifically avoided because it would break the published Pages URL and the posted issue cross-links.
+- **Repo naming** — ~~resolved interim (keep the dated convention; a new dated repo per re-run; see §1)~~ **settled 2026-08-31: succeeded by [`compliance-lecture-style`](https://github.com/QuantEcon/compliance-lecture-style); this repo keeps its name and is archived.** A move to a durable single repo is deferred until audits are frequent enough to warrant it; renaming the current repo is specifically avoided because it would break the published Pages URL and the posted issue cross-links.
 
 ---
 

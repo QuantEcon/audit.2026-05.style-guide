@@ -58,13 +58,13 @@ The site is a Jupyter Book with the full cross-series synthesis, charts, scoring
 
 This repo was created under QuantEcon's date-stamped audit convention, on the assumption that an audit is a one-off snapshot. Style conformance turned out to be a persistent concern with a time series attached, which is a different shape — so the project needed a durable home.
 
-It did **not** get one by renaming this repository. Under [QEP-3](https://github.com/QuantEcon/qeps/pull/7), the org's repository-naming standard, renames fix names but never transmute types: a repository that has outgrown its type is *succeeded* by a new repository of the right type and archived, rather than renamed into it. A rename here would also have broken the published Pages URL and the audit links inside the live `action-style-guide` issues, for no reader benefit.
+It did **not** get one by renaming this repository. Under [QEP-3](https://github.com/QuantEcon/qeps/pull/7) — the org's repository-naming standard, still an open proposal under review — renames fix names but never transmute types: a repository that has outgrown its type is *succeeded* by a new repository of the right type and archived, rather than renamed into it. A rename here would also have broken the published Pages URL and the audit links inside the live `action-style-guide` issues, for no reader benefit.
 
-So the standing record was assembled as a new repository of a new type — `compliance-lecture-style`, QEP-3's `compliance-{domain}`: a conformance **ledger**, re-measured in place each pass, seeded from this audit. This repository keeps its name for life and is archived once absorbed, with its report still published and its issues still readable.
+So the standing record was assembled as a new repository of a new type — `compliance-lecture-style`, QEP-3's proposed `compliance-{domain}` type: a conformance **ledger**, re-measured in place each pass, seeded from this audit. This repository keeps its name for life and is archived once absorbed, with its report still published and its issues still readable.
 
-The dated `audit-*` convention is not retired; it remains right for a genuinely episodic audit — a security review of a release, a one-time deep dive. New dated audit repositories take the dash form (`audit-YYYY-MM-topic`); the dotted names that already exist, including this one, are grandfathered.
+The dated `audit-*` convention is not retired; it remains right for a genuinely episodic audit — a security review of a release, a one-time deep dive. Under QEP-3's proposed grammar new dated audit repositories take the dash form (`audit-YYYY-MM-topic`); the dotted names that already exist, including this one, are grandfathered.
 
-Open questions this audit raised have moved to the ledger's tracker, because archiving locks issues here.
+Open questions this audit raised have moved to [the ledger's tracker](https://github.com/QuantEcon/compliance-lecture-style/issues), because archiving locks issues here: the `{doc}` link form for same-series references ([#1](https://github.com/QuantEcon/compliance-lecture-style/issues/1), from #1 here), the near-empty MEDIUM priority band ([#2](https://github.com/QuantEcon/compliance-lecture-style/issues/2), from #3), how lectures shared between `lecture-dp` and `lecture-python.myst` are counted ([#3](https://github.com/QuantEcon/compliance-lecture-style/issues/3), from #4), and the audit weights now that rule reach is measured ([#4](https://github.com/QuantEcon/compliance-lecture-style/issues/4), from #6).
 
 ## Related
 
