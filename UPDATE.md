@@ -15,7 +15,7 @@ This is the runbook for reproducing the style audit and updating every document 
 ## Update in place, or start a new audit period?
 
 - **Correcting or refreshing *this* audit (May 2026)** → edit the documents in this repo and push. The process below regenerates them.
-- **A new audit period (e.g. another month)** → create a fresh repo `audit.YYYY-MM.style-guide` from this one as a template (see [§ Starting a new audit period](#starting-a-new-audit-period)). The date-stamped repo convention is described in `ROADMAP.md`; the move toward a durable, regularly-updated model is an open decision there.
+- **A new audit period** → **not here.** Since 2026-08-31 a new period runs *in place* in the ledger, [`QuantEcon/compliance-lecture-style`](https://github.com/QuantEcon/compliance-lecture-style), which carries the runbook and the `/pass-measure`, `/pass-review` and `/pass-publish` skills. Do not stand up another dated repo for style conformance. The recipe kept below is for a genuinely *episodic* audit of a different subject.
 
 ---
 
@@ -202,8 +202,11 @@ audit.2026-05.style-guide/
 
 ## Starting a new audit period
 
+> [!WARNING]
+> **Not for style conformance.** That runs in the ledger, [`QuantEcon/compliance-lecture-style`](https://github.com/QuantEcon/compliance-lecture-style), in place. This recipe is only for a genuinely episodic audit of a *different* subject, and under QEP-3's proposed grammar such a repo takes the dash form — `audit-YYYY-MM-topic`. `audit.2026-08.style-guide`, which the earlier version of this recipe used as its example, was never created.
+
 ```bash
-NEW=audit.2026-08.style-guide   # adjust YYYY-MM
+NEW=audit-YYYY-MM-topic   # a different subject; style conformance runs in the ledger
 gh repo create QuantEcon/$NEW --public --clone
 # copy the scaffolding (not the old findings):
 cp -r lectures/_config.yml lectures/_static lectures/spec.md lectures/charts.md \

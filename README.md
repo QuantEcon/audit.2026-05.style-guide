@@ -1,5 +1,12 @@
 # QuantEcon Style Audit — May 2026
 
+> [!IMPORTANT]
+> **This repository is the frozen record of the May 2026 style audit.** No further passes run here.
+>
+> The living successor is **[`QuantEcon/compliance-lecture-style`](https://github.com/QuantEcon/compliance-lecture-style)** — the standing conformance ledger. It carries this audit forward as the `2026-05` period of its cross-period history, alongside a completed `2026-08` pass over 348 lectures, together with the rubric, the runbook, the measurement tooling and a findings report for every lecture in the corpus.
+>
+> **Nothing here moves and nothing here breaks.** This report stays published at its original address, this repository keeps its name, and every link into it keeps working. An audit is an event; the record the audits update is the ledger. See [#2](https://github.com/QuantEcon/audit.2026-05.style-guide/issues/2) for the decision and [#7](https://github.com/QuantEcon/audit.2026-05.style-guide/issues/7) for the migration.
+
 Style-guide compliance audit of the QuantEcon lecture series, scored against the conventions in [`QuantEcon.manual`](https://github.com/QuantEcon/QuantEcon.manual/tree/main/manual/styleguide) using the rule registry from [`QuantEcon/action-style-guide`](https://github.com/QuantEcon/action-style-guide).
 
 ## 📊 Read the report
@@ -47,9 +54,17 @@ The site is a Jupyter Book with the full cross-series synthesis, charts, scoring
 
 **This repository is the source of truth for the audit report.** To reproduce the audit or refresh the documents, follow [`UPDATE.md`](UPDATE.md).
 
-## About the `audit.YYYY-MM.{topic}` convention
+## About the naming, and where this went
 
-This repo was created under QuantEcon's date-stamped audit convention. As noted in [`ROADMAP.md`](ROADMAP.md), the project is moving toward a **durable, regularly-updated** model — the naming and migration are open decisions pending feedback on the related [`action-style-guide` issues](https://github.com/QuantEcon/action-style-guide/issues) (#18–#21).
+This repo was created under QuantEcon's date-stamped audit convention, on the assumption that an audit is a one-off snapshot. Style conformance turned out to be a persistent concern with a time series attached, which is a different shape — so the project needed a durable home.
+
+It did **not** get one by renaming this repository. Under [QEP-3](https://github.com/QuantEcon/qeps/pull/7) — the org's repository-naming standard, still an open proposal under review — renames fix names but never transmute types: a repository that has outgrown its type is *succeeded* by a new repository of the right type and archived, rather than renamed into it. A rename here would also have broken the published Pages URL and the audit links inside the live `action-style-guide` issues, for no reader benefit.
+
+So the standing record was assembled as a new repository of a new type — `compliance-lecture-style`, QEP-3's proposed `compliance-{domain}` type: a conformance **ledger**, re-measured in place each pass, seeded from this audit. This repository keeps its name for life and is archived once absorbed, with its report still published and its issues still readable.
+
+The dated `audit-*` convention is not retired; it remains right for a genuinely episodic audit — a security review of a release, a one-time deep dive. Under QEP-3's proposed grammar new dated audit repositories take the dash form (`audit-YYYY-MM-topic`); the dotted names that already exist, including this one, are grandfathered.
+
+Open questions this audit raised have moved to [the ledger's tracker](https://github.com/QuantEcon/compliance-lecture-style/issues), because archiving locks issues here: the `{doc}` link form for same-series references ([#1](https://github.com/QuantEcon/compliance-lecture-style/issues/1), from #1 here), the near-empty MEDIUM priority band ([#2](https://github.com/QuantEcon/compliance-lecture-style/issues/2), from #3), how lectures shared between `lecture-dp` and `lecture-python.myst` are counted ([#3](https://github.com/QuantEcon/compliance-lecture-style/issues/3), from #4), and the audit weights now that rule reach is measured ([#4](https://github.com/QuantEcon/compliance-lecture-style/issues/4), from #6).
 
 ## Related
 
