@@ -1,5 +1,15 @@
 # QuantEcon Style Audit — May 2026
 
+```{important}
+**This is the frozen May 2026 audit.** The living record is the standing conformance
+ledger, [`compliance-lecture-style`](https://quantecon.github.io/compliance-lecture-style/),
+which carries this audit forward as its `2026-05` period alongside a completed `2026-08`
+pass over 348 lectures — with the rubric, the runbook, and a findings report for every
+lecture in the corpus.
+
+This report stays published here, unchanged, at its original address.
+```
+
 A style-guide compliance audit of **299 lectures** across 5 series, scored against 7 categories. **Overall: 8.0 / 10.**
 
 This page is for triage — *where should we put our attention?* Start here, then open a [series report](#where-to-focus-first) for the detail, the [charts](charts.md) for a visual overview, or the [full findings](details.md) for the complete breakdown.
